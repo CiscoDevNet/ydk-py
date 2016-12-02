@@ -16,207 +16,207 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'Ospfv3LsaEnum' : _MetaInfoEnum('Ospfv3LsaEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
-            'link-lsa':'LINK_LSA',
-            'grace-lsa':'GRACE_LSA',
-            'router':'ROUTER',
-            'network':'NETWORK',
-            'inter-area-prefix':'INTER_AREA_PREFIX',
-            'inter-area-router':'INTER_AREA_ROUTER',
-            'nssa-external':'NSSA_EXTERNAL',
-            'intra-area-prefix':'INTRA_AREA_PREFIX',
-            'external':'EXTERNAL',
-            'opaque-link':'OPAQUE_LINK',
-            'opaque-area':'OPAQUE_AREA',
-            'opaque-as':'OPAQUE_AS',
-            'unknown':'UNKNOWN',
+            'link-lsa':'link_lsa',
+            'grace-lsa':'grace_lsa',
+            'router':'router',
+            'network':'network',
+            'inter-area-prefix':'inter_area_prefix',
+            'inter-area-router':'inter_area_router',
+            'nssa-external':'nssa_external',
+            'intra-area-prefix':'intra_area_prefix',
+            'external':'external',
+            'opaque-link':'opaque_link',
+            'opaque-area':'opaque_area',
+            'opaque-as':'opaque_as',
+            'unknown':'unknown',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
     'ImStateEnumEnum' : _MetaInfoEnum('ImStateEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
-            'im-state-not-ready':'IM_STATE_NOT_READY',
-            'im-state-admin-down':'IM_STATE_ADMIN_DOWN',
-            'im-state-down':'IM_STATE_DOWN',
-            'im-state-up':'IM_STATE_UP',
-            'im-state-shutdown':'IM_STATE_SHUTDOWN',
-            'im-state-err-disable':'IM_STATE_ERR_DISABLE',
-            'im-state-down-immediate':'IM_STATE_DOWN_IMMEDIATE',
-            'im-state-down-immediate-admin':'IM_STATE_DOWN_IMMEDIATE_ADMIN',
-            'im-state-down-graceful':'IM_STATE_DOWN_GRACEFUL',
-            'im-state-begin-shutdown':'IM_STATE_BEGIN_SHUTDOWN',
-            'im-state-end-shutdown':'IM_STATE_END_SHUTDOWN',
-            'im-state-begin-error-disable':'IM_STATE_BEGIN_ERROR_DISABLE',
-            'im-state-end-error-disable':'IM_STATE_END_ERROR_DISABLE',
-            'im-state-begin-down-graceful':'IM_STATE_BEGIN_DOWN_GRACEFUL',
-            'im-state-reset':'IM_STATE_RESET',
-            'im-state-operational':'IM_STATE_OPERATIONAL',
-            'im-state-not-operational':'IM_STATE_NOT_OPERATIONAL',
-            'im-state-unknown':'IM_STATE_UNKNOWN',
-            'im-state-last':'IM_STATE_LAST',
+            'im-state-not-ready':'im_state_not_ready',
+            'im-state-admin-down':'im_state_admin_down',
+            'im-state-down':'im_state_down',
+            'im-state-up':'im_state_up',
+            'im-state-shutdown':'im_state_shutdown',
+            'im-state-err-disable':'im_state_err_disable',
+            'im-state-down-immediate':'im_state_down_immediate',
+            'im-state-down-immediate-admin':'im_state_down_immediate_admin',
+            'im-state-down-graceful':'im_state_down_graceful',
+            'im-state-begin-shutdown':'im_state_begin_shutdown',
+            'im-state-end-shutdown':'im_state_end_shutdown',
+            'im-state-begin-error-disable':'im_state_begin_error_disable',
+            'im-state-end-error-disable':'im_state_end_error_disable',
+            'im-state-begin-down-graceful':'im_state_begin_down_graceful',
+            'im-state-reset':'im_state_reset',
+            'im-state-operational':'im_state_operational',
+            'im-state-not-operational':'im_state_not_operational',
+            'im-state-unknown':'im_state_unknown',
+            'im-state-last':'im_state_last',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
     'Ospfv3GracefulShutdownStateEnum' : _MetaInfoEnum('Ospfv3GracefulShutdownStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
-            'init':'INIT',
-            'normal':'NORMAL',
-            'flushing':'FLUSHING',
-            'empty-hellos':'EMPTY_HELLOS',
-            'quiet':'QUIET',
+            'init':'init',
+            'normal':'normal',
+            'flushing':'flushing',
+            'empty-hellos':'empty_hellos',
+            'quiet':'quiet',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
     'Ospfv3LsaInfoTypesEnum' : _MetaInfoEnum('Ospfv3LsaInfoTypesEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
-            'mgmt-lsa-lsasum-type':'MGMT_LSA_LSASUM_TYPE',
-            'mgmt-lsa-link-type':'MGMT_LSA_LINK_TYPE',
-            'mgmt-lsa-gr-type':'MGMT_LSA_GR_TYPE',
-            'mgmt-lsa-rtr-type':'MGMT_LSA_RTR_TYPE',
-            'mgmt-lsa-net-type':'MGMT_LSA_NET_TYPE',
-            'mgmt-lsa-iapfx-type':'MGMT_LSA_IAPFX_TYPE',
-            'mgmt-lsa-iartr-type':'MGMT_LSA_IARTR_TYPE',
-            'mgmt-lsa-nssaext-type':'MGMT_LSA_NSSAEXT_TYPE',
-            'mgmt-lsa-prefix-type':'MGMT_LSA_PREFIX_TYPE',
-            'mgmt-lsa-ext-type':'MGMT_LSA_EXT_TYPE',
-            'mgmt-lsa-unk-link-type':'MGMT_LSA_UNK_LINK_TYPE',
-            'mgmt-lsa-unk-area-type':'MGMT_LSA_UNK_AREA_TYPE',
-            'mgmt-lsa-unk-as-type':'MGMT_LSA_UNK_AS_TYPE',
-            'mgmt-lsa-unk-type':'MGMT_LSA_UNK_TYPE',
+            'mgmt-lsa-lsasum-type':'mgmt_lsa_lsasum_type',
+            'mgmt-lsa-link-type':'mgmt_lsa_link_type',
+            'mgmt-lsa-gr-type':'mgmt_lsa_gr_type',
+            'mgmt-lsa-rtr-type':'mgmt_lsa_rtr_type',
+            'mgmt-lsa-net-type':'mgmt_lsa_net_type',
+            'mgmt-lsa-iapfx-type':'mgmt_lsa_iapfx_type',
+            'mgmt-lsa-iartr-type':'mgmt_lsa_iartr_type',
+            'mgmt-lsa-nssaext-type':'mgmt_lsa_nssaext_type',
+            'mgmt-lsa-prefix-type':'mgmt_lsa_prefix_type',
+            'mgmt-lsa-ext-type':'mgmt_lsa_ext_type',
+            'mgmt-lsa-unk-link-type':'mgmt_lsa_unk_link_type',
+            'mgmt-lsa-unk-area-type':'mgmt_lsa_unk_area_type',
+            'mgmt-lsa-unk-as-type':'mgmt_lsa_unk_as_type',
+            'mgmt-lsa-unk-type':'mgmt_lsa_unk_type',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
     'Ospfv3GracefulRestartReasonEnum' : _MetaInfoEnum('Ospfv3GracefulRestartReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
-            'grace-reason-unknown':'GRACE_REASON_UNKNOWN',
-            'grace-reason-software-restart':'GRACE_REASON_SOFTWARE_RESTART',
-            'grace-reason-software-upgrade':'GRACE_REASON_SOFTWARE_UPGRADE',
-            'grace-reason-switchover':'GRACE_REASON_SWITCHOVER',
+            'grace-reason-unknown':'grace_reason_unknown',
+            'grace-reason-software-restart':'grace_reason_software_restart',
+            'grace-reason-software-upgrade':'grace_reason_software_upgrade',
+            'grace-reason-switchover':'grace_reason_switchover',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
     'IpfrrTbrkrEnum' : _MetaInfoEnum('IpfrrTbrkrEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
-            'downstream':'DOWNSTREAM',
-            'line-card-disjoint':'LINE_CARD_DISJOINT',
-            'backup-metric':'BACKUP_METRIC',
-            'node-protect':'NODE_PROTECT',
-            'primary-path':'PRIMARY_PATH',
-            'secondary-path':'SECONDARY_PATH',
-            'srlg-disjoint':'SRLG_DISJOINT',
-            'tunnel':'TUNNEL',
+            'downstream':'downstream',
+            'line-card-disjoint':'line_card_disjoint',
+            'backup-metric':'backup_metric',
+            'node-protect':'node_protect',
+            'primary-path':'primary_path',
+            'secondary-path':'secondary_path',
+            'srlg-disjoint':'srlg_disjoint',
+            'tunnel':'tunnel',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
     'Ospfv3InterfaceEnum' : _MetaInfoEnum('Ospfv3InterfaceEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
-            'none':'NONE',
-            'broadcast':'BROADCAST',
-            'non-broadcast':'NON_BROADCAST',
-            'point-to-point':'POINT_TO_POINT',
-            'point-to-multipoint':'POINT_TO_MULTIPOINT',
-            'point-to-multipoint-non-broadcast':'POINT_TO_MULTIPOINT_NON_BROADCAST',
-            'virtual-link':'VIRTUAL_LINK',
-            'loopback-interface':'LOOPBACK_INTERFACE',
-            'mpls-traffic-engineering':'MPLS_TRAFFIC_ENGINEERING',
-            'sham-link':'SHAM_LINK',
+            'none':'none',
+            'broadcast':'broadcast',
+            'non-broadcast':'non_broadcast',
+            'point-to-point':'point_to_point',
+            'point-to-multipoint':'point_to_multipoint',
+            'point-to-multipoint-non-broadcast':'point_to_multipoint_non_broadcast',
+            'virtual-link':'virtual_link',
+            'loopback-interface':'loopback_interface',
+            'mpls-traffic-engineering':'mpls_traffic_engineering',
+            'sham-link':'sham_link',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
     'StubRouterTriggerEnum' : _MetaInfoEnum('StubRouterTriggerEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
-            'on-proc-migration':'ON_PROC_MIGRATION',
-            'on-proc-restart':'ON_PROC_RESTART',
-            'on-switchover':'ON_SWITCHOVER',
-            'on-startup':'ON_STARTUP',
-            'always':'ALWAYS',
-            'none':'NONE',
+            'on-proc-migration':'on_proc_migration',
+            'on-proc-restart':'on_proc_restart',
+            'on-switchover':'on_switchover',
+            'on-startup':'on_startup',
+            'always':'always',
+            'none':'none',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
     'OspfLsaSyncStateEnum' : _MetaInfoEnum('OspfLsaSyncStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
-            'none':'NONE',
-            'out-of-sync':'OUT_OF_SYNC',
-            'in-sync':'IN_SYNC',
-            'nsr-ack-pending':'NSR_ACK_PENDING',
+            'none':'none',
+            'out-of-sync':'out_of_sync',
+            'in-sync':'in_sync',
+            'nsr-ack-pending':'nsr_ack_pending',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
     'Ospfv3DefaultMetricEnum' : _MetaInfoEnum('Ospfv3DefaultMetricEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
-            'type-none':'TYPE_NONE',
-            'type1':'TYPE1',
-            'type2':'TYPE2',
+            'type-none':'type_none',
+            'type1':'type1',
+            'type2':'type2',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
     'Ospfv3NeighborStateEnum' : _MetaInfoEnum('Ospfv3NeighborStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
-            'neigbhor-down':'NEIGBHOR_DOWN',
-            'attempt':'ATTEMPT',
-            'init':'INIT',
-            'two-way':'TWO_WAY',
-            'exstart':'EXSTART',
-            'exchange':'EXCHANGE',
-            'loading':'LOADING',
-            'full':'FULL',
-            'sc-virtual':'SC_VIRTUAL',
+            'neigbhor-down':'neigbhor_down',
+            'attempt':'attempt',
+            'init':'init',
+            'two-way':'two_way',
+            'exstart':'exstart',
+            'exchange':'exchange',
+            'loading':'loading',
+            'full':'full',
+            'sc-virtual':'sc_virtual',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
     'PrefixPriorityEnum' : _MetaInfoEnum('PrefixPriorityEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
-            'critical':'CRITICAL',
-            'high':'HIGH',
-            'medium':'MEDIUM',
-            'low':'LOW',
+            'critical':'critical',
+            'high':'high',
+            'medium':'medium',
+            'low':'low',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
     'StubRouterExitReasonEnum' : _MetaInfoEnum('StubRouterExitReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
-            'none':'NONE',
-            'bgp':'BGP',
-            'timer':'TIMER',
-            'configuration':'CONFIGURATION',
-            'cleared':'CLEARED',
-            'override':'OVERRIDE',
+            'none':'none',
+            'bgp':'bgp',
+            'timer':'timer',
+            'configuration':'configuration',
+            'cleared':'cleared',
+            'override':'override',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
     'Ospfv3Lsa1Enum' : _MetaInfoEnum('Ospfv3Lsa1Enum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
-            'link':'LINK',
-            'grace':'GRACE',
-            'router':'ROUTER',
-            'network':'NETWORK',
-            'inter-area-prefix':'INTER_AREA_PREFIX',
-            'inter-area-router':'INTER_AREA_ROUTER',
-            'mospf':'MOSPF',
-            'type7-external':'TYPE7_EXTERNAL',
-            'lsa-prefix':'LSA_PREFIX',
-            'as-external':'AS_EXTERNAL',
-            'unknown-link':'UNKNOWN_LINK',
-            'unknown-area':'UNKNOWN_AREA',
-            'unknown-as':'UNKNOWN_AS',
-            'unknown-type':'UNKNOWN_TYPE',
+            'link':'link',
+            'grace':'grace',
+            'router':'router',
+            'network':'network',
+            'inter-area-prefix':'inter_area_prefix',
+            'inter-area-router':'inter_area_router',
+            'mospf':'mospf',
+            'type7-external':'type7_external',
+            'lsa-prefix':'lsa_prefix',
+            'as-external':'as_external',
+            'unknown-link':'unknown_link',
+            'unknown-area':'unknown_area',
+            'unknown-as':'unknown_as',
+            'unknown-type':'unknown_type',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
     'StubRouterModeEnum' : _MetaInfoEnum('StubRouterModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
-            'rbit':'RBIT',
-            'v6bit':'V6BIT',
-            'max-metric':'MAX_METRIC',
-            'none':'NONE',
+            'rbit':'rbit',
+            'v6bit':'v6bit',
+            'max-metric':'max_metric',
+            'none':'none',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
     'StubRouterAbrOffReasonEnum' : _MetaInfoEnum('StubRouterAbrOffReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
-            'init-delay':'INIT_DELAY',
-            'no-neighbor':'NO_NEIGHBOR',
-            'no-full-neighbor':'NO_FULL_NEIGHBOR',
-            'new-neighbor':'NEW_NEIGHBOR',
-            'full-neighbor':'FULL_NEIGHBOR',
+            'init-delay':'init_delay',
+            'no-neighbor':'no_neighbor',
+            'no-full-neighbor':'no_full_neighbor',
+            'new-neighbor':'new_neighbor',
+            'full-neighbor':'full_neighbor',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
     'Ospfv3AreaRangeStatusEnum' : _MetaInfoEnum('Ospfv3AreaRangeStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
-            'advertise':'ADVERTISE',
-            'do-not-advertise':'DO_NOT_ADVERTISE',
+            'advertise':'advertise',
+            'do-not-advertise':'do_not_advertise',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
     'Ospfv3InterfaceStateEnum' : _MetaInfoEnum('Ospfv3InterfaceStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
-            'down':'DOWN',
-            'loopback':'LOOPBACK',
-            'waiting':'WAITING',
-            'point-to-multipoint':'POINT_TO_MULTIPOINT',
-            'point-to-point':'POINT_TO_POINT',
-            'designated-router':'DESIGNATED_ROUTER',
-            'backup-designated-router':'BACKUP_DESIGNATED_ROUTER',
-            'other-designated-router':'OTHER_DESIGNATED_ROUTER',
+            'down':'down',
+            'loopback':'loopback',
+            'waiting':'waiting',
+            'point-to-multipoint':'point_to_multipoint',
+            'point-to-point':'point_to_point',
+            'designated-router':'designated_router',
+            'backup-designated-router':'backup_designated_router',
+            'other-designated-router':'other_designated_router',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
     'Ospfv3LinkEnum' : _MetaInfoEnum('Ospfv3LinkEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
-            'link-router':'LINK_ROUTER',
-            'link-trans-net':'LINK_TRANS_NET',
-            'link-virtual-link':'LINK_VIRTUAL_LINK',
+            'link-router':'link_router',
+            'link-trans-net':'link_trans_net',
+            'link-virtual-link':'link_virtual_link',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
     'Ospfv3BorderRouteEnum' : _MetaInfoEnum('Ospfv3BorderRouteEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper',
         {
-            'abr':'ABR',
-            'asbr':'ASBR',
-            'abr-asbr':'ABR_ASBR',
+            'abr':'abr',
+            'asbr':'asbr',
+            'abr-asbr':'abr_asbr',
         }, 'Cisco-IOS-XR-ipv6-ospfv3-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ospfv3-oper']),
     'Ospfv3.Processes.Process.Vrfs.Vrf.SummaryPrefixes.SummaryPrefix' : {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.SummaryPrefixes.SummaryPrefix',
@@ -9530,8 +9530,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.Vrfs.Vrf.RequestListProcessTable.Request.Request' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.RequestListProcessTable.Request.Request',
+    'Ospfv3.Processes.Process.Vrfs.Vrf.RequestListProcessTable.Request.Request_' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.RequestListProcessTable.Request.Request_',
             False, 
             [
             _MetaInfoClassMember('header-advertising-router', ATTRIBUTE, 'str' , None, None, 
@@ -9599,7 +9599,7 @@ _meta_table = {
                 ''',
                 'neighbor_address',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('request', REFERENCE_LIST, 'Request' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.RequestListProcessTable.Request.Request', 
+            _MetaInfoClassMember('request', REFERENCE_LIST, 'Request_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.RequestListProcessTable.Request.Request_', 
                 [], [], 
                 '''                List of request list entries
                 ''',
@@ -10259,8 +10259,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail.NeighborRetransmission' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail.NeighborRetransmission',
+    'Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail_.NeighborRetransmission' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail_.NeighborRetransmission',
             False, 
             [
             _MetaInfoClassMember('area-first-flood', ATTRIBUTE, 'int' , None, None, 
@@ -10410,8 +10410,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail',
+    'Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail_' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail_',
             False, 
             [
             _MetaInfoClassMember('interface-type', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceEnum', 
@@ -10457,7 +10457,7 @@ _meta_table = {
                 ''',
                 'neighbor_option',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('neighbor-retransmission', REFERENCE_CLASS, 'NeighborRetransmission' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail.NeighborRetransmission', 
+            _MetaInfoClassMember('neighbor-retransmission', REFERENCE_CLASS, 'NeighborRetransmission' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail_.NeighborRetransmission', 
                 [], [], 
                 '''                Retransmission information with this neighbor
                 ''',
@@ -10572,7 +10572,7 @@ _meta_table = {
                 ''',
                 'neighbor_designated_router',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('neighbor-detail', REFERENCE_CLASS, 'NeighborDetail' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail', 
+            _MetaInfoClassMember('neighbor-detail', REFERENCE_CLASS, 'NeighborDetail_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail_', 
                 [], [], 
                 '''                Detailed OSPFv3 neighbor information 
                 ''',
@@ -10709,8 +10709,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.RequestListTable.Request.Request' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.RequestListTable.Request.Request',
+    'Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.RequestListTable.Request.Request_' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.RequestListTable.Request.Request_',
             False, 
             [
             _MetaInfoClassMember('header-advertising-router', ATTRIBUTE, 'str' , None, None, 
@@ -10778,7 +10778,7 @@ _meta_table = {
                 ''',
                 'neighbor_address',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('request', REFERENCE_LIST, 'Request' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.RequestListTable.Request.Request', 
+            _MetaInfoClassMember('request', REFERENCE_LIST, 'Request_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.RequestListTable.Request.Request_', 
                 [], [], 
                 '''                List of request list entries
                 ''',
@@ -20657,8 +20657,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.DomainId.PrimaryDomainId' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.DomainId.PrimaryDomainId',
+    'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.DomainId.PrimaryDomainId' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.DomainId.PrimaryDomainId',
             False, 
             [
             _MetaInfoClassMember('domain-id-type', ATTRIBUTE, 'int' , None, None, 
@@ -20680,8 +20680,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.DomainId.SecondaryDomainId' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.DomainId.SecondaryDomainId',
+    'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.DomainId.SecondaryDomainId' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.DomainId.SecondaryDomainId',
             False, 
             [
             _MetaInfoClassMember('domain-id-type', ATTRIBUTE, 'int' , None, None, 
@@ -20703,17 +20703,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.DomainId' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.DomainId',
+    'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.DomainId' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.DomainId',
             False, 
             [
-            _MetaInfoClassMember('primary-domain-id', REFERENCE_CLASS, 'PrimaryDomainId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.DomainId.PrimaryDomainId', 
+            _MetaInfoClassMember('primary-domain-id', REFERENCE_CLASS, 'PrimaryDomainId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.DomainId.PrimaryDomainId', 
                 [], [], 
                 '''                Primary Domain ID
                 ''',
                 'primary_domain_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('secondary-domain-id', REFERENCE_LIST, 'SecondaryDomainId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.DomainId.SecondaryDomainId', 
+            _MetaInfoClassMember('secondary-domain-id', REFERENCE_LIST, 'SecondaryDomainId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.DomainId.SecondaryDomainId', 
                 [], [], 
                 '''                List of secondary domain IDs
                 ''',
@@ -20726,8 +20726,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter.UnsetTime' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter.UnsetTime',
+    'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter.UnsetTime' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter.UnsetTime',
             False, 
             [
             _MetaInfoClassMember('nanosecond', ATTRIBUTE, 'int' , None, None, 
@@ -20749,8 +20749,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter.StartTime' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter.StartTime',
+    'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter.StartTime' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter.StartTime',
             False, 
             [
             _MetaInfoClassMember('nanosecond', ATTRIBUTE, 'int' , None, None, 
@@ -20772,8 +20772,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter.AbrResumeTime' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter.AbrResumeTime',
+    'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter.AbrResumeTime' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter.AbrResumeTime',
             False, 
             [
             _MetaInfoClassMember('nanosecond', ATTRIBUTE, 'int' , None, None, 
@@ -20795,8 +20795,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter.Trigger.UnsetTime' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter.Trigger.UnsetTime',
+    'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter.Trigger.UnsetTime' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter.Trigger.UnsetTime',
             False, 
             [
             _MetaInfoClassMember('nanosecond', ATTRIBUTE, 'int' , None, None, 
@@ -20818,8 +20818,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter.Trigger.StartTime' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter.Trigger.StartTime',
+    'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter.Trigger.StartTime' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter.Trigger.StartTime',
             False, 
             [
             _MetaInfoClassMember('nanosecond', ATTRIBUTE, 'int' , None, None, 
@@ -20841,11 +20841,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter.Trigger' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter.Trigger',
+    'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter.Trigger' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter.Trigger',
             False, 
             [
-            _MetaInfoClassMember('start-time', REFERENCE_CLASS, 'StartTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter.Trigger.StartTime', 
+            _MetaInfoClassMember('start-time', REFERENCE_CLASS, 'StartTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter.Trigger.StartTime', 
                 [], [], 
                 '''                Timestamp (relative to 1970/1/1 00:00) when stub
                 router mode was activated
@@ -20870,7 +20870,7 @@ _meta_table = {
                 ''',
                 'unset_reason',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('unset-time', REFERENCE_CLASS, 'UnsetTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter.Trigger.UnsetTime', 
+            _MetaInfoClassMember('unset-time', REFERENCE_CLASS, 'UnsetTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter.Trigger.UnsetTime', 
                 [], [], 
                 '''                Timestamp (relative to 1970/1/1 00:00) when stub
                 router condition was cleared
@@ -20891,8 +20891,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter',
+    'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter',
             False, 
             [
             _MetaInfoClassMember('abr-off-reason', REFERENCE_ENUM_CLASS, 'StubRouterAbrOffReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'StubRouterAbrOffReasonEnum', 
@@ -20901,7 +20901,7 @@ _meta_table = {
                 ''',
                 'abr_off_reason',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('abr-resume-time', REFERENCE_CLASS, 'AbrResumeTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter.AbrResumeTime', 
+            _MetaInfoClassMember('abr-resume-time', REFERENCE_CLASS, 'AbrResumeTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter.AbrResumeTime', 
                 [], [], 
                 '''                Timestamp (relative to 1970/1/1 00:00) when ABR
                 duties were resumed
@@ -20944,7 +20944,7 @@ _meta_table = {
                 ''',
                 'set_reason',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('start-time', REFERENCE_CLASS, 'StartTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter.StartTime', 
+            _MetaInfoClassMember('start-time', REFERENCE_CLASS, 'StartTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter.StartTime', 
                 [], [], 
                 '''                Timestamp (relative to 1970/1/1 00:00) when stub
                 router mode was activated
@@ -20957,7 +20957,7 @@ _meta_table = {
                 ''',
                 'summary_lsa_metric',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('trigger', REFERENCE_LIST, 'Trigger' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter.Trigger', 
+            _MetaInfoClassMember('trigger', REFERENCE_LIST, 'Trigger' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter.Trigger', 
                 [], [], 
                 '''                Triggers for entering stub router mode
                 ''',
@@ -20969,7 +20969,7 @@ _meta_table = {
                 ''',
                 'unset_reason',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('unset-time', REFERENCE_CLASS, 'UnsetTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter.UnsetTime', 
+            _MetaInfoClassMember('unset-time', REFERENCE_CLASS, 'UnsetTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter.UnsetTime', 
                 [], [], 
                 '''                Timestamp (relative to 1970/1/1 00:00) when stub
                 router condition was cleared
@@ -20983,8 +20983,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.IpfrrTiebreakers' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.IpfrrTiebreakers',
+    'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.IpfrrTiebreakers' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.IpfrrTiebreakers',
             False, 
             [
             _MetaInfoClassMember('tiebreaker-index', ATTRIBUTE, 'int' , None, None, 
@@ -21006,8 +21006,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3',
+    'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_',
             False, 
             [
             _MetaInfoClassMember('areas', ATTRIBUTE, 'int' , None, None, 
@@ -21072,7 +21072,7 @@ _meta_table = {
                 ''',
                 'default_tag',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('domain-id', REFERENCE_CLASS, 'DomainId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.DomainId', 
+            _MetaInfoClassMember('domain-id', REFERENCE_CLASS, 'DomainId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.DomainId', 
                 [], [], 
                 '''                Domain ID information
                 ''',
@@ -21090,7 +21090,7 @@ _meta_table = {
                 ''',
                 'graceful_shutdown_state',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('ipfrr-tiebreakers', REFERENCE_LIST, 'IpfrrTiebreakers' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.IpfrrTiebreakers', 
+            _MetaInfoClassMember('ipfrr-tiebreakers', REFERENCE_LIST, 'IpfrrTiebreakers' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.IpfrrTiebreakers', 
                 [], [], 
                 '''                IPFRR-Tiebreakers list
                 ''',
@@ -21321,7 +21321,7 @@ _meta_table = {
                 ''',
                 'stub_areas',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('stub-router', REFERENCE_LIST, 'StubRouter' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter', 
+            _MetaInfoClassMember('stub-router', REFERENCE_LIST, 'StubRouter' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter', 
                 [], [], 
                 '''                Stub Router Information
                 ''',
@@ -21415,7 +21415,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.Summary',
             False, 
             [
-            _MetaInfoClassMember('ospfv3', REFERENCE_CLASS, 'Ospfv3' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3', 
+            _MetaInfoClassMember('ospfv3', REFERENCE_CLASS, 'Ospfv3_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_', 
                 [], [], 
                 '''                OSPFv3 summary
                 ''',
@@ -22458,8 +22458,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.Vrfs.Vrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail.NeighborRetransmission' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail.NeighborRetransmission',
+    'Ospfv3.Processes.Process.Vrfs.Vrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail_.NeighborRetransmission' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail_.NeighborRetransmission',
             False, 
             [
             _MetaInfoClassMember('area-first-flood', ATTRIBUTE, 'int' , None, None, 
@@ -22609,8 +22609,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.Vrfs.Vrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail',
+    'Ospfv3.Processes.Process.Vrfs.Vrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail_' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.Vrfs.Vrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail_',
             False, 
             [
             _MetaInfoClassMember('interface-type', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceEnum', 
@@ -22656,7 +22656,7 @@ _meta_table = {
                 ''',
                 'neighbor_option',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('neighbor-retransmission', REFERENCE_CLASS, 'NeighborRetransmission' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail.NeighborRetransmission', 
+            _MetaInfoClassMember('neighbor-retransmission', REFERENCE_CLASS, 'NeighborRetransmission' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail_.NeighborRetransmission', 
                 [], [], 
                 '''                Retransmission information with this neighbor
                 ''',
@@ -22771,7 +22771,7 @@ _meta_table = {
                 ''',
                 'neighbor_designated_router',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('neighbor-detail', REFERENCE_CLASS, 'NeighborDetail' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail', 
+            _MetaInfoClassMember('neighbor-detail', REFERENCE_CLASS, 'NeighborDetail_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.Vrfs.Vrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail_', 
                 [], [], 
                 '''                Detailed OSPFv3 neighbor information 
                 ''',
@@ -32332,8 +32332,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.DefaultVrf.RequestListProcessTable.Request.Request' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.RequestListProcessTable.Request.Request',
+    'Ospfv3.Processes.Process.DefaultVrf.RequestListProcessTable.Request.Request_' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.RequestListProcessTable.Request.Request_',
             False, 
             [
             _MetaInfoClassMember('header-advertising-router', ATTRIBUTE, 'str' , None, None, 
@@ -32401,7 +32401,7 @@ _meta_table = {
                 ''',
                 'neighbor_address',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('request', REFERENCE_LIST, 'Request' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.RequestListProcessTable.Request.Request', 
+            _MetaInfoClassMember('request', REFERENCE_LIST, 'Request_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.RequestListProcessTable.Request.Request_', 
                 [], [], 
                 '''                List of request list entries
                 ''',
@@ -33061,8 +33061,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.DefaultVrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail.NeighborRetransmission' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail.NeighborRetransmission',
+    'Ospfv3.Processes.Process.DefaultVrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail_.NeighborRetransmission' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail_.NeighborRetransmission',
             False, 
             [
             _MetaInfoClassMember('area-first-flood', ATTRIBUTE, 'int' , None, None, 
@@ -33212,8 +33212,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.DefaultVrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail',
+    'Ospfv3.Processes.Process.DefaultVrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail_' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail_',
             False, 
             [
             _MetaInfoClassMember('interface-type', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceEnum', 
@@ -33259,7 +33259,7 @@ _meta_table = {
                 ''',
                 'neighbor_option',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('neighbor-retransmission', REFERENCE_CLASS, 'NeighborRetransmission' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail.NeighborRetransmission', 
+            _MetaInfoClassMember('neighbor-retransmission', REFERENCE_CLASS, 'NeighborRetransmission' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail_.NeighborRetransmission', 
                 [], [], 
                 '''                Retransmission information with this neighbor
                 ''',
@@ -33374,7 +33374,7 @@ _meta_table = {
                 ''',
                 'neighbor_designated_router',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('neighbor-detail', REFERENCE_CLASS, 'NeighborDetail' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail', 
+            _MetaInfoClassMember('neighbor-detail', REFERENCE_CLASS, 'NeighborDetail_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail_', 
                 [], [], 
                 '''                Detailed OSPFv3 neighbor information 
                 ''',
@@ -33511,8 +33511,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.DefaultVrf.Areas.Area.RequestListTable.Request.Request' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Areas.Area.RequestListTable.Request.Request',
+    'Ospfv3.Processes.Process.DefaultVrf.Areas.Area.RequestListTable.Request.Request_' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Areas.Area.RequestListTable.Request.Request_',
             False, 
             [
             _MetaInfoClassMember('header-advertising-router', ATTRIBUTE, 'str' , None, None, 
@@ -33580,7 +33580,7 @@ _meta_table = {
                 ''',
                 'neighbor_address',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('request', REFERENCE_LIST, 'Request' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.Areas.Area.RequestListTable.Request.Request', 
+            _MetaInfoClassMember('request', REFERENCE_LIST, 'Request_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.Areas.Area.RequestListTable.Request.Request_', 
                 [], [], 
                 '''                List of request list entries
                 ''',
@@ -43459,8 +43459,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.DomainId.PrimaryDomainId' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.DomainId.PrimaryDomainId',
+    'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.DomainId.PrimaryDomainId' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.DomainId.PrimaryDomainId',
             False, 
             [
             _MetaInfoClassMember('domain-id-type', ATTRIBUTE, 'int' , None, None, 
@@ -43482,8 +43482,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.DomainId.SecondaryDomainId' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.DomainId.SecondaryDomainId',
+    'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.DomainId.SecondaryDomainId' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.DomainId.SecondaryDomainId',
             False, 
             [
             _MetaInfoClassMember('domain-id-type', ATTRIBUTE, 'int' , None, None, 
@@ -43505,17 +43505,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.DomainId' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.DomainId',
+    'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.DomainId' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.DomainId',
             False, 
             [
-            _MetaInfoClassMember('primary-domain-id', REFERENCE_CLASS, 'PrimaryDomainId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.DomainId.PrimaryDomainId', 
+            _MetaInfoClassMember('primary-domain-id', REFERENCE_CLASS, 'PrimaryDomainId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.DomainId.PrimaryDomainId', 
                 [], [], 
                 '''                Primary Domain ID
                 ''',
                 'primary_domain_id',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('secondary-domain-id', REFERENCE_LIST, 'SecondaryDomainId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.DomainId.SecondaryDomainId', 
+            _MetaInfoClassMember('secondary-domain-id', REFERENCE_LIST, 'SecondaryDomainId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.DomainId.SecondaryDomainId', 
                 [], [], 
                 '''                List of secondary domain IDs
                 ''',
@@ -43528,8 +43528,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter.UnsetTime' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter.UnsetTime',
+    'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter.UnsetTime' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter.UnsetTime',
             False, 
             [
             _MetaInfoClassMember('nanosecond', ATTRIBUTE, 'int' , None, None, 
@@ -43551,8 +43551,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter.StartTime' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter.StartTime',
+    'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter.StartTime' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter.StartTime',
             False, 
             [
             _MetaInfoClassMember('nanosecond', ATTRIBUTE, 'int' , None, None, 
@@ -43574,8 +43574,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter.AbrResumeTime' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter.AbrResumeTime',
+    'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter.AbrResumeTime' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter.AbrResumeTime',
             False, 
             [
             _MetaInfoClassMember('nanosecond', ATTRIBUTE, 'int' , None, None, 
@@ -43597,8 +43597,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter.Trigger.UnsetTime' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter.Trigger.UnsetTime',
+    'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter.Trigger.UnsetTime' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter.Trigger.UnsetTime',
             False, 
             [
             _MetaInfoClassMember('nanosecond', ATTRIBUTE, 'int' , None, None, 
@@ -43620,8 +43620,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter.Trigger.StartTime' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter.Trigger.StartTime',
+    'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter.Trigger.StartTime' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter.Trigger.StartTime',
             False, 
             [
             _MetaInfoClassMember('nanosecond', ATTRIBUTE, 'int' , None, None, 
@@ -43643,11 +43643,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter.Trigger' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter.Trigger',
+    'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter.Trigger' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter.Trigger',
             False, 
             [
-            _MetaInfoClassMember('start-time', REFERENCE_CLASS, 'StartTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter.Trigger.StartTime', 
+            _MetaInfoClassMember('start-time', REFERENCE_CLASS, 'StartTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter.Trigger.StartTime', 
                 [], [], 
                 '''                Timestamp (relative to 1970/1/1 00:00) when stub
                 router mode was activated
@@ -43672,7 +43672,7 @@ _meta_table = {
                 ''',
                 'unset_reason',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('unset-time', REFERENCE_CLASS, 'UnsetTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter.Trigger.UnsetTime', 
+            _MetaInfoClassMember('unset-time', REFERENCE_CLASS, 'UnsetTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter.Trigger.UnsetTime', 
                 [], [], 
                 '''                Timestamp (relative to 1970/1/1 00:00) when stub
                 router condition was cleared
@@ -43693,8 +43693,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter',
+    'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter',
             False, 
             [
             _MetaInfoClassMember('abr-off-reason', REFERENCE_ENUM_CLASS, 'StubRouterAbrOffReasonEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'StubRouterAbrOffReasonEnum', 
@@ -43703,7 +43703,7 @@ _meta_table = {
                 ''',
                 'abr_off_reason',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('abr-resume-time', REFERENCE_CLASS, 'AbrResumeTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter.AbrResumeTime', 
+            _MetaInfoClassMember('abr-resume-time', REFERENCE_CLASS, 'AbrResumeTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter.AbrResumeTime', 
                 [], [], 
                 '''                Timestamp (relative to 1970/1/1 00:00) when ABR
                 duties were resumed
@@ -43746,7 +43746,7 @@ _meta_table = {
                 ''',
                 'set_reason',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('start-time', REFERENCE_CLASS, 'StartTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter.StartTime', 
+            _MetaInfoClassMember('start-time', REFERENCE_CLASS, 'StartTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter.StartTime', 
                 [], [], 
                 '''                Timestamp (relative to 1970/1/1 00:00) when stub
                 router mode was activated
@@ -43759,7 +43759,7 @@ _meta_table = {
                 ''',
                 'summary_lsa_metric',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('trigger', REFERENCE_LIST, 'Trigger' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter.Trigger', 
+            _MetaInfoClassMember('trigger', REFERENCE_LIST, 'Trigger' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter.Trigger', 
                 [], [], 
                 '''                Triggers for entering stub router mode
                 ''',
@@ -43771,7 +43771,7 @@ _meta_table = {
                 ''',
                 'unset_reason',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('unset-time', REFERENCE_CLASS, 'UnsetTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter.UnsetTime', 
+            _MetaInfoClassMember('unset-time', REFERENCE_CLASS, 'UnsetTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter.UnsetTime', 
                 [], [], 
                 '''                Timestamp (relative to 1970/1/1 00:00) when stub
                 router condition was cleared
@@ -43785,8 +43785,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.IpfrrTiebreakers' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.IpfrrTiebreakers',
+    'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.IpfrrTiebreakers' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.IpfrrTiebreakers',
             False, 
             [
             _MetaInfoClassMember('tiebreaker-index', ATTRIBUTE, 'int' , None, None, 
@@ -43808,8 +43808,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3',
+    'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_',
             False, 
             [
             _MetaInfoClassMember('areas', ATTRIBUTE, 'int' , None, None, 
@@ -43874,7 +43874,7 @@ _meta_table = {
                 ''',
                 'default_tag',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('domain-id', REFERENCE_CLASS, 'DomainId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.DomainId', 
+            _MetaInfoClassMember('domain-id', REFERENCE_CLASS, 'DomainId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.DomainId', 
                 [], [], 
                 '''                Domain ID information
                 ''',
@@ -43892,7 +43892,7 @@ _meta_table = {
                 ''',
                 'graceful_shutdown_state',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('ipfrr-tiebreakers', REFERENCE_LIST, 'IpfrrTiebreakers' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.IpfrrTiebreakers', 
+            _MetaInfoClassMember('ipfrr-tiebreakers', REFERENCE_LIST, 'IpfrrTiebreakers' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.IpfrrTiebreakers', 
                 [], [], 
                 '''                IPFRR-Tiebreakers list
                 ''',
@@ -44123,7 +44123,7 @@ _meta_table = {
                 ''',
                 'stub_areas',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('stub-router', REFERENCE_LIST, 'StubRouter' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter', 
+            _MetaInfoClassMember('stub-router', REFERENCE_LIST, 'StubRouter' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter', 
                 [], [], 
                 '''                Stub Router Information
                 ''',
@@ -44217,7 +44217,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.Summary',
             False, 
             [
-            _MetaInfoClassMember('ospfv3', REFERENCE_CLASS, 'Ospfv3' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3', 
+            _MetaInfoClassMember('ospfv3', REFERENCE_CLASS, 'Ospfv3_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_', 
                 [], [], 
                 '''                OSPFv3 summary
                 ''',
@@ -45260,8 +45260,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.DefaultVrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail.NeighborRetransmission' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail.NeighborRetransmission',
+    'Ospfv3.Processes.Process.DefaultVrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail_.NeighborRetransmission' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail_.NeighborRetransmission',
             False, 
             [
             _MetaInfoClassMember('area-first-flood', ATTRIBUTE, 'int' , None, None, 
@@ -45411,8 +45411,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper'
         ),
     },
-    'Ospfv3.Processes.Process.DefaultVrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail' : {
-        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail',
+    'Ospfv3.Processes.Process.DefaultVrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail_' : {
+        'meta_info' : _MetaInfoClass('Ospfv3.Processes.Process.DefaultVrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail_',
             False, 
             [
             _MetaInfoClassMember('interface-type', REFERENCE_ENUM_CLASS, 'Ospfv3InterfaceEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3InterfaceEnum', 
@@ -45458,7 +45458,7 @@ _meta_table = {
                 ''',
                 'neighbor_option',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('neighbor-retransmission', REFERENCE_CLASS, 'NeighborRetransmission' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail.NeighborRetransmission', 
+            _MetaInfoClassMember('neighbor-retransmission', REFERENCE_CLASS, 'NeighborRetransmission' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail_.NeighborRetransmission', 
                 [], [], 
                 '''                Retransmission information with this neighbor
                 ''',
@@ -45573,7 +45573,7 @@ _meta_table = {
                 ''',
                 'neighbor_designated_router',
                 'Cisco-IOS-XR-ipv6-ospfv3-oper', False),
-            _MetaInfoClassMember('neighbor-detail', REFERENCE_CLASS, 'NeighborDetail' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail', 
+            _MetaInfoClassMember('neighbor-detail', REFERENCE_CLASS, 'NeighborDetail_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_oper', 'Ospfv3.Processes.Process.DefaultVrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail_', 
                 [], [], 
                 '''                Detailed OSPFv3 neighbor information 
                 ''',
@@ -45979,7 +45979,7 @@ _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ExternalRoutes.ExternalRoute.Rout
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ExternalRoutes.ExternalRoute.RouteExtendedCommunity']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ExternalRoutes.ExternalRoute']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ExternalRoutes.ExternalRoute.RoutePath']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ExternalRoutes.ExternalRoute']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ExternalRoutes.ExternalRoute']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ExternalRoutes']['meta_info']
-_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.RequestListProcessTable.Request.Request']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.RequestListProcessTable.Request']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.RequestListProcessTable.Request.Request_']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.RequestListProcessTable.Request']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.RequestListProcessTable.Request']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.RequestListProcessTable']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.VirtualLink.VirtualLinkNeighbor.VirtualLinkRetransmission']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.VirtualLink.VirtualLinkNeighbor']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.VirtualLink.VirtualLinkNeighbor']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.VirtualLink']['meta_info']
@@ -45987,12 +45987,12 @@ _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.FloodListProcessTable.Flood.LinkF
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.FloodListProcessTable.Flood.AreaFlood']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.FloodListProcessTable.Flood']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.FloodListProcessTable.Flood.AsFlood']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.FloodListProcessTable.Flood']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.FloodListProcessTable.Flood']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.FloodListProcessTable']['meta_info']
-_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail.NeighborRetransmission']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail']['meta_info']
-_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.NeighborDetailTable.NeighborDetail']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail_.NeighborRetransmission']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail_']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail_']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.NeighborDetailTable.NeighborDetail']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborBfdInfo']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.NeighborDetailTable.NeighborDetail']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.NeighborDetailTable.NeighborDetail']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.NeighborDetailTable']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.InterfaceBriefTable.InterfaceBrief']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.InterfaceBriefTable']['meta_info']
-_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.RequestListTable.Request.Request']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.RequestListTable.Request']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.RequestListTable.Request.Request_']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.RequestListTable.Request']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.RequestListTable.Request']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.RequestListTable']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.NeighborTable.Neighbor.NeighborDetail.NeighborRetransmission']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.NeighborTable.Neighbor.NeighborDetail']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.NeighborTable.Neighbor.NeighborDetail']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Areas.Area.NeighborTable.Neighbor']['meta_info']
@@ -46133,19 +46133,19 @@ _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ConnectedRoutes.ConnectedRoute.Ro
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ConnectedRoutes.ConnectedRoute.RouteTopology']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ConnectedRoutes.ConnectedRoute']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ConnectedRoutes.ConnectedRoute.RoutePath']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ConnectedRoutes.ConnectedRoute']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ConnectedRoutes.ConnectedRoute']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.ConnectedRoutes']['meta_info']
-_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.DomainId.PrimaryDomainId']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.DomainId']['meta_info']
-_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.DomainId.SecondaryDomainId']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.DomainId']['meta_info']
-_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter.Trigger.UnsetTime']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter.Trigger']['meta_info']
-_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter.Trigger.StartTime']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter.Trigger']['meta_info']
-_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter.UnsetTime']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter']['meta_info']
-_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter.StartTime']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter']['meta_info']
-_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter.AbrResumeTime']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter']['meta_info']
-_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter.Trigger']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter']['meta_info']
-_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.DomainId']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3']['meta_info']
-_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.StubRouter']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3']['meta_info']
-_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3.IpfrrTiebreakers']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.DomainId.PrimaryDomainId']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.DomainId']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.DomainId.SecondaryDomainId']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.DomainId']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter.Trigger.UnsetTime']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter.Trigger']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter.Trigger.StartTime']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter.Trigger']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter.UnsetTime']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter.StartTime']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter.AbrResumeTime']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter.Trigger']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.DomainId']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.StubRouter']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_.IpfrrTiebreakers']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Protocol']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary']['meta_info']
-_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Ospfv3_']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary.Route']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.Summary']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.RetransmissionListProcessTable.Retransmission.RetransmissionvirtualLinkDb']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.RetransmissionListProcessTable.Retransmission']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.RetransmissionListProcessTable.Retransmission.RetransmissionAreaDb']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.RetransmissionListProcessTable.Retransmission']['meta_info']
@@ -46164,8 +46164,8 @@ _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.NeighborProcessTable.Neighbor']['
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.FastReroutes.FastReroute.IpfrrTopo']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.FastReroutes.FastReroute']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.FastReroutes.FastReroute']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.FastReroutes']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.InterfaceBriefProcessTable.InterfaceBrief']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.InterfaceBriefProcessTable']['meta_info']
-_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail.NeighborRetransmission']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail']['meta_info']
-_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.NeighborDetailProcessTable.NeighborDetail']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail_.NeighborRetransmission']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail_']['meta_info']
+_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail_']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.NeighborDetailProcessTable.NeighborDetail']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.NeighborDetailProcessTable.NeighborDetail.NeighborBfdInfo']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.NeighborDetailProcessTable.NeighborDetail']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.NeighborDetailProcessTable.NeighborDetail']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.NeighborDetailProcessTable']['meta_info']
 _meta_table['Ospfv3.Processes.Process.Vrfs.Vrf.SummaryPrefixes']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.Vrfs.Vrf']['meta_info']
@@ -46308,7 +46308,7 @@ _meta_table['Ospfv3.Processes.Process.DefaultVrf.ExternalRoutes.ExternalRoute.Ro
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.ExternalRoutes.ExternalRoute.RouteExtendedCommunity']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.ExternalRoutes.ExternalRoute']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.ExternalRoutes.ExternalRoute.RoutePath']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.ExternalRoutes.ExternalRoute']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.ExternalRoutes.ExternalRoute']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.ExternalRoutes']['meta_info']
-_meta_table['Ospfv3.Processes.Process.DefaultVrf.RequestListProcessTable.Request.Request']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.RequestListProcessTable.Request']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.RequestListProcessTable.Request.Request_']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.RequestListProcessTable.Request']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.RequestListProcessTable.Request']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.RequestListProcessTable']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.VirtualLink.VirtualLinkNeighbor.VirtualLinkRetransmission']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.VirtualLink.VirtualLinkNeighbor']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.VirtualLink.VirtualLinkNeighbor']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.VirtualLink']['meta_info']
@@ -46316,12 +46316,12 @@ _meta_table['Ospfv3.Processes.Process.DefaultVrf.FloodListProcessTable.Flood.Lin
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.FloodListProcessTable.Flood.AreaFlood']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.FloodListProcessTable.Flood']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.FloodListProcessTable.Flood.AsFlood']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.FloodListProcessTable.Flood']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.FloodListProcessTable.Flood']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.FloodListProcessTable']['meta_info']
-_meta_table['Ospfv3.Processes.Process.DefaultVrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail.NeighborRetransmission']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail']['meta_info']
-_meta_table['Ospfv3.Processes.Process.DefaultVrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Areas.Area.NeighborDetailTable.NeighborDetail']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail_.NeighborRetransmission']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail_']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborDetail_']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Areas.Area.NeighborDetailTable.NeighborDetail']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.Areas.Area.NeighborDetailTable.NeighborDetail.NeighborBfdInfo']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Areas.Area.NeighborDetailTable.NeighborDetail']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.Areas.Area.NeighborDetailTable.NeighborDetail']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Areas.Area.NeighborDetailTable']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.Areas.Area.InterfaceBriefTable.InterfaceBrief']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Areas.Area.InterfaceBriefTable']['meta_info']
-_meta_table['Ospfv3.Processes.Process.DefaultVrf.Areas.Area.RequestListTable.Request.Request']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Areas.Area.RequestListTable.Request']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.Areas.Area.RequestListTable.Request.Request_']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Areas.Area.RequestListTable.Request']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.Areas.Area.RequestListTable.Request']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Areas.Area.RequestListTable']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.Areas.Area.NeighborTable.Neighbor.NeighborDetail.NeighborRetransmission']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Areas.Area.NeighborTable.Neighbor.NeighborDetail']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.Areas.Area.NeighborTable.Neighbor.NeighborDetail']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Areas.Area.NeighborTable.Neighbor']['meta_info']
@@ -46462,19 +46462,19 @@ _meta_table['Ospfv3.Processes.Process.DefaultVrf.ConnectedRoutes.ConnectedRoute.
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.ConnectedRoutes.ConnectedRoute.RouteTopology']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.ConnectedRoutes.ConnectedRoute']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.ConnectedRoutes.ConnectedRoute.RoutePath']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.ConnectedRoutes.ConnectedRoute']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.ConnectedRoutes.ConnectedRoute']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.ConnectedRoutes']['meta_info']
-_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.DomainId.PrimaryDomainId']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.DomainId']['meta_info']
-_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.DomainId.SecondaryDomainId']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.DomainId']['meta_info']
-_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter.Trigger.UnsetTime']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter.Trigger']['meta_info']
-_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter.Trigger.StartTime']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter.Trigger']['meta_info']
-_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter.UnsetTime']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter']['meta_info']
-_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter.StartTime']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter']['meta_info']
-_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter.AbrResumeTime']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter']['meta_info']
-_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter.Trigger']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter']['meta_info']
-_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.DomainId']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3']['meta_info']
-_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.StubRouter']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3']['meta_info']
-_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3.IpfrrTiebreakers']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.DomainId.PrimaryDomainId']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.DomainId']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.DomainId.SecondaryDomainId']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.DomainId']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter.Trigger.UnsetTime']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter.Trigger']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter.Trigger.StartTime']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter.Trigger']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter.UnsetTime']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter.StartTime']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter.AbrResumeTime']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter.Trigger']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.DomainId']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.StubRouter']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_.IpfrrTiebreakers']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Protocol']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary']['meta_info']
-_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Ospfv3_']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary.Route']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.Summary']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.RetransmissionListProcessTable.Retransmission.RetransmissionvirtualLinkDb']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.RetransmissionListProcessTable.Retransmission']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.RetransmissionListProcessTable.Retransmission.RetransmissionAreaDb']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.RetransmissionListProcessTable.Retransmission']['meta_info']
@@ -46493,8 +46493,8 @@ _meta_table['Ospfv3.Processes.Process.DefaultVrf.NeighborProcessTable.Neighbor']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.FastReroutes.FastReroute.IpfrrTopo']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.FastReroutes.FastReroute']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.FastReroutes.FastReroute']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.FastReroutes']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.InterfaceBriefProcessTable.InterfaceBrief']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.InterfaceBriefProcessTable']['meta_info']
-_meta_table['Ospfv3.Processes.Process.DefaultVrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail.NeighborRetransmission']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail']['meta_info']
-_meta_table['Ospfv3.Processes.Process.DefaultVrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.NeighborDetailProcessTable.NeighborDetail']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail_.NeighborRetransmission']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail_']['meta_info']
+_meta_table['Ospfv3.Processes.Process.DefaultVrf.NeighborDetailProcessTable.NeighborDetail.NeighborDetail_']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.NeighborDetailProcessTable.NeighborDetail']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.NeighborDetailProcessTable.NeighborDetail.NeighborBfdInfo']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.NeighborDetailProcessTable.NeighborDetail']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.NeighborDetailProcessTable.NeighborDetail']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf.NeighborDetailProcessTable']['meta_info']
 _meta_table['Ospfv3.Processes.Process.DefaultVrf.SummaryPrefixes']['meta_info'].parent =_meta_table['Ospfv3.Processes.Process.DefaultVrf']['meta_info']

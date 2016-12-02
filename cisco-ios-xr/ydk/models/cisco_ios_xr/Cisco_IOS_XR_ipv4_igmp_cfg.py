@@ -32,19 +32,19 @@ class IgmpFilterEnum(Enum):
 
     Igmp filter
 
-    .. data:: INCLUDE = 0
+    .. data:: include = 0
 
     	Include
 
-    .. data:: EXCLUDE = 1
+    .. data:: exclude = 1
 
     	Exclude
 
     """
 
-    INCLUDE = 0
+    include = 0
 
-    EXCLUDE = 1
+    exclude = 1
 
 
     @staticmethod
@@ -61,12 +61,14 @@ class Igmp(object):
     .. attribute:: default_context
     
     	Default Context
-    	**type**\:  :py:class:`DefaultContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext>`
+    	**type**\:   :py:class:`DefaultContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext>`
+    
+    	**presence node**\: True
     
     .. attribute:: vrfs
     
     	VRF related configuration
-    	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs>`
+    	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs>`
     
     .. attribute:: _is_presence
     
@@ -96,7 +98,7 @@ class Igmp(object):
         .. attribute:: vrf
         
         	Configuration for a particular vrf
-        	**type**\: list of  :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf>`
+        	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf>`
         
         
 
@@ -126,22 +128,22 @@ class Igmp(object):
             .. attribute:: accounting
             
             	Configure IGMP accounting for logging join/leave records
-            	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Accounting>`
+            	**type**\:   :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Accounting>`
             
             .. attribute:: inheritable_defaults
             
             	Inheritable Defaults
-            	**type**\:  :py:class:`InheritableDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.InheritableDefaults>`
+            	**type**\:   :py:class:`InheritableDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.InheritableDefaults>`
             
             .. attribute:: interfaces
             
             	Interface\-level configuration
-            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces>`
+            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces>`
             
             .. attribute:: maximum
             
             	Configure IGMP State Limits
-            	**type**\:  :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Maximum>`
+            	**type**\:   :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Maximum>`
             
             .. attribute:: robustness
             
@@ -150,25 +152,27 @@ class Igmp(object):
             
             	**range:** 2..10
             
+            	**default value**\: 2
+            
             .. attribute:: ssm_access_groups
             
             	IGMP Source specific mode
-            	**type**\:  :py:class:`SsmAccessGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.SsmAccessGroups>`
+            	**type**\:   :py:class:`SsmAccessGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.SsmAccessGroups>`
             
             .. attribute:: ssmdns_query_group
             
             	Enable SSM mapping using DNS Query
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: traffic
             
             	Configure IGMP Traffic variables
-            	**type**\:  :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Traffic>`
+            	**type**\:   :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Traffic>`
             
             .. attribute:: unicast_qos_adjust
             
             	Configure IGMP QoS shapers for subscriber interfaces
-            	**type**\:  :py:class:`UnicastQosAdjust <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.UnicastQosAdjust>`
+            	**type**\:   :py:class:`UnicastQosAdjust <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.UnicastQosAdjust>`
             
             
 
@@ -255,12 +259,14 @@ class Igmp(object):
                 .. attribute:: explicit_tracking
                 
                 	IGMPv3 explicit host tracking
-                	**type**\:  :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.InheritableDefaults.ExplicitTracking>`
+                	**type**\:   :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.InheritableDefaults.ExplicitTracking>`
+                
+                	**presence node**\: True
                 
                 .. attribute:: maximum_groups_per_interface_oor
                 
                 	Configure maximum number of groups accepted per interface by this router
-                	**type**\:  :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.InheritableDefaults.MaximumGroupsPerInterfaceOor>`
+                	**type**\:   :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.InheritableDefaults.MaximumGroupsPerInterfaceOor>`
                 
                 .. attribute:: query_interval
                 
@@ -269,12 +275,20 @@ class Igmp(object):
                 
                 	**range:** 1..3600
                 
+                	**units**\: second
+                
+                	**default value**\: 60
+                
                 .. attribute:: query_max_response_time
                 
                 	Query response value in seconds
                 	**type**\:  int
                 
                 	**range:** 1..12
+                
+                	**units**\: second
+                
+                	**default value**\: 10
                 
                 .. attribute:: query_timeout
                 
@@ -283,10 +297,14 @@ class Igmp(object):
                 
                 	**range:** 60..300
                 
+                	**units**\: second
+                
                 .. attribute:: router_enable
                 
                 	Enabled or disabled, when value is TRUE or FALSE respectively
                 	**type**\:  bool
+                
+                	**default value**\: true
                 
                 .. attribute:: version
                 
@@ -294,6 +312,8 @@ class Igmp(object):
                 	**type**\:  int
                 
                 	**range:** 1..3
+                
+                	**default value**\: 3
                 
                 
 
@@ -332,12 +352,16 @@ class Igmp(object):
                     
                     	**range:** 1..40000
                     
+                    	**default value**\: 25000
+                    
                     .. attribute:: warning_threshold
                     
                     	 WarningThreshold for number of groups accepted per interface by this router
                     	**type**\:  int
                     
                     	**range:** 1..40000
+                    
+                    	**default value**\: 25000
                     
                     
 
@@ -501,7 +525,7 @@ class Igmp(object):
                 .. attribute:: ssm_access_group
                 
                 	SSM static Access Group
-                	**type**\: list of  :py:class:`SsmAccessGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.SsmAccessGroups.SsmAccessGroup>`
+                	**type**\: list of    :py:class:`SsmAccessGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.SsmAccessGroups.SsmAccessGroup>`
                 
                 
 
@@ -624,6 +648,8 @@ class Igmp(object):
                 
                 	**range:** 1..75000
                 
+                	**default value**\: 50000
+                
                 
 
                 """
@@ -672,6 +698,10 @@ class Igmp(object):
                 
                 	**range:** 0..10
                 
+                	**units**\: second
+                
+                	**default value**\: 1
+                
                 .. attribute:: download_interval
                 
                 	Configure the QoS download interval (in milliseconds)
@@ -679,12 +709,20 @@ class Igmp(object):
                 
                 	**range:** 10..500
                 
+                	**units**\: millisecond
+                
+                	**default value**\: 100
+                
                 .. attribute:: hold_off
                 
                 	Configure the QoS hold off time (in seconds)
                 	**type**\:  int
                 
                 	**range:** 5..1800
+                
+                	**units**\: second
+                
+                	**default value**\: 180
                 
                 
 
@@ -742,6 +780,10 @@ class Igmp(object):
                 
                 	**range:** 0..365
                 
+                	**units**\: day
+                
+                	**default value**\: 0
+                
                 
 
                 """
@@ -785,7 +827,7 @@ class Igmp(object):
                 .. attribute:: interface
                 
                 	The name of the interface
-                	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface>`
+                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface>`
                 
                 
 
@@ -820,17 +862,21 @@ class Igmp(object):
                     .. attribute:: explicit_tracking
                     
                     	IGMPv3 explicit host tracking
-                    	**type**\:  :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.ExplicitTracking>`
+                    	**type**\:   :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.ExplicitTracking>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: join_groups
                     
                     	IGMP join multicast group
-                    	**type**\:  :py:class:`JoinGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.JoinGroups>`
+                    	**type**\:   :py:class:`JoinGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.JoinGroups>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: maximum_groups_per_interface_oor
                     
                     	Configure maximum number of groups accepted per interface by this router
-                    	**type**\:  :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.MaximumGroupsPerInterfaceOor>`
+                    	**type**\:   :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.MaximumGroupsPerInterfaceOor>`
                     
                     .. attribute:: query_interval
                     
@@ -839,12 +885,20 @@ class Igmp(object):
                     
                     	**range:** 1..3600
                     
+                    	**units**\: second
+                    
+                    	**default value**\: 60
+                    
                     .. attribute:: query_max_response_time
                     
                     	Query response value in seconds
                     	**type**\:  int
                     
                     	**range:** 1..12
+                    
+                    	**units**\: second
+                    
+                    	**default value**\: 10
                     
                     .. attribute:: query_timeout
                     
@@ -853,15 +907,19 @@ class Igmp(object):
                     
                     	**range:** 60..300
                     
+                    	**units**\: second
+                    
                     .. attribute:: router_enable
                     
                     	Enabled or disabled, when value is TRUE or FALSE respectively
                     	**type**\:  bool
                     
+                    	**default value**\: true
+                    
                     .. attribute:: static_group_group_addresses
                     
                     	IGMP static multicast group
-                    	**type**\:  :py:class:`StaticGroupGroupAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses>`
+                    	**type**\:   :py:class:`StaticGroupGroupAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses>`
                     
                     .. attribute:: version
                     
@@ -869,6 +927,8 @@ class Igmp(object):
                     	**type**\:  int
                     
                     	**range:** 1..3
+                    
+                    	**default value**\: 3
                     
                     
 
@@ -901,12 +961,12 @@ class Igmp(object):
                         .. attribute:: join_group
                         
                         	IP group address and optional source address to include
-                        	**type**\: list of  :py:class:`JoinGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroup>`
+                        	**type**\: list of    :py:class:`JoinGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroup>`
                         
                         .. attribute:: join_group_source_address
                         
                         	IP group address and optional source address to include
-                        	**type**\: list of  :py:class:`JoinGroupSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress>`
+                        	**type**\: list of    :py:class:`JoinGroupSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress>`
                         
                         .. attribute:: _is_presence
                         
@@ -958,7 +1018,7 @@ class Igmp(object):
                             .. attribute:: mode
                             
                             	Filter mode
-                            	**type**\:  :py:class:`IgmpFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.IgmpFilterEnum>`
+                            	**type**\:   :py:class:`IgmpFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.IgmpFilterEnum>`
                             
                             	**mandatory**\: True
                             
@@ -1046,7 +1106,7 @@ class Igmp(object):
                             .. attribute:: mode
                             
                             	Filter mode
-                            	**type**\:  :py:class:`IgmpFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.IgmpFilterEnum>`
+                            	**type**\:   :py:class:`IgmpFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.IgmpFilterEnum>`
                             
                             	**mandatory**\: True
                             
@@ -1138,32 +1198,32 @@ class Igmp(object):
                         .. attribute:: static_group_group_address
                         
                         	IP group address and optional source address to include
-                        	**type**\: list of  :py:class:`StaticGroupGroupAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress>`
+                        	**type**\: list of    :py:class:`StaticGroupGroupAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress>`
                         
                         .. attribute:: static_group_group_address_group_address_mask
                         
                         	IP group address and optional source address to include
-                        	**type**\: list of  :py:class:`StaticGroupGroupAddressGroupAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask>`
+                        	**type**\: list of    :py:class:`StaticGroupGroupAddressGroupAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask>`
                         
                         .. attribute:: static_group_group_address_group_address_mask_source_address
                         
                         	IP group address and optional source address to include
-                        	**type**\: list of  :py:class:`StaticGroupGroupAddressGroupAddressMaskSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress>`
+                        	**type**\: list of    :py:class:`StaticGroupGroupAddressGroupAddressMaskSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress>`
                         
                         .. attribute:: static_group_group_address_group_address_mask_source_address_source_address_mask
                         
                         	IP group address and optional source address to include
-                        	**type**\: list of  :py:class:`StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask>`
+                        	**type**\: list of    :py:class:`StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask>`
                         
                         .. attribute:: static_group_group_address_source_address
                         
                         	IP group address and optional source address to include
-                        	**type**\: list of  :py:class:`StaticGroupGroupAddressSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress>`
+                        	**type**\: list of    :py:class:`StaticGroupGroupAddressSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress>`
                         
                         .. attribute:: static_group_group_address_source_address_source_address_mask
                         
                         	IP group address and optional source address to include
-                        	**type**\: list of  :py:class:`StaticGroupGroupAddressSourceAddressSourceAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask>`
+                        	**type**\: list of    :py:class:`StaticGroupGroupAddressSourceAddressSourceAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask>`
                         
                         
 
@@ -1223,6 +1283,8 @@ class Igmp(object):
                             
                             	**range:** 1..512
                             
+                            	**default value**\: 1
+                            
                             .. attribute:: source_count
                             
                             	Number of sources to join if mask is present 
@@ -1230,10 +1292,14 @@ class Igmp(object):
                             
                             	**range:** 1..512
                             
+                            	**default value**\: 1
+                            
                             .. attribute:: suppress_report
                             
                             	Suppress reports
                             	**type**\:  bool
+                            
+                            	**default value**\: false
                             
                             
 
@@ -1331,6 +1397,8 @@ class Igmp(object):
                             
                             	**range:** 1..512
                             
+                            	**default value**\: 1
+                            
                             .. attribute:: source_count
                             
                             	Number of sources to join if mask is present 
@@ -1338,10 +1406,14 @@ class Igmp(object):
                             
                             	**range:** 1..512
                             
+                            	**default value**\: 1
+                            
                             .. attribute:: suppress_report
                             
                             	Suppress reports
                             	**type**\:  bool
+                            
+                            	**default value**\: false
                             
                             
 
@@ -1462,6 +1534,8 @@ class Igmp(object):
                             
                             	**range:** 1..512
                             
+                            	**default value**\: 1
+                            
                             .. attribute:: source_count
                             
                             	Number of sources to join if mask is present 
@@ -1469,10 +1543,14 @@ class Igmp(object):
                             
                             	**range:** 1..512
                             
+                            	**default value**\: 1
+                            
                             .. attribute:: suppress_report
                             
                             	Suppress reports
                             	**type**\:  bool
+                            
+                            	**default value**\: false
                             
                             
 
@@ -1582,6 +1660,8 @@ class Igmp(object):
                             
                             	**range:** 1..512
                             
+                            	**default value**\: 1
+                            
                             .. attribute:: source_count
                             
                             	Number of sources to join if mask is present 
@@ -1589,10 +1669,14 @@ class Igmp(object):
                             
                             	**range:** 1..512
                             
+                            	**default value**\: 1
+                            
                             .. attribute:: suppress_report
                             
                             	Suppress reports
                             	**type**\:  bool
+                            
+                            	**default value**\: false
                             
                             
 
@@ -1713,6 +1797,8 @@ class Igmp(object):
                             
                             	**range:** 1..512
                             
+                            	**default value**\: 1
+                            
                             .. attribute:: source_count
                             
                             	Number of sources to join if mask is present 
@@ -1720,10 +1806,14 @@ class Igmp(object):
                             
                             	**range:** 1..512
                             
+                            	**default value**\: 1
+                            
                             .. attribute:: suppress_report
                             
                             	Suppress reports
                             	**type**\:  bool
+                            
+                            	**default value**\: false
                             
                             
 
@@ -1867,6 +1957,8 @@ class Igmp(object):
                             
                             	**range:** 1..512
                             
+                            	**default value**\: 1
+                            
                             .. attribute:: source_count
                             
                             	Number of sources to join if mask is present 
@@ -1874,10 +1966,14 @@ class Igmp(object):
                             
                             	**range:** 1..512
                             
+                            	**default value**\: 1
+                            
                             .. attribute:: suppress_report
                             
                             	Suppress reports
                             	**type**\:  bool
+                            
+                            	**default value**\: false
                             
                             
 
@@ -2015,12 +2111,16 @@ class Igmp(object):
                         
                         	**range:** 1..40000
                         
+                        	**default value**\: 25000
+                        
                         .. attribute:: warning_threshold
                         
                         	 WarningThreshold for number of groups accepted per interface by this router
                         	**type**\:  int
                         
                         	**range:** 1..40000
+                        
+                        	**default value**\: 25000
                         
                         
 
@@ -2296,27 +2396,27 @@ class Igmp(object):
         .. attribute:: accounting
         
         	Configure IGMP accounting for logging join/leave records
-        	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Accounting>`
+        	**type**\:   :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Accounting>`
         
         .. attribute:: inheritable_defaults
         
         	Inheritable Defaults
-        	**type**\:  :py:class:`InheritableDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.InheritableDefaults>`
+        	**type**\:   :py:class:`InheritableDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.InheritableDefaults>`
         
         .. attribute:: interfaces
         
         	Interface\-level configuration
-        	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces>`
+        	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces>`
         
         .. attribute:: maximum
         
         	Configure IGMP State Limits
-        	**type**\:  :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Maximum>`
+        	**type**\:   :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Maximum>`
         
         .. attribute:: nsf
         
         	Configure NSF specific options
-        	**type**\:  :py:class:`Nsf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Nsf>`
+        	**type**\:   :py:class:`Nsf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Nsf>`
         
         .. attribute:: robustness
         
@@ -2325,25 +2425,27 @@ class Igmp(object):
         
         	**range:** 2..10
         
+        	**default value**\: 2
+        
         .. attribute:: ssm_access_groups
         
         	IGMP Source specific mode
-        	**type**\:  :py:class:`SsmAccessGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.SsmAccessGroups>`
+        	**type**\:   :py:class:`SsmAccessGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.SsmAccessGroups>`
         
         .. attribute:: ssmdns_query_group
         
         	Enable SSM mapping using DNS Query
-        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: traffic
         
         	Configure IGMP Traffic variables
-        	**type**\:  :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Traffic>`
+        	**type**\:   :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Traffic>`
         
         .. attribute:: unicast_qos_adjust
         
         	Configure IGMP QoS shapers for subscriber interfaces
-        	**type**\:  :py:class:`UnicastQosAdjust <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.UnicastQosAdjust>`
+        	**type**\:   :py:class:`UnicastQosAdjust <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.UnicastQosAdjust>`
         
         .. attribute:: _is_presence
         
@@ -2392,6 +2494,10 @@ class Igmp(object):
             	**type**\:  int
             
             	**range:** 10..3600
+            
+            	**units**\: second
+            
+            	**default value**\: 60
             
             
 
@@ -2482,12 +2588,14 @@ class Igmp(object):
             .. attribute:: explicit_tracking
             
             	IGMPv3 explicit host tracking
-            	**type**\:  :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.InheritableDefaults.ExplicitTracking>`
+            	**type**\:   :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.InheritableDefaults.ExplicitTracking>`
+            
+            	**presence node**\: True
             
             .. attribute:: maximum_groups_per_interface_oor
             
             	Configure maximum number of groups accepted per interface by this router
-            	**type**\:  :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.InheritableDefaults.MaximumGroupsPerInterfaceOor>`
+            	**type**\:   :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.InheritableDefaults.MaximumGroupsPerInterfaceOor>`
             
             .. attribute:: query_interval
             
@@ -2496,12 +2604,20 @@ class Igmp(object):
             
             	**range:** 1..3600
             
+            	**units**\: second
+            
+            	**default value**\: 60
+            
             .. attribute:: query_max_response_time
             
             	Query response value in seconds
             	**type**\:  int
             
             	**range:** 1..12
+            
+            	**units**\: second
+            
+            	**default value**\: 10
             
             .. attribute:: query_timeout
             
@@ -2510,10 +2626,14 @@ class Igmp(object):
             
             	**range:** 60..300
             
+            	**units**\: second
+            
             .. attribute:: router_enable
             
             	Enabled or disabled, when value is TRUE or FALSE respectively
             	**type**\:  bool
+            
+            	**default value**\: true
             
             .. attribute:: version
             
@@ -2521,6 +2641,8 @@ class Igmp(object):
             	**type**\:  int
             
             	**range:** 1..3
+            
+            	**default value**\: 3
             
             
 
@@ -2559,12 +2681,16 @@ class Igmp(object):
                 
                 	**range:** 1..40000
                 
+                	**default value**\: 25000
+                
                 .. attribute:: warning_threshold
                 
                 	 WarningThreshold for number of groups accepted per interface by this router
                 	**type**\:  int
                 
                 	**range:** 1..40000
+                
+                	**default value**\: 25000
                 
                 
 
@@ -2722,7 +2848,7 @@ class Igmp(object):
             .. attribute:: ssm_access_group
             
             	SSM static Access Group
-            	**type**\: list of  :py:class:`SsmAccessGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.SsmAccessGroups.SsmAccessGroup>`
+            	**type**\: list of    :py:class:`SsmAccessGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.SsmAccessGroups.SsmAccessGroup>`
             
             
 
@@ -2841,6 +2967,8 @@ class Igmp(object):
             
             	**range:** 1..75000
             
+            	**default value**\: 50000
+            
             
 
             """
@@ -2887,6 +3015,10 @@ class Igmp(object):
             
             	**range:** 0..10
             
+            	**units**\: second
+            
+            	**default value**\: 1
+            
             .. attribute:: download_interval
             
             	Configure the QoS download interval (in milliseconds)
@@ -2894,12 +3026,20 @@ class Igmp(object):
             
             	**range:** 10..500
             
+            	**units**\: millisecond
+            
+            	**default value**\: 100
+            
             .. attribute:: hold_off
             
             	Configure the QoS hold off time (in seconds)
             	**type**\:  int
             
             	**range:** 5..1800
+            
+            	**units**\: second
+            
+            	**default value**\: 180
             
             
 
@@ -2955,6 +3095,10 @@ class Igmp(object):
             
             	**range:** 0..365
             
+            	**units**\: day
+            
+            	**default value**\: 0
+            
             
 
             """
@@ -2996,7 +3140,7 @@ class Igmp(object):
             .. attribute:: interface
             
             	The name of the interface
-            	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface>`
+            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface>`
             
             
 
@@ -3031,17 +3175,21 @@ class Igmp(object):
                 .. attribute:: explicit_tracking
                 
                 	IGMPv3 explicit host tracking
-                	**type**\:  :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.ExplicitTracking>`
+                	**type**\:   :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.ExplicitTracking>`
+                
+                	**presence node**\: True
                 
                 .. attribute:: join_groups
                 
                 	IGMP join multicast group
-                	**type**\:  :py:class:`JoinGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.JoinGroups>`
+                	**type**\:   :py:class:`JoinGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.JoinGroups>`
+                
+                	**presence node**\: True
                 
                 .. attribute:: maximum_groups_per_interface_oor
                 
                 	Configure maximum number of groups accepted per interface by this router
-                	**type**\:  :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.MaximumGroupsPerInterfaceOor>`
+                	**type**\:   :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.MaximumGroupsPerInterfaceOor>`
                 
                 .. attribute:: query_interval
                 
@@ -3050,12 +3198,20 @@ class Igmp(object):
                 
                 	**range:** 1..3600
                 
+                	**units**\: second
+                
+                	**default value**\: 60
+                
                 .. attribute:: query_max_response_time
                 
                 	Query response value in seconds
                 	**type**\:  int
                 
                 	**range:** 1..12
+                
+                	**units**\: second
+                
+                	**default value**\: 10
                 
                 .. attribute:: query_timeout
                 
@@ -3064,15 +3220,19 @@ class Igmp(object):
                 
                 	**range:** 60..300
                 
+                	**units**\: second
+                
                 .. attribute:: router_enable
                 
                 	Enabled or disabled, when value is TRUE or FALSE respectively
                 	**type**\:  bool
                 
+                	**default value**\: true
+                
                 .. attribute:: static_group_group_addresses
                 
                 	IGMP static multicast group
-                	**type**\:  :py:class:`StaticGroupGroupAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses>`
+                	**type**\:   :py:class:`StaticGroupGroupAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses>`
                 
                 .. attribute:: version
                 
@@ -3080,6 +3240,8 @@ class Igmp(object):
                 	**type**\:  int
                 
                 	**range:** 1..3
+                
+                	**default value**\: 3
                 
                 
 
@@ -3112,12 +3274,12 @@ class Igmp(object):
                     .. attribute:: join_group
                     
                     	IP group address and optional source address to include
-                    	**type**\: list of  :py:class:`JoinGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroup>`
+                    	**type**\: list of    :py:class:`JoinGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroup>`
                     
                     .. attribute:: join_group_source_address
                     
                     	IP group address and optional source address to include
-                    	**type**\: list of  :py:class:`JoinGroupSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress>`
+                    	**type**\: list of    :py:class:`JoinGroupSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress>`
                     
                     .. attribute:: _is_presence
                     
@@ -3169,7 +3331,7 @@ class Igmp(object):
                         .. attribute:: mode
                         
                         	Filter mode
-                        	**type**\:  :py:class:`IgmpFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.IgmpFilterEnum>`
+                        	**type**\:   :py:class:`IgmpFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.IgmpFilterEnum>`
                         
                         	**mandatory**\: True
                         
@@ -3257,7 +3419,7 @@ class Igmp(object):
                         .. attribute:: mode
                         
                         	Filter mode
-                        	**type**\:  :py:class:`IgmpFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.IgmpFilterEnum>`
+                        	**type**\:   :py:class:`IgmpFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.IgmpFilterEnum>`
                         
                         	**mandatory**\: True
                         
@@ -3349,32 +3511,32 @@ class Igmp(object):
                     .. attribute:: static_group_group_address
                     
                     	IP group address and optional source address to include
-                    	**type**\: list of  :py:class:`StaticGroupGroupAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress>`
+                    	**type**\: list of    :py:class:`StaticGroupGroupAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress>`
                     
                     .. attribute:: static_group_group_address_group_address_mask
                     
                     	IP group address and optional source address to include
-                    	**type**\: list of  :py:class:`StaticGroupGroupAddressGroupAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask>`
+                    	**type**\: list of    :py:class:`StaticGroupGroupAddressGroupAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask>`
                     
                     .. attribute:: static_group_group_address_group_address_mask_source_address
                     
                     	IP group address and optional source address to include
-                    	**type**\: list of  :py:class:`StaticGroupGroupAddressGroupAddressMaskSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress>`
+                    	**type**\: list of    :py:class:`StaticGroupGroupAddressGroupAddressMaskSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress>`
                     
                     .. attribute:: static_group_group_address_group_address_mask_source_address_source_address_mask
                     
                     	IP group address and optional source address to include
-                    	**type**\: list of  :py:class:`StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask>`
+                    	**type**\: list of    :py:class:`StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask>`
                     
                     .. attribute:: static_group_group_address_source_address
                     
                     	IP group address and optional source address to include
-                    	**type**\: list of  :py:class:`StaticGroupGroupAddressSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress>`
+                    	**type**\: list of    :py:class:`StaticGroupGroupAddressSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress>`
                     
                     .. attribute:: static_group_group_address_source_address_source_address_mask
                     
                     	IP group address and optional source address to include
-                    	**type**\: list of  :py:class:`StaticGroupGroupAddressSourceAddressSourceAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask>`
+                    	**type**\: list of    :py:class:`StaticGroupGroupAddressSourceAddressSourceAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask>`
                     
                     
 
@@ -3434,6 +3596,8 @@ class Igmp(object):
                         
                         	**range:** 1..512
                         
+                        	**default value**\: 1
+                        
                         .. attribute:: source_count
                         
                         	Number of sources to join if mask is present 
@@ -3441,10 +3605,14 @@ class Igmp(object):
                         
                         	**range:** 1..512
                         
+                        	**default value**\: 1
+                        
                         .. attribute:: suppress_report
                         
                         	Suppress reports
                         	**type**\:  bool
+                        
+                        	**default value**\: false
                         
                         
 
@@ -3542,6 +3710,8 @@ class Igmp(object):
                         
                         	**range:** 1..512
                         
+                        	**default value**\: 1
+                        
                         .. attribute:: source_count
                         
                         	Number of sources to join if mask is present 
@@ -3549,10 +3719,14 @@ class Igmp(object):
                         
                         	**range:** 1..512
                         
+                        	**default value**\: 1
+                        
                         .. attribute:: suppress_report
                         
                         	Suppress reports
                         	**type**\:  bool
+                        
+                        	**default value**\: false
                         
                         
 
@@ -3673,6 +3847,8 @@ class Igmp(object):
                         
                         	**range:** 1..512
                         
+                        	**default value**\: 1
+                        
                         .. attribute:: source_count
                         
                         	Number of sources to join if mask is present 
@@ -3680,10 +3856,14 @@ class Igmp(object):
                         
                         	**range:** 1..512
                         
+                        	**default value**\: 1
+                        
                         .. attribute:: suppress_report
                         
                         	Suppress reports
                         	**type**\:  bool
+                        
+                        	**default value**\: false
                         
                         
 
@@ -3793,6 +3973,8 @@ class Igmp(object):
                         
                         	**range:** 1..512
                         
+                        	**default value**\: 1
+                        
                         .. attribute:: source_count
                         
                         	Number of sources to join if mask is present 
@@ -3800,10 +3982,14 @@ class Igmp(object):
                         
                         	**range:** 1..512
                         
+                        	**default value**\: 1
+                        
                         .. attribute:: suppress_report
                         
                         	Suppress reports
                         	**type**\:  bool
+                        
+                        	**default value**\: false
                         
                         
 
@@ -3924,6 +4110,8 @@ class Igmp(object):
                         
                         	**range:** 1..512
                         
+                        	**default value**\: 1
+                        
                         .. attribute:: source_count
                         
                         	Number of sources to join if mask is present 
@@ -3931,10 +4119,14 @@ class Igmp(object):
                         
                         	**range:** 1..512
                         
+                        	**default value**\: 1
+                        
                         .. attribute:: suppress_report
                         
                         	Suppress reports
                         	**type**\:  bool
+                        
+                        	**default value**\: false
                         
                         
 
@@ -4078,6 +4270,8 @@ class Igmp(object):
                         
                         	**range:** 1..512
                         
+                        	**default value**\: 1
+                        
                         .. attribute:: source_count
                         
                         	Number of sources to join if mask is present 
@@ -4085,10 +4279,14 @@ class Igmp(object):
                         
                         	**range:** 1..512
                         
+                        	**default value**\: 1
+                        
                         .. attribute:: suppress_report
                         
                         	Suppress reports
                         	**type**\:  bool
+                        
+                        	**default value**\: false
                         
                         
 
@@ -4226,12 +4424,16 @@ class Igmp(object):
                     
                     	**range:** 1..40000
                     
+                    	**default value**\: 25000
+                    
                     .. attribute:: warning_threshold
                     
                     	 WarningThreshold for number of groups accepted per interface by this router
                     	**type**\:  int
                     
                     	**range:** 1..40000
+                    
+                    	**default value**\: 25000
                     
                     
 
@@ -4574,12 +4776,16 @@ class Amt(object):
     .. attribute:: relay_adv_add
     
     	Configure AMT Relay IPv4 Advertisement Address
-    	**type**\:  :py:class:`RelayAdvAdd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Amt.RelayAdvAdd>`
+    	**type**\:   :py:class:`RelayAdvAdd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Amt.RelayAdvAdd>`
+    
+    	**presence node**\: True
     
     .. attribute:: relay_anycast_prefix
     
     	Configure AMT Relay IPv4 Anycast\-Prefix
-    	**type**\:  :py:class:`RelayAnycastPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Amt.RelayAnycastPrefix>`
+    	**type**\:   :py:class:`RelayAnycastPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Amt.RelayAnycastPrefix>`
+    
+    	**presence node**\: True
     
     
 
@@ -4801,7 +5007,14 @@ class Mld(object):
     .. attribute:: default_context
     
     	Default Context
-    	**type**\:  :py:class:`DefaultContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext>`
+    	**type**\:   :py:class:`DefaultContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext>`
+    
+    	**presence node**\: True
+    
+    .. attribute:: vrfs
+    
+    	VRF related configuration
+    	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs>`
     
     .. attribute:: _is_presence
     
@@ -4820,6 +5033,2306 @@ class Mld(object):
     def __init__(self):
         self._is_presence = True
         self.default_context = None
+        self.vrfs = Mld.Vrfs()
+        self.vrfs.parent = self
+
+
+    class Vrfs(object):
+        """
+        VRF related configuration
+        
+        .. attribute:: vrf
+        
+        	Configuration for a particular vrf
+        	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf>`
+        
+        
+
+        """
+
+        _prefix = 'ipv4-igmp-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.vrf = YList()
+            self.vrf.parent = self
+            self.vrf.name = 'vrf'
+
+
+        class Vrf(object):
+            """
+            Configuration for a particular vrf
+            
+            .. attribute:: vrf_name  <key>
+            
+            	Name for this vrf
+            	**type**\:  str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+            
+            .. attribute:: accounting
+            
+            	Configure IGMP accounting for logging join/leave records
+            	**type**\:   :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Accounting>`
+            
+            .. attribute:: inheritable_defaults
+            
+            	Inheritable Defaults
+            	**type**\:   :py:class:`InheritableDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.InheritableDefaults>`
+            
+            .. attribute:: interfaces
+            
+            	Interface\-level configuration
+            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces>`
+            
+            .. attribute:: maximum
+            
+            	Configure IGMP State Limits
+            	**type**\:   :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Maximum>`
+            
+            .. attribute:: robustness
+            
+            	Configure IGMP Robustness variable
+            	**type**\:  int
+            
+            	**range:** 2..10
+            
+            	**default value**\: 2
+            
+            .. attribute:: ssm_access_groups
+            
+            	IGMP Source specific mode
+            	**type**\:   :py:class:`SsmAccessGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.SsmAccessGroups>`
+            
+            .. attribute:: ssmdns_query_group
+            
+            	Enable SSM mapping using DNS Query
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+            
+            .. attribute:: traffic
+            
+            	Configure IGMP Traffic variables
+            	**type**\:   :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Traffic>`
+            
+            .. attribute:: unicast_qos_adjust
+            
+            	Configure IGMP QoS shapers for subscriber interfaces
+            	**type**\:   :py:class:`UnicastQosAdjust <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.UnicastQosAdjust>`
+            
+            
+
+            """
+
+            _prefix = 'ipv4-igmp-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.vrf_name = None
+                self.accounting = Mld.Vrfs.Vrf.Accounting()
+                self.accounting.parent = self
+                self.inheritable_defaults = Mld.Vrfs.Vrf.InheritableDefaults()
+                self.inheritable_defaults.parent = self
+                self.interfaces = Mld.Vrfs.Vrf.Interfaces()
+                self.interfaces.parent = self
+                self.maximum = Mld.Vrfs.Vrf.Maximum()
+                self.maximum.parent = self
+                self.robustness = None
+                self.ssm_access_groups = Mld.Vrfs.Vrf.SsmAccessGroups()
+                self.ssm_access_groups.parent = self
+                self.ssmdns_query_group = None
+                self.traffic = Mld.Vrfs.Vrf.Traffic()
+                self.traffic.parent = self
+                self.unicast_qos_adjust = Mld.Vrfs.Vrf.UnicastQosAdjust()
+                self.unicast_qos_adjust.parent = self
+
+
+            class Traffic(object):
+                """
+                Configure IGMP Traffic variables
+                
+                .. attribute:: profile
+                
+                	Configure the route\-policy profile
+                	**type**\:  str
+                
+                
+
+                """
+
+                _prefix = 'ipv4-igmp-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.profile = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-cfg:traffic'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.profile is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
+                    return meta._meta_table['Mld.Vrfs.Vrf.Traffic']['meta_info']
+
+
+            class InheritableDefaults(object):
+                """
+                Inheritable Defaults
+                
+                .. attribute:: access_group
+                
+                	Access list specifying access group range
+                	**type**\:  str
+                
+                .. attribute:: explicit_tracking
+                
+                	IGMPv3 explicit host tracking
+                	**type**\:   :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.InheritableDefaults.ExplicitTracking>`
+                
+                	**presence node**\: True
+                
+                .. attribute:: maximum_groups_per_interface_oor
+                
+                	Configure maximum number of groups accepted per interface by this router
+                	**type**\:   :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.InheritableDefaults.MaximumGroupsPerInterfaceOor>`
+                
+                .. attribute:: query_interval
+                
+                	Query interval in seconds
+                	**type**\:  int
+                
+                	**range:** 1..3600
+                
+                	**units**\: second
+                
+                	**default value**\: 60
+                
+                .. attribute:: query_max_response_time
+                
+                	Query response value in seconds
+                	**type**\:  int
+                
+                	**range:** 1..12
+                
+                	**units**\: second
+                
+                	**default value**\: 10
+                
+                .. attribute:: query_timeout
+                
+                	IGMP previous querier timeout
+                	**type**\:  int
+                
+                	**range:** 60..300
+                
+                	**units**\: second
+                
+                .. attribute:: router_enable
+                
+                	Enabled or disabled, when value is TRUE or FALSE respectively
+                	**type**\:  bool
+                
+                	**default value**\: true
+                
+                .. attribute:: version
+                
+                	Version number
+                	**type**\:  int
+                
+                	**range:** 1..3
+                
+                	**default value**\: 3
+                
+                
+
+                """
+
+                _prefix = 'ipv4-igmp-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.access_group = None
+                    self.explicit_tracking = None
+                    self.maximum_groups_per_interface_oor = Mld.Vrfs.Vrf.InheritableDefaults.MaximumGroupsPerInterfaceOor()
+                    self.maximum_groups_per_interface_oor.parent = self
+                    self.query_interval = None
+                    self.query_max_response_time = None
+                    self.query_timeout = None
+                    self.router_enable = None
+                    self.version = None
+
+
+                class MaximumGroupsPerInterfaceOor(object):
+                    """
+                    Configure maximum number of groups accepted per
+                    interface by this router
+                    
+                    .. attribute:: access_list_name
+                    
+                    	Access\-list to account for
+                    	**type**\:  str
+                    
+                    .. attribute:: maximum_groups
+                    
+                    	Maximum number of groups accepted per interface by this router
+                    	**type**\:  int
+                    
+                    	**range:** 1..40000
+                    
+                    	**default value**\: 25000
+                    
+                    .. attribute:: warning_threshold
+                    
+                    	 WarningThreshold for number of groups accepted per interface by this router
+                    	**type**\:  int
+                    
+                    	**range:** 1..40000
+                    
+                    	**default value**\: 25000
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-igmp-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.access_list_name = None
+                        self.maximum_groups = None
+                        self.warning_threshold = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-cfg:maximum-groups-per-interface-oor'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.access_list_name is not None:
+                            return True
+
+                        if self.maximum_groups is not None:
+                            return True
+
+                        if self.warning_threshold is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
+                        return meta._meta_table['Mld.Vrfs.Vrf.InheritableDefaults.MaximumGroupsPerInterfaceOor']['meta_info']
+
+
+                class ExplicitTracking(object):
+                    """
+                    IGMPv3 explicit host tracking
+                    
+                    .. attribute:: access_list_name
+                    
+                    	Access list specifying tracking group range
+                    	**type**\:  str
+                    
+                    .. attribute:: enable
+                    
+                    	Enabled or disabled, when value is TRUE or FALSE respectively
+                    	**type**\:  bool
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: _is_presence
+                    
+                    	Is present if this instance represents presence container else not
+                    	**type**\: bool
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ipv4-igmp-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self._is_presence = True
+                        self.access_list_name = None
+                        self.enable = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-cfg:explicit-tracking'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self._is_presence:
+                            return True
+                        if self.access_list_name is not None:
+                            return True
+
+                        if self.enable is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
+                        return meta._meta_table['Mld.Vrfs.Vrf.InheritableDefaults.ExplicitTracking']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-cfg:inheritable-defaults'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.access_group is not None:
+                        return True
+
+                    if self.explicit_tracking is not None and self.explicit_tracking._has_data():
+                        return True
+
+                    if self.maximum_groups_per_interface_oor is not None and self.maximum_groups_per_interface_oor._has_data():
+                        return True
+
+                    if self.query_interval is not None:
+                        return True
+
+                    if self.query_max_response_time is not None:
+                        return True
+
+                    if self.query_timeout is not None:
+                        return True
+
+                    if self.router_enable is not None:
+                        return True
+
+                    if self.version is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
+                    return meta._meta_table['Mld.Vrfs.Vrf.InheritableDefaults']['meta_info']
+
+
+            class SsmAccessGroups(object):
+                """
+                IGMP Source specific mode
+                
+                .. attribute:: ssm_access_group
+                
+                	SSM static Access Group
+                	**type**\: list of    :py:class:`SsmAccessGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.SsmAccessGroups.SsmAccessGroup>`
+                
+                
+
+                """
+
+                _prefix = 'ipv4-igmp-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.ssm_access_group = YList()
+                    self.ssm_access_group.parent = self
+                    self.ssm_access_group.name = 'ssm_access_group'
+
+
+                class SsmAccessGroup(object):
+                    """
+                    SSM static Access Group
+                    
+                    .. attribute:: source_address  <key>
+                    
+                    	IP source address
+                    	**type**\: one of the below types:
+                    
+                    	**type**\:  str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    
+                    ----
+                    	**type**\:  str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    
+                    ----
+                    .. attribute:: access_list_name
+                    
+                    	Access list specifying access group
+                    	**type**\:  str
+                    
+                    	**mandatory**\: True
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-igmp-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.source_address = None
+                        self.access_list_name = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        if self.source_address is None:
+                            raise YPYModelError('Key property source_address is None')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-cfg:ssm-access-group[Cisco-IOS-XR-ipv4-igmp-cfg:source-address = ' + str(self.source_address) + ']'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.source_address is not None:
+                            return True
+
+                        if self.access_list_name is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
+                        return meta._meta_table['Mld.Vrfs.Vrf.SsmAccessGroups.SsmAccessGroup']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-cfg:ssm-access-groups'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.ssm_access_group is not None:
+                        for child_ref in self.ssm_access_group:
+                            if child_ref._has_data():
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
+                    return meta._meta_table['Mld.Vrfs.Vrf.SsmAccessGroups']['meta_info']
+
+
+            class Maximum(object):
+                """
+                Configure IGMP State Limits
+                
+                .. attribute:: maximum_groups
+                
+                	Configure maximum number of groups accepted by this router
+                	**type**\:  int
+                
+                	**range:** 1..75000
+                
+                	**default value**\: 50000
+                
+                
+
+                """
+
+                _prefix = 'ipv4-igmp-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.maximum_groups = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-cfg:maximum'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.maximum_groups is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
+                    return meta._meta_table['Mld.Vrfs.Vrf.Maximum']['meta_info']
+
+
+            class UnicastQosAdjust(object):
+                """
+                Configure IGMP QoS shapers for subscriber
+                interfaces
+                
+                .. attribute:: adjustment_delay
+                
+                	Configure the QoS delay before programming (in seconds)
+                	**type**\:  int
+                
+                	**range:** 0..10
+                
+                	**units**\: second
+                
+                	**default value**\: 1
+                
+                .. attribute:: download_interval
+                
+                	Configure the QoS download interval (in milliseconds)
+                	**type**\:  int
+                
+                	**range:** 10..500
+                
+                	**units**\: millisecond
+                
+                	**default value**\: 100
+                
+                .. attribute:: hold_off
+                
+                	Configure the QoS hold off time (in seconds)
+                	**type**\:  int
+                
+                	**range:** 5..1800
+                
+                	**units**\: second
+                
+                	**default value**\: 180
+                
+                
+
+                """
+
+                _prefix = 'ipv4-igmp-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.adjustment_delay = None
+                    self.download_interval = None
+                    self.hold_off = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-cfg:unicast-qos-adjust'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.adjustment_delay is not None:
+                        return True
+
+                    if self.download_interval is not None:
+                        return True
+
+                    if self.hold_off is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
+                    return meta._meta_table['Mld.Vrfs.Vrf.UnicastQosAdjust']['meta_info']
+
+
+            class Accounting(object):
+                """
+                Configure IGMP accounting for logging join/leave
+                records
+                
+                .. attribute:: max_history
+                
+                	Configure IGMP accounting Maximum History setting
+                	**type**\:  int
+                
+                	**range:** 0..365
+                
+                	**units**\: day
+                
+                	**default value**\: 0
+                
+                
+
+                """
+
+                _prefix = 'ipv4-igmp-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.max_history = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-cfg:accounting'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.max_history is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
+                    return meta._meta_table['Mld.Vrfs.Vrf.Accounting']['meta_info']
+
+
+            class Interfaces(object):
+                """
+                Interface\-level configuration
+                
+                .. attribute:: interface
+                
+                	The name of the interface
+                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface>`
+                
+                
+
+                """
+
+                _prefix = 'ipv4-igmp-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.interface = YList()
+                    self.interface.parent = self
+                    self.interface.name = 'interface'
+
+
+                class Interface(object):
+                    """
+                    The name of the interface
+                    
+                    .. attribute:: interface_name  <key>
+                    
+                    	Name of the interface
+                    	**type**\:  str
+                    
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    
+                    .. attribute:: access_group
+                    
+                    	Access list specifying access group range
+                    	**type**\:  str
+                    
+                    .. attribute:: explicit_tracking
+                    
+                    	IGMPv3 explicit host tracking
+                    	**type**\:   :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.ExplicitTracking>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: join_groups
+                    
+                    	IGMP join multicast group
+                    	**type**\:   :py:class:`JoinGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: maximum_groups_per_interface_oor
+                    
+                    	Configure maximum number of groups accepted per interface by this router
+                    	**type**\:   :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.MaximumGroupsPerInterfaceOor>`
+                    
+                    .. attribute:: query_interval
+                    
+                    	Query interval in seconds
+                    	**type**\:  int
+                    
+                    	**range:** 1..3600
+                    
+                    	**units**\: second
+                    
+                    	**default value**\: 60
+                    
+                    .. attribute:: query_max_response_time
+                    
+                    	Query response value in seconds
+                    	**type**\:  int
+                    
+                    	**range:** 1..12
+                    
+                    	**units**\: second
+                    
+                    	**default value**\: 10
+                    
+                    .. attribute:: query_timeout
+                    
+                    	IGMP previous querier timeout
+                    	**type**\:  int
+                    
+                    	**range:** 60..300
+                    
+                    	**units**\: second
+                    
+                    .. attribute:: router_enable
+                    
+                    	Enabled or disabled, when value is TRUE or FALSE respectively
+                    	**type**\:  bool
+                    
+                    	**default value**\: true
+                    
+                    .. attribute:: static_group_group_addresses
+                    
+                    	IGMP static multicast group
+                    	**type**\:   :py:class:`StaticGroupGroupAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses>`
+                    
+                    .. attribute:: version
+                    
+                    	Version number
+                    	**type**\:  int
+                    
+                    	**range:** 1..3
+                    
+                    	**default value**\: 3
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv4-igmp-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.interface_name = None
+                        self.access_group = None
+                        self.explicit_tracking = None
+                        self.join_groups = None
+                        self.maximum_groups_per_interface_oor = Mld.Vrfs.Vrf.Interfaces.Interface.MaximumGroupsPerInterfaceOor()
+                        self.maximum_groups_per_interface_oor.parent = self
+                        self.query_interval = None
+                        self.query_max_response_time = None
+                        self.query_timeout = None
+                        self.router_enable = None
+                        self.static_group_group_addresses = Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses()
+                        self.static_group_group_addresses.parent = self
+                        self.version = None
+
+
+                    class JoinGroups(object):
+                        """
+                        IGMP join multicast group
+                        
+                        .. attribute:: join_group
+                        
+                        	IP group address and optional source address to include
+                        	**type**\: list of    :py:class:`JoinGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroup>`
+                        
+                        .. attribute:: join_group_source_address
+                        
+                        	IP group address and optional source address to include
+                        	**type**\: list of    :py:class:`JoinGroupSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress>`
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ipv4-igmp-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self._is_presence = True
+                            self.join_group = YList()
+                            self.join_group.parent = self
+                            self.join_group.name = 'join_group'
+                            self.join_group_source_address = YList()
+                            self.join_group_source_address.parent = self
+                            self.join_group_source_address.name = 'join_group_source_address'
+
+
+                        class JoinGroup(object):
+                            """
+                            IP group address and optional source address
+                            to include
+                            
+                            .. attribute:: group_address  <key>
+                            
+                            	IP group address
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            .. attribute:: mode
+                            
+                            	Filter mode
+                            	**type**\:   :py:class:`IgmpFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.IgmpFilterEnum>`
+                            
+                            	**mandatory**\: True
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv4-igmp-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.group_address = None
+                                self.mode = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.group_address is None:
+                                    raise YPYModelError('Key property group_address is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-cfg:join-group[Cisco-IOS-XR-ipv4-igmp-cfg:group-address = ' + str(self.group_address) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.group_address is not None:
+                                    return True
+
+                                if self.mode is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
+                                return meta._meta_table['Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroup']['meta_info']
+
+
+                        class JoinGroupSourceAddress(object):
+                            """
+                            IP group address and optional source address
+                            to include
+                            
+                            .. attribute:: group_address  <key>
+                            
+                            	IP group address
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            .. attribute:: source_address  <key>
+                            
+                            	IP source address
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            .. attribute:: mode
+                            
+                            	Filter mode
+                            	**type**\:   :py:class:`IgmpFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.IgmpFilterEnum>`
+                            
+                            	**mandatory**\: True
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv4-igmp-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.group_address = None
+                                self.source_address = None
+                                self.mode = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.group_address is None:
+                                    raise YPYModelError('Key property group_address is None')
+                                if self.source_address is None:
+                                    raise YPYModelError('Key property source_address is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-cfg:join-group-source-address[Cisco-IOS-XR-ipv4-igmp-cfg:group-address = ' + str(self.group_address) + '][Cisco-IOS-XR-ipv4-igmp-cfg:source-address = ' + str(self.source_address) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.group_address is not None:
+                                    return True
+
+                                if self.source_address is not None:
+                                    return True
+
+                                if self.mode is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
+                                return meta._meta_table['Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-cfg:join-groups'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self._is_presence:
+                                return True
+                            if self.join_group is not None:
+                                for child_ref in self.join_group:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.join_group_source_address is not None:
+                                for child_ref in self.join_group_source_address:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
+                            return meta._meta_table['Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups']['meta_info']
+
+
+                    class StaticGroupGroupAddresses(object):
+                        """
+                        IGMP static multicast group
+                        
+                        .. attribute:: static_group_group_address
+                        
+                        	IP group address and optional source address to include
+                        	**type**\: list of    :py:class:`StaticGroupGroupAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress>`
+                        
+                        .. attribute:: static_group_group_address_group_address_mask
+                        
+                        	IP group address and optional source address to include
+                        	**type**\: list of    :py:class:`StaticGroupGroupAddressGroupAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask>`
+                        
+                        .. attribute:: static_group_group_address_group_address_mask_source_address
+                        
+                        	IP group address and optional source address to include
+                        	**type**\: list of    :py:class:`StaticGroupGroupAddressGroupAddressMaskSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress>`
+                        
+                        .. attribute:: static_group_group_address_group_address_mask_source_address_source_address_mask
+                        
+                        	IP group address and optional source address to include
+                        	**type**\: list of    :py:class:`StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask>`
+                        
+                        .. attribute:: static_group_group_address_source_address
+                        
+                        	IP group address and optional source address to include
+                        	**type**\: list of    :py:class:`StaticGroupGroupAddressSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress>`
+                        
+                        .. attribute:: static_group_group_address_source_address_source_address_mask
+                        
+                        	IP group address and optional source address to include
+                        	**type**\: list of    :py:class:`StaticGroupGroupAddressSourceAddressSourceAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv4-igmp-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.static_group_group_address = YList()
+                            self.static_group_group_address.parent = self
+                            self.static_group_group_address.name = 'static_group_group_address'
+                            self.static_group_group_address_group_address_mask = YList()
+                            self.static_group_group_address_group_address_mask.parent = self
+                            self.static_group_group_address_group_address_mask.name = 'static_group_group_address_group_address_mask'
+                            self.static_group_group_address_group_address_mask_source_address = YList()
+                            self.static_group_group_address_group_address_mask_source_address.parent = self
+                            self.static_group_group_address_group_address_mask_source_address.name = 'static_group_group_address_group_address_mask_source_address'
+                            self.static_group_group_address_group_address_mask_source_address_source_address_mask = YList()
+                            self.static_group_group_address_group_address_mask_source_address_source_address_mask.parent = self
+                            self.static_group_group_address_group_address_mask_source_address_source_address_mask.name = 'static_group_group_address_group_address_mask_source_address_source_address_mask'
+                            self.static_group_group_address_source_address = YList()
+                            self.static_group_group_address_source_address.parent = self
+                            self.static_group_group_address_source_address.name = 'static_group_group_address_source_address'
+                            self.static_group_group_address_source_address_source_address_mask = YList()
+                            self.static_group_group_address_source_address_source_address_mask.parent = self
+                            self.static_group_group_address_source_address_source_address_mask.name = 'static_group_group_address_source_address_source_address_mask'
+
+
+                        class StaticGroupGroupAddress(object):
+                            """
+                            IP group address and optional source address
+                            to include
+                            
+                            .. attribute:: group_address  <key>
+                            
+                            	IP group address
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            .. attribute:: group_count
+                            
+                            	Number of groups to join if mask is present
+                            	**type**\:  int
+                            
+                            	**range:** 1..512
+                            
+                            	**default value**\: 1
+                            
+                            .. attribute:: source_count
+                            
+                            	Number of sources to join if mask is present 
+                            	**type**\:  int
+                            
+                            	**range:** 1..512
+                            
+                            	**default value**\: 1
+                            
+                            .. attribute:: suppress_report
+                            
+                            	Suppress reports
+                            	**type**\:  bool
+                            
+                            	**default value**\: false
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv4-igmp-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.group_address = None
+                                self.group_count = None
+                                self.source_count = None
+                                self.suppress_report = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.group_address is None:
+                                    raise YPYModelError('Key property group_address is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-cfg:static-group-group-address[Cisco-IOS-XR-ipv4-igmp-cfg:group-address = ' + str(self.group_address) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.group_address is not None:
+                                    return True
+
+                                if self.group_count is not None:
+                                    return True
+
+                                if self.source_count is not None:
+                                    return True
+
+                                if self.suppress_report is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
+                                return meta._meta_table['Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress']['meta_info']
+
+
+                        class StaticGroupGroupAddressSourceAddress(object):
+                            """
+                            IP group address and optional source address
+                            to include
+                            
+                            .. attribute:: group_address  <key>
+                            
+                            	IP group address
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            .. attribute:: source_address  <key>
+                            
+                            	IP source address
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            .. attribute:: group_count
+                            
+                            	Number of groups to join if mask is present
+                            	**type**\:  int
+                            
+                            	**range:** 1..512
+                            
+                            	**default value**\: 1
+                            
+                            .. attribute:: source_count
+                            
+                            	Number of sources to join if mask is present 
+                            	**type**\:  int
+                            
+                            	**range:** 1..512
+                            
+                            	**default value**\: 1
+                            
+                            .. attribute:: suppress_report
+                            
+                            	Suppress reports
+                            	**type**\:  bool
+                            
+                            	**default value**\: false
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv4-igmp-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.group_address = None
+                                self.source_address = None
+                                self.group_count = None
+                                self.source_count = None
+                                self.suppress_report = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.group_address is None:
+                                    raise YPYModelError('Key property group_address is None')
+                                if self.source_address is None:
+                                    raise YPYModelError('Key property source_address is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-cfg:static-group-group-address-source-address[Cisco-IOS-XR-ipv4-igmp-cfg:group-address = ' + str(self.group_address) + '][Cisco-IOS-XR-ipv4-igmp-cfg:source-address = ' + str(self.source_address) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.group_address is not None:
+                                    return True
+
+                                if self.source_address is not None:
+                                    return True
+
+                                if self.group_count is not None:
+                                    return True
+
+                                if self.source_count is not None:
+                                    return True
+
+                                if self.suppress_report is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
+                                return meta._meta_table['Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress']['meta_info']
+
+
+                        class StaticGroupGroupAddressSourceAddressSourceAddressMask(object):
+                            """
+                            IP group address and optional source address
+                            to include
+                            
+                            .. attribute:: group_address  <key>
+                            
+                            	IP group address
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            .. attribute:: source_address  <key>
+                            
+                            	IP source address
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            .. attribute:: source_address_mask  <key>
+                            
+                            	Mask for Source Address
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            .. attribute:: group_count
+                            
+                            	Number of groups to join if mask is present
+                            	**type**\:  int
+                            
+                            	**range:** 1..512
+                            
+                            	**default value**\: 1
+                            
+                            .. attribute:: source_count
+                            
+                            	Number of sources to join if mask is present 
+                            	**type**\:  int
+                            
+                            	**range:** 1..512
+                            
+                            	**default value**\: 1
+                            
+                            .. attribute:: suppress_report
+                            
+                            	Suppress reports
+                            	**type**\:  bool
+                            
+                            	**default value**\: false
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv4-igmp-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.group_address = None
+                                self.source_address = None
+                                self.source_address_mask = None
+                                self.group_count = None
+                                self.source_count = None
+                                self.suppress_report = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.group_address is None:
+                                    raise YPYModelError('Key property group_address is None')
+                                if self.source_address is None:
+                                    raise YPYModelError('Key property source_address is None')
+                                if self.source_address_mask is None:
+                                    raise YPYModelError('Key property source_address_mask is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-cfg:static-group-group-address-source-address-source-address-mask[Cisco-IOS-XR-ipv4-igmp-cfg:group-address = ' + str(self.group_address) + '][Cisco-IOS-XR-ipv4-igmp-cfg:source-address = ' + str(self.source_address) + '][Cisco-IOS-XR-ipv4-igmp-cfg:source-address-mask = ' + str(self.source_address_mask) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.group_address is not None:
+                                    return True
+
+                                if self.source_address is not None:
+                                    return True
+
+                                if self.source_address_mask is not None:
+                                    return True
+
+                                if self.group_count is not None:
+                                    return True
+
+                                if self.source_count is not None:
+                                    return True
+
+                                if self.suppress_report is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
+                                return meta._meta_table['Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask']['meta_info']
+
+
+                        class StaticGroupGroupAddressGroupAddressMask(object):
+                            """
+                            IP group address and optional source address
+                            to include
+                            
+                            .. attribute:: group_address  <key>
+                            
+                            	IP group address
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            .. attribute:: group_address_mask  <key>
+                            
+                            	Mask for Group Address
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            .. attribute:: group_count
+                            
+                            	Number of groups to join if mask is present
+                            	**type**\:  int
+                            
+                            	**range:** 1..512
+                            
+                            	**default value**\: 1
+                            
+                            .. attribute:: source_count
+                            
+                            	Number of sources to join if mask is present 
+                            	**type**\:  int
+                            
+                            	**range:** 1..512
+                            
+                            	**default value**\: 1
+                            
+                            .. attribute:: suppress_report
+                            
+                            	Suppress reports
+                            	**type**\:  bool
+                            
+                            	**default value**\: false
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv4-igmp-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.group_address = None
+                                self.group_address_mask = None
+                                self.group_count = None
+                                self.source_count = None
+                                self.suppress_report = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.group_address is None:
+                                    raise YPYModelError('Key property group_address is None')
+                                if self.group_address_mask is None:
+                                    raise YPYModelError('Key property group_address_mask is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-cfg:static-group-group-address-group-address-mask[Cisco-IOS-XR-ipv4-igmp-cfg:group-address = ' + str(self.group_address) + '][Cisco-IOS-XR-ipv4-igmp-cfg:group-address-mask = ' + str(self.group_address_mask) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.group_address is not None:
+                                    return True
+
+                                if self.group_address_mask is not None:
+                                    return True
+
+                                if self.group_count is not None:
+                                    return True
+
+                                if self.source_count is not None:
+                                    return True
+
+                                if self.suppress_report is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
+                                return meta._meta_table['Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask']['meta_info']
+
+
+                        class StaticGroupGroupAddressGroupAddressMaskSourceAddress(object):
+                            """
+                            IP group address and optional source address
+                            to include
+                            
+                            .. attribute:: group_address  <key>
+                            
+                            	IP group address
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            .. attribute:: group_address_mask  <key>
+                            
+                            	Mask for Group Address
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            .. attribute:: source_address  <key>
+                            
+                            	IP source address
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            .. attribute:: group_count
+                            
+                            	Number of groups to join if mask is present
+                            	**type**\:  int
+                            
+                            	**range:** 1..512
+                            
+                            	**default value**\: 1
+                            
+                            .. attribute:: source_count
+                            
+                            	Number of sources to join if mask is present 
+                            	**type**\:  int
+                            
+                            	**range:** 1..512
+                            
+                            	**default value**\: 1
+                            
+                            .. attribute:: suppress_report
+                            
+                            	Suppress reports
+                            	**type**\:  bool
+                            
+                            	**default value**\: false
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv4-igmp-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.group_address = None
+                                self.group_address_mask = None
+                                self.source_address = None
+                                self.group_count = None
+                                self.source_count = None
+                                self.suppress_report = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.group_address is None:
+                                    raise YPYModelError('Key property group_address is None')
+                                if self.group_address_mask is None:
+                                    raise YPYModelError('Key property group_address_mask is None')
+                                if self.source_address is None:
+                                    raise YPYModelError('Key property source_address is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-cfg:static-group-group-address-group-address-mask-source-address[Cisco-IOS-XR-ipv4-igmp-cfg:group-address = ' + str(self.group_address) + '][Cisco-IOS-XR-ipv4-igmp-cfg:group-address-mask = ' + str(self.group_address_mask) + '][Cisco-IOS-XR-ipv4-igmp-cfg:source-address = ' + str(self.source_address) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.group_address is not None:
+                                    return True
+
+                                if self.group_address_mask is not None:
+                                    return True
+
+                                if self.source_address is not None:
+                                    return True
+
+                                if self.group_count is not None:
+                                    return True
+
+                                if self.source_count is not None:
+                                    return True
+
+                                if self.suppress_report is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
+                                return meta._meta_table['Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress']['meta_info']
+
+
+                        class StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask(object):
+                            """
+                            IP group address and optional source address
+                            to include
+                            
+                            .. attribute:: group_address  <key>
+                            
+                            	IP group address
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            .. attribute:: group_address_mask  <key>
+                            
+                            	Mask for Group Address
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            .. attribute:: source_address  <key>
+                            
+                            	IP source address
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            .. attribute:: source_address_mask  <key>
+                            
+                            	Mask for Source Address
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            
+                            ----
+                            .. attribute:: group_count
+                            
+                            	Number of groups to join if mask is present
+                            	**type**\:  int
+                            
+                            	**range:** 1..512
+                            
+                            	**default value**\: 1
+                            
+                            .. attribute:: source_count
+                            
+                            	Number of sources to join if mask is present 
+                            	**type**\:  int
+                            
+                            	**range:** 1..512
+                            
+                            	**default value**\: 1
+                            
+                            .. attribute:: suppress_report
+                            
+                            	Suppress reports
+                            	**type**\:  bool
+                            
+                            	**default value**\: false
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv4-igmp-cfg'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.group_address = None
+                                self.group_address_mask = None
+                                self.source_address = None
+                                self.source_address_mask = None
+                                self.group_count = None
+                                self.source_count = None
+                                self.suppress_report = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.group_address is None:
+                                    raise YPYModelError('Key property group_address is None')
+                                if self.group_address_mask is None:
+                                    raise YPYModelError('Key property group_address_mask is None')
+                                if self.source_address is None:
+                                    raise YPYModelError('Key property source_address is None')
+                                if self.source_address_mask is None:
+                                    raise YPYModelError('Key property source_address_mask is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-cfg:static-group-group-address-group-address-mask-source-address-source-address-mask[Cisco-IOS-XR-ipv4-igmp-cfg:group-address = ' + str(self.group_address) + '][Cisco-IOS-XR-ipv4-igmp-cfg:group-address-mask = ' + str(self.group_address_mask) + '][Cisco-IOS-XR-ipv4-igmp-cfg:source-address = ' + str(self.source_address) + '][Cisco-IOS-XR-ipv4-igmp-cfg:source-address-mask = ' + str(self.source_address_mask) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return True
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.group_address is not None:
+                                    return True
+
+                                if self.group_address_mask is not None:
+                                    return True
+
+                                if self.source_address is not None:
+                                    return True
+
+                                if self.source_address_mask is not None:
+                                    return True
+
+                                if self.group_count is not None:
+                                    return True
+
+                                if self.source_count is not None:
+                                    return True
+
+                                if self.suppress_report is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
+                                return meta._meta_table['Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-cfg:static-group-group-addresses'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.static_group_group_address is not None:
+                                for child_ref in self.static_group_group_address:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.static_group_group_address_group_address_mask is not None:
+                                for child_ref in self.static_group_group_address_group_address_mask:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.static_group_group_address_group_address_mask_source_address is not None:
+                                for child_ref in self.static_group_group_address_group_address_mask_source_address:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.static_group_group_address_group_address_mask_source_address_source_address_mask is not None:
+                                for child_ref in self.static_group_group_address_group_address_mask_source_address_source_address_mask:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.static_group_group_address_source_address is not None:
+                                for child_ref in self.static_group_group_address_source_address:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.static_group_group_address_source_address_source_address_mask is not None:
+                                for child_ref in self.static_group_group_address_source_address_source_address_mask:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
+                            return meta._meta_table['Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses']['meta_info']
+
+
+                    class MaximumGroupsPerInterfaceOor(object):
+                        """
+                        Configure maximum number of groups accepted per
+                        interface by this router
+                        
+                        .. attribute:: access_list_name
+                        
+                        	Access\-list to account for
+                        	**type**\:  str
+                        
+                        .. attribute:: maximum_groups
+                        
+                        	Maximum number of groups accepted per interface by this router
+                        	**type**\:  int
+                        
+                        	**range:** 1..40000
+                        
+                        	**default value**\: 25000
+                        
+                        .. attribute:: warning_threshold
+                        
+                        	 WarningThreshold for number of groups accepted per interface by this router
+                        	**type**\:  int
+                        
+                        	**range:** 1..40000
+                        
+                        	**default value**\: 25000
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv4-igmp-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.access_list_name = None
+                            self.maximum_groups = None
+                            self.warning_threshold = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-cfg:maximum-groups-per-interface-oor'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.access_list_name is not None:
+                                return True
+
+                            if self.maximum_groups is not None:
+                                return True
+
+                            if self.warning_threshold is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
+                            return meta._meta_table['Mld.Vrfs.Vrf.Interfaces.Interface.MaximumGroupsPerInterfaceOor']['meta_info']
+
+
+                    class ExplicitTracking(object):
+                        """
+                        IGMPv3 explicit host tracking
+                        
+                        .. attribute:: access_list_name
+                        
+                        	Access list specifying tracking group range
+                        	**type**\:  str
+                        
+                        .. attribute:: enable
+                        
+                        	Enabled or disabled, when value is TRUE or FALSE respectively
+                        	**type**\:  bool
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ipv4-igmp-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self._is_presence = True
+                            self.access_list_name = None
+                            self.enable = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-cfg:explicit-tracking'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self._is_presence:
+                                return True
+                            if self.access_list_name is not None:
+                                return True
+
+                            if self.enable is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
+                            return meta._meta_table['Mld.Vrfs.Vrf.Interfaces.Interface.ExplicitTracking']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        if self.interface_name is None:
+                            raise YPYModelError('Key property interface_name is None')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-cfg:interface[Cisco-IOS-XR-ipv4-igmp-cfg:interface-name = ' + str(self.interface_name) + ']'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.interface_name is not None:
+                            return True
+
+                        if self.access_group is not None:
+                            return True
+
+                        if self.explicit_tracking is not None and self.explicit_tracking._has_data():
+                            return True
+
+                        if self.join_groups is not None and self.join_groups._has_data():
+                            return True
+
+                        if self.maximum_groups_per_interface_oor is not None and self.maximum_groups_per_interface_oor._has_data():
+                            return True
+
+                        if self.query_interval is not None:
+                            return True
+
+                        if self.query_max_response_time is not None:
+                            return True
+
+                        if self.query_timeout is not None:
+                            return True
+
+                        if self.router_enable is not None:
+                            return True
+
+                        if self.static_group_group_addresses is not None and self.static_group_group_addresses._has_data():
+                            return True
+
+                        if self.version is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
+                        return meta._meta_table['Mld.Vrfs.Vrf.Interfaces.Interface']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-ipv4-igmp-cfg:interfaces'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.interface is not None:
+                        for child_ref in self.interface:
+                            if child_ref._has_data():
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
+                    return meta._meta_table['Mld.Vrfs.Vrf.Interfaces']['meta_info']
+
+            @property
+            def _common_path(self):
+                if self.vrf_name is None:
+                    raise YPYModelError('Key property vrf_name is None')
+
+                return '/Cisco-IOS-XR-ipv4-igmp-cfg:mld/Cisco-IOS-XR-ipv4-igmp-cfg:vrfs/Cisco-IOS-XR-ipv4-igmp-cfg:vrf[Cisco-IOS-XR-ipv4-igmp-cfg:vrf-name = ' + str(self.vrf_name) + ']'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.vrf_name is not None:
+                    return True
+
+                if self.accounting is not None and self.accounting._has_data():
+                    return True
+
+                if self.inheritable_defaults is not None and self.inheritable_defaults._has_data():
+                    return True
+
+                if self.interfaces is not None and self.interfaces._has_data():
+                    return True
+
+                if self.maximum is not None and self.maximum._has_data():
+                    return True
+
+                if self.robustness is not None:
+                    return True
+
+                if self.ssm_access_groups is not None and self.ssm_access_groups._has_data():
+                    return True
+
+                if self.ssmdns_query_group is not None:
+                    return True
+
+                if self.traffic is not None and self.traffic._has_data():
+                    return True
+
+                if self.unicast_qos_adjust is not None and self.unicast_qos_adjust._has_data():
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
+                return meta._meta_table['Mld.Vrfs.Vrf']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-ipv4-igmp-cfg:mld/Cisco-IOS-XR-ipv4-igmp-cfg:vrfs'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return True
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.vrf is not None:
+                for child_ref in self.vrf:
+                    if child_ref._has_data():
+                        return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_igmp_cfg as meta
+            return meta._meta_table['Mld.Vrfs']['meta_info']
 
 
     class DefaultContext(object):
@@ -4829,27 +7342,27 @@ class Mld(object):
         .. attribute:: accounting
         
         	Configure IGMP accounting for logging join/leave records
-        	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Accounting>`
+        	**type**\:   :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Accounting>`
         
         .. attribute:: inheritable_defaults
         
         	Inheritable Defaults
-        	**type**\:  :py:class:`InheritableDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.InheritableDefaults>`
+        	**type**\:   :py:class:`InheritableDefaults <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.InheritableDefaults>`
         
         .. attribute:: interfaces
         
         	Interface\-level configuration
-        	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces>`
+        	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces>`
         
         .. attribute:: maximum
         
         	Configure IGMP State Limits
-        	**type**\:  :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Maximum>`
+        	**type**\:   :py:class:`Maximum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Maximum>`
         
         .. attribute:: nsf
         
         	Configure NSF specific options
-        	**type**\:  :py:class:`Nsf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Nsf>`
+        	**type**\:   :py:class:`Nsf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Nsf>`
         
         .. attribute:: robustness
         
@@ -4858,25 +7371,27 @@ class Mld(object):
         
         	**range:** 2..10
         
+        	**default value**\: 2
+        
         .. attribute:: ssm_access_groups
         
         	IGMP Source specific mode
-        	**type**\:  :py:class:`SsmAccessGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.SsmAccessGroups>`
+        	**type**\:   :py:class:`SsmAccessGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.SsmAccessGroups>`
         
         .. attribute:: ssmdns_query_group
         
         	Enable SSM mapping using DNS Query
-        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: traffic
         
         	Configure IGMP Traffic variables
-        	**type**\:  :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Traffic>`
+        	**type**\:   :py:class:`Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Traffic>`
         
         .. attribute:: unicast_qos_adjust
         
         	Configure IGMP QoS shapers for subscriber interfaces
-        	**type**\:  :py:class:`UnicastQosAdjust <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.UnicastQosAdjust>`
+        	**type**\:   :py:class:`UnicastQosAdjust <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.UnicastQosAdjust>`
         
         .. attribute:: _is_presence
         
@@ -4925,6 +7440,10 @@ class Mld(object):
             	**type**\:  int
             
             	**range:** 10..3600
+            
+            	**units**\: second
+            
+            	**default value**\: 60
             
             
 
@@ -5015,12 +7534,14 @@ class Mld(object):
             .. attribute:: explicit_tracking
             
             	IGMPv3 explicit host tracking
-            	**type**\:  :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.InheritableDefaults.ExplicitTracking>`
+            	**type**\:   :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.InheritableDefaults.ExplicitTracking>`
+            
+            	**presence node**\: True
             
             .. attribute:: maximum_groups_per_interface_oor
             
             	Configure maximum number of groups accepted per interface by this router
-            	**type**\:  :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.InheritableDefaults.MaximumGroupsPerInterfaceOor>`
+            	**type**\:   :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.InheritableDefaults.MaximumGroupsPerInterfaceOor>`
             
             .. attribute:: query_interval
             
@@ -5029,12 +7550,20 @@ class Mld(object):
             
             	**range:** 1..3600
             
+            	**units**\: second
+            
+            	**default value**\: 60
+            
             .. attribute:: query_max_response_time
             
             	Query response value in seconds
             	**type**\:  int
             
             	**range:** 1..12
+            
+            	**units**\: second
+            
+            	**default value**\: 10
             
             .. attribute:: query_timeout
             
@@ -5043,10 +7572,14 @@ class Mld(object):
             
             	**range:** 60..300
             
+            	**units**\: second
+            
             .. attribute:: router_enable
             
             	Enabled or disabled, when value is TRUE or FALSE respectively
             	**type**\:  bool
+            
+            	**default value**\: true
             
             .. attribute:: version
             
@@ -5054,6 +7587,8 @@ class Mld(object):
             	**type**\:  int
             
             	**range:** 1..3
+            
+            	**default value**\: 3
             
             
 
@@ -5092,12 +7627,16 @@ class Mld(object):
                 
                 	**range:** 1..40000
                 
+                	**default value**\: 25000
+                
                 .. attribute:: warning_threshold
                 
                 	 WarningThreshold for number of groups accepted per interface by this router
                 	**type**\:  int
                 
                 	**range:** 1..40000
+                
+                	**default value**\: 25000
                 
                 
 
@@ -5255,7 +7794,7 @@ class Mld(object):
             .. attribute:: ssm_access_group
             
             	SSM static Access Group
-            	**type**\: list of  :py:class:`SsmAccessGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.SsmAccessGroups.SsmAccessGroup>`
+            	**type**\: list of    :py:class:`SsmAccessGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.SsmAccessGroups.SsmAccessGroup>`
             
             
 
@@ -5374,6 +7913,8 @@ class Mld(object):
             
             	**range:** 1..75000
             
+            	**default value**\: 50000
+            
             
 
             """
@@ -5420,6 +7961,10 @@ class Mld(object):
             
             	**range:** 0..10
             
+            	**units**\: second
+            
+            	**default value**\: 1
+            
             .. attribute:: download_interval
             
             	Configure the QoS download interval (in milliseconds)
@@ -5427,12 +7972,20 @@ class Mld(object):
             
             	**range:** 10..500
             
+            	**units**\: millisecond
+            
+            	**default value**\: 100
+            
             .. attribute:: hold_off
             
             	Configure the QoS hold off time (in seconds)
             	**type**\:  int
             
             	**range:** 5..1800
+            
+            	**units**\: second
+            
+            	**default value**\: 180
             
             
 
@@ -5488,6 +8041,10 @@ class Mld(object):
             
             	**range:** 0..365
             
+            	**units**\: day
+            
+            	**default value**\: 0
+            
             
 
             """
@@ -5529,7 +8086,7 @@ class Mld(object):
             .. attribute:: interface
             
             	The name of the interface
-            	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface>`
+            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface>`
             
             
 
@@ -5564,17 +8121,21 @@ class Mld(object):
                 .. attribute:: explicit_tracking
                 
                 	IGMPv3 explicit host tracking
-                	**type**\:  :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.ExplicitTracking>`
+                	**type**\:   :py:class:`ExplicitTracking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.ExplicitTracking>`
+                
+                	**presence node**\: True
                 
                 .. attribute:: join_groups
                 
                 	IGMP join multicast group
-                	**type**\:  :py:class:`JoinGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.JoinGroups>`
+                	**type**\:   :py:class:`JoinGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.JoinGroups>`
+                
+                	**presence node**\: True
                 
                 .. attribute:: maximum_groups_per_interface_oor
                 
                 	Configure maximum number of groups accepted per interface by this router
-                	**type**\:  :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.MaximumGroupsPerInterfaceOor>`
+                	**type**\:   :py:class:`MaximumGroupsPerInterfaceOor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.MaximumGroupsPerInterfaceOor>`
                 
                 .. attribute:: query_interval
                 
@@ -5583,12 +8144,20 @@ class Mld(object):
                 
                 	**range:** 1..3600
                 
+                	**units**\: second
+                
+                	**default value**\: 60
+                
                 .. attribute:: query_max_response_time
                 
                 	Query response value in seconds
                 	**type**\:  int
                 
                 	**range:** 1..12
+                
+                	**units**\: second
+                
+                	**default value**\: 10
                 
                 .. attribute:: query_timeout
                 
@@ -5597,15 +8166,19 @@ class Mld(object):
                 
                 	**range:** 60..300
                 
+                	**units**\: second
+                
                 .. attribute:: router_enable
                 
                 	Enabled or disabled, when value is TRUE or FALSE respectively
                 	**type**\:  bool
                 
+                	**default value**\: true
+                
                 .. attribute:: static_group_group_addresses
                 
                 	IGMP static multicast group
-                	**type**\:  :py:class:`StaticGroupGroupAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses>`
+                	**type**\:   :py:class:`StaticGroupGroupAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses>`
                 
                 .. attribute:: version
                 
@@ -5613,6 +8186,8 @@ class Mld(object):
                 	**type**\:  int
                 
                 	**range:** 1..3
+                
+                	**default value**\: 3
                 
                 
 
@@ -5645,12 +8220,12 @@ class Mld(object):
                     .. attribute:: join_group
                     
                     	IP group address and optional source address to include
-                    	**type**\: list of  :py:class:`JoinGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroup>`
+                    	**type**\: list of    :py:class:`JoinGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroup>`
                     
                     .. attribute:: join_group_source_address
                     
                     	IP group address and optional source address to include
-                    	**type**\: list of  :py:class:`JoinGroupSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress>`
+                    	**type**\: list of    :py:class:`JoinGroupSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress>`
                     
                     .. attribute:: _is_presence
                     
@@ -5702,7 +8277,7 @@ class Mld(object):
                         .. attribute:: mode
                         
                         	Filter mode
-                        	**type**\:  :py:class:`IgmpFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.IgmpFilterEnum>`
+                        	**type**\:   :py:class:`IgmpFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.IgmpFilterEnum>`
                         
                         	**mandatory**\: True
                         
@@ -5790,7 +8365,7 @@ class Mld(object):
                         .. attribute:: mode
                         
                         	Filter mode
-                        	**type**\:  :py:class:`IgmpFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.IgmpFilterEnum>`
+                        	**type**\:   :py:class:`IgmpFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.IgmpFilterEnum>`
                         
                         	**mandatory**\: True
                         
@@ -5882,32 +8457,32 @@ class Mld(object):
                     .. attribute:: static_group_group_address
                     
                     	IP group address and optional source address to include
-                    	**type**\: list of  :py:class:`StaticGroupGroupAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress>`
+                    	**type**\: list of    :py:class:`StaticGroupGroupAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress>`
                     
                     .. attribute:: static_group_group_address_group_address_mask
                     
                     	IP group address and optional source address to include
-                    	**type**\: list of  :py:class:`StaticGroupGroupAddressGroupAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask>`
+                    	**type**\: list of    :py:class:`StaticGroupGroupAddressGroupAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask>`
                     
                     .. attribute:: static_group_group_address_group_address_mask_source_address
                     
                     	IP group address and optional source address to include
-                    	**type**\: list of  :py:class:`StaticGroupGroupAddressGroupAddressMaskSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress>`
+                    	**type**\: list of    :py:class:`StaticGroupGroupAddressGroupAddressMaskSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress>`
                     
                     .. attribute:: static_group_group_address_group_address_mask_source_address_source_address_mask
                     
                     	IP group address and optional source address to include
-                    	**type**\: list of  :py:class:`StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask>`
+                    	**type**\: list of    :py:class:`StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask>`
                     
                     .. attribute:: static_group_group_address_source_address
                     
                     	IP group address and optional source address to include
-                    	**type**\: list of  :py:class:`StaticGroupGroupAddressSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress>`
+                    	**type**\: list of    :py:class:`StaticGroupGroupAddressSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress>`
                     
                     .. attribute:: static_group_group_address_source_address_source_address_mask
                     
                     	IP group address and optional source address to include
-                    	**type**\: list of  :py:class:`StaticGroupGroupAddressSourceAddressSourceAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask>`
+                    	**type**\: list of    :py:class:`StaticGroupGroupAddressSourceAddressSourceAddressMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg.Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask>`
                     
                     
 
@@ -5967,6 +8542,8 @@ class Mld(object):
                         
                         	**range:** 1..512
                         
+                        	**default value**\: 1
+                        
                         .. attribute:: source_count
                         
                         	Number of sources to join if mask is present 
@@ -5974,10 +8551,14 @@ class Mld(object):
                         
                         	**range:** 1..512
                         
+                        	**default value**\: 1
+                        
                         .. attribute:: suppress_report
                         
                         	Suppress reports
                         	**type**\:  bool
+                        
+                        	**default value**\: false
                         
                         
 
@@ -6075,6 +8656,8 @@ class Mld(object):
                         
                         	**range:** 1..512
                         
+                        	**default value**\: 1
+                        
                         .. attribute:: source_count
                         
                         	Number of sources to join if mask is present 
@@ -6082,10 +8665,14 @@ class Mld(object):
                         
                         	**range:** 1..512
                         
+                        	**default value**\: 1
+                        
                         .. attribute:: suppress_report
                         
                         	Suppress reports
                         	**type**\:  bool
+                        
+                        	**default value**\: false
                         
                         
 
@@ -6206,6 +8793,8 @@ class Mld(object):
                         
                         	**range:** 1..512
                         
+                        	**default value**\: 1
+                        
                         .. attribute:: source_count
                         
                         	Number of sources to join if mask is present 
@@ -6213,10 +8802,14 @@ class Mld(object):
                         
                         	**range:** 1..512
                         
+                        	**default value**\: 1
+                        
                         .. attribute:: suppress_report
                         
                         	Suppress reports
                         	**type**\:  bool
+                        
+                        	**default value**\: false
                         
                         
 
@@ -6326,6 +8919,8 @@ class Mld(object):
                         
                         	**range:** 1..512
                         
+                        	**default value**\: 1
+                        
                         .. attribute:: source_count
                         
                         	Number of sources to join if mask is present 
@@ -6333,10 +8928,14 @@ class Mld(object):
                         
                         	**range:** 1..512
                         
+                        	**default value**\: 1
+                        
                         .. attribute:: suppress_report
                         
                         	Suppress reports
                         	**type**\:  bool
+                        
+                        	**default value**\: false
                         
                         
 
@@ -6457,6 +9056,8 @@ class Mld(object):
                         
                         	**range:** 1..512
                         
+                        	**default value**\: 1
+                        
                         .. attribute:: source_count
                         
                         	Number of sources to join if mask is present 
@@ -6464,10 +9065,14 @@ class Mld(object):
                         
                         	**range:** 1..512
                         
+                        	**default value**\: 1
+                        
                         .. attribute:: suppress_report
                         
                         	Suppress reports
                         	**type**\:  bool
+                        
+                        	**default value**\: false
                         
                         
 
@@ -6611,6 +9216,8 @@ class Mld(object):
                         
                         	**range:** 1..512
                         
+                        	**default value**\: 1
+                        
                         .. attribute:: source_count
                         
                         	Number of sources to join if mask is present 
@@ -6618,10 +9225,14 @@ class Mld(object):
                         
                         	**range:** 1..512
                         
+                        	**default value**\: 1
+                        
                         .. attribute:: suppress_report
                         
                         	Suppress reports
                         	**type**\:  bool
+                        
+                        	**default value**\: false
                         
                         
 
@@ -6759,12 +9370,16 @@ class Mld(object):
                     
                     	**range:** 1..40000
                     
+                    	**default value**\: 25000
+                    
                     .. attribute:: warning_threshold
                     
                     	 WarningThreshold for number of groups accepted per interface by this router
                     	**type**\:  int
                     
                     	**range:** 1..40000
+                    
+                    	**default value**\: 25000
                     
                     
 
@@ -7019,6 +9634,9 @@ class Mld(object):
         if self._is_presence:
             return True
         if self.default_context is not None and self.default_context._has_data():
+            return True
+
+        if self.vrfs is not None and self.vrfs._has_data():
             return True
 
         return False

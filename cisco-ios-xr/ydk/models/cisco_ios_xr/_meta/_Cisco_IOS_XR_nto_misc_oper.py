@@ -85,10 +85,39 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_nto_misc_oper'
         ),
     },
+    'MemorySummary.Nodes.Node.Detail.SharedWindow' : {
+        'meta_info' : _MetaInfoClass('MemorySummary.Nodes.Node.Detail.SharedWindow',
+            False, 
+            [
+            _MetaInfoClassMember('shared-window', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of shared window
+                ''',
+                'shared_window',
+                'Cisco-IOS-XR-nto-misc-oper', False),
+            _MetaInfoClassMember('window-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Size of shared window
+                ''',
+                'window_size',
+                'Cisco-IOS-XR-nto-misc-oper', False),
+            ],
+            'Cisco-IOS-XR-nto-misc-oper',
+            'shared-window',
+            _yang_ns._namespaces['Cisco-IOS-XR-nto-misc-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_nto_misc_oper'
+        ),
+    },
     'MemorySummary.Nodes.Node.Detail' : {
         'meta_info' : _MetaInfoClass('MemorySummary.Nodes.Node.Detail',
             False, 
             [
+            _MetaInfoClassMember('allocated-memory', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Allocated Memory Size
+                ''',
+                'allocated_memory',
+                'Cisco-IOS-XR-nto-misc-oper', False),
             _MetaInfoClassMember('boot-ram-size', ATTRIBUTE, 'int' , None, None, 
                 [('0', '18446744073709551615')], [], 
                 '''                Boot RAM size in bytes
@@ -131,6 +160,30 @@ _meta_table = {
                 ''',
                 'page_size',
                 'Cisco-IOS-XR-nto-misc-oper', False),
+            _MetaInfoClassMember('private-physical-memory', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Private Physical memory in bytes
+                ''',
+                'private_physical_memory',
+                'Cisco-IOS-XR-nto-misc-oper', False),
+            _MetaInfoClassMember('program-data', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Program Data Size
+                ''',
+                'program_data',
+                'Cisco-IOS-XR-nto-misc-oper', False),
+            _MetaInfoClassMember('program-stack', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Program Stack Size
+                ''',
+                'program_stack',
+                'Cisco-IOS-XR-nto-misc-oper', False),
+            _MetaInfoClassMember('program-text', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Program Text Size
+                ''',
+                'program_text',
+                'Cisco-IOS-XR-nto-misc-oper', False),
             _MetaInfoClassMember('ram-memory', ATTRIBUTE, 'int' , None, None, 
                 [('0', '18446744073709551615')], [], 
                 '''                Physical memory size in bytes
@@ -143,11 +196,23 @@ _meta_table = {
                 ''',
                 'reserved_memory',
                 'Cisco-IOS-XR-nto-misc-oper', False),
+            _MetaInfoClassMember('shared-window', REFERENCE_LIST, 'SharedWindow' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_nto_misc_oper', 'MemorySummary.Nodes.Node.Detail.SharedWindow', 
+                [], [], 
+                '''                Available Shared windows
+                ''',
+                'shared_window',
+                'Cisco-IOS-XR-nto-misc-oper', False),
             _MetaInfoClassMember('system-ram-memory', ATTRIBUTE, 'int' , None, None, 
                 [('0', '18446744073709551615')], [], 
                 '''                Application memory size in bytes
                 ''',
                 'system_ram_memory',
+                'Cisco-IOS-XR-nto-misc-oper', False),
+            _MetaInfoClassMember('total-shared-window', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Total Shared window
+                ''',
+                'total_shared_window',
                 'Cisco-IOS-XR-nto-misc-oper', False),
             ],
             'Cisco-IOS-XR-nto-misc-oper',
@@ -221,6 +286,7 @@ _meta_table = {
         ),
     },
 }
+_meta_table['MemorySummary.Nodes.Node.Detail.SharedWindow']['meta_info'].parent =_meta_table['MemorySummary.Nodes.Node.Detail']['meta_info']
 _meta_table['MemorySummary.Nodes.Node.Summary']['meta_info'].parent =_meta_table['MemorySummary.Nodes.Node']['meta_info']
 _meta_table['MemorySummary.Nodes.Node.Detail']['meta_info'].parent =_meta_table['MemorySummary.Nodes.Node']['meta_info']
 _meta_table['MemorySummary.Nodes.Node']['meta_info'].parent =_meta_table['MemorySummary.Nodes']['meta_info']

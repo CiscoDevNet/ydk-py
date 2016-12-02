@@ -33,7 +33,7 @@ class XrXml(object):
     .. attribute:: agent
     
     	XML agent
-    	**type**\:  :py:class:`Agent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent>`
+    	**type**\:   :py:class:`Agent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent>`
     
     
 
@@ -54,17 +54,17 @@ class XrXml(object):
         .. attribute:: default
         
         	XML default dedicated agent
-        	**type**\:  :py:class:`Default <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Default>`
+        	**type**\:   :py:class:`Default <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Default>`
         
         .. attribute:: ssl
         
         	XML SSL agent
-        	**type**\:  :py:class:`Ssl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Ssl>`
+        	**type**\:   :py:class:`Ssl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Ssl>`
         
         .. attribute:: tty
         
         	XML TTY agent
-        	**type**\:  :py:class:`Tty <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Tty>`
+        	**type**\:   :py:class:`Tty <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Tty>`
         
         
 
@@ -90,7 +90,7 @@ class XrXml(object):
             .. attribute:: enable
             
             	Enable specified XML agent
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: ipv4_disable
             
@@ -109,10 +109,14 @@ class XrXml(object):
             
             	**range:** 0..100000
             
+            	**units**\: kilobyte
+            
+            	**default value**\: 48
+            
             .. attribute:: session
             
             	Session attributes
-            	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Default.Session>`
+            	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Default.Session>`
             
             .. attribute:: streaming_size
             
@@ -121,15 +125,17 @@ class XrXml(object):
             
             	**range:** 1..100000
             
+            	**units**\: kilobyte
+            
             .. attribute:: throttle
             
             	XML agent throttling
-            	**type**\:  :py:class:`Throttle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Default.Throttle>`
+            	**type**\:   :py:class:`Throttle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Default.Throttle>`
             
             .. attribute:: vrfs
             
             	List of VRFs
-            	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Default.Vrfs>`
+            	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Default.Vrfs>`
             
             
 
@@ -163,6 +169,8 @@ class XrXml(object):
                 	**type**\:  int
                 
                 	**range:** 1..1440
+                
+                	**units**\: minute
                 
                 
 
@@ -208,6 +216,10 @@ class XrXml(object):
                 	**type**\:  int
                 
                 	**range:** 100..600
+                
+                	**units**\: megabyte
+                
+                	**default value**\: 300
                 
                 .. attribute:: process_rate
                 
@@ -261,7 +273,7 @@ class XrXml(object):
                 .. attribute:: vrf
                 
                 	A specific VRF
-                	**type**\: list of  :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Default.Vrfs.Vrf>`
+                	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Default.Vrfs.Vrf>`
                 
                 
 
@@ -312,7 +324,7 @@ class XrXml(object):
                     .. attribute:: shutdown
                     
                     	Shutdown default VRF. This is applicable only for VRF default
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -440,7 +452,7 @@ class XrXml(object):
             .. attribute:: enable
             
             	Enable specified XML agent
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: iteration_size
             
@@ -449,10 +461,14 @@ class XrXml(object):
             
             	**range:** 0..100000
             
+            	**units**\: kilobyte
+            
+            	**default value**\: 48
+            
             .. attribute:: session
             
             	Session attributes
-            	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Tty.Session>`
+            	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Tty.Session>`
             
             .. attribute:: streaming_size
             
@@ -461,10 +477,12 @@ class XrXml(object):
             
             	**range:** 1..100000
             
+            	**units**\: kilobyte
+            
             .. attribute:: throttle
             
             	XML agent throttling
-            	**type**\:  :py:class:`Throttle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Tty.Throttle>`
+            	**type**\:   :py:class:`Throttle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Tty.Throttle>`
             
             
 
@@ -494,6 +512,8 @@ class XrXml(object):
                 	**type**\:  int
                 
                 	**range:** 1..1440
+                
+                	**units**\: minute
                 
                 
 
@@ -539,6 +559,10 @@ class XrXml(object):
                 	**type**\:  int
                 
                 	**range:** 100..600
+                
+                	**units**\: megabyte
+                
+                	**default value**\: 300
                 
                 .. attribute:: process_rate
                 
@@ -626,7 +650,7 @@ class XrXml(object):
             .. attribute:: enable
             
             	Enable specified XML agent
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: iteration_size
             
@@ -635,10 +659,14 @@ class XrXml(object):
             
             	**range:** 0..100000
             
+            	**units**\: kilobyte
+            
+            	**default value**\: 48
+            
             .. attribute:: session
             
             	Session attributes
-            	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Ssl.Session>`
+            	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Ssl.Session>`
             
             .. attribute:: streaming_size
             
@@ -647,15 +675,17 @@ class XrXml(object):
             
             	**range:** 1..100000
             
+            	**units**\: kilobyte
+            
             .. attribute:: throttle
             
             	XML agent throttling
-            	**type**\:  :py:class:`Throttle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Ssl.Throttle>`
+            	**type**\:   :py:class:`Throttle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Ssl.Throttle>`
             
             .. attribute:: vrfs
             
             	List of VRFs
-            	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Ssl.Vrfs>`
+            	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Ssl.Vrfs>`
             
             
 
@@ -687,6 +717,8 @@ class XrXml(object):
                 	**type**\:  int
                 
                 	**range:** 1..1440
+                
+                	**units**\: minute
                 
                 
 
@@ -732,6 +764,10 @@ class XrXml(object):
                 	**type**\:  int
                 
                 	**range:** 100..600
+                
+                	**units**\: megabyte
+                
+                	**default value**\: 300
                 
                 .. attribute:: process_rate
                 
@@ -785,7 +821,7 @@ class XrXml(object):
                 .. attribute:: vrf
                 
                 	A specific VRF
-                	**type**\: list of  :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Ssl.Vrfs.Vrf>`
+                	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.XrXml.Agent.Ssl.Vrfs.Vrf>`
                 
                 
 
@@ -836,7 +872,7 @@ class XrXml(object):
                     .. attribute:: shutdown
                     
                     	Shutdown default VRF. This is applicable only for VRF default
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -1008,7 +1044,7 @@ class Netconf(object):
     .. attribute:: agent
     
     	XML agent
-    	**type**\:  :py:class:`Agent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.Netconf.Agent>`
+    	**type**\:   :py:class:`Agent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.Netconf.Agent>`
     
     
 
@@ -1029,7 +1065,7 @@ class Netconf(object):
         .. attribute:: tty
         
         	NETCONF agent over TTY
-        	**type**\:  :py:class:`Tty <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.Netconf.Agent.Tty>`
+        	**type**\:   :py:class:`Tty <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.Netconf.Agent.Tty>`
         
         
 
@@ -1051,17 +1087,17 @@ class Netconf(object):
             .. attribute:: enable
             
             	Enable specified NETCONF agent
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: session
             
             	Session attributes
-            	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.Netconf.Agent.Tty.Session>`
+            	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.Netconf.Agent.Tty.Session>`
             
             .. attribute:: throttle
             
             	NETCONF agent throttling
-            	**type**\:  :py:class:`Throttle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.Netconf.Agent.Tty.Throttle>`
+            	**type**\:   :py:class:`Throttle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.Netconf.Agent.Tty.Throttle>`
             
             
 
@@ -1090,12 +1126,20 @@ class Netconf(object):
                 
                 	**range:** 100..600
                 
+                	**units**\: megabyte
+                
+                	**default value**\: 300
+                
                 .. attribute:: offload_memory
                 
                 	Size of memory usage, in MBytes, per session
                 	**type**\:  int
                 
                 	**range:** 0..12000
+                
+                	**units**\: megabyte
+                
+                	**default value**\: 0
                 
                 .. attribute:: process_rate
                 
@@ -1156,6 +1200,8 @@ class Netconf(object):
                 	**type**\:  int
                 
                 	**range:** 1..1440
+                
+                	**units**\: minute
                 
                 
 

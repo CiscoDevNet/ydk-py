@@ -33,7 +33,7 @@ class Ipv6Telnet(object):
     .. attribute:: client
     
     	Telnet client configuration
-    	**type**\:  :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_telnet_cfg.Ipv6Telnet.Client>`
+    	**type**\:   :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_telnet_cfg.Ipv6Telnet.Client>`
     
     
 
@@ -121,7 +121,7 @@ class Ipv4Telnet(object):
     .. attribute:: client
     
     	Telnet client configuration
-    	**type**\:  :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_telnet_cfg.Ipv4Telnet.Client>`
+    	**type**\:   :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_telnet_cfg.Ipv4Telnet.Client>`
     
     
 

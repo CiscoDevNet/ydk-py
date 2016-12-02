@@ -9,8 +9,7 @@ for the following management objects\:
 
 This YANG module augments the
   Cisco\-IOS\-XR\-config\-mda\-cfg
-  Cisco\-IOS\-XR\-config\-mda\-cfg
-modules with configuration data.
+module with configuration data.
 
 Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
@@ -41,12 +40,16 @@ class Watchdog(object):
     
     	**range:** 10..3600
     
+    	**units**\: second
+    
     .. attribute:: monitor_procnto_timeout
     
     	Watchdog monitor procnto timeout configuration
     	**type**\:  int
     
     	**range:** 60..3600
+    
+    	**units**\: second
     
     .. attribute:: monitor_qnet_timeout
     
@@ -55,10 +58,12 @@ class Watchdog(object):
     
     	**range:** 10..3600
     
+    	**units**\: second
+    
     .. attribute:: overload_notification
     
     	Disable critical event notification
-    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: overload_throttle_timeout
     
@@ -67,25 +72,27 @@ class Watchdog(object):
     
     	**range:** 5..120
     
+    	**units**\: second
+    
     .. attribute:: restart_cpuhog_disable
     
     	Disable watchdog restart cpu\-hog
-    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: restart_deadlock_disable
     
     	Disable watchdog restart deadlock
-    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: restart_memoryhog_disable
     
     	Disable watchdog restart memory\-hog
-    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: threshold_memory
     
     	Memory thresholds
-    	**type**\:  :py:class:`ThresholdMemory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_cfg.Watchdog.ThresholdMemory>`
+    	**type**\:   :py:class:`ThresholdMemory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_cfg.Watchdog.ThresholdMemory>`
     
     .. attribute:: threshold_memory_switchover
     

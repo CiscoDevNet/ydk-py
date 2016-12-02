@@ -16,20 +16,20 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'MplsVpnRtEnum' : _MetaInfoEnum('MplsVpnRtEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper',
         {
-            'import':'IMPORT',
-            'export':'EXPORT',
-            'both':'BOTH',
+            'import':'import_',
+            'export':'export',
+            'both':'both',
         }, 'Cisco-IOS-XR-mpls-vpn-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-vpn-oper']),
     'MplsVpnAfiEnum' : _MetaInfoEnum('MplsVpnAfiEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper',
         {
-            'ipv4':'IPV4',
-            'ipv6':'IPV6',
+            'ipv4':'ipv4',
+            'ipv6':'ipv6',
         }, 'Cisco-IOS-XR-mpls-vpn-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-vpn-oper']),
     'MplsVpnSafiEnum' : _MetaInfoEnum('MplsVpnSafiEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper',
         {
-            'unicast':'UNICAST',
-            'multicast':'MULTICAST',
-            'flowspec':'FLOWSPEC',
+            'unicast':'unicast',
+            'multicast':'multicast',
+            'flowspec':'flowspec',
         }, 'Cisco-IOS-XR-mpls-vpn-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-vpn-oper']),
     'L3Vpn.InvalidVrfs.InvalidVrf.Interface' : {
         'meta_info' : _MetaInfoClass('L3Vpn.InvalidVrfs.InvalidVrf.Interface',

@@ -31,127 +31,127 @@ class MgmtLsdAppEnum(Enum):
 
     Mgmt lsd app
 
-    .. data:: MGMT_LSD_APP_TYPE_NONE = 0
+    .. data:: mgmt_lsd_app_type_none = 0
 
     	None
 
-    .. data:: MGMT_LSD_APP_TYPE_INT = 1
+    .. data:: mgmt_lsd_app_type_int = 1
 
     	LSD
 
-    .. data:: MGMT_LSD_APP_TYPE_TEST = 2
+    .. data:: mgmt_lsd_app_type_test = 2
 
     	Test
 
-    .. data:: MGMT_LSD_APP_TYPE_STATIC = 3
+    .. data:: mgmt_lsd_app_type_static = 3
 
     	Static
 
-    .. data:: MGMT_LSD_APP_TYPE_LDP = 4
+    .. data:: mgmt_lsd_app_type_ldp = 4
 
     	LDP
 
-    .. data:: MGMT_LSD_APP_TYPE_TE = 5
+    .. data:: mgmt_lsd_app_type_te = 5
 
     	TE Control
 
-    .. data:: MGMT_LSD_APP_TYPE_TE_INT = 6
+    .. data:: mgmt_lsd_app_type_te_int = 6
 
     	TE Internal
 
-    .. data:: MGMT_LSD_APP_TYPE_BGP_IPV4 = 7
+    .. data:: mgmt_lsd_app_type_bgp_ipv4 = 7
 
     	BGP v4
 
-    .. data:: MGMT_LSD_APP_TYPE_BGP_VPN_IPV4 = 8
+    .. data:: mgmt_lsd_app_type_bgp_vpn_ipv4 = 8
 
     	BGP VPNv4
 
-    .. data:: MGMT_LSD_APP_TYPE_L2VPN = 9
+    .. data:: mgmt_lsd_app_type_l2vpn = 9
 
     	L2VPN
 
-    .. data:: MGMT_LSD_APP_TYPE_BGP_SPKR = 10
+    .. data:: mgmt_lsd_app_type_bgp_spkr = 10
 
     	BGP Spkr
 
-    .. data:: MGMT_LSD_APP_TYPE_BFD = 11
+    .. data:: mgmt_lsd_app_type_bfd = 11
 
     	BFD
 
-    .. data:: MGMT_LSD_APP_TYPE_PIM = 12
+    .. data:: mgmt_lsd_app_type_pim = 12
 
     	PIM
 
-    .. data:: MGMT_LSD_APP_TYPE_V2_LSD = 13
+    .. data:: mgmt_lsd_app_type_v2_lsd = 13
 
     	V2 LSD
 
-    .. data:: MGMT_LSD_APP_TYPE_PIM6 = 14
+    .. data:: mgmt_lsd_app_type_pim6 = 14
 
     	PIM6
 
-    .. data:: MGMT_LSD_APP_TYPE_ISIS = 15
+    .. data:: mgmt_lsd_app_type_isis = 15
 
     	ISIS
 
-    .. data:: MGMT_LSD_APP_TYPE_OSPF = 16
+    .. data:: mgmt_lsd_app_type_ospf = 16
 
     	OSPF
 
-    .. data:: MGMT_LSD_APP_TYPE_CGN = 17
+    .. data:: mgmt_lsd_app_type_cgn = 17
 
     	CGN
 
-    .. data:: MGMT_LSD_APP_TYPE_DMTC = 18
+    .. data:: mgmt_lsd_app_type_dmtc = 18
 
     	Traffic Collector
 
-    .. data:: MGMT_LSD_APP_TYPE_ANY = 19
+    .. data:: mgmt_lsd_app_type_any = 19
 
     	Any
 
     """
 
-    MGMT_LSD_APP_TYPE_NONE = 0
+    mgmt_lsd_app_type_none = 0
 
-    MGMT_LSD_APP_TYPE_INT = 1
+    mgmt_lsd_app_type_int = 1
 
-    MGMT_LSD_APP_TYPE_TEST = 2
+    mgmt_lsd_app_type_test = 2
 
-    MGMT_LSD_APP_TYPE_STATIC = 3
+    mgmt_lsd_app_type_static = 3
 
-    MGMT_LSD_APP_TYPE_LDP = 4
+    mgmt_lsd_app_type_ldp = 4
 
-    MGMT_LSD_APP_TYPE_TE = 5
+    mgmt_lsd_app_type_te = 5
 
-    MGMT_LSD_APP_TYPE_TE_INT = 6
+    mgmt_lsd_app_type_te_int = 6
 
-    MGMT_LSD_APP_TYPE_BGP_IPV4 = 7
+    mgmt_lsd_app_type_bgp_ipv4 = 7
 
-    MGMT_LSD_APP_TYPE_BGP_VPN_IPV4 = 8
+    mgmt_lsd_app_type_bgp_vpn_ipv4 = 8
 
-    MGMT_LSD_APP_TYPE_L2VPN = 9
+    mgmt_lsd_app_type_l2vpn = 9
 
-    MGMT_LSD_APP_TYPE_BGP_SPKR = 10
+    mgmt_lsd_app_type_bgp_spkr = 10
 
-    MGMT_LSD_APP_TYPE_BFD = 11
+    mgmt_lsd_app_type_bfd = 11
 
-    MGMT_LSD_APP_TYPE_PIM = 12
+    mgmt_lsd_app_type_pim = 12
 
-    MGMT_LSD_APP_TYPE_V2_LSD = 13
+    mgmt_lsd_app_type_v2_lsd = 13
 
-    MGMT_LSD_APP_TYPE_PIM6 = 14
+    mgmt_lsd_app_type_pim6 = 14
 
-    MGMT_LSD_APP_TYPE_ISIS = 15
+    mgmt_lsd_app_type_isis = 15
 
-    MGMT_LSD_APP_TYPE_OSPF = 16
+    mgmt_lsd_app_type_ospf = 16
 
-    MGMT_LSD_APP_TYPE_CGN = 17
+    mgmt_lsd_app_type_cgn = 17
 
-    MGMT_LSD_APP_TYPE_DMTC = 18
+    mgmt_lsd_app_type_dmtc = 18
 
-    MGMT_LSD_APP_TYPE_ANY = 19
+    mgmt_lsd_app_type_any = 19
 
 
     @staticmethod
@@ -166,25 +166,25 @@ class MgmtLsdAppRsrcStateEnum(Enum):
 
     Mgmt lsd app rsrc state
 
-    .. data:: MGMT_LSD_APP_RSRC_STATE_ACTIVE = 0
+    .. data:: mgmt_lsd_app_rsrc_state_active = 0
 
     	Active
 
-    .. data:: MGMT_LSD_APP_RSRC_STATE_PND = 1
+    .. data:: mgmt_lsd_app_rsrc_state_pnd = 1
 
     	Pending
 
-    .. data:: MGMT_LSD_APP_RSRC_STATE_PND_SVR = 2
+    .. data:: mgmt_lsd_app_rsrc_state_pnd_svr = 2
 
     	Pending Server
 
     """
 
-    MGMT_LSD_APP_RSRC_STATE_ACTIVE = 0
+    mgmt_lsd_app_rsrc_state_active = 0
 
-    MGMT_LSD_APP_RSRC_STATE_PND = 1
+    mgmt_lsd_app_rsrc_state_pnd = 1
 
-    MGMT_LSD_APP_RSRC_STATE_PND_SVR = 2
+    mgmt_lsd_app_rsrc_state_pnd_svr = 2
 
 
     @staticmethod
@@ -199,25 +199,25 @@ class MgmtLsdAppStateEnum(Enum):
 
     Mgmt lsd app state
 
-    .. data:: MGMT_LSD_APP_STATE_ACTIVE = 0
+    .. data:: mgmt_lsd_app_state_active = 0
 
     	Active
 
-    .. data:: MGMT_LSD_APP_STATE_ZOMBIE = 1
+    .. data:: mgmt_lsd_app_state_zombie = 1
 
     	Zombie
 
-    .. data:: MGMT_LSD_APP_STATE_RECOVER = 2
+    .. data:: mgmt_lsd_app_state_recover = 2
 
     	Recover
 
     """
 
-    MGMT_LSD_APP_STATE_ACTIVE = 0
+    mgmt_lsd_app_state_active = 0
 
-    MGMT_LSD_APP_STATE_ZOMBIE = 1
+    mgmt_lsd_app_state_zombie = 1
 
-    MGMT_LSD_APP_STATE_RECOVER = 2
+    mgmt_lsd_app_state_recover = 2
 
 
     @staticmethod
@@ -232,19 +232,19 @@ class MgmtLsdClientEnum(Enum):
 
     Mgmt lsd client
 
-    .. data:: MGMT_LSD_CLIENT_TYPE_APP = 0
+    .. data:: mgmt_lsd_client_type_app = 0
 
     	Application
 
-    .. data:: MGMT_LSD_CLIENT_TYPE_BA = 1
+    .. data:: mgmt_lsd_client_type_ba = 1
 
     	BCDL Agent
 
     """
 
-    MGMT_LSD_CLIENT_TYPE_APP = 0
+    mgmt_lsd_client_type_app = 0
 
-    MGMT_LSD_CLIENT_TYPE_BA = 1
+    mgmt_lsd_client_type_ba = 1
 
 
     @staticmethod
@@ -259,49 +259,49 @@ class MgmtLsdFpiEnum(Enum):
 
     Mgmt lsd fpi
 
-    .. data:: MGMT_LSD_FPI_TYPE_LABEL = 0
+    .. data:: mgmt_lsd_fpi_type_label = 0
 
     	Label
 
-    .. data:: MGMT_LSD_FPI_TYPE_TE = 1
+    .. data:: mgmt_lsd_fpi_type_te = 1
 
     	TE
 
-    .. data:: MGMT_LSD_FPI_TYPE_IPV4 = 2
+    .. data:: mgmt_lsd_fpi_type_ipv4 = 2
 
     	IPv4
 
-    .. data:: MGMT_LSD_FPI_TYPE_IPV6 = 3
+    .. data:: mgmt_lsd_fpi_type_ipv6 = 3
 
     	IPv6
 
-    .. data:: MGMT_LSD_FPI_TYPE_PW_LIST = 4
+    .. data:: mgmt_lsd_fpi_type_pw_list = 4
 
     	PW List
 
-    .. data:: MGMT_LSD_FPI_TYPE_TE_V2 = 5
+    .. data:: mgmt_lsd_fpi_type_te_v2 = 5
 
     	TE v2
 
-    .. data:: MGMT_LSD_FPI_TYPE_DMTC_EXT_INTF = 6
+    .. data:: mgmt_lsd_fpi_type_dmtc_ext_intf = 6
 
     	DMTC External Interface
 
     """
 
-    MGMT_LSD_FPI_TYPE_LABEL = 0
+    mgmt_lsd_fpi_type_label = 0
 
-    MGMT_LSD_FPI_TYPE_TE = 1
+    mgmt_lsd_fpi_type_te = 1
 
-    MGMT_LSD_FPI_TYPE_IPV4 = 2
+    mgmt_lsd_fpi_type_ipv4 = 2
 
-    MGMT_LSD_FPI_TYPE_IPV6 = 3
+    mgmt_lsd_fpi_type_ipv6 = 3
 
-    MGMT_LSD_FPI_TYPE_PW_LIST = 4
+    mgmt_lsd_fpi_type_pw_list = 4
 
-    MGMT_LSD_FPI_TYPE_TE_V2 = 5
+    mgmt_lsd_fpi_type_te_v2 = 5
 
-    MGMT_LSD_FPI_TYPE_DMTC_EXT_INTF = 6
+    mgmt_lsd_fpi_type_dmtc_ext_intf = 6
 
 
     @staticmethod
@@ -316,43 +316,43 @@ class MgmtLsdFrrStateEnum(Enum):
 
     Mgmt lsd frr state
 
-    .. data:: MGMT_LSD_FRR_STATE_PARTIAL = 0
+    .. data:: mgmt_lsd_frr_state_partial = 0
 
     	Partial
 
-    .. data:: MGMT_LSD_FRR_STATE_ACTIVE = 1
+    .. data:: mgmt_lsd_frr_state_active = 1
 
     	Active
 
-    .. data:: MGMT_LSD_FRR_STATE_READY = 2
+    .. data:: mgmt_lsd_frr_state_ready = 2
 
     	Ready
 
-    .. data:: MGMT_LSD_FRR_STATE_COMPLETE = 3
+    .. data:: mgmt_lsd_frr_state_complete = 3
 
     	Complete
 
-    .. data:: MGMT_LSD_FRR_STATE_ANY = 4
+    .. data:: mgmt_lsd_frr_state_any = 4
 
     	Any
 
-    .. data:: MGMT_LSD_FRR_STATE_IGP = 5
+    .. data:: mgmt_lsd_frr_state_igp = 5
 
     	IGP
 
     """
 
-    MGMT_LSD_FRR_STATE_PARTIAL = 0
+    mgmt_lsd_frr_state_partial = 0
 
-    MGMT_LSD_FRR_STATE_ACTIVE = 1
+    mgmt_lsd_frr_state_active = 1
 
-    MGMT_LSD_FRR_STATE_READY = 2
+    mgmt_lsd_frr_state_ready = 2
 
-    MGMT_LSD_FRR_STATE_COMPLETE = 3
+    mgmt_lsd_frr_state_complete = 3
 
-    MGMT_LSD_FRR_STATE_ANY = 4
+    mgmt_lsd_frr_state_any = 4
 
-    MGMT_LSD_FRR_STATE_IGP = 5
+    mgmt_lsd_frr_state_igp = 5
 
 
     @staticmethod
@@ -367,25 +367,25 @@ class MgmtLsdIntfStateEnum(Enum):
 
     Mgmt lsd intf state
 
-    .. data:: MGMT_LSD_INTF_STATE_UNKNOWN = 0
+    .. data:: mgmt_lsd_intf_state_unknown = 0
 
     	unknown
 
-    .. data:: MGMT_LSD_INTF_STATE_UP = 1
+    .. data:: mgmt_lsd_intf_state_up = 1
 
     	up
 
-    .. data:: MGMT_LSD_INTF_STATE_DOWN = 2
+    .. data:: mgmt_lsd_intf_state_down = 2
 
     	down
 
     """
 
-    MGMT_LSD_INTF_STATE_UNKNOWN = 0
+    mgmt_lsd_intf_state_unknown = 0
 
-    MGMT_LSD_INTF_STATE_UP = 1
+    mgmt_lsd_intf_state_up = 1
 
-    MGMT_LSD_INTF_STATE_DOWN = 2
+    mgmt_lsd_intf_state_down = 2
 
 
     @staticmethod
@@ -400,187 +400,187 @@ class MgmtLsdLblCtxEnum(Enum):
 
     Mgmt lsd lbl ctx
 
-    .. data:: MGMT_LSD_LBL_CTX_TYPE_NONE = 0
+    .. data:: mgmt_lsd_lbl_ctx_type_none = 0
 
     	None
 
-    .. data:: MGMT_LSD_LBL_CTX_TYPE_IPV4 = 1
+    .. data:: mgmt_lsd_lbl_ctx_type_ipv4 = 1
 
     	IPv4
 
-    .. data:: MGMT_LSD_LBL_CTX_TYPE_IPV6 = 2
+    .. data:: mgmt_lsd_lbl_ctx_type_ipv6 = 2
 
     	IPv6
 
-    .. data:: MGMT_LSD_LBL_CTX_TYPE_TEV4 = 3
+    .. data:: mgmt_lsd_lbl_ctx_type_tev4 = 3
 
     	TE IPv4
 
-    .. data:: MGMT_LSD_LBL_CTX_TYPE_L3VPN_IPV4 = 4
+    .. data:: mgmt_lsd_lbl_ctx_type_l3vpn_ipv4 = 4
 
     	L3VPN IPv4
 
-    .. data:: MGMT_LSD_LBL_CTX_TYPE_L3VPN_IPV6 = 5
+    .. data:: mgmt_lsd_lbl_ctx_type_l3vpn_ipv6 = 5
 
     	L3VPN IPv6
 
-    .. data:: MGMT_LSD_LBL_CTX_TYPE_L3VPN_VRF = 6
+    .. data:: mgmt_lsd_lbl_ctx_type_l3vpn_vrf = 6
 
     	L3VPN Per-VRF
 
-    .. data:: MGMT_LSD_LBL_CTX_TYPE_L3VPN_CEV4 = 7
+    .. data:: mgmt_lsd_lbl_ctx_type_l3vpn_cev4 = 7
 
     	L3VPN IPv4 Per-CE
 
-    .. data:: MGMT_LSD_LBL_CTX_TYPE_L3VPN_CEV6 = 8
+    .. data:: mgmt_lsd_lbl_ctx_type_l3vpn_cev6 = 8
 
     	L3VPN IPv6 Per-CE
 
-    .. data:: MGMT_LSD_LBL_CTX_TYPE_PW = 9
+    .. data:: mgmt_lsd_lbl_ctx_type_pw = 9
 
     	PW
 
-    .. data:: MGMT_LSD_LBL_CTX_TYPE_LBL_BLK = 10
+    .. data:: mgmt_lsd_lbl_ctx_type_lbl_blk = 10
 
     	LBL BLK
 
-    .. data:: MGMT_LSD_LBL_CTX_TYPE_IP_SUB = 11
+    .. data:: mgmt_lsd_lbl_ctx_type_ip_sub = 11
 
     	IP SUB
 
-    .. data:: MGMT_LSD_LBL_CTX_TYPE_TEV4_P2MP = 12
+    .. data:: mgmt_lsd_lbl_ctx_type_tev4_p2mp = 12
 
     	TE IPv4 P2MP
 
-    .. data:: MGMT_LSD_LBL_CTX_TYPE_MLDPV4 = 13
+    .. data:: mgmt_lsd_lbl_ctx_type_mldpv4 = 13
 
     	MLDP IPv4
 
-    .. data:: MGMT_LSD_LBL_CTX_TYPE_PWHE = 14
+    .. data:: mgmt_lsd_lbl_ctx_type_pwhe = 14
 
     	PW HE
 
-    .. data:: MGMT_LSD_LBL_CTX_TYPE_TP = 15
+    .. data:: mgmt_lsd_lbl_ctx_type_tp = 15
 
     	MPLS TP
 
-    .. data:: MGMT_LSD_LBL_CTX_TYPE_GRE = 16
+    .. data:: mgmt_lsd_lbl_ctx_type_gre = 16
 
     	GRE
 
-    .. data:: MGMT_LSD_LBL_CTX_TYPE_EVPN = 17
+    .. data:: mgmt_lsd_lbl_ctx_type_evpn = 17
 
     	EVPN
 
-    .. data:: MGMT_LSD_LBL_CTX_TYPE_BLB_IPV4 = 18
+    .. data:: mgmt_lsd_lbl_ctx_type_blb_ipv4 = 18
 
     	BLB IPv4
 
-    .. data:: MGMT_LSD_LBL_CTX_TYPE_BLB_IPV6 = 19
+    .. data:: mgmt_lsd_lbl_ctx_type_blb_ipv6 = 19
 
     	BLB IPv6
 
-    .. data:: MGMT_LSD_LBL_CTX_TYPE_PIM_I_PMSI = 20
+    .. data:: mgmt_lsd_lbl_ctx_type_pim_i_pmsi = 20
 
     	PIM I-PMSI
 
-    .. data:: MGMT_LSD_LBL_CTX_TYPE_PIM_S_PMSI = 21
+    .. data:: mgmt_lsd_lbl_ctx_type_pim_s_pmsi = 21
 
     	PIM S-PMSI
 
-    .. data:: MGMT_LSD_LBL_CTX_TYPE_L3VPN_NH_SET = 22
+    .. data:: mgmt_lsd_lbl_ctx_type_l3vpn_nh_set = 22
 
     	L3VPN NH SET
 
-    .. data:: MGMT_LSD_LBL_CTX_TYPE_SR_PFX_SEG = 23
+    .. data:: mgmt_lsd_lbl_ctx_type_sr_pfx_seg = 23
 
     	SR Prefix Segment
 
-    .. data:: MGMT_LSD_LBL_CTX_TYPE_SR_ADJ_SEG_IPV4 = 24
+    .. data:: mgmt_lsd_lbl_ctx_type_sr_adj_seg_ipv4 = 24
 
     	SR Adj Segment IPv4
 
-    .. data:: MGMT_LSD_LBL_CTX_TYPE_SR_ADJ_SEG_IPV6 = 25
+    .. data:: mgmt_lsd_lbl_ctx_type_sr_adj_seg_ipv6 = 25
 
     	SR Adj Segment IPv6
 
-    .. data:: MGMT_LSD_LBL_CTX_TYPE_LBL_BLK_SRGB = 26
+    .. data:: mgmt_lsd_lbl_ctx_type_lbl_blk_srgb = 26
 
     	LBL BLK SRGB
 
-    .. data:: MGMT_LSD_LBL_CTX_TYPE_TE_BINDING = 27
+    .. data:: mgmt_lsd_lbl_ctx_type_te_binding = 27
 
     	TE Binding
 
-    .. data:: MGMT_LSD_LBL_CTX_TYPE_GRE_IPV6 = 28
+    .. data:: mgmt_lsd_lbl_ctx_type_gre_ipv6 = 28
 
     	GRE IPV6
 
-    .. data:: MGMT_LSD_LBL_CTX_TYPE_ANY = 29
+    .. data:: mgmt_lsd_lbl_ctx_type_any = 29
 
     	Any
 
     """
 
-    MGMT_LSD_LBL_CTX_TYPE_NONE = 0
+    mgmt_lsd_lbl_ctx_type_none = 0
 
-    MGMT_LSD_LBL_CTX_TYPE_IPV4 = 1
+    mgmt_lsd_lbl_ctx_type_ipv4 = 1
 
-    MGMT_LSD_LBL_CTX_TYPE_IPV6 = 2
+    mgmt_lsd_lbl_ctx_type_ipv6 = 2
 
-    MGMT_LSD_LBL_CTX_TYPE_TEV4 = 3
+    mgmt_lsd_lbl_ctx_type_tev4 = 3
 
-    MGMT_LSD_LBL_CTX_TYPE_L3VPN_IPV4 = 4
+    mgmt_lsd_lbl_ctx_type_l3vpn_ipv4 = 4
 
-    MGMT_LSD_LBL_CTX_TYPE_L3VPN_IPV6 = 5
+    mgmt_lsd_lbl_ctx_type_l3vpn_ipv6 = 5
 
-    MGMT_LSD_LBL_CTX_TYPE_L3VPN_VRF = 6
+    mgmt_lsd_lbl_ctx_type_l3vpn_vrf = 6
 
-    MGMT_LSD_LBL_CTX_TYPE_L3VPN_CEV4 = 7
+    mgmt_lsd_lbl_ctx_type_l3vpn_cev4 = 7
 
-    MGMT_LSD_LBL_CTX_TYPE_L3VPN_CEV6 = 8
+    mgmt_lsd_lbl_ctx_type_l3vpn_cev6 = 8
 
-    MGMT_LSD_LBL_CTX_TYPE_PW = 9
+    mgmt_lsd_lbl_ctx_type_pw = 9
 
-    MGMT_LSD_LBL_CTX_TYPE_LBL_BLK = 10
+    mgmt_lsd_lbl_ctx_type_lbl_blk = 10
 
-    MGMT_LSD_LBL_CTX_TYPE_IP_SUB = 11
+    mgmt_lsd_lbl_ctx_type_ip_sub = 11
 
-    MGMT_LSD_LBL_CTX_TYPE_TEV4_P2MP = 12
+    mgmt_lsd_lbl_ctx_type_tev4_p2mp = 12
 
-    MGMT_LSD_LBL_CTX_TYPE_MLDPV4 = 13
+    mgmt_lsd_lbl_ctx_type_mldpv4 = 13
 
-    MGMT_LSD_LBL_CTX_TYPE_PWHE = 14
+    mgmt_lsd_lbl_ctx_type_pwhe = 14
 
-    MGMT_LSD_LBL_CTX_TYPE_TP = 15
+    mgmt_lsd_lbl_ctx_type_tp = 15
 
-    MGMT_LSD_LBL_CTX_TYPE_GRE = 16
+    mgmt_lsd_lbl_ctx_type_gre = 16
 
-    MGMT_LSD_LBL_CTX_TYPE_EVPN = 17
+    mgmt_lsd_lbl_ctx_type_evpn = 17
 
-    MGMT_LSD_LBL_CTX_TYPE_BLB_IPV4 = 18
+    mgmt_lsd_lbl_ctx_type_blb_ipv4 = 18
 
-    MGMT_LSD_LBL_CTX_TYPE_BLB_IPV6 = 19
+    mgmt_lsd_lbl_ctx_type_blb_ipv6 = 19
 
-    MGMT_LSD_LBL_CTX_TYPE_PIM_I_PMSI = 20
+    mgmt_lsd_lbl_ctx_type_pim_i_pmsi = 20
 
-    MGMT_LSD_LBL_CTX_TYPE_PIM_S_PMSI = 21
+    mgmt_lsd_lbl_ctx_type_pim_s_pmsi = 21
 
-    MGMT_LSD_LBL_CTX_TYPE_L3VPN_NH_SET = 22
+    mgmt_lsd_lbl_ctx_type_l3vpn_nh_set = 22
 
-    MGMT_LSD_LBL_CTX_TYPE_SR_PFX_SEG = 23
+    mgmt_lsd_lbl_ctx_type_sr_pfx_seg = 23
 
-    MGMT_LSD_LBL_CTX_TYPE_SR_ADJ_SEG_IPV4 = 24
+    mgmt_lsd_lbl_ctx_type_sr_adj_seg_ipv4 = 24
 
-    MGMT_LSD_LBL_CTX_TYPE_SR_ADJ_SEG_IPV6 = 25
+    mgmt_lsd_lbl_ctx_type_sr_adj_seg_ipv6 = 25
 
-    MGMT_LSD_LBL_CTX_TYPE_LBL_BLK_SRGB = 26
+    mgmt_lsd_lbl_ctx_type_lbl_blk_srgb = 26
 
-    MGMT_LSD_LBL_CTX_TYPE_TE_BINDING = 27
+    mgmt_lsd_lbl_ctx_type_te_binding = 27
 
-    MGMT_LSD_LBL_CTX_TYPE_GRE_IPV6 = 28
+    mgmt_lsd_lbl_ctx_type_gre_ipv6 = 28
 
-    MGMT_LSD_LBL_CTX_TYPE_ANY = 29
+    mgmt_lsd_lbl_ctx_type_any = 29
 
 
     @staticmethod
@@ -595,19 +595,19 @@ class MgmtLsdLspRoleEnum(Enum):
 
     Mgmt lsd lsp role
 
-    .. data:: MGMT_LSD_LSP_ROLE_HEAD = 0
+    .. data:: mgmt_lsd_lsp_role_head = 0
 
     	Head
 
-    .. data:: MGMT_LSD_LSP_ROLE_MID = 1
+    .. data:: mgmt_lsd_lsp_role_mid = 1
 
     	Midpoint
 
     """
 
-    MGMT_LSD_LSP_ROLE_HEAD = 0
+    mgmt_lsd_lsp_role_head = 0
 
-    MGMT_LSD_LSP_ROLE_MID = 1
+    mgmt_lsd_lsp_role_mid = 1
 
 
     @staticmethod
@@ -622,91 +622,91 @@ class MgmtLsdMoiEnum(Enum):
 
     Mgmt lsd moi
 
-    .. data:: MGMT_LSD_MOI_TYPE_POP_AND_LKUP_IPV4 = 0
+    .. data:: mgmt_lsd_moi_type_pop_and_lkup_ipv4 = 0
 
     	Pop-and-lookup IPv4
 
-    .. data:: MGMT_LSD_MOI_TYPE_IPV4 = 1
+    .. data:: mgmt_lsd_moi_type_ipv4 = 1
 
     	IPv4
 
-    .. data:: MGMT_LSD_MOI_TYPE_IPV6 = 2
+    .. data:: mgmt_lsd_moi_type_ipv6 = 2
 
     	IPv6
 
-    .. data:: MGMT_LSD_MOI_TYPE_TEV4 = 3
+    .. data:: mgmt_lsd_moi_type_tev4 = 3
 
     	TE IPv4
 
-    .. data:: MGMT_LSD_MOI_TYPE_PW = 4
+    .. data:: mgmt_lsd_moi_type_pw = 4
 
     	PW
 
-    .. data:: MGMT_LSD_MOI_TYPE_POP_AND_LKUP_IPV6 = 5
+    .. data:: mgmt_lsd_moi_type_pop_and_lkup_ipv6 = 5
 
     	Pop-and-lookup IPv6
 
-    .. data:: MGMT_LSD_MOI_TYPE_IP_SUB = 6
+    .. data:: mgmt_lsd_moi_type_ip_sub = 6
 
     	IP Subscriber
 
-    .. data:: MGMT_LSD_MOI_TYPE_PWHE = 7
+    .. data:: mgmt_lsd_moi_type_pwhe = 7
 
     	PW HE
 
-    .. data:: MGMT_LSD_MOI_TYPE_PW_LIST = 8
+    .. data:: mgmt_lsd_moi_type_pw_list = 8
 
     	PW List
 
-    .. data:: MGMT_LSD_MOI_TYPE_IPV4_STACK = 9
+    .. data:: mgmt_lsd_moi_type_ipv4_stack = 9
 
     	IPv4 Multi-Label
 
-    .. data:: MGMT_LSD_MOI_TYPE_POP_AND_LKUP_TP = 10
+    .. data:: mgmt_lsd_moi_type_pop_and_lkup_tp = 10
 
     	Pop-and-lookup TP
 
-    .. data:: MGMT_LSD_MOI_TYPE_IPV6_STACK = 11
+    .. data:: mgmt_lsd_moi_type_ipv6_stack = 11
 
     	IPv6 Multi-Label
 
-    .. data:: MGMT_LSD_MOI_TYPE_TE_HEAD = 12
+    .. data:: mgmt_lsd_moi_type_te_head = 12
 
     	TE Head
 
-    .. data:: MGMT_LSD_MOI_TYPE_DMTC_EXT_INTF = 13
+    .. data:: mgmt_lsd_moi_type_dmtc_ext_intf = 13
 
     	Demand Matrix Traffic-Collector
 
     """
 
-    MGMT_LSD_MOI_TYPE_POP_AND_LKUP_IPV4 = 0
+    mgmt_lsd_moi_type_pop_and_lkup_ipv4 = 0
 
-    MGMT_LSD_MOI_TYPE_IPV4 = 1
+    mgmt_lsd_moi_type_ipv4 = 1
 
-    MGMT_LSD_MOI_TYPE_IPV6 = 2
+    mgmt_lsd_moi_type_ipv6 = 2
 
-    MGMT_LSD_MOI_TYPE_TEV4 = 3
+    mgmt_lsd_moi_type_tev4 = 3
 
-    MGMT_LSD_MOI_TYPE_PW = 4
+    mgmt_lsd_moi_type_pw = 4
 
-    MGMT_LSD_MOI_TYPE_POP_AND_LKUP_IPV6 = 5
+    mgmt_lsd_moi_type_pop_and_lkup_ipv6 = 5
 
-    MGMT_LSD_MOI_TYPE_IP_SUB = 6
+    mgmt_lsd_moi_type_ip_sub = 6
 
-    MGMT_LSD_MOI_TYPE_PWHE = 7
+    mgmt_lsd_moi_type_pwhe = 7
 
-    MGMT_LSD_MOI_TYPE_PW_LIST = 8
+    mgmt_lsd_moi_type_pw_list = 8
 
-    MGMT_LSD_MOI_TYPE_IPV4_STACK = 9
+    mgmt_lsd_moi_type_ipv4_stack = 9
 
-    MGMT_LSD_MOI_TYPE_POP_AND_LKUP_TP = 10
+    mgmt_lsd_moi_type_pop_and_lkup_tp = 10
 
-    MGMT_LSD_MOI_TYPE_IPV6_STACK = 11
+    mgmt_lsd_moi_type_ipv6_stack = 11
 
-    MGMT_LSD_MOI_TYPE_TE_HEAD = 12
+    mgmt_lsd_moi_type_te_head = 12
 
-    MGMT_LSD_MOI_TYPE_DMTC_EXT_INTF = 13
+    mgmt_lsd_moi_type_dmtc_ext_intf = 13
 
 
     @staticmethod
@@ -721,25 +721,25 @@ class MgmtLsdRwIdEnum(Enum):
 
     Mgmt lsd rw id
 
-    .. data:: MGMT_LSD_RW_ID_TYPE_NONE = 0
+    .. data:: mgmt_lsd_rw_id_type_none = 0
 
     	None
 
-    .. data:: MGMT_LSD_RW_ID_TYPE_LBL_CTX = 1
+    .. data:: mgmt_lsd_rw_id_type_lbl_ctx = 1
 
     	Label Context
 
-    .. data:: MGMT_LSD_RW_ID_TYPE_LOC_LBL = 2
+    .. data:: mgmt_lsd_rw_id_type_loc_lbl = 2
 
     	Local Label
 
     """
 
-    MGMT_LSD_RW_ID_TYPE_NONE = 0
+    mgmt_lsd_rw_id_type_none = 0
 
-    MGMT_LSD_RW_ID_TYPE_LBL_CTX = 1
+    mgmt_lsd_rw_id_type_lbl_ctx = 1
 
-    MGMT_LSD_RW_ID_TYPE_LOC_LBL = 2
+    mgmt_lsd_rw_id_type_loc_lbl = 2
 
 
     @staticmethod
@@ -754,31 +754,31 @@ class MgmtLsdTeBindingEnum(Enum):
 
     Mgmt lsd te binding
 
-    .. data:: MGMT_LSD_IDENT_P2P_TUN_ID = 0
+    .. data:: mgmt_lsd_ident_p2p_tun_id = 0
 
     	mgmt lsd ident p2p tun id
 
-    .. data:: MGMT_LSD_IDENT_P2P_GRP_ID = 1
+    .. data:: mgmt_lsd_ident_p2p_grp_id = 1
 
     	mgmt lsd ident p2p grp id
 
-    .. data:: MGMT_LSD_IDENT_P2MP_TUN_ID = 2
+    .. data:: mgmt_lsd_ident_p2mp_tun_id = 2
 
     	mgmt lsd ident p2mp tun id
 
-    .. data:: MGMT_LSD_IDENT_P2MP_GRP_ID = 3
+    .. data:: mgmt_lsd_ident_p2mp_grp_id = 3
 
     	mgmt lsd ident p2mp grp id
 
     """
 
-    MGMT_LSD_IDENT_P2P_TUN_ID = 0
+    mgmt_lsd_ident_p2p_tun_id = 0
 
-    MGMT_LSD_IDENT_P2P_GRP_ID = 1
+    mgmt_lsd_ident_p2p_grp_id = 1
 
-    MGMT_LSD_IDENT_P2MP_TUN_ID = 2
+    mgmt_lsd_ident_p2mp_tun_id = 2
 
-    MGMT_LSD_IDENT_P2MP_GRP_ID = 3
+    mgmt_lsd_ident_p2mp_grp_id = 3
 
 
     @staticmethod
@@ -795,7 +795,7 @@ class MplsLsdNodes(object):
     .. attribute:: mpls_lsd_node
     
     	The MPLS LSD operational data for a particular node
-    	**type**\: list of  :py:class:`MplsLsdNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode>`
+    	**type**\: list of    :py:class:`MplsLsdNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode>`
     
     
 
@@ -825,57 +825,57 @@ class MplsLsdNodes(object):
         .. attribute:: applications
         
         	Table of MPLS applications using LSD
-        	**type**\:  :py:class:`Applications <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Applications>`
+        	**type**\:   :py:class:`Applications <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Applications>`
         
         .. attribute:: clients
         
         	Table of MPLS clients using LSD
-        	**type**\:  :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Clients>`
+        	**type**\:   :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Clients>`
         
         .. attribute:: frr_database
         
         	FRR database
-        	**type**\:  :py:class:`FrrDatabase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase>`
+        	**type**\:   :py:class:`FrrDatabase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase>`
         
         .. attribute:: interfaces
         
         	Table of MPLS interfaces
-        	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Interfaces>`
+        	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Interfaces>`
         
         .. attribute:: label_range
         
         	Label range
-        	**type**\:  :py:class:`LabelRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.LabelRange>`
+        	**type**\:   :py:class:`LabelRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.LabelRange>`
         
         .. attribute:: label_summary
         
         	Dynamic label range
-        	**type**\:  :py:class:`LabelSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.LabelSummary>`
+        	**type**\:   :py:class:`LabelSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.LabelSummary>`
         
         .. attribute:: label_summary_vrfs
         
         	Dynamic label range summary by VRF
-        	**type**\:  :py:class:`LabelSummaryVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.LabelSummaryVrfs>`
+        	**type**\:   :py:class:`LabelSummaryVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.LabelSummaryVrfs>`
         
         .. attribute:: labels
         
         	Table of labels
-        	**type**\:  :py:class:`Labels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels>`
+        	**type**\:   :py:class:`Labels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels>`
         
         .. attribute:: rewrite
         
         	Table of rewrites
-        	**type**\:  :py:class:`Rewrite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite>`
+        	**type**\:   :py:class:`Rewrite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite>`
         
         .. attribute:: rewrite_summary
         
         	Rewrite Summary 
-        	**type**\:  :py:class:`RewriteSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.RewriteSummary>`
+        	**type**\:   :py:class:`RewriteSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.RewriteSummary>`
         
         .. attribute:: rewrite_summary_vrfs
         
         	Rewrite Summary by VRF
-        	**type**\:  :py:class:`RewriteSummaryVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.RewriteSummaryVrfs>`
+        	**type**\:   :py:class:`RewriteSummaryVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.RewriteSummaryVrfs>`
         
         
 
@@ -918,7 +918,7 @@ class MplsLsdNodes(object):
             .. attribute:: client
             
             	Data for MPLS client using LSD
-            	**type**\: list of  :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Clients.Client>`
+            	**type**\: list of    :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Clients.Client>`
             
             
 
@@ -955,7 +955,7 @@ class MplsLsdNodes(object):
                 .. attribute:: client_union
                 
                 	Client union
-                	**type**\:  :py:class:`ClientUnion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Clients.Client.ClientUnion>`
+                	**type**\:   :py:class:`ClientUnion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Clients.Client.ClientUnion>`
                 
                 .. attribute:: node_id
                 
@@ -987,17 +987,17 @@ class MplsLsdNodes(object):
                     .. attribute:: application
                     
                     	Application client
-                    	**type**\:  :py:class:`Application <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Clients.Client.ClientUnion.Application>`
+                    	**type**\:   :py:class:`Application <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Clients.Client.ClientUnion.Application>`
                     
                     .. attribute:: bcdl_agent
                     
                     	BCDL agent client
-                    	**type**\:  :py:class:`BcdlAgent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Clients.Client.ClientUnion.BcdlAgent>`
+                    	**type**\:   :py:class:`BcdlAgent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Clients.Client.ClientUnion.BcdlAgent>`
                     
                     .. attribute:: lsd_client_type
                     
                     	LSDClientType
-                    	**type**\:  :py:class:`MgmtLsdClientEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdClientEnum>`
+                    	**type**\:   :py:class:`MgmtLsdClientEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdClientEnum>`
                     
                     
 
@@ -1039,7 +1039,7 @@ class MplsLsdNodes(object):
                         .. attribute:: application_type
                         
                         	Application type
-                        	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                        	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                         
                         
 
@@ -1245,7 +1245,7 @@ class MplsLsdNodes(object):
             .. attribute:: owner_count
             
             	Owner counts
-            	**type**\: list of  :py:class:`OwnerCount <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.LabelSummary.OwnerCount>`
+            	**type**\: list of    :py:class:`OwnerCount <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.LabelSummary.OwnerCount>`
             
             .. attribute:: rsi_connected
             
@@ -1307,7 +1307,7 @@ class MplsLsdNodes(object):
                 .. attribute:: application_type
                 
                 	Application type
-                	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                 
                 .. attribute:: number_of_labels
                 
@@ -1410,7 +1410,7 @@ class MplsLsdNodes(object):
             .. attribute:: label
             
             	Data for label
-            	**type**\: list of  :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label>`
+            	**type**\: list of    :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label>`
             
             
 
@@ -1440,7 +1440,7 @@ class MplsLsdNodes(object):
                 .. attribute:: application_owner
                 
                 	Application owner
-                	**type**\: list of  :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.ApplicationOwner>`
+                	**type**\: list of    :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.ApplicationOwner>`
                 
                 .. attribute:: label
                 
@@ -1452,7 +1452,7 @@ class MplsLsdNodes(object):
                 .. attribute:: label_context
                 
                 	Label context
-                	**type**\:  :py:class:`LabelContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext>`
+                	**type**\:   :py:class:`LabelContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext>`
                 
                 .. attribute:: rewrite_is_bound
                 
@@ -1516,7 +1516,7 @@ class MplsLsdNodes(object):
                     .. attribute:: key
                     
                     	Label Key
-                    	**type**\:  :py:class:`Key <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key>`
+                    	**type**\:   :py:class:`Key <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key>`
                     
                     
 
@@ -1539,147 +1539,147 @@ class MplsLsdNodes(object):
                         .. attribute:: cev4l3vpn_data
                         
                         	L3VPN CEv4 label context
-                        	**type**\:  :py:class:`Cev4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.Cev4L3VpnData>`
+                        	**type**\:   :py:class:`Cev4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.Cev4L3VpnData>`
                         
                         .. attribute:: cev6l3vpn_data
                         
                         	L3VPN CEv6 label context
-                        	**type**\:  :py:class:`Cev6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.Cev6L3VpnData>`
+                        	**type**\:   :py:class:`Cev6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.Cev6L3VpnData>`
                         
                         .. attribute:: evpn_data
                         
                         	EVPN context
-                        	**type**\:  :py:class:`EvpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.EvpnData>`
+                        	**type**\:   :py:class:`EvpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.EvpnData>`
                         
                         .. attribute:: generic_routing_encapsulation
                         
                         	Generic routing encapsulation context
-                        	**type**\:  :py:class:`GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.GenericRoutingEncapsulation>`
+                        	**type**\:   :py:class:`GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.GenericRoutingEncapsulation>`
                         
                         .. attribute:: ip_sub_data
                         
                         	IP Subscriber context
-                        	**type**\:  :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.IpSubData>`
+                        	**type**\:   :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.IpSubData>`
                         
                         .. attribute:: ipv4_data
                         
                         	IPv4 label context
-                        	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.Ipv4Data>`
+                        	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.Ipv4Data>`
                         
                         .. attribute:: ipv4blb_data
                         
                         	BFD BLB label context
-                        	**type**\:  :py:class:`Ipv4BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.Ipv4BlbData>`
+                        	**type**\:   :py:class:`Ipv4BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.Ipv4BlbData>`
                         
                         .. attribute:: ipv4l3vpn_data
                         
                         	L3VPN IPv4 label context
-                        	**type**\:  :py:class:`Ipv4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.Ipv4L3VpnData>`
+                        	**type**\:   :py:class:`Ipv4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.Ipv4L3VpnData>`
                         
                         .. attribute:: ipv6_data
                         
                         	IPv6 label context
-                        	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.Ipv6Data>`
+                        	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.Ipv6Data>`
                         
                         .. attribute:: ipv6_generic_routing_encapsulation
                         
                         	Generic routing encapsulation context
-                        	**type**\:  :py:class:`Ipv6GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.Ipv6GenericRoutingEncapsulation>`
+                        	**type**\:   :py:class:`Ipv6GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.Ipv6GenericRoutingEncapsulation>`
                         
                         .. attribute:: ipv6blb_data
                         
                         	BFD BLB label context
-                        	**type**\:  :py:class:`Ipv6BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.Ipv6BlbData>`
+                        	**type**\:   :py:class:`Ipv6BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.Ipv6BlbData>`
                         
                         .. attribute:: ipv6l3vpn_data
                         
                         	L3VPN IPv6 label context
-                        	**type**\:  :py:class:`Ipv6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.Ipv6L3VpnData>`
+                        	**type**\:   :py:class:`Ipv6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.Ipv6L3VpnData>`
                         
                         .. attribute:: label_block_data
                         
                         	Label block context
-                        	**type**\:  :py:class:`LabelBlockData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.LabelBlockData>`
+                        	**type**\:   :py:class:`LabelBlockData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.LabelBlockData>`
                         
                         .. attribute:: label_block_srgb_data
                         
                         	Label block SRGB context
-                        	**type**\:  :py:class:`LabelBlockSrgbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.LabelBlockSrgbData>`
+                        	**type**\:   :py:class:`LabelBlockSrgbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.LabelBlockSrgbData>`
                         
                         .. attribute:: label_context_type
                         
                         	LabelContextType
-                        	**type**\:  :py:class:`MgmtLsdLblCtxEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdLblCtxEnum>`
+                        	**type**\:   :py:class:`MgmtLsdLblCtxEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdLblCtxEnum>`
                         
                         .. attribute:: mld_pv4_data
                         
                         	MLDPv4 LSM\-ID context
-                        	**type**\:  :py:class:`MldPv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.MldPv4Data>`
+                        	**type**\:   :py:class:`MldPv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.MldPv4Data>`
                         
                         .. attribute:: next_hop_set_l3vpn
                         
                         	L3VPN NH SET label context
-                        	**type**\:  :py:class:`NextHopSetL3Vpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.NextHopSetL3Vpn>`
+                        	**type**\:   :py:class:`NextHopSetL3Vpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.NextHopSetL3Vpn>`
                         
                         .. attribute:: pi_mi_pmsi_data
                         
                         	PIM I\-PMSI label conext
-                        	**type**\:  :py:class:`PiMiPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.PiMiPmsiData>`
+                        	**type**\:   :py:class:`PiMiPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.PiMiPmsiData>`
                         
                         .. attribute:: pi_ms_pmsi_data
                         
                         	PIM S\-PMSI label conext
-                        	**type**\:  :py:class:`PiMsPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.PiMsPmsiData>`
+                        	**type**\:   :py:class:`PiMsPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.PiMsPmsiData>`
                         
                         .. attribute:: pseudowire_data
                         
                         	Pseudowire label context
-                        	**type**\:  :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.PseudowireData>`
+                        	**type**\:   :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.PseudowireData>`
                         
                         .. attribute:: pseudowire_head_end_data
                         
                         	Pseudowire Head\-end label context
-                        	**type**\:  :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.PseudowireHeadEndData>`
+                        	**type**\:   :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.PseudowireHeadEndData>`
                         
                         .. attribute:: sr_adj_segment_ipv4
                         
                         	SR Adj Segment ipv4 context
-                        	**type**\:  :py:class:`SrAdjSegmentIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.SrAdjSegmentIpv4>`
+                        	**type**\:   :py:class:`SrAdjSegmentIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.SrAdjSegmentIpv4>`
                         
                         .. attribute:: sr_adj_segment_ipv6
                         
                         	SR Adj Segment ipv6 context
-                        	**type**\:  :py:class:`SrAdjSegmentIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.SrAdjSegmentIpv6>`
+                        	**type**\:   :py:class:`SrAdjSegmentIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.SrAdjSegmentIpv6>`
                         
                         .. attribute:: sr_prefix_segment
                         
                         	SR Prefix Segment context
-                        	**type**\:  :py:class:`SrPrefixSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.SrPrefixSegment>`
+                        	**type**\:   :py:class:`SrPrefixSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.SrPrefixSegment>`
                         
                         .. attribute:: te_binding
                         
                         	MPLS TE tunnel binding context
-                        	**type**\:  :py:class:`TeBinding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.TeBinding>`
+                        	**type**\:   :py:class:`TeBinding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.TeBinding>`
                         
                         .. attribute:: tev4_data
                         
                         	TEv4 label context
-                        	**type**\:  :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.Tev4Data>`
+                        	**type**\:   :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.Tev4Data>`
                         
                         .. attribute:: tev4p2mp_data
                         
                         	TEv4 P2MP context
-                        	**type**\:  :py:class:`Tev4P2MpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.Tev4P2MpData>`
+                        	**type**\:   :py:class:`Tev4P2MpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.Tev4P2MpData>`
                         
                         .. attribute:: tp_data
                         
                         	TP context
-                        	**type**\:  :py:class:`TpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.TpData>`
+                        	**type**\:   :py:class:`TpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.TpData>`
                         
                         .. attribute:: vrf_l3vpn_data
                         
                         	L3VPN VRF label context
-                        	**type**\:  :py:class:`VrfL3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.VrfL3VpnData>`
+                        	**type**\:   :py:class:`VrfL3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Labels.Label.LabelContext.Key.VrfL3VpnData>`
                         
                         
 
@@ -3780,7 +3780,7 @@ class MplsLsdNodes(object):
                             .. attribute:: te_type
                             
                             	Type of identifier for the binding
-                            	**type**\:  :py:class:`MgmtLsdTeBindingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdTeBindingEnum>`
+                            	**type**\:   :py:class:`MgmtLsdTeBindingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdTeBindingEnum>`
                             
                             
 
@@ -3981,12 +3981,12 @@ class MplsLsdNodes(object):
                     .. attribute:: application_type
                     
                     	Application type
-                    	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                    	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                     
                     .. attribute:: resource_state
                     
                     	Application resource state
-                    	**type**\:  :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
+                    	**type**\:   :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
                     
                     
 
@@ -4122,32 +4122,32 @@ class MplsLsdNodes(object):
             .. attribute:: summary_protected_interfaces
             
             	Sumary table of Protected Interfaces
-            	**type**\:  :py:class:`SummaryProtectedInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.SummaryProtectedInterfaces>`
+            	**type**\:   :py:class:`SummaryProtectedInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.SummaryProtectedInterfaces>`
             
             .. attribute:: tunnel_head_summary
             
             	Summary data for FRR database entry \- Tunnel head
-            	**type**\:  :py:class:`TunnelHeadSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.TunnelHeadSummary>`
+            	**type**\:   :py:class:`TunnelHeadSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.TunnelHeadSummary>`
             
             .. attribute:: tunnel_heads
             
             	Table of FRR database entries \- Tunnel heads
-            	**type**\:  :py:class:`TunnelHeads <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.TunnelHeads>`
+            	**type**\:   :py:class:`TunnelHeads <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.TunnelHeads>`
             
             .. attribute:: tunnel_midpoint_summary
             
             	Summary data for FRR database entry \- Tunnel midpoint
-            	**type**\:  :py:class:`TunnelMidpointSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.TunnelMidpointSummary>`
+            	**type**\:   :py:class:`TunnelMidpointSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.TunnelMidpointSummary>`
             
             .. attribute:: tunnel_midpoints
             
             	Table of FRR database entries \- Tunnel midpoints
-            	**type**\:  :py:class:`TunnelMidpoints <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.TunnelMidpoints>`
+            	**type**\:   :py:class:`TunnelMidpoints <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.TunnelMidpoints>`
             
             .. attribute:: tunnel_summary
             
             	Summary data for FRR database entry
-            	**type**\:  :py:class:`TunnelSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.TunnelSummary>`
+            	**type**\:   :py:class:`TunnelSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.TunnelSummary>`
             
             
 
@@ -4180,7 +4180,7 @@ class MplsLsdNodes(object):
                 .. attribute:: tunnel_midpoint
                 
                 	Data for FRR database entry \- Tunnel midpoint
-                	**type**\: list of  :py:class:`TunnelMidpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.TunnelMidpoints.TunnelMidpoint>`
+                	**type**\: list of    :py:class:`TunnelMidpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.TunnelMidpoints.TunnelMidpoint>`
                 
                 
 
@@ -4210,12 +4210,12 @@ class MplsLsdNodes(object):
                     .. attribute:: entry_frr_state
                     
                     	MPLS FRR entry state
-                    	**type**\:  :py:class:`MgmtLsdFrrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFrrStateEnum>`
+                    	**type**\:   :py:class:`MgmtLsdFrrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFrrStateEnum>`
                     
                     .. attribute:: frr_entry_id
                     
                     	FRR entry ID
-                    	**type**\:  :py:class:`FrrEntryId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.TunnelMidpoints.TunnelMidpoint.FrrEntryId>`
+                    	**type**\:   :py:class:`FrrEntryId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.TunnelMidpoints.TunnelMidpoint.FrrEntryId>`
                     
                     .. attribute:: input_label
                     
@@ -4227,7 +4227,7 @@ class MplsLsdNodes(object):
                     .. attribute:: out_path
                     
                     	Out Path List
-                    	**type**\: list of  :py:class:`OutPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.TunnelMidpoints.TunnelMidpoint.OutPath>`
+                    	**type**\: list of    :py:class:`OutPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.TunnelMidpoints.TunnelMidpoint.OutPath>`
                     
                     .. attribute:: tunnel_interface
                     
@@ -4263,17 +4263,17 @@ class MplsLsdNodes(object):
                         .. attribute:: head
                         
                         	head
-                        	**type**\:  :py:class:`Head <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.TunnelMidpoints.TunnelMidpoint.FrrEntryId.Head>`
+                        	**type**\:   :py:class:`Head <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.TunnelMidpoints.TunnelMidpoint.FrrEntryId.Head>`
                         
                         .. attribute:: midpoint
                         
                         	midpoint
-                        	**type**\:  :py:class:`Midpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.TunnelMidpoints.TunnelMidpoint.FrrEntryId.Midpoint>`
+                        	**type**\:   :py:class:`Midpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.TunnelMidpoints.TunnelMidpoint.FrrEntryId.Midpoint>`
                         
                         .. attribute:: role
                         
                         	Role
-                        	**type**\:  :py:class:`MgmtLsdLspRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdLspRoleEnum>`
+                        	**type**\:   :py:class:`MgmtLsdLspRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdLspRoleEnum>`
                         
                         
 
@@ -4615,7 +4615,7 @@ class MplsLsdNodes(object):
                 .. attribute:: tunnel_head
                 
                 	Data for FRR database entry \- Tunnel head
-                	**type**\: list of  :py:class:`TunnelHead <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.TunnelHeads.TunnelHead>`
+                	**type**\: list of    :py:class:`TunnelHead <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.TunnelHeads.TunnelHead>`
                 
                 
 
@@ -4645,12 +4645,12 @@ class MplsLsdNodes(object):
                     .. attribute:: entry_frr_state
                     
                     	MPLS FRR entry state
-                    	**type**\:  :py:class:`MgmtLsdFrrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFrrStateEnum>`
+                    	**type**\:   :py:class:`MgmtLsdFrrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFrrStateEnum>`
                     
                     .. attribute:: frr_entry_id
                     
                     	FRR entry ID
-                    	**type**\:  :py:class:`FrrEntryId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.TunnelHeads.TunnelHead.FrrEntryId>`
+                    	**type**\:   :py:class:`FrrEntryId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.TunnelHeads.TunnelHead.FrrEntryId>`
                     
                     .. attribute:: input_label
                     
@@ -4662,7 +4662,7 @@ class MplsLsdNodes(object):
                     .. attribute:: out_path
                     
                     	Out Path List
-                    	**type**\: list of  :py:class:`OutPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.TunnelHeads.TunnelHead.OutPath>`
+                    	**type**\: list of    :py:class:`OutPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.TunnelHeads.TunnelHead.OutPath>`
                     
                     .. attribute:: tunnel_interface
                     
@@ -4698,17 +4698,17 @@ class MplsLsdNodes(object):
                         .. attribute:: head
                         
                         	head
-                        	**type**\:  :py:class:`Head <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.TunnelHeads.TunnelHead.FrrEntryId.Head>`
+                        	**type**\:   :py:class:`Head <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.TunnelHeads.TunnelHead.FrrEntryId.Head>`
                         
                         .. attribute:: midpoint
                         
                         	midpoint
-                        	**type**\:  :py:class:`Midpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.TunnelHeads.TunnelHead.FrrEntryId.Midpoint>`
+                        	**type**\:   :py:class:`Midpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.TunnelHeads.TunnelHead.FrrEntryId.Midpoint>`
                         
                         .. attribute:: role
                         
                         	Role
-                        	**type**\:  :py:class:`MgmtLsdLspRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdLspRoleEnum>`
+                        	**type**\:   :py:class:`MgmtLsdLspRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdLspRoleEnum>`
                         
                         
 
@@ -5131,7 +5131,7 @@ class MplsLsdNodes(object):
                 .. attribute:: summary_protected_interface
                 
                 	Data for MPLS interface
-                	**type**\: list of  :py:class:`SummaryProtectedInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.SummaryProtectedInterfaces.SummaryProtectedInterface>`
+                	**type**\: list of    :py:class:`SummaryProtectedInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.FrrDatabase.SummaryProtectedInterfaces.SummaryProtectedInterface>`
                 
                 
 
@@ -5473,22 +5473,22 @@ class MplsLsdNodes(object):
             .. attribute:: rewrite_ipv4s
             
             	Table of Rewrites
-            	**type**\:  :py:class:`RewriteIpv4S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S>`
+            	**type**\:   :py:class:`RewriteIpv4S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S>`
             
             .. attribute:: rewrite_labels
             
             	Table of Rewrites
-            	**type**\:  :py:class:`RewriteLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels>`
+            	**type**\:   :py:class:`RewriteLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels>`
             
             .. attribute:: rewrite_pws
             
             	Table of Rewrites
-            	**type**\:  :py:class:`RewritePws <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws>`
+            	**type**\:   :py:class:`RewritePws <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws>`
             
             .. attribute:: rewrite_tes
             
             	Table of Traffic Engineering Rewrites
-            	**type**\:  :py:class:`RewriteTes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes>`
+            	**type**\:   :py:class:`RewriteTes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes>`
             
             
 
@@ -5516,7 +5516,7 @@ class MplsLsdNodes(object):
                 .. attribute:: rewrite_pw
                 
                 	FPI rewrite for PW List
-                	**type**\: list of  :py:class:`RewritePw <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw>`
+                	**type**\: list of    :py:class:`RewritePw <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw>`
                 
                 
 
@@ -5546,7 +5546,7 @@ class MplsLsdNodes(object):
                     .. attribute:: associated_fpi
                     
                     	Associated FPI
-                    	**type**\: list of  :py:class:`AssociatedFpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.AssociatedFpi>`
+                    	**type**\: list of    :py:class:`AssociatedFpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.AssociatedFpi>`
                     
                     .. attribute:: bcdl_priority
                     
@@ -5558,7 +5558,7 @@ class MplsLsdNodes(object):
                     .. attribute:: fpi_key
                     
                     	fpi key
-                    	**type**\:  :py:class:`FpiKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.FpiKey>`
+                    	**type**\:   :py:class:`FpiKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.FpiKey>`
                     
                     .. attribute:: lsd_queue
                     
@@ -5570,7 +5570,7 @@ class MplsLsdNodes(object):
                     .. attribute:: mois
                     
                     	Mois
-                    	**type**\: list of  :py:class:`Mois <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois>`
+                    	**type**\: list of    :py:class:`Mois <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois>`
                     
                     .. attribute:: priority_updated
                     
@@ -5582,7 +5582,7 @@ class MplsLsdNodes(object):
                     .. attribute:: rewrite_id
                     
                     	Rewrite ID
-                    	**type**\:  :py:class:`RewriteId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId>`
+                    	**type**\:   :py:class:`RewriteId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId>`
                     
                     .. attribute:: rewrite_version
                     
@@ -5615,12 +5615,12 @@ class MplsLsdNodes(object):
                     .. attribute:: v4_rpf
                     
                     	IPv4 RPF neighbors
-                    	**type**\: list of  :py:class:`V4Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.V4Rpf>`
+                    	**type**\: list of    :py:class:`V4Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.V4Rpf>`
                     
                     .. attribute:: v6_rpf
                     
                     	IPv6 RPF neighbors
-                    	**type**\: list of  :py:class:`V6Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.V6Rpf>`
+                    	**type**\: list of    :py:class:`V6Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.V6Rpf>`
                     
                     
 
@@ -5664,12 +5664,12 @@ class MplsLsdNodes(object):
                         .. attribute:: application_owner
                         
                         	Application owner instance
-                        	**type**\: list of  :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.FpiKey.ApplicationOwner>`
+                        	**type**\: list of    :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.FpiKey.ApplicationOwner>`
                         
                         .. attribute:: fpi
                         
                         	FPI
-                        	**type**\:  :py:class:`Fpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.FpiKey.Fpi>`
+                        	**type**\:   :py:class:`Fpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.FpiKey.Fpi>`
                         
                         
 
@@ -5694,37 +5694,37 @@ class MplsLsdNodes(object):
                             .. attribute:: dmtc_ext_intf_data
                             
                             	dmtc ext intf data
-                            	**type**\:  :py:class:`DmtcExtIntfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.FpiKey.Fpi.DmtcExtIntfData>`
+                            	**type**\:   :py:class:`DmtcExtIntfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.FpiKey.Fpi.DmtcExtIntfData>`
                             
                             .. attribute:: fpi_type
                             
                             	FPIType
-                            	**type**\:  :py:class:`MgmtLsdFpiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFpiEnum>`
+                            	**type**\:   :py:class:`MgmtLsdFpiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFpiEnum>`
                             
                             .. attribute:: ipv4_data
                             
                             	ipv4 data
-                            	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.FpiKey.Fpi.Ipv4Data>`
+                            	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.FpiKey.Fpi.Ipv4Data>`
                             
                             .. attribute:: ipv6_data
                             
                             	ipv6 data
-                            	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.FpiKey.Fpi.Ipv6Data>`
+                            	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.FpiKey.Fpi.Ipv6Data>`
                             
                             .. attribute:: label_data
                             
                             	label data
-                            	**type**\:  :py:class:`LabelData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.FpiKey.Fpi.LabelData>`
+                            	**type**\:   :py:class:`LabelData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.FpiKey.Fpi.LabelData>`
                             
                             .. attribute:: pw_list_data
                             
                             	pw list data
-                            	**type**\:  :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.FpiKey.Fpi.PwListData>`
+                            	**type**\:   :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.FpiKey.Fpi.PwListData>`
                             
                             .. attribute:: te_data
                             
                             	te data
-                            	**type**\:  :py:class:`TeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.FpiKey.Fpi.TeData>`
+                            	**type**\:   :py:class:`TeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.FpiKey.Fpi.TeData>`
                             
                             
 
@@ -6208,12 +6208,12 @@ class MplsLsdNodes(object):
                             .. attribute:: application_type
                             
                             	Application type
-                            	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                            	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                             
                             .. attribute:: resource_state
                             
                             	Application resource state
-                            	**type**\:  :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
+                            	**type**\:   :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
                             
                             
 
@@ -6303,7 +6303,7 @@ class MplsLsdNodes(object):
                         .. attribute:: rewrite_id
                         
                         	Rewrite ID
-                        	**type**\:  :py:class:`RewriteId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId>`
+                        	**type**\:   :py:class:`RewriteId_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_>`
                         
                         
 
@@ -6314,28 +6314,28 @@ class MplsLsdNodes(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.rewrite_id = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId()
+                            self.rewrite_id = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_()
                             self.rewrite_id.parent = self
 
 
-                        class RewriteId(object):
+                        class RewriteId_(object):
                             """
                             Rewrite ID
                             
                             .. attribute:: label_context
                             
                             	Label context
-                            	**type**\:  :py:class:`LabelContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext>`
+                            	**type**\:   :py:class:`LabelContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext>`
                             
                             .. attribute:: local_label_rewrite
                             
                             	Local label rewrite information
-                            	**type**\:  :py:class:`LocalLabelRewrite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LocalLabelRewrite>`
+                            	**type**\:   :py:class:`LocalLabelRewrite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LocalLabelRewrite>`
                             
                             .. attribute:: rewrite_id_type
                             
                             	RewriteIDType
-                            	**type**\:  :py:class:`MgmtLsdRwIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdRwIdEnum>`
+                            	**type**\:   :py:class:`MgmtLsdRwIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdRwIdEnum>`
                             
                             
 
@@ -6346,9 +6346,9 @@ class MplsLsdNodes(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.label_context = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext()
+                                self.label_context = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext()
                                 self.label_context.parent = self
-                                self.local_label_rewrite = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LocalLabelRewrite()
+                                self.local_label_rewrite = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LocalLabelRewrite()
                                 self.local_label_rewrite.parent = self
                                 self.rewrite_id_type = None
 
@@ -6360,147 +6360,147 @@ class MplsLsdNodes(object):
                                 .. attribute:: cev4l3vpn_data
                                 
                                 	L3VPN CEv4 label context
-                                	**type**\:  :py:class:`Cev4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Cev4L3VpnData>`
+                                	**type**\:   :py:class:`Cev4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData>`
                                 
                                 .. attribute:: cev6l3vpn_data
                                 
                                 	L3VPN CEv6 label context
-                                	**type**\:  :py:class:`Cev6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Cev6L3VpnData>`
+                                	**type**\:   :py:class:`Cev6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData>`
                                 
                                 .. attribute:: evpn_data
                                 
                                 	EVPN context
-                                	**type**\:  :py:class:`EvpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.EvpnData>`
+                                	**type**\:   :py:class:`EvpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.EvpnData>`
                                 
                                 .. attribute:: generic_routing_encapsulation
                                 
                                 	Generic routing encapsulation context
-                                	**type**\:  :py:class:`GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation>`
+                                	**type**\:   :py:class:`GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation>`
                                 
                                 .. attribute:: ip_sub_data
                                 
                                 	IP Subscriber context
-                                	**type**\:  :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.IpSubData>`
+                                	**type**\:   :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.IpSubData>`
                                 
                                 .. attribute:: ipv4_data
                                 
                                 	IPv4 label context
-                                	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4Data>`
+                                	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4Data>`
                                 
                                 .. attribute:: ipv4blb_data
                                 
                                 	BFD BLB label context
-                                	**type**\:  :py:class:`Ipv4BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4BlbData>`
+                                	**type**\:   :py:class:`Ipv4BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4BlbData>`
                                 
                                 .. attribute:: ipv4l3vpn_data
                                 
                                 	L3VPN IPv4 label context
-                                	**type**\:  :py:class:`Ipv4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData>`
+                                	**type**\:   :py:class:`Ipv4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData>`
                                 
                                 .. attribute:: ipv6_data
                                 
                                 	IPv6 label context
-                                	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6Data>`
+                                	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6Data>`
                                 
                                 .. attribute:: ipv6_generic_routing_encapsulation
                                 
                                 	Generic routing encapsulation context
-                                	**type**\:  :py:class:`Ipv6GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation>`
+                                	**type**\:   :py:class:`Ipv6GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation>`
                                 
                                 .. attribute:: ipv6blb_data
                                 
                                 	BFD BLB label context
-                                	**type**\:  :py:class:`Ipv6BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6BlbData>`
+                                	**type**\:   :py:class:`Ipv6BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6BlbData>`
                                 
                                 .. attribute:: ipv6l3vpn_data
                                 
                                 	L3VPN IPv6 label context
-                                	**type**\:  :py:class:`Ipv6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData>`
+                                	**type**\:   :py:class:`Ipv6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData>`
                                 
                                 .. attribute:: label_block_data
                                 
                                 	Label block context
-                                	**type**\:  :py:class:`LabelBlockData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.LabelBlockData>`
+                                	**type**\:   :py:class:`LabelBlockData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.LabelBlockData>`
                                 
                                 .. attribute:: label_block_srgb_data
                                 
                                 	Label block SRGB context
-                                	**type**\:  :py:class:`LabelBlockSrgbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData>`
+                                	**type**\:   :py:class:`LabelBlockSrgbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData>`
                                 
                                 .. attribute:: label_context_type
                                 
                                 	LabelContextType
-                                	**type**\:  :py:class:`MgmtLsdLblCtxEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdLblCtxEnum>`
+                                	**type**\:   :py:class:`MgmtLsdLblCtxEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdLblCtxEnum>`
                                 
                                 .. attribute:: mld_pv4_data
                                 
                                 	MLDPv4 LSM\-ID context
-                                	**type**\:  :py:class:`MldPv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.MldPv4Data>`
+                                	**type**\:   :py:class:`MldPv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.MldPv4Data>`
                                 
                                 .. attribute:: next_hop_set_l3vpn
                                 
                                 	L3VPN NH SET label context
-                                	**type**\:  :py:class:`NextHopSetL3Vpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn>`
+                                	**type**\:   :py:class:`NextHopSetL3Vpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn>`
                                 
                                 .. attribute:: pi_mi_pmsi_data
                                 
                                 	PIM I\-PMSI label conext
-                                	**type**\:  :py:class:`PiMiPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PiMiPmsiData>`
+                                	**type**\:   :py:class:`PiMiPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PiMiPmsiData>`
                                 
                                 .. attribute:: pi_ms_pmsi_data
                                 
                                 	PIM S\-PMSI label conext
-                                	**type**\:  :py:class:`PiMsPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PiMsPmsiData>`
+                                	**type**\:   :py:class:`PiMsPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PiMsPmsiData>`
                                 
                                 .. attribute:: pseudowire_data
                                 
                                 	Pseudowire label context
-                                	**type**\:  :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PseudowireData>`
+                                	**type**\:   :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PseudowireData>`
                                 
                                 .. attribute:: pseudowire_head_end_data
                                 
                                 	Pseudowire Head\-end label context
-                                	**type**\:  :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData>`
+                                	**type**\:   :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData>`
                                 
                                 .. attribute:: sr_adj_segment_ipv4
                                 
                                 	SR Adj Segment ipv4 context
-                                	**type**\:  :py:class:`SrAdjSegmentIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4>`
+                                	**type**\:   :py:class:`SrAdjSegmentIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4>`
                                 
                                 .. attribute:: sr_adj_segment_ipv6
                                 
                                 	SR Adj Segment ipv6 context
-                                	**type**\:  :py:class:`SrAdjSegmentIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6>`
+                                	**type**\:   :py:class:`SrAdjSegmentIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6>`
                                 
                                 .. attribute:: sr_prefix_segment
                                 
                                 	SR Prefix Segment context
-                                	**type**\:  :py:class:`SrPrefixSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrPrefixSegment>`
+                                	**type**\:   :py:class:`SrPrefixSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrPrefixSegment>`
                                 
                                 .. attribute:: te_binding
                                 
                                 	MPLS TE tunnel binding context
-                                	**type**\:  :py:class:`TeBinding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.TeBinding>`
+                                	**type**\:   :py:class:`TeBinding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.TeBinding>`
                                 
                                 .. attribute:: tev4_data
                                 
                                 	TEv4 label context
-                                	**type**\:  :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Tev4Data>`
+                                	**type**\:   :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Tev4Data>`
                                 
                                 .. attribute:: tev4p2mp_data
                                 
                                 	TEv4 P2MP context
-                                	**type**\:  :py:class:`Tev4P2MpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Tev4P2MpData>`
+                                	**type**\:   :py:class:`Tev4P2MpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Tev4P2MpData>`
                                 
                                 .. attribute:: tp_data
                                 
                                 	TP context
-                                	**type**\:  :py:class:`TpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.TpData>`
+                                	**type**\:   :py:class:`TpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.TpData>`
                                 
                                 .. attribute:: vrf_l3vpn_data
                                 
                                 	L3VPN VRF label context
-                                	**type**\:  :py:class:`VrfL3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.VrfL3VpnData>`
+                                	**type**\:   :py:class:`VrfL3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.VrfL3VpnData>`
                                 
                                 
 
@@ -6511,62 +6511,62 @@ class MplsLsdNodes(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.cev4l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Cev4L3VpnData()
+                                    self.cev4l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData()
                                     self.cev4l3vpn_data.parent = self
-                                    self.cev6l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Cev6L3VpnData()
+                                    self.cev6l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData()
                                     self.cev6l3vpn_data.parent = self
-                                    self.evpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.EvpnData()
+                                    self.evpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.EvpnData()
                                     self.evpn_data.parent = self
-                                    self.generic_routing_encapsulation = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation()
+                                    self.generic_routing_encapsulation = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation()
                                     self.generic_routing_encapsulation.parent = self
-                                    self.ip_sub_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.IpSubData()
+                                    self.ip_sub_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.IpSubData()
                                     self.ip_sub_data.parent = self
-                                    self.ipv4_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4Data()
+                                    self.ipv4_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4Data()
                                     self.ipv4_data.parent = self
-                                    self.ipv4blb_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4BlbData()
+                                    self.ipv4blb_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4BlbData()
                                     self.ipv4blb_data.parent = self
-                                    self.ipv4l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData()
+                                    self.ipv4l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData()
                                     self.ipv4l3vpn_data.parent = self
-                                    self.ipv6_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6Data()
+                                    self.ipv6_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6Data()
                                     self.ipv6_data.parent = self
-                                    self.ipv6_generic_routing_encapsulation = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation()
+                                    self.ipv6_generic_routing_encapsulation = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation()
                                     self.ipv6_generic_routing_encapsulation.parent = self
-                                    self.ipv6blb_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6BlbData()
+                                    self.ipv6blb_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6BlbData()
                                     self.ipv6blb_data.parent = self
-                                    self.ipv6l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData()
+                                    self.ipv6l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData()
                                     self.ipv6l3vpn_data.parent = self
-                                    self.label_block_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.LabelBlockData()
+                                    self.label_block_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.LabelBlockData()
                                     self.label_block_data.parent = self
-                                    self.label_block_srgb_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData()
+                                    self.label_block_srgb_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData()
                                     self.label_block_srgb_data.parent = self
                                     self.label_context_type = None
-                                    self.mld_pv4_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.MldPv4Data()
+                                    self.mld_pv4_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.MldPv4Data()
                                     self.mld_pv4_data.parent = self
-                                    self.next_hop_set_l3vpn = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn()
+                                    self.next_hop_set_l3vpn = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn()
                                     self.next_hop_set_l3vpn.parent = self
-                                    self.pi_mi_pmsi_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PiMiPmsiData()
+                                    self.pi_mi_pmsi_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PiMiPmsiData()
                                     self.pi_mi_pmsi_data.parent = self
-                                    self.pi_ms_pmsi_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PiMsPmsiData()
+                                    self.pi_ms_pmsi_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PiMsPmsiData()
                                     self.pi_ms_pmsi_data.parent = self
-                                    self.pseudowire_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PseudowireData()
+                                    self.pseudowire_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PseudowireData()
                                     self.pseudowire_data.parent = self
-                                    self.pseudowire_head_end_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData()
+                                    self.pseudowire_head_end_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData()
                                     self.pseudowire_head_end_data.parent = self
-                                    self.sr_adj_segment_ipv4 = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4()
+                                    self.sr_adj_segment_ipv4 = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4()
                                     self.sr_adj_segment_ipv4.parent = self
-                                    self.sr_adj_segment_ipv6 = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6()
+                                    self.sr_adj_segment_ipv6 = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6()
                                     self.sr_adj_segment_ipv6.parent = self
-                                    self.sr_prefix_segment = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrPrefixSegment()
+                                    self.sr_prefix_segment = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrPrefixSegment()
                                     self.sr_prefix_segment.parent = self
-                                    self.te_binding = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.TeBinding()
+                                    self.te_binding = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.TeBinding()
                                     self.te_binding.parent = self
-                                    self.tev4_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Tev4Data()
+                                    self.tev4_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Tev4Data()
                                     self.tev4_data.parent = self
-                                    self.tev4p2mp_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Tev4P2MpData()
+                                    self.tev4p2mp_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Tev4P2MpData()
                                     self.tev4p2mp_data.parent = self
-                                    self.tp_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.TpData()
+                                    self.tp_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.TpData()
                                     self.tp_data.parent = self
-                                    self.vrf_l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.VrfL3VpnData()
+                                    self.vrf_l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.VrfL3VpnData()
                                     self.vrf_l3vpn_data.parent = self
 
 
@@ -6658,7 +6658,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4Data']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4Data']['meta_info']
 
 
                                 class Ipv6Data(object):
@@ -6749,7 +6749,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6Data']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6Data']['meta_info']
 
 
                                 class Tev4Data(object):
@@ -6862,7 +6862,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Tev4Data']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Tev4Data']['meta_info']
 
 
                                 class Ipv4L3VpnData(object):
@@ -6931,7 +6931,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData']['meta_info']
 
 
                                 class Ipv6L3VpnData(object):
@@ -7000,7 +7000,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData']['meta_info']
 
 
                                 class VrfL3VpnData(object):
@@ -7058,7 +7058,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.VrfL3VpnData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.VrfL3VpnData']['meta_info']
 
 
                                 class Cev4L3VpnData(object):
@@ -7127,7 +7127,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Cev4L3VpnData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData']['meta_info']
 
 
                                 class Cev6L3VpnData(object):
@@ -7196,7 +7196,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Cev6L3VpnData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData']['meta_info']
 
 
                                 class PseudowireData(object):
@@ -7276,7 +7276,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PseudowireData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PseudowireData']['meta_info']
 
 
                                 class LabelBlockData(object):
@@ -7367,7 +7367,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.LabelBlockData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.LabelBlockData']['meta_info']
 
 
                                 class IpSubData(object):
@@ -7425,7 +7425,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.IpSubData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.IpSubData']['meta_info']
 
 
                                 class Tev4P2MpData(object):
@@ -7538,7 +7538,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Tev4P2MpData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Tev4P2MpData']['meta_info']
 
 
                                 class MldPv4Data(object):
@@ -7629,7 +7629,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.MldPv4Data']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.MldPv4Data']['meta_info']
 
 
                                 class PseudowireHeadEndData(object):
@@ -7676,7 +7676,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData']['meta_info']
 
 
                                 class TpData(object):
@@ -7789,7 +7789,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.TpData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.TpData']['meta_info']
 
 
                                 class GenericRoutingEncapsulation(object):
@@ -7836,7 +7836,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation']['meta_info']
 
 
                                 class Ipv6GenericRoutingEncapsulation(object):
@@ -7883,7 +7883,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation']['meta_info']
 
 
                                 class EvpnData(object):
@@ -7952,7 +7952,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.EvpnData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.EvpnData']['meta_info']
 
 
                                 class Ipv4BlbData(object):
@@ -8010,7 +8010,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4BlbData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4BlbData']['meta_info']
 
 
                                 class Ipv6BlbData(object):
@@ -8068,7 +8068,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6BlbData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6BlbData']['meta_info']
 
 
                                 class PiMiPmsiData(object):
@@ -8137,7 +8137,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PiMiPmsiData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PiMiPmsiData']['meta_info']
 
 
                                 class PiMsPmsiData(object):
@@ -8239,7 +8239,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PiMsPmsiData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PiMsPmsiData']['meta_info']
 
 
                                 class NextHopSetL3Vpn(object):
@@ -8297,7 +8297,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn']['meta_info']
 
 
                                 class SrPrefixSegment(object):
@@ -8355,7 +8355,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrPrefixSegment']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrPrefixSegment']['meta_info']
 
 
                                 class SrAdjSegmentIpv4(object):
@@ -8435,7 +8435,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4']['meta_info']
 
 
                                 class SrAdjSegmentIpv6(object):
@@ -8515,7 +8515,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6']['meta_info']
 
 
                                 class LabelBlockSrgbData(object):
@@ -8584,7 +8584,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData']['meta_info']
 
 
                                 class TeBinding(object):
@@ -8601,7 +8601,7 @@ class MplsLsdNodes(object):
                                     .. attribute:: te_type
                                     
                                     	Type of identifier for the binding
-                                    	**type**\:  :py:class:`MgmtLsdTeBindingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdTeBindingEnum>`
+                                    	**type**\:   :py:class:`MgmtLsdTeBindingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdTeBindingEnum>`
                                     
                                     
 
@@ -8640,7 +8640,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.TeBinding']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.TeBinding']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -8748,7 +8748,7 @@ class MplsLsdNodes(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
+                                    return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
 
 
                             class LocalLabelRewrite(object):
@@ -8799,7 +8799,7 @@ class MplsLsdNodes(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LocalLabelRewrite']['meta_info']
+                                    return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LocalLabelRewrite']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -8829,7 +8829,7 @@ class MplsLsdNodes(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId']['meta_info']
+                                return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -8863,12 +8863,12 @@ class MplsLsdNodes(object):
                         .. attribute:: application_owner
                         
                         	Application owner instance
-                        	**type**\: list of  :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.AssociatedFpi.ApplicationOwner>`
+                        	**type**\: list of    :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.AssociatedFpi.ApplicationOwner>`
                         
                         .. attribute:: fpi
                         
                         	FPI
-                        	**type**\:  :py:class:`Fpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi>`
+                        	**type**\:   :py:class:`Fpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi>`
                         
                         
 
@@ -8893,37 +8893,37 @@ class MplsLsdNodes(object):
                             .. attribute:: dmtc_ext_intf_data
                             
                             	dmtc ext intf data
-                            	**type**\:  :py:class:`DmtcExtIntfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi.DmtcExtIntfData>`
+                            	**type**\:   :py:class:`DmtcExtIntfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi.DmtcExtIntfData>`
                             
                             .. attribute:: fpi_type
                             
                             	FPIType
-                            	**type**\:  :py:class:`MgmtLsdFpiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFpiEnum>`
+                            	**type**\:   :py:class:`MgmtLsdFpiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFpiEnum>`
                             
                             .. attribute:: ipv4_data
                             
                             	ipv4 data
-                            	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi.Ipv4Data>`
+                            	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi.Ipv4Data>`
                             
                             .. attribute:: ipv6_data
                             
                             	ipv6 data
-                            	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi.Ipv6Data>`
+                            	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi.Ipv6Data>`
                             
                             .. attribute:: label_data
                             
                             	label data
-                            	**type**\:  :py:class:`LabelData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi.LabelData>`
+                            	**type**\:   :py:class:`LabelData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi.LabelData>`
                             
                             .. attribute:: pw_list_data
                             
                             	pw list data
-                            	**type**\:  :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi.PwListData>`
+                            	**type**\:   :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi.PwListData>`
                             
                             .. attribute:: te_data
                             
                             	te data
-                            	**type**\:  :py:class:`TeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi.TeData>`
+                            	**type**\:   :py:class:`TeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi.TeData>`
                             
                             
 
@@ -9407,12 +9407,12 @@ class MplsLsdNodes(object):
                             .. attribute:: application_type
                             
                             	Application type
-                            	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                            	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                             
                             .. attribute:: resource_state
                             
                             	Application resource state
-                            	**type**\:  :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
+                            	**type**\:   :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
                             
                             
 
@@ -9618,12 +9618,12 @@ class MplsLsdNodes(object):
                         .. attribute:: application_resource
                         
                         	Application state
-                        	**type**\:  :py:class:`ApplicationResource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.ApplicationResource>`
+                        	**type**\:   :py:class:`ApplicationResource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.ApplicationResource>`
                         
                         .. attribute:: moi_array
                         
                         	moi array
-                        	**type**\: list of  :py:class:`MoiArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray>`
+                        	**type**\: list of    :py:class:`MoiArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray>`
                         
                         
 
@@ -9665,12 +9665,12 @@ class MplsLsdNodes(object):
                             .. attribute:: application_type
                             
                             	Application type
-                            	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                            	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                             
                             .. attribute:: resource_state
                             
                             	Application resource state
-                            	**type**\:  :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
+                            	**type**\:   :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
                             
                             
 
@@ -9731,7 +9731,7 @@ class MplsLsdNodes(object):
                             .. attribute:: moi
                             
                             	Moi
-                            	**type**\:  :py:class:`Moi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi>`
+                            	**type**\:   :py:class:`Moi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi>`
                             
                             
 
@@ -9753,77 +9753,77 @@ class MplsLsdNodes(object):
                                 .. attribute:: dmtc_data
                                 
                                 	dmtc data
-                                	**type**\:  :py:class:`DmtcData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.DmtcData>`
+                                	**type**\:   :py:class:`DmtcData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.DmtcData>`
                                 
                                 .. attribute:: ip_sub_data
                                 
                                 	ip sub data
-                                	**type**\:  :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.IpSubData>`
+                                	**type**\:   :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.IpSubData>`
                                 
                                 .. attribute:: ipv4_data
                                 
                                 	ipv4 data
-                                	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Ipv4Data>`
+                                	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Ipv4Data>`
                                 
                                 .. attribute:: ipv6_data
                                 
                                 	ipv6 data
-                                	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Ipv6Data>`
+                                	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Ipv6Data>`
                                 
                                 .. attribute:: moi_type
                                 
                                 	MoiType
-                                	**type**\:  :py:class:`MgmtLsdMoiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdMoiEnum>`
+                                	**type**\:   :py:class:`MgmtLsdMoiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdMoiEnum>`
                                 
                                 .. attribute:: pop_and_lookup_ipv4
                                 
                                 	pop and lookup ipv4
-                                	**type**\:  :py:class:`PopAndLookupIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.PopAndLookupIpv4>`
+                                	**type**\:   :py:class:`PopAndLookupIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.PopAndLookupIpv4>`
                                 
                                 .. attribute:: pop_and_lookup_ipv6
                                 
                                 	pop and lookup ipv6
-                                	**type**\:  :py:class:`PopAndLookupIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.PopAndLookupIpv6>`
+                                	**type**\:   :py:class:`PopAndLookupIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.PopAndLookupIpv6>`
                                 
                                 .. attribute:: pop_and_lookup_tp
                                 
                                 	pop and lookup tp
-                                	**type**\:  :py:class:`PopAndLookupTp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.PopAndLookupTp>`
+                                	**type**\:   :py:class:`PopAndLookupTp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.PopAndLookupTp>`
                                 
                                 .. attribute:: pseudowire_data
                                 
                                 	pseudowire data
-                                	**type**\:  :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.PseudowireData>`
+                                	**type**\:   :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.PseudowireData>`
                                 
                                 .. attribute:: pseudowire_head_end_data
                                 
                                 	pseudowire head end data
-                                	**type**\:  :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.PseudowireHeadEndData>`
+                                	**type**\:   :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.PseudowireHeadEndData>`
                                 
                                 .. attribute:: pw_list_data
                                 
                                 	pw list data
-                                	**type**\:  :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.PwListData>`
+                                	**type**\:   :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.PwListData>`
                                 
                                 .. attribute:: stackv4_data
                                 
                                 	stackv4 data
-                                	**type**\:  :py:class:`Stackv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Stackv4Data>`
+                                	**type**\:   :py:class:`Stackv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Stackv4Data>`
                                 
                                 .. attribute:: stackv6_data
                                 
                                 	stackv6 data
-                                	**type**\:  :py:class:`Stackv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Stackv6Data>`
+                                	**type**\:   :py:class:`Stackv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Stackv6Data>`
                                 
                                 .. attribute:: te_head_data
                                 
                                 	te head data
-                                	**type**\:  :py:class:`TeHeadData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.TeHeadData>`
+                                	**type**\:   :py:class:`TeHeadData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.TeHeadData>`
                                 
                                 .. attribute:: tev4_data
                                 
                                 	tev4 data
-                                	**type**\:  :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Tev4Data>`
+                                	**type**\:   :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Tev4Data>`
                                 
                                 
 
@@ -11055,17 +11055,17 @@ class MplsLsdNodes(object):
                                     .. attribute:: inner_stack
                                     
                                     	Inner stack
-                                    	**type**\:  :py:class:`InnerStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Stackv4Data.InnerStack>`
+                                    	**type**\:   :py:class:`InnerStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Stackv4Data.InnerStack>`
                                     
                                     .. attribute:: nexthop
                                     
                                     	Nexthop
-                                    	**type**\:  :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Stackv4Data.Nexthop>`
+                                    	**type**\:   :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Stackv4Data.Nexthop>`
                                     
                                     .. attribute:: owner_application_type
                                     
                                     	Owner application type
-                                    	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                                    	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                                     
                                     
 
@@ -11274,7 +11274,7 @@ class MplsLsdNodes(object):
                                         .. attribute:: label
                                         
                                         	Info related to outgoing labels
-                                        	**type**\: list of  :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Stackv4Data.InnerStack.Label>`
+                                        	**type**\: list of    :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Stackv4Data.InnerStack.Label>`
                                         
                                         .. attribute:: nexthop
                                         
@@ -11446,12 +11446,12 @@ class MplsLsdNodes(object):
                                     .. attribute:: inner_stack
                                     
                                     	Inner stack
-                                    	**type**\:  :py:class:`InnerStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Stackv6Data.InnerStack>`
+                                    	**type**\:   :py:class:`InnerStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Stackv6Data.InnerStack>`
                                     
                                     .. attribute:: nexthop
                                     
                                     	Nexthop
-                                    	**type**\:  :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Stackv6Data.Nexthop>`
+                                    	**type**\:   :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Stackv6Data.Nexthop>`
                                     
                                     
 
@@ -11615,7 +11615,7 @@ class MplsLsdNodes(object):
                                         .. attribute:: label
                                         
                                         	Info related to outgoing labels
-                                        	**type**\: list of  :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Stackv6Data.InnerStack.Label>`
+                                        	**type**\: list of    :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Stackv6Data.InnerStack.Label>`
                                         
                                         .. attribute:: nexthop
                                         
@@ -12156,7 +12156,7 @@ class MplsLsdNodes(object):
                 .. attribute:: rewrite_ipv4
                 
                 	FPI rewrite for label
-                	**type**\: list of  :py:class:`RewriteIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4>`
+                	**type**\: list of    :py:class:`RewriteIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4>`
                 
                 
 
@@ -12179,7 +12179,7 @@ class MplsLsdNodes(object):
                     .. attribute:: associated_fpi
                     
                     	Associated FPI
-                    	**type**\: list of  :py:class:`AssociatedFpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi>`
+                    	**type**\: list of    :py:class:`AssociatedFpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi>`
                     
                     .. attribute:: bcdl_priority
                     
@@ -12191,7 +12191,7 @@ class MplsLsdNodes(object):
                     .. attribute:: fpi_key
                     
                     	fpi key
-                    	**type**\:  :py:class:`FpiKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey>`
+                    	**type**\:   :py:class:`FpiKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey>`
                     
                     .. attribute:: lsd_queue
                     
@@ -12203,7 +12203,7 @@ class MplsLsdNodes(object):
                     .. attribute:: mois
                     
                     	Mois
-                    	**type**\: list of  :py:class:`Mois <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois>`
+                    	**type**\: list of    :py:class:`Mois <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois>`
                     
                     .. attribute:: prefix
                     
@@ -12229,7 +12229,7 @@ class MplsLsdNodes(object):
                     .. attribute:: rewrite_id
                     
                     	Rewrite ID
-                    	**type**\:  :py:class:`RewriteId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId>`
+                    	**type**\:   :py:class:`RewriteId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId>`
                     
                     .. attribute:: rewrite_version
                     
@@ -12276,12 +12276,12 @@ class MplsLsdNodes(object):
                     .. attribute:: v4_rpf
                     
                     	IPv4 RPF neighbors
-                    	**type**\: list of  :py:class:`V4Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.V4Rpf>`
+                    	**type**\: list of    :py:class:`V4Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.V4Rpf>`
                     
                     .. attribute:: v6_rpf
                     
                     	IPv6 RPF neighbors
-                    	**type**\: list of  :py:class:`V6Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.V6Rpf>`
+                    	**type**\: list of    :py:class:`V6Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.V6Rpf>`
                     
                     
 
@@ -12328,12 +12328,12 @@ class MplsLsdNodes(object):
                         .. attribute:: application_owner
                         
                         	Application owner instance
-                        	**type**\: list of  :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.ApplicationOwner>`
+                        	**type**\: list of    :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.ApplicationOwner>`
                         
                         .. attribute:: fpi
                         
                         	FPI
-                        	**type**\:  :py:class:`Fpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi>`
+                        	**type**\:   :py:class:`Fpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi>`
                         
                         
 
@@ -12358,37 +12358,37 @@ class MplsLsdNodes(object):
                             .. attribute:: dmtc_ext_intf_data
                             
                             	dmtc ext intf data
-                            	**type**\:  :py:class:`DmtcExtIntfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi.DmtcExtIntfData>`
+                            	**type**\:   :py:class:`DmtcExtIntfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi.DmtcExtIntfData>`
                             
                             .. attribute:: fpi_type
                             
                             	FPIType
-                            	**type**\:  :py:class:`MgmtLsdFpiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFpiEnum>`
+                            	**type**\:   :py:class:`MgmtLsdFpiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFpiEnum>`
                             
                             .. attribute:: ipv4_data
                             
                             	ipv4 data
-                            	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi.Ipv4Data>`
+                            	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi.Ipv4Data>`
                             
                             .. attribute:: ipv6_data
                             
                             	ipv6 data
-                            	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi.Ipv6Data>`
+                            	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi.Ipv6Data>`
                             
                             .. attribute:: label_data
                             
                             	label data
-                            	**type**\:  :py:class:`LabelData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi.LabelData>`
+                            	**type**\:   :py:class:`LabelData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi.LabelData>`
                             
                             .. attribute:: pw_list_data
                             
                             	pw list data
-                            	**type**\:  :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi.PwListData>`
+                            	**type**\:   :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi.PwListData>`
                             
                             .. attribute:: te_data
                             
                             	te data
-                            	**type**\:  :py:class:`TeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi.TeData>`
+                            	**type**\:   :py:class:`TeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi.TeData>`
                             
                             
 
@@ -12872,12 +12872,12 @@ class MplsLsdNodes(object):
                             .. attribute:: application_type
                             
                             	Application type
-                            	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                            	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                             
                             .. attribute:: resource_state
                             
                             	Application resource state
-                            	**type**\:  :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
+                            	**type**\:   :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
                             
                             
 
@@ -12967,7 +12967,7 @@ class MplsLsdNodes(object):
                         .. attribute:: rewrite_id
                         
                         	Rewrite ID
-                        	**type**\:  :py:class:`RewriteId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId>`
+                        	**type**\:   :py:class:`RewriteId_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_>`
                         
                         
 
@@ -12978,28 +12978,28 @@ class MplsLsdNodes(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.rewrite_id = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId()
+                            self.rewrite_id = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_()
                             self.rewrite_id.parent = self
 
 
-                        class RewriteId(object):
+                        class RewriteId_(object):
                             """
                             Rewrite ID
                             
                             .. attribute:: label_context
                             
                             	Label context
-                            	**type**\:  :py:class:`LabelContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext>`
+                            	**type**\:   :py:class:`LabelContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext>`
                             
                             .. attribute:: local_label_rewrite
                             
                             	Local label rewrite information
-                            	**type**\:  :py:class:`LocalLabelRewrite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LocalLabelRewrite>`
+                            	**type**\:   :py:class:`LocalLabelRewrite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LocalLabelRewrite>`
                             
                             .. attribute:: rewrite_id_type
                             
                             	RewriteIDType
-                            	**type**\:  :py:class:`MgmtLsdRwIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdRwIdEnum>`
+                            	**type**\:   :py:class:`MgmtLsdRwIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdRwIdEnum>`
                             
                             
 
@@ -13010,9 +13010,9 @@ class MplsLsdNodes(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.label_context = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext()
+                                self.label_context = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext()
                                 self.label_context.parent = self
-                                self.local_label_rewrite = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LocalLabelRewrite()
+                                self.local_label_rewrite = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LocalLabelRewrite()
                                 self.local_label_rewrite.parent = self
                                 self.rewrite_id_type = None
 
@@ -13024,147 +13024,147 @@ class MplsLsdNodes(object):
                                 .. attribute:: cev4l3vpn_data
                                 
                                 	L3VPN CEv4 label context
-                                	**type**\:  :py:class:`Cev4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Cev4L3VpnData>`
+                                	**type**\:   :py:class:`Cev4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData>`
                                 
                                 .. attribute:: cev6l3vpn_data
                                 
                                 	L3VPN CEv6 label context
-                                	**type**\:  :py:class:`Cev6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Cev6L3VpnData>`
+                                	**type**\:   :py:class:`Cev6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData>`
                                 
                                 .. attribute:: evpn_data
                                 
                                 	EVPN context
-                                	**type**\:  :py:class:`EvpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.EvpnData>`
+                                	**type**\:   :py:class:`EvpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.EvpnData>`
                                 
                                 .. attribute:: generic_routing_encapsulation
                                 
                                 	Generic routing encapsulation context
-                                	**type**\:  :py:class:`GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation>`
+                                	**type**\:   :py:class:`GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation>`
                                 
                                 .. attribute:: ip_sub_data
                                 
                                 	IP Subscriber context
-                                	**type**\:  :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.IpSubData>`
+                                	**type**\:   :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.IpSubData>`
                                 
                                 .. attribute:: ipv4_data
                                 
                                 	IPv4 label context
-                                	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4Data>`
+                                	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4Data>`
                                 
                                 .. attribute:: ipv4blb_data
                                 
                                 	BFD BLB label context
-                                	**type**\:  :py:class:`Ipv4BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4BlbData>`
+                                	**type**\:   :py:class:`Ipv4BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4BlbData>`
                                 
                                 .. attribute:: ipv4l3vpn_data
                                 
                                 	L3VPN IPv4 label context
-                                	**type**\:  :py:class:`Ipv4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData>`
+                                	**type**\:   :py:class:`Ipv4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData>`
                                 
                                 .. attribute:: ipv6_data
                                 
                                 	IPv6 label context
-                                	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6Data>`
+                                	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6Data>`
                                 
                                 .. attribute:: ipv6_generic_routing_encapsulation
                                 
                                 	Generic routing encapsulation context
-                                	**type**\:  :py:class:`Ipv6GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation>`
+                                	**type**\:   :py:class:`Ipv6GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation>`
                                 
                                 .. attribute:: ipv6blb_data
                                 
                                 	BFD BLB label context
-                                	**type**\:  :py:class:`Ipv6BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6BlbData>`
+                                	**type**\:   :py:class:`Ipv6BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6BlbData>`
                                 
                                 .. attribute:: ipv6l3vpn_data
                                 
                                 	L3VPN IPv6 label context
-                                	**type**\:  :py:class:`Ipv6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData>`
+                                	**type**\:   :py:class:`Ipv6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData>`
                                 
                                 .. attribute:: label_block_data
                                 
                                 	Label block context
-                                	**type**\:  :py:class:`LabelBlockData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.LabelBlockData>`
+                                	**type**\:   :py:class:`LabelBlockData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.LabelBlockData>`
                                 
                                 .. attribute:: label_block_srgb_data
                                 
                                 	Label block SRGB context
-                                	**type**\:  :py:class:`LabelBlockSrgbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData>`
+                                	**type**\:   :py:class:`LabelBlockSrgbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData>`
                                 
                                 .. attribute:: label_context_type
                                 
                                 	LabelContextType
-                                	**type**\:  :py:class:`MgmtLsdLblCtxEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdLblCtxEnum>`
+                                	**type**\:   :py:class:`MgmtLsdLblCtxEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdLblCtxEnum>`
                                 
                                 .. attribute:: mld_pv4_data
                                 
                                 	MLDPv4 LSM\-ID context
-                                	**type**\:  :py:class:`MldPv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.MldPv4Data>`
+                                	**type**\:   :py:class:`MldPv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.MldPv4Data>`
                                 
                                 .. attribute:: next_hop_set_l3vpn
                                 
                                 	L3VPN NH SET label context
-                                	**type**\:  :py:class:`NextHopSetL3Vpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn>`
+                                	**type**\:   :py:class:`NextHopSetL3Vpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn>`
                                 
                                 .. attribute:: pi_mi_pmsi_data
                                 
                                 	PIM I\-PMSI label conext
-                                	**type**\:  :py:class:`PiMiPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PiMiPmsiData>`
+                                	**type**\:   :py:class:`PiMiPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PiMiPmsiData>`
                                 
                                 .. attribute:: pi_ms_pmsi_data
                                 
                                 	PIM S\-PMSI label conext
-                                	**type**\:  :py:class:`PiMsPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PiMsPmsiData>`
+                                	**type**\:   :py:class:`PiMsPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PiMsPmsiData>`
                                 
                                 .. attribute:: pseudowire_data
                                 
                                 	Pseudowire label context
-                                	**type**\:  :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PseudowireData>`
+                                	**type**\:   :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PseudowireData>`
                                 
                                 .. attribute:: pseudowire_head_end_data
                                 
                                 	Pseudowire Head\-end label context
-                                	**type**\:  :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData>`
+                                	**type**\:   :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData>`
                                 
                                 .. attribute:: sr_adj_segment_ipv4
                                 
                                 	SR Adj Segment ipv4 context
-                                	**type**\:  :py:class:`SrAdjSegmentIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4>`
+                                	**type**\:   :py:class:`SrAdjSegmentIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4>`
                                 
                                 .. attribute:: sr_adj_segment_ipv6
                                 
                                 	SR Adj Segment ipv6 context
-                                	**type**\:  :py:class:`SrAdjSegmentIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6>`
+                                	**type**\:   :py:class:`SrAdjSegmentIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6>`
                                 
                                 .. attribute:: sr_prefix_segment
                                 
                                 	SR Prefix Segment context
-                                	**type**\:  :py:class:`SrPrefixSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrPrefixSegment>`
+                                	**type**\:   :py:class:`SrPrefixSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrPrefixSegment>`
                                 
                                 .. attribute:: te_binding
                                 
                                 	MPLS TE tunnel binding context
-                                	**type**\:  :py:class:`TeBinding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.TeBinding>`
+                                	**type**\:   :py:class:`TeBinding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.TeBinding>`
                                 
                                 .. attribute:: tev4_data
                                 
                                 	TEv4 label context
-                                	**type**\:  :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Tev4Data>`
+                                	**type**\:   :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Tev4Data>`
                                 
                                 .. attribute:: tev4p2mp_data
                                 
                                 	TEv4 P2MP context
-                                	**type**\:  :py:class:`Tev4P2MpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Tev4P2MpData>`
+                                	**type**\:   :py:class:`Tev4P2MpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Tev4P2MpData>`
                                 
                                 .. attribute:: tp_data
                                 
                                 	TP context
-                                	**type**\:  :py:class:`TpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.TpData>`
+                                	**type**\:   :py:class:`TpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.TpData>`
                                 
                                 .. attribute:: vrf_l3vpn_data
                                 
                                 	L3VPN VRF label context
-                                	**type**\:  :py:class:`VrfL3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.VrfL3VpnData>`
+                                	**type**\:   :py:class:`VrfL3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.VrfL3VpnData>`
                                 
                                 
 
@@ -13175,62 +13175,62 @@ class MplsLsdNodes(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.cev4l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Cev4L3VpnData()
+                                    self.cev4l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData()
                                     self.cev4l3vpn_data.parent = self
-                                    self.cev6l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Cev6L3VpnData()
+                                    self.cev6l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData()
                                     self.cev6l3vpn_data.parent = self
-                                    self.evpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.EvpnData()
+                                    self.evpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.EvpnData()
                                     self.evpn_data.parent = self
-                                    self.generic_routing_encapsulation = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation()
+                                    self.generic_routing_encapsulation = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation()
                                     self.generic_routing_encapsulation.parent = self
-                                    self.ip_sub_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.IpSubData()
+                                    self.ip_sub_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.IpSubData()
                                     self.ip_sub_data.parent = self
-                                    self.ipv4_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4Data()
+                                    self.ipv4_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4Data()
                                     self.ipv4_data.parent = self
-                                    self.ipv4blb_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4BlbData()
+                                    self.ipv4blb_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4BlbData()
                                     self.ipv4blb_data.parent = self
-                                    self.ipv4l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData()
+                                    self.ipv4l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData()
                                     self.ipv4l3vpn_data.parent = self
-                                    self.ipv6_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6Data()
+                                    self.ipv6_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6Data()
                                     self.ipv6_data.parent = self
-                                    self.ipv6_generic_routing_encapsulation = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation()
+                                    self.ipv6_generic_routing_encapsulation = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation()
                                     self.ipv6_generic_routing_encapsulation.parent = self
-                                    self.ipv6blb_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6BlbData()
+                                    self.ipv6blb_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6BlbData()
                                     self.ipv6blb_data.parent = self
-                                    self.ipv6l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData()
+                                    self.ipv6l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData()
                                     self.ipv6l3vpn_data.parent = self
-                                    self.label_block_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.LabelBlockData()
+                                    self.label_block_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.LabelBlockData()
                                     self.label_block_data.parent = self
-                                    self.label_block_srgb_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData()
+                                    self.label_block_srgb_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData()
                                     self.label_block_srgb_data.parent = self
                                     self.label_context_type = None
-                                    self.mld_pv4_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.MldPv4Data()
+                                    self.mld_pv4_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.MldPv4Data()
                                     self.mld_pv4_data.parent = self
-                                    self.next_hop_set_l3vpn = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn()
+                                    self.next_hop_set_l3vpn = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn()
                                     self.next_hop_set_l3vpn.parent = self
-                                    self.pi_mi_pmsi_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PiMiPmsiData()
+                                    self.pi_mi_pmsi_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PiMiPmsiData()
                                     self.pi_mi_pmsi_data.parent = self
-                                    self.pi_ms_pmsi_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PiMsPmsiData()
+                                    self.pi_ms_pmsi_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PiMsPmsiData()
                                     self.pi_ms_pmsi_data.parent = self
-                                    self.pseudowire_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PseudowireData()
+                                    self.pseudowire_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PseudowireData()
                                     self.pseudowire_data.parent = self
-                                    self.pseudowire_head_end_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData()
+                                    self.pseudowire_head_end_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData()
                                     self.pseudowire_head_end_data.parent = self
-                                    self.sr_adj_segment_ipv4 = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4()
+                                    self.sr_adj_segment_ipv4 = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4()
                                     self.sr_adj_segment_ipv4.parent = self
-                                    self.sr_adj_segment_ipv6 = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6()
+                                    self.sr_adj_segment_ipv6 = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6()
                                     self.sr_adj_segment_ipv6.parent = self
-                                    self.sr_prefix_segment = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrPrefixSegment()
+                                    self.sr_prefix_segment = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrPrefixSegment()
                                     self.sr_prefix_segment.parent = self
-                                    self.te_binding = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.TeBinding()
+                                    self.te_binding = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.TeBinding()
                                     self.te_binding.parent = self
-                                    self.tev4_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Tev4Data()
+                                    self.tev4_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Tev4Data()
                                     self.tev4_data.parent = self
-                                    self.tev4p2mp_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Tev4P2MpData()
+                                    self.tev4p2mp_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Tev4P2MpData()
                                     self.tev4p2mp_data.parent = self
-                                    self.tp_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.TpData()
+                                    self.tp_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.TpData()
                                     self.tp_data.parent = self
-                                    self.vrf_l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.VrfL3VpnData()
+                                    self.vrf_l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.VrfL3VpnData()
                                     self.vrf_l3vpn_data.parent = self
 
 
@@ -13322,7 +13322,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4Data']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4Data']['meta_info']
 
 
                                 class Ipv6Data(object):
@@ -13413,7 +13413,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6Data']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6Data']['meta_info']
 
 
                                 class Tev4Data(object):
@@ -13526,7 +13526,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Tev4Data']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Tev4Data']['meta_info']
 
 
                                 class Ipv4L3VpnData(object):
@@ -13595,7 +13595,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData']['meta_info']
 
 
                                 class Ipv6L3VpnData(object):
@@ -13664,7 +13664,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData']['meta_info']
 
 
                                 class VrfL3VpnData(object):
@@ -13722,7 +13722,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.VrfL3VpnData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.VrfL3VpnData']['meta_info']
 
 
                                 class Cev4L3VpnData(object):
@@ -13791,7 +13791,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Cev4L3VpnData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData']['meta_info']
 
 
                                 class Cev6L3VpnData(object):
@@ -13860,7 +13860,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Cev6L3VpnData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData']['meta_info']
 
 
                                 class PseudowireData(object):
@@ -13940,7 +13940,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PseudowireData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PseudowireData']['meta_info']
 
 
                                 class LabelBlockData(object):
@@ -14031,7 +14031,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.LabelBlockData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.LabelBlockData']['meta_info']
 
 
                                 class IpSubData(object):
@@ -14089,7 +14089,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.IpSubData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.IpSubData']['meta_info']
 
 
                                 class Tev4P2MpData(object):
@@ -14202,7 +14202,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Tev4P2MpData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Tev4P2MpData']['meta_info']
 
 
                                 class MldPv4Data(object):
@@ -14293,7 +14293,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.MldPv4Data']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.MldPv4Data']['meta_info']
 
 
                                 class PseudowireHeadEndData(object):
@@ -14340,7 +14340,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData']['meta_info']
 
 
                                 class TpData(object):
@@ -14453,7 +14453,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.TpData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.TpData']['meta_info']
 
 
                                 class GenericRoutingEncapsulation(object):
@@ -14500,7 +14500,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation']['meta_info']
 
 
                                 class Ipv6GenericRoutingEncapsulation(object):
@@ -14547,7 +14547,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation']['meta_info']
 
 
                                 class EvpnData(object):
@@ -14616,7 +14616,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.EvpnData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.EvpnData']['meta_info']
 
 
                                 class Ipv4BlbData(object):
@@ -14674,7 +14674,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4BlbData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4BlbData']['meta_info']
 
 
                                 class Ipv6BlbData(object):
@@ -14732,7 +14732,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6BlbData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6BlbData']['meta_info']
 
 
                                 class PiMiPmsiData(object):
@@ -14801,7 +14801,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PiMiPmsiData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PiMiPmsiData']['meta_info']
 
 
                                 class PiMsPmsiData(object):
@@ -14903,7 +14903,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PiMsPmsiData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PiMsPmsiData']['meta_info']
 
 
                                 class NextHopSetL3Vpn(object):
@@ -14961,7 +14961,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn']['meta_info']
 
 
                                 class SrPrefixSegment(object):
@@ -15019,7 +15019,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrPrefixSegment']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrPrefixSegment']['meta_info']
 
 
                                 class SrAdjSegmentIpv4(object):
@@ -15099,7 +15099,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4']['meta_info']
 
 
                                 class SrAdjSegmentIpv6(object):
@@ -15179,7 +15179,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6']['meta_info']
 
 
                                 class LabelBlockSrgbData(object):
@@ -15248,7 +15248,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData']['meta_info']
 
 
                                 class TeBinding(object):
@@ -15265,7 +15265,7 @@ class MplsLsdNodes(object):
                                     .. attribute:: te_type
                                     
                                     	Type of identifier for the binding
-                                    	**type**\:  :py:class:`MgmtLsdTeBindingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdTeBindingEnum>`
+                                    	**type**\:   :py:class:`MgmtLsdTeBindingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdTeBindingEnum>`
                                     
                                     
 
@@ -15304,7 +15304,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.TeBinding']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.TeBinding']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -15412,7 +15412,7 @@ class MplsLsdNodes(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
+                                    return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
 
 
                             class LocalLabelRewrite(object):
@@ -15463,7 +15463,7 @@ class MplsLsdNodes(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LocalLabelRewrite']['meta_info']
+                                    return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LocalLabelRewrite']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -15493,7 +15493,7 @@ class MplsLsdNodes(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId']['meta_info']
+                                return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -15527,12 +15527,12 @@ class MplsLsdNodes(object):
                         .. attribute:: application_owner
                         
                         	Application owner instance
-                        	**type**\: list of  :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.ApplicationOwner>`
+                        	**type**\: list of    :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.ApplicationOwner>`
                         
                         .. attribute:: fpi
                         
                         	FPI
-                        	**type**\:  :py:class:`Fpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi>`
+                        	**type**\:   :py:class:`Fpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi>`
                         
                         
 
@@ -15557,37 +15557,37 @@ class MplsLsdNodes(object):
                             .. attribute:: dmtc_ext_intf_data
                             
                             	dmtc ext intf data
-                            	**type**\:  :py:class:`DmtcExtIntfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi.DmtcExtIntfData>`
+                            	**type**\:   :py:class:`DmtcExtIntfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi.DmtcExtIntfData>`
                             
                             .. attribute:: fpi_type
                             
                             	FPIType
-                            	**type**\:  :py:class:`MgmtLsdFpiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFpiEnum>`
+                            	**type**\:   :py:class:`MgmtLsdFpiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFpiEnum>`
                             
                             .. attribute:: ipv4_data
                             
                             	ipv4 data
-                            	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi.Ipv4Data>`
+                            	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi.Ipv4Data>`
                             
                             .. attribute:: ipv6_data
                             
                             	ipv6 data
-                            	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi.Ipv6Data>`
+                            	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi.Ipv6Data>`
                             
                             .. attribute:: label_data
                             
                             	label data
-                            	**type**\:  :py:class:`LabelData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi.LabelData>`
+                            	**type**\:   :py:class:`LabelData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi.LabelData>`
                             
                             .. attribute:: pw_list_data
                             
                             	pw list data
-                            	**type**\:  :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi.PwListData>`
+                            	**type**\:   :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi.PwListData>`
                             
                             .. attribute:: te_data
                             
                             	te data
-                            	**type**\:  :py:class:`TeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi.TeData>`
+                            	**type**\:   :py:class:`TeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi.TeData>`
                             
                             
 
@@ -16071,12 +16071,12 @@ class MplsLsdNodes(object):
                             .. attribute:: application_type
                             
                             	Application type
-                            	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                            	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                             
                             .. attribute:: resource_state
                             
                             	Application resource state
-                            	**type**\:  :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
+                            	**type**\:   :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
                             
                             
 
@@ -16282,12 +16282,12 @@ class MplsLsdNodes(object):
                         .. attribute:: application_resource
                         
                         	Application state
-                        	**type**\:  :py:class:`ApplicationResource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.ApplicationResource>`
+                        	**type**\:   :py:class:`ApplicationResource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.ApplicationResource>`
                         
                         .. attribute:: moi_array
                         
                         	moi array
-                        	**type**\: list of  :py:class:`MoiArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray>`
+                        	**type**\: list of    :py:class:`MoiArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray>`
                         
                         
 
@@ -16329,12 +16329,12 @@ class MplsLsdNodes(object):
                             .. attribute:: application_type
                             
                             	Application type
-                            	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                            	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                             
                             .. attribute:: resource_state
                             
                             	Application resource state
-                            	**type**\:  :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
+                            	**type**\:   :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
                             
                             
 
@@ -16395,7 +16395,7 @@ class MplsLsdNodes(object):
                             .. attribute:: moi
                             
                             	Moi
-                            	**type**\:  :py:class:`Moi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi>`
+                            	**type**\:   :py:class:`Moi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi>`
                             
                             
 
@@ -16417,77 +16417,77 @@ class MplsLsdNodes(object):
                                 .. attribute:: dmtc_data
                                 
                                 	dmtc data
-                                	**type**\:  :py:class:`DmtcData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.DmtcData>`
+                                	**type**\:   :py:class:`DmtcData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.DmtcData>`
                                 
                                 .. attribute:: ip_sub_data
                                 
                                 	ip sub data
-                                	**type**\:  :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.IpSubData>`
+                                	**type**\:   :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.IpSubData>`
                                 
                                 .. attribute:: ipv4_data
                                 
                                 	ipv4 data
-                                	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Ipv4Data>`
+                                	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Ipv4Data>`
                                 
                                 .. attribute:: ipv6_data
                                 
                                 	ipv6 data
-                                	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Ipv6Data>`
+                                	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Ipv6Data>`
                                 
                                 .. attribute:: moi_type
                                 
                                 	MoiType
-                                	**type**\:  :py:class:`MgmtLsdMoiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdMoiEnum>`
+                                	**type**\:   :py:class:`MgmtLsdMoiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdMoiEnum>`
                                 
                                 .. attribute:: pop_and_lookup_ipv4
                                 
                                 	pop and lookup ipv4
-                                	**type**\:  :py:class:`PopAndLookupIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.PopAndLookupIpv4>`
+                                	**type**\:   :py:class:`PopAndLookupIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.PopAndLookupIpv4>`
                                 
                                 .. attribute:: pop_and_lookup_ipv6
                                 
                                 	pop and lookup ipv6
-                                	**type**\:  :py:class:`PopAndLookupIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.PopAndLookupIpv6>`
+                                	**type**\:   :py:class:`PopAndLookupIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.PopAndLookupIpv6>`
                                 
                                 .. attribute:: pop_and_lookup_tp
                                 
                                 	pop and lookup tp
-                                	**type**\:  :py:class:`PopAndLookupTp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.PopAndLookupTp>`
+                                	**type**\:   :py:class:`PopAndLookupTp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.PopAndLookupTp>`
                                 
                                 .. attribute:: pseudowire_data
                                 
                                 	pseudowire data
-                                	**type**\:  :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.PseudowireData>`
+                                	**type**\:   :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.PseudowireData>`
                                 
                                 .. attribute:: pseudowire_head_end_data
                                 
                                 	pseudowire head end data
-                                	**type**\:  :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.PseudowireHeadEndData>`
+                                	**type**\:   :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.PseudowireHeadEndData>`
                                 
                                 .. attribute:: pw_list_data
                                 
                                 	pw list data
-                                	**type**\:  :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.PwListData>`
+                                	**type**\:   :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.PwListData>`
                                 
                                 .. attribute:: stackv4_data
                                 
                                 	stackv4 data
-                                	**type**\:  :py:class:`Stackv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Stackv4Data>`
+                                	**type**\:   :py:class:`Stackv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Stackv4Data>`
                                 
                                 .. attribute:: stackv6_data
                                 
                                 	stackv6 data
-                                	**type**\:  :py:class:`Stackv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Stackv6Data>`
+                                	**type**\:   :py:class:`Stackv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Stackv6Data>`
                                 
                                 .. attribute:: te_head_data
                                 
                                 	te head data
-                                	**type**\:  :py:class:`TeHeadData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.TeHeadData>`
+                                	**type**\:   :py:class:`TeHeadData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.TeHeadData>`
                                 
                                 .. attribute:: tev4_data
                                 
                                 	tev4 data
-                                	**type**\:  :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Tev4Data>`
+                                	**type**\:   :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Tev4Data>`
                                 
                                 
 
@@ -17719,17 +17719,17 @@ class MplsLsdNodes(object):
                                     .. attribute:: inner_stack
                                     
                                     	Inner stack
-                                    	**type**\:  :py:class:`InnerStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Stackv4Data.InnerStack>`
+                                    	**type**\:   :py:class:`InnerStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Stackv4Data.InnerStack>`
                                     
                                     .. attribute:: nexthop
                                     
                                     	Nexthop
-                                    	**type**\:  :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Stackv4Data.Nexthop>`
+                                    	**type**\:   :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Stackv4Data.Nexthop>`
                                     
                                     .. attribute:: owner_application_type
                                     
                                     	Owner application type
-                                    	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                                    	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                                     
                                     
 
@@ -17938,7 +17938,7 @@ class MplsLsdNodes(object):
                                         .. attribute:: label
                                         
                                         	Info related to outgoing labels
-                                        	**type**\: list of  :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Stackv4Data.InnerStack.Label>`
+                                        	**type**\: list of    :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Stackv4Data.InnerStack.Label>`
                                         
                                         .. attribute:: nexthop
                                         
@@ -18110,12 +18110,12 @@ class MplsLsdNodes(object):
                                     .. attribute:: inner_stack
                                     
                                     	Inner stack
-                                    	**type**\:  :py:class:`InnerStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Stackv6Data.InnerStack>`
+                                    	**type**\:   :py:class:`InnerStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Stackv6Data.InnerStack>`
                                     
                                     .. attribute:: nexthop
                                     
                                     	Nexthop
-                                    	**type**\:  :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Stackv6Data.Nexthop>`
+                                    	**type**\:   :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Stackv6Data.Nexthop>`
                                     
                                     
 
@@ -18279,7 +18279,7 @@ class MplsLsdNodes(object):
                                         .. attribute:: label
                                         
                                         	Info related to outgoing labels
-                                        	**type**\: list of  :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Stackv6Data.InnerStack.Label>`
+                                        	**type**\: list of    :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Stackv6Data.InnerStack.Label>`
                                         
                                         .. attribute:: nexthop
                                         
@@ -18827,7 +18827,7 @@ class MplsLsdNodes(object):
                 .. attribute:: rewrite_te
                 
                 	FPI rewrite for TE
-                	**type**\: list of  :py:class:`RewriteTe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe>`
+                	**type**\: list of    :py:class:`RewriteTe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe>`
                 
                 
 
@@ -18857,7 +18857,7 @@ class MplsLsdNodes(object):
                     .. attribute:: associated_fpi
                     
                     	Associated FPI
-                    	**type**\: list of  :py:class:`AssociatedFpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.AssociatedFpi>`
+                    	**type**\: list of    :py:class:`AssociatedFpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.AssociatedFpi>`
                     
                     .. attribute:: bcdl_priority
                     
@@ -18869,7 +18869,7 @@ class MplsLsdNodes(object):
                     .. attribute:: fpi_key
                     
                     	fpi key
-                    	**type**\:  :py:class:`FpiKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.FpiKey>`
+                    	**type**\:   :py:class:`FpiKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.FpiKey>`
                     
                     .. attribute:: lsd_queue
                     
@@ -18881,7 +18881,7 @@ class MplsLsdNodes(object):
                     .. attribute:: mois
                     
                     	Mois
-                    	**type**\: list of  :py:class:`Mois <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois>`
+                    	**type**\: list of    :py:class:`Mois <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois>`
                     
                     .. attribute:: priority_updated
                     
@@ -18893,7 +18893,7 @@ class MplsLsdNodes(object):
                     .. attribute:: rewrite_id
                     
                     	Rewrite ID
-                    	**type**\:  :py:class:`RewriteId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId>`
+                    	**type**\:   :py:class:`RewriteId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId>`
                     
                     .. attribute:: rewrite_version
                     
@@ -18926,12 +18926,12 @@ class MplsLsdNodes(object):
                     .. attribute:: v4_rpf
                     
                     	IPv4 RPF neighbors
-                    	**type**\: list of  :py:class:`V4Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.V4Rpf>`
+                    	**type**\: list of    :py:class:`V4Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.V4Rpf>`
                     
                     .. attribute:: v6_rpf
                     
                     	IPv6 RPF neighbors
-                    	**type**\: list of  :py:class:`V6Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.V6Rpf>`
+                    	**type**\: list of    :py:class:`V6Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.V6Rpf>`
                     
                     
 
@@ -18975,12 +18975,12 @@ class MplsLsdNodes(object):
                         .. attribute:: application_owner
                         
                         	Application owner instance
-                        	**type**\: list of  :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.FpiKey.ApplicationOwner>`
+                        	**type**\: list of    :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.FpiKey.ApplicationOwner>`
                         
                         .. attribute:: fpi
                         
                         	FPI
-                        	**type**\:  :py:class:`Fpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi>`
+                        	**type**\:   :py:class:`Fpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi>`
                         
                         
 
@@ -19005,37 +19005,37 @@ class MplsLsdNodes(object):
                             .. attribute:: dmtc_ext_intf_data
                             
                             	dmtc ext intf data
-                            	**type**\:  :py:class:`DmtcExtIntfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi.DmtcExtIntfData>`
+                            	**type**\:   :py:class:`DmtcExtIntfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi.DmtcExtIntfData>`
                             
                             .. attribute:: fpi_type
                             
                             	FPIType
-                            	**type**\:  :py:class:`MgmtLsdFpiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFpiEnum>`
+                            	**type**\:   :py:class:`MgmtLsdFpiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFpiEnum>`
                             
                             .. attribute:: ipv4_data
                             
                             	ipv4 data
-                            	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi.Ipv4Data>`
+                            	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi.Ipv4Data>`
                             
                             .. attribute:: ipv6_data
                             
                             	ipv6 data
-                            	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi.Ipv6Data>`
+                            	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi.Ipv6Data>`
                             
                             .. attribute:: label_data
                             
                             	label data
-                            	**type**\:  :py:class:`LabelData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi.LabelData>`
+                            	**type**\:   :py:class:`LabelData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi.LabelData>`
                             
                             .. attribute:: pw_list_data
                             
                             	pw list data
-                            	**type**\:  :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi.PwListData>`
+                            	**type**\:   :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi.PwListData>`
                             
                             .. attribute:: te_data
                             
                             	te data
-                            	**type**\:  :py:class:`TeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi.TeData>`
+                            	**type**\:   :py:class:`TeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi.TeData>`
                             
                             
 
@@ -19519,12 +19519,12 @@ class MplsLsdNodes(object):
                             .. attribute:: application_type
                             
                             	Application type
-                            	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                            	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                             
                             .. attribute:: resource_state
                             
                             	Application resource state
-                            	**type**\:  :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
+                            	**type**\:   :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
                             
                             
 
@@ -19614,7 +19614,7 @@ class MplsLsdNodes(object):
                         .. attribute:: rewrite_id
                         
                         	Rewrite ID
-                        	**type**\:  :py:class:`RewriteId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId>`
+                        	**type**\:   :py:class:`RewriteId_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_>`
                         
                         
 
@@ -19625,28 +19625,28 @@ class MplsLsdNodes(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.rewrite_id = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId()
+                            self.rewrite_id = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_()
                             self.rewrite_id.parent = self
 
 
-                        class RewriteId(object):
+                        class RewriteId_(object):
                             """
                             Rewrite ID
                             
                             .. attribute:: label_context
                             
                             	Label context
-                            	**type**\:  :py:class:`LabelContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext>`
+                            	**type**\:   :py:class:`LabelContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext>`
                             
                             .. attribute:: local_label_rewrite
                             
                             	Local label rewrite information
-                            	**type**\:  :py:class:`LocalLabelRewrite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LocalLabelRewrite>`
+                            	**type**\:   :py:class:`LocalLabelRewrite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LocalLabelRewrite>`
                             
                             .. attribute:: rewrite_id_type
                             
                             	RewriteIDType
-                            	**type**\:  :py:class:`MgmtLsdRwIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdRwIdEnum>`
+                            	**type**\:   :py:class:`MgmtLsdRwIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdRwIdEnum>`
                             
                             
 
@@ -19657,9 +19657,9 @@ class MplsLsdNodes(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.label_context = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext()
+                                self.label_context = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext()
                                 self.label_context.parent = self
-                                self.local_label_rewrite = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LocalLabelRewrite()
+                                self.local_label_rewrite = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LocalLabelRewrite()
                                 self.local_label_rewrite.parent = self
                                 self.rewrite_id_type = None
 
@@ -19671,147 +19671,147 @@ class MplsLsdNodes(object):
                                 .. attribute:: cev4l3vpn_data
                                 
                                 	L3VPN CEv4 label context
-                                	**type**\:  :py:class:`Cev4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Cev4L3VpnData>`
+                                	**type**\:   :py:class:`Cev4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData>`
                                 
                                 .. attribute:: cev6l3vpn_data
                                 
                                 	L3VPN CEv6 label context
-                                	**type**\:  :py:class:`Cev6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Cev6L3VpnData>`
+                                	**type**\:   :py:class:`Cev6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData>`
                                 
                                 .. attribute:: evpn_data
                                 
                                 	EVPN context
-                                	**type**\:  :py:class:`EvpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.EvpnData>`
+                                	**type**\:   :py:class:`EvpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.EvpnData>`
                                 
                                 .. attribute:: generic_routing_encapsulation
                                 
                                 	Generic routing encapsulation context
-                                	**type**\:  :py:class:`GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation>`
+                                	**type**\:   :py:class:`GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation>`
                                 
                                 .. attribute:: ip_sub_data
                                 
                                 	IP Subscriber context
-                                	**type**\:  :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.IpSubData>`
+                                	**type**\:   :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.IpSubData>`
                                 
                                 .. attribute:: ipv4_data
                                 
                                 	IPv4 label context
-                                	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4Data>`
+                                	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4Data>`
                                 
                                 .. attribute:: ipv4blb_data
                                 
                                 	BFD BLB label context
-                                	**type**\:  :py:class:`Ipv4BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4BlbData>`
+                                	**type**\:   :py:class:`Ipv4BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4BlbData>`
                                 
                                 .. attribute:: ipv4l3vpn_data
                                 
                                 	L3VPN IPv4 label context
-                                	**type**\:  :py:class:`Ipv4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData>`
+                                	**type**\:   :py:class:`Ipv4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData>`
                                 
                                 .. attribute:: ipv6_data
                                 
                                 	IPv6 label context
-                                	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6Data>`
+                                	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6Data>`
                                 
                                 .. attribute:: ipv6_generic_routing_encapsulation
                                 
                                 	Generic routing encapsulation context
-                                	**type**\:  :py:class:`Ipv6GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation>`
+                                	**type**\:   :py:class:`Ipv6GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation>`
                                 
                                 .. attribute:: ipv6blb_data
                                 
                                 	BFD BLB label context
-                                	**type**\:  :py:class:`Ipv6BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6BlbData>`
+                                	**type**\:   :py:class:`Ipv6BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6BlbData>`
                                 
                                 .. attribute:: ipv6l3vpn_data
                                 
                                 	L3VPN IPv6 label context
-                                	**type**\:  :py:class:`Ipv6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData>`
+                                	**type**\:   :py:class:`Ipv6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData>`
                                 
                                 .. attribute:: label_block_data
                                 
                                 	Label block context
-                                	**type**\:  :py:class:`LabelBlockData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.LabelBlockData>`
+                                	**type**\:   :py:class:`LabelBlockData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.LabelBlockData>`
                                 
                                 .. attribute:: label_block_srgb_data
                                 
                                 	Label block SRGB context
-                                	**type**\:  :py:class:`LabelBlockSrgbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData>`
+                                	**type**\:   :py:class:`LabelBlockSrgbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData>`
                                 
                                 .. attribute:: label_context_type
                                 
                                 	LabelContextType
-                                	**type**\:  :py:class:`MgmtLsdLblCtxEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdLblCtxEnum>`
+                                	**type**\:   :py:class:`MgmtLsdLblCtxEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdLblCtxEnum>`
                                 
                                 .. attribute:: mld_pv4_data
                                 
                                 	MLDPv4 LSM\-ID context
-                                	**type**\:  :py:class:`MldPv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.MldPv4Data>`
+                                	**type**\:   :py:class:`MldPv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.MldPv4Data>`
                                 
                                 .. attribute:: next_hop_set_l3vpn
                                 
                                 	L3VPN NH SET label context
-                                	**type**\:  :py:class:`NextHopSetL3Vpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn>`
+                                	**type**\:   :py:class:`NextHopSetL3Vpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn>`
                                 
                                 .. attribute:: pi_mi_pmsi_data
                                 
                                 	PIM I\-PMSI label conext
-                                	**type**\:  :py:class:`PiMiPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PiMiPmsiData>`
+                                	**type**\:   :py:class:`PiMiPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PiMiPmsiData>`
                                 
                                 .. attribute:: pi_ms_pmsi_data
                                 
                                 	PIM S\-PMSI label conext
-                                	**type**\:  :py:class:`PiMsPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PiMsPmsiData>`
+                                	**type**\:   :py:class:`PiMsPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PiMsPmsiData>`
                                 
                                 .. attribute:: pseudowire_data
                                 
                                 	Pseudowire label context
-                                	**type**\:  :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PseudowireData>`
+                                	**type**\:   :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PseudowireData>`
                                 
                                 .. attribute:: pseudowire_head_end_data
                                 
                                 	Pseudowire Head\-end label context
-                                	**type**\:  :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData>`
+                                	**type**\:   :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData>`
                                 
                                 .. attribute:: sr_adj_segment_ipv4
                                 
                                 	SR Adj Segment ipv4 context
-                                	**type**\:  :py:class:`SrAdjSegmentIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4>`
+                                	**type**\:   :py:class:`SrAdjSegmentIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4>`
                                 
                                 .. attribute:: sr_adj_segment_ipv6
                                 
                                 	SR Adj Segment ipv6 context
-                                	**type**\:  :py:class:`SrAdjSegmentIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6>`
+                                	**type**\:   :py:class:`SrAdjSegmentIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6>`
                                 
                                 .. attribute:: sr_prefix_segment
                                 
                                 	SR Prefix Segment context
-                                	**type**\:  :py:class:`SrPrefixSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrPrefixSegment>`
+                                	**type**\:   :py:class:`SrPrefixSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrPrefixSegment>`
                                 
                                 .. attribute:: te_binding
                                 
                                 	MPLS TE tunnel binding context
-                                	**type**\:  :py:class:`TeBinding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.TeBinding>`
+                                	**type**\:   :py:class:`TeBinding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.TeBinding>`
                                 
                                 .. attribute:: tev4_data
                                 
                                 	TEv4 label context
-                                	**type**\:  :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Tev4Data>`
+                                	**type**\:   :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Tev4Data>`
                                 
                                 .. attribute:: tev4p2mp_data
                                 
                                 	TEv4 P2MP context
-                                	**type**\:  :py:class:`Tev4P2MpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Tev4P2MpData>`
+                                	**type**\:   :py:class:`Tev4P2MpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Tev4P2MpData>`
                                 
                                 .. attribute:: tp_data
                                 
                                 	TP context
-                                	**type**\:  :py:class:`TpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.TpData>`
+                                	**type**\:   :py:class:`TpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.TpData>`
                                 
                                 .. attribute:: vrf_l3vpn_data
                                 
                                 	L3VPN VRF label context
-                                	**type**\:  :py:class:`VrfL3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.VrfL3VpnData>`
+                                	**type**\:   :py:class:`VrfL3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.VrfL3VpnData>`
                                 
                                 
 
@@ -19822,62 +19822,62 @@ class MplsLsdNodes(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.cev4l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Cev4L3VpnData()
+                                    self.cev4l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData()
                                     self.cev4l3vpn_data.parent = self
-                                    self.cev6l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Cev6L3VpnData()
+                                    self.cev6l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData()
                                     self.cev6l3vpn_data.parent = self
-                                    self.evpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.EvpnData()
+                                    self.evpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.EvpnData()
                                     self.evpn_data.parent = self
-                                    self.generic_routing_encapsulation = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation()
+                                    self.generic_routing_encapsulation = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation()
                                     self.generic_routing_encapsulation.parent = self
-                                    self.ip_sub_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.IpSubData()
+                                    self.ip_sub_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.IpSubData()
                                     self.ip_sub_data.parent = self
-                                    self.ipv4_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4Data()
+                                    self.ipv4_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4Data()
                                     self.ipv4_data.parent = self
-                                    self.ipv4blb_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4BlbData()
+                                    self.ipv4blb_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4BlbData()
                                     self.ipv4blb_data.parent = self
-                                    self.ipv4l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData()
+                                    self.ipv4l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData()
                                     self.ipv4l3vpn_data.parent = self
-                                    self.ipv6_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6Data()
+                                    self.ipv6_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6Data()
                                     self.ipv6_data.parent = self
-                                    self.ipv6_generic_routing_encapsulation = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation()
+                                    self.ipv6_generic_routing_encapsulation = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation()
                                     self.ipv6_generic_routing_encapsulation.parent = self
-                                    self.ipv6blb_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6BlbData()
+                                    self.ipv6blb_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6BlbData()
                                     self.ipv6blb_data.parent = self
-                                    self.ipv6l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData()
+                                    self.ipv6l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData()
                                     self.ipv6l3vpn_data.parent = self
-                                    self.label_block_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.LabelBlockData()
+                                    self.label_block_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.LabelBlockData()
                                     self.label_block_data.parent = self
-                                    self.label_block_srgb_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData()
+                                    self.label_block_srgb_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData()
                                     self.label_block_srgb_data.parent = self
                                     self.label_context_type = None
-                                    self.mld_pv4_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.MldPv4Data()
+                                    self.mld_pv4_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.MldPv4Data()
                                     self.mld_pv4_data.parent = self
-                                    self.next_hop_set_l3vpn = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn()
+                                    self.next_hop_set_l3vpn = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn()
                                     self.next_hop_set_l3vpn.parent = self
-                                    self.pi_mi_pmsi_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PiMiPmsiData()
+                                    self.pi_mi_pmsi_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PiMiPmsiData()
                                     self.pi_mi_pmsi_data.parent = self
-                                    self.pi_ms_pmsi_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PiMsPmsiData()
+                                    self.pi_ms_pmsi_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PiMsPmsiData()
                                     self.pi_ms_pmsi_data.parent = self
-                                    self.pseudowire_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PseudowireData()
+                                    self.pseudowire_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PseudowireData()
                                     self.pseudowire_data.parent = self
-                                    self.pseudowire_head_end_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData()
+                                    self.pseudowire_head_end_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData()
                                     self.pseudowire_head_end_data.parent = self
-                                    self.sr_adj_segment_ipv4 = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4()
+                                    self.sr_adj_segment_ipv4 = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4()
                                     self.sr_adj_segment_ipv4.parent = self
-                                    self.sr_adj_segment_ipv6 = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6()
+                                    self.sr_adj_segment_ipv6 = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6()
                                     self.sr_adj_segment_ipv6.parent = self
-                                    self.sr_prefix_segment = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrPrefixSegment()
+                                    self.sr_prefix_segment = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrPrefixSegment()
                                     self.sr_prefix_segment.parent = self
-                                    self.te_binding = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.TeBinding()
+                                    self.te_binding = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.TeBinding()
                                     self.te_binding.parent = self
-                                    self.tev4_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Tev4Data()
+                                    self.tev4_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Tev4Data()
                                     self.tev4_data.parent = self
-                                    self.tev4p2mp_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Tev4P2MpData()
+                                    self.tev4p2mp_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Tev4P2MpData()
                                     self.tev4p2mp_data.parent = self
-                                    self.tp_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.TpData()
+                                    self.tp_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.TpData()
                                     self.tp_data.parent = self
-                                    self.vrf_l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.VrfL3VpnData()
+                                    self.vrf_l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.VrfL3VpnData()
                                     self.vrf_l3vpn_data.parent = self
 
 
@@ -19969,7 +19969,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4Data']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4Data']['meta_info']
 
 
                                 class Ipv6Data(object):
@@ -20060,7 +20060,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6Data']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6Data']['meta_info']
 
 
                                 class Tev4Data(object):
@@ -20173,7 +20173,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Tev4Data']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Tev4Data']['meta_info']
 
 
                                 class Ipv4L3VpnData(object):
@@ -20242,7 +20242,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData']['meta_info']
 
 
                                 class Ipv6L3VpnData(object):
@@ -20311,7 +20311,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData']['meta_info']
 
 
                                 class VrfL3VpnData(object):
@@ -20369,7 +20369,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.VrfL3VpnData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.VrfL3VpnData']['meta_info']
 
 
                                 class Cev4L3VpnData(object):
@@ -20438,7 +20438,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Cev4L3VpnData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData']['meta_info']
 
 
                                 class Cev6L3VpnData(object):
@@ -20507,7 +20507,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Cev6L3VpnData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData']['meta_info']
 
 
                                 class PseudowireData(object):
@@ -20587,7 +20587,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PseudowireData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PseudowireData']['meta_info']
 
 
                                 class LabelBlockData(object):
@@ -20678,7 +20678,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.LabelBlockData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.LabelBlockData']['meta_info']
 
 
                                 class IpSubData(object):
@@ -20736,7 +20736,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.IpSubData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.IpSubData']['meta_info']
 
 
                                 class Tev4P2MpData(object):
@@ -20849,7 +20849,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Tev4P2MpData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Tev4P2MpData']['meta_info']
 
 
                                 class MldPv4Data(object):
@@ -20940,7 +20940,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.MldPv4Data']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.MldPv4Data']['meta_info']
 
 
                                 class PseudowireHeadEndData(object):
@@ -20987,7 +20987,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData']['meta_info']
 
 
                                 class TpData(object):
@@ -21100,7 +21100,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.TpData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.TpData']['meta_info']
 
 
                                 class GenericRoutingEncapsulation(object):
@@ -21147,7 +21147,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation']['meta_info']
 
 
                                 class Ipv6GenericRoutingEncapsulation(object):
@@ -21194,7 +21194,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation']['meta_info']
 
 
                                 class EvpnData(object):
@@ -21263,7 +21263,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.EvpnData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.EvpnData']['meta_info']
 
 
                                 class Ipv4BlbData(object):
@@ -21321,7 +21321,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4BlbData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4BlbData']['meta_info']
 
 
                                 class Ipv6BlbData(object):
@@ -21379,7 +21379,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6BlbData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6BlbData']['meta_info']
 
 
                                 class PiMiPmsiData(object):
@@ -21448,7 +21448,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PiMiPmsiData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PiMiPmsiData']['meta_info']
 
 
                                 class PiMsPmsiData(object):
@@ -21550,7 +21550,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PiMsPmsiData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PiMsPmsiData']['meta_info']
 
 
                                 class NextHopSetL3Vpn(object):
@@ -21608,7 +21608,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn']['meta_info']
 
 
                                 class SrPrefixSegment(object):
@@ -21666,7 +21666,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrPrefixSegment']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrPrefixSegment']['meta_info']
 
 
                                 class SrAdjSegmentIpv4(object):
@@ -21746,7 +21746,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4']['meta_info']
 
 
                                 class SrAdjSegmentIpv6(object):
@@ -21826,7 +21826,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6']['meta_info']
 
 
                                 class LabelBlockSrgbData(object):
@@ -21895,7 +21895,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData']['meta_info']
 
 
                                 class TeBinding(object):
@@ -21912,7 +21912,7 @@ class MplsLsdNodes(object):
                                     .. attribute:: te_type
                                     
                                     	Type of identifier for the binding
-                                    	**type**\:  :py:class:`MgmtLsdTeBindingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdTeBindingEnum>`
+                                    	**type**\:   :py:class:`MgmtLsdTeBindingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdTeBindingEnum>`
                                     
                                     
 
@@ -21951,7 +21951,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.TeBinding']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.TeBinding']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -22059,7 +22059,7 @@ class MplsLsdNodes(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
+                                    return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
 
 
                             class LocalLabelRewrite(object):
@@ -22110,7 +22110,7 @@ class MplsLsdNodes(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LocalLabelRewrite']['meta_info']
+                                    return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LocalLabelRewrite']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -22140,7 +22140,7 @@ class MplsLsdNodes(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId']['meta_info']
+                                return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -22174,12 +22174,12 @@ class MplsLsdNodes(object):
                         .. attribute:: application_owner
                         
                         	Application owner instance
-                        	**type**\: list of  :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.ApplicationOwner>`
+                        	**type**\: list of    :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.ApplicationOwner>`
                         
                         .. attribute:: fpi
                         
                         	FPI
-                        	**type**\:  :py:class:`Fpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi>`
+                        	**type**\:   :py:class:`Fpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi>`
                         
                         
 
@@ -22204,37 +22204,37 @@ class MplsLsdNodes(object):
                             .. attribute:: dmtc_ext_intf_data
                             
                             	dmtc ext intf data
-                            	**type**\:  :py:class:`DmtcExtIntfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi.DmtcExtIntfData>`
+                            	**type**\:   :py:class:`DmtcExtIntfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi.DmtcExtIntfData>`
                             
                             .. attribute:: fpi_type
                             
                             	FPIType
-                            	**type**\:  :py:class:`MgmtLsdFpiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFpiEnum>`
+                            	**type**\:   :py:class:`MgmtLsdFpiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFpiEnum>`
                             
                             .. attribute:: ipv4_data
                             
                             	ipv4 data
-                            	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi.Ipv4Data>`
+                            	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi.Ipv4Data>`
                             
                             .. attribute:: ipv6_data
                             
                             	ipv6 data
-                            	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi.Ipv6Data>`
+                            	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi.Ipv6Data>`
                             
                             .. attribute:: label_data
                             
                             	label data
-                            	**type**\:  :py:class:`LabelData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi.LabelData>`
+                            	**type**\:   :py:class:`LabelData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi.LabelData>`
                             
                             .. attribute:: pw_list_data
                             
                             	pw list data
-                            	**type**\:  :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi.PwListData>`
+                            	**type**\:   :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi.PwListData>`
                             
                             .. attribute:: te_data
                             
                             	te data
-                            	**type**\:  :py:class:`TeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi.TeData>`
+                            	**type**\:   :py:class:`TeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi.TeData>`
                             
                             
 
@@ -22718,12 +22718,12 @@ class MplsLsdNodes(object):
                             .. attribute:: application_type
                             
                             	Application type
-                            	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                            	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                             
                             .. attribute:: resource_state
                             
                             	Application resource state
-                            	**type**\:  :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
+                            	**type**\:   :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
                             
                             
 
@@ -22929,12 +22929,12 @@ class MplsLsdNodes(object):
                         .. attribute:: application_resource
                         
                         	Application state
-                        	**type**\:  :py:class:`ApplicationResource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.ApplicationResource>`
+                        	**type**\:   :py:class:`ApplicationResource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.ApplicationResource>`
                         
                         .. attribute:: moi_array
                         
                         	moi array
-                        	**type**\: list of  :py:class:`MoiArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray>`
+                        	**type**\: list of    :py:class:`MoiArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray>`
                         
                         
 
@@ -22976,12 +22976,12 @@ class MplsLsdNodes(object):
                             .. attribute:: application_type
                             
                             	Application type
-                            	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                            	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                             
                             .. attribute:: resource_state
                             
                             	Application resource state
-                            	**type**\:  :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
+                            	**type**\:   :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
                             
                             
 
@@ -23042,7 +23042,7 @@ class MplsLsdNodes(object):
                             .. attribute:: moi
                             
                             	Moi
-                            	**type**\:  :py:class:`Moi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi>`
+                            	**type**\:   :py:class:`Moi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi>`
                             
                             
 
@@ -23064,77 +23064,77 @@ class MplsLsdNodes(object):
                                 .. attribute:: dmtc_data
                                 
                                 	dmtc data
-                                	**type**\:  :py:class:`DmtcData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.DmtcData>`
+                                	**type**\:   :py:class:`DmtcData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.DmtcData>`
                                 
                                 .. attribute:: ip_sub_data
                                 
                                 	ip sub data
-                                	**type**\:  :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.IpSubData>`
+                                	**type**\:   :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.IpSubData>`
                                 
                                 .. attribute:: ipv4_data
                                 
                                 	ipv4 data
-                                	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Ipv4Data>`
+                                	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Ipv4Data>`
                                 
                                 .. attribute:: ipv6_data
                                 
                                 	ipv6 data
-                                	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Ipv6Data>`
+                                	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Ipv6Data>`
                                 
                                 .. attribute:: moi_type
                                 
                                 	MoiType
-                                	**type**\:  :py:class:`MgmtLsdMoiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdMoiEnum>`
+                                	**type**\:   :py:class:`MgmtLsdMoiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdMoiEnum>`
                                 
                                 .. attribute:: pop_and_lookup_ipv4
                                 
                                 	pop and lookup ipv4
-                                	**type**\:  :py:class:`PopAndLookupIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.PopAndLookupIpv4>`
+                                	**type**\:   :py:class:`PopAndLookupIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.PopAndLookupIpv4>`
                                 
                                 .. attribute:: pop_and_lookup_ipv6
                                 
                                 	pop and lookup ipv6
-                                	**type**\:  :py:class:`PopAndLookupIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.PopAndLookupIpv6>`
+                                	**type**\:   :py:class:`PopAndLookupIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.PopAndLookupIpv6>`
                                 
                                 .. attribute:: pop_and_lookup_tp
                                 
                                 	pop and lookup tp
-                                	**type**\:  :py:class:`PopAndLookupTp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.PopAndLookupTp>`
+                                	**type**\:   :py:class:`PopAndLookupTp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.PopAndLookupTp>`
                                 
                                 .. attribute:: pseudowire_data
                                 
                                 	pseudowire data
-                                	**type**\:  :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.PseudowireData>`
+                                	**type**\:   :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.PseudowireData>`
                                 
                                 .. attribute:: pseudowire_head_end_data
                                 
                                 	pseudowire head end data
-                                	**type**\:  :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.PseudowireHeadEndData>`
+                                	**type**\:   :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.PseudowireHeadEndData>`
                                 
                                 .. attribute:: pw_list_data
                                 
                                 	pw list data
-                                	**type**\:  :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.PwListData>`
+                                	**type**\:   :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.PwListData>`
                                 
                                 .. attribute:: stackv4_data
                                 
                                 	stackv4 data
-                                	**type**\:  :py:class:`Stackv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Stackv4Data>`
+                                	**type**\:   :py:class:`Stackv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Stackv4Data>`
                                 
                                 .. attribute:: stackv6_data
                                 
                                 	stackv6 data
-                                	**type**\:  :py:class:`Stackv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Stackv6Data>`
+                                	**type**\:   :py:class:`Stackv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Stackv6Data>`
                                 
                                 .. attribute:: te_head_data
                                 
                                 	te head data
-                                	**type**\:  :py:class:`TeHeadData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.TeHeadData>`
+                                	**type**\:   :py:class:`TeHeadData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.TeHeadData>`
                                 
                                 .. attribute:: tev4_data
                                 
                                 	tev4 data
-                                	**type**\:  :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Tev4Data>`
+                                	**type**\:   :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Tev4Data>`
                                 
                                 
 
@@ -24366,17 +24366,17 @@ class MplsLsdNodes(object):
                                     .. attribute:: inner_stack
                                     
                                     	Inner stack
-                                    	**type**\:  :py:class:`InnerStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Stackv4Data.InnerStack>`
+                                    	**type**\:   :py:class:`InnerStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Stackv4Data.InnerStack>`
                                     
                                     .. attribute:: nexthop
                                     
                                     	Nexthop
-                                    	**type**\:  :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Stackv4Data.Nexthop>`
+                                    	**type**\:   :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Stackv4Data.Nexthop>`
                                     
                                     .. attribute:: owner_application_type
                                     
                                     	Owner application type
-                                    	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                                    	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                                     
                                     
 
@@ -24585,7 +24585,7 @@ class MplsLsdNodes(object):
                                         .. attribute:: label
                                         
                                         	Info related to outgoing labels
-                                        	**type**\: list of  :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Stackv4Data.InnerStack.Label>`
+                                        	**type**\: list of    :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Stackv4Data.InnerStack.Label>`
                                         
                                         .. attribute:: nexthop
                                         
@@ -24757,12 +24757,12 @@ class MplsLsdNodes(object):
                                     .. attribute:: inner_stack
                                     
                                     	Inner stack
-                                    	**type**\:  :py:class:`InnerStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Stackv6Data.InnerStack>`
+                                    	**type**\:   :py:class:`InnerStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Stackv6Data.InnerStack>`
                                     
                                     .. attribute:: nexthop
                                     
                                     	Nexthop
-                                    	**type**\:  :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Stackv6Data.Nexthop>`
+                                    	**type**\:   :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Stackv6Data.Nexthop>`
                                     
                                     
 
@@ -24926,7 +24926,7 @@ class MplsLsdNodes(object):
                                         .. attribute:: label
                                         
                                         	Info related to outgoing labels
-                                        	**type**\: list of  :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Stackv6Data.InnerStack.Label>`
+                                        	**type**\: list of    :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Stackv6Data.InnerStack.Label>`
                                         
                                         .. attribute:: nexthop
                                         
@@ -25467,7 +25467,7 @@ class MplsLsdNodes(object):
                 .. attribute:: rewrite_label
                 
                 	FPI rewrite for label
-                	**type**\: list of  :py:class:`RewriteLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel>`
+                	**type**\: list of    :py:class:`RewriteLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel>`
                 
                 
 
@@ -25497,7 +25497,7 @@ class MplsLsdNodes(object):
                     .. attribute:: associated_fpi
                     
                     	Associated FPI
-                    	**type**\: list of  :py:class:`AssociatedFpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi>`
+                    	**type**\: list of    :py:class:`AssociatedFpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi>`
                     
                     .. attribute:: bcdl_priority
                     
@@ -25509,7 +25509,7 @@ class MplsLsdNodes(object):
                     .. attribute:: fpi_key
                     
                     	fpi key
-                    	**type**\:  :py:class:`FpiKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.FpiKey>`
+                    	**type**\:   :py:class:`FpiKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.FpiKey>`
                     
                     .. attribute:: lsd_queue
                     
@@ -25521,7 +25521,7 @@ class MplsLsdNodes(object):
                     .. attribute:: mois
                     
                     	Mois
-                    	**type**\: list of  :py:class:`Mois <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois>`
+                    	**type**\: list of    :py:class:`Mois <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois>`
                     
                     .. attribute:: priority_updated
                     
@@ -25533,7 +25533,7 @@ class MplsLsdNodes(object):
                     .. attribute:: rewrite_id
                     
                     	Rewrite ID
-                    	**type**\:  :py:class:`RewriteId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId>`
+                    	**type**\:   :py:class:`RewriteId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId>`
                     
                     .. attribute:: rewrite_version
                     
@@ -25566,12 +25566,12 @@ class MplsLsdNodes(object):
                     .. attribute:: v4_rpf
                     
                     	IPv4 RPF neighbors
-                    	**type**\: list of  :py:class:`V4Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.V4Rpf>`
+                    	**type**\: list of    :py:class:`V4Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.V4Rpf>`
                     
                     .. attribute:: v6_rpf
                     
                     	IPv6 RPF neighbors
-                    	**type**\: list of  :py:class:`V6Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.V6Rpf>`
+                    	**type**\: list of    :py:class:`V6Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.V6Rpf>`
                     
                     
 
@@ -25615,12 +25615,12 @@ class MplsLsdNodes(object):
                         .. attribute:: application_owner
                         
                         	Application owner instance
-                        	**type**\: list of  :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.FpiKey.ApplicationOwner>`
+                        	**type**\: list of    :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.FpiKey.ApplicationOwner>`
                         
                         .. attribute:: fpi
                         
                         	FPI
-                        	**type**\:  :py:class:`Fpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi>`
+                        	**type**\:   :py:class:`Fpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi>`
                         
                         
 
@@ -25645,37 +25645,37 @@ class MplsLsdNodes(object):
                             .. attribute:: dmtc_ext_intf_data
                             
                             	dmtc ext intf data
-                            	**type**\:  :py:class:`DmtcExtIntfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi.DmtcExtIntfData>`
+                            	**type**\:   :py:class:`DmtcExtIntfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi.DmtcExtIntfData>`
                             
                             .. attribute:: fpi_type
                             
                             	FPIType
-                            	**type**\:  :py:class:`MgmtLsdFpiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFpiEnum>`
+                            	**type**\:   :py:class:`MgmtLsdFpiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFpiEnum>`
                             
                             .. attribute:: ipv4_data
                             
                             	ipv4 data
-                            	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi.Ipv4Data>`
+                            	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi.Ipv4Data>`
                             
                             .. attribute:: ipv6_data
                             
                             	ipv6 data
-                            	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi.Ipv6Data>`
+                            	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi.Ipv6Data>`
                             
                             .. attribute:: label_data
                             
                             	label data
-                            	**type**\:  :py:class:`LabelData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi.LabelData>`
+                            	**type**\:   :py:class:`LabelData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi.LabelData>`
                             
                             .. attribute:: pw_list_data
                             
                             	pw list data
-                            	**type**\:  :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi.PwListData>`
+                            	**type**\:   :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi.PwListData>`
                             
                             .. attribute:: te_data
                             
                             	te data
-                            	**type**\:  :py:class:`TeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi.TeData>`
+                            	**type**\:   :py:class:`TeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi.TeData>`
                             
                             
 
@@ -26159,12 +26159,12 @@ class MplsLsdNodes(object):
                             .. attribute:: application_type
                             
                             	Application type
-                            	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                            	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                             
                             .. attribute:: resource_state
                             
                             	Application resource state
-                            	**type**\:  :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
+                            	**type**\:   :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
                             
                             
 
@@ -26254,7 +26254,7 @@ class MplsLsdNodes(object):
                         .. attribute:: rewrite_id
                         
                         	Rewrite ID
-                        	**type**\:  :py:class:`RewriteId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId>`
+                        	**type**\:   :py:class:`RewriteId_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_>`
                         
                         
 
@@ -26265,28 +26265,28 @@ class MplsLsdNodes(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.rewrite_id = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId()
+                            self.rewrite_id = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_()
                             self.rewrite_id.parent = self
 
 
-                        class RewriteId(object):
+                        class RewriteId_(object):
                             """
                             Rewrite ID
                             
                             .. attribute:: label_context
                             
                             	Label context
-                            	**type**\:  :py:class:`LabelContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext>`
+                            	**type**\:   :py:class:`LabelContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext>`
                             
                             .. attribute:: local_label_rewrite
                             
                             	Local label rewrite information
-                            	**type**\:  :py:class:`LocalLabelRewrite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LocalLabelRewrite>`
+                            	**type**\:   :py:class:`LocalLabelRewrite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LocalLabelRewrite>`
                             
                             .. attribute:: rewrite_id_type
                             
                             	RewriteIDType
-                            	**type**\:  :py:class:`MgmtLsdRwIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdRwIdEnum>`
+                            	**type**\:   :py:class:`MgmtLsdRwIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdRwIdEnum>`
                             
                             
 
@@ -26297,9 +26297,9 @@ class MplsLsdNodes(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.label_context = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext()
+                                self.label_context = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext()
                                 self.label_context.parent = self
-                                self.local_label_rewrite = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LocalLabelRewrite()
+                                self.local_label_rewrite = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LocalLabelRewrite()
                                 self.local_label_rewrite.parent = self
                                 self.rewrite_id_type = None
 
@@ -26311,147 +26311,147 @@ class MplsLsdNodes(object):
                                 .. attribute:: cev4l3vpn_data
                                 
                                 	L3VPN CEv4 label context
-                                	**type**\:  :py:class:`Cev4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Cev4L3VpnData>`
+                                	**type**\:   :py:class:`Cev4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData>`
                                 
                                 .. attribute:: cev6l3vpn_data
                                 
                                 	L3VPN CEv6 label context
-                                	**type**\:  :py:class:`Cev6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Cev6L3VpnData>`
+                                	**type**\:   :py:class:`Cev6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData>`
                                 
                                 .. attribute:: evpn_data
                                 
                                 	EVPN context
-                                	**type**\:  :py:class:`EvpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.EvpnData>`
+                                	**type**\:   :py:class:`EvpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.EvpnData>`
                                 
                                 .. attribute:: generic_routing_encapsulation
                                 
                                 	Generic routing encapsulation context
-                                	**type**\:  :py:class:`GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation>`
+                                	**type**\:   :py:class:`GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation>`
                                 
                                 .. attribute:: ip_sub_data
                                 
                                 	IP Subscriber context
-                                	**type**\:  :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.IpSubData>`
+                                	**type**\:   :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.IpSubData>`
                                 
                                 .. attribute:: ipv4_data
                                 
                                 	IPv4 label context
-                                	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4Data>`
+                                	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4Data>`
                                 
                                 .. attribute:: ipv4blb_data
                                 
                                 	BFD BLB label context
-                                	**type**\:  :py:class:`Ipv4BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4BlbData>`
+                                	**type**\:   :py:class:`Ipv4BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4BlbData>`
                                 
                                 .. attribute:: ipv4l3vpn_data
                                 
                                 	L3VPN IPv4 label context
-                                	**type**\:  :py:class:`Ipv4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData>`
+                                	**type**\:   :py:class:`Ipv4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData>`
                                 
                                 .. attribute:: ipv6_data
                                 
                                 	IPv6 label context
-                                	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6Data>`
+                                	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6Data>`
                                 
                                 .. attribute:: ipv6_generic_routing_encapsulation
                                 
                                 	Generic routing encapsulation context
-                                	**type**\:  :py:class:`Ipv6GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation>`
+                                	**type**\:   :py:class:`Ipv6GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation>`
                                 
                                 .. attribute:: ipv6blb_data
                                 
                                 	BFD BLB label context
-                                	**type**\:  :py:class:`Ipv6BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6BlbData>`
+                                	**type**\:   :py:class:`Ipv6BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6BlbData>`
                                 
                                 .. attribute:: ipv6l3vpn_data
                                 
                                 	L3VPN IPv6 label context
-                                	**type**\:  :py:class:`Ipv6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData>`
+                                	**type**\:   :py:class:`Ipv6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData>`
                                 
                                 .. attribute:: label_block_data
                                 
                                 	Label block context
-                                	**type**\:  :py:class:`LabelBlockData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.LabelBlockData>`
+                                	**type**\:   :py:class:`LabelBlockData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.LabelBlockData>`
                                 
                                 .. attribute:: label_block_srgb_data
                                 
                                 	Label block SRGB context
-                                	**type**\:  :py:class:`LabelBlockSrgbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData>`
+                                	**type**\:   :py:class:`LabelBlockSrgbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData>`
                                 
                                 .. attribute:: label_context_type
                                 
                                 	LabelContextType
-                                	**type**\:  :py:class:`MgmtLsdLblCtxEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdLblCtxEnum>`
+                                	**type**\:   :py:class:`MgmtLsdLblCtxEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdLblCtxEnum>`
                                 
                                 .. attribute:: mld_pv4_data
                                 
                                 	MLDPv4 LSM\-ID context
-                                	**type**\:  :py:class:`MldPv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.MldPv4Data>`
+                                	**type**\:   :py:class:`MldPv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.MldPv4Data>`
                                 
                                 .. attribute:: next_hop_set_l3vpn
                                 
                                 	L3VPN NH SET label context
-                                	**type**\:  :py:class:`NextHopSetL3Vpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn>`
+                                	**type**\:   :py:class:`NextHopSetL3Vpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn>`
                                 
                                 .. attribute:: pi_mi_pmsi_data
                                 
                                 	PIM I\-PMSI label conext
-                                	**type**\:  :py:class:`PiMiPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PiMiPmsiData>`
+                                	**type**\:   :py:class:`PiMiPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PiMiPmsiData>`
                                 
                                 .. attribute:: pi_ms_pmsi_data
                                 
                                 	PIM S\-PMSI label conext
-                                	**type**\:  :py:class:`PiMsPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PiMsPmsiData>`
+                                	**type**\:   :py:class:`PiMsPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PiMsPmsiData>`
                                 
                                 .. attribute:: pseudowire_data
                                 
                                 	Pseudowire label context
-                                	**type**\:  :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PseudowireData>`
+                                	**type**\:   :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PseudowireData>`
                                 
                                 .. attribute:: pseudowire_head_end_data
                                 
                                 	Pseudowire Head\-end label context
-                                	**type**\:  :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData>`
+                                	**type**\:   :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData>`
                                 
                                 .. attribute:: sr_adj_segment_ipv4
                                 
                                 	SR Adj Segment ipv4 context
-                                	**type**\:  :py:class:`SrAdjSegmentIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4>`
+                                	**type**\:   :py:class:`SrAdjSegmentIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4>`
                                 
                                 .. attribute:: sr_adj_segment_ipv6
                                 
                                 	SR Adj Segment ipv6 context
-                                	**type**\:  :py:class:`SrAdjSegmentIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6>`
+                                	**type**\:   :py:class:`SrAdjSegmentIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6>`
                                 
                                 .. attribute:: sr_prefix_segment
                                 
                                 	SR Prefix Segment context
-                                	**type**\:  :py:class:`SrPrefixSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrPrefixSegment>`
+                                	**type**\:   :py:class:`SrPrefixSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrPrefixSegment>`
                                 
                                 .. attribute:: te_binding
                                 
                                 	MPLS TE tunnel binding context
-                                	**type**\:  :py:class:`TeBinding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.TeBinding>`
+                                	**type**\:   :py:class:`TeBinding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.TeBinding>`
                                 
                                 .. attribute:: tev4_data
                                 
                                 	TEv4 label context
-                                	**type**\:  :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Tev4Data>`
+                                	**type**\:   :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Tev4Data>`
                                 
                                 .. attribute:: tev4p2mp_data
                                 
                                 	TEv4 P2MP context
-                                	**type**\:  :py:class:`Tev4P2MpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Tev4P2MpData>`
+                                	**type**\:   :py:class:`Tev4P2MpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Tev4P2MpData>`
                                 
                                 .. attribute:: tp_data
                                 
                                 	TP context
-                                	**type**\:  :py:class:`TpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.TpData>`
+                                	**type**\:   :py:class:`TpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.TpData>`
                                 
                                 .. attribute:: vrf_l3vpn_data
                                 
                                 	L3VPN VRF label context
-                                	**type**\:  :py:class:`VrfL3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.VrfL3VpnData>`
+                                	**type**\:   :py:class:`VrfL3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.VrfL3VpnData>`
                                 
                                 
 
@@ -26462,62 +26462,62 @@ class MplsLsdNodes(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.cev4l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Cev4L3VpnData()
+                                    self.cev4l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData()
                                     self.cev4l3vpn_data.parent = self
-                                    self.cev6l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Cev6L3VpnData()
+                                    self.cev6l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData()
                                     self.cev6l3vpn_data.parent = self
-                                    self.evpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.EvpnData()
+                                    self.evpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.EvpnData()
                                     self.evpn_data.parent = self
-                                    self.generic_routing_encapsulation = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation()
+                                    self.generic_routing_encapsulation = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation()
                                     self.generic_routing_encapsulation.parent = self
-                                    self.ip_sub_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.IpSubData()
+                                    self.ip_sub_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.IpSubData()
                                     self.ip_sub_data.parent = self
-                                    self.ipv4_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4Data()
+                                    self.ipv4_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4Data()
                                     self.ipv4_data.parent = self
-                                    self.ipv4blb_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4BlbData()
+                                    self.ipv4blb_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4BlbData()
                                     self.ipv4blb_data.parent = self
-                                    self.ipv4l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData()
+                                    self.ipv4l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData()
                                     self.ipv4l3vpn_data.parent = self
-                                    self.ipv6_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6Data()
+                                    self.ipv6_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6Data()
                                     self.ipv6_data.parent = self
-                                    self.ipv6_generic_routing_encapsulation = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation()
+                                    self.ipv6_generic_routing_encapsulation = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation()
                                     self.ipv6_generic_routing_encapsulation.parent = self
-                                    self.ipv6blb_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6BlbData()
+                                    self.ipv6blb_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6BlbData()
                                     self.ipv6blb_data.parent = self
-                                    self.ipv6l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData()
+                                    self.ipv6l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData()
                                     self.ipv6l3vpn_data.parent = self
-                                    self.label_block_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.LabelBlockData()
+                                    self.label_block_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.LabelBlockData()
                                     self.label_block_data.parent = self
-                                    self.label_block_srgb_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData()
+                                    self.label_block_srgb_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData()
                                     self.label_block_srgb_data.parent = self
                                     self.label_context_type = None
-                                    self.mld_pv4_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.MldPv4Data()
+                                    self.mld_pv4_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.MldPv4Data()
                                     self.mld_pv4_data.parent = self
-                                    self.next_hop_set_l3vpn = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn()
+                                    self.next_hop_set_l3vpn = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn()
                                     self.next_hop_set_l3vpn.parent = self
-                                    self.pi_mi_pmsi_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PiMiPmsiData()
+                                    self.pi_mi_pmsi_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PiMiPmsiData()
                                     self.pi_mi_pmsi_data.parent = self
-                                    self.pi_ms_pmsi_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PiMsPmsiData()
+                                    self.pi_ms_pmsi_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PiMsPmsiData()
                                     self.pi_ms_pmsi_data.parent = self
-                                    self.pseudowire_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PseudowireData()
+                                    self.pseudowire_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PseudowireData()
                                     self.pseudowire_data.parent = self
-                                    self.pseudowire_head_end_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData()
+                                    self.pseudowire_head_end_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData()
                                     self.pseudowire_head_end_data.parent = self
-                                    self.sr_adj_segment_ipv4 = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4()
+                                    self.sr_adj_segment_ipv4 = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4()
                                     self.sr_adj_segment_ipv4.parent = self
-                                    self.sr_adj_segment_ipv6 = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6()
+                                    self.sr_adj_segment_ipv6 = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6()
                                     self.sr_adj_segment_ipv6.parent = self
-                                    self.sr_prefix_segment = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrPrefixSegment()
+                                    self.sr_prefix_segment = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrPrefixSegment()
                                     self.sr_prefix_segment.parent = self
-                                    self.te_binding = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.TeBinding()
+                                    self.te_binding = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.TeBinding()
                                     self.te_binding.parent = self
-                                    self.tev4_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Tev4Data()
+                                    self.tev4_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Tev4Data()
                                     self.tev4_data.parent = self
-                                    self.tev4p2mp_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Tev4P2MpData()
+                                    self.tev4p2mp_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Tev4P2MpData()
                                     self.tev4p2mp_data.parent = self
-                                    self.tp_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.TpData()
+                                    self.tp_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.TpData()
                                     self.tp_data.parent = self
-                                    self.vrf_l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.VrfL3VpnData()
+                                    self.vrf_l3vpn_data = MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.VrfL3VpnData()
                                     self.vrf_l3vpn_data.parent = self
 
 
@@ -26609,7 +26609,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4Data']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4Data']['meta_info']
 
 
                                 class Ipv6Data(object):
@@ -26700,7 +26700,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6Data']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6Data']['meta_info']
 
 
                                 class Tev4Data(object):
@@ -26813,7 +26813,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Tev4Data']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Tev4Data']['meta_info']
 
 
                                 class Ipv4L3VpnData(object):
@@ -26882,7 +26882,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData']['meta_info']
 
 
                                 class Ipv6L3VpnData(object):
@@ -26951,7 +26951,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData']['meta_info']
 
 
                                 class VrfL3VpnData(object):
@@ -27009,7 +27009,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.VrfL3VpnData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.VrfL3VpnData']['meta_info']
 
 
                                 class Cev4L3VpnData(object):
@@ -27078,7 +27078,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Cev4L3VpnData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData']['meta_info']
 
 
                                 class Cev6L3VpnData(object):
@@ -27147,7 +27147,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Cev6L3VpnData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData']['meta_info']
 
 
                                 class PseudowireData(object):
@@ -27227,7 +27227,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PseudowireData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PseudowireData']['meta_info']
 
 
                                 class LabelBlockData(object):
@@ -27318,7 +27318,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.LabelBlockData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.LabelBlockData']['meta_info']
 
 
                                 class IpSubData(object):
@@ -27376,7 +27376,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.IpSubData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.IpSubData']['meta_info']
 
 
                                 class Tev4P2MpData(object):
@@ -27489,7 +27489,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Tev4P2MpData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Tev4P2MpData']['meta_info']
 
 
                                 class MldPv4Data(object):
@@ -27580,7 +27580,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.MldPv4Data']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.MldPv4Data']['meta_info']
 
 
                                 class PseudowireHeadEndData(object):
@@ -27627,7 +27627,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData']['meta_info']
 
 
                                 class TpData(object):
@@ -27740,7 +27740,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.TpData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.TpData']['meta_info']
 
 
                                 class GenericRoutingEncapsulation(object):
@@ -27787,7 +27787,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation']['meta_info']
 
 
                                 class Ipv6GenericRoutingEncapsulation(object):
@@ -27834,7 +27834,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation']['meta_info']
 
 
                                 class EvpnData(object):
@@ -27903,7 +27903,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.EvpnData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.EvpnData']['meta_info']
 
 
                                 class Ipv4BlbData(object):
@@ -27961,7 +27961,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4BlbData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4BlbData']['meta_info']
 
 
                                 class Ipv6BlbData(object):
@@ -28019,7 +28019,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6BlbData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6BlbData']['meta_info']
 
 
                                 class PiMiPmsiData(object):
@@ -28088,7 +28088,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PiMiPmsiData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PiMiPmsiData']['meta_info']
 
 
                                 class PiMsPmsiData(object):
@@ -28190,7 +28190,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PiMsPmsiData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PiMsPmsiData']['meta_info']
 
 
                                 class NextHopSetL3Vpn(object):
@@ -28248,7 +28248,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn']['meta_info']
 
 
                                 class SrPrefixSegment(object):
@@ -28306,7 +28306,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrPrefixSegment']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrPrefixSegment']['meta_info']
 
 
                                 class SrAdjSegmentIpv4(object):
@@ -28386,7 +28386,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4']['meta_info']
 
 
                                 class SrAdjSegmentIpv6(object):
@@ -28466,7 +28466,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6']['meta_info']
 
 
                                 class LabelBlockSrgbData(object):
@@ -28535,7 +28535,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData']['meta_info']
 
 
                                 class TeBinding(object):
@@ -28552,7 +28552,7 @@ class MplsLsdNodes(object):
                                     .. attribute:: te_type
                                     
                                     	Type of identifier for the binding
-                                    	**type**\:  :py:class:`MgmtLsdTeBindingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdTeBindingEnum>`
+                                    	**type**\:   :py:class:`MgmtLsdTeBindingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdTeBindingEnum>`
                                     
                                     
 
@@ -28591,7 +28591,7 @@ class MplsLsdNodes(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.TeBinding']['meta_info']
+                                        return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.TeBinding']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -28699,7 +28699,7 @@ class MplsLsdNodes(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
+                                    return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
 
 
                             class LocalLabelRewrite(object):
@@ -28750,7 +28750,7 @@ class MplsLsdNodes(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LocalLabelRewrite']['meta_info']
+                                    return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LocalLabelRewrite']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -28780,7 +28780,7 @@ class MplsLsdNodes(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId']['meta_info']
+                                return meta._meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -28814,12 +28814,12 @@ class MplsLsdNodes(object):
                         .. attribute:: application_owner
                         
                         	Application owner instance
-                        	**type**\: list of  :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.ApplicationOwner>`
+                        	**type**\: list of    :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.ApplicationOwner>`
                         
                         .. attribute:: fpi
                         
                         	FPI
-                        	**type**\:  :py:class:`Fpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi>`
+                        	**type**\:   :py:class:`Fpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi>`
                         
                         
 
@@ -28844,37 +28844,37 @@ class MplsLsdNodes(object):
                             .. attribute:: dmtc_ext_intf_data
                             
                             	dmtc ext intf data
-                            	**type**\:  :py:class:`DmtcExtIntfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi.DmtcExtIntfData>`
+                            	**type**\:   :py:class:`DmtcExtIntfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi.DmtcExtIntfData>`
                             
                             .. attribute:: fpi_type
                             
                             	FPIType
-                            	**type**\:  :py:class:`MgmtLsdFpiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFpiEnum>`
+                            	**type**\:   :py:class:`MgmtLsdFpiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFpiEnum>`
                             
                             .. attribute:: ipv4_data
                             
                             	ipv4 data
-                            	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi.Ipv4Data>`
+                            	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi.Ipv4Data>`
                             
                             .. attribute:: ipv6_data
                             
                             	ipv6 data
-                            	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi.Ipv6Data>`
+                            	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi.Ipv6Data>`
                             
                             .. attribute:: label_data
                             
                             	label data
-                            	**type**\:  :py:class:`LabelData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi.LabelData>`
+                            	**type**\:   :py:class:`LabelData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi.LabelData>`
                             
                             .. attribute:: pw_list_data
                             
                             	pw list data
-                            	**type**\:  :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi.PwListData>`
+                            	**type**\:   :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi.PwListData>`
                             
                             .. attribute:: te_data
                             
                             	te data
-                            	**type**\:  :py:class:`TeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi.TeData>`
+                            	**type**\:   :py:class:`TeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi.TeData>`
                             
                             
 
@@ -29358,12 +29358,12 @@ class MplsLsdNodes(object):
                             .. attribute:: application_type
                             
                             	Application type
-                            	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                            	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                             
                             .. attribute:: resource_state
                             
                             	Application resource state
-                            	**type**\:  :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
+                            	**type**\:   :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
                             
                             
 
@@ -29569,12 +29569,12 @@ class MplsLsdNodes(object):
                         .. attribute:: application_resource
                         
                         	Application state
-                        	**type**\:  :py:class:`ApplicationResource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.ApplicationResource>`
+                        	**type**\:   :py:class:`ApplicationResource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.ApplicationResource>`
                         
                         .. attribute:: moi_array
                         
                         	moi array
-                        	**type**\: list of  :py:class:`MoiArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray>`
+                        	**type**\: list of    :py:class:`MoiArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray>`
                         
                         
 
@@ -29616,12 +29616,12 @@ class MplsLsdNodes(object):
                             .. attribute:: application_type
                             
                             	Application type
-                            	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                            	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                             
                             .. attribute:: resource_state
                             
                             	Application resource state
-                            	**type**\:  :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
+                            	**type**\:   :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
                             
                             
 
@@ -29682,7 +29682,7 @@ class MplsLsdNodes(object):
                             .. attribute:: moi
                             
                             	Moi
-                            	**type**\:  :py:class:`Moi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi>`
+                            	**type**\:   :py:class:`Moi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi>`
                             
                             
 
@@ -29704,77 +29704,77 @@ class MplsLsdNodes(object):
                                 .. attribute:: dmtc_data
                                 
                                 	dmtc data
-                                	**type**\:  :py:class:`DmtcData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.DmtcData>`
+                                	**type**\:   :py:class:`DmtcData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.DmtcData>`
                                 
                                 .. attribute:: ip_sub_data
                                 
                                 	ip sub data
-                                	**type**\:  :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.IpSubData>`
+                                	**type**\:   :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.IpSubData>`
                                 
                                 .. attribute:: ipv4_data
                                 
                                 	ipv4 data
-                                	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Ipv4Data>`
+                                	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Ipv4Data>`
                                 
                                 .. attribute:: ipv6_data
                                 
                                 	ipv6 data
-                                	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Ipv6Data>`
+                                	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Ipv6Data>`
                                 
                                 .. attribute:: moi_type
                                 
                                 	MoiType
-                                	**type**\:  :py:class:`MgmtLsdMoiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdMoiEnum>`
+                                	**type**\:   :py:class:`MgmtLsdMoiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdMoiEnum>`
                                 
                                 .. attribute:: pop_and_lookup_ipv4
                                 
                                 	pop and lookup ipv4
-                                	**type**\:  :py:class:`PopAndLookupIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.PopAndLookupIpv4>`
+                                	**type**\:   :py:class:`PopAndLookupIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.PopAndLookupIpv4>`
                                 
                                 .. attribute:: pop_and_lookup_ipv6
                                 
                                 	pop and lookup ipv6
-                                	**type**\:  :py:class:`PopAndLookupIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.PopAndLookupIpv6>`
+                                	**type**\:   :py:class:`PopAndLookupIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.PopAndLookupIpv6>`
                                 
                                 .. attribute:: pop_and_lookup_tp
                                 
                                 	pop and lookup tp
-                                	**type**\:  :py:class:`PopAndLookupTp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.PopAndLookupTp>`
+                                	**type**\:   :py:class:`PopAndLookupTp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.PopAndLookupTp>`
                                 
                                 .. attribute:: pseudowire_data
                                 
                                 	pseudowire data
-                                	**type**\:  :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.PseudowireData>`
+                                	**type**\:   :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.PseudowireData>`
                                 
                                 .. attribute:: pseudowire_head_end_data
                                 
                                 	pseudowire head end data
-                                	**type**\:  :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.PseudowireHeadEndData>`
+                                	**type**\:   :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.PseudowireHeadEndData>`
                                 
                                 .. attribute:: pw_list_data
                                 
                                 	pw list data
-                                	**type**\:  :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.PwListData>`
+                                	**type**\:   :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.PwListData>`
                                 
                                 .. attribute:: stackv4_data
                                 
                                 	stackv4 data
-                                	**type**\:  :py:class:`Stackv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Stackv4Data>`
+                                	**type**\:   :py:class:`Stackv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Stackv4Data>`
                                 
                                 .. attribute:: stackv6_data
                                 
                                 	stackv6 data
-                                	**type**\:  :py:class:`Stackv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Stackv6Data>`
+                                	**type**\:   :py:class:`Stackv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Stackv6Data>`
                                 
                                 .. attribute:: te_head_data
                                 
                                 	te head data
-                                	**type**\:  :py:class:`TeHeadData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.TeHeadData>`
+                                	**type**\:   :py:class:`TeHeadData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.TeHeadData>`
                                 
                                 .. attribute:: tev4_data
                                 
                                 	tev4 data
-                                	**type**\:  :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Tev4Data>`
+                                	**type**\:   :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Tev4Data>`
                                 
                                 
 
@@ -31006,17 +31006,17 @@ class MplsLsdNodes(object):
                                     .. attribute:: inner_stack
                                     
                                     	Inner stack
-                                    	**type**\:  :py:class:`InnerStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Stackv4Data.InnerStack>`
+                                    	**type**\:   :py:class:`InnerStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Stackv4Data.InnerStack>`
                                     
                                     .. attribute:: nexthop
                                     
                                     	Nexthop
-                                    	**type**\:  :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Stackv4Data.Nexthop>`
+                                    	**type**\:   :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Stackv4Data.Nexthop>`
                                     
                                     .. attribute:: owner_application_type
                                     
                                     	Owner application type
-                                    	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                                    	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                                     
                                     
 
@@ -31225,7 +31225,7 @@ class MplsLsdNodes(object):
                                         .. attribute:: label
                                         
                                         	Info related to outgoing labels
-                                        	**type**\: list of  :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Stackv4Data.InnerStack.Label>`
+                                        	**type**\: list of    :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Stackv4Data.InnerStack.Label>`
                                         
                                         .. attribute:: nexthop
                                         
@@ -31397,12 +31397,12 @@ class MplsLsdNodes(object):
                                     .. attribute:: inner_stack
                                     
                                     	Inner stack
-                                    	**type**\:  :py:class:`InnerStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Stackv6Data.InnerStack>`
+                                    	**type**\:   :py:class:`InnerStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Stackv6Data.InnerStack>`
                                     
                                     .. attribute:: nexthop
                                     
                                     	Nexthop
-                                    	**type**\:  :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Stackv6Data.Nexthop>`
+                                    	**type**\:   :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Stackv6Data.Nexthop>`
                                     
                                     
 
@@ -31566,7 +31566,7 @@ class MplsLsdNodes(object):
                                         .. attribute:: label
                                         
                                         	Info related to outgoing labels
-                                        	**type**\: list of  :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Stackv6Data.InnerStack.Label>`
+                                        	**type**\: list of    :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Stackv6Data.InnerStack.Label>`
                                         
                                         .. attribute:: nexthop
                                         
@@ -32140,12 +32140,12 @@ class MplsLsdNodes(object):
             .. attribute:: ipv4_paths
             
             	Count for IPv4 paths
-            	**type**\:  :py:class:`Ipv4Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.RewriteSummary.Ipv4Paths>`
+            	**type**\:   :py:class:`Ipv4Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.RewriteSummary.Ipv4Paths>`
             
             .. attribute:: ipv6_paths
             
             	Count for IPv6 paths
-            	**type**\:  :py:class:`Ipv6Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.RewriteSummary.Ipv6Paths>`
+            	**type**\:   :py:class:`Ipv6Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.RewriteSummary.Ipv6Paths>`
             
             .. attribute:: num_dmtctefpi
             
@@ -32585,7 +32585,7 @@ class MplsLsdNodes(object):
             .. attribute:: application
             
             	Data for MPLS application using LSD
-            	**type**\: list of  :py:class:`Application <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Applications.Application>`
+            	**type**\: list of    :py:class:`Application <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Applications.Application>`
             
             
 
@@ -32653,17 +32653,17 @@ class MplsLsdNodes(object):
                 .. attribute:: application_state
                 
                 	Application state
-                	**type**\:  :py:class:`MgmtLsdAppStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppStateEnum>`
+                	**type**\:   :py:class:`MgmtLsdAppStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppStateEnum>`
                 
                 .. attribute:: application_statistics
                 
                 	Application Statistics
-                	**type**\:  :py:class:`ApplicationStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Applications.Application.ApplicationStatistics>`
+                	**type**\:   :py:class:`ApplicationStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Applications.Application.ApplicationStatistics>`
                 
                 .. attribute:: application_type
                 
                 	Application type
-                	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                 
                 .. attribute:: flow_ctrl_clr_time
                 
@@ -32700,6 +32700,8 @@ class MplsLsdNodes(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: recovery_time_register_seconds
                 
                 	Recovery time [secs] specified at registration or set explicitly
@@ -32707,12 +32709,16 @@ class MplsLsdNodes(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: recovery_time_remaining_seconds
                 
                 	Recovery time [secs] remaining if client is timing out
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 
 
@@ -32757,7 +32763,7 @@ class MplsLsdNodes(object):
                     .. attribute:: connected
                     
                     	Connected statistics
-                    	**type**\:  :py:class:`Connected <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Applications.Application.ApplicationStatistics.Connected>`
+                    	**type**\:   :py:class:`Connected <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Applications.Application.ApplicationStatistics.Connected>`
                     
                     .. attribute:: interface_enable
                     
@@ -33039,7 +33045,7 @@ class MplsLsdNodes(object):
             .. attribute:: label_summary_vrf
             
             	Dynamic label range summary by VRF
-            	**type**\: list of  :py:class:`LabelSummaryVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.LabelSummaryVrfs.LabelSummaryVrf>`
+            	**type**\: list of    :py:class:`LabelSummaryVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.LabelSummaryVrfs.LabelSummaryVrf>`
             
             
 
@@ -33069,7 +33075,7 @@ class MplsLsdNodes(object):
                 .. attribute:: owner_count
                 
                 	Owner counts
-                	**type**\: list of  :py:class:`OwnerCount <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.LabelSummaryVrfs.LabelSummaryVrf.OwnerCount>`
+                	**type**\: list of    :py:class:`OwnerCount <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.LabelSummaryVrfs.LabelSummaryVrf.OwnerCount>`
                 
                 .. attribute:: rsi_connected
                 
@@ -33132,7 +33138,7 @@ class MplsLsdNodes(object):
                     .. attribute:: application_type
                     
                     	Application type
-                    	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                    	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                     
                     .. attribute:: number_of_labels
                     
@@ -33346,7 +33352,7 @@ class MplsLsdNodes(object):
             .. attribute:: rewrite_summary_vrf
             
             	Rewrite summary by VRF VRF\-name
-            	**type**\: list of  :py:class:`RewriteSummaryVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.RewriteSummaryVrfs.RewriteSummaryVrf>`
+            	**type**\: list of    :py:class:`RewriteSummaryVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.RewriteSummaryVrfs.RewriteSummaryVrf>`
             
             
 
@@ -33376,12 +33382,12 @@ class MplsLsdNodes(object):
                 .. attribute:: ipv4_paths
                 
                 	Count for IPv4 paths
-                	**type**\:  :py:class:`Ipv4Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.RewriteSummaryVrfs.RewriteSummaryVrf.Ipv4Paths>`
+                	**type**\:   :py:class:`Ipv4Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.RewriteSummaryVrfs.RewriteSummaryVrf.Ipv4Paths>`
                 
                 .. attribute:: ipv6_paths
                 
                 	Count for IPv6 paths
-                	**type**\:  :py:class:`Ipv6Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.RewriteSummaryVrfs.RewriteSummaryVrf.Ipv6Paths>`
+                	**type**\:   :py:class:`Ipv6Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.RewriteSummaryVrfs.RewriteSummaryVrf.Ipv6Paths>`
                 
                 .. attribute:: num_dmtctefpi
                 
@@ -33853,7 +33859,7 @@ class MplsLsdNodes(object):
             .. attribute:: interface
             
             	Data for MPLS interface
-            	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Interfaces.Interface>`
+            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Interfaces.Interface>`
             
             
 
@@ -33883,7 +33889,7 @@ class MplsLsdNodes(object):
                 .. attribute:: application_owner
                 
                 	Application Owner
-                	**type**\: list of  :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Interfaces.Interface.ApplicationOwner>`
+                	**type**\: list of    :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsdNodes.MplsLsdNode.Interfaces.Interface.ApplicationOwner>`
                 
                 .. attribute:: interface
                 
@@ -33895,7 +33901,7 @@ class MplsLsdNodes(object):
                 .. attribute:: interface_state
                 
                 	Interface state
-                	**type**\:  :py:class:`MgmtLsdIntfStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdIntfStateEnum>`
+                	**type**\:   :py:class:`MgmtLsdIntfStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdIntfStateEnum>`
                 
                 
 
@@ -33938,12 +33944,12 @@ class MplsLsdNodes(object):
                     .. attribute:: application_type
                     
                     	Application type
-                    	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                    	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                     
                     .. attribute:: resource_state
                     
                     	Application resource state
-                    	**type**\:  :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
+                    	**type**\:   :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
                     
                     
 
@@ -34148,57 +34154,57 @@ class MplsLsd(object):
     .. attribute:: applications
     
     	Table of MPLS applications using LSD
-    	**type**\:  :py:class:`Applications <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Applications>`
+    	**type**\:   :py:class:`Applications <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Applications>`
     
     .. attribute:: clients
     
     	Table of MPLS clients using LSD
-    	**type**\:  :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Clients>`
+    	**type**\:   :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Clients>`
     
     .. attribute:: frr_database
     
     	FRR database
-    	**type**\:  :py:class:`FrrDatabase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase>`
+    	**type**\:   :py:class:`FrrDatabase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase>`
     
     .. attribute:: interfaces
     
     	Table of MPLS interfaces
-    	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Interfaces>`
+    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Interfaces>`
     
     .. attribute:: label_range
     
     	Label range
-    	**type**\:  :py:class:`LabelRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.LabelRange>`
+    	**type**\:   :py:class:`LabelRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.LabelRange>`
     
     .. attribute:: label_summary
     
     	Dynamic label range
-    	**type**\:  :py:class:`LabelSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.LabelSummary>`
+    	**type**\:   :py:class:`LabelSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.LabelSummary>`
     
     .. attribute:: label_summary_vrfs
     
     	Dynamic label range summary by VRF
-    	**type**\:  :py:class:`LabelSummaryVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.LabelSummaryVrfs>`
+    	**type**\:   :py:class:`LabelSummaryVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.LabelSummaryVrfs>`
     
     .. attribute:: labels
     
     	Table of labels
-    	**type**\:  :py:class:`Labels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels>`
+    	**type**\:   :py:class:`Labels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels>`
     
     .. attribute:: rewrite
     
     	Table of rewrites
-    	**type**\:  :py:class:`Rewrite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite>`
+    	**type**\:   :py:class:`Rewrite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite>`
     
     .. attribute:: rewrite_summary
     
     	Rewrite Summary 
-    	**type**\:  :py:class:`RewriteSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.RewriteSummary>`
+    	**type**\:   :py:class:`RewriteSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.RewriteSummary>`
     
     .. attribute:: rewrite_summary_vrfs
     
     	Rewrite Summary by VRF
-    	**type**\:  :py:class:`RewriteSummaryVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.RewriteSummaryVrfs>`
+    	**type**\:   :py:class:`RewriteSummaryVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.RewriteSummaryVrfs>`
     
     
 
@@ -34239,7 +34245,7 @@ class MplsLsd(object):
         .. attribute:: client
         
         	Data for MPLS client using LSD
-        	**type**\: list of  :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Clients.Client>`
+        	**type**\: list of    :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Clients.Client>`
         
         
 
@@ -34276,7 +34282,7 @@ class MplsLsd(object):
             .. attribute:: client_union
             
             	Client union
-            	**type**\:  :py:class:`ClientUnion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Clients.Client.ClientUnion>`
+            	**type**\:   :py:class:`ClientUnion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Clients.Client.ClientUnion>`
             
             .. attribute:: node_id
             
@@ -34308,17 +34314,17 @@ class MplsLsd(object):
                 .. attribute:: application
                 
                 	Application client
-                	**type**\:  :py:class:`Application <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Clients.Client.ClientUnion.Application>`
+                	**type**\:   :py:class:`Application <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Clients.Client.ClientUnion.Application>`
                 
                 .. attribute:: bcdl_agent
                 
                 	BCDL agent client
-                	**type**\:  :py:class:`BcdlAgent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Clients.Client.ClientUnion.BcdlAgent>`
+                	**type**\:   :py:class:`BcdlAgent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Clients.Client.ClientUnion.BcdlAgent>`
                 
                 .. attribute:: lsd_client_type
                 
                 	LSDClientType
-                	**type**\:  :py:class:`MgmtLsdClientEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdClientEnum>`
+                	**type**\:   :py:class:`MgmtLsdClientEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdClientEnum>`
                 
                 
 
@@ -34360,7 +34366,7 @@ class MplsLsd(object):
                     .. attribute:: application_type
                     
                     	Application type
-                    	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                    	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                     
                     
 
@@ -34562,7 +34568,7 @@ class MplsLsd(object):
         .. attribute:: owner_count
         
         	Owner counts
-        	**type**\: list of  :py:class:`OwnerCount <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.LabelSummary.OwnerCount>`
+        	**type**\: list of    :py:class:`OwnerCount <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.LabelSummary.OwnerCount>`
         
         .. attribute:: rsi_connected
         
@@ -34624,7 +34630,7 @@ class MplsLsd(object):
             .. attribute:: application_type
             
             	Application type
-            	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+            	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
             
             .. attribute:: number_of_labels
             
@@ -34723,7 +34729,7 @@ class MplsLsd(object):
         .. attribute:: label
         
         	Data for label
-        	**type**\: list of  :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label>`
+        	**type**\: list of    :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label>`
         
         
 
@@ -34753,7 +34759,7 @@ class MplsLsd(object):
             .. attribute:: application_owner
             
             	Application owner
-            	**type**\: list of  :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.ApplicationOwner>`
+            	**type**\: list of    :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.ApplicationOwner>`
             
             .. attribute:: label
             
@@ -34765,7 +34771,7 @@ class MplsLsd(object):
             .. attribute:: label_context
             
             	Label context
-            	**type**\:  :py:class:`LabelContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext>`
+            	**type**\:   :py:class:`LabelContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext>`
             
             .. attribute:: rewrite_is_bound
             
@@ -34829,7 +34835,7 @@ class MplsLsd(object):
                 .. attribute:: key
                 
                 	Label Key
-                	**type**\:  :py:class:`Key <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key>`
+                	**type**\:   :py:class:`Key <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key>`
                 
                 
 
@@ -34852,147 +34858,147 @@ class MplsLsd(object):
                     .. attribute:: cev4l3vpn_data
                     
                     	L3VPN CEv4 label context
-                    	**type**\:  :py:class:`Cev4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.Cev4L3VpnData>`
+                    	**type**\:   :py:class:`Cev4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.Cev4L3VpnData>`
                     
                     .. attribute:: cev6l3vpn_data
                     
                     	L3VPN CEv6 label context
-                    	**type**\:  :py:class:`Cev6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.Cev6L3VpnData>`
+                    	**type**\:   :py:class:`Cev6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.Cev6L3VpnData>`
                     
                     .. attribute:: evpn_data
                     
                     	EVPN context
-                    	**type**\:  :py:class:`EvpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.EvpnData>`
+                    	**type**\:   :py:class:`EvpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.EvpnData>`
                     
                     .. attribute:: generic_routing_encapsulation
                     
                     	Generic routing encapsulation context
-                    	**type**\:  :py:class:`GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.GenericRoutingEncapsulation>`
+                    	**type**\:   :py:class:`GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.GenericRoutingEncapsulation>`
                     
                     .. attribute:: ip_sub_data
                     
                     	IP Subscriber context
-                    	**type**\:  :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.IpSubData>`
+                    	**type**\:   :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.IpSubData>`
                     
                     .. attribute:: ipv4_data
                     
                     	IPv4 label context
-                    	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.Ipv4Data>`
+                    	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.Ipv4Data>`
                     
                     .. attribute:: ipv4blb_data
                     
                     	BFD BLB label context
-                    	**type**\:  :py:class:`Ipv4BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.Ipv4BlbData>`
+                    	**type**\:   :py:class:`Ipv4BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.Ipv4BlbData>`
                     
                     .. attribute:: ipv4l3vpn_data
                     
                     	L3VPN IPv4 label context
-                    	**type**\:  :py:class:`Ipv4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.Ipv4L3VpnData>`
+                    	**type**\:   :py:class:`Ipv4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.Ipv4L3VpnData>`
                     
                     .. attribute:: ipv6_data
                     
                     	IPv6 label context
-                    	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.Ipv6Data>`
+                    	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.Ipv6Data>`
                     
                     .. attribute:: ipv6_generic_routing_encapsulation
                     
                     	Generic routing encapsulation context
-                    	**type**\:  :py:class:`Ipv6GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.Ipv6GenericRoutingEncapsulation>`
+                    	**type**\:   :py:class:`Ipv6GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.Ipv6GenericRoutingEncapsulation>`
                     
                     .. attribute:: ipv6blb_data
                     
                     	BFD BLB label context
-                    	**type**\:  :py:class:`Ipv6BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.Ipv6BlbData>`
+                    	**type**\:   :py:class:`Ipv6BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.Ipv6BlbData>`
                     
                     .. attribute:: ipv6l3vpn_data
                     
                     	L3VPN IPv6 label context
-                    	**type**\:  :py:class:`Ipv6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.Ipv6L3VpnData>`
+                    	**type**\:   :py:class:`Ipv6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.Ipv6L3VpnData>`
                     
                     .. attribute:: label_block_data
                     
                     	Label block context
-                    	**type**\:  :py:class:`LabelBlockData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.LabelBlockData>`
+                    	**type**\:   :py:class:`LabelBlockData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.LabelBlockData>`
                     
                     .. attribute:: label_block_srgb_data
                     
                     	Label block SRGB context
-                    	**type**\:  :py:class:`LabelBlockSrgbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.LabelBlockSrgbData>`
+                    	**type**\:   :py:class:`LabelBlockSrgbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.LabelBlockSrgbData>`
                     
                     .. attribute:: label_context_type
                     
                     	LabelContextType
-                    	**type**\:  :py:class:`MgmtLsdLblCtxEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdLblCtxEnum>`
+                    	**type**\:   :py:class:`MgmtLsdLblCtxEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdLblCtxEnum>`
                     
                     .. attribute:: mld_pv4_data
                     
                     	MLDPv4 LSM\-ID context
-                    	**type**\:  :py:class:`MldPv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.MldPv4Data>`
+                    	**type**\:   :py:class:`MldPv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.MldPv4Data>`
                     
                     .. attribute:: next_hop_set_l3vpn
                     
                     	L3VPN NH SET label context
-                    	**type**\:  :py:class:`NextHopSetL3Vpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.NextHopSetL3Vpn>`
+                    	**type**\:   :py:class:`NextHopSetL3Vpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.NextHopSetL3Vpn>`
                     
                     .. attribute:: pi_mi_pmsi_data
                     
                     	PIM I\-PMSI label conext
-                    	**type**\:  :py:class:`PiMiPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.PiMiPmsiData>`
+                    	**type**\:   :py:class:`PiMiPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.PiMiPmsiData>`
                     
                     .. attribute:: pi_ms_pmsi_data
                     
                     	PIM S\-PMSI label conext
-                    	**type**\:  :py:class:`PiMsPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.PiMsPmsiData>`
+                    	**type**\:   :py:class:`PiMsPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.PiMsPmsiData>`
                     
                     .. attribute:: pseudowire_data
                     
                     	Pseudowire label context
-                    	**type**\:  :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.PseudowireData>`
+                    	**type**\:   :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.PseudowireData>`
                     
                     .. attribute:: pseudowire_head_end_data
                     
                     	Pseudowire Head\-end label context
-                    	**type**\:  :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.PseudowireHeadEndData>`
+                    	**type**\:   :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.PseudowireHeadEndData>`
                     
                     .. attribute:: sr_adj_segment_ipv4
                     
                     	SR Adj Segment ipv4 context
-                    	**type**\:  :py:class:`SrAdjSegmentIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.SrAdjSegmentIpv4>`
+                    	**type**\:   :py:class:`SrAdjSegmentIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.SrAdjSegmentIpv4>`
                     
                     .. attribute:: sr_adj_segment_ipv6
                     
                     	SR Adj Segment ipv6 context
-                    	**type**\:  :py:class:`SrAdjSegmentIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.SrAdjSegmentIpv6>`
+                    	**type**\:   :py:class:`SrAdjSegmentIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.SrAdjSegmentIpv6>`
                     
                     .. attribute:: sr_prefix_segment
                     
                     	SR Prefix Segment context
-                    	**type**\:  :py:class:`SrPrefixSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.SrPrefixSegment>`
+                    	**type**\:   :py:class:`SrPrefixSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.SrPrefixSegment>`
                     
                     .. attribute:: te_binding
                     
                     	MPLS TE tunnel binding context
-                    	**type**\:  :py:class:`TeBinding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.TeBinding>`
+                    	**type**\:   :py:class:`TeBinding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.TeBinding>`
                     
                     .. attribute:: tev4_data
                     
                     	TEv4 label context
-                    	**type**\:  :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.Tev4Data>`
+                    	**type**\:   :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.Tev4Data>`
                     
                     .. attribute:: tev4p2mp_data
                     
                     	TEv4 P2MP context
-                    	**type**\:  :py:class:`Tev4P2MpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.Tev4P2MpData>`
+                    	**type**\:   :py:class:`Tev4P2MpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.Tev4P2MpData>`
                     
                     .. attribute:: tp_data
                     
                     	TP context
-                    	**type**\:  :py:class:`TpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.TpData>`
+                    	**type**\:   :py:class:`TpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.TpData>`
                     
                     .. attribute:: vrf_l3vpn_data
                     
                     	L3VPN VRF label context
-                    	**type**\:  :py:class:`VrfL3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.VrfL3VpnData>`
+                    	**type**\:   :py:class:`VrfL3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Labels.Label.LabelContext.Key.VrfL3VpnData>`
                     
                     
 
@@ -37093,7 +37099,7 @@ class MplsLsd(object):
                         .. attribute:: te_type
                         
                         	Type of identifier for the binding
-                        	**type**\:  :py:class:`MgmtLsdTeBindingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdTeBindingEnum>`
+                        	**type**\:   :py:class:`MgmtLsdTeBindingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdTeBindingEnum>`
                         
                         
 
@@ -37294,12 +37300,12 @@ class MplsLsd(object):
                 .. attribute:: application_type
                 
                 	Application type
-                	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                 
                 .. attribute:: resource_state
                 
                 	Application resource state
-                	**type**\:  :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
+                	**type**\:   :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
                 
                 
 
@@ -37431,32 +37437,32 @@ class MplsLsd(object):
         .. attribute:: summary_protected_interfaces
         
         	Sumary table of Protected Interfaces
-        	**type**\:  :py:class:`SummaryProtectedInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.SummaryProtectedInterfaces>`
+        	**type**\:   :py:class:`SummaryProtectedInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.SummaryProtectedInterfaces>`
         
         .. attribute:: tunnel_head_summary
         
         	Summary data for FRR database entry \- Tunnel head
-        	**type**\:  :py:class:`TunnelHeadSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.TunnelHeadSummary>`
+        	**type**\:   :py:class:`TunnelHeadSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.TunnelHeadSummary>`
         
         .. attribute:: tunnel_heads
         
         	Table of FRR database entries \- Tunnel heads
-        	**type**\:  :py:class:`TunnelHeads <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.TunnelHeads>`
+        	**type**\:   :py:class:`TunnelHeads <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.TunnelHeads>`
         
         .. attribute:: tunnel_midpoint_summary
         
         	Summary data for FRR database entry \- Tunnel midpoint
-        	**type**\:  :py:class:`TunnelMidpointSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.TunnelMidpointSummary>`
+        	**type**\:   :py:class:`TunnelMidpointSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.TunnelMidpointSummary>`
         
         .. attribute:: tunnel_midpoints
         
         	Table of FRR database entries \- Tunnel midpoints
-        	**type**\:  :py:class:`TunnelMidpoints <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.TunnelMidpoints>`
+        	**type**\:   :py:class:`TunnelMidpoints <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.TunnelMidpoints>`
         
         .. attribute:: tunnel_summary
         
         	Summary data for FRR database entry
-        	**type**\:  :py:class:`TunnelSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.TunnelSummary>`
+        	**type**\:   :py:class:`TunnelSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.TunnelSummary>`
         
         
 
@@ -37489,7 +37495,7 @@ class MplsLsd(object):
             .. attribute:: tunnel_midpoint
             
             	Data for FRR database entry \- Tunnel midpoint
-            	**type**\: list of  :py:class:`TunnelMidpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.TunnelMidpoints.TunnelMidpoint>`
+            	**type**\: list of    :py:class:`TunnelMidpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.TunnelMidpoints.TunnelMidpoint>`
             
             
 
@@ -37519,12 +37525,12 @@ class MplsLsd(object):
                 .. attribute:: entry_frr_state
                 
                 	MPLS FRR entry state
-                	**type**\:  :py:class:`MgmtLsdFrrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFrrStateEnum>`
+                	**type**\:   :py:class:`MgmtLsdFrrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFrrStateEnum>`
                 
                 .. attribute:: frr_entry_id
                 
                 	FRR entry ID
-                	**type**\:  :py:class:`FrrEntryId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.TunnelMidpoints.TunnelMidpoint.FrrEntryId>`
+                	**type**\:   :py:class:`FrrEntryId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.TunnelMidpoints.TunnelMidpoint.FrrEntryId>`
                 
                 .. attribute:: input_label
                 
@@ -37536,7 +37542,7 @@ class MplsLsd(object):
                 .. attribute:: out_path
                 
                 	Out Path List
-                	**type**\: list of  :py:class:`OutPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.TunnelMidpoints.TunnelMidpoint.OutPath>`
+                	**type**\: list of    :py:class:`OutPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.TunnelMidpoints.TunnelMidpoint.OutPath>`
                 
                 .. attribute:: tunnel_interface
                 
@@ -37572,17 +37578,17 @@ class MplsLsd(object):
                     .. attribute:: head
                     
                     	head
-                    	**type**\:  :py:class:`Head <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.TunnelMidpoints.TunnelMidpoint.FrrEntryId.Head>`
+                    	**type**\:   :py:class:`Head <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.TunnelMidpoints.TunnelMidpoint.FrrEntryId.Head>`
                     
                     .. attribute:: midpoint
                     
                     	midpoint
-                    	**type**\:  :py:class:`Midpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.TunnelMidpoints.TunnelMidpoint.FrrEntryId.Midpoint>`
+                    	**type**\:   :py:class:`Midpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.TunnelMidpoints.TunnelMidpoint.FrrEntryId.Midpoint>`
                     
                     .. attribute:: role
                     
                     	Role
-                    	**type**\:  :py:class:`MgmtLsdLspRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdLspRoleEnum>`
+                    	**type**\:   :py:class:`MgmtLsdLspRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdLspRoleEnum>`
                     
                     
 
@@ -37920,7 +37926,7 @@ class MplsLsd(object):
             .. attribute:: tunnel_head
             
             	Data for FRR database entry \- Tunnel head
-            	**type**\: list of  :py:class:`TunnelHead <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.TunnelHeads.TunnelHead>`
+            	**type**\: list of    :py:class:`TunnelHead <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.TunnelHeads.TunnelHead>`
             
             
 
@@ -37950,12 +37956,12 @@ class MplsLsd(object):
                 .. attribute:: entry_frr_state
                 
                 	MPLS FRR entry state
-                	**type**\:  :py:class:`MgmtLsdFrrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFrrStateEnum>`
+                	**type**\:   :py:class:`MgmtLsdFrrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFrrStateEnum>`
                 
                 .. attribute:: frr_entry_id
                 
                 	FRR entry ID
-                	**type**\:  :py:class:`FrrEntryId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.TunnelHeads.TunnelHead.FrrEntryId>`
+                	**type**\:   :py:class:`FrrEntryId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.TunnelHeads.TunnelHead.FrrEntryId>`
                 
                 .. attribute:: input_label
                 
@@ -37967,7 +37973,7 @@ class MplsLsd(object):
                 .. attribute:: out_path
                 
                 	Out Path List
-                	**type**\: list of  :py:class:`OutPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.TunnelHeads.TunnelHead.OutPath>`
+                	**type**\: list of    :py:class:`OutPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.TunnelHeads.TunnelHead.OutPath>`
                 
                 .. attribute:: tunnel_interface
                 
@@ -38003,17 +38009,17 @@ class MplsLsd(object):
                     .. attribute:: head
                     
                     	head
-                    	**type**\:  :py:class:`Head <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.TunnelHeads.TunnelHead.FrrEntryId.Head>`
+                    	**type**\:   :py:class:`Head <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.TunnelHeads.TunnelHead.FrrEntryId.Head>`
                     
                     .. attribute:: midpoint
                     
                     	midpoint
-                    	**type**\:  :py:class:`Midpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.TunnelHeads.TunnelHead.FrrEntryId.Midpoint>`
+                    	**type**\:   :py:class:`Midpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.TunnelHeads.TunnelHead.FrrEntryId.Midpoint>`
                     
                     .. attribute:: role
                     
                     	Role
-                    	**type**\:  :py:class:`MgmtLsdLspRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdLspRoleEnum>`
+                    	**type**\:   :py:class:`MgmtLsdLspRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdLspRoleEnum>`
                     
                     
 
@@ -38430,7 +38436,7 @@ class MplsLsd(object):
             .. attribute:: summary_protected_interface
             
             	Data for MPLS interface
-            	**type**\: list of  :py:class:`SummaryProtectedInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.SummaryProtectedInterfaces.SummaryProtectedInterface>`
+            	**type**\: list of    :py:class:`SummaryProtectedInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.FrrDatabase.SummaryProtectedInterfaces.SummaryProtectedInterface>`
             
             
 
@@ -38762,22 +38768,22 @@ class MplsLsd(object):
         .. attribute:: rewrite_ipv4s
         
         	Table of Rewrites
-        	**type**\:  :py:class:`RewriteIpv4S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S>`
+        	**type**\:   :py:class:`RewriteIpv4S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S>`
         
         .. attribute:: rewrite_labels
         
         	Table of Rewrites
-        	**type**\:  :py:class:`RewriteLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels>`
+        	**type**\:   :py:class:`RewriteLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels>`
         
         .. attribute:: rewrite_pws
         
         	Table of Rewrites
-        	**type**\:  :py:class:`RewritePws <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws>`
+        	**type**\:   :py:class:`RewritePws <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws>`
         
         .. attribute:: rewrite_tes
         
         	Table of Traffic Engineering Rewrites
-        	**type**\:  :py:class:`RewriteTes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes>`
+        	**type**\:   :py:class:`RewriteTes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes>`
         
         
 
@@ -38805,7 +38811,7 @@ class MplsLsd(object):
             .. attribute:: rewrite_pw
             
             	FPI rewrite for PW List
-            	**type**\: list of  :py:class:`RewritePw <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw>`
+            	**type**\: list of    :py:class:`RewritePw <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw>`
             
             
 
@@ -38835,7 +38841,7 @@ class MplsLsd(object):
                 .. attribute:: associated_fpi
                 
                 	Associated FPI
-                	**type**\: list of  :py:class:`AssociatedFpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.AssociatedFpi>`
+                	**type**\: list of    :py:class:`AssociatedFpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.AssociatedFpi>`
                 
                 .. attribute:: bcdl_priority
                 
@@ -38847,7 +38853,7 @@ class MplsLsd(object):
                 .. attribute:: fpi_key
                 
                 	fpi key
-                	**type**\:  :py:class:`FpiKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.FpiKey>`
+                	**type**\:   :py:class:`FpiKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.FpiKey>`
                 
                 .. attribute:: lsd_queue
                 
@@ -38859,7 +38865,7 @@ class MplsLsd(object):
                 .. attribute:: mois
                 
                 	Mois
-                	**type**\: list of  :py:class:`Mois <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois>`
+                	**type**\: list of    :py:class:`Mois <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois>`
                 
                 .. attribute:: priority_updated
                 
@@ -38871,7 +38877,7 @@ class MplsLsd(object):
                 .. attribute:: rewrite_id
                 
                 	Rewrite ID
-                	**type**\:  :py:class:`RewriteId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId>`
+                	**type**\:   :py:class:`RewriteId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId>`
                 
                 .. attribute:: rewrite_version
                 
@@ -38904,12 +38910,12 @@ class MplsLsd(object):
                 .. attribute:: v4_rpf
                 
                 	IPv4 RPF neighbors
-                	**type**\: list of  :py:class:`V4Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.V4Rpf>`
+                	**type**\: list of    :py:class:`V4Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.V4Rpf>`
                 
                 .. attribute:: v6_rpf
                 
                 	IPv6 RPF neighbors
-                	**type**\: list of  :py:class:`V6Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.V6Rpf>`
+                	**type**\: list of    :py:class:`V6Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.V6Rpf>`
                 
                 
 
@@ -38953,12 +38959,12 @@ class MplsLsd(object):
                     .. attribute:: application_owner
                     
                     	Application owner instance
-                    	**type**\: list of  :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.FpiKey.ApplicationOwner>`
+                    	**type**\: list of    :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.FpiKey.ApplicationOwner>`
                     
                     .. attribute:: fpi
                     
                     	FPI
-                    	**type**\:  :py:class:`Fpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.FpiKey.Fpi>`
+                    	**type**\:   :py:class:`Fpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.FpiKey.Fpi>`
                     
                     
 
@@ -38983,37 +38989,37 @@ class MplsLsd(object):
                         .. attribute:: dmtc_ext_intf_data
                         
                         	dmtc ext intf data
-                        	**type**\:  :py:class:`DmtcExtIntfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.FpiKey.Fpi.DmtcExtIntfData>`
+                        	**type**\:   :py:class:`DmtcExtIntfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.FpiKey.Fpi.DmtcExtIntfData>`
                         
                         .. attribute:: fpi_type
                         
                         	FPIType
-                        	**type**\:  :py:class:`MgmtLsdFpiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFpiEnum>`
+                        	**type**\:   :py:class:`MgmtLsdFpiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFpiEnum>`
                         
                         .. attribute:: ipv4_data
                         
                         	ipv4 data
-                        	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.FpiKey.Fpi.Ipv4Data>`
+                        	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.FpiKey.Fpi.Ipv4Data>`
                         
                         .. attribute:: ipv6_data
                         
                         	ipv6 data
-                        	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.FpiKey.Fpi.Ipv6Data>`
+                        	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.FpiKey.Fpi.Ipv6Data>`
                         
                         .. attribute:: label_data
                         
                         	label data
-                        	**type**\:  :py:class:`LabelData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.FpiKey.Fpi.LabelData>`
+                        	**type**\:   :py:class:`LabelData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.FpiKey.Fpi.LabelData>`
                         
                         .. attribute:: pw_list_data
                         
                         	pw list data
-                        	**type**\:  :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.FpiKey.Fpi.PwListData>`
+                        	**type**\:   :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.FpiKey.Fpi.PwListData>`
                         
                         .. attribute:: te_data
                         
                         	te data
-                        	**type**\:  :py:class:`TeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.FpiKey.Fpi.TeData>`
+                        	**type**\:   :py:class:`TeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.FpiKey.Fpi.TeData>`
                         
                         
 
@@ -39497,12 +39503,12 @@ class MplsLsd(object):
                         .. attribute:: application_type
                         
                         	Application type
-                        	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                        	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                         
                         .. attribute:: resource_state
                         
                         	Application resource state
-                        	**type**\:  :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
+                        	**type**\:   :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
                         
                         
 
@@ -39592,7 +39598,7 @@ class MplsLsd(object):
                     .. attribute:: rewrite_id
                     
                     	Rewrite ID
-                    	**type**\:  :py:class:`RewriteId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId>`
+                    	**type**\:   :py:class:`RewriteId_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_>`
                     
                     
 
@@ -39603,28 +39609,28 @@ class MplsLsd(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.rewrite_id = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId()
+                        self.rewrite_id = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_()
                         self.rewrite_id.parent = self
 
 
-                    class RewriteId(object):
+                    class RewriteId_(object):
                         """
                         Rewrite ID
                         
                         .. attribute:: label_context
                         
                         	Label context
-                        	**type**\:  :py:class:`LabelContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext>`
+                        	**type**\:   :py:class:`LabelContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext>`
                         
                         .. attribute:: local_label_rewrite
                         
                         	Local label rewrite information
-                        	**type**\:  :py:class:`LocalLabelRewrite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LocalLabelRewrite>`
+                        	**type**\:   :py:class:`LocalLabelRewrite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LocalLabelRewrite>`
                         
                         .. attribute:: rewrite_id_type
                         
                         	RewriteIDType
-                        	**type**\:  :py:class:`MgmtLsdRwIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdRwIdEnum>`
+                        	**type**\:   :py:class:`MgmtLsdRwIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdRwIdEnum>`
                         
                         
 
@@ -39635,9 +39641,9 @@ class MplsLsd(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.label_context = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext()
+                            self.label_context = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext()
                             self.label_context.parent = self
-                            self.local_label_rewrite = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LocalLabelRewrite()
+                            self.local_label_rewrite = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LocalLabelRewrite()
                             self.local_label_rewrite.parent = self
                             self.rewrite_id_type = None
 
@@ -39649,147 +39655,147 @@ class MplsLsd(object):
                             .. attribute:: cev4l3vpn_data
                             
                             	L3VPN CEv4 label context
-                            	**type**\:  :py:class:`Cev4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Cev4L3VpnData>`
+                            	**type**\:   :py:class:`Cev4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData>`
                             
                             .. attribute:: cev6l3vpn_data
                             
                             	L3VPN CEv6 label context
-                            	**type**\:  :py:class:`Cev6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Cev6L3VpnData>`
+                            	**type**\:   :py:class:`Cev6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData>`
                             
                             .. attribute:: evpn_data
                             
                             	EVPN context
-                            	**type**\:  :py:class:`EvpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.EvpnData>`
+                            	**type**\:   :py:class:`EvpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.EvpnData>`
                             
                             .. attribute:: generic_routing_encapsulation
                             
                             	Generic routing encapsulation context
-                            	**type**\:  :py:class:`GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation>`
+                            	**type**\:   :py:class:`GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation>`
                             
                             .. attribute:: ip_sub_data
                             
                             	IP Subscriber context
-                            	**type**\:  :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.IpSubData>`
+                            	**type**\:   :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.IpSubData>`
                             
                             .. attribute:: ipv4_data
                             
                             	IPv4 label context
-                            	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4Data>`
+                            	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4Data>`
                             
                             .. attribute:: ipv4blb_data
                             
                             	BFD BLB label context
-                            	**type**\:  :py:class:`Ipv4BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4BlbData>`
+                            	**type**\:   :py:class:`Ipv4BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4BlbData>`
                             
                             .. attribute:: ipv4l3vpn_data
                             
                             	L3VPN IPv4 label context
-                            	**type**\:  :py:class:`Ipv4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData>`
+                            	**type**\:   :py:class:`Ipv4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData>`
                             
                             .. attribute:: ipv6_data
                             
                             	IPv6 label context
-                            	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6Data>`
+                            	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6Data>`
                             
                             .. attribute:: ipv6_generic_routing_encapsulation
                             
                             	Generic routing encapsulation context
-                            	**type**\:  :py:class:`Ipv6GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation>`
+                            	**type**\:   :py:class:`Ipv6GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation>`
                             
                             .. attribute:: ipv6blb_data
                             
                             	BFD BLB label context
-                            	**type**\:  :py:class:`Ipv6BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6BlbData>`
+                            	**type**\:   :py:class:`Ipv6BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6BlbData>`
                             
                             .. attribute:: ipv6l3vpn_data
                             
                             	L3VPN IPv6 label context
-                            	**type**\:  :py:class:`Ipv6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData>`
+                            	**type**\:   :py:class:`Ipv6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData>`
                             
                             .. attribute:: label_block_data
                             
                             	Label block context
-                            	**type**\:  :py:class:`LabelBlockData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.LabelBlockData>`
+                            	**type**\:   :py:class:`LabelBlockData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.LabelBlockData>`
                             
                             .. attribute:: label_block_srgb_data
                             
                             	Label block SRGB context
-                            	**type**\:  :py:class:`LabelBlockSrgbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData>`
+                            	**type**\:   :py:class:`LabelBlockSrgbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData>`
                             
                             .. attribute:: label_context_type
                             
                             	LabelContextType
-                            	**type**\:  :py:class:`MgmtLsdLblCtxEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdLblCtxEnum>`
+                            	**type**\:   :py:class:`MgmtLsdLblCtxEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdLblCtxEnum>`
                             
                             .. attribute:: mld_pv4_data
                             
                             	MLDPv4 LSM\-ID context
-                            	**type**\:  :py:class:`MldPv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.MldPv4Data>`
+                            	**type**\:   :py:class:`MldPv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.MldPv4Data>`
                             
                             .. attribute:: next_hop_set_l3vpn
                             
                             	L3VPN NH SET label context
-                            	**type**\:  :py:class:`NextHopSetL3Vpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn>`
+                            	**type**\:   :py:class:`NextHopSetL3Vpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn>`
                             
                             .. attribute:: pi_mi_pmsi_data
                             
                             	PIM I\-PMSI label conext
-                            	**type**\:  :py:class:`PiMiPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PiMiPmsiData>`
+                            	**type**\:   :py:class:`PiMiPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PiMiPmsiData>`
                             
                             .. attribute:: pi_ms_pmsi_data
                             
                             	PIM S\-PMSI label conext
-                            	**type**\:  :py:class:`PiMsPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PiMsPmsiData>`
+                            	**type**\:   :py:class:`PiMsPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PiMsPmsiData>`
                             
                             .. attribute:: pseudowire_data
                             
                             	Pseudowire label context
-                            	**type**\:  :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PseudowireData>`
+                            	**type**\:   :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PseudowireData>`
                             
                             .. attribute:: pseudowire_head_end_data
                             
                             	Pseudowire Head\-end label context
-                            	**type**\:  :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData>`
+                            	**type**\:   :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData>`
                             
                             .. attribute:: sr_adj_segment_ipv4
                             
                             	SR Adj Segment ipv4 context
-                            	**type**\:  :py:class:`SrAdjSegmentIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4>`
+                            	**type**\:   :py:class:`SrAdjSegmentIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4>`
                             
                             .. attribute:: sr_adj_segment_ipv6
                             
                             	SR Adj Segment ipv6 context
-                            	**type**\:  :py:class:`SrAdjSegmentIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6>`
+                            	**type**\:   :py:class:`SrAdjSegmentIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6>`
                             
                             .. attribute:: sr_prefix_segment
                             
                             	SR Prefix Segment context
-                            	**type**\:  :py:class:`SrPrefixSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrPrefixSegment>`
+                            	**type**\:   :py:class:`SrPrefixSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrPrefixSegment>`
                             
                             .. attribute:: te_binding
                             
                             	MPLS TE tunnel binding context
-                            	**type**\:  :py:class:`TeBinding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.TeBinding>`
+                            	**type**\:   :py:class:`TeBinding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.TeBinding>`
                             
                             .. attribute:: tev4_data
                             
                             	TEv4 label context
-                            	**type**\:  :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Tev4Data>`
+                            	**type**\:   :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Tev4Data>`
                             
                             .. attribute:: tev4p2mp_data
                             
                             	TEv4 P2MP context
-                            	**type**\:  :py:class:`Tev4P2MpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Tev4P2MpData>`
+                            	**type**\:   :py:class:`Tev4P2MpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Tev4P2MpData>`
                             
                             .. attribute:: tp_data
                             
                             	TP context
-                            	**type**\:  :py:class:`TpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.TpData>`
+                            	**type**\:   :py:class:`TpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.TpData>`
                             
                             .. attribute:: vrf_l3vpn_data
                             
                             	L3VPN VRF label context
-                            	**type**\:  :py:class:`VrfL3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.VrfL3VpnData>`
+                            	**type**\:   :py:class:`VrfL3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.VrfL3VpnData>`
                             
                             
 
@@ -39800,62 +39806,62 @@ class MplsLsd(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.cev4l3vpn_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Cev4L3VpnData()
+                                self.cev4l3vpn_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData()
                                 self.cev4l3vpn_data.parent = self
-                                self.cev6l3vpn_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Cev6L3VpnData()
+                                self.cev6l3vpn_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData()
                                 self.cev6l3vpn_data.parent = self
-                                self.evpn_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.EvpnData()
+                                self.evpn_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.EvpnData()
                                 self.evpn_data.parent = self
-                                self.generic_routing_encapsulation = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation()
+                                self.generic_routing_encapsulation = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation()
                                 self.generic_routing_encapsulation.parent = self
-                                self.ip_sub_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.IpSubData()
+                                self.ip_sub_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.IpSubData()
                                 self.ip_sub_data.parent = self
-                                self.ipv4_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4Data()
+                                self.ipv4_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4Data()
                                 self.ipv4_data.parent = self
-                                self.ipv4blb_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4BlbData()
+                                self.ipv4blb_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4BlbData()
                                 self.ipv4blb_data.parent = self
-                                self.ipv4l3vpn_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData()
+                                self.ipv4l3vpn_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData()
                                 self.ipv4l3vpn_data.parent = self
-                                self.ipv6_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6Data()
+                                self.ipv6_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6Data()
                                 self.ipv6_data.parent = self
-                                self.ipv6_generic_routing_encapsulation = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation()
+                                self.ipv6_generic_routing_encapsulation = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation()
                                 self.ipv6_generic_routing_encapsulation.parent = self
-                                self.ipv6blb_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6BlbData()
+                                self.ipv6blb_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6BlbData()
                                 self.ipv6blb_data.parent = self
-                                self.ipv6l3vpn_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData()
+                                self.ipv6l3vpn_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData()
                                 self.ipv6l3vpn_data.parent = self
-                                self.label_block_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.LabelBlockData()
+                                self.label_block_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.LabelBlockData()
                                 self.label_block_data.parent = self
-                                self.label_block_srgb_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData()
+                                self.label_block_srgb_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData()
                                 self.label_block_srgb_data.parent = self
                                 self.label_context_type = None
-                                self.mld_pv4_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.MldPv4Data()
+                                self.mld_pv4_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.MldPv4Data()
                                 self.mld_pv4_data.parent = self
-                                self.next_hop_set_l3vpn = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn()
+                                self.next_hop_set_l3vpn = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn()
                                 self.next_hop_set_l3vpn.parent = self
-                                self.pi_mi_pmsi_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PiMiPmsiData()
+                                self.pi_mi_pmsi_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PiMiPmsiData()
                                 self.pi_mi_pmsi_data.parent = self
-                                self.pi_ms_pmsi_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PiMsPmsiData()
+                                self.pi_ms_pmsi_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PiMsPmsiData()
                                 self.pi_ms_pmsi_data.parent = self
-                                self.pseudowire_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PseudowireData()
+                                self.pseudowire_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PseudowireData()
                                 self.pseudowire_data.parent = self
-                                self.pseudowire_head_end_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData()
+                                self.pseudowire_head_end_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData()
                                 self.pseudowire_head_end_data.parent = self
-                                self.sr_adj_segment_ipv4 = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4()
+                                self.sr_adj_segment_ipv4 = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4()
                                 self.sr_adj_segment_ipv4.parent = self
-                                self.sr_adj_segment_ipv6 = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6()
+                                self.sr_adj_segment_ipv6 = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6()
                                 self.sr_adj_segment_ipv6.parent = self
-                                self.sr_prefix_segment = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrPrefixSegment()
+                                self.sr_prefix_segment = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrPrefixSegment()
                                 self.sr_prefix_segment.parent = self
-                                self.te_binding = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.TeBinding()
+                                self.te_binding = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.TeBinding()
                                 self.te_binding.parent = self
-                                self.tev4_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Tev4Data()
+                                self.tev4_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Tev4Data()
                                 self.tev4_data.parent = self
-                                self.tev4p2mp_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Tev4P2MpData()
+                                self.tev4p2mp_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Tev4P2MpData()
                                 self.tev4p2mp_data.parent = self
-                                self.tp_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.TpData()
+                                self.tp_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.TpData()
                                 self.tp_data.parent = self
-                                self.vrf_l3vpn_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.VrfL3VpnData()
+                                self.vrf_l3vpn_data = MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.VrfL3VpnData()
                                 self.vrf_l3vpn_data.parent = self
 
 
@@ -39947,7 +39953,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4Data']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4Data']['meta_info']
 
 
                             class Ipv6Data(object):
@@ -40038,7 +40044,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6Data']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6Data']['meta_info']
 
 
                             class Tev4Data(object):
@@ -40151,7 +40157,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Tev4Data']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Tev4Data']['meta_info']
 
 
                             class Ipv4L3VpnData(object):
@@ -40220,7 +40226,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData']['meta_info']
 
 
                             class Ipv6L3VpnData(object):
@@ -40289,7 +40295,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData']['meta_info']
 
 
                             class VrfL3VpnData(object):
@@ -40347,7 +40353,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.VrfL3VpnData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.VrfL3VpnData']['meta_info']
 
 
                             class Cev4L3VpnData(object):
@@ -40416,7 +40422,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Cev4L3VpnData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData']['meta_info']
 
 
                             class Cev6L3VpnData(object):
@@ -40485,7 +40491,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Cev6L3VpnData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData']['meta_info']
 
 
                             class PseudowireData(object):
@@ -40565,7 +40571,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PseudowireData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PseudowireData']['meta_info']
 
 
                             class LabelBlockData(object):
@@ -40656,7 +40662,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.LabelBlockData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.LabelBlockData']['meta_info']
 
 
                             class IpSubData(object):
@@ -40714,7 +40720,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.IpSubData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.IpSubData']['meta_info']
 
 
                             class Tev4P2MpData(object):
@@ -40827,7 +40833,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Tev4P2MpData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Tev4P2MpData']['meta_info']
 
 
                             class MldPv4Data(object):
@@ -40918,7 +40924,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.MldPv4Data']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.MldPv4Data']['meta_info']
 
 
                             class PseudowireHeadEndData(object):
@@ -40965,7 +40971,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData']['meta_info']
 
 
                             class TpData(object):
@@ -41078,7 +41084,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.TpData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.TpData']['meta_info']
 
 
                             class GenericRoutingEncapsulation(object):
@@ -41125,7 +41131,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation']['meta_info']
 
 
                             class Ipv6GenericRoutingEncapsulation(object):
@@ -41172,7 +41178,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation']['meta_info']
 
 
                             class EvpnData(object):
@@ -41241,7 +41247,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.EvpnData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.EvpnData']['meta_info']
 
 
                             class Ipv4BlbData(object):
@@ -41299,7 +41305,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4BlbData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4BlbData']['meta_info']
 
 
                             class Ipv6BlbData(object):
@@ -41357,7 +41363,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6BlbData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6BlbData']['meta_info']
 
 
                             class PiMiPmsiData(object):
@@ -41426,7 +41432,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PiMiPmsiData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PiMiPmsiData']['meta_info']
 
 
                             class PiMsPmsiData(object):
@@ -41528,7 +41534,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PiMsPmsiData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PiMsPmsiData']['meta_info']
 
 
                             class NextHopSetL3Vpn(object):
@@ -41586,7 +41592,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn']['meta_info']
 
 
                             class SrPrefixSegment(object):
@@ -41644,7 +41650,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrPrefixSegment']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrPrefixSegment']['meta_info']
 
 
                             class SrAdjSegmentIpv4(object):
@@ -41724,7 +41730,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4']['meta_info']
 
 
                             class SrAdjSegmentIpv6(object):
@@ -41804,7 +41810,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6']['meta_info']
 
 
                             class LabelBlockSrgbData(object):
@@ -41873,7 +41879,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData']['meta_info']
 
 
                             class TeBinding(object):
@@ -41890,7 +41896,7 @@ class MplsLsd(object):
                                 .. attribute:: te_type
                                 
                                 	Type of identifier for the binding
-                                	**type**\:  :py:class:`MgmtLsdTeBindingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdTeBindingEnum>`
+                                	**type**\:   :py:class:`MgmtLsdTeBindingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdTeBindingEnum>`
                                 
                                 
 
@@ -41929,7 +41935,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.TeBinding']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.TeBinding']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -42037,7 +42043,7 @@ class MplsLsd(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
+                                return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
 
 
                         class LocalLabelRewrite(object):
@@ -42088,7 +42094,7 @@ class MplsLsd(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LocalLabelRewrite']['meta_info']
+                                return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LocalLabelRewrite']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -42118,7 +42124,7 @@ class MplsLsd(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                            return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId']['meta_info']
+                            return meta._meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -42152,12 +42158,12 @@ class MplsLsd(object):
                     .. attribute:: application_owner
                     
                     	Application owner instance
-                    	**type**\: list of  :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.AssociatedFpi.ApplicationOwner>`
+                    	**type**\: list of    :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.AssociatedFpi.ApplicationOwner>`
                     
                     .. attribute:: fpi
                     
                     	FPI
-                    	**type**\:  :py:class:`Fpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi>`
+                    	**type**\:   :py:class:`Fpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi>`
                     
                     
 
@@ -42182,37 +42188,37 @@ class MplsLsd(object):
                         .. attribute:: dmtc_ext_intf_data
                         
                         	dmtc ext intf data
-                        	**type**\:  :py:class:`DmtcExtIntfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi.DmtcExtIntfData>`
+                        	**type**\:   :py:class:`DmtcExtIntfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi.DmtcExtIntfData>`
                         
                         .. attribute:: fpi_type
                         
                         	FPIType
-                        	**type**\:  :py:class:`MgmtLsdFpiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFpiEnum>`
+                        	**type**\:   :py:class:`MgmtLsdFpiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFpiEnum>`
                         
                         .. attribute:: ipv4_data
                         
                         	ipv4 data
-                        	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi.Ipv4Data>`
+                        	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi.Ipv4Data>`
                         
                         .. attribute:: ipv6_data
                         
                         	ipv6 data
-                        	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi.Ipv6Data>`
+                        	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi.Ipv6Data>`
                         
                         .. attribute:: label_data
                         
                         	label data
-                        	**type**\:  :py:class:`LabelData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi.LabelData>`
+                        	**type**\:   :py:class:`LabelData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi.LabelData>`
                         
                         .. attribute:: pw_list_data
                         
                         	pw list data
-                        	**type**\:  :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi.PwListData>`
+                        	**type**\:   :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi.PwListData>`
                         
                         .. attribute:: te_data
                         
                         	te data
-                        	**type**\:  :py:class:`TeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi.TeData>`
+                        	**type**\:   :py:class:`TeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi.TeData>`
                         
                         
 
@@ -42696,12 +42702,12 @@ class MplsLsd(object):
                         .. attribute:: application_type
                         
                         	Application type
-                        	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                        	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                         
                         .. attribute:: resource_state
                         
                         	Application resource state
-                        	**type**\:  :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
+                        	**type**\:   :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
                         
                         
 
@@ -42907,12 +42913,12 @@ class MplsLsd(object):
                     .. attribute:: application_resource
                     
                     	Application state
-                    	**type**\:  :py:class:`ApplicationResource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.ApplicationResource>`
+                    	**type**\:   :py:class:`ApplicationResource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.ApplicationResource>`
                     
                     .. attribute:: moi_array
                     
                     	moi array
-                    	**type**\: list of  :py:class:`MoiArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray>`
+                    	**type**\: list of    :py:class:`MoiArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray>`
                     
                     
 
@@ -42954,12 +42960,12 @@ class MplsLsd(object):
                         .. attribute:: application_type
                         
                         	Application type
-                        	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                        	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                         
                         .. attribute:: resource_state
                         
                         	Application resource state
-                        	**type**\:  :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
+                        	**type**\:   :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
                         
                         
 
@@ -43020,7 +43026,7 @@ class MplsLsd(object):
                         .. attribute:: moi
                         
                         	Moi
-                        	**type**\:  :py:class:`Moi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi>`
+                        	**type**\:   :py:class:`Moi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi>`
                         
                         
 
@@ -43042,77 +43048,77 @@ class MplsLsd(object):
                             .. attribute:: dmtc_data
                             
                             	dmtc data
-                            	**type**\:  :py:class:`DmtcData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.DmtcData>`
+                            	**type**\:   :py:class:`DmtcData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.DmtcData>`
                             
                             .. attribute:: ip_sub_data
                             
                             	ip sub data
-                            	**type**\:  :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.IpSubData>`
+                            	**type**\:   :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.IpSubData>`
                             
                             .. attribute:: ipv4_data
                             
                             	ipv4 data
-                            	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Ipv4Data>`
+                            	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Ipv4Data>`
                             
                             .. attribute:: ipv6_data
                             
                             	ipv6 data
-                            	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Ipv6Data>`
+                            	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Ipv6Data>`
                             
                             .. attribute:: moi_type
                             
                             	MoiType
-                            	**type**\:  :py:class:`MgmtLsdMoiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdMoiEnum>`
+                            	**type**\:   :py:class:`MgmtLsdMoiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdMoiEnum>`
                             
                             .. attribute:: pop_and_lookup_ipv4
                             
                             	pop and lookup ipv4
-                            	**type**\:  :py:class:`PopAndLookupIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.PopAndLookupIpv4>`
+                            	**type**\:   :py:class:`PopAndLookupIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.PopAndLookupIpv4>`
                             
                             .. attribute:: pop_and_lookup_ipv6
                             
                             	pop and lookup ipv6
-                            	**type**\:  :py:class:`PopAndLookupIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.PopAndLookupIpv6>`
+                            	**type**\:   :py:class:`PopAndLookupIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.PopAndLookupIpv6>`
                             
                             .. attribute:: pop_and_lookup_tp
                             
                             	pop and lookup tp
-                            	**type**\:  :py:class:`PopAndLookupTp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.PopAndLookupTp>`
+                            	**type**\:   :py:class:`PopAndLookupTp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.PopAndLookupTp>`
                             
                             .. attribute:: pseudowire_data
                             
                             	pseudowire data
-                            	**type**\:  :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.PseudowireData>`
+                            	**type**\:   :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.PseudowireData>`
                             
                             .. attribute:: pseudowire_head_end_data
                             
                             	pseudowire head end data
-                            	**type**\:  :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.PseudowireHeadEndData>`
+                            	**type**\:   :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.PseudowireHeadEndData>`
                             
                             .. attribute:: pw_list_data
                             
                             	pw list data
-                            	**type**\:  :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.PwListData>`
+                            	**type**\:   :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.PwListData>`
                             
                             .. attribute:: stackv4_data
                             
                             	stackv4 data
-                            	**type**\:  :py:class:`Stackv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Stackv4Data>`
+                            	**type**\:   :py:class:`Stackv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Stackv4Data>`
                             
                             .. attribute:: stackv6_data
                             
                             	stackv6 data
-                            	**type**\:  :py:class:`Stackv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Stackv6Data>`
+                            	**type**\:   :py:class:`Stackv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Stackv6Data>`
                             
                             .. attribute:: te_head_data
                             
                             	te head data
-                            	**type**\:  :py:class:`TeHeadData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.TeHeadData>`
+                            	**type**\:   :py:class:`TeHeadData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.TeHeadData>`
                             
                             .. attribute:: tev4_data
                             
                             	tev4 data
-                            	**type**\:  :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Tev4Data>`
+                            	**type**\:   :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Tev4Data>`
                             
                             
 
@@ -44344,17 +44350,17 @@ class MplsLsd(object):
                                 .. attribute:: inner_stack
                                 
                                 	Inner stack
-                                	**type**\:  :py:class:`InnerStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Stackv4Data.InnerStack>`
+                                	**type**\:   :py:class:`InnerStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Stackv4Data.InnerStack>`
                                 
                                 .. attribute:: nexthop
                                 
                                 	Nexthop
-                                	**type**\:  :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Stackv4Data.Nexthop>`
+                                	**type**\:   :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Stackv4Data.Nexthop>`
                                 
                                 .. attribute:: owner_application_type
                                 
                                 	Owner application type
-                                	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                                	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                                 
                                 
 
@@ -44563,7 +44569,7 @@ class MplsLsd(object):
                                     .. attribute:: label
                                     
                                     	Info related to outgoing labels
-                                    	**type**\: list of  :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Stackv4Data.InnerStack.Label>`
+                                    	**type**\: list of    :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Stackv4Data.InnerStack.Label>`
                                     
                                     .. attribute:: nexthop
                                     
@@ -44735,12 +44741,12 @@ class MplsLsd(object):
                                 .. attribute:: inner_stack
                                 
                                 	Inner stack
-                                	**type**\:  :py:class:`InnerStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Stackv6Data.InnerStack>`
+                                	**type**\:   :py:class:`InnerStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Stackv6Data.InnerStack>`
                                 
                                 .. attribute:: nexthop
                                 
                                 	Nexthop
-                                	**type**\:  :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Stackv6Data.Nexthop>`
+                                	**type**\:   :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Stackv6Data.Nexthop>`
                                 
                                 
 
@@ -44904,7 +44910,7 @@ class MplsLsd(object):
                                     .. attribute:: label
                                     
                                     	Info related to outgoing labels
-                                    	**type**\: list of  :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Stackv6Data.InnerStack.Label>`
+                                    	**type**\: list of    :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewritePws.RewritePw.Mois.MoiArray.Moi.Stackv6Data.InnerStack.Label>`
                                     
                                     .. attribute:: nexthop
                                     
@@ -45441,7 +45447,7 @@ class MplsLsd(object):
             .. attribute:: rewrite_ipv4
             
             	FPI rewrite for label
-            	**type**\: list of  :py:class:`RewriteIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4>`
+            	**type**\: list of    :py:class:`RewriteIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4>`
             
             
 
@@ -45464,7 +45470,7 @@ class MplsLsd(object):
                 .. attribute:: associated_fpi
                 
                 	Associated FPI
-                	**type**\: list of  :py:class:`AssociatedFpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi>`
+                	**type**\: list of    :py:class:`AssociatedFpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi>`
                 
                 .. attribute:: bcdl_priority
                 
@@ -45476,7 +45482,7 @@ class MplsLsd(object):
                 .. attribute:: fpi_key
                 
                 	fpi key
-                	**type**\:  :py:class:`FpiKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey>`
+                	**type**\:   :py:class:`FpiKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey>`
                 
                 .. attribute:: lsd_queue
                 
@@ -45488,7 +45494,7 @@ class MplsLsd(object):
                 .. attribute:: mois
                 
                 	Mois
-                	**type**\: list of  :py:class:`Mois <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois>`
+                	**type**\: list of    :py:class:`Mois <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois>`
                 
                 .. attribute:: prefix
                 
@@ -45514,7 +45520,7 @@ class MplsLsd(object):
                 .. attribute:: rewrite_id
                 
                 	Rewrite ID
-                	**type**\:  :py:class:`RewriteId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId>`
+                	**type**\:   :py:class:`RewriteId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId>`
                 
                 .. attribute:: rewrite_version
                 
@@ -45561,12 +45567,12 @@ class MplsLsd(object):
                 .. attribute:: v4_rpf
                 
                 	IPv4 RPF neighbors
-                	**type**\: list of  :py:class:`V4Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.V4Rpf>`
+                	**type**\: list of    :py:class:`V4Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.V4Rpf>`
                 
                 .. attribute:: v6_rpf
                 
                 	IPv6 RPF neighbors
-                	**type**\: list of  :py:class:`V6Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.V6Rpf>`
+                	**type**\: list of    :py:class:`V6Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.V6Rpf>`
                 
                 
 
@@ -45613,12 +45619,12 @@ class MplsLsd(object):
                     .. attribute:: application_owner
                     
                     	Application owner instance
-                    	**type**\: list of  :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.ApplicationOwner>`
+                    	**type**\: list of    :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.ApplicationOwner>`
                     
                     .. attribute:: fpi
                     
                     	FPI
-                    	**type**\:  :py:class:`Fpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi>`
+                    	**type**\:   :py:class:`Fpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi>`
                     
                     
 
@@ -45643,37 +45649,37 @@ class MplsLsd(object):
                         .. attribute:: dmtc_ext_intf_data
                         
                         	dmtc ext intf data
-                        	**type**\:  :py:class:`DmtcExtIntfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi.DmtcExtIntfData>`
+                        	**type**\:   :py:class:`DmtcExtIntfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi.DmtcExtIntfData>`
                         
                         .. attribute:: fpi_type
                         
                         	FPIType
-                        	**type**\:  :py:class:`MgmtLsdFpiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFpiEnum>`
+                        	**type**\:   :py:class:`MgmtLsdFpiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFpiEnum>`
                         
                         .. attribute:: ipv4_data
                         
                         	ipv4 data
-                        	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi.Ipv4Data>`
+                        	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi.Ipv4Data>`
                         
                         .. attribute:: ipv6_data
                         
                         	ipv6 data
-                        	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi.Ipv6Data>`
+                        	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi.Ipv6Data>`
                         
                         .. attribute:: label_data
                         
                         	label data
-                        	**type**\:  :py:class:`LabelData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi.LabelData>`
+                        	**type**\:   :py:class:`LabelData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi.LabelData>`
                         
                         .. attribute:: pw_list_data
                         
                         	pw list data
-                        	**type**\:  :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi.PwListData>`
+                        	**type**\:   :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi.PwListData>`
                         
                         .. attribute:: te_data
                         
                         	te data
-                        	**type**\:  :py:class:`TeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi.TeData>`
+                        	**type**\:   :py:class:`TeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi.TeData>`
                         
                         
 
@@ -46143,12 +46149,12 @@ class MplsLsd(object):
                         .. attribute:: application_type
                         
                         	Application type
-                        	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                        	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                         
                         .. attribute:: resource_state
                         
                         	Application resource state
-                        	**type**\:  :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
+                        	**type**\:   :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
                         
                         
 
@@ -46234,7 +46240,7 @@ class MplsLsd(object):
                     .. attribute:: rewrite_id
                     
                     	Rewrite ID
-                    	**type**\:  :py:class:`RewriteId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId>`
+                    	**type**\:   :py:class:`RewriteId_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_>`
                     
                     
 
@@ -46245,28 +46251,28 @@ class MplsLsd(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.rewrite_id = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId()
+                        self.rewrite_id = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_()
                         self.rewrite_id.parent = self
 
 
-                    class RewriteId(object):
+                    class RewriteId_(object):
                         """
                         Rewrite ID
                         
                         .. attribute:: label_context
                         
                         	Label context
-                        	**type**\:  :py:class:`LabelContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext>`
+                        	**type**\:   :py:class:`LabelContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext>`
                         
                         .. attribute:: local_label_rewrite
                         
                         	Local label rewrite information
-                        	**type**\:  :py:class:`LocalLabelRewrite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LocalLabelRewrite>`
+                        	**type**\:   :py:class:`LocalLabelRewrite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LocalLabelRewrite>`
                         
                         .. attribute:: rewrite_id_type
                         
                         	RewriteIDType
-                        	**type**\:  :py:class:`MgmtLsdRwIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdRwIdEnum>`
+                        	**type**\:   :py:class:`MgmtLsdRwIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdRwIdEnum>`
                         
                         
 
@@ -46277,9 +46283,9 @@ class MplsLsd(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.label_context = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext()
+                            self.label_context = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext()
                             self.label_context.parent = self
-                            self.local_label_rewrite = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LocalLabelRewrite()
+                            self.local_label_rewrite = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LocalLabelRewrite()
                             self.local_label_rewrite.parent = self
                             self.rewrite_id_type = None
 
@@ -46291,147 +46297,147 @@ class MplsLsd(object):
                             .. attribute:: cev4l3vpn_data
                             
                             	L3VPN CEv4 label context
-                            	**type**\:  :py:class:`Cev4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Cev4L3VpnData>`
+                            	**type**\:   :py:class:`Cev4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData>`
                             
                             .. attribute:: cev6l3vpn_data
                             
                             	L3VPN CEv6 label context
-                            	**type**\:  :py:class:`Cev6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Cev6L3VpnData>`
+                            	**type**\:   :py:class:`Cev6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData>`
                             
                             .. attribute:: evpn_data
                             
                             	EVPN context
-                            	**type**\:  :py:class:`EvpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.EvpnData>`
+                            	**type**\:   :py:class:`EvpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.EvpnData>`
                             
                             .. attribute:: generic_routing_encapsulation
                             
                             	Generic routing encapsulation context
-                            	**type**\:  :py:class:`GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation>`
+                            	**type**\:   :py:class:`GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation>`
                             
                             .. attribute:: ip_sub_data
                             
                             	IP Subscriber context
-                            	**type**\:  :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.IpSubData>`
+                            	**type**\:   :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.IpSubData>`
                             
                             .. attribute:: ipv4_data
                             
                             	IPv4 label context
-                            	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4Data>`
+                            	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4Data>`
                             
                             .. attribute:: ipv4blb_data
                             
                             	BFD BLB label context
-                            	**type**\:  :py:class:`Ipv4BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4BlbData>`
+                            	**type**\:   :py:class:`Ipv4BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4BlbData>`
                             
                             .. attribute:: ipv4l3vpn_data
                             
                             	L3VPN IPv4 label context
-                            	**type**\:  :py:class:`Ipv4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData>`
+                            	**type**\:   :py:class:`Ipv4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData>`
                             
                             .. attribute:: ipv6_data
                             
                             	IPv6 label context
-                            	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6Data>`
+                            	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6Data>`
                             
                             .. attribute:: ipv6_generic_routing_encapsulation
                             
                             	Generic routing encapsulation context
-                            	**type**\:  :py:class:`Ipv6GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation>`
+                            	**type**\:   :py:class:`Ipv6GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation>`
                             
                             .. attribute:: ipv6blb_data
                             
                             	BFD BLB label context
-                            	**type**\:  :py:class:`Ipv6BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6BlbData>`
+                            	**type**\:   :py:class:`Ipv6BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6BlbData>`
                             
                             .. attribute:: ipv6l3vpn_data
                             
                             	L3VPN IPv6 label context
-                            	**type**\:  :py:class:`Ipv6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData>`
+                            	**type**\:   :py:class:`Ipv6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData>`
                             
                             .. attribute:: label_block_data
                             
                             	Label block context
-                            	**type**\:  :py:class:`LabelBlockData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.LabelBlockData>`
+                            	**type**\:   :py:class:`LabelBlockData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.LabelBlockData>`
                             
                             .. attribute:: label_block_srgb_data
                             
                             	Label block SRGB context
-                            	**type**\:  :py:class:`LabelBlockSrgbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData>`
+                            	**type**\:   :py:class:`LabelBlockSrgbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData>`
                             
                             .. attribute:: label_context_type
                             
                             	LabelContextType
-                            	**type**\:  :py:class:`MgmtLsdLblCtxEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdLblCtxEnum>`
+                            	**type**\:   :py:class:`MgmtLsdLblCtxEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdLblCtxEnum>`
                             
                             .. attribute:: mld_pv4_data
                             
                             	MLDPv4 LSM\-ID context
-                            	**type**\:  :py:class:`MldPv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.MldPv4Data>`
+                            	**type**\:   :py:class:`MldPv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.MldPv4Data>`
                             
                             .. attribute:: next_hop_set_l3vpn
                             
                             	L3VPN NH SET label context
-                            	**type**\:  :py:class:`NextHopSetL3Vpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn>`
+                            	**type**\:   :py:class:`NextHopSetL3Vpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn>`
                             
                             .. attribute:: pi_mi_pmsi_data
                             
                             	PIM I\-PMSI label conext
-                            	**type**\:  :py:class:`PiMiPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PiMiPmsiData>`
+                            	**type**\:   :py:class:`PiMiPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PiMiPmsiData>`
                             
                             .. attribute:: pi_ms_pmsi_data
                             
                             	PIM S\-PMSI label conext
-                            	**type**\:  :py:class:`PiMsPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PiMsPmsiData>`
+                            	**type**\:   :py:class:`PiMsPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PiMsPmsiData>`
                             
                             .. attribute:: pseudowire_data
                             
                             	Pseudowire label context
-                            	**type**\:  :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PseudowireData>`
+                            	**type**\:   :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PseudowireData>`
                             
                             .. attribute:: pseudowire_head_end_data
                             
                             	Pseudowire Head\-end label context
-                            	**type**\:  :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData>`
+                            	**type**\:   :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData>`
                             
                             .. attribute:: sr_adj_segment_ipv4
                             
                             	SR Adj Segment ipv4 context
-                            	**type**\:  :py:class:`SrAdjSegmentIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4>`
+                            	**type**\:   :py:class:`SrAdjSegmentIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4>`
                             
                             .. attribute:: sr_adj_segment_ipv6
                             
                             	SR Adj Segment ipv6 context
-                            	**type**\:  :py:class:`SrAdjSegmentIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6>`
+                            	**type**\:   :py:class:`SrAdjSegmentIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6>`
                             
                             .. attribute:: sr_prefix_segment
                             
                             	SR Prefix Segment context
-                            	**type**\:  :py:class:`SrPrefixSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrPrefixSegment>`
+                            	**type**\:   :py:class:`SrPrefixSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrPrefixSegment>`
                             
                             .. attribute:: te_binding
                             
                             	MPLS TE tunnel binding context
-                            	**type**\:  :py:class:`TeBinding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.TeBinding>`
+                            	**type**\:   :py:class:`TeBinding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.TeBinding>`
                             
                             .. attribute:: tev4_data
                             
                             	TEv4 label context
-                            	**type**\:  :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Tev4Data>`
+                            	**type**\:   :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Tev4Data>`
                             
                             .. attribute:: tev4p2mp_data
                             
                             	TEv4 P2MP context
-                            	**type**\:  :py:class:`Tev4P2MpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Tev4P2MpData>`
+                            	**type**\:   :py:class:`Tev4P2MpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Tev4P2MpData>`
                             
                             .. attribute:: tp_data
                             
                             	TP context
-                            	**type**\:  :py:class:`TpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.TpData>`
+                            	**type**\:   :py:class:`TpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.TpData>`
                             
                             .. attribute:: vrf_l3vpn_data
                             
                             	L3VPN VRF label context
-                            	**type**\:  :py:class:`VrfL3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.VrfL3VpnData>`
+                            	**type**\:   :py:class:`VrfL3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.VrfL3VpnData>`
                             
                             
 
@@ -46442,62 +46448,62 @@ class MplsLsd(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.cev4l3vpn_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Cev4L3VpnData()
+                                self.cev4l3vpn_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData()
                                 self.cev4l3vpn_data.parent = self
-                                self.cev6l3vpn_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Cev6L3VpnData()
+                                self.cev6l3vpn_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData()
                                 self.cev6l3vpn_data.parent = self
-                                self.evpn_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.EvpnData()
+                                self.evpn_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.EvpnData()
                                 self.evpn_data.parent = self
-                                self.generic_routing_encapsulation = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation()
+                                self.generic_routing_encapsulation = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation()
                                 self.generic_routing_encapsulation.parent = self
-                                self.ip_sub_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.IpSubData()
+                                self.ip_sub_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.IpSubData()
                                 self.ip_sub_data.parent = self
-                                self.ipv4_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4Data()
+                                self.ipv4_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4Data()
                                 self.ipv4_data.parent = self
-                                self.ipv4blb_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4BlbData()
+                                self.ipv4blb_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4BlbData()
                                 self.ipv4blb_data.parent = self
-                                self.ipv4l3vpn_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData()
+                                self.ipv4l3vpn_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData()
                                 self.ipv4l3vpn_data.parent = self
-                                self.ipv6_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6Data()
+                                self.ipv6_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6Data()
                                 self.ipv6_data.parent = self
-                                self.ipv6_generic_routing_encapsulation = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation()
+                                self.ipv6_generic_routing_encapsulation = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation()
                                 self.ipv6_generic_routing_encapsulation.parent = self
-                                self.ipv6blb_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6BlbData()
+                                self.ipv6blb_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6BlbData()
                                 self.ipv6blb_data.parent = self
-                                self.ipv6l3vpn_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData()
+                                self.ipv6l3vpn_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData()
                                 self.ipv6l3vpn_data.parent = self
-                                self.label_block_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.LabelBlockData()
+                                self.label_block_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.LabelBlockData()
                                 self.label_block_data.parent = self
-                                self.label_block_srgb_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData()
+                                self.label_block_srgb_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData()
                                 self.label_block_srgb_data.parent = self
                                 self.label_context_type = None
-                                self.mld_pv4_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.MldPv4Data()
+                                self.mld_pv4_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.MldPv4Data()
                                 self.mld_pv4_data.parent = self
-                                self.next_hop_set_l3vpn = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn()
+                                self.next_hop_set_l3vpn = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn()
                                 self.next_hop_set_l3vpn.parent = self
-                                self.pi_mi_pmsi_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PiMiPmsiData()
+                                self.pi_mi_pmsi_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PiMiPmsiData()
                                 self.pi_mi_pmsi_data.parent = self
-                                self.pi_ms_pmsi_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PiMsPmsiData()
+                                self.pi_ms_pmsi_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PiMsPmsiData()
                                 self.pi_ms_pmsi_data.parent = self
-                                self.pseudowire_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PseudowireData()
+                                self.pseudowire_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PseudowireData()
                                 self.pseudowire_data.parent = self
-                                self.pseudowire_head_end_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData()
+                                self.pseudowire_head_end_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData()
                                 self.pseudowire_head_end_data.parent = self
-                                self.sr_adj_segment_ipv4 = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4()
+                                self.sr_adj_segment_ipv4 = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4()
                                 self.sr_adj_segment_ipv4.parent = self
-                                self.sr_adj_segment_ipv6 = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6()
+                                self.sr_adj_segment_ipv6 = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6()
                                 self.sr_adj_segment_ipv6.parent = self
-                                self.sr_prefix_segment = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrPrefixSegment()
+                                self.sr_prefix_segment = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrPrefixSegment()
                                 self.sr_prefix_segment.parent = self
-                                self.te_binding = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.TeBinding()
+                                self.te_binding = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.TeBinding()
                                 self.te_binding.parent = self
-                                self.tev4_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Tev4Data()
+                                self.tev4_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Tev4Data()
                                 self.tev4_data.parent = self
-                                self.tev4p2mp_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Tev4P2MpData()
+                                self.tev4p2mp_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Tev4P2MpData()
                                 self.tev4p2mp_data.parent = self
-                                self.tp_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.TpData()
+                                self.tp_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.TpData()
                                 self.tp_data.parent = self
-                                self.vrf_l3vpn_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.VrfL3VpnData()
+                                self.vrf_l3vpn_data = MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.VrfL3VpnData()
                                 self.vrf_l3vpn_data.parent = self
 
 
@@ -46587,7 +46593,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4Data']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4Data']['meta_info']
 
 
                             class Ipv6Data(object):
@@ -46676,7 +46682,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6Data']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6Data']['meta_info']
 
 
                             class Tev4Data(object):
@@ -46787,7 +46793,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Tev4Data']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Tev4Data']['meta_info']
 
 
                             class Ipv4L3VpnData(object):
@@ -46854,7 +46860,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData']['meta_info']
 
 
                             class Ipv6L3VpnData(object):
@@ -46921,7 +46927,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData']['meta_info']
 
 
                             class VrfL3VpnData(object):
@@ -46977,7 +46983,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.VrfL3VpnData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.VrfL3VpnData']['meta_info']
 
 
                             class Cev4L3VpnData(object):
@@ -47044,7 +47050,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Cev4L3VpnData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData']['meta_info']
 
 
                             class Cev6L3VpnData(object):
@@ -47111,7 +47117,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Cev6L3VpnData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData']['meta_info']
 
 
                             class PseudowireData(object):
@@ -47189,7 +47195,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PseudowireData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PseudowireData']['meta_info']
 
 
                             class LabelBlockData(object):
@@ -47278,7 +47284,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.LabelBlockData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.LabelBlockData']['meta_info']
 
 
                             class IpSubData(object):
@@ -47334,7 +47340,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.IpSubData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.IpSubData']['meta_info']
 
 
                             class Tev4P2MpData(object):
@@ -47445,7 +47451,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Tev4P2MpData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Tev4P2MpData']['meta_info']
 
 
                             class MldPv4Data(object):
@@ -47534,7 +47540,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.MldPv4Data']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.MldPv4Data']['meta_info']
 
 
                             class PseudowireHeadEndData(object):
@@ -47579,7 +47585,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData']['meta_info']
 
 
                             class TpData(object):
@@ -47690,7 +47696,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.TpData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.TpData']['meta_info']
 
 
                             class GenericRoutingEncapsulation(object):
@@ -47735,7 +47741,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation']['meta_info']
 
 
                             class Ipv6GenericRoutingEncapsulation(object):
@@ -47780,7 +47786,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation']['meta_info']
 
 
                             class EvpnData(object):
@@ -47847,7 +47853,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.EvpnData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.EvpnData']['meta_info']
 
 
                             class Ipv4BlbData(object):
@@ -47903,7 +47909,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4BlbData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4BlbData']['meta_info']
 
 
                             class Ipv6BlbData(object):
@@ -47959,7 +47965,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6BlbData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6BlbData']['meta_info']
 
 
                             class PiMiPmsiData(object):
@@ -48026,7 +48032,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PiMiPmsiData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PiMiPmsiData']['meta_info']
 
 
                             class PiMsPmsiData(object):
@@ -48126,7 +48132,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PiMsPmsiData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PiMsPmsiData']['meta_info']
 
 
                             class NextHopSetL3Vpn(object):
@@ -48182,7 +48188,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn']['meta_info']
 
 
                             class SrPrefixSegment(object):
@@ -48238,7 +48244,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrPrefixSegment']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrPrefixSegment']['meta_info']
 
 
                             class SrAdjSegmentIpv4(object):
@@ -48316,7 +48322,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4']['meta_info']
 
 
                             class SrAdjSegmentIpv6(object):
@@ -48394,7 +48400,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6']['meta_info']
 
 
                             class LabelBlockSrgbData(object):
@@ -48461,7 +48467,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData']['meta_info']
 
 
                             class TeBinding(object):
@@ -48478,7 +48484,7 @@ class MplsLsd(object):
                                 .. attribute:: te_type
                                 
                                 	Type of identifier for the binding
-                                	**type**\:  :py:class:`MgmtLsdTeBindingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdTeBindingEnum>`
+                                	**type**\:   :py:class:`MgmtLsdTeBindingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdTeBindingEnum>`
                                 
                                 
 
@@ -48515,7 +48521,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.TeBinding']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.TeBinding']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -48621,7 +48627,7 @@ class MplsLsd(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
+                                return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
 
 
                         class LocalLabelRewrite(object):
@@ -48670,7 +48676,7 @@ class MplsLsd(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LocalLabelRewrite']['meta_info']
+                                return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LocalLabelRewrite']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -48698,7 +48704,7 @@ class MplsLsd(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                            return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId']['meta_info']
+                            return meta._meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -48730,12 +48736,12 @@ class MplsLsd(object):
                     .. attribute:: application_owner
                     
                     	Application owner instance
-                    	**type**\: list of  :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.ApplicationOwner>`
+                    	**type**\: list of    :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.ApplicationOwner>`
                     
                     .. attribute:: fpi
                     
                     	FPI
-                    	**type**\:  :py:class:`Fpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi>`
+                    	**type**\:   :py:class:`Fpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi>`
                     
                     
 
@@ -48760,37 +48766,37 @@ class MplsLsd(object):
                         .. attribute:: dmtc_ext_intf_data
                         
                         	dmtc ext intf data
-                        	**type**\:  :py:class:`DmtcExtIntfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi.DmtcExtIntfData>`
+                        	**type**\:   :py:class:`DmtcExtIntfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi.DmtcExtIntfData>`
                         
                         .. attribute:: fpi_type
                         
                         	FPIType
-                        	**type**\:  :py:class:`MgmtLsdFpiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFpiEnum>`
+                        	**type**\:   :py:class:`MgmtLsdFpiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFpiEnum>`
                         
                         .. attribute:: ipv4_data
                         
                         	ipv4 data
-                        	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi.Ipv4Data>`
+                        	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi.Ipv4Data>`
                         
                         .. attribute:: ipv6_data
                         
                         	ipv6 data
-                        	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi.Ipv6Data>`
+                        	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi.Ipv6Data>`
                         
                         .. attribute:: label_data
                         
                         	label data
-                        	**type**\:  :py:class:`LabelData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi.LabelData>`
+                        	**type**\:   :py:class:`LabelData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi.LabelData>`
                         
                         .. attribute:: pw_list_data
                         
                         	pw list data
-                        	**type**\:  :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi.PwListData>`
+                        	**type**\:   :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi.PwListData>`
                         
                         .. attribute:: te_data
                         
                         	te data
-                        	**type**\:  :py:class:`TeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi.TeData>`
+                        	**type**\:   :py:class:`TeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi.TeData>`
                         
                         
 
@@ -49260,12 +49266,12 @@ class MplsLsd(object):
                         .. attribute:: application_type
                         
                         	Application type
-                        	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                        	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                         
                         .. attribute:: resource_state
                         
                         	Application resource state
-                        	**type**\:  :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
+                        	**type**\:   :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
                         
                         
 
@@ -49463,12 +49469,12 @@ class MplsLsd(object):
                     .. attribute:: application_resource
                     
                     	Application state
-                    	**type**\:  :py:class:`ApplicationResource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.ApplicationResource>`
+                    	**type**\:   :py:class:`ApplicationResource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.ApplicationResource>`
                     
                     .. attribute:: moi_array
                     
                     	moi array
-                    	**type**\: list of  :py:class:`MoiArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray>`
+                    	**type**\: list of    :py:class:`MoiArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray>`
                     
                     
 
@@ -49510,12 +49516,12 @@ class MplsLsd(object):
                         .. attribute:: application_type
                         
                         	Application type
-                        	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                        	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                         
                         .. attribute:: resource_state
                         
                         	Application resource state
-                        	**type**\:  :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
+                        	**type**\:   :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
                         
                         
 
@@ -49574,7 +49580,7 @@ class MplsLsd(object):
                         .. attribute:: moi
                         
                         	Moi
-                        	**type**\:  :py:class:`Moi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi>`
+                        	**type**\:   :py:class:`Moi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi>`
                         
                         
 
@@ -49596,77 +49602,77 @@ class MplsLsd(object):
                             .. attribute:: dmtc_data
                             
                             	dmtc data
-                            	**type**\:  :py:class:`DmtcData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.DmtcData>`
+                            	**type**\:   :py:class:`DmtcData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.DmtcData>`
                             
                             .. attribute:: ip_sub_data
                             
                             	ip sub data
-                            	**type**\:  :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.IpSubData>`
+                            	**type**\:   :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.IpSubData>`
                             
                             .. attribute:: ipv4_data
                             
                             	ipv4 data
-                            	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Ipv4Data>`
+                            	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Ipv4Data>`
                             
                             .. attribute:: ipv6_data
                             
                             	ipv6 data
-                            	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Ipv6Data>`
+                            	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Ipv6Data>`
                             
                             .. attribute:: moi_type
                             
                             	MoiType
-                            	**type**\:  :py:class:`MgmtLsdMoiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdMoiEnum>`
+                            	**type**\:   :py:class:`MgmtLsdMoiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdMoiEnum>`
                             
                             .. attribute:: pop_and_lookup_ipv4
                             
                             	pop and lookup ipv4
-                            	**type**\:  :py:class:`PopAndLookupIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.PopAndLookupIpv4>`
+                            	**type**\:   :py:class:`PopAndLookupIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.PopAndLookupIpv4>`
                             
                             .. attribute:: pop_and_lookup_ipv6
                             
                             	pop and lookup ipv6
-                            	**type**\:  :py:class:`PopAndLookupIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.PopAndLookupIpv6>`
+                            	**type**\:   :py:class:`PopAndLookupIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.PopAndLookupIpv6>`
                             
                             .. attribute:: pop_and_lookup_tp
                             
                             	pop and lookup tp
-                            	**type**\:  :py:class:`PopAndLookupTp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.PopAndLookupTp>`
+                            	**type**\:   :py:class:`PopAndLookupTp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.PopAndLookupTp>`
                             
                             .. attribute:: pseudowire_data
                             
                             	pseudowire data
-                            	**type**\:  :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.PseudowireData>`
+                            	**type**\:   :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.PseudowireData>`
                             
                             .. attribute:: pseudowire_head_end_data
                             
                             	pseudowire head end data
-                            	**type**\:  :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.PseudowireHeadEndData>`
+                            	**type**\:   :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.PseudowireHeadEndData>`
                             
                             .. attribute:: pw_list_data
                             
                             	pw list data
-                            	**type**\:  :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.PwListData>`
+                            	**type**\:   :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.PwListData>`
                             
                             .. attribute:: stackv4_data
                             
                             	stackv4 data
-                            	**type**\:  :py:class:`Stackv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Stackv4Data>`
+                            	**type**\:   :py:class:`Stackv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Stackv4Data>`
                             
                             .. attribute:: stackv6_data
                             
                             	stackv6 data
-                            	**type**\:  :py:class:`Stackv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Stackv6Data>`
+                            	**type**\:   :py:class:`Stackv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Stackv6Data>`
                             
                             .. attribute:: te_head_data
                             
                             	te head data
-                            	**type**\:  :py:class:`TeHeadData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.TeHeadData>`
+                            	**type**\:   :py:class:`TeHeadData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.TeHeadData>`
                             
                             .. attribute:: tev4_data
                             
                             	tev4 data
-                            	**type**\:  :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Tev4Data>`
+                            	**type**\:   :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Tev4Data>`
                             
                             
 
@@ -50878,17 +50884,17 @@ class MplsLsd(object):
                                 .. attribute:: inner_stack
                                 
                                 	Inner stack
-                                	**type**\:  :py:class:`InnerStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Stackv4Data.InnerStack>`
+                                	**type**\:   :py:class:`InnerStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Stackv4Data.InnerStack>`
                                 
                                 .. attribute:: nexthop
                                 
                                 	Nexthop
-                                	**type**\:  :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Stackv4Data.Nexthop>`
+                                	**type**\:   :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Stackv4Data.Nexthop>`
                                 
                                 .. attribute:: owner_application_type
                                 
                                 	Owner application type
-                                	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                                	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                                 
                                 
 
@@ -51095,7 +51101,7 @@ class MplsLsd(object):
                                     .. attribute:: label
                                     
                                     	Info related to outgoing labels
-                                    	**type**\: list of  :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Stackv4Data.InnerStack.Label>`
+                                    	**type**\: list of    :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Stackv4Data.InnerStack.Label>`
                                     
                                     .. attribute:: nexthop
                                     
@@ -51261,12 +51267,12 @@ class MplsLsd(object):
                                 .. attribute:: inner_stack
                                 
                                 	Inner stack
-                                	**type**\:  :py:class:`InnerStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Stackv6Data.InnerStack>`
+                                	**type**\:   :py:class:`InnerStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Stackv6Data.InnerStack>`
                                 
                                 .. attribute:: nexthop
                                 
                                 	Nexthop
-                                	**type**\:  :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Stackv6Data.Nexthop>`
+                                	**type**\:   :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Stackv6Data.Nexthop>`
                                 
                                 
 
@@ -51428,7 +51434,7 @@ class MplsLsd(object):
                                     .. attribute:: label
                                     
                                     	Info related to outgoing labels
-                                    	**type**\: list of  :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Stackv6Data.InnerStack.Label>`
+                                    	**type**\: list of    :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.Mois.MoiArray.Moi.Stackv6Data.InnerStack.Label>`
                                     
                                     .. attribute:: nexthop
                                     
@@ -51956,7 +51962,7 @@ class MplsLsd(object):
             .. attribute:: rewrite_te
             
             	FPI rewrite for TE
-            	**type**\: list of  :py:class:`RewriteTe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe>`
+            	**type**\: list of    :py:class:`RewriteTe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe>`
             
             
 
@@ -51986,7 +51992,7 @@ class MplsLsd(object):
                 .. attribute:: associated_fpi
                 
                 	Associated FPI
-                	**type**\: list of  :py:class:`AssociatedFpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.AssociatedFpi>`
+                	**type**\: list of    :py:class:`AssociatedFpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.AssociatedFpi>`
                 
                 .. attribute:: bcdl_priority
                 
@@ -51998,7 +52004,7 @@ class MplsLsd(object):
                 .. attribute:: fpi_key
                 
                 	fpi key
-                	**type**\:  :py:class:`FpiKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.FpiKey>`
+                	**type**\:   :py:class:`FpiKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.FpiKey>`
                 
                 .. attribute:: lsd_queue
                 
@@ -52010,7 +52016,7 @@ class MplsLsd(object):
                 .. attribute:: mois
                 
                 	Mois
-                	**type**\: list of  :py:class:`Mois <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois>`
+                	**type**\: list of    :py:class:`Mois <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois>`
                 
                 .. attribute:: priority_updated
                 
@@ -52022,7 +52028,7 @@ class MplsLsd(object):
                 .. attribute:: rewrite_id
                 
                 	Rewrite ID
-                	**type**\:  :py:class:`RewriteId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId>`
+                	**type**\:   :py:class:`RewriteId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId>`
                 
                 .. attribute:: rewrite_version
                 
@@ -52055,12 +52061,12 @@ class MplsLsd(object):
                 .. attribute:: v4_rpf
                 
                 	IPv4 RPF neighbors
-                	**type**\: list of  :py:class:`V4Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.V4Rpf>`
+                	**type**\: list of    :py:class:`V4Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.V4Rpf>`
                 
                 .. attribute:: v6_rpf
                 
                 	IPv6 RPF neighbors
-                	**type**\: list of  :py:class:`V6Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.V6Rpf>`
+                	**type**\: list of    :py:class:`V6Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.V6Rpf>`
                 
                 
 
@@ -52104,12 +52110,12 @@ class MplsLsd(object):
                     .. attribute:: application_owner
                     
                     	Application owner instance
-                    	**type**\: list of  :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.FpiKey.ApplicationOwner>`
+                    	**type**\: list of    :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.FpiKey.ApplicationOwner>`
                     
                     .. attribute:: fpi
                     
                     	FPI
-                    	**type**\:  :py:class:`Fpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi>`
+                    	**type**\:   :py:class:`Fpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi>`
                     
                     
 
@@ -52134,37 +52140,37 @@ class MplsLsd(object):
                         .. attribute:: dmtc_ext_intf_data
                         
                         	dmtc ext intf data
-                        	**type**\:  :py:class:`DmtcExtIntfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi.DmtcExtIntfData>`
+                        	**type**\:   :py:class:`DmtcExtIntfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi.DmtcExtIntfData>`
                         
                         .. attribute:: fpi_type
                         
                         	FPIType
-                        	**type**\:  :py:class:`MgmtLsdFpiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFpiEnum>`
+                        	**type**\:   :py:class:`MgmtLsdFpiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFpiEnum>`
                         
                         .. attribute:: ipv4_data
                         
                         	ipv4 data
-                        	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi.Ipv4Data>`
+                        	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi.Ipv4Data>`
                         
                         .. attribute:: ipv6_data
                         
                         	ipv6 data
-                        	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi.Ipv6Data>`
+                        	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi.Ipv6Data>`
                         
                         .. attribute:: label_data
                         
                         	label data
-                        	**type**\:  :py:class:`LabelData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi.LabelData>`
+                        	**type**\:   :py:class:`LabelData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi.LabelData>`
                         
                         .. attribute:: pw_list_data
                         
                         	pw list data
-                        	**type**\:  :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi.PwListData>`
+                        	**type**\:   :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi.PwListData>`
                         
                         .. attribute:: te_data
                         
                         	te data
-                        	**type**\:  :py:class:`TeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi.TeData>`
+                        	**type**\:   :py:class:`TeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi.TeData>`
                         
                         
 
@@ -52648,12 +52654,12 @@ class MplsLsd(object):
                         .. attribute:: application_type
                         
                         	Application type
-                        	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                        	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                         
                         .. attribute:: resource_state
                         
                         	Application resource state
-                        	**type**\:  :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
+                        	**type**\:   :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
                         
                         
 
@@ -52743,7 +52749,7 @@ class MplsLsd(object):
                     .. attribute:: rewrite_id
                     
                     	Rewrite ID
-                    	**type**\:  :py:class:`RewriteId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId>`
+                    	**type**\:   :py:class:`RewriteId_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_>`
                     
                     
 
@@ -52754,28 +52760,28 @@ class MplsLsd(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.rewrite_id = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId()
+                        self.rewrite_id = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_()
                         self.rewrite_id.parent = self
 
 
-                    class RewriteId(object):
+                    class RewriteId_(object):
                         """
                         Rewrite ID
                         
                         .. attribute:: label_context
                         
                         	Label context
-                        	**type**\:  :py:class:`LabelContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext>`
+                        	**type**\:   :py:class:`LabelContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext>`
                         
                         .. attribute:: local_label_rewrite
                         
                         	Local label rewrite information
-                        	**type**\:  :py:class:`LocalLabelRewrite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LocalLabelRewrite>`
+                        	**type**\:   :py:class:`LocalLabelRewrite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LocalLabelRewrite>`
                         
                         .. attribute:: rewrite_id_type
                         
                         	RewriteIDType
-                        	**type**\:  :py:class:`MgmtLsdRwIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdRwIdEnum>`
+                        	**type**\:   :py:class:`MgmtLsdRwIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdRwIdEnum>`
                         
                         
 
@@ -52786,9 +52792,9 @@ class MplsLsd(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.label_context = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext()
+                            self.label_context = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext()
                             self.label_context.parent = self
-                            self.local_label_rewrite = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LocalLabelRewrite()
+                            self.local_label_rewrite = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LocalLabelRewrite()
                             self.local_label_rewrite.parent = self
                             self.rewrite_id_type = None
 
@@ -52800,147 +52806,147 @@ class MplsLsd(object):
                             .. attribute:: cev4l3vpn_data
                             
                             	L3VPN CEv4 label context
-                            	**type**\:  :py:class:`Cev4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Cev4L3VpnData>`
+                            	**type**\:   :py:class:`Cev4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData>`
                             
                             .. attribute:: cev6l3vpn_data
                             
                             	L3VPN CEv6 label context
-                            	**type**\:  :py:class:`Cev6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Cev6L3VpnData>`
+                            	**type**\:   :py:class:`Cev6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData>`
                             
                             .. attribute:: evpn_data
                             
                             	EVPN context
-                            	**type**\:  :py:class:`EvpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.EvpnData>`
+                            	**type**\:   :py:class:`EvpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.EvpnData>`
                             
                             .. attribute:: generic_routing_encapsulation
                             
                             	Generic routing encapsulation context
-                            	**type**\:  :py:class:`GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation>`
+                            	**type**\:   :py:class:`GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation>`
                             
                             .. attribute:: ip_sub_data
                             
                             	IP Subscriber context
-                            	**type**\:  :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.IpSubData>`
+                            	**type**\:   :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.IpSubData>`
                             
                             .. attribute:: ipv4_data
                             
                             	IPv4 label context
-                            	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4Data>`
+                            	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4Data>`
                             
                             .. attribute:: ipv4blb_data
                             
                             	BFD BLB label context
-                            	**type**\:  :py:class:`Ipv4BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4BlbData>`
+                            	**type**\:   :py:class:`Ipv4BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4BlbData>`
                             
                             .. attribute:: ipv4l3vpn_data
                             
                             	L3VPN IPv4 label context
-                            	**type**\:  :py:class:`Ipv4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData>`
+                            	**type**\:   :py:class:`Ipv4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData>`
                             
                             .. attribute:: ipv6_data
                             
                             	IPv6 label context
-                            	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6Data>`
+                            	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6Data>`
                             
                             .. attribute:: ipv6_generic_routing_encapsulation
                             
                             	Generic routing encapsulation context
-                            	**type**\:  :py:class:`Ipv6GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation>`
+                            	**type**\:   :py:class:`Ipv6GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation>`
                             
                             .. attribute:: ipv6blb_data
                             
                             	BFD BLB label context
-                            	**type**\:  :py:class:`Ipv6BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6BlbData>`
+                            	**type**\:   :py:class:`Ipv6BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6BlbData>`
                             
                             .. attribute:: ipv6l3vpn_data
                             
                             	L3VPN IPv6 label context
-                            	**type**\:  :py:class:`Ipv6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData>`
+                            	**type**\:   :py:class:`Ipv6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData>`
                             
                             .. attribute:: label_block_data
                             
                             	Label block context
-                            	**type**\:  :py:class:`LabelBlockData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.LabelBlockData>`
+                            	**type**\:   :py:class:`LabelBlockData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.LabelBlockData>`
                             
                             .. attribute:: label_block_srgb_data
                             
                             	Label block SRGB context
-                            	**type**\:  :py:class:`LabelBlockSrgbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData>`
+                            	**type**\:   :py:class:`LabelBlockSrgbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData>`
                             
                             .. attribute:: label_context_type
                             
                             	LabelContextType
-                            	**type**\:  :py:class:`MgmtLsdLblCtxEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdLblCtxEnum>`
+                            	**type**\:   :py:class:`MgmtLsdLblCtxEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdLblCtxEnum>`
                             
                             .. attribute:: mld_pv4_data
                             
                             	MLDPv4 LSM\-ID context
-                            	**type**\:  :py:class:`MldPv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.MldPv4Data>`
+                            	**type**\:   :py:class:`MldPv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.MldPv4Data>`
                             
                             .. attribute:: next_hop_set_l3vpn
                             
                             	L3VPN NH SET label context
-                            	**type**\:  :py:class:`NextHopSetL3Vpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn>`
+                            	**type**\:   :py:class:`NextHopSetL3Vpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn>`
                             
                             .. attribute:: pi_mi_pmsi_data
                             
                             	PIM I\-PMSI label conext
-                            	**type**\:  :py:class:`PiMiPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PiMiPmsiData>`
+                            	**type**\:   :py:class:`PiMiPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PiMiPmsiData>`
                             
                             .. attribute:: pi_ms_pmsi_data
                             
                             	PIM S\-PMSI label conext
-                            	**type**\:  :py:class:`PiMsPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PiMsPmsiData>`
+                            	**type**\:   :py:class:`PiMsPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PiMsPmsiData>`
                             
                             .. attribute:: pseudowire_data
                             
                             	Pseudowire label context
-                            	**type**\:  :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PseudowireData>`
+                            	**type**\:   :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PseudowireData>`
                             
                             .. attribute:: pseudowire_head_end_data
                             
                             	Pseudowire Head\-end label context
-                            	**type**\:  :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData>`
+                            	**type**\:   :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData>`
                             
                             .. attribute:: sr_adj_segment_ipv4
                             
                             	SR Adj Segment ipv4 context
-                            	**type**\:  :py:class:`SrAdjSegmentIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4>`
+                            	**type**\:   :py:class:`SrAdjSegmentIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4>`
                             
                             .. attribute:: sr_adj_segment_ipv6
                             
                             	SR Adj Segment ipv6 context
-                            	**type**\:  :py:class:`SrAdjSegmentIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6>`
+                            	**type**\:   :py:class:`SrAdjSegmentIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6>`
                             
                             .. attribute:: sr_prefix_segment
                             
                             	SR Prefix Segment context
-                            	**type**\:  :py:class:`SrPrefixSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrPrefixSegment>`
+                            	**type**\:   :py:class:`SrPrefixSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrPrefixSegment>`
                             
                             .. attribute:: te_binding
                             
                             	MPLS TE tunnel binding context
-                            	**type**\:  :py:class:`TeBinding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.TeBinding>`
+                            	**type**\:   :py:class:`TeBinding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.TeBinding>`
                             
                             .. attribute:: tev4_data
                             
                             	TEv4 label context
-                            	**type**\:  :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Tev4Data>`
+                            	**type**\:   :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Tev4Data>`
                             
                             .. attribute:: tev4p2mp_data
                             
                             	TEv4 P2MP context
-                            	**type**\:  :py:class:`Tev4P2MpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Tev4P2MpData>`
+                            	**type**\:   :py:class:`Tev4P2MpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Tev4P2MpData>`
                             
                             .. attribute:: tp_data
                             
                             	TP context
-                            	**type**\:  :py:class:`TpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.TpData>`
+                            	**type**\:   :py:class:`TpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.TpData>`
                             
                             .. attribute:: vrf_l3vpn_data
                             
                             	L3VPN VRF label context
-                            	**type**\:  :py:class:`VrfL3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.VrfL3VpnData>`
+                            	**type**\:   :py:class:`VrfL3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.VrfL3VpnData>`
                             
                             
 
@@ -52951,62 +52957,62 @@ class MplsLsd(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.cev4l3vpn_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Cev4L3VpnData()
+                                self.cev4l3vpn_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData()
                                 self.cev4l3vpn_data.parent = self
-                                self.cev6l3vpn_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Cev6L3VpnData()
+                                self.cev6l3vpn_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData()
                                 self.cev6l3vpn_data.parent = self
-                                self.evpn_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.EvpnData()
+                                self.evpn_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.EvpnData()
                                 self.evpn_data.parent = self
-                                self.generic_routing_encapsulation = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation()
+                                self.generic_routing_encapsulation = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation()
                                 self.generic_routing_encapsulation.parent = self
-                                self.ip_sub_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.IpSubData()
+                                self.ip_sub_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.IpSubData()
                                 self.ip_sub_data.parent = self
-                                self.ipv4_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4Data()
+                                self.ipv4_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4Data()
                                 self.ipv4_data.parent = self
-                                self.ipv4blb_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4BlbData()
+                                self.ipv4blb_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4BlbData()
                                 self.ipv4blb_data.parent = self
-                                self.ipv4l3vpn_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData()
+                                self.ipv4l3vpn_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData()
                                 self.ipv4l3vpn_data.parent = self
-                                self.ipv6_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6Data()
+                                self.ipv6_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6Data()
                                 self.ipv6_data.parent = self
-                                self.ipv6_generic_routing_encapsulation = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation()
+                                self.ipv6_generic_routing_encapsulation = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation()
                                 self.ipv6_generic_routing_encapsulation.parent = self
-                                self.ipv6blb_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6BlbData()
+                                self.ipv6blb_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6BlbData()
                                 self.ipv6blb_data.parent = self
-                                self.ipv6l3vpn_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData()
+                                self.ipv6l3vpn_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData()
                                 self.ipv6l3vpn_data.parent = self
-                                self.label_block_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.LabelBlockData()
+                                self.label_block_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.LabelBlockData()
                                 self.label_block_data.parent = self
-                                self.label_block_srgb_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData()
+                                self.label_block_srgb_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData()
                                 self.label_block_srgb_data.parent = self
                                 self.label_context_type = None
-                                self.mld_pv4_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.MldPv4Data()
+                                self.mld_pv4_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.MldPv4Data()
                                 self.mld_pv4_data.parent = self
-                                self.next_hop_set_l3vpn = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn()
+                                self.next_hop_set_l3vpn = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn()
                                 self.next_hop_set_l3vpn.parent = self
-                                self.pi_mi_pmsi_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PiMiPmsiData()
+                                self.pi_mi_pmsi_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PiMiPmsiData()
                                 self.pi_mi_pmsi_data.parent = self
-                                self.pi_ms_pmsi_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PiMsPmsiData()
+                                self.pi_ms_pmsi_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PiMsPmsiData()
                                 self.pi_ms_pmsi_data.parent = self
-                                self.pseudowire_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PseudowireData()
+                                self.pseudowire_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PseudowireData()
                                 self.pseudowire_data.parent = self
-                                self.pseudowire_head_end_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData()
+                                self.pseudowire_head_end_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData()
                                 self.pseudowire_head_end_data.parent = self
-                                self.sr_adj_segment_ipv4 = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4()
+                                self.sr_adj_segment_ipv4 = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4()
                                 self.sr_adj_segment_ipv4.parent = self
-                                self.sr_adj_segment_ipv6 = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6()
+                                self.sr_adj_segment_ipv6 = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6()
                                 self.sr_adj_segment_ipv6.parent = self
-                                self.sr_prefix_segment = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrPrefixSegment()
+                                self.sr_prefix_segment = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrPrefixSegment()
                                 self.sr_prefix_segment.parent = self
-                                self.te_binding = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.TeBinding()
+                                self.te_binding = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.TeBinding()
                                 self.te_binding.parent = self
-                                self.tev4_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Tev4Data()
+                                self.tev4_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Tev4Data()
                                 self.tev4_data.parent = self
-                                self.tev4p2mp_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Tev4P2MpData()
+                                self.tev4p2mp_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Tev4P2MpData()
                                 self.tev4p2mp_data.parent = self
-                                self.tp_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.TpData()
+                                self.tp_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.TpData()
                                 self.tp_data.parent = self
-                                self.vrf_l3vpn_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.VrfL3VpnData()
+                                self.vrf_l3vpn_data = MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.VrfL3VpnData()
                                 self.vrf_l3vpn_data.parent = self
 
 
@@ -53098,7 +53104,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4Data']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4Data']['meta_info']
 
 
                             class Ipv6Data(object):
@@ -53189,7 +53195,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6Data']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6Data']['meta_info']
 
 
                             class Tev4Data(object):
@@ -53302,7 +53308,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Tev4Data']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Tev4Data']['meta_info']
 
 
                             class Ipv4L3VpnData(object):
@@ -53371,7 +53377,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData']['meta_info']
 
 
                             class Ipv6L3VpnData(object):
@@ -53440,7 +53446,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData']['meta_info']
 
 
                             class VrfL3VpnData(object):
@@ -53498,7 +53504,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.VrfL3VpnData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.VrfL3VpnData']['meta_info']
 
 
                             class Cev4L3VpnData(object):
@@ -53567,7 +53573,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Cev4L3VpnData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData']['meta_info']
 
 
                             class Cev6L3VpnData(object):
@@ -53636,7 +53642,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Cev6L3VpnData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData']['meta_info']
 
 
                             class PseudowireData(object):
@@ -53716,7 +53722,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PseudowireData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PseudowireData']['meta_info']
 
 
                             class LabelBlockData(object):
@@ -53807,7 +53813,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.LabelBlockData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.LabelBlockData']['meta_info']
 
 
                             class IpSubData(object):
@@ -53865,7 +53871,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.IpSubData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.IpSubData']['meta_info']
 
 
                             class Tev4P2MpData(object):
@@ -53978,7 +53984,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Tev4P2MpData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Tev4P2MpData']['meta_info']
 
 
                             class MldPv4Data(object):
@@ -54069,7 +54075,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.MldPv4Data']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.MldPv4Data']['meta_info']
 
 
                             class PseudowireHeadEndData(object):
@@ -54116,7 +54122,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData']['meta_info']
 
 
                             class TpData(object):
@@ -54229,7 +54235,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.TpData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.TpData']['meta_info']
 
 
                             class GenericRoutingEncapsulation(object):
@@ -54276,7 +54282,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation']['meta_info']
 
 
                             class Ipv6GenericRoutingEncapsulation(object):
@@ -54323,7 +54329,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation']['meta_info']
 
 
                             class EvpnData(object):
@@ -54392,7 +54398,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.EvpnData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.EvpnData']['meta_info']
 
 
                             class Ipv4BlbData(object):
@@ -54450,7 +54456,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4BlbData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4BlbData']['meta_info']
 
 
                             class Ipv6BlbData(object):
@@ -54508,7 +54514,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6BlbData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6BlbData']['meta_info']
 
 
                             class PiMiPmsiData(object):
@@ -54577,7 +54583,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PiMiPmsiData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PiMiPmsiData']['meta_info']
 
 
                             class PiMsPmsiData(object):
@@ -54679,7 +54685,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PiMsPmsiData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PiMsPmsiData']['meta_info']
 
 
                             class NextHopSetL3Vpn(object):
@@ -54737,7 +54743,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn']['meta_info']
 
 
                             class SrPrefixSegment(object):
@@ -54795,7 +54801,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrPrefixSegment']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrPrefixSegment']['meta_info']
 
 
                             class SrAdjSegmentIpv4(object):
@@ -54875,7 +54881,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4']['meta_info']
 
 
                             class SrAdjSegmentIpv6(object):
@@ -54955,7 +54961,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6']['meta_info']
 
 
                             class LabelBlockSrgbData(object):
@@ -55024,7 +55030,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData']['meta_info']
 
 
                             class TeBinding(object):
@@ -55041,7 +55047,7 @@ class MplsLsd(object):
                                 .. attribute:: te_type
                                 
                                 	Type of identifier for the binding
-                                	**type**\:  :py:class:`MgmtLsdTeBindingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdTeBindingEnum>`
+                                	**type**\:   :py:class:`MgmtLsdTeBindingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdTeBindingEnum>`
                                 
                                 
 
@@ -55080,7 +55086,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.TeBinding']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.TeBinding']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -55188,7 +55194,7 @@ class MplsLsd(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
+                                return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
 
 
                         class LocalLabelRewrite(object):
@@ -55239,7 +55245,7 @@ class MplsLsd(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LocalLabelRewrite']['meta_info']
+                                return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LocalLabelRewrite']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -55269,7 +55275,7 @@ class MplsLsd(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                            return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId']['meta_info']
+                            return meta._meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -55303,12 +55309,12 @@ class MplsLsd(object):
                     .. attribute:: application_owner
                     
                     	Application owner instance
-                    	**type**\: list of  :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.ApplicationOwner>`
+                    	**type**\: list of    :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.ApplicationOwner>`
                     
                     .. attribute:: fpi
                     
                     	FPI
-                    	**type**\:  :py:class:`Fpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi>`
+                    	**type**\:   :py:class:`Fpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi>`
                     
                     
 
@@ -55333,37 +55339,37 @@ class MplsLsd(object):
                         .. attribute:: dmtc_ext_intf_data
                         
                         	dmtc ext intf data
-                        	**type**\:  :py:class:`DmtcExtIntfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi.DmtcExtIntfData>`
+                        	**type**\:   :py:class:`DmtcExtIntfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi.DmtcExtIntfData>`
                         
                         .. attribute:: fpi_type
                         
                         	FPIType
-                        	**type**\:  :py:class:`MgmtLsdFpiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFpiEnum>`
+                        	**type**\:   :py:class:`MgmtLsdFpiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFpiEnum>`
                         
                         .. attribute:: ipv4_data
                         
                         	ipv4 data
-                        	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi.Ipv4Data>`
+                        	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi.Ipv4Data>`
                         
                         .. attribute:: ipv6_data
                         
                         	ipv6 data
-                        	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi.Ipv6Data>`
+                        	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi.Ipv6Data>`
                         
                         .. attribute:: label_data
                         
                         	label data
-                        	**type**\:  :py:class:`LabelData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi.LabelData>`
+                        	**type**\:   :py:class:`LabelData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi.LabelData>`
                         
                         .. attribute:: pw_list_data
                         
                         	pw list data
-                        	**type**\:  :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi.PwListData>`
+                        	**type**\:   :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi.PwListData>`
                         
                         .. attribute:: te_data
                         
                         	te data
-                        	**type**\:  :py:class:`TeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi.TeData>`
+                        	**type**\:   :py:class:`TeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi.TeData>`
                         
                         
 
@@ -55847,12 +55853,12 @@ class MplsLsd(object):
                         .. attribute:: application_type
                         
                         	Application type
-                        	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                        	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                         
                         .. attribute:: resource_state
                         
                         	Application resource state
-                        	**type**\:  :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
+                        	**type**\:   :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
                         
                         
 
@@ -56058,12 +56064,12 @@ class MplsLsd(object):
                     .. attribute:: application_resource
                     
                     	Application state
-                    	**type**\:  :py:class:`ApplicationResource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.ApplicationResource>`
+                    	**type**\:   :py:class:`ApplicationResource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.ApplicationResource>`
                     
                     .. attribute:: moi_array
                     
                     	moi array
-                    	**type**\: list of  :py:class:`MoiArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray>`
+                    	**type**\: list of    :py:class:`MoiArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray>`
                     
                     
 
@@ -56105,12 +56111,12 @@ class MplsLsd(object):
                         .. attribute:: application_type
                         
                         	Application type
-                        	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                        	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                         
                         .. attribute:: resource_state
                         
                         	Application resource state
-                        	**type**\:  :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
+                        	**type**\:   :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
                         
                         
 
@@ -56171,7 +56177,7 @@ class MplsLsd(object):
                         .. attribute:: moi
                         
                         	Moi
-                        	**type**\:  :py:class:`Moi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi>`
+                        	**type**\:   :py:class:`Moi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi>`
                         
                         
 
@@ -56193,77 +56199,77 @@ class MplsLsd(object):
                             .. attribute:: dmtc_data
                             
                             	dmtc data
-                            	**type**\:  :py:class:`DmtcData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.DmtcData>`
+                            	**type**\:   :py:class:`DmtcData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.DmtcData>`
                             
                             .. attribute:: ip_sub_data
                             
                             	ip sub data
-                            	**type**\:  :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.IpSubData>`
+                            	**type**\:   :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.IpSubData>`
                             
                             .. attribute:: ipv4_data
                             
                             	ipv4 data
-                            	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Ipv4Data>`
+                            	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Ipv4Data>`
                             
                             .. attribute:: ipv6_data
                             
                             	ipv6 data
-                            	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Ipv6Data>`
+                            	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Ipv6Data>`
                             
                             .. attribute:: moi_type
                             
                             	MoiType
-                            	**type**\:  :py:class:`MgmtLsdMoiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdMoiEnum>`
+                            	**type**\:   :py:class:`MgmtLsdMoiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdMoiEnum>`
                             
                             .. attribute:: pop_and_lookup_ipv4
                             
                             	pop and lookup ipv4
-                            	**type**\:  :py:class:`PopAndLookupIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.PopAndLookupIpv4>`
+                            	**type**\:   :py:class:`PopAndLookupIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.PopAndLookupIpv4>`
                             
                             .. attribute:: pop_and_lookup_ipv6
                             
                             	pop and lookup ipv6
-                            	**type**\:  :py:class:`PopAndLookupIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.PopAndLookupIpv6>`
+                            	**type**\:   :py:class:`PopAndLookupIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.PopAndLookupIpv6>`
                             
                             .. attribute:: pop_and_lookup_tp
                             
                             	pop and lookup tp
-                            	**type**\:  :py:class:`PopAndLookupTp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.PopAndLookupTp>`
+                            	**type**\:   :py:class:`PopAndLookupTp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.PopAndLookupTp>`
                             
                             .. attribute:: pseudowire_data
                             
                             	pseudowire data
-                            	**type**\:  :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.PseudowireData>`
+                            	**type**\:   :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.PseudowireData>`
                             
                             .. attribute:: pseudowire_head_end_data
                             
                             	pseudowire head end data
-                            	**type**\:  :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.PseudowireHeadEndData>`
+                            	**type**\:   :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.PseudowireHeadEndData>`
                             
                             .. attribute:: pw_list_data
                             
                             	pw list data
-                            	**type**\:  :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.PwListData>`
+                            	**type**\:   :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.PwListData>`
                             
                             .. attribute:: stackv4_data
                             
                             	stackv4 data
-                            	**type**\:  :py:class:`Stackv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Stackv4Data>`
+                            	**type**\:   :py:class:`Stackv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Stackv4Data>`
                             
                             .. attribute:: stackv6_data
                             
                             	stackv6 data
-                            	**type**\:  :py:class:`Stackv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Stackv6Data>`
+                            	**type**\:   :py:class:`Stackv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Stackv6Data>`
                             
                             .. attribute:: te_head_data
                             
                             	te head data
-                            	**type**\:  :py:class:`TeHeadData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.TeHeadData>`
+                            	**type**\:   :py:class:`TeHeadData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.TeHeadData>`
                             
                             .. attribute:: tev4_data
                             
                             	tev4 data
-                            	**type**\:  :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Tev4Data>`
+                            	**type**\:   :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Tev4Data>`
                             
                             
 
@@ -57495,17 +57501,17 @@ class MplsLsd(object):
                                 .. attribute:: inner_stack
                                 
                                 	Inner stack
-                                	**type**\:  :py:class:`InnerStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Stackv4Data.InnerStack>`
+                                	**type**\:   :py:class:`InnerStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Stackv4Data.InnerStack>`
                                 
                                 .. attribute:: nexthop
                                 
                                 	Nexthop
-                                	**type**\:  :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Stackv4Data.Nexthop>`
+                                	**type**\:   :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Stackv4Data.Nexthop>`
                                 
                                 .. attribute:: owner_application_type
                                 
                                 	Owner application type
-                                	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                                	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                                 
                                 
 
@@ -57714,7 +57720,7 @@ class MplsLsd(object):
                                     .. attribute:: label
                                     
                                     	Info related to outgoing labels
-                                    	**type**\: list of  :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Stackv4Data.InnerStack.Label>`
+                                    	**type**\: list of    :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Stackv4Data.InnerStack.Label>`
                                     
                                     .. attribute:: nexthop
                                     
@@ -57886,12 +57892,12 @@ class MplsLsd(object):
                                 .. attribute:: inner_stack
                                 
                                 	Inner stack
-                                	**type**\:  :py:class:`InnerStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Stackv6Data.InnerStack>`
+                                	**type**\:   :py:class:`InnerStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Stackv6Data.InnerStack>`
                                 
                                 .. attribute:: nexthop
                                 
                                 	Nexthop
-                                	**type**\:  :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Stackv6Data.Nexthop>`
+                                	**type**\:   :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Stackv6Data.Nexthop>`
                                 
                                 
 
@@ -58055,7 +58061,7 @@ class MplsLsd(object):
                                     .. attribute:: label
                                     
                                     	Info related to outgoing labels
-                                    	**type**\: list of  :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Stackv6Data.InnerStack.Label>`
+                                    	**type**\: list of    :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteTes.RewriteTe.Mois.MoiArray.Moi.Stackv6Data.InnerStack.Label>`
                                     
                                     .. attribute:: nexthop
                                     
@@ -58592,7 +58598,7 @@ class MplsLsd(object):
             .. attribute:: rewrite_label
             
             	FPI rewrite for label
-            	**type**\: list of  :py:class:`RewriteLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel>`
+            	**type**\: list of    :py:class:`RewriteLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel>`
             
             
 
@@ -58622,7 +58628,7 @@ class MplsLsd(object):
                 .. attribute:: associated_fpi
                 
                 	Associated FPI
-                	**type**\: list of  :py:class:`AssociatedFpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi>`
+                	**type**\: list of    :py:class:`AssociatedFpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi>`
                 
                 .. attribute:: bcdl_priority
                 
@@ -58634,7 +58640,7 @@ class MplsLsd(object):
                 .. attribute:: fpi_key
                 
                 	fpi key
-                	**type**\:  :py:class:`FpiKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.FpiKey>`
+                	**type**\:   :py:class:`FpiKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.FpiKey>`
                 
                 .. attribute:: lsd_queue
                 
@@ -58646,7 +58652,7 @@ class MplsLsd(object):
                 .. attribute:: mois
                 
                 	Mois
-                	**type**\: list of  :py:class:`Mois <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois>`
+                	**type**\: list of    :py:class:`Mois <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois>`
                 
                 .. attribute:: priority_updated
                 
@@ -58658,7 +58664,7 @@ class MplsLsd(object):
                 .. attribute:: rewrite_id
                 
                 	Rewrite ID
-                	**type**\:  :py:class:`RewriteId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId>`
+                	**type**\:   :py:class:`RewriteId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId>`
                 
                 .. attribute:: rewrite_version
                 
@@ -58691,12 +58697,12 @@ class MplsLsd(object):
                 .. attribute:: v4_rpf
                 
                 	IPv4 RPF neighbors
-                	**type**\: list of  :py:class:`V4Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.V4Rpf>`
+                	**type**\: list of    :py:class:`V4Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.V4Rpf>`
                 
                 .. attribute:: v6_rpf
                 
                 	IPv6 RPF neighbors
-                	**type**\: list of  :py:class:`V6Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.V6Rpf>`
+                	**type**\: list of    :py:class:`V6Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.V6Rpf>`
                 
                 
 
@@ -58740,12 +58746,12 @@ class MplsLsd(object):
                     .. attribute:: application_owner
                     
                     	Application owner instance
-                    	**type**\: list of  :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.FpiKey.ApplicationOwner>`
+                    	**type**\: list of    :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.FpiKey.ApplicationOwner>`
                     
                     .. attribute:: fpi
                     
                     	FPI
-                    	**type**\:  :py:class:`Fpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi>`
+                    	**type**\:   :py:class:`Fpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi>`
                     
                     
 
@@ -58770,37 +58776,37 @@ class MplsLsd(object):
                         .. attribute:: dmtc_ext_intf_data
                         
                         	dmtc ext intf data
-                        	**type**\:  :py:class:`DmtcExtIntfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi.DmtcExtIntfData>`
+                        	**type**\:   :py:class:`DmtcExtIntfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi.DmtcExtIntfData>`
                         
                         .. attribute:: fpi_type
                         
                         	FPIType
-                        	**type**\:  :py:class:`MgmtLsdFpiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFpiEnum>`
+                        	**type**\:   :py:class:`MgmtLsdFpiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFpiEnum>`
                         
                         .. attribute:: ipv4_data
                         
                         	ipv4 data
-                        	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi.Ipv4Data>`
+                        	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi.Ipv4Data>`
                         
                         .. attribute:: ipv6_data
                         
                         	ipv6 data
-                        	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi.Ipv6Data>`
+                        	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi.Ipv6Data>`
                         
                         .. attribute:: label_data
                         
                         	label data
-                        	**type**\:  :py:class:`LabelData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi.LabelData>`
+                        	**type**\:   :py:class:`LabelData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi.LabelData>`
                         
                         .. attribute:: pw_list_data
                         
                         	pw list data
-                        	**type**\:  :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi.PwListData>`
+                        	**type**\:   :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi.PwListData>`
                         
                         .. attribute:: te_data
                         
                         	te data
-                        	**type**\:  :py:class:`TeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi.TeData>`
+                        	**type**\:   :py:class:`TeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi.TeData>`
                         
                         
 
@@ -59284,12 +59290,12 @@ class MplsLsd(object):
                         .. attribute:: application_type
                         
                         	Application type
-                        	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                        	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                         
                         .. attribute:: resource_state
                         
                         	Application resource state
-                        	**type**\:  :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
+                        	**type**\:   :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
                         
                         
 
@@ -59379,7 +59385,7 @@ class MplsLsd(object):
                     .. attribute:: rewrite_id
                     
                     	Rewrite ID
-                    	**type**\:  :py:class:`RewriteId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId>`
+                    	**type**\:   :py:class:`RewriteId_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_>`
                     
                     
 
@@ -59390,28 +59396,28 @@ class MplsLsd(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.rewrite_id = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId()
+                        self.rewrite_id = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_()
                         self.rewrite_id.parent = self
 
 
-                    class RewriteId(object):
+                    class RewriteId_(object):
                         """
                         Rewrite ID
                         
                         .. attribute:: label_context
                         
                         	Label context
-                        	**type**\:  :py:class:`LabelContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext>`
+                        	**type**\:   :py:class:`LabelContext <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext>`
                         
                         .. attribute:: local_label_rewrite
                         
                         	Local label rewrite information
-                        	**type**\:  :py:class:`LocalLabelRewrite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LocalLabelRewrite>`
+                        	**type**\:   :py:class:`LocalLabelRewrite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LocalLabelRewrite>`
                         
                         .. attribute:: rewrite_id_type
                         
                         	RewriteIDType
-                        	**type**\:  :py:class:`MgmtLsdRwIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdRwIdEnum>`
+                        	**type**\:   :py:class:`MgmtLsdRwIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdRwIdEnum>`
                         
                         
 
@@ -59422,9 +59428,9 @@ class MplsLsd(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.label_context = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext()
+                            self.label_context = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext()
                             self.label_context.parent = self
-                            self.local_label_rewrite = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LocalLabelRewrite()
+                            self.local_label_rewrite = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LocalLabelRewrite()
                             self.local_label_rewrite.parent = self
                             self.rewrite_id_type = None
 
@@ -59436,147 +59442,147 @@ class MplsLsd(object):
                             .. attribute:: cev4l3vpn_data
                             
                             	L3VPN CEv4 label context
-                            	**type**\:  :py:class:`Cev4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Cev4L3VpnData>`
+                            	**type**\:   :py:class:`Cev4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData>`
                             
                             .. attribute:: cev6l3vpn_data
                             
                             	L3VPN CEv6 label context
-                            	**type**\:  :py:class:`Cev6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Cev6L3VpnData>`
+                            	**type**\:   :py:class:`Cev6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData>`
                             
                             .. attribute:: evpn_data
                             
                             	EVPN context
-                            	**type**\:  :py:class:`EvpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.EvpnData>`
+                            	**type**\:   :py:class:`EvpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.EvpnData>`
                             
                             .. attribute:: generic_routing_encapsulation
                             
                             	Generic routing encapsulation context
-                            	**type**\:  :py:class:`GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation>`
+                            	**type**\:   :py:class:`GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation>`
                             
                             .. attribute:: ip_sub_data
                             
                             	IP Subscriber context
-                            	**type**\:  :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.IpSubData>`
+                            	**type**\:   :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.IpSubData>`
                             
                             .. attribute:: ipv4_data
                             
                             	IPv4 label context
-                            	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4Data>`
+                            	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4Data>`
                             
                             .. attribute:: ipv4blb_data
                             
                             	BFD BLB label context
-                            	**type**\:  :py:class:`Ipv4BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4BlbData>`
+                            	**type**\:   :py:class:`Ipv4BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4BlbData>`
                             
                             .. attribute:: ipv4l3vpn_data
                             
                             	L3VPN IPv4 label context
-                            	**type**\:  :py:class:`Ipv4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData>`
+                            	**type**\:   :py:class:`Ipv4L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData>`
                             
                             .. attribute:: ipv6_data
                             
                             	IPv6 label context
-                            	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6Data>`
+                            	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6Data>`
                             
                             .. attribute:: ipv6_generic_routing_encapsulation
                             
                             	Generic routing encapsulation context
-                            	**type**\:  :py:class:`Ipv6GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation>`
+                            	**type**\:   :py:class:`Ipv6GenericRoutingEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation>`
                             
                             .. attribute:: ipv6blb_data
                             
                             	BFD BLB label context
-                            	**type**\:  :py:class:`Ipv6BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6BlbData>`
+                            	**type**\:   :py:class:`Ipv6BlbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6BlbData>`
                             
                             .. attribute:: ipv6l3vpn_data
                             
                             	L3VPN IPv6 label context
-                            	**type**\:  :py:class:`Ipv6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData>`
+                            	**type**\:   :py:class:`Ipv6L3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData>`
                             
                             .. attribute:: label_block_data
                             
                             	Label block context
-                            	**type**\:  :py:class:`LabelBlockData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.LabelBlockData>`
+                            	**type**\:   :py:class:`LabelBlockData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.LabelBlockData>`
                             
                             .. attribute:: label_block_srgb_data
                             
                             	Label block SRGB context
-                            	**type**\:  :py:class:`LabelBlockSrgbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData>`
+                            	**type**\:   :py:class:`LabelBlockSrgbData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData>`
                             
                             .. attribute:: label_context_type
                             
                             	LabelContextType
-                            	**type**\:  :py:class:`MgmtLsdLblCtxEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdLblCtxEnum>`
+                            	**type**\:   :py:class:`MgmtLsdLblCtxEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdLblCtxEnum>`
                             
                             .. attribute:: mld_pv4_data
                             
                             	MLDPv4 LSM\-ID context
-                            	**type**\:  :py:class:`MldPv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.MldPv4Data>`
+                            	**type**\:   :py:class:`MldPv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.MldPv4Data>`
                             
                             .. attribute:: next_hop_set_l3vpn
                             
                             	L3VPN NH SET label context
-                            	**type**\:  :py:class:`NextHopSetL3Vpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn>`
+                            	**type**\:   :py:class:`NextHopSetL3Vpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn>`
                             
                             .. attribute:: pi_mi_pmsi_data
                             
                             	PIM I\-PMSI label conext
-                            	**type**\:  :py:class:`PiMiPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PiMiPmsiData>`
+                            	**type**\:   :py:class:`PiMiPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PiMiPmsiData>`
                             
                             .. attribute:: pi_ms_pmsi_data
                             
                             	PIM S\-PMSI label conext
-                            	**type**\:  :py:class:`PiMsPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PiMsPmsiData>`
+                            	**type**\:   :py:class:`PiMsPmsiData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PiMsPmsiData>`
                             
                             .. attribute:: pseudowire_data
                             
                             	Pseudowire label context
-                            	**type**\:  :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PseudowireData>`
+                            	**type**\:   :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PseudowireData>`
                             
                             .. attribute:: pseudowire_head_end_data
                             
                             	Pseudowire Head\-end label context
-                            	**type**\:  :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData>`
+                            	**type**\:   :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData>`
                             
                             .. attribute:: sr_adj_segment_ipv4
                             
                             	SR Adj Segment ipv4 context
-                            	**type**\:  :py:class:`SrAdjSegmentIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4>`
+                            	**type**\:   :py:class:`SrAdjSegmentIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4>`
                             
                             .. attribute:: sr_adj_segment_ipv6
                             
                             	SR Adj Segment ipv6 context
-                            	**type**\:  :py:class:`SrAdjSegmentIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6>`
+                            	**type**\:   :py:class:`SrAdjSegmentIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6>`
                             
                             .. attribute:: sr_prefix_segment
                             
                             	SR Prefix Segment context
-                            	**type**\:  :py:class:`SrPrefixSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrPrefixSegment>`
+                            	**type**\:   :py:class:`SrPrefixSegment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrPrefixSegment>`
                             
                             .. attribute:: te_binding
                             
                             	MPLS TE tunnel binding context
-                            	**type**\:  :py:class:`TeBinding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.TeBinding>`
+                            	**type**\:   :py:class:`TeBinding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.TeBinding>`
                             
                             .. attribute:: tev4_data
                             
                             	TEv4 label context
-                            	**type**\:  :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Tev4Data>`
+                            	**type**\:   :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Tev4Data>`
                             
                             .. attribute:: tev4p2mp_data
                             
                             	TEv4 P2MP context
-                            	**type**\:  :py:class:`Tev4P2MpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Tev4P2MpData>`
+                            	**type**\:   :py:class:`Tev4P2MpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Tev4P2MpData>`
                             
                             .. attribute:: tp_data
                             
                             	TP context
-                            	**type**\:  :py:class:`TpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.TpData>`
+                            	**type**\:   :py:class:`TpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.TpData>`
                             
                             .. attribute:: vrf_l3vpn_data
                             
                             	L3VPN VRF label context
-                            	**type**\:  :py:class:`VrfL3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.VrfL3VpnData>`
+                            	**type**\:   :py:class:`VrfL3VpnData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.VrfL3VpnData>`
                             
                             
 
@@ -59587,62 +59593,62 @@ class MplsLsd(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.cev4l3vpn_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Cev4L3VpnData()
+                                self.cev4l3vpn_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData()
                                 self.cev4l3vpn_data.parent = self
-                                self.cev6l3vpn_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Cev6L3VpnData()
+                                self.cev6l3vpn_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData()
                                 self.cev6l3vpn_data.parent = self
-                                self.evpn_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.EvpnData()
+                                self.evpn_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.EvpnData()
                                 self.evpn_data.parent = self
-                                self.generic_routing_encapsulation = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation()
+                                self.generic_routing_encapsulation = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation()
                                 self.generic_routing_encapsulation.parent = self
-                                self.ip_sub_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.IpSubData()
+                                self.ip_sub_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.IpSubData()
                                 self.ip_sub_data.parent = self
-                                self.ipv4_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4Data()
+                                self.ipv4_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4Data()
                                 self.ipv4_data.parent = self
-                                self.ipv4blb_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4BlbData()
+                                self.ipv4blb_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4BlbData()
                                 self.ipv4blb_data.parent = self
-                                self.ipv4l3vpn_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData()
+                                self.ipv4l3vpn_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData()
                                 self.ipv4l3vpn_data.parent = self
-                                self.ipv6_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6Data()
+                                self.ipv6_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6Data()
                                 self.ipv6_data.parent = self
-                                self.ipv6_generic_routing_encapsulation = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation()
+                                self.ipv6_generic_routing_encapsulation = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation()
                                 self.ipv6_generic_routing_encapsulation.parent = self
-                                self.ipv6blb_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6BlbData()
+                                self.ipv6blb_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6BlbData()
                                 self.ipv6blb_data.parent = self
-                                self.ipv6l3vpn_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData()
+                                self.ipv6l3vpn_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData()
                                 self.ipv6l3vpn_data.parent = self
-                                self.label_block_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.LabelBlockData()
+                                self.label_block_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.LabelBlockData()
                                 self.label_block_data.parent = self
-                                self.label_block_srgb_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData()
+                                self.label_block_srgb_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData()
                                 self.label_block_srgb_data.parent = self
                                 self.label_context_type = None
-                                self.mld_pv4_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.MldPv4Data()
+                                self.mld_pv4_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.MldPv4Data()
                                 self.mld_pv4_data.parent = self
-                                self.next_hop_set_l3vpn = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn()
+                                self.next_hop_set_l3vpn = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn()
                                 self.next_hop_set_l3vpn.parent = self
-                                self.pi_mi_pmsi_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PiMiPmsiData()
+                                self.pi_mi_pmsi_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PiMiPmsiData()
                                 self.pi_mi_pmsi_data.parent = self
-                                self.pi_ms_pmsi_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PiMsPmsiData()
+                                self.pi_ms_pmsi_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PiMsPmsiData()
                                 self.pi_ms_pmsi_data.parent = self
-                                self.pseudowire_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PseudowireData()
+                                self.pseudowire_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PseudowireData()
                                 self.pseudowire_data.parent = self
-                                self.pseudowire_head_end_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData()
+                                self.pseudowire_head_end_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData()
                                 self.pseudowire_head_end_data.parent = self
-                                self.sr_adj_segment_ipv4 = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4()
+                                self.sr_adj_segment_ipv4 = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4()
                                 self.sr_adj_segment_ipv4.parent = self
-                                self.sr_adj_segment_ipv6 = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6()
+                                self.sr_adj_segment_ipv6 = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6()
                                 self.sr_adj_segment_ipv6.parent = self
-                                self.sr_prefix_segment = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrPrefixSegment()
+                                self.sr_prefix_segment = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrPrefixSegment()
                                 self.sr_prefix_segment.parent = self
-                                self.te_binding = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.TeBinding()
+                                self.te_binding = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.TeBinding()
                                 self.te_binding.parent = self
-                                self.tev4_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Tev4Data()
+                                self.tev4_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Tev4Data()
                                 self.tev4_data.parent = self
-                                self.tev4p2mp_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Tev4P2MpData()
+                                self.tev4p2mp_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Tev4P2MpData()
                                 self.tev4p2mp_data.parent = self
-                                self.tp_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.TpData()
+                                self.tp_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.TpData()
                                 self.tp_data.parent = self
-                                self.vrf_l3vpn_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.VrfL3VpnData()
+                                self.vrf_l3vpn_data = MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.VrfL3VpnData()
                                 self.vrf_l3vpn_data.parent = self
 
 
@@ -59734,7 +59740,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4Data']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4Data']['meta_info']
 
 
                             class Ipv6Data(object):
@@ -59825,7 +59831,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6Data']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6Data']['meta_info']
 
 
                             class Tev4Data(object):
@@ -59938,7 +59944,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Tev4Data']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Tev4Data']['meta_info']
 
 
                             class Ipv4L3VpnData(object):
@@ -60007,7 +60013,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData']['meta_info']
 
 
                             class Ipv6L3VpnData(object):
@@ -60076,7 +60082,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData']['meta_info']
 
 
                             class VrfL3VpnData(object):
@@ -60134,7 +60140,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.VrfL3VpnData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.VrfL3VpnData']['meta_info']
 
 
                             class Cev4L3VpnData(object):
@@ -60203,7 +60209,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Cev4L3VpnData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData']['meta_info']
 
 
                             class Cev6L3VpnData(object):
@@ -60272,7 +60278,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Cev6L3VpnData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData']['meta_info']
 
 
                             class PseudowireData(object):
@@ -60352,7 +60358,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PseudowireData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PseudowireData']['meta_info']
 
 
                             class LabelBlockData(object):
@@ -60443,7 +60449,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.LabelBlockData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.LabelBlockData']['meta_info']
 
 
                             class IpSubData(object):
@@ -60501,7 +60507,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.IpSubData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.IpSubData']['meta_info']
 
 
                             class Tev4P2MpData(object):
@@ -60614,7 +60620,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Tev4P2MpData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Tev4P2MpData']['meta_info']
 
 
                             class MldPv4Data(object):
@@ -60705,7 +60711,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.MldPv4Data']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.MldPv4Data']['meta_info']
 
 
                             class PseudowireHeadEndData(object):
@@ -60752,7 +60758,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData']['meta_info']
 
 
                             class TpData(object):
@@ -60865,7 +60871,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.TpData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.TpData']['meta_info']
 
 
                             class GenericRoutingEncapsulation(object):
@@ -60912,7 +60918,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation']['meta_info']
 
 
                             class Ipv6GenericRoutingEncapsulation(object):
@@ -60959,7 +60965,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation']['meta_info']
 
 
                             class EvpnData(object):
@@ -61028,7 +61034,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.EvpnData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.EvpnData']['meta_info']
 
 
                             class Ipv4BlbData(object):
@@ -61086,7 +61092,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4BlbData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4BlbData']['meta_info']
 
 
                             class Ipv6BlbData(object):
@@ -61144,7 +61150,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6BlbData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6BlbData']['meta_info']
 
 
                             class PiMiPmsiData(object):
@@ -61213,7 +61219,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PiMiPmsiData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PiMiPmsiData']['meta_info']
 
 
                             class PiMsPmsiData(object):
@@ -61315,7 +61321,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PiMsPmsiData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PiMsPmsiData']['meta_info']
 
 
                             class NextHopSetL3Vpn(object):
@@ -61373,7 +61379,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn']['meta_info']
 
 
                             class SrPrefixSegment(object):
@@ -61431,7 +61437,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrPrefixSegment']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrPrefixSegment']['meta_info']
 
 
                             class SrAdjSegmentIpv4(object):
@@ -61511,7 +61517,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4']['meta_info']
 
 
                             class SrAdjSegmentIpv6(object):
@@ -61591,7 +61597,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6']['meta_info']
 
 
                             class LabelBlockSrgbData(object):
@@ -61660,7 +61666,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData']['meta_info']
 
 
                             class TeBinding(object):
@@ -61677,7 +61683,7 @@ class MplsLsd(object):
                                 .. attribute:: te_type
                                 
                                 	Type of identifier for the binding
-                                	**type**\:  :py:class:`MgmtLsdTeBindingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdTeBindingEnum>`
+                                	**type**\:   :py:class:`MgmtLsdTeBindingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdTeBindingEnum>`
                                 
                                 
 
@@ -61716,7 +61722,7 @@ class MplsLsd(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.TeBinding']['meta_info']
+                                    return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.TeBinding']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -61824,7 +61830,7 @@ class MplsLsd(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
+                                return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
 
 
                         class LocalLabelRewrite(object):
@@ -61875,7 +61881,7 @@ class MplsLsd(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                                return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LocalLabelRewrite']['meta_info']
+                                return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LocalLabelRewrite']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -61905,7 +61911,7 @@ class MplsLsd(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_lsd_oper as meta
-                            return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId']['meta_info']
+                            return meta._meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -61939,12 +61945,12 @@ class MplsLsd(object):
                     .. attribute:: application_owner
                     
                     	Application owner instance
-                    	**type**\: list of  :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.ApplicationOwner>`
+                    	**type**\: list of    :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.ApplicationOwner>`
                     
                     .. attribute:: fpi
                     
                     	FPI
-                    	**type**\:  :py:class:`Fpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi>`
+                    	**type**\:   :py:class:`Fpi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi>`
                     
                     
 
@@ -61969,37 +61975,37 @@ class MplsLsd(object):
                         .. attribute:: dmtc_ext_intf_data
                         
                         	dmtc ext intf data
-                        	**type**\:  :py:class:`DmtcExtIntfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi.DmtcExtIntfData>`
+                        	**type**\:   :py:class:`DmtcExtIntfData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi.DmtcExtIntfData>`
                         
                         .. attribute:: fpi_type
                         
                         	FPIType
-                        	**type**\:  :py:class:`MgmtLsdFpiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFpiEnum>`
+                        	**type**\:   :py:class:`MgmtLsdFpiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdFpiEnum>`
                         
                         .. attribute:: ipv4_data
                         
                         	ipv4 data
-                        	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi.Ipv4Data>`
+                        	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi.Ipv4Data>`
                         
                         .. attribute:: ipv6_data
                         
                         	ipv6 data
-                        	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi.Ipv6Data>`
+                        	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi.Ipv6Data>`
                         
                         .. attribute:: label_data
                         
                         	label data
-                        	**type**\:  :py:class:`LabelData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi.LabelData>`
+                        	**type**\:   :py:class:`LabelData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi.LabelData>`
                         
                         .. attribute:: pw_list_data
                         
                         	pw list data
-                        	**type**\:  :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi.PwListData>`
+                        	**type**\:   :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi.PwListData>`
                         
                         .. attribute:: te_data
                         
                         	te data
-                        	**type**\:  :py:class:`TeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi.TeData>`
+                        	**type**\:   :py:class:`TeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi.TeData>`
                         
                         
 
@@ -62483,12 +62489,12 @@ class MplsLsd(object):
                         .. attribute:: application_type
                         
                         	Application type
-                        	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                        	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                         
                         .. attribute:: resource_state
                         
                         	Application resource state
-                        	**type**\:  :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
+                        	**type**\:   :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
                         
                         
 
@@ -62694,12 +62700,12 @@ class MplsLsd(object):
                     .. attribute:: application_resource
                     
                     	Application state
-                    	**type**\:  :py:class:`ApplicationResource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.ApplicationResource>`
+                    	**type**\:   :py:class:`ApplicationResource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.ApplicationResource>`
                     
                     .. attribute:: moi_array
                     
                     	moi array
-                    	**type**\: list of  :py:class:`MoiArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray>`
+                    	**type**\: list of    :py:class:`MoiArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray>`
                     
                     
 
@@ -62741,12 +62747,12 @@ class MplsLsd(object):
                         .. attribute:: application_type
                         
                         	Application type
-                        	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                        	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                         
                         .. attribute:: resource_state
                         
                         	Application resource state
-                        	**type**\:  :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
+                        	**type**\:   :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
                         
                         
 
@@ -62807,7 +62813,7 @@ class MplsLsd(object):
                         .. attribute:: moi
                         
                         	Moi
-                        	**type**\:  :py:class:`Moi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi>`
+                        	**type**\:   :py:class:`Moi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi>`
                         
                         
 
@@ -62829,77 +62835,77 @@ class MplsLsd(object):
                             .. attribute:: dmtc_data
                             
                             	dmtc data
-                            	**type**\:  :py:class:`DmtcData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.DmtcData>`
+                            	**type**\:   :py:class:`DmtcData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.DmtcData>`
                             
                             .. attribute:: ip_sub_data
                             
                             	ip sub data
-                            	**type**\:  :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.IpSubData>`
+                            	**type**\:   :py:class:`IpSubData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.IpSubData>`
                             
                             .. attribute:: ipv4_data
                             
                             	ipv4 data
-                            	**type**\:  :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Ipv4Data>`
+                            	**type**\:   :py:class:`Ipv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Ipv4Data>`
                             
                             .. attribute:: ipv6_data
                             
                             	ipv6 data
-                            	**type**\:  :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Ipv6Data>`
+                            	**type**\:   :py:class:`Ipv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Ipv6Data>`
                             
                             .. attribute:: moi_type
                             
                             	MoiType
-                            	**type**\:  :py:class:`MgmtLsdMoiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdMoiEnum>`
+                            	**type**\:   :py:class:`MgmtLsdMoiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdMoiEnum>`
                             
                             .. attribute:: pop_and_lookup_ipv4
                             
                             	pop and lookup ipv4
-                            	**type**\:  :py:class:`PopAndLookupIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.PopAndLookupIpv4>`
+                            	**type**\:   :py:class:`PopAndLookupIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.PopAndLookupIpv4>`
                             
                             .. attribute:: pop_and_lookup_ipv6
                             
                             	pop and lookup ipv6
-                            	**type**\:  :py:class:`PopAndLookupIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.PopAndLookupIpv6>`
+                            	**type**\:   :py:class:`PopAndLookupIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.PopAndLookupIpv6>`
                             
                             .. attribute:: pop_and_lookup_tp
                             
                             	pop and lookup tp
-                            	**type**\:  :py:class:`PopAndLookupTp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.PopAndLookupTp>`
+                            	**type**\:   :py:class:`PopAndLookupTp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.PopAndLookupTp>`
                             
                             .. attribute:: pseudowire_data
                             
                             	pseudowire data
-                            	**type**\:  :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.PseudowireData>`
+                            	**type**\:   :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.PseudowireData>`
                             
                             .. attribute:: pseudowire_head_end_data
                             
                             	pseudowire head end data
-                            	**type**\:  :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.PseudowireHeadEndData>`
+                            	**type**\:   :py:class:`PseudowireHeadEndData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.PseudowireHeadEndData>`
                             
                             .. attribute:: pw_list_data
                             
                             	pw list data
-                            	**type**\:  :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.PwListData>`
+                            	**type**\:   :py:class:`PwListData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.PwListData>`
                             
                             .. attribute:: stackv4_data
                             
                             	stackv4 data
-                            	**type**\:  :py:class:`Stackv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Stackv4Data>`
+                            	**type**\:   :py:class:`Stackv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Stackv4Data>`
                             
                             .. attribute:: stackv6_data
                             
                             	stackv6 data
-                            	**type**\:  :py:class:`Stackv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Stackv6Data>`
+                            	**type**\:   :py:class:`Stackv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Stackv6Data>`
                             
                             .. attribute:: te_head_data
                             
                             	te head data
-                            	**type**\:  :py:class:`TeHeadData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.TeHeadData>`
+                            	**type**\:   :py:class:`TeHeadData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.TeHeadData>`
                             
                             .. attribute:: tev4_data
                             
                             	tev4 data
-                            	**type**\:  :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Tev4Data>`
+                            	**type**\:   :py:class:`Tev4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Tev4Data>`
                             
                             
 
@@ -64131,17 +64137,17 @@ class MplsLsd(object):
                                 .. attribute:: inner_stack
                                 
                                 	Inner stack
-                                	**type**\:  :py:class:`InnerStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Stackv4Data.InnerStack>`
+                                	**type**\:   :py:class:`InnerStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Stackv4Data.InnerStack>`
                                 
                                 .. attribute:: nexthop
                                 
                                 	Nexthop
-                                	**type**\:  :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Stackv4Data.Nexthop>`
+                                	**type**\:   :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Stackv4Data.Nexthop>`
                                 
                                 .. attribute:: owner_application_type
                                 
                                 	Owner application type
-                                	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                                	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                                 
                                 
 
@@ -64350,7 +64356,7 @@ class MplsLsd(object):
                                     .. attribute:: label
                                     
                                     	Info related to outgoing labels
-                                    	**type**\: list of  :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Stackv4Data.InnerStack.Label>`
+                                    	**type**\: list of    :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Stackv4Data.InnerStack.Label>`
                                     
                                     .. attribute:: nexthop
                                     
@@ -64522,12 +64528,12 @@ class MplsLsd(object):
                                 .. attribute:: inner_stack
                                 
                                 	Inner stack
-                                	**type**\:  :py:class:`InnerStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Stackv6Data.InnerStack>`
+                                	**type**\:   :py:class:`InnerStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Stackv6Data.InnerStack>`
                                 
                                 .. attribute:: nexthop
                                 
                                 	Nexthop
-                                	**type**\:  :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Stackv6Data.Nexthop>`
+                                	**type**\:   :py:class:`Nexthop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Stackv6Data.Nexthop>`
                                 
                                 
 
@@ -64691,7 +64697,7 @@ class MplsLsd(object):
                                     .. attribute:: label
                                     
                                     	Info related to outgoing labels
-                                    	**type**\: list of  :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Stackv6Data.InnerStack.Label>`
+                                    	**type**\: list of    :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Rewrite.RewriteLabels.RewriteLabel.Mois.MoiArray.Moi.Stackv6Data.InnerStack.Label>`
                                     
                                     .. attribute:: nexthop
                                     
@@ -65259,12 +65265,12 @@ class MplsLsd(object):
         .. attribute:: ipv4_paths
         
         	Count for IPv4 paths
-        	**type**\:  :py:class:`Ipv4Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.RewriteSummary.Ipv4Paths>`
+        	**type**\:   :py:class:`Ipv4Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.RewriteSummary.Ipv4Paths>`
         
         .. attribute:: ipv6_paths
         
         	Count for IPv6 paths
-        	**type**\:  :py:class:`Ipv6Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.RewriteSummary.Ipv6Paths>`
+        	**type**\:   :py:class:`Ipv6Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.RewriteSummary.Ipv6Paths>`
         
         .. attribute:: num_dmtctefpi
         
@@ -65698,7 +65704,7 @@ class MplsLsd(object):
         .. attribute:: application
         
         	Data for MPLS application using LSD
-        	**type**\: list of  :py:class:`Application <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Applications.Application>`
+        	**type**\: list of    :py:class:`Application <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Applications.Application>`
         
         
 
@@ -65766,17 +65772,17 @@ class MplsLsd(object):
             .. attribute:: application_state
             
             	Application state
-            	**type**\:  :py:class:`MgmtLsdAppStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppStateEnum>`
+            	**type**\:   :py:class:`MgmtLsdAppStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppStateEnum>`
             
             .. attribute:: application_statistics
             
             	Application Statistics
-            	**type**\:  :py:class:`ApplicationStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Applications.Application.ApplicationStatistics>`
+            	**type**\:   :py:class:`ApplicationStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Applications.Application.ApplicationStatistics>`
             
             .. attribute:: application_type
             
             	Application type
-            	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+            	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
             
             .. attribute:: flow_ctrl_clr_time
             
@@ -65813,6 +65819,8 @@ class MplsLsd(object):
             
             	**range:** 0..4294967295
             
+            	**units**\: second
+            
             .. attribute:: recovery_time_register_seconds
             
             	Recovery time [secs] specified at registration or set explicitly
@@ -65820,12 +65828,16 @@ class MplsLsd(object):
             
             	**range:** 0..4294967295
             
+            	**units**\: second
+            
             .. attribute:: recovery_time_remaining_seconds
             
             	Recovery time [secs] remaining if client is timing out
             	**type**\:  int
             
             	**range:** 0..4294967295
+            
+            	**units**\: second
             
             
 
@@ -65870,7 +65882,7 @@ class MplsLsd(object):
                 .. attribute:: connected
                 
                 	Connected statistics
-                	**type**\:  :py:class:`Connected <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Applications.Application.ApplicationStatistics.Connected>`
+                	**type**\:   :py:class:`Connected <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Applications.Application.ApplicationStatistics.Connected>`
                 
                 .. attribute:: interface_enable
                 
@@ -66148,7 +66160,7 @@ class MplsLsd(object):
         .. attribute:: label_summary_vrf
         
         	Dynamic label range summary by VRF
-        	**type**\: list of  :py:class:`LabelSummaryVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.LabelSummaryVrfs.LabelSummaryVrf>`
+        	**type**\: list of    :py:class:`LabelSummaryVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.LabelSummaryVrfs.LabelSummaryVrf>`
         
         
 
@@ -66178,7 +66190,7 @@ class MplsLsd(object):
             .. attribute:: owner_count
             
             	Owner counts
-            	**type**\: list of  :py:class:`OwnerCount <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.LabelSummaryVrfs.LabelSummaryVrf.OwnerCount>`
+            	**type**\: list of    :py:class:`OwnerCount <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.LabelSummaryVrfs.LabelSummaryVrf.OwnerCount>`
             
             .. attribute:: rsi_connected
             
@@ -66241,7 +66253,7 @@ class MplsLsd(object):
                 .. attribute:: application_type
                 
                 	Application type
-                	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                 
                 .. attribute:: number_of_labels
                 
@@ -66449,7 +66461,7 @@ class MplsLsd(object):
         .. attribute:: rewrite_summary_vrf
         
         	Rewrite summary by VRF VRF\-name
-        	**type**\: list of  :py:class:`RewriteSummaryVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.RewriteSummaryVrfs.RewriteSummaryVrf>`
+        	**type**\: list of    :py:class:`RewriteSummaryVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.RewriteSummaryVrfs.RewriteSummaryVrf>`
         
         
 
@@ -66479,12 +66491,12 @@ class MplsLsd(object):
             .. attribute:: ipv4_paths
             
             	Count for IPv4 paths
-            	**type**\:  :py:class:`Ipv4Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.RewriteSummaryVrfs.RewriteSummaryVrf.Ipv4Paths>`
+            	**type**\:   :py:class:`Ipv4Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.RewriteSummaryVrfs.RewriteSummaryVrf.Ipv4Paths>`
             
             .. attribute:: ipv6_paths
             
             	Count for IPv6 paths
-            	**type**\:  :py:class:`Ipv6Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.RewriteSummaryVrfs.RewriteSummaryVrf.Ipv6Paths>`
+            	**type**\:   :py:class:`Ipv6Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.RewriteSummaryVrfs.RewriteSummaryVrf.Ipv6Paths>`
             
             .. attribute:: num_dmtctefpi
             
@@ -66952,7 +66964,7 @@ class MplsLsd(object):
         .. attribute:: interface
         
         	Data for MPLS interface
-        	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Interfaces.Interface>`
+        	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Interfaces.Interface>`
         
         
 
@@ -66982,7 +66994,7 @@ class MplsLsd(object):
             .. attribute:: application_owner
             
             	Application Owner
-            	**type**\: list of  :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Interfaces.Interface.ApplicationOwner>`
+            	**type**\: list of    :py:class:`ApplicationOwner <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MplsLsd.Interfaces.Interface.ApplicationOwner>`
             
             .. attribute:: interface
             
@@ -66994,7 +67006,7 @@ class MplsLsd(object):
             .. attribute:: interface_state
             
             	Interface state
-            	**type**\:  :py:class:`MgmtLsdIntfStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdIntfStateEnum>`
+            	**type**\:   :py:class:`MgmtLsdIntfStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdIntfStateEnum>`
             
             
 
@@ -67037,12 +67049,12 @@ class MplsLsd(object):
                 .. attribute:: application_type
                 
                 	Application type
-                	**type**\:  :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
+                	**type**\:   :py:class:`MgmtLsdAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppEnum>`
                 
                 .. attribute:: resource_state
                 
                 	Application resource state
-                	**type**\:  :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
+                	**type**\:   :py:class:`MgmtLsdAppRsrcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper.MgmtLsdAppRsrcStateEnum>`
                 
                 
 

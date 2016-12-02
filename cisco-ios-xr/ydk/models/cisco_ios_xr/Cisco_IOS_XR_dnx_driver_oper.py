@@ -30,25 +30,25 @@ class AdminStateEnum(Enum):
 
     Admin state
 
-    .. data:: ADMIN_UNSET = -1
+    .. data:: admin_unset = -1
 
     	admin unset
 
-    .. data:: ADMIN_UP = 0
+    .. data:: admin_up = 0
 
     	admin up
 
-    .. data:: ADMIN_DOWN = 1
+    .. data:: admin_down = 1
 
     	admin down
 
     """
 
-    ADMIN_UNSET = -1
+    admin_unset = -1
 
-    ADMIN_UP = 0
+    admin_up = 0
 
-    ADMIN_DOWN = 1
+    admin_down = 1
 
 
     @staticmethod
@@ -63,163 +63,163 @@ class AsicAccessStateEnum(Enum):
 
     Asic access state
 
-    .. data:: ASIC_STATE_UNSET = -1
+    .. data:: asic_state_unset = -1
 
     	asic state unset
 
-    .. data:: ASIC_STATE_NONE = 0
+    .. data:: asic_state_none = 0
 
     	asic state none
 
-    .. data:: ASIC_STATE_DEVICE_OFF_LINE = 1
+    .. data:: asic_state_device_off_line = 1
 
     	asic state device off line
 
-    .. data:: ASIC_STATE_DEVICE_CREATED = 2
+    .. data:: asic_state_device_created = 2
 
     	asic state device created
 
-    .. data:: ASIC_STATE_DEVICE_ONLINE = 3
+    .. data:: asic_state_device_online = 3
 
     	asic state device online
 
-    .. data:: ASIC_STATE_WARMBOOT = 4
+    .. data:: asic_state_warmboot = 4
 
     	asic state warmboot
 
-    .. data:: ASIC_STATE_DE_INIT_START = 5
+    .. data:: asic_state_de_init_start = 5
 
     	asic state de init start
 
-    .. data:: ASIC_STATE_INTR_DE_INIT = 6
+    .. data:: asic_state_intr_de_init = 6
 
     	asic state intr de init
 
-    .. data:: ASIC_STATE_BCM_DETACH = 7
+    .. data:: asic_state_bcm_detach = 7
 
     	asic state bcm detach
 
-    .. data:: ASIC_STATE_SOC_DE_INIT = 8
+    .. data:: asic_state_soc_de_init = 8
 
     	asic state soc de init
 
-    .. data:: ASIC_STATE_DE_INIT_DONE = 9
+    .. data:: asic_state_de_init_done = 9
 
     	asic state de init done
 
-    .. data:: ASIC_STATE_SOC_INIT = 10
+    .. data:: asic_state_soc_init = 10
 
     	asic state soc init
 
-    .. data:: ASIC_STATE_BCM_INIT = 11
+    .. data:: asic_state_bcm_init = 11
 
     	asic state bcm init
 
-    .. data:: ASIC_STATE_INTR_INIT = 12
+    .. data:: asic_state_intr_init = 12
 
     	asic state intr init
 
-    .. data:: ASIC_STATE_SOC_INIT_START = 13
+    .. data:: asic_state_soc_init_start = 13
 
     	asic state soc init start
 
-    .. data:: ASIC_STATE_BCM_INIT_START = 14
+    .. data:: asic_state_bcm_init_start = 14
 
     	asic state bcm init start
 
-    .. data:: ASIC_STATE_INTR_INIT_START = 15
+    .. data:: asic_state_intr_init_start = 15
 
     	asic state intr init start
 
-    .. data:: ASIC_STATE_HARD_RESET = 16
+    .. data:: asic_state_hard_reset = 16
 
     	asic state hard reset
 
-    .. data:: ASIC_STATE_NORMAL = 17
+    .. data:: asic_state_normal = 17
 
     	asic state normal
 
-    .. data:: ASIC_STATE_EXCEPTION = 18
+    .. data:: asic_state_exception = 18
 
     	asic state exception
 
-    .. data:: ASIC_STATE_HP_ATTACHED = 19
+    .. data:: asic_state_hp_attached = 19
 
     	asic state hp attached
 
-    .. data:: ASIC_STATE_QUIESCE = 20
+    .. data:: asic_state_quiesce = 20
 
     	asic state quiesce
 
-    .. data:: ASIC_STATE_ISSU_STARTED = 21
+    .. data:: asic_state_issu_started = 21
 
     	asic state issu started
 
-    .. data:: ASIC_STATE_ISSU_STARTED_NN = 22
+    .. data:: asic_state_issu_started_nn = 22
 
     	asic state issu started nn
 
-    .. data:: ASIC_STATE_ISSU_ABORT = 23
+    .. data:: asic_state_issu_abort = 23
 
     	asic state issu abort
 
-    .. data:: ASIC_STATE_MAX = 24
+    .. data:: asic_state_max = 24
 
     	asic state max
 
     """
 
-    ASIC_STATE_UNSET = -1
+    asic_state_unset = -1
 
-    ASIC_STATE_NONE = 0
+    asic_state_none = 0
 
-    ASIC_STATE_DEVICE_OFF_LINE = 1
+    asic_state_device_off_line = 1
 
-    ASIC_STATE_DEVICE_CREATED = 2
+    asic_state_device_created = 2
 
-    ASIC_STATE_DEVICE_ONLINE = 3
+    asic_state_device_online = 3
 
-    ASIC_STATE_WARMBOOT = 4
+    asic_state_warmboot = 4
 
-    ASIC_STATE_DE_INIT_START = 5
+    asic_state_de_init_start = 5
 
-    ASIC_STATE_INTR_DE_INIT = 6
+    asic_state_intr_de_init = 6
 
-    ASIC_STATE_BCM_DETACH = 7
+    asic_state_bcm_detach = 7
 
-    ASIC_STATE_SOC_DE_INIT = 8
+    asic_state_soc_de_init = 8
 
-    ASIC_STATE_DE_INIT_DONE = 9
+    asic_state_de_init_done = 9
 
-    ASIC_STATE_SOC_INIT = 10
+    asic_state_soc_init = 10
 
-    ASIC_STATE_BCM_INIT = 11
+    asic_state_bcm_init = 11
 
-    ASIC_STATE_INTR_INIT = 12
+    asic_state_intr_init = 12
 
-    ASIC_STATE_SOC_INIT_START = 13
+    asic_state_soc_init_start = 13
 
-    ASIC_STATE_BCM_INIT_START = 14
+    asic_state_bcm_init_start = 14
 
-    ASIC_STATE_INTR_INIT_START = 15
+    asic_state_intr_init_start = 15
 
-    ASIC_STATE_HARD_RESET = 16
+    asic_state_hard_reset = 16
 
-    ASIC_STATE_NORMAL = 17
+    asic_state_normal = 17
 
-    ASIC_STATE_EXCEPTION = 18
+    asic_state_exception = 18
 
-    ASIC_STATE_HP_ATTACHED = 19
+    asic_state_hp_attached = 19
 
-    ASIC_STATE_QUIESCE = 20
+    asic_state_quiesce = 20
 
-    ASIC_STATE_ISSU_STARTED = 21
+    asic_state_issu_started = 21
 
-    ASIC_STATE_ISSU_STARTED_NN = 22
+    asic_state_issu_started_nn = 22
 
-    ASIC_STATE_ISSU_ABORT = 23
+    asic_state_issu_abort = 23
 
-    ASIC_STATE_MAX = 24
+    asic_state_max = 24
 
 
     @staticmethod
@@ -234,55 +234,55 @@ class AsicEnum(Enum):
 
     Asic
 
-    .. data:: ASIC_UNSET = -1
+    .. data:: asic_unset = -1
 
     	asic unset
 
-    .. data:: ASIC_UNAVAIL = 0
+    .. data:: asic_unavail = 0
 
     	asic unavail
 
-    .. data:: ASIC_FIA = 1
+    .. data:: asic_fia = 1
 
     	asic fia
 
-    .. data:: ASIC_S123 = 2
+    .. data:: asic_s123 = 2
 
     	asic s123
 
-    .. data:: ASIC_S13 = 3
+    .. data:: asic_s13 = 3
 
     	asic s13
 
-    .. data:: ASIC_S2 = 4
+    .. data:: asic_s2 = 4
 
     	asic s2
 
-    .. data:: ASIC_B2B = 5
+    .. data:: asic_b2b = 5
 
     	asic b2b
 
-    .. data:: ASIC_UNKNOWN = 6
+    .. data:: asic_unknown = 6
 
     	asic unknown
 
     """
 
-    ASIC_UNSET = -1
+    asic_unset = -1
 
-    ASIC_UNAVAIL = 0
+    asic_unavail = 0
 
-    ASIC_FIA = 1
+    asic_fia = 1
 
-    ASIC_S123 = 2
+    asic_s123 = 2
 
-    ASIC_S13 = 3
+    asic_s13 = 3
 
-    ASIC_S2 = 4
+    asic_s2 = 4
 
-    ASIC_B2B = 5
+    asic_b2b = 5
 
-    ASIC_UNKNOWN = 6
+    asic_unknown = 6
 
 
     @staticmethod
@@ -297,115 +297,115 @@ class AsicInitMethodEnum(Enum):
 
     Asic init method
 
-    .. data:: ASIC_INIT_METHOD_UNSET = -1
+    .. data:: asic_init_method_unset = -1
 
     	asic init method unset
 
-    .. data:: ASIC_INIT_METHOD_NO_RESET = 0
+    .. data:: asic_init_method_no_reset = 0
 
     	asic init method no reset
 
-    .. data:: ASIC_INIT_METHOD_PON_RESET = 1
+    .. data:: asic_init_method_pon_reset = 1
 
     	asic init method pon reset
 
-    .. data:: ASIC_INIT_METHOD_PON_RESET_ON_INTR = 2
+    .. data:: asic_init_method_pon_reset_on_intr = 2
 
     	asic init method pon reset on intr
 
-    .. data:: ASIC_INIT_METHOD_HARD_RESET = 3
+    .. data:: asic_init_method_hard_reset = 3
 
     	asic init method hard reset
 
-    .. data:: ASIC_INIT_METHOD_WARMBOOT = 4
+    .. data:: asic_init_method_warmboot = 4
 
     	asic init method warmboot
 
-    .. data:: ASIC_INIT_METHOD_ISSU_WB = 5
+    .. data:: asic_init_method_issu_wb = 5
 
     	asic init method issu wb
 
-    .. data:: ASIC_INIT_METHOD_PCI_SHUTDOWN = 6
+    .. data:: asic_init_method_pci_shutdown = 6
 
     	asic init method pci shutdown
 
-    .. data:: ASIC_INIT_METHOD_QUIESCE = 7
+    .. data:: asic_init_method_quiesce = 7
 
     	asic init method quiesce
 
-    .. data:: ASIC_INIT_METHOD_ISSU_STARTED = 8
+    .. data:: asic_init_method_issu_started = 8
 
     	asic init method issu started
 
-    .. data:: ASIC_INIT_METHOD_ISSU_ROLLBACK = 9
+    .. data:: asic_init_method_issu_rollback = 9
 
     	asic init method issu rollback
 
-    .. data:: ASIC_INIT_METHOD_ISSU_ABORT = 10
+    .. data:: asic_init_method_issu_abort = 10
 
     	asic init method issu abort
 
-    .. data:: ASIC_INIT_METHOD_SLICE_CLEANUP = 11
+    .. data:: asic_init_method_slice_cleanup = 11
 
     	asic init method slice cleanup
 
-    .. data:: ASIC_INIT_METHOD_LC_REMOVE = 12
+    .. data:: asic_init_method_lc_remove = 12
 
     	asic init method lc remove
 
-    .. data:: ASIC_INIT_METHOD_NODE_DOWN = 13
+    .. data:: asic_init_method_node_down = 13
 
     	asic init method node down
 
-    .. data:: ASIC_INIT_METHOD_INTR = 14
+    .. data:: asic_init_method_intr = 14
 
     	asic init method intr
 
-    .. data:: ASIC_INIT_METHOD_BOARD_RELOAD = 15
+    .. data:: asic_init_method_board_reload = 15
 
     	asic init method board reload
 
-    .. data:: ASIC_INIT_METHOD_MAX = 16
+    .. data:: asic_init_method_max = 16
 
     	asic init method max
 
     """
 
-    ASIC_INIT_METHOD_UNSET = -1
+    asic_init_method_unset = -1
 
-    ASIC_INIT_METHOD_NO_RESET = 0
+    asic_init_method_no_reset = 0
 
-    ASIC_INIT_METHOD_PON_RESET = 1
+    asic_init_method_pon_reset = 1
 
-    ASIC_INIT_METHOD_PON_RESET_ON_INTR = 2
+    asic_init_method_pon_reset_on_intr = 2
 
-    ASIC_INIT_METHOD_HARD_RESET = 3
+    asic_init_method_hard_reset = 3
 
-    ASIC_INIT_METHOD_WARMBOOT = 4
+    asic_init_method_warmboot = 4
 
-    ASIC_INIT_METHOD_ISSU_WB = 5
+    asic_init_method_issu_wb = 5
 
-    ASIC_INIT_METHOD_PCI_SHUTDOWN = 6
+    asic_init_method_pci_shutdown = 6
 
-    ASIC_INIT_METHOD_QUIESCE = 7
+    asic_init_method_quiesce = 7
 
-    ASIC_INIT_METHOD_ISSU_STARTED = 8
+    asic_init_method_issu_started = 8
 
-    ASIC_INIT_METHOD_ISSU_ROLLBACK = 9
+    asic_init_method_issu_rollback = 9
 
-    ASIC_INIT_METHOD_ISSU_ABORT = 10
+    asic_init_method_issu_abort = 10
 
-    ASIC_INIT_METHOD_SLICE_CLEANUP = 11
+    asic_init_method_slice_cleanup = 11
 
-    ASIC_INIT_METHOD_LC_REMOVE = 12
+    asic_init_method_lc_remove = 12
 
-    ASIC_INIT_METHOD_NODE_DOWN = 13
+    asic_init_method_node_down = 13
 
-    ASIC_INIT_METHOD_INTR = 14
+    asic_init_method_intr = 14
 
-    ASIC_INIT_METHOD_BOARD_RELOAD = 15
+    asic_init_method_board_reload = 15
 
-    ASIC_INIT_METHOD_MAX = 16
+    asic_init_method_max = 16
 
 
     @staticmethod
@@ -420,37 +420,37 @@ class AsicOperStateEnum(Enum):
 
     Asic oper state
 
-    .. data:: ASIC_OPER_UNSET = -1
+    .. data:: asic_oper_unset = -1
 
     	asic oper unset
 
-    .. data:: ASIC_OPER_UNKNOWN = 0
+    .. data:: asic_oper_unknown = 0
 
     	asic oper unknown
 
-    .. data:: ASIC_OPER_UP = 1
+    .. data:: asic_oper_up = 1
 
     	asic oper up
 
-    .. data:: ASIC_OPER_DOWN = 2
+    .. data:: asic_oper_down = 2
 
     	asic oper down
 
-    .. data:: ASIC_CARD_DOWN = 3
+    .. data:: asic_card_down = 3
 
     	asic card down
 
     """
 
-    ASIC_OPER_UNSET = -1
+    asic_oper_unset = -1
 
-    ASIC_OPER_UNKNOWN = 0
+    asic_oper_unknown = 0
 
-    ASIC_OPER_UP = 1
+    asic_oper_up = 1
 
-    ASIC_OPER_DOWN = 2
+    asic_oper_down = 2
 
-    ASIC_CARD_DOWN = 3
+    asic_card_down = 3
 
 
     @staticmethod
@@ -465,31 +465,31 @@ class FcModeEnum(Enum):
 
     Fc mode
 
-    .. data:: FC_MODE_UNSET = -1
+    .. data:: fc_mode_unset = -1
 
     	fc mode unset
 
-    .. data:: FC_MODE_UNAVAIL = 0
+    .. data:: fc_mode_unavail = 0
 
     	fc mode unavail
 
-    .. data:: FC_MODE_INBAND = 1
+    .. data:: fc_mode_inband = 1
 
     	fc mode inband
 
-    .. data:: FC_MODE_OOB = 2
+    .. data:: fc_mode_oob = 2
 
     	fc mode oob
 
     """
 
-    FC_MODE_UNSET = -1
+    fc_mode_unset = -1
 
-    FC_MODE_UNAVAIL = 0
+    fc_mode_unavail = 0
 
-    FC_MODE_INBAND = 1
+    fc_mode_inband = 1
 
-    FC_MODE_OOB = 2
+    fc_mode_oob = 2
 
 
     @staticmethod
@@ -504,31 +504,31 @@ class LinkEnum(Enum):
 
     Link
 
-    .. data:: LINK_TYPE_UNSET = -1
+    .. data:: link_type_unset = -1
 
     	link type unset
 
-    .. data:: LINK_TYPE_UNAVAIL = 0
+    .. data:: link_type_unavail = 0
 
     	link type unavail
 
-    .. data:: LINK_TYPE_TX = 1
+    .. data:: link_type_tx = 1
 
     	link type tx
 
-    .. data:: LINK_TYPE_RX = 2
+    .. data:: link_type_rx = 2
 
     	link type rx
 
     """
 
-    LINK_TYPE_UNSET = -1
+    link_type_unset = -1
 
-    LINK_TYPE_UNAVAIL = 0
+    link_type_unavail = 0
 
-    LINK_TYPE_TX = 1
+    link_type_tx = 1
 
-    LINK_TYPE_RX = 2
+    link_type_rx = 2
 
 
     @staticmethod
@@ -543,31 +543,31 @@ class LinkErrorStateEnum(Enum):
 
     Link error state
 
-    .. data:: LINK_ERROR_UNSET = -1
+    .. data:: link_error_unset = -1
 
     	link error unset
 
-    .. data:: LINK_ERROR_NONE = 0
+    .. data:: link_error_none = 0
 
     	link error none
 
-    .. data:: LINK_ERROR_SHUT = 1
+    .. data:: link_error_shut = 1
 
     	link error shut
 
-    .. data:: LINK_ERROR_MAX = 2
+    .. data:: link_error_max = 2
 
     	link error max
 
     """
 
-    LINK_ERROR_UNSET = -1
+    link_error_unset = -1
 
-    LINK_ERROR_NONE = 0
+    link_error_none = 0
 
-    LINK_ERROR_SHUT = 1
+    link_error_shut = 1
 
-    LINK_ERROR_MAX = 2
+    link_error_max = 2
 
 
     @staticmethod
@@ -582,49 +582,49 @@ class LinkStageEnum(Enum):
 
     Link stage
 
-    .. data:: LINK_STAGE_UNSET = -1
+    .. data:: link_stage_unset = -1
 
     	link stage unset
 
-    .. data:: LINK_STAGE_UNUSED = 0
+    .. data:: link_stage_unused = 0
 
     	link stage unused
 
-    .. data:: LINK_STAGE_FIA = 1
+    .. data:: link_stage_fia = 1
 
     	link stage fia
 
-    .. data:: LINK_STAGE_S1 = 2
+    .. data:: link_stage_s1 = 2
 
     	link stage s1
 
-    .. data:: LINK_STAGE_S2 = 3
+    .. data:: link_stage_s2 = 3
 
     	link stage s2
 
-    .. data:: LINK_STAGE_S3 = 4
+    .. data:: link_stage_s3 = 4
 
     	link stage s3
 
-    .. data:: LINK_STAGE_UNKNOWN = 5
+    .. data:: link_stage_unknown = 5
 
     	link stage unknown
 
     """
 
-    LINK_STAGE_UNSET = -1
+    link_stage_unset = -1
 
-    LINK_STAGE_UNUSED = 0
+    link_stage_unused = 0
 
-    LINK_STAGE_FIA = 1
+    link_stage_fia = 1
 
-    LINK_STAGE_S1 = 2
+    link_stage_s1 = 2
 
-    LINK_STAGE_S2 = 3
+    link_stage_s2 = 3
 
-    LINK_STAGE_S3 = 4
+    link_stage_s3 = 4
 
-    LINK_STAGE_UNKNOWN = 5
+    link_stage_unknown = 5
 
 
     @staticmethod
@@ -639,37 +639,37 @@ class OperStateEnum(Enum):
 
     Oper state
 
-    .. data:: OPER_UNSET = -1
+    .. data:: oper_unset = -1
 
     	oper unset
 
-    .. data:: OPER_UNKNOWN = 0
+    .. data:: oper_unknown = 0
 
     	oper unknown
 
-    .. data:: OPER_UP = 1
+    .. data:: oper_up = 1
 
     	oper up
 
-    .. data:: OPER_DOWN = 2
+    .. data:: oper_down = 2
 
     	oper down
 
-    .. data:: CARD_DOWN = 3
+    .. data:: card_down = 3
 
     	card down
 
     """
 
-    OPER_UNSET = -1
+    oper_unset = -1
 
-    OPER_UNKNOWN = 0
+    oper_unknown = 0
 
-    OPER_UP = 1
+    oper_up = 1
 
-    OPER_DOWN = 2
+    oper_down = 2
 
-    CARD_DOWN = 3
+    card_down = 3
 
 
     @staticmethod
@@ -684,25 +684,25 @@ class RackEnum(Enum):
 
     Rack
 
-    .. data:: RACK_TYPE_UNSET = -1
+    .. data:: rack_type_unset = -1
 
     	rack type unset
 
-    .. data:: RACK_TYPE_LCC = 0
+    .. data:: rack_type_lcc = 0
 
     	rack type lcc
 
-    .. data:: RACK_TYPE_FCC = 1
+    .. data:: rack_type_fcc = 1
 
     	rack type fcc
 
     """
 
-    RACK_TYPE_UNSET = -1
+    rack_type_unset = -1
 
-    RACK_TYPE_LCC = 0
+    rack_type_lcc = 0
 
-    RACK_TYPE_FCC = 1
+    rack_type_fcc = 1
 
 
     @staticmethod
@@ -717,31 +717,31 @@ class SliceStateEnum(Enum):
 
     Slice state
 
-    .. data:: SLICE_OPER_UNSET = -1
+    .. data:: slice_oper_unset = -1
 
     	slice oper unset
 
-    .. data:: SLICE_OPER_DOWN = 0
+    .. data:: slice_oper_down = 0
 
     	slice oper down
 
-    .. data:: SLICE_OPER_UP = 1
+    .. data:: slice_oper_up = 1
 
     	slice oper up
 
-    .. data:: SLICE_OPER_NA = 2
+    .. data:: slice_oper_na = 2
 
     	slice oper na
 
     """
 
-    SLICE_OPER_UNSET = -1
+    slice_oper_unset = -1
 
-    SLICE_OPER_DOWN = 0
+    slice_oper_down = 0
 
-    SLICE_OPER_UP = 1
+    slice_oper_up = 1
 
-    SLICE_OPER_NA = 2
+    slice_oper_na = 2
 
 
     @staticmethod
@@ -758,7 +758,7 @@ class Fia(object):
     .. attribute:: nodes
     
     	FIA driver operational data for available nodes
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes>`
     
     
 
@@ -779,7 +779,7 @@ class Fia(object):
         .. attribute:: node
         
         	FIA operational data for a particular node
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node>`
         
         
 
@@ -809,42 +809,42 @@ class Fia(object):
             .. attribute:: asic_statistics
             
             	FIA asic statistics information
-            	**type**\:  :py:class:`AsicStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics>`
+            	**type**\:   :py:class:`AsicStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics>`
             
             .. attribute:: clear_statistics
             
             	Clear statistics information
-            	**type**\:  :py:class:`ClearStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.ClearStatistics>`
+            	**type**\:   :py:class:`ClearStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.ClearStatistics>`
             
             .. attribute:: diag_shell
             
             	FIA diag shell information
-            	**type**\:  :py:class:`DiagShell <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell>`
+            	**type**\:   :py:class:`DiagShell <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell>`
             
             .. attribute:: driver_information
             
             	FIA driver information
-            	**type**\:  :py:class:`DriverInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation>`
+            	**type**\:   :py:class:`DriverInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation>`
             
             .. attribute:: oir_history
             
             	FIA operational data of oir history
-            	**type**\:  :py:class:`OirHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory>`
+            	**type**\:   :py:class:`OirHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory>`
             
             .. attribute:: register_dump
             
             	FIA register dump information
-            	**type**\:  :py:class:`RegisterDump <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RegisterDump>`
+            	**type**\:   :py:class:`RegisterDump <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RegisterDump>`
             
             .. attribute:: rx_link_information
             
             	FIA link rx information
-            	**type**\:  :py:class:`RxLinkInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation>`
+            	**type**\:   :py:class:`RxLinkInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation>`
             
             .. attribute:: tx_link_information
             
             	FIA link TX information
-            	**type**\:  :py:class:`TxLinkInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation>`
+            	**type**\:   :py:class:`TxLinkInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation>`
             
             
 
@@ -881,7 +881,7 @@ class Fia(object):
                 .. attribute:: link_options
                 
                 	Option table for link rx information
-                	**type**\:  :py:class:`LinkOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions>`
+                	**type**\:   :py:class:`LinkOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions>`
                 
                 
 
@@ -903,7 +903,7 @@ class Fia(object):
                     .. attribute:: link_option
                     
                     	Option \: topo , flag , stats
-                    	**type**\: list of  :py:class:`LinkOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption>`
+                    	**type**\: list of    :py:class:`LinkOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption>`
                     
                     
 
@@ -933,7 +933,7 @@ class Fia(object):
                         .. attribute:: rx_asic_instances
                         
                         	Instance table for rx information
-                        	**type**\:  :py:class:`RxAsicInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances>`
+                        	**type**\:   :py:class:`RxAsicInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances>`
                         
                         
 
@@ -956,7 +956,7 @@ class Fia(object):
                             .. attribute:: rx_asic_instance
                             
                             	Instance number for rx link information
-                            	**type**\: list of  :py:class:`RxAsicInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance>`
+                            	**type**\: list of    :py:class:`RxAsicInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance>`
                             
                             
 
@@ -986,7 +986,7 @@ class Fia(object):
                                 .. attribute:: rx_links
                                 
                                 	Link table class for rx information
-                                	**type**\:  :py:class:`RxLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks>`
+                                	**type**\:   :py:class:`RxLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks>`
                                 
                                 
 
@@ -1009,7 +1009,7 @@ class Fia(object):
                                     .. attribute:: rx_link
                                     
                                     	Link number for rx link information
-                                    	**type**\: list of  :py:class:`RxLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink>`
+                                    	**type**\: list of    :py:class:`RxLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink>`
                                     
                                     
 
@@ -1039,7 +1039,7 @@ class Fia(object):
                                         .. attribute:: rx_link
                                         
                                         	Single link information
-                                        	**type**\: list of  :py:class:`RxLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink>`
+                                        	**type**\: list of    :py:class:`RxLink_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_>`
                                         
                                         .. attribute:: start_number
                                         
@@ -1072,7 +1072,7 @@ class Fia(object):
                                             self.status_option = None
 
 
-                                        class RxLink(object):
+                                        class RxLink_(object):
                                             """
                                             Single link information
                                             
@@ -1086,22 +1086,22 @@ class Fia(object):
                                             .. attribute:: admin_state
                                             
                                             	Admin State
-                                            	**type**\:  :py:class:`AdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminStateEnum>`
+                                            	**type**\:   :py:class:`AdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminStateEnum>`
                                             
                                             .. attribute:: error_state
                                             
                                             	Error State
-                                            	**type**\:  :py:class:`LinkErrorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkErrorStateEnum>`
+                                            	**type**\:   :py:class:`LinkErrorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkErrorStateEnum>`
                                             
                                             .. attribute:: far_end_link
                                             
                                             	far end link
-                                            	**type**\:  :py:class:`FarEndLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLink>`
+                                            	**type**\:   :py:class:`FarEndLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink>`
                                             
                                             .. attribute:: far_end_link_in_hw
                                             
                                             	far end link in hw
-                                            	**type**\:  :py:class:`FarEndLinkInHw <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLinkInHw>`
+                                            	**type**\:   :py:class:`FarEndLinkInHw <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw>`
                                             
                                             .. attribute:: flags
                                             
@@ -1118,7 +1118,7 @@ class Fia(object):
                                             .. attribute:: history
                                             
                                             	history
-                                            	**type**\:  :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.History>`
+                                            	**type**\:   :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History>`
                                             
                                             .. attribute:: is_conf_pending
                                             
@@ -1140,7 +1140,7 @@ class Fia(object):
                                             .. attribute:: oper_state
                                             
                                             	Oper State
-                                            	**type**\:  :py:class:`OperStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.OperStateEnum>`
+                                            	**type**\:   :py:class:`OperStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.OperStateEnum>`
                                             
                                             .. attribute:: speed
                                             
@@ -1152,12 +1152,12 @@ class Fia(object):
                                             .. attribute:: stage
                                             
                                             	Stage
-                                            	**type**\:  :py:class:`LinkStageEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStageEnum>`
+                                            	**type**\:   :py:class:`LinkStageEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStageEnum>`
                                             
                                             .. attribute:: this_link
                                             
                                             	this link
-                                            	**type**\:  :py:class:`ThisLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink>`
+                                            	**type**\:   :py:class:`ThisLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink>`
                                             
                                             
 
@@ -1171,13 +1171,13 @@ class Fia(object):
                                                 self.link = None
                                                 self.admin_state = None
                                                 self.error_state = None
-                                                self.far_end_link = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLink()
+                                                self.far_end_link = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink()
                                                 self.far_end_link.parent = self
-                                                self.far_end_link_in_hw = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLinkInHw()
+                                                self.far_end_link_in_hw = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw()
                                                 self.far_end_link_in_hw.parent = self
                                                 self.flags = None
                                                 self.flap_cnt = None
-                                                self.history = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.History()
+                                                self.history = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History()
                                                 self.history.parent = self
                                                 self.is_conf_pending = None
                                                 self.is_link_valid = None
@@ -1185,7 +1185,7 @@ class Fia(object):
                                                 self.oper_state = None
                                                 self.speed = None
                                                 self.stage = None
-                                                self.this_link = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink()
+                                                self.this_link = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink()
                                                 self.this_link.parent = self
 
 
@@ -1196,7 +1196,7 @@ class Fia(object):
                                                 .. attribute:: asic_id
                                                 
                                                 	asic id
-                                                	**type**\:  :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink.AsicId>`
+                                                	**type**\:   :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink.AsicId>`
                                                 
                                                 .. attribute:: link_num
                                                 
@@ -1208,12 +1208,12 @@ class Fia(object):
                                                 .. attribute:: link_stage
                                                 
                                                 	Link Stage
-                                                	**type**\:  :py:class:`LinkStageEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStageEnum>`
+                                                	**type**\:   :py:class:`LinkStageEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStageEnum>`
                                                 
                                                 .. attribute:: link_type
                                                 
                                                 	Link Type
-                                                	**type**\:  :py:class:`LinkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkEnum>`
+                                                	**type**\:   :py:class:`LinkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkEnum>`
                                                 
                                                 .. attribute:: phy_link_num
                                                 
@@ -1231,7 +1231,7 @@ class Fia(object):
 
                                                 def __init__(self):
                                                     self.parent = None
-                                                    self.asic_id = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink.AsicId()
+                                                    self.asic_id = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink.AsicId()
                                                     self.asic_id.parent = self
                                                     self.link_num = None
                                                     self.link_stage = None
@@ -1253,7 +1253,7 @@ class Fia(object):
                                                     .. attribute:: asic_type
                                                     
                                                     	Asic Type
-                                                    	**type**\:  :py:class:`AsicEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicEnum>`
+                                                    	**type**\:   :py:class:`AsicEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicEnum>`
                                                     
                                                     .. attribute:: rack_num
                                                     
@@ -1265,7 +1265,7 @@ class Fia(object):
                                                     .. attribute:: rack_type
                                                     
                                                     	Rack Type
-                                                    	**type**\:  :py:class:`RackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.RackEnum>`
+                                                    	**type**\:   :py:class:`RackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.RackEnum>`
                                                     
                                                     .. attribute:: slot_num
                                                     
@@ -1323,7 +1323,7 @@ class Fia(object):
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
-                                                        return meta._meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink.AsicId']['meta_info']
+                                                        return meta._meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink.AsicId']['meta_info']
 
                                                 @property
                                                 def _common_path(self):
@@ -1359,7 +1359,7 @@ class Fia(object):
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
-                                                    return meta._meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink']['meta_info']
+                                                    return meta._meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink']['meta_info']
 
 
                                             class FarEndLink(object):
@@ -1369,7 +1369,7 @@ class Fia(object):
                                                 .. attribute:: asic_id
                                                 
                                                 	asic id
-                                                	**type**\:  :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLink.AsicId>`
+                                                	**type**\:   :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink.AsicId>`
                                                 
                                                 .. attribute:: link_num
                                                 
@@ -1381,12 +1381,12 @@ class Fia(object):
                                                 .. attribute:: link_stage
                                                 
                                                 	Link Stage
-                                                	**type**\:  :py:class:`LinkStageEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStageEnum>`
+                                                	**type**\:   :py:class:`LinkStageEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStageEnum>`
                                                 
                                                 .. attribute:: link_type
                                                 
                                                 	Link Type
-                                                	**type**\:  :py:class:`LinkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkEnum>`
+                                                	**type**\:   :py:class:`LinkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkEnum>`
                                                 
                                                 .. attribute:: phy_link_num
                                                 
@@ -1404,7 +1404,7 @@ class Fia(object):
 
                                                 def __init__(self):
                                                     self.parent = None
-                                                    self.asic_id = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLink.AsicId()
+                                                    self.asic_id = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink.AsicId()
                                                     self.asic_id.parent = self
                                                     self.link_num = None
                                                     self.link_stage = None
@@ -1426,7 +1426,7 @@ class Fia(object):
                                                     .. attribute:: asic_type
                                                     
                                                     	Asic Type
-                                                    	**type**\:  :py:class:`AsicEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicEnum>`
+                                                    	**type**\:   :py:class:`AsicEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicEnum>`
                                                     
                                                     .. attribute:: rack_num
                                                     
@@ -1438,7 +1438,7 @@ class Fia(object):
                                                     .. attribute:: rack_type
                                                     
                                                     	Rack Type
-                                                    	**type**\:  :py:class:`RackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.RackEnum>`
+                                                    	**type**\:   :py:class:`RackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.RackEnum>`
                                                     
                                                     .. attribute:: slot_num
                                                     
@@ -1496,7 +1496,7 @@ class Fia(object):
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
-                                                        return meta._meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLink.AsicId']['meta_info']
+                                                        return meta._meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink.AsicId']['meta_info']
 
                                                 @property
                                                 def _common_path(self):
@@ -1532,7 +1532,7 @@ class Fia(object):
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
-                                                    return meta._meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLink']['meta_info']
+                                                    return meta._meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink']['meta_info']
 
 
                                             class FarEndLinkInHw(object):
@@ -1542,7 +1542,7 @@ class Fia(object):
                                                 .. attribute:: asic_id
                                                 
                                                 	asic id
-                                                	**type**\:  :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLinkInHw.AsicId>`
+                                                	**type**\:   :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw.AsicId>`
                                                 
                                                 .. attribute:: link_num
                                                 
@@ -1554,12 +1554,12 @@ class Fia(object):
                                                 .. attribute:: link_stage
                                                 
                                                 	Link Stage
-                                                	**type**\:  :py:class:`LinkStageEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStageEnum>`
+                                                	**type**\:   :py:class:`LinkStageEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStageEnum>`
                                                 
                                                 .. attribute:: link_type
                                                 
                                                 	Link Type
-                                                	**type**\:  :py:class:`LinkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkEnum>`
+                                                	**type**\:   :py:class:`LinkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkEnum>`
                                                 
                                                 .. attribute:: phy_link_num
                                                 
@@ -1577,7 +1577,7 @@ class Fia(object):
 
                                                 def __init__(self):
                                                     self.parent = None
-                                                    self.asic_id = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLinkInHw.AsicId()
+                                                    self.asic_id = Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw.AsicId()
                                                     self.asic_id.parent = self
                                                     self.link_num = None
                                                     self.link_stage = None
@@ -1599,7 +1599,7 @@ class Fia(object):
                                                     .. attribute:: asic_type
                                                     
                                                     	Asic Type
-                                                    	**type**\:  :py:class:`AsicEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicEnum>`
+                                                    	**type**\:   :py:class:`AsicEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicEnum>`
                                                     
                                                     .. attribute:: rack_num
                                                     
@@ -1611,7 +1611,7 @@ class Fia(object):
                                                     .. attribute:: rack_type
                                                     
                                                     	Rack Type
-                                                    	**type**\:  :py:class:`RackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.RackEnum>`
+                                                    	**type**\:   :py:class:`RackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.RackEnum>`
                                                     
                                                     .. attribute:: slot_num
                                                     
@@ -1669,7 +1669,7 @@ class Fia(object):
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
-                                                        return meta._meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLinkInHw.AsicId']['meta_info']
+                                                        return meta._meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw.AsicId']['meta_info']
 
                                                 @property
                                                 def _common_path(self):
@@ -1705,7 +1705,7 @@ class Fia(object):
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
-                                                    return meta._meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLinkInHw']['meta_info']
+                                                    return meta._meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw']['meta_info']
 
 
                                             class History(object):
@@ -1715,7 +1715,7 @@ class Fia(object):
                                                 .. attribute:: hist
                                                 
                                                 	hist
-                                                	**type**\: list of  :py:class:`Hist <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.History.Hist>`
+                                                	**type**\: list of    :py:class:`Hist <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History.Hist>`
                                                 
                                                 .. attribute:: histnum
                                                 
@@ -1754,17 +1754,17 @@ class Fia(object):
                                                     .. attribute:: admin_state
                                                     
                                                     	Admin State
-                                                    	**type**\:  :py:class:`AdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminStateEnum>`
+                                                    	**type**\:   :py:class:`AdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminStateEnum>`
                                                     
                                                     .. attribute:: error_state
                                                     
                                                     	Error State
-                                                    	**type**\:  :py:class:`LinkErrorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkErrorStateEnum>`
+                                                    	**type**\:   :py:class:`LinkErrorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkErrorStateEnum>`
                                                     
                                                     .. attribute:: oper_state
                                                     
                                                     	Oper State
-                                                    	**type**\:  :py:class:`OperStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.OperStateEnum>`
+                                                    	**type**\:   :py:class:`OperStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.OperStateEnum>`
                                                     
                                                     .. attribute:: reasons
                                                     
@@ -1827,7 +1827,7 @@ class Fia(object):
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
-                                                        return meta._meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.History.Hist']['meta_info']
+                                                        return meta._meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History.Hist']['meta_info']
 
                                                 @property
                                                 def _common_path(self):
@@ -1859,7 +1859,7 @@ class Fia(object):
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
-                                                    return meta._meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.History']['meta_info']
+                                                    return meta._meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History']['meta_info']
 
                                             @property
                                             def _common_path(self):
@@ -1927,7 +1927,7 @@ class Fia(object):
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
-                                                return meta._meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink']['meta_info']
+                                                return meta._meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_']['meta_info']
 
                                         @property
                                         def _common_path(self):
@@ -2160,7 +2160,7 @@ class Fia(object):
                 .. attribute:: card_info
                 
                 	card info
-                	**type**\: list of  :py:class:`CardInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.CardInfo>`
+                	**type**\: list of    :py:class:`CardInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.CardInfo>`
                 
                 .. attribute:: coeff_major_rev
                 
@@ -2179,7 +2179,7 @@ class Fia(object):
                 .. attribute:: device_info
                 
                 	device info
-                	**type**\: list of  :py:class:`DeviceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.DeviceInfo>`
+                	**type**\: list of    :py:class:`DeviceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.DeviceInfo>`
                 
                 .. attribute:: drv_version
                 
@@ -2208,7 +2208,7 @@ class Fia(object):
                 .. attribute:: fc_mode
                 
                 	FC Mode
-                	**type**\:  :py:class:`FcModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.FcModeEnum>`
+                	**type**\:   :py:class:`FcModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.FcModeEnum>`
                 
                 .. attribute:: fgid_conn_active
                 
@@ -2469,17 +2469,17 @@ class Fia(object):
                     .. attribute:: admin_state
                     
                     	Admin State
-                    	**type**\:  :py:class:`AdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminStateEnum>`
+                    	**type**\:   :py:class:`AdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminStateEnum>`
                     
                     .. attribute:: asic_id
                     
                     	asic id
-                    	**type**\:  :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.DeviceInfo.AsicId>`
+                    	**type**\:   :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.DeviceInfo.AsicId>`
                     
                     .. attribute:: asic_state
                     
                     	Asic State
-                    	**type**\:  :py:class:`AsicAccessStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicAccessStateEnum>`
+                    	**type**\:   :py:class:`AsicAccessStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicAccessStateEnum>`
                     
                     .. attribute:: fapid
                     
@@ -2503,7 +2503,7 @@ class Fia(object):
                     .. attribute:: last_init_cause
                     
                     	last init cause
-                    	**type**\:  :py:class:`AsicInitMethodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicInitMethodEnum>`
+                    	**type**\:   :py:class:`AsicInitMethodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicInitMethodEnum>`
                     
                     .. attribute:: local_switch_state
                     
@@ -2527,12 +2527,12 @@ class Fia(object):
                     .. attribute:: oper_state
                     
                     	Oper State
-                    	**type**\:  :py:class:`AsicOperStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicOperStateEnum>`
+                    	**type**\:   :py:class:`AsicOperStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicOperStateEnum>`
                     
                     .. attribute:: slice_state
                     
                     	Slice State
-                    	**type**\:  :py:class:`SliceStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.SliceStateEnum>`
+                    	**type**\:   :py:class:`SliceStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.SliceStateEnum>`
                     
                     
 
@@ -2572,7 +2572,7 @@ class Fia(object):
                         .. attribute:: asic_type
                         
                         	Asic Type
-                        	**type**\:  :py:class:`AsicEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicEnum>`
+                        	**type**\:   :py:class:`AsicEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicEnum>`
                         
                         .. attribute:: rack_num
                         
@@ -2584,7 +2584,7 @@ class Fia(object):
                         .. attribute:: rack_type
                         
                         	Rack Type
-                        	**type**\:  :py:class:`RackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.RackEnum>`
+                        	**type**\:   :py:class:`RackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.RackEnum>`
                         
                         .. attribute:: slot_num
                         
@@ -2796,7 +2796,7 @@ class Fia(object):
                     .. attribute:: oir_circular_buffer
                     
                     	oir circular buffer
-                    	**type**\:  :py:class:`OirCircularBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer>`
+                    	**type**\:   :py:class:`OirCircularBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer>`
                     
                     .. attribute:: reg_flag
                     
@@ -2861,7 +2861,7 @@ class Fia(object):
                         .. attribute:: fia_oir_info
                         
                         	fia oir info
-                        	**type**\: list of  :py:class:`FiaOirInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer.FiaOirInfo>`
+                        	**type**\: list of    :py:class:`FiaOirInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer.FiaOirInfo>`
                         
                         .. attribute:: start
                         
@@ -3271,7 +3271,7 @@ class Fia(object):
                 .. attribute:: asic_instances
                 
                 	Instance table for clear statistics information
-                	**type**\:  :py:class:`AsicInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.ClearStatistics.AsicInstances>`
+                	**type**\:   :py:class:`AsicInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.ClearStatistics.AsicInstances>`
                 
                 
 
@@ -3294,7 +3294,7 @@ class Fia(object):
                     .. attribute:: asic_instance
                     
                     	Asic instance to be cleared
-                    	**type**\: list of  :py:class:`AsicInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.ClearStatistics.AsicInstances.AsicInstance>`
+                    	**type**\: list of    :py:class:`AsicInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.ClearStatistics.AsicInstances.AsicInstance>`
                     
                     
 
@@ -3429,7 +3429,7 @@ class Fia(object):
                 .. attribute:: tx_status_option_table
                 
                 	Link table for tx information
-                	**type**\:  :py:class:`TxStatusOptionTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable>`
+                	**type**\:   :py:class:`TxStatusOptionTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable>`
                 
                 
 
@@ -3451,7 +3451,7 @@ class Fia(object):
                     .. attribute:: tx_status_option
                     
                     	Option\: data, ctrl, all\- for now none
-                    	**type**\:  :py:class:`TxStatusOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption>`
+                    	**type**\:   :py:class:`TxStatusOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption>`
                     
                     
 
@@ -3473,7 +3473,7 @@ class Fia(object):
                         .. attribute:: tx_asic_instances
                         
                         	Instance table for tx information
-                        	**type**\:  :py:class:`TxAsicInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances>`
+                        	**type**\:   :py:class:`TxAsicInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances>`
                         
                         
 
@@ -3495,7 +3495,7 @@ class Fia(object):
                             .. attribute:: tx_asic_instance
                             
                             	Instance number for tx link information
-                            	**type**\: list of  :py:class:`TxAsicInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance>`
+                            	**type**\: list of    :py:class:`TxAsicInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance>`
                             
                             
 
@@ -3525,7 +3525,7 @@ class Fia(object):
                                 .. attribute:: tx_links
                                 
                                 	Link table for tx information
-                                	**type**\:  :py:class:`TxLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks>`
+                                	**type**\:   :py:class:`TxLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks>`
                                 
                                 
 
@@ -3548,7 +3548,7 @@ class Fia(object):
                                     .. attribute:: tx_link
                                     
                                     	Link number for tx link information
-                                    	**type**\: list of  :py:class:`TxLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink>`
+                                    	**type**\: list of    :py:class:`TxLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink>`
                                     
                                     
 
@@ -3585,7 +3585,7 @@ class Fia(object):
                                         .. attribute:: tx_link
                                         
                                         	Single link information
-                                        	**type**\: list of  :py:class:`TxLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink>`
+                                        	**type**\: list of    :py:class:`TxLink_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_>`
                                         
                                         
 
@@ -3603,7 +3603,7 @@ class Fia(object):
                                             self.tx_link.name = 'tx_link'
 
 
-                                        class TxLink(object):
+                                        class TxLink_(object):
                                             """
                                             Single link information
                                             
@@ -3617,7 +3617,7 @@ class Fia(object):
                                             .. attribute:: admin_state
                                             
                                             	Admin State
-                                            	**type**\:  :py:class:`AdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminStateEnum>`
+                                            	**type**\:   :py:class:`AdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminStateEnum>`
                                             
                                             .. attribute:: coeff1
                                             
@@ -3636,17 +3636,17 @@ class Fia(object):
                                             .. attribute:: error_state
                                             
                                             	Error State
-                                            	**type**\:  :py:class:`LinkErrorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkErrorStateEnum>`
+                                            	**type**\:   :py:class:`LinkErrorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkErrorStateEnum>`
                                             
                                             .. attribute:: far_end_link
                                             
                                             	far end link
-                                            	**type**\:  :py:class:`FarEndLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink>`
+                                            	**type**\:   :py:class:`FarEndLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink>`
                                             
                                             .. attribute:: history
                                             
                                             	history
-                                            	**type**\:  :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.History>`
+                                            	**type**\:   :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History>`
                                             
                                             .. attribute:: is_conf_pending
                                             
@@ -3673,7 +3673,7 @@ class Fia(object):
                                             .. attribute:: oper_state
                                             
                                             	Oper State
-                                            	**type**\:  :py:class:`OperStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.OperStateEnum>`
+                                            	**type**\:   :py:class:`OperStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.OperStateEnum>`
                                             
                                             .. attribute:: speed
                                             
@@ -3692,12 +3692,12 @@ class Fia(object):
                                             .. attribute:: stats
                                             
                                             	stats
-                                            	**type**\:  :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.Stats>`
+                                            	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.Stats>`
                                             
                                             .. attribute:: this_link
                                             
                                             	this link
-                                            	**type**\:  :py:class:`ThisLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink>`
+                                            	**type**\:   :py:class:`ThisLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink>`
                                             
                                             
 
@@ -3713,9 +3713,9 @@ class Fia(object):
                                                 self.coeff1 = None
                                                 self.coeff2 = None
                                                 self.error_state = None
-                                                self.far_end_link = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink()
+                                                self.far_end_link = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink()
                                                 self.far_end_link.parent = self
-                                                self.history = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.History()
+                                                self.history = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History()
                                                 self.history.parent = self
                                                 self.is_conf_pending = None
                                                 self.is_link_valid = None
@@ -3724,9 +3724,9 @@ class Fia(object):
                                                 self.oper_state = None
                                                 self.speed = None
                                                 self.stage = None
-                                                self.stats = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.Stats()
+                                                self.stats = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.Stats()
                                                 self.stats.parent = self
-                                                self.this_link = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink()
+                                                self.this_link = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink()
                                                 self.this_link.parent = self
 
 
@@ -3737,7 +3737,7 @@ class Fia(object):
                                                 .. attribute:: asic_id
                                                 
                                                 	asic id
-                                                	**type**\:  :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink.AsicId>`
+                                                	**type**\:   :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink.AsicId>`
                                                 
                                                 .. attribute:: link_num
                                                 
@@ -3749,12 +3749,12 @@ class Fia(object):
                                                 .. attribute:: link_stage
                                                 
                                                 	Link Stage
-                                                	**type**\:  :py:class:`LinkStageEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStageEnum>`
+                                                	**type**\:   :py:class:`LinkStageEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStageEnum>`
                                                 
                                                 .. attribute:: link_type
                                                 
                                                 	Link Type
-                                                	**type**\:  :py:class:`LinkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkEnum>`
+                                                	**type**\:   :py:class:`LinkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkEnum>`
                                                 
                                                 .. attribute:: phy_link_num
                                                 
@@ -3772,7 +3772,7 @@ class Fia(object):
 
                                                 def __init__(self):
                                                     self.parent = None
-                                                    self.asic_id = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink.AsicId()
+                                                    self.asic_id = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink.AsicId()
                                                     self.asic_id.parent = self
                                                     self.link_num = None
                                                     self.link_stage = None
@@ -3794,7 +3794,7 @@ class Fia(object):
                                                     .. attribute:: asic_type
                                                     
                                                     	Asic Type
-                                                    	**type**\:  :py:class:`AsicEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicEnum>`
+                                                    	**type**\:   :py:class:`AsicEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicEnum>`
                                                     
                                                     .. attribute:: rack_num
                                                     
@@ -3806,7 +3806,7 @@ class Fia(object):
                                                     .. attribute:: rack_type
                                                     
                                                     	Rack Type
-                                                    	**type**\:  :py:class:`RackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.RackEnum>`
+                                                    	**type**\:   :py:class:`RackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.RackEnum>`
                                                     
                                                     .. attribute:: slot_num
                                                     
@@ -3864,7 +3864,7 @@ class Fia(object):
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
-                                                        return meta._meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink.AsicId']['meta_info']
+                                                        return meta._meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink.AsicId']['meta_info']
 
                                                 @property
                                                 def _common_path(self):
@@ -3900,7 +3900,7 @@ class Fia(object):
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
-                                                    return meta._meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink']['meta_info']
+                                                    return meta._meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink']['meta_info']
 
 
                                             class FarEndLink(object):
@@ -3910,7 +3910,7 @@ class Fia(object):
                                                 .. attribute:: asic_id
                                                 
                                                 	asic id
-                                                	**type**\:  :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink.AsicId>`
+                                                	**type**\:   :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink.AsicId>`
                                                 
                                                 .. attribute:: link_num
                                                 
@@ -3922,12 +3922,12 @@ class Fia(object):
                                                 .. attribute:: link_stage
                                                 
                                                 	Link Stage
-                                                	**type**\:  :py:class:`LinkStageEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStageEnum>`
+                                                	**type**\:   :py:class:`LinkStageEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkStageEnum>`
                                                 
                                                 .. attribute:: link_type
                                                 
                                                 	Link Type
-                                                	**type**\:  :py:class:`LinkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkEnum>`
+                                                	**type**\:   :py:class:`LinkEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkEnum>`
                                                 
                                                 .. attribute:: phy_link_num
                                                 
@@ -3945,7 +3945,7 @@ class Fia(object):
 
                                                 def __init__(self):
                                                     self.parent = None
-                                                    self.asic_id = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink.AsicId()
+                                                    self.asic_id = Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink.AsicId()
                                                     self.asic_id.parent = self
                                                     self.link_num = None
                                                     self.link_stage = None
@@ -3967,7 +3967,7 @@ class Fia(object):
                                                     .. attribute:: asic_type
                                                     
                                                     	Asic Type
-                                                    	**type**\:  :py:class:`AsicEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicEnum>`
+                                                    	**type**\:   :py:class:`AsicEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicEnum>`
                                                     
                                                     .. attribute:: rack_num
                                                     
@@ -3979,7 +3979,7 @@ class Fia(object):
                                                     .. attribute:: rack_type
                                                     
                                                     	Rack Type
-                                                    	**type**\:  :py:class:`RackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.RackEnum>`
+                                                    	**type**\:   :py:class:`RackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.RackEnum>`
                                                     
                                                     .. attribute:: slot_num
                                                     
@@ -4037,7 +4037,7 @@ class Fia(object):
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
-                                                        return meta._meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink.AsicId']['meta_info']
+                                                        return meta._meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink.AsicId']['meta_info']
 
                                                 @property
                                                 def _common_path(self):
@@ -4073,7 +4073,7 @@ class Fia(object):
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
-                                                    return meta._meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink']['meta_info']
+                                                    return meta._meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink']['meta_info']
 
 
                                             class Stats(object):
@@ -4120,7 +4120,7 @@ class Fia(object):
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
-                                                    return meta._meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.Stats']['meta_info']
+                                                    return meta._meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.Stats']['meta_info']
 
 
                                             class History(object):
@@ -4130,7 +4130,7 @@ class Fia(object):
                                                 .. attribute:: hist
                                                 
                                                 	hist
-                                                	**type**\: list of  :py:class:`Hist <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.History.Hist>`
+                                                	**type**\: list of    :py:class:`Hist <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History.Hist>`
                                                 
                                                 .. attribute:: histnum
                                                 
@@ -4169,17 +4169,17 @@ class Fia(object):
                                                     .. attribute:: admin_state
                                                     
                                                     	Admin State
-                                                    	**type**\:  :py:class:`AdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminStateEnum>`
+                                                    	**type**\:   :py:class:`AdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminStateEnum>`
                                                     
                                                     .. attribute:: error_state
                                                     
                                                     	Error State
-                                                    	**type**\:  :py:class:`LinkErrorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkErrorStateEnum>`
+                                                    	**type**\:   :py:class:`LinkErrorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.LinkErrorStateEnum>`
                                                     
                                                     .. attribute:: oper_state
                                                     
                                                     	Oper State
-                                                    	**type**\:  :py:class:`OperStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.OperStateEnum>`
+                                                    	**type**\:   :py:class:`OperStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.OperStateEnum>`
                                                     
                                                     .. attribute:: reasons
                                                     
@@ -4242,7 +4242,7 @@ class Fia(object):
                                                     @staticmethod
                                                     def _meta_info():
                                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
-                                                        return meta._meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.History.Hist']['meta_info']
+                                                        return meta._meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History.Hist']['meta_info']
 
                                                 @property
                                                 def _common_path(self):
@@ -4274,7 +4274,7 @@ class Fia(object):
                                                 @staticmethod
                                                 def _meta_info():
                                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
-                                                    return meta._meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.History']['meta_info']
+                                                    return meta._meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History']['meta_info']
 
                                             @property
                                             def _common_path(self):
@@ -4345,7 +4345,7 @@ class Fia(object):
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_dnx_driver_oper as meta
-                                                return meta._meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink']['meta_info']
+                                                return meta._meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_']['meta_info']
 
                                         @property
                                         def _common_path(self):
@@ -4540,7 +4540,7 @@ class Fia(object):
                 .. attribute:: register_dump_units
                 
                 	Unit table for register dump
-                	**type**\:  :py:class:`RegisterDumpUnits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RegisterDump.RegisterDumpUnits>`
+                	**type**\:   :py:class:`RegisterDumpUnits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RegisterDump.RegisterDumpUnits>`
                 
                 
 
@@ -4562,7 +4562,7 @@ class Fia(object):
                     .. attribute:: register_dump_unit
                     
                     	Unit number for register dump
-                    	**type**\: list of  :py:class:`RegisterDumpUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RegisterDump.RegisterDumpUnits.RegisterDumpUnit>`
+                    	**type**\: list of    :py:class:`RegisterDumpUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.RegisterDump.RegisterDumpUnits.RegisterDumpUnit>`
                     
                     
 
@@ -4693,7 +4693,7 @@ class Fia(object):
                 .. attribute:: diag_shell_units
                 
                 	Unit table for diag shell
-                	**type**\:  :py:class:`DiagShellUnits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits>`
+                	**type**\:   :py:class:`DiagShellUnits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits>`
                 
                 
 
@@ -4715,7 +4715,7 @@ class Fia(object):
                     .. attribute:: diag_shell_unit
                     
                     	Unit number for diag shell statistics
-                    	**type**\: list of  :py:class:`DiagShellUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit>`
+                    	**type**\: list of    :py:class:`DiagShellUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit>`
                     
                     
 
@@ -4745,7 +4745,7 @@ class Fia(object):
                         .. attribute:: commands
                         
                         	Command table for diag shell
-                        	**type**\:  :py:class:`Commands <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands>`
+                        	**type**\:   :py:class:`Commands <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands>`
                         
                         
 
@@ -4768,7 +4768,7 @@ class Fia(object):
                             .. attribute:: command
                             
                             	Command for diag shell statistics
-                            	**type**\: list of  :py:class:`Command <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command>`
+                            	**type**\: list of    :py:class:`Command <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command>`
                             
                             
 
@@ -4796,7 +4796,7 @@ class Fia(object):
                                 .. attribute:: output
                                 
                                 	Added to support datalist
-                                	**type**\: list of  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command.Output>`
+                                	**type**\: list of    :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command.Output>`
                                 
                                 
 
@@ -5014,7 +5014,7 @@ class Fia(object):
                 .. attribute:: flags
                 
                 	Flag table for history
-                	**type**\:  :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags>`
+                	**type**\:   :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags>`
                 
                 
 
@@ -5036,7 +5036,7 @@ class Fia(object):
                     .. attribute:: flag
                     
                     	Flag value for physical location
-                    	**type**\: list of  :py:class:`Flag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag>`
+                    	**type**\: list of    :py:class:`Flag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag>`
                     
                     
 
@@ -5066,7 +5066,7 @@ class Fia(object):
                         .. attribute:: slots
                         
                         	Slot table for history
-                        	**type**\:  :py:class:`Slots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots>`
+                        	**type**\:   :py:class:`Slots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots>`
                         
                         
 
@@ -5089,7 +5089,7 @@ class Fia(object):
                             .. attribute:: slot
                             
                             	Slot number for getting history
-                            	**type**\: list of  :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot>`
+                            	**type**\: list of    :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot>`
                             
                             
 
@@ -5147,7 +5147,7 @@ class Fia(object):
                                 .. attribute:: card_info
                                 
                                 	card info
-                                	**type**\: list of  :py:class:`CardInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo>`
+                                	**type**\: list of    :py:class:`CardInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo>`
                                 
                                 .. attribute:: coeff_major_rev
                                 
@@ -5166,7 +5166,7 @@ class Fia(object):
                                 .. attribute:: device_info
                                 
                                 	device info
-                                	**type**\: list of  :py:class:`DeviceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo>`
+                                	**type**\: list of    :py:class:`DeviceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo>`
                                 
                                 .. attribute:: drv_version
                                 
@@ -5195,7 +5195,7 @@ class Fia(object):
                                 .. attribute:: fc_mode
                                 
                                 	FC Mode
-                                	**type**\:  :py:class:`FcModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.FcModeEnum>`
+                                	**type**\:   :py:class:`FcModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.FcModeEnum>`
                                 
                                 .. attribute:: fgid_conn_active
                                 
@@ -5457,17 +5457,17 @@ class Fia(object):
                                     .. attribute:: admin_state
                                     
                                     	Admin State
-                                    	**type**\:  :py:class:`AdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminStateEnum>`
+                                    	**type**\:   :py:class:`AdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AdminStateEnum>`
                                     
                                     .. attribute:: asic_id
                                     
                                     	asic id
-                                    	**type**\:  :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo.AsicId>`
+                                    	**type**\:   :py:class:`AsicId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo.AsicId>`
                                     
                                     .. attribute:: asic_state
                                     
                                     	Asic State
-                                    	**type**\:  :py:class:`AsicAccessStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicAccessStateEnum>`
+                                    	**type**\:   :py:class:`AsicAccessStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicAccessStateEnum>`
                                     
                                     .. attribute:: fapid
                                     
@@ -5491,7 +5491,7 @@ class Fia(object):
                                     .. attribute:: last_init_cause
                                     
                                     	last init cause
-                                    	**type**\:  :py:class:`AsicInitMethodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicInitMethodEnum>`
+                                    	**type**\:   :py:class:`AsicInitMethodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicInitMethodEnum>`
                                     
                                     .. attribute:: local_switch_state
                                     
@@ -5515,12 +5515,12 @@ class Fia(object):
                                     .. attribute:: oper_state
                                     
                                     	Oper State
-                                    	**type**\:  :py:class:`AsicOperStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicOperStateEnum>`
+                                    	**type**\:   :py:class:`AsicOperStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicOperStateEnum>`
                                     
                                     .. attribute:: slice_state
                                     
                                     	Slice State
-                                    	**type**\:  :py:class:`SliceStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.SliceStateEnum>`
+                                    	**type**\:   :py:class:`SliceStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.SliceStateEnum>`
                                     
                                     
 
@@ -5560,7 +5560,7 @@ class Fia(object):
                                         .. attribute:: asic_type
                                         
                                         	Asic Type
-                                        	**type**\:  :py:class:`AsicEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicEnum>`
+                                        	**type**\:   :py:class:`AsicEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.AsicEnum>`
                                         
                                         .. attribute:: rack_num
                                         
@@ -5572,7 +5572,7 @@ class Fia(object):
                                         .. attribute:: rack_type
                                         
                                         	Rack Type
-                                        	**type**\:  :py:class:`RackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.RackEnum>`
+                                        	**type**\:   :py:class:`RackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.RackEnum>`
                                         
                                         .. attribute:: slot_num
                                         
@@ -5784,7 +5784,7 @@ class Fia(object):
                                     .. attribute:: oir_circular_buffer
                                     
                                     	oir circular buffer
-                                    	**type**\:  :py:class:`OirCircularBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer>`
+                                    	**type**\:   :py:class:`OirCircularBuffer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer>`
                                     
                                     .. attribute:: reg_flag
                                     
@@ -5849,7 +5849,7 @@ class Fia(object):
                                         .. attribute:: fia_oir_info
                                         
                                         	fia oir info
-                                        	**type**\: list of  :py:class:`FiaOirInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer.FiaOirInfo>`
+                                        	**type**\: list of    :py:class:`FiaOirInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer.FiaOirInfo>`
                                         
                                         .. attribute:: start
                                         
@@ -6369,7 +6369,7 @@ class Fia(object):
                 .. attribute:: statistics_asic_instances
                 
                 	Instance table for statistics
-                	**type**\:  :py:class:`StatisticsAsicInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances>`
+                	**type**\:   :py:class:`StatisticsAsicInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances>`
                 
                 
 
@@ -6391,7 +6391,7 @@ class Fia(object):
                     .. attribute:: statistics_asic_instance
                     
                     	Asic instance for statistics
-                    	**type**\: list of  :py:class:`StatisticsAsicInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance>`
+                    	**type**\: list of    :py:class:`StatisticsAsicInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance>`
                     
                     
 
@@ -6421,12 +6421,12 @@ class Fia(object):
                         .. attribute:: fmac_statistics
                         
                         	Statistics of FMAC
-                        	**type**\:  :py:class:`FmacStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics>`
+                        	**type**\:   :py:class:`FmacStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics>`
                         
                         .. attribute:: pbc_statistics
                         
                         	Packet Byte Counter for a Asic
-                        	**type**\:  :py:class:`PbcStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics>`
+                        	**type**\:   :py:class:`PbcStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics>`
                         
                         
 
@@ -6451,7 +6451,7 @@ class Fia(object):
                             .. attribute:: pbc_stats
                             
                             	PBC stats bag
-                            	**type**\:  :py:class:`PbcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats>`
+                            	**type**\:   :py:class:`PbcStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats>`
                             
                             
 
@@ -6501,7 +6501,7 @@ class Fia(object):
                                 .. attribute:: stats_info
                                 
                                 	stats info
-                                	**type**\:  :py:class:`StatsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo>`
+                                	**type**\:   :py:class:`StatsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo>`
                                 
                                 .. attribute:: valid
                                 
@@ -6533,7 +6533,7 @@ class Fia(object):
                                     .. attribute:: block_info
                                     
                                     	block info
-                                    	**type**\: list of  :py:class:`BlockInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo>`
+                                    	**type**\: list of    :py:class:`BlockInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo>`
                                     
                                     .. attribute:: num_blocks
                                     
@@ -6571,7 +6571,7 @@ class Fia(object):
                                         .. attribute:: field_info
                                         
                                         	field info
-                                        	**type**\: list of  :py:class:`FieldInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo.FieldInfo>`
+                                        	**type**\: list of    :py:class:`FieldInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo.FieldInfo>`
                                         
                                         .. attribute:: num_fields
                                         
@@ -6794,7 +6794,7 @@ class Fia(object):
                             .. attribute:: fmac_links
                             
                             	Link table for statistics
-                            	**type**\:  :py:class:`FmacLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks>`
+                            	**type**\:   :py:class:`FmacLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks>`
                             
                             
 
@@ -6816,7 +6816,7 @@ class Fia(object):
                                 .. attribute:: fmac_link
                                 
                                 	Link number for statistics
-                                	**type**\: list of  :py:class:`FmacLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink>`
+                                	**type**\: list of    :py:class:`FmacLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink>`
                                 
                                 
 
@@ -6846,7 +6846,7 @@ class Fia(object):
                                     .. attribute:: fmac_asic
                                     
                                     	Single aisc information
-                                    	**type**\: list of  :py:class:`FmacAsic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic>`
+                                    	**type**\: list of    :py:class:`FmacAsic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic>`
                                     
                                     
 
@@ -6877,7 +6877,7 @@ class Fia(object):
                                         .. attribute:: aggr_stats
                                         
                                         	aggr stats
-                                        	**type**\:  :py:class:`AggrStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats>`
+                                        	**type**\:   :py:class:`AggrStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats>`
                                         
                                         .. attribute:: asic_instance
                                         
@@ -6889,7 +6889,7 @@ class Fia(object):
                                         .. attribute:: incr_stats
                                         
                                         	incr stats
-                                        	**type**\:  :py:class:`IncrStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats>`
+                                        	**type**\:   :py:class:`IncrStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats>`
                                         
                                         .. attribute:: link_no
                                         
@@ -6951,17 +6951,17 @@ class Fia(object):
                                             .. attribute:: link_counters
                                             
                                             	link counters
-                                            	**type**\:  :py:class:`LinkCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkCounters>`
+                                            	**type**\:   :py:class:`LinkCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkCounters>`
                                             
                                             .. attribute:: link_error_status
                                             
                                             	link error status
-                                            	**type**\:  :py:class:`LinkErrorStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkErrorStatus>`
+                                            	**type**\:   :py:class:`LinkErrorStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkErrorStatus>`
                                             
                                             .. attribute:: ovf_status
                                             
                                             	ovf status
-                                            	**type**\:  :py:class:`OvfStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.OvfStatus>`
+                                            	**type**\:   :py:class:`OvfStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.OvfStatus>`
                                             
                                             
 
@@ -7521,17 +7521,17 @@ class Fia(object):
                                             .. attribute:: link_counters
                                             
                                             	link counters
-                                            	**type**\:  :py:class:`LinkCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkCounters>`
+                                            	**type**\:   :py:class:`LinkCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkCounters>`
                                             
                                             .. attribute:: link_error_status
                                             
                                             	link error status
-                                            	**type**\:  :py:class:`LinkErrorStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkErrorStatus>`
+                                            	**type**\:   :py:class:`LinkErrorStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkErrorStatus>`
                                             
                                             .. attribute:: ovf_status
                                             
                                             	ovf status
-                                            	**type**\:  :py:class:`OvfStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.OvfStatus>`
+                                            	**type**\:   :py:class:`OvfStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper.Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.OvfStatus>`
                                             
                                             
 

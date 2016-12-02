@@ -30,43 +30,43 @@ class AddressFamilyEnum(Enum):
 
     Address Family
 
-    .. data:: IPV4 = 0
+    .. data:: ipv4 = 0
 
     	IPv4 Address Family
 
-    .. data:: IPV6 = 1
+    .. data:: ipv6 = 1
 
     	IPv6 Address Family
 
-    .. data:: L2VPN = 2
+    .. data:: l2vpn = 2
 
     	L2VPN Address Family
 
-    .. data:: LS = 3
+    .. data:: ls = 3
 
     	LINKSTATE Address Family
 
-    .. data:: AF_NONE = 4
+    .. data:: af_none = 4
 
     	No Address Family
 
-    .. data:: AF_UNKNOWN = 5
+    .. data:: af_unknown = 5
 
     	Unknown Address Family
 
     """
 
-    IPV4 = 0
+    ipv4 = 0
 
-    IPV6 = 1
+    ipv6 = 1
 
-    L2VPN = 2
+    l2vpn = 2
 
-    LS = 3
+    ls = 3
 
-    AF_NONE = 4
+    af_none = 4
 
-    AF_UNKNOWN = 5
+    af_unknown = 5
 
 
     @staticmethod
@@ -81,19 +81,19 @@ class AttachPointDirectionEnum(Enum):
 
     Attach Point Direction
 
-    .. data:: IN = 0
+    .. data:: in_ = 0
 
     	Attach Point Direction IN
 
-    .. data:: OUT = 1
+    .. data:: out = 1
 
     	Attach Point Direction OUT
 
     """
 
-    IN = 0
+    in_ = 0
 
-    OUT = 1
+    out = 1
 
 
     @staticmethod
@@ -108,37 +108,37 @@ class GroupEnum(Enum):
 
     BGP Neighbor Group Type
 
-    .. data:: ADDRESS_FAMILY_GROUP = 0
+    .. data:: address_family_group = 0
 
     	Address Family Group
 
-    .. data:: SESSION_GROUP = 1
+    .. data:: session_group = 1
 
     	Session Group
 
-    .. data:: NEIGHBOR_GROUP = 2
+    .. data:: neighbor_group = 2
 
     	Neighbor Group
 
-    .. data:: NEIGHBOR = 3
+    .. data:: neighbor = 3
 
     	Neighbor
 
-    .. data:: ERROR_GROUP = 4
+    .. data:: error_group = 4
 
     	Error Group
 
     """
 
-    ADDRESS_FAMILY_GROUP = 0
+    address_family_group = 0
 
-    SESSION_GROUP = 1
+    session_group = 1
 
-    NEIGHBOR_GROUP = 2
+    neighbor_group = 2
 
-    NEIGHBOR = 3
+    neighbor = 3
 
-    ERROR_GROUP = 4
+    error_group = 4
 
 
     @staticmethod
@@ -153,27 +153,27 @@ class ObjectStatusEnum(Enum):
 
     Whether an RPL object is used/referenced
 
-    .. data:: ACTIVE = 0
+    .. data:: active = 0
 
     	The object is in use
 
-    .. data:: INACTIVE = 1
+    .. data:: inactive = 1
 
     	The object is referenced by another object, but
 
     	not used
 
-    .. data:: UNUSED = 2
+    .. data:: unused = 2
 
     	The object is not used or referenced
 
     """
 
-    ACTIVE = 0
+    active = 0
 
-    INACTIVE = 1
+    inactive = 1
 
-    UNUSED = 2
+    unused = 2
 
 
     @staticmethod
@@ -188,85 +188,85 @@ class SubAddressFamilyEnum(Enum):
 
     Sub Address Family
 
-    .. data:: UNICAST = 0
+    .. data:: unicast = 0
 
     	Unicast
 
-    .. data:: MULTICAST = 1
+    .. data:: multicast = 1
 
     	Multicast
 
-    .. data:: LABEL = 2
+    .. data:: label = 2
 
     	Label
 
-    .. data:: TUNNEL = 3
+    .. data:: tunnel = 3
 
     	Tunnel
 
-    .. data:: VPN = 4
+    .. data:: vpn = 4
 
     	VPN
 
-    .. data:: MDT = 5
+    .. data:: mdt = 5
 
     	MDT
 
-    .. data:: VPLS = 6
+    .. data:: vpls = 6
 
     	VPLS
 
-    .. data:: RT_CONSTRAINT = 7
+    .. data:: rt_constraint = 7
 
     	RTConstraint
 
-    .. data:: MVPN = 8
+    .. data:: mvpn = 8
 
     	MVPN
 
-    .. data:: FLOW = 9
+    .. data:: flow = 9
 
     	FLOW
 
-    .. data:: VPN_MCAST = 10
+    .. data:: vpn_mcast = 10
 
     	VPN Multicast
 
-    .. data:: SAF_NONE = 11
+    .. data:: saf_none = 11
 
     	No SAFI
 
-    .. data:: SAF_UNKNOWN = 12
+    .. data:: saf_unknown = 12
 
     	Unknown
 
     """
 
-    UNICAST = 0
+    unicast = 0
 
-    MULTICAST = 1
+    multicast = 1
 
-    LABEL = 2
+    label = 2
 
-    TUNNEL = 3
+    tunnel = 3
 
-    VPN = 4
+    vpn = 4
 
-    MDT = 5
+    mdt = 5
 
-    VPLS = 6
+    vpls = 6
 
-    RT_CONSTRAINT = 7
+    rt_constraint = 7
 
-    MVPN = 8
+    mvpn = 8
 
-    FLOW = 9
+    flow = 9
 
-    VPN_MCAST = 10
+    vpn_mcast = 10
 
-    SAF_NONE = 11
+    saf_none = 11
 
-    SAF_UNKNOWN = 12
+    saf_unknown = 12
 
 
     @staticmethod
@@ -283,17 +283,17 @@ class RoutingPolicy(object):
     .. attribute:: limits
     
     	Information about configured limits and the current values
-    	**type**\:  :py:class:`Limits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Limits>`
+    	**type**\:   :py:class:`Limits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Limits>`
     
     .. attribute:: policies
     
     	Information about configured route policies
-    	**type**\:  :py:class:`Policies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies>`
+    	**type**\:   :py:class:`Policies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies>`
     
     .. attribute:: sets
     
     	Information about configured sets
-    	**type**\:  :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets>`
+    	**type**\:   :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets>`
     
     
 
@@ -430,22 +430,22 @@ class RoutingPolicy(object):
         .. attribute:: active
         
         	All objects of a given type that are attached to a protocol
-        	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies.Active>`
+        	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies.Active>`
         
         .. attribute:: inactive
         
         	All objects of a given type that are not attached to a protocol
-        	**type**\:  :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies.Inactive>`
+        	**type**\:   :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies.Inactive>`
         
         .. attribute:: route_policies
         
         	Information about individual policies
-        	**type**\:  :py:class:`RoutePolicies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies.RoutePolicies>`
+        	**type**\:   :py:class:`RoutePolicies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies.RoutePolicies>`
         
         .. attribute:: unused
         
         	All objects of a given type that are not referenced at all
-        	**type**\:  :py:class:`Unused <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies.Unused>`
+        	**type**\:   :py:class:`Unused <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies.Unused>`
         
         
 
@@ -473,7 +473,7 @@ class RoutingPolicy(object):
             .. attribute:: route_policy
             
             	Information about an individual policy
-            	**type**\: list of  :py:class:`RoutePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies.RoutePolicies.RoutePolicy>`
+            	**type**\: list of    :py:class:`RoutePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies.RoutePolicies.RoutePolicy>`
             
             
 
@@ -503,17 +503,17 @@ class RoutingPolicy(object):
                 .. attribute:: attached
                 
                 	Information about where this policy or set is attached
-                	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies.RoutePolicies.RoutePolicy.Attached>`
+                	**type**\:   :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies.RoutePolicies.RoutePolicy.Attached>`
                 
                 .. attribute:: policy_uses
                 
                 	Information about which policies and sets this policy uses
-                	**type**\:  :py:class:`PolicyUses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses>`
+                	**type**\:   :py:class:`PolicyUses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses>`
                 
                 .. attribute:: used_by
                 
                 	Policies that use this object, directly or indirectly
-                	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies.RoutePolicies.RoutePolicy.UsedBy>`
+                	**type**\:   :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies.RoutePolicies.RoutePolicy.UsedBy>`
                 
                 
 
@@ -541,22 +541,22 @@ class RoutingPolicy(object):
                     .. attribute:: all_used_policies
                     
                     	Policies used by this policy, or by policies that it uses
-                    	**type**\:  :py:class:`AllUsedPolicies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedPolicies>`
+                    	**type**\:   :py:class:`AllUsedPolicies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedPolicies>`
                     
                     .. attribute:: all_used_sets
                     
                     	Sets used by this policy, or by policies that it uses
-                    	**type**\:  :py:class:`AllUsedSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedSets>`
+                    	**type**\:   :py:class:`AllUsedSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedSets>`
                     
                     .. attribute:: directly_used_policies
                     
                     	Policies that this policy uses directly
-                    	**type**\:  :py:class:`DirectlyUsedPolicies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedPolicies>`
+                    	**type**\:   :py:class:`DirectlyUsedPolicies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedPolicies>`
                     
                     .. attribute:: directly_used_sets
                     
                     	Sets that this policy uses directly
-                    	**type**\:  :py:class:`DirectlyUsedSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedSets>`
+                    	**type**\:   :py:class:`DirectlyUsedSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedSets>`
                     
                     
 
@@ -634,7 +634,7 @@ class RoutingPolicy(object):
                         .. attribute:: sets
                         
                         	List of sets in several domains
-                        	**type**\: list of  :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedSets.Sets>`
+                        	**type**\: list of    :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.AllUsedSets.Sets>`
                         
                         
 
@@ -741,7 +741,7 @@ class RoutingPolicy(object):
                         .. attribute:: sets
                         
                         	List of sets in several domains
-                        	**type**\: list of  :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedSets.Sets>`
+                        	**type**\: list of    :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies.RoutePolicies.RoutePolicy.PolicyUses.DirectlyUsedSets.Sets>`
                         
                         
 
@@ -932,7 +932,7 @@ class RoutingPolicy(object):
                     .. attribute:: reference
                     
                     	Information about policies referring to this object
-                    	**type**\: list of  :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies.RoutePolicies.RoutePolicy.UsedBy.Reference>`
+                    	**type**\: list of    :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies.RoutePolicies.RoutePolicy.UsedBy.Reference>`
                     
                     
 
@@ -961,7 +961,7 @@ class RoutingPolicy(object):
                         .. attribute:: status
                         
                         	Active, Inactive, or Unused
-                        	**type**\:  :py:class:`ObjectStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
+                        	**type**\:   :py:class:`ObjectStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
                         
                         .. attribute:: used_directly
                         
@@ -1046,7 +1046,7 @@ class RoutingPolicy(object):
                     .. attribute:: binding
                     
                     	bindings list
-                    	**type**\: list of  :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies.RoutePolicies.RoutePolicy.Attached.Binding>`
+                    	**type**\: list of    :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Policies.RoutePolicies.RoutePolicy.Attached.Binding>`
                     
                     
 
@@ -1069,7 +1069,7 @@ class RoutingPolicy(object):
                         .. attribute:: af_name
                         
                         	Address Family Identifier
-                        	**type**\:  :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
+                        	**type**\:   :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                         
                         .. attribute:: aggregate_network_address
                         
@@ -1094,12 +1094,12 @@ class RoutingPolicy(object):
                         .. attribute:: direction
                         
                         	Direction In or Out
-                        	**type**\:  :py:class:`AttachPointDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
+                        	**type**\:   :py:class:`AttachPointDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
                         
                         .. attribute:: group
                         
                         	Neighbor Group 
-                        	**type**\:  :py:class:`GroupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
+                        	**type**\:   :py:class:`GroupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
                         
                         .. attribute:: group_name
                         
@@ -1124,7 +1124,7 @@ class RoutingPolicy(object):
                         .. attribute:: neighbor_af_name
                         
                         	Neighbor IP Address Family
-                        	**type**\:  :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
+                        	**type**\:   :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                         
                         .. attribute:: propogate_from
                         
@@ -1158,7 +1158,7 @@ class RoutingPolicy(object):
                         .. attribute:: saf_name
                         
                         	Subsequent Address Family Identifier
-                        	**type**\:  :py:class:`SubAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
+                        	**type**\:   :py:class:`SubAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
                         
                         .. attribute:: source_protocol
                         
@@ -1547,62 +1547,62 @@ class RoutingPolicy(object):
         .. attribute:: as_path
         
         	Information about AS Path sets
-        	**type**\:  :py:class:`AsPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.AsPath>`
+        	**type**\:   :py:class:`AsPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.AsPath>`
         
         .. attribute:: community
         
         	Information about Community sets
-        	**type**\:  :py:class:`Community <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Community>`
+        	**type**\:   :py:class:`Community <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Community>`
         
         .. attribute:: extended_community_bandwidth
         
         	Information about Extended Community Bandwidth sets
-        	**type**\:  :py:class:`ExtendedCommunityBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityBandwidth>`
+        	**type**\:   :py:class:`ExtendedCommunityBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityBandwidth>`
         
         .. attribute:: extended_community_cost
         
         	Information about Extended Community Cost sets
-        	**type**\:  :py:class:`ExtendedCommunityCost <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityCost>`
+        	**type**\:   :py:class:`ExtendedCommunityCost <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityCost>`
         
         .. attribute:: extended_community_opaque
         
         	Information about Extended Community Opaque sets
-        	**type**\:  :py:class:`ExtendedCommunityOpaque <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityOpaque>`
+        	**type**\:   :py:class:`ExtendedCommunityOpaque <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityOpaque>`
         
         .. attribute:: extended_community_rt
         
         	Information about Extended Community RT sets
-        	**type**\:  :py:class:`ExtendedCommunityRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityRt>`
+        	**type**\:   :py:class:`ExtendedCommunityRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityRt>`
         
         .. attribute:: extended_community_seg_nh
         
         	Information about Extended Community SegNH sets
-        	**type**\:  :py:class:`ExtendedCommunitySegNh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySegNh>`
+        	**type**\:   :py:class:`ExtendedCommunitySegNh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySegNh>`
         
         .. attribute:: extended_community_soo
         
         	Information about Extended Community SOO sets
-        	**type**\:  :py:class:`ExtendedCommunitySoo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySoo>`
+        	**type**\:   :py:class:`ExtendedCommunitySoo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySoo>`
         
         .. attribute:: ospf_area
         
         	Information about OSPF Area sets
-        	**type**\:  :py:class:`OspfArea <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.OspfArea>`
+        	**type**\:   :py:class:`OspfArea <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.OspfArea>`
         
         .. attribute:: prefix
         
         	Information about AS Path sets
-        	**type**\:  :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Prefix>`
+        	**type**\:   :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Prefix>`
         
         .. attribute:: rd
         
         	Information about RD sets
-        	**type**\:  :py:class:`Rd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Rd>`
+        	**type**\:   :py:class:`Rd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Rd>`
         
         .. attribute:: tag
         
         	Information about Tag sets
-        	**type**\:  :py:class:`Tag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Tag>`
+        	**type**\:   :py:class:`Tag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Tag>`
         
         
 
@@ -1646,22 +1646,22 @@ class RoutingPolicy(object):
             .. attribute:: active
             
             	All objects of a given type that are attached to a protocol
-            	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.OspfArea.Active>`
+            	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.OspfArea.Active>`
             
             .. attribute:: inactive
             
             	All objects of a given type that are not attached to a protocol
-            	**type**\:  :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.OspfArea.Inactive>`
+            	**type**\:   :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.OspfArea.Inactive>`
             
             .. attribute:: sets
             
             	Information about individual sets
-            	**type**\:  :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.OspfArea.Sets>`
+            	**type**\:   :py:class:`Sets_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.OspfArea.Sets_>`
             
             .. attribute:: unused
             
             	All objects of a given type that are not referenced at all
-            	**type**\:  :py:class:`Unused <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.OspfArea.Unused>`
+            	**type**\:   :py:class:`Unused <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.OspfArea.Unused>`
             
             
 
@@ -1676,20 +1676,20 @@ class RoutingPolicy(object):
                 self.active.parent = self
                 self.inactive = RoutingPolicy.Sets.OspfArea.Inactive()
                 self.inactive.parent = self
-                self.sets = RoutingPolicy.Sets.OspfArea.Sets()
+                self.sets = RoutingPolicy.Sets.OspfArea.Sets_()
                 self.sets.parent = self
                 self.unused = RoutingPolicy.Sets.OspfArea.Unused()
                 self.unused.parent = self
 
 
-            class Sets(object):
+            class Sets_(object):
                 """
                 Information about individual sets
                 
                 .. attribute:: set
                 
                 	Information about an individual set
-                	**type**\: list of  :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.OspfArea.Sets.Set>`
+                	**type**\: list of    :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.OspfArea.Sets_.Set>`
                 
                 
 
@@ -1719,12 +1719,12 @@ class RoutingPolicy(object):
                     .. attribute:: attached
                     
                     	Information about where this policy or set is attached
-                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.OspfArea.Sets.Set.Attached>`
+                    	**type**\:   :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached>`
                     
                     .. attribute:: used_by
                     
                     	Policies that use this object, directly or indirectly
-                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.OspfArea.Sets.Set.UsedBy>`
+                    	**type**\:   :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy>`
                     
                     
 
@@ -1736,9 +1736,9 @@ class RoutingPolicy(object):
                     def __init__(self):
                         self.parent = None
                         self.set_name = None
-                        self.attached = RoutingPolicy.Sets.OspfArea.Sets.Set.Attached()
+                        self.attached = RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached()
                         self.attached.parent = self
-                        self.used_by = RoutingPolicy.Sets.OspfArea.Sets.Set.UsedBy()
+                        self.used_by = RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy()
                         self.used_by.parent = self
 
 
@@ -1750,7 +1750,7 @@ class RoutingPolicy(object):
                         .. attribute:: reference
                         
                         	Information about policies referring to this object
-                        	**type**\: list of  :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.OspfArea.Sets.Set.UsedBy.Reference>`
+                        	**type**\: list of    :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy.Reference>`
                         
                         
 
@@ -1779,7 +1779,7 @@ class RoutingPolicy(object):
                             .. attribute:: status
                             
                             	Active, Inactive, or Unused
-                            	**type**\:  :py:class:`ObjectStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
+                            	**type**\:   :py:class:`ObjectStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
                             
                             .. attribute:: used_directly
                             
@@ -1827,7 +1827,7 @@ class RoutingPolicy(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                                return meta._meta_table['RoutingPolicy.Sets.OspfArea.Sets.Set.UsedBy.Reference']['meta_info']
+                                return meta._meta_table['RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy.Reference']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -1853,7 +1853,7 @@ class RoutingPolicy(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                            return meta._meta_table['RoutingPolicy.Sets.OspfArea.Sets.Set.UsedBy']['meta_info']
+                            return meta._meta_table['RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy']['meta_info']
 
 
                     class Attached(object):
@@ -1864,7 +1864,7 @@ class RoutingPolicy(object):
                         .. attribute:: binding
                         
                         	bindings list
-                        	**type**\: list of  :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.OspfArea.Sets.Set.Attached.Binding>`
+                        	**type**\: list of    :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached.Binding>`
                         
                         
 
@@ -1887,7 +1887,7 @@ class RoutingPolicy(object):
                             .. attribute:: af_name
                             
                             	Address Family Identifier
-                            	**type**\:  :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
+                            	**type**\:   :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: aggregate_network_address
                             
@@ -1912,12 +1912,12 @@ class RoutingPolicy(object):
                             .. attribute:: direction
                             
                             	Direction In or Out
-                            	**type**\:  :py:class:`AttachPointDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
+                            	**type**\:   :py:class:`AttachPointDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
                             
                             .. attribute:: group
                             
                             	Neighbor Group 
-                            	**type**\:  :py:class:`GroupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
+                            	**type**\:   :py:class:`GroupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
                             
                             .. attribute:: group_name
                             
@@ -1942,7 +1942,7 @@ class RoutingPolicy(object):
                             .. attribute:: neighbor_af_name
                             
                             	Neighbor IP Address Family
-                            	**type**\:  :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
+                            	**type**\:   :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: propogate_from
                             
@@ -1976,7 +1976,7 @@ class RoutingPolicy(object):
                             .. attribute:: saf_name
                             
                             	Subsequent Address Family Identifier
-                            	**type**\:  :py:class:`SubAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
+                            	**type**\:   :py:class:`SubAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
                             
                             .. attribute:: source_protocol
                             
@@ -2097,7 +2097,7 @@ class RoutingPolicy(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                                return meta._meta_table['RoutingPolicy.Sets.OspfArea.Sets.Set.Attached.Binding']['meta_info']
+                                return meta._meta_table['RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached.Binding']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -2123,7 +2123,7 @@ class RoutingPolicy(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                            return meta._meta_table['RoutingPolicy.Sets.OspfArea.Sets.Set.Attached']['meta_info']
+                            return meta._meta_table['RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -2153,7 +2153,7 @@ class RoutingPolicy(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                        return meta._meta_table['RoutingPolicy.Sets.OspfArea.Sets.Set']['meta_info']
+                        return meta._meta_table['RoutingPolicy.Sets.OspfArea.Sets_.Set']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -2177,7 +2177,7 @@ class RoutingPolicy(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                    return meta._meta_table['RoutingPolicy.Sets.OspfArea.Sets']['meta_info']
+                    return meta._meta_table['RoutingPolicy.Sets.OspfArea.Sets_']['meta_info']
 
 
             class Unused(object):
@@ -2363,22 +2363,22 @@ class RoutingPolicy(object):
             .. attribute:: active
             
             	All objects of a given type that are attached to a protocol
-            	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityOpaque.Active>`
+            	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityOpaque.Active>`
             
             .. attribute:: inactive
             
             	All objects of a given type that are not attached to a protocol
-            	**type**\:  :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityOpaque.Inactive>`
+            	**type**\:   :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityOpaque.Inactive>`
             
             .. attribute:: sets
             
             	Information about individual sets
-            	**type**\:  :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets>`
+            	**type**\:   :py:class:`Sets_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_>`
             
             .. attribute:: unused
             
             	All objects of a given type that are not referenced at all
-            	**type**\:  :py:class:`Unused <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityOpaque.Unused>`
+            	**type**\:   :py:class:`Unused <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityOpaque.Unused>`
             
             
 
@@ -2393,20 +2393,20 @@ class RoutingPolicy(object):
                 self.active.parent = self
                 self.inactive = RoutingPolicy.Sets.ExtendedCommunityOpaque.Inactive()
                 self.inactive.parent = self
-                self.sets = RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets()
+                self.sets = RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_()
                 self.sets.parent = self
                 self.unused = RoutingPolicy.Sets.ExtendedCommunityOpaque.Unused()
                 self.unused.parent = self
 
 
-            class Sets(object):
+            class Sets_(object):
                 """
                 Information about individual sets
                 
                 .. attribute:: set
                 
                 	Information about an individual set
-                	**type**\: list of  :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set>`
+                	**type**\: list of    :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set>`
                 
                 
 
@@ -2436,12 +2436,12 @@ class RoutingPolicy(object):
                     .. attribute:: attached
                     
                     	Information about where this policy or set is attached
-                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.Attached>`
+                    	**type**\:   :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached>`
                     
                     .. attribute:: used_by
                     
                     	Policies that use this object, directly or indirectly
-                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.UsedBy>`
+                    	**type**\:   :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy>`
                     
                     
 
@@ -2453,9 +2453,9 @@ class RoutingPolicy(object):
                     def __init__(self):
                         self.parent = None
                         self.set_name = None
-                        self.attached = RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.Attached()
+                        self.attached = RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached()
                         self.attached.parent = self
-                        self.used_by = RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.UsedBy()
+                        self.used_by = RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy()
                         self.used_by.parent = self
 
 
@@ -2467,7 +2467,7 @@ class RoutingPolicy(object):
                         .. attribute:: reference
                         
                         	Information about policies referring to this object
-                        	**type**\: list of  :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.UsedBy.Reference>`
+                        	**type**\: list of    :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy.Reference>`
                         
                         
 
@@ -2496,7 +2496,7 @@ class RoutingPolicy(object):
                             .. attribute:: status
                             
                             	Active, Inactive, or Unused
-                            	**type**\:  :py:class:`ObjectStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
+                            	**type**\:   :py:class:`ObjectStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
                             
                             .. attribute:: used_directly
                             
@@ -2544,7 +2544,7 @@ class RoutingPolicy(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.UsedBy.Reference']['meta_info']
+                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy.Reference']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -2570,7 +2570,7 @@ class RoutingPolicy(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.UsedBy']['meta_info']
+                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy']['meta_info']
 
 
                     class Attached(object):
@@ -2581,7 +2581,7 @@ class RoutingPolicy(object):
                         .. attribute:: binding
                         
                         	bindings list
-                        	**type**\: list of  :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.Attached.Binding>`
+                        	**type**\: list of    :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached.Binding>`
                         
                         
 
@@ -2604,7 +2604,7 @@ class RoutingPolicy(object):
                             .. attribute:: af_name
                             
                             	Address Family Identifier
-                            	**type**\:  :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
+                            	**type**\:   :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: aggregate_network_address
                             
@@ -2629,12 +2629,12 @@ class RoutingPolicy(object):
                             .. attribute:: direction
                             
                             	Direction In or Out
-                            	**type**\:  :py:class:`AttachPointDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
+                            	**type**\:   :py:class:`AttachPointDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
                             
                             .. attribute:: group
                             
                             	Neighbor Group 
-                            	**type**\:  :py:class:`GroupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
+                            	**type**\:   :py:class:`GroupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
                             
                             .. attribute:: group_name
                             
@@ -2659,7 +2659,7 @@ class RoutingPolicy(object):
                             .. attribute:: neighbor_af_name
                             
                             	Neighbor IP Address Family
-                            	**type**\:  :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
+                            	**type**\:   :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: propogate_from
                             
@@ -2693,7 +2693,7 @@ class RoutingPolicy(object):
                             .. attribute:: saf_name
                             
                             	Subsequent Address Family Identifier
-                            	**type**\:  :py:class:`SubAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
+                            	**type**\:   :py:class:`SubAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
                             
                             .. attribute:: source_protocol
                             
@@ -2814,7 +2814,7 @@ class RoutingPolicy(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.Attached.Binding']['meta_info']
+                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached.Binding']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -2840,7 +2840,7 @@ class RoutingPolicy(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.Attached']['meta_info']
+                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -2870,7 +2870,7 @@ class RoutingPolicy(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                        return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set']['meta_info']
+                        return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -2894,7 +2894,7 @@ class RoutingPolicy(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets']['meta_info']
+                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_']['meta_info']
 
 
             class Unused(object):
@@ -3079,22 +3079,22 @@ class RoutingPolicy(object):
             .. attribute:: active
             
             	All objects of a given type that are attached to a protocol
-            	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySegNh.Active>`
+            	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySegNh.Active>`
             
             .. attribute:: inactive
             
             	All objects of a given type that are not attached to a protocol
-            	**type**\:  :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySegNh.Inactive>`
+            	**type**\:   :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySegNh.Inactive>`
             
             .. attribute:: sets
             
             	Information about individual sets
-            	**type**\:  :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets>`
+            	**type**\:   :py:class:`Sets_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_>`
             
             .. attribute:: unused
             
             	All objects of a given type that are not referenced at all
-            	**type**\:  :py:class:`Unused <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySegNh.Unused>`
+            	**type**\:   :py:class:`Unused <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySegNh.Unused>`
             
             
 
@@ -3109,20 +3109,20 @@ class RoutingPolicy(object):
                 self.active.parent = self
                 self.inactive = RoutingPolicy.Sets.ExtendedCommunitySegNh.Inactive()
                 self.inactive.parent = self
-                self.sets = RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets()
+                self.sets = RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_()
                 self.sets.parent = self
                 self.unused = RoutingPolicy.Sets.ExtendedCommunitySegNh.Unused()
                 self.unused.parent = self
 
 
-            class Sets(object):
+            class Sets_(object):
                 """
                 Information about individual sets
                 
                 .. attribute:: set
                 
                 	Information about an individual set
-                	**type**\: list of  :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set>`
+                	**type**\: list of    :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set>`
                 
                 
 
@@ -3152,12 +3152,12 @@ class RoutingPolicy(object):
                     .. attribute:: attached
                     
                     	Information about where this policy or set is attached
-                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.Attached>`
+                    	**type**\:   :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached>`
                     
                     .. attribute:: used_by
                     
                     	Policies that use this object, directly or indirectly
-                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.UsedBy>`
+                    	**type**\:   :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy>`
                     
                     
 
@@ -3169,9 +3169,9 @@ class RoutingPolicy(object):
                     def __init__(self):
                         self.parent = None
                         self.set_name = None
-                        self.attached = RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.Attached()
+                        self.attached = RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached()
                         self.attached.parent = self
-                        self.used_by = RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.UsedBy()
+                        self.used_by = RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy()
                         self.used_by.parent = self
 
 
@@ -3183,7 +3183,7 @@ class RoutingPolicy(object):
                         .. attribute:: reference
                         
                         	Information about policies referring to this object
-                        	**type**\: list of  :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.UsedBy.Reference>`
+                        	**type**\: list of    :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy.Reference>`
                         
                         
 
@@ -3212,7 +3212,7 @@ class RoutingPolicy(object):
                             .. attribute:: status
                             
                             	Active, Inactive, or Unused
-                            	**type**\:  :py:class:`ObjectStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
+                            	**type**\:   :py:class:`ObjectStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
                             
                             .. attribute:: used_directly
                             
@@ -3260,7 +3260,7 @@ class RoutingPolicy(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.UsedBy.Reference']['meta_info']
+                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy.Reference']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -3286,7 +3286,7 @@ class RoutingPolicy(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.UsedBy']['meta_info']
+                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy']['meta_info']
 
 
                     class Attached(object):
@@ -3297,7 +3297,7 @@ class RoutingPolicy(object):
                         .. attribute:: binding
                         
                         	bindings list
-                        	**type**\: list of  :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.Attached.Binding>`
+                        	**type**\: list of    :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached.Binding>`
                         
                         
 
@@ -3320,7 +3320,7 @@ class RoutingPolicy(object):
                             .. attribute:: af_name
                             
                             	Address Family Identifier
-                            	**type**\:  :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
+                            	**type**\:   :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: aggregate_network_address
                             
@@ -3345,12 +3345,12 @@ class RoutingPolicy(object):
                             .. attribute:: direction
                             
                             	Direction In or Out
-                            	**type**\:  :py:class:`AttachPointDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
+                            	**type**\:   :py:class:`AttachPointDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
                             
                             .. attribute:: group
                             
                             	Neighbor Group 
-                            	**type**\:  :py:class:`GroupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
+                            	**type**\:   :py:class:`GroupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
                             
                             .. attribute:: group_name
                             
@@ -3375,7 +3375,7 @@ class RoutingPolicy(object):
                             .. attribute:: neighbor_af_name
                             
                             	Neighbor IP Address Family
-                            	**type**\:  :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
+                            	**type**\:   :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: propogate_from
                             
@@ -3409,7 +3409,7 @@ class RoutingPolicy(object):
                             .. attribute:: saf_name
                             
                             	Subsequent Address Family Identifier
-                            	**type**\:  :py:class:`SubAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
+                            	**type**\:   :py:class:`SubAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
                             
                             .. attribute:: source_protocol
                             
@@ -3530,7 +3530,7 @@ class RoutingPolicy(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.Attached.Binding']['meta_info']
+                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached.Binding']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -3556,7 +3556,7 @@ class RoutingPolicy(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.Attached']['meta_info']
+                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -3586,7 +3586,7 @@ class RoutingPolicy(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                        return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set']['meta_info']
+                        return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -3610,7 +3610,7 @@ class RoutingPolicy(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets']['meta_info']
+                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_']['meta_info']
 
 
             class Unused(object):
@@ -3795,22 +3795,22 @@ class RoutingPolicy(object):
             .. attribute:: active
             
             	All objects of a given type that are attached to a protocol
-            	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySoo.Active>`
+            	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySoo.Active>`
             
             .. attribute:: inactive
             
             	All objects of a given type that are not attached to a protocol
-            	**type**\:  :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySoo.Inactive>`
+            	**type**\:   :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySoo.Inactive>`
             
             .. attribute:: sets
             
             	Information about individual sets
-            	**type**\:  :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySoo.Sets>`
+            	**type**\:   :py:class:`Sets_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_>`
             
             .. attribute:: unused
             
             	All objects of a given type that are not referenced at all
-            	**type**\:  :py:class:`Unused <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySoo.Unused>`
+            	**type**\:   :py:class:`Unused <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySoo.Unused>`
             
             
 
@@ -3825,20 +3825,20 @@ class RoutingPolicy(object):
                 self.active.parent = self
                 self.inactive = RoutingPolicy.Sets.ExtendedCommunitySoo.Inactive()
                 self.inactive.parent = self
-                self.sets = RoutingPolicy.Sets.ExtendedCommunitySoo.Sets()
+                self.sets = RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_()
                 self.sets.parent = self
                 self.unused = RoutingPolicy.Sets.ExtendedCommunitySoo.Unused()
                 self.unused.parent = self
 
 
-            class Sets(object):
+            class Sets_(object):
                 """
                 Information about individual sets
                 
                 .. attribute:: set
                 
                 	Information about an individual set
-                	**type**\: list of  :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set>`
+                	**type**\: list of    :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set>`
                 
                 
 
@@ -3868,12 +3868,12 @@ class RoutingPolicy(object):
                     .. attribute:: attached
                     
                     	Information about where this policy or set is attached
-                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.Attached>`
+                    	**type**\:   :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.Attached>`
                     
                     .. attribute:: used_by
                     
                     	Policies that use this object, directly or indirectly
-                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.UsedBy>`
+                    	**type**\:   :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy>`
                     
                     
 
@@ -3885,9 +3885,9 @@ class RoutingPolicy(object):
                     def __init__(self):
                         self.parent = None
                         self.set_name = None
-                        self.attached = RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.Attached()
+                        self.attached = RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.Attached()
                         self.attached.parent = self
-                        self.used_by = RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.UsedBy()
+                        self.used_by = RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy()
                         self.used_by.parent = self
 
 
@@ -3899,7 +3899,7 @@ class RoutingPolicy(object):
                         .. attribute:: reference
                         
                         	Information about policies referring to this object
-                        	**type**\: list of  :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.UsedBy.Reference>`
+                        	**type**\: list of    :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy.Reference>`
                         
                         
 
@@ -3928,7 +3928,7 @@ class RoutingPolicy(object):
                             .. attribute:: status
                             
                             	Active, Inactive, or Unused
-                            	**type**\:  :py:class:`ObjectStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
+                            	**type**\:   :py:class:`ObjectStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
                             
                             .. attribute:: used_directly
                             
@@ -3976,7 +3976,7 @@ class RoutingPolicy(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.UsedBy.Reference']['meta_info']
+                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy.Reference']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -4002,7 +4002,7 @@ class RoutingPolicy(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.UsedBy']['meta_info']
+                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy']['meta_info']
 
 
                     class Attached(object):
@@ -4013,7 +4013,7 @@ class RoutingPolicy(object):
                         .. attribute:: binding
                         
                         	bindings list
-                        	**type**\: list of  :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.Attached.Binding>`
+                        	**type**\: list of    :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.Attached.Binding>`
                         
                         
 
@@ -4036,7 +4036,7 @@ class RoutingPolicy(object):
                             .. attribute:: af_name
                             
                             	Address Family Identifier
-                            	**type**\:  :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
+                            	**type**\:   :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: aggregate_network_address
                             
@@ -4061,12 +4061,12 @@ class RoutingPolicy(object):
                             .. attribute:: direction
                             
                             	Direction In or Out
-                            	**type**\:  :py:class:`AttachPointDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
+                            	**type**\:   :py:class:`AttachPointDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
                             
                             .. attribute:: group
                             
                             	Neighbor Group 
-                            	**type**\:  :py:class:`GroupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
+                            	**type**\:   :py:class:`GroupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
                             
                             .. attribute:: group_name
                             
@@ -4091,7 +4091,7 @@ class RoutingPolicy(object):
                             .. attribute:: neighbor_af_name
                             
                             	Neighbor IP Address Family
-                            	**type**\:  :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
+                            	**type**\:   :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: propogate_from
                             
@@ -4125,7 +4125,7 @@ class RoutingPolicy(object):
                             .. attribute:: saf_name
                             
                             	Subsequent Address Family Identifier
-                            	**type**\:  :py:class:`SubAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
+                            	**type**\:   :py:class:`SubAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
                             
                             .. attribute:: source_protocol
                             
@@ -4246,7 +4246,7 @@ class RoutingPolicy(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.Attached.Binding']['meta_info']
+                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.Attached.Binding']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -4272,7 +4272,7 @@ class RoutingPolicy(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.Attached']['meta_info']
+                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.Attached']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -4302,7 +4302,7 @@ class RoutingPolicy(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                        return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set']['meta_info']
+                        return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -4326,7 +4326,7 @@ class RoutingPolicy(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets']['meta_info']
+                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_']['meta_info']
 
 
             class Unused(object):
@@ -4511,22 +4511,22 @@ class RoutingPolicy(object):
             .. attribute:: active
             
             	All objects of a given type that are attached to a protocol
-            	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Tag.Active>`
+            	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Tag.Active>`
             
             .. attribute:: inactive
             
             	All objects of a given type that are not attached to a protocol
-            	**type**\:  :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Tag.Inactive>`
+            	**type**\:   :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Tag.Inactive>`
             
             .. attribute:: sets
             
             	Information about individual sets
-            	**type**\:  :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Tag.Sets>`
+            	**type**\:   :py:class:`Sets_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Tag.Sets_>`
             
             .. attribute:: unused
             
             	All objects of a given type that are not referenced at all
-            	**type**\:  :py:class:`Unused <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Tag.Unused>`
+            	**type**\:   :py:class:`Unused <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Tag.Unused>`
             
             
 
@@ -4541,20 +4541,20 @@ class RoutingPolicy(object):
                 self.active.parent = self
                 self.inactive = RoutingPolicy.Sets.Tag.Inactive()
                 self.inactive.parent = self
-                self.sets = RoutingPolicy.Sets.Tag.Sets()
+                self.sets = RoutingPolicy.Sets.Tag.Sets_()
                 self.sets.parent = self
                 self.unused = RoutingPolicy.Sets.Tag.Unused()
                 self.unused.parent = self
 
 
-            class Sets(object):
+            class Sets_(object):
                 """
                 Information about individual sets
                 
                 .. attribute:: set
                 
                 	Information about an individual set
-                	**type**\: list of  :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Tag.Sets.Set>`
+                	**type**\: list of    :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Tag.Sets_.Set>`
                 
                 
 
@@ -4584,12 +4584,12 @@ class RoutingPolicy(object):
                     .. attribute:: attached
                     
                     	Information about where this policy or set is attached
-                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Tag.Sets.Set.Attached>`
+                    	**type**\:   :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Tag.Sets_.Set.Attached>`
                     
                     .. attribute:: used_by
                     
                     	Policies that use this object, directly or indirectly
-                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Tag.Sets.Set.UsedBy>`
+                    	**type**\:   :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Tag.Sets_.Set.UsedBy>`
                     
                     
 
@@ -4601,9 +4601,9 @@ class RoutingPolicy(object):
                     def __init__(self):
                         self.parent = None
                         self.set_name = None
-                        self.attached = RoutingPolicy.Sets.Tag.Sets.Set.Attached()
+                        self.attached = RoutingPolicy.Sets.Tag.Sets_.Set.Attached()
                         self.attached.parent = self
-                        self.used_by = RoutingPolicy.Sets.Tag.Sets.Set.UsedBy()
+                        self.used_by = RoutingPolicy.Sets.Tag.Sets_.Set.UsedBy()
                         self.used_by.parent = self
 
 
@@ -4615,7 +4615,7 @@ class RoutingPolicy(object):
                         .. attribute:: reference
                         
                         	Information about policies referring to this object
-                        	**type**\: list of  :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Tag.Sets.Set.UsedBy.Reference>`
+                        	**type**\: list of    :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Tag.Sets_.Set.UsedBy.Reference>`
                         
                         
 
@@ -4644,7 +4644,7 @@ class RoutingPolicy(object):
                             .. attribute:: status
                             
                             	Active, Inactive, or Unused
-                            	**type**\:  :py:class:`ObjectStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
+                            	**type**\:   :py:class:`ObjectStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
                             
                             .. attribute:: used_directly
                             
@@ -4692,7 +4692,7 @@ class RoutingPolicy(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                                return meta._meta_table['RoutingPolicy.Sets.Tag.Sets.Set.UsedBy.Reference']['meta_info']
+                                return meta._meta_table['RoutingPolicy.Sets.Tag.Sets_.Set.UsedBy.Reference']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -4718,7 +4718,7 @@ class RoutingPolicy(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                            return meta._meta_table['RoutingPolicy.Sets.Tag.Sets.Set.UsedBy']['meta_info']
+                            return meta._meta_table['RoutingPolicy.Sets.Tag.Sets_.Set.UsedBy']['meta_info']
 
 
                     class Attached(object):
@@ -4729,7 +4729,7 @@ class RoutingPolicy(object):
                         .. attribute:: binding
                         
                         	bindings list
-                        	**type**\: list of  :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Tag.Sets.Set.Attached.Binding>`
+                        	**type**\: list of    :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Tag.Sets_.Set.Attached.Binding>`
                         
                         
 
@@ -4752,7 +4752,7 @@ class RoutingPolicy(object):
                             .. attribute:: af_name
                             
                             	Address Family Identifier
-                            	**type**\:  :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
+                            	**type**\:   :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: aggregate_network_address
                             
@@ -4777,12 +4777,12 @@ class RoutingPolicy(object):
                             .. attribute:: direction
                             
                             	Direction In or Out
-                            	**type**\:  :py:class:`AttachPointDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
+                            	**type**\:   :py:class:`AttachPointDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
                             
                             .. attribute:: group
                             
                             	Neighbor Group 
-                            	**type**\:  :py:class:`GroupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
+                            	**type**\:   :py:class:`GroupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
                             
                             .. attribute:: group_name
                             
@@ -4807,7 +4807,7 @@ class RoutingPolicy(object):
                             .. attribute:: neighbor_af_name
                             
                             	Neighbor IP Address Family
-                            	**type**\:  :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
+                            	**type**\:   :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: propogate_from
                             
@@ -4841,7 +4841,7 @@ class RoutingPolicy(object):
                             .. attribute:: saf_name
                             
                             	Subsequent Address Family Identifier
-                            	**type**\:  :py:class:`SubAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
+                            	**type**\:   :py:class:`SubAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
                             
                             .. attribute:: source_protocol
                             
@@ -4962,7 +4962,7 @@ class RoutingPolicy(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                                return meta._meta_table['RoutingPolicy.Sets.Tag.Sets.Set.Attached.Binding']['meta_info']
+                                return meta._meta_table['RoutingPolicy.Sets.Tag.Sets_.Set.Attached.Binding']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -4988,7 +4988,7 @@ class RoutingPolicy(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                            return meta._meta_table['RoutingPolicy.Sets.Tag.Sets.Set.Attached']['meta_info']
+                            return meta._meta_table['RoutingPolicy.Sets.Tag.Sets_.Set.Attached']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -5018,7 +5018,7 @@ class RoutingPolicy(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                        return meta._meta_table['RoutingPolicy.Sets.Tag.Sets.Set']['meta_info']
+                        return meta._meta_table['RoutingPolicy.Sets.Tag.Sets_.Set']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -5042,7 +5042,7 @@ class RoutingPolicy(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                    return meta._meta_table['RoutingPolicy.Sets.Tag.Sets']['meta_info']
+                    return meta._meta_table['RoutingPolicy.Sets.Tag.Sets_']['meta_info']
 
 
             class Unused(object):
@@ -5227,22 +5227,22 @@ class RoutingPolicy(object):
             .. attribute:: active
             
             	All objects of a given type that are attached to a protocol
-            	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Prefix.Active>`
+            	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Prefix.Active>`
             
             .. attribute:: inactive
             
             	All objects of a given type that are not attached to a protocol
-            	**type**\:  :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Prefix.Inactive>`
+            	**type**\:   :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Prefix.Inactive>`
             
             .. attribute:: sets
             
             	Information about individual sets
-            	**type**\:  :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Prefix.Sets>`
+            	**type**\:   :py:class:`Sets_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Prefix.Sets_>`
             
             .. attribute:: unused
             
             	All objects of a given type that are not referenced at all
-            	**type**\:  :py:class:`Unused <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Prefix.Unused>`
+            	**type**\:   :py:class:`Unused <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Prefix.Unused>`
             
             
 
@@ -5257,20 +5257,20 @@ class RoutingPolicy(object):
                 self.active.parent = self
                 self.inactive = RoutingPolicy.Sets.Prefix.Inactive()
                 self.inactive.parent = self
-                self.sets = RoutingPolicy.Sets.Prefix.Sets()
+                self.sets = RoutingPolicy.Sets.Prefix.Sets_()
                 self.sets.parent = self
                 self.unused = RoutingPolicy.Sets.Prefix.Unused()
                 self.unused.parent = self
 
 
-            class Sets(object):
+            class Sets_(object):
                 """
                 Information about individual sets
                 
                 .. attribute:: set
                 
                 	Information about an individual set
-                	**type**\: list of  :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Prefix.Sets.Set>`
+                	**type**\: list of    :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Prefix.Sets_.Set>`
                 
                 
 
@@ -5300,12 +5300,12 @@ class RoutingPolicy(object):
                     .. attribute:: attached
                     
                     	Information about where this policy or set is attached
-                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Prefix.Sets.Set.Attached>`
+                    	**type**\:   :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Prefix.Sets_.Set.Attached>`
                     
                     .. attribute:: used_by
                     
                     	Policies that use this object, directly or indirectly
-                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Prefix.Sets.Set.UsedBy>`
+                    	**type**\:   :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Prefix.Sets_.Set.UsedBy>`
                     
                     
 
@@ -5317,9 +5317,9 @@ class RoutingPolicy(object):
                     def __init__(self):
                         self.parent = None
                         self.set_name = None
-                        self.attached = RoutingPolicy.Sets.Prefix.Sets.Set.Attached()
+                        self.attached = RoutingPolicy.Sets.Prefix.Sets_.Set.Attached()
                         self.attached.parent = self
-                        self.used_by = RoutingPolicy.Sets.Prefix.Sets.Set.UsedBy()
+                        self.used_by = RoutingPolicy.Sets.Prefix.Sets_.Set.UsedBy()
                         self.used_by.parent = self
 
 
@@ -5331,7 +5331,7 @@ class RoutingPolicy(object):
                         .. attribute:: reference
                         
                         	Information about policies referring to this object
-                        	**type**\: list of  :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Prefix.Sets.Set.UsedBy.Reference>`
+                        	**type**\: list of    :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Prefix.Sets_.Set.UsedBy.Reference>`
                         
                         
 
@@ -5360,7 +5360,7 @@ class RoutingPolicy(object):
                             .. attribute:: status
                             
                             	Active, Inactive, or Unused
-                            	**type**\:  :py:class:`ObjectStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
+                            	**type**\:   :py:class:`ObjectStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
                             
                             .. attribute:: used_directly
                             
@@ -5408,7 +5408,7 @@ class RoutingPolicy(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                                return meta._meta_table['RoutingPolicy.Sets.Prefix.Sets.Set.UsedBy.Reference']['meta_info']
+                                return meta._meta_table['RoutingPolicy.Sets.Prefix.Sets_.Set.UsedBy.Reference']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -5434,7 +5434,7 @@ class RoutingPolicy(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                            return meta._meta_table['RoutingPolicy.Sets.Prefix.Sets.Set.UsedBy']['meta_info']
+                            return meta._meta_table['RoutingPolicy.Sets.Prefix.Sets_.Set.UsedBy']['meta_info']
 
 
                     class Attached(object):
@@ -5445,7 +5445,7 @@ class RoutingPolicy(object):
                         .. attribute:: binding
                         
                         	bindings list
-                        	**type**\: list of  :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Prefix.Sets.Set.Attached.Binding>`
+                        	**type**\: list of    :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Prefix.Sets_.Set.Attached.Binding>`
                         
                         
 
@@ -5468,7 +5468,7 @@ class RoutingPolicy(object):
                             .. attribute:: af_name
                             
                             	Address Family Identifier
-                            	**type**\:  :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
+                            	**type**\:   :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: aggregate_network_address
                             
@@ -5493,12 +5493,12 @@ class RoutingPolicy(object):
                             .. attribute:: direction
                             
                             	Direction In or Out
-                            	**type**\:  :py:class:`AttachPointDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
+                            	**type**\:   :py:class:`AttachPointDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
                             
                             .. attribute:: group
                             
                             	Neighbor Group 
-                            	**type**\:  :py:class:`GroupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
+                            	**type**\:   :py:class:`GroupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
                             
                             .. attribute:: group_name
                             
@@ -5523,7 +5523,7 @@ class RoutingPolicy(object):
                             .. attribute:: neighbor_af_name
                             
                             	Neighbor IP Address Family
-                            	**type**\:  :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
+                            	**type**\:   :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: propogate_from
                             
@@ -5557,7 +5557,7 @@ class RoutingPolicy(object):
                             .. attribute:: saf_name
                             
                             	Subsequent Address Family Identifier
-                            	**type**\:  :py:class:`SubAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
+                            	**type**\:   :py:class:`SubAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
                             
                             .. attribute:: source_protocol
                             
@@ -5678,7 +5678,7 @@ class RoutingPolicy(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                                return meta._meta_table['RoutingPolicy.Sets.Prefix.Sets.Set.Attached.Binding']['meta_info']
+                                return meta._meta_table['RoutingPolicy.Sets.Prefix.Sets_.Set.Attached.Binding']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -5704,7 +5704,7 @@ class RoutingPolicy(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                            return meta._meta_table['RoutingPolicy.Sets.Prefix.Sets.Set.Attached']['meta_info']
+                            return meta._meta_table['RoutingPolicy.Sets.Prefix.Sets_.Set.Attached']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -5734,7 +5734,7 @@ class RoutingPolicy(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                        return meta._meta_table['RoutingPolicy.Sets.Prefix.Sets.Set']['meta_info']
+                        return meta._meta_table['RoutingPolicy.Sets.Prefix.Sets_.Set']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -5758,7 +5758,7 @@ class RoutingPolicy(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                    return meta._meta_table['RoutingPolicy.Sets.Prefix.Sets']['meta_info']
+                    return meta._meta_table['RoutingPolicy.Sets.Prefix.Sets_']['meta_info']
 
 
             class Unused(object):
@@ -5943,22 +5943,22 @@ class RoutingPolicy(object):
             .. attribute:: active
             
             	All objects of a given type that are attached to a protocol
-            	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Community.Active>`
+            	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Community.Active>`
             
             .. attribute:: inactive
             
             	All objects of a given type that are not attached to a protocol
-            	**type**\:  :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Community.Inactive>`
+            	**type**\:   :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Community.Inactive>`
             
             .. attribute:: sets
             
             	Information about individual sets
-            	**type**\:  :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Community.Sets>`
+            	**type**\:   :py:class:`Sets_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Community.Sets_>`
             
             .. attribute:: unused
             
             	All objects of a given type that are not referenced at all
-            	**type**\:  :py:class:`Unused <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Community.Unused>`
+            	**type**\:   :py:class:`Unused <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Community.Unused>`
             
             
 
@@ -5973,20 +5973,20 @@ class RoutingPolicy(object):
                 self.active.parent = self
                 self.inactive = RoutingPolicy.Sets.Community.Inactive()
                 self.inactive.parent = self
-                self.sets = RoutingPolicy.Sets.Community.Sets()
+                self.sets = RoutingPolicy.Sets.Community.Sets_()
                 self.sets.parent = self
                 self.unused = RoutingPolicy.Sets.Community.Unused()
                 self.unused.parent = self
 
 
-            class Sets(object):
+            class Sets_(object):
                 """
                 Information about individual sets
                 
                 .. attribute:: set
                 
                 	Information about an individual set
-                	**type**\: list of  :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Community.Sets.Set>`
+                	**type**\: list of    :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Community.Sets_.Set>`
                 
                 
 
@@ -6016,12 +6016,12 @@ class RoutingPolicy(object):
                     .. attribute:: attached
                     
                     	Information about where this policy or set is attached
-                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Community.Sets.Set.Attached>`
+                    	**type**\:   :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Community.Sets_.Set.Attached>`
                     
                     .. attribute:: used_by
                     
                     	Policies that use this object, directly or indirectly
-                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Community.Sets.Set.UsedBy>`
+                    	**type**\:   :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Community.Sets_.Set.UsedBy>`
                     
                     
 
@@ -6033,9 +6033,9 @@ class RoutingPolicy(object):
                     def __init__(self):
                         self.parent = None
                         self.set_name = None
-                        self.attached = RoutingPolicy.Sets.Community.Sets.Set.Attached()
+                        self.attached = RoutingPolicy.Sets.Community.Sets_.Set.Attached()
                         self.attached.parent = self
-                        self.used_by = RoutingPolicy.Sets.Community.Sets.Set.UsedBy()
+                        self.used_by = RoutingPolicy.Sets.Community.Sets_.Set.UsedBy()
                         self.used_by.parent = self
 
 
@@ -6047,7 +6047,7 @@ class RoutingPolicy(object):
                         .. attribute:: reference
                         
                         	Information about policies referring to this object
-                        	**type**\: list of  :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Community.Sets.Set.UsedBy.Reference>`
+                        	**type**\: list of    :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Community.Sets_.Set.UsedBy.Reference>`
                         
                         
 
@@ -6076,7 +6076,7 @@ class RoutingPolicy(object):
                             .. attribute:: status
                             
                             	Active, Inactive, or Unused
-                            	**type**\:  :py:class:`ObjectStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
+                            	**type**\:   :py:class:`ObjectStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
                             
                             .. attribute:: used_directly
                             
@@ -6124,7 +6124,7 @@ class RoutingPolicy(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                                return meta._meta_table['RoutingPolicy.Sets.Community.Sets.Set.UsedBy.Reference']['meta_info']
+                                return meta._meta_table['RoutingPolicy.Sets.Community.Sets_.Set.UsedBy.Reference']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -6150,7 +6150,7 @@ class RoutingPolicy(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                            return meta._meta_table['RoutingPolicy.Sets.Community.Sets.Set.UsedBy']['meta_info']
+                            return meta._meta_table['RoutingPolicy.Sets.Community.Sets_.Set.UsedBy']['meta_info']
 
 
                     class Attached(object):
@@ -6161,7 +6161,7 @@ class RoutingPolicy(object):
                         .. attribute:: binding
                         
                         	bindings list
-                        	**type**\: list of  :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Community.Sets.Set.Attached.Binding>`
+                        	**type**\: list of    :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Community.Sets_.Set.Attached.Binding>`
                         
                         
 
@@ -6184,7 +6184,7 @@ class RoutingPolicy(object):
                             .. attribute:: af_name
                             
                             	Address Family Identifier
-                            	**type**\:  :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
+                            	**type**\:   :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: aggregate_network_address
                             
@@ -6209,12 +6209,12 @@ class RoutingPolicy(object):
                             .. attribute:: direction
                             
                             	Direction In or Out
-                            	**type**\:  :py:class:`AttachPointDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
+                            	**type**\:   :py:class:`AttachPointDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
                             
                             .. attribute:: group
                             
                             	Neighbor Group 
-                            	**type**\:  :py:class:`GroupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
+                            	**type**\:   :py:class:`GroupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
                             
                             .. attribute:: group_name
                             
@@ -6239,7 +6239,7 @@ class RoutingPolicy(object):
                             .. attribute:: neighbor_af_name
                             
                             	Neighbor IP Address Family
-                            	**type**\:  :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
+                            	**type**\:   :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: propogate_from
                             
@@ -6273,7 +6273,7 @@ class RoutingPolicy(object):
                             .. attribute:: saf_name
                             
                             	Subsequent Address Family Identifier
-                            	**type**\:  :py:class:`SubAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
+                            	**type**\:   :py:class:`SubAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
                             
                             .. attribute:: source_protocol
                             
@@ -6394,7 +6394,7 @@ class RoutingPolicy(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                                return meta._meta_table['RoutingPolicy.Sets.Community.Sets.Set.Attached.Binding']['meta_info']
+                                return meta._meta_table['RoutingPolicy.Sets.Community.Sets_.Set.Attached.Binding']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -6420,7 +6420,7 @@ class RoutingPolicy(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                            return meta._meta_table['RoutingPolicy.Sets.Community.Sets.Set.Attached']['meta_info']
+                            return meta._meta_table['RoutingPolicy.Sets.Community.Sets_.Set.Attached']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -6450,7 +6450,7 @@ class RoutingPolicy(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                        return meta._meta_table['RoutingPolicy.Sets.Community.Sets.Set']['meta_info']
+                        return meta._meta_table['RoutingPolicy.Sets.Community.Sets_.Set']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -6474,7 +6474,7 @@ class RoutingPolicy(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                    return meta._meta_table['RoutingPolicy.Sets.Community.Sets']['meta_info']
+                    return meta._meta_table['RoutingPolicy.Sets.Community.Sets_']['meta_info']
 
 
             class Unused(object):
@@ -6659,22 +6659,22 @@ class RoutingPolicy(object):
             .. attribute:: active
             
             	All objects of a given type that are attached to a protocol
-            	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.AsPath.Active>`
+            	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.AsPath.Active>`
             
             .. attribute:: inactive
             
             	All objects of a given type that are not attached to a protocol
-            	**type**\:  :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.AsPath.Inactive>`
+            	**type**\:   :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.AsPath.Inactive>`
             
             .. attribute:: sets
             
             	Information about individual sets
-            	**type**\:  :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.AsPath.Sets>`
+            	**type**\:   :py:class:`Sets_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.AsPath.Sets_>`
             
             .. attribute:: unused
             
             	All objects of a given type that are not referenced at all
-            	**type**\:  :py:class:`Unused <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.AsPath.Unused>`
+            	**type**\:   :py:class:`Unused <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.AsPath.Unused>`
             
             
 
@@ -6689,20 +6689,20 @@ class RoutingPolicy(object):
                 self.active.parent = self
                 self.inactive = RoutingPolicy.Sets.AsPath.Inactive()
                 self.inactive.parent = self
-                self.sets = RoutingPolicy.Sets.AsPath.Sets()
+                self.sets = RoutingPolicy.Sets.AsPath.Sets_()
                 self.sets.parent = self
                 self.unused = RoutingPolicy.Sets.AsPath.Unused()
                 self.unused.parent = self
 
 
-            class Sets(object):
+            class Sets_(object):
                 """
                 Information about individual sets
                 
                 .. attribute:: set
                 
                 	Information about an individual set
-                	**type**\: list of  :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.AsPath.Sets.Set>`
+                	**type**\: list of    :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.AsPath.Sets_.Set>`
                 
                 
 
@@ -6732,12 +6732,12 @@ class RoutingPolicy(object):
                     .. attribute:: attached
                     
                     	Information about where this policy or set is attached
-                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.AsPath.Sets.Set.Attached>`
+                    	**type**\:   :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.AsPath.Sets_.Set.Attached>`
                     
                     .. attribute:: used_by
                     
                     	Policies that use this object, directly or indirectly
-                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.AsPath.Sets.Set.UsedBy>`
+                    	**type**\:   :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.AsPath.Sets_.Set.UsedBy>`
                     
                     
 
@@ -6749,9 +6749,9 @@ class RoutingPolicy(object):
                     def __init__(self):
                         self.parent = None
                         self.set_name = None
-                        self.attached = RoutingPolicy.Sets.AsPath.Sets.Set.Attached()
+                        self.attached = RoutingPolicy.Sets.AsPath.Sets_.Set.Attached()
                         self.attached.parent = self
-                        self.used_by = RoutingPolicy.Sets.AsPath.Sets.Set.UsedBy()
+                        self.used_by = RoutingPolicy.Sets.AsPath.Sets_.Set.UsedBy()
                         self.used_by.parent = self
 
 
@@ -6763,7 +6763,7 @@ class RoutingPolicy(object):
                         .. attribute:: reference
                         
                         	Information about policies referring to this object
-                        	**type**\: list of  :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.AsPath.Sets.Set.UsedBy.Reference>`
+                        	**type**\: list of    :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.AsPath.Sets_.Set.UsedBy.Reference>`
                         
                         
 
@@ -6792,7 +6792,7 @@ class RoutingPolicy(object):
                             .. attribute:: status
                             
                             	Active, Inactive, or Unused
-                            	**type**\:  :py:class:`ObjectStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
+                            	**type**\:   :py:class:`ObjectStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
                             
                             .. attribute:: used_directly
                             
@@ -6840,7 +6840,7 @@ class RoutingPolicy(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                                return meta._meta_table['RoutingPolicy.Sets.AsPath.Sets.Set.UsedBy.Reference']['meta_info']
+                                return meta._meta_table['RoutingPolicy.Sets.AsPath.Sets_.Set.UsedBy.Reference']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -6866,7 +6866,7 @@ class RoutingPolicy(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                            return meta._meta_table['RoutingPolicy.Sets.AsPath.Sets.Set.UsedBy']['meta_info']
+                            return meta._meta_table['RoutingPolicy.Sets.AsPath.Sets_.Set.UsedBy']['meta_info']
 
 
                     class Attached(object):
@@ -6877,7 +6877,7 @@ class RoutingPolicy(object):
                         .. attribute:: binding
                         
                         	bindings list
-                        	**type**\: list of  :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.AsPath.Sets.Set.Attached.Binding>`
+                        	**type**\: list of    :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.AsPath.Sets_.Set.Attached.Binding>`
                         
                         
 
@@ -6900,7 +6900,7 @@ class RoutingPolicy(object):
                             .. attribute:: af_name
                             
                             	Address Family Identifier
-                            	**type**\:  :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
+                            	**type**\:   :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: aggregate_network_address
                             
@@ -6925,12 +6925,12 @@ class RoutingPolicy(object):
                             .. attribute:: direction
                             
                             	Direction In or Out
-                            	**type**\:  :py:class:`AttachPointDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
+                            	**type**\:   :py:class:`AttachPointDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
                             
                             .. attribute:: group
                             
                             	Neighbor Group 
-                            	**type**\:  :py:class:`GroupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
+                            	**type**\:   :py:class:`GroupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
                             
                             .. attribute:: group_name
                             
@@ -6955,7 +6955,7 @@ class RoutingPolicy(object):
                             .. attribute:: neighbor_af_name
                             
                             	Neighbor IP Address Family
-                            	**type**\:  :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
+                            	**type**\:   :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: propogate_from
                             
@@ -6989,7 +6989,7 @@ class RoutingPolicy(object):
                             .. attribute:: saf_name
                             
                             	Subsequent Address Family Identifier
-                            	**type**\:  :py:class:`SubAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
+                            	**type**\:   :py:class:`SubAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
                             
                             .. attribute:: source_protocol
                             
@@ -7110,7 +7110,7 @@ class RoutingPolicy(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                                return meta._meta_table['RoutingPolicy.Sets.AsPath.Sets.Set.Attached.Binding']['meta_info']
+                                return meta._meta_table['RoutingPolicy.Sets.AsPath.Sets_.Set.Attached.Binding']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -7136,7 +7136,7 @@ class RoutingPolicy(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                            return meta._meta_table['RoutingPolicy.Sets.AsPath.Sets.Set.Attached']['meta_info']
+                            return meta._meta_table['RoutingPolicy.Sets.AsPath.Sets_.Set.Attached']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -7166,7 +7166,7 @@ class RoutingPolicy(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                        return meta._meta_table['RoutingPolicy.Sets.AsPath.Sets.Set']['meta_info']
+                        return meta._meta_table['RoutingPolicy.Sets.AsPath.Sets_.Set']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -7190,7 +7190,7 @@ class RoutingPolicy(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                    return meta._meta_table['RoutingPolicy.Sets.AsPath.Sets']['meta_info']
+                    return meta._meta_table['RoutingPolicy.Sets.AsPath.Sets_']['meta_info']
 
 
             class Unused(object):
@@ -7376,17 +7376,17 @@ class RoutingPolicy(object):
             .. attribute:: inactive
             
             	All objects of a given type that are not attached to a protocol
-            	**type**\:  :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityBandwidth.Inactive>`
+            	**type**\:   :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityBandwidth.Inactive>`
             
             .. attribute:: sets
             
             	Information about individual sets
-            	**type**\:  :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets>`
+            	**type**\:   :py:class:`Sets_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_>`
             
             .. attribute:: unused
             
             	All objects of a given type that are not referenced at all
-            	**type**\:  :py:class:`Unused <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityBandwidth.Unused>`
+            	**type**\:   :py:class:`Unused <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityBandwidth.Unused>`
             
             
 
@@ -7399,20 +7399,20 @@ class RoutingPolicy(object):
                 self.parent = None
                 self.inactive = RoutingPolicy.Sets.ExtendedCommunityBandwidth.Inactive()
                 self.inactive.parent = self
-                self.sets = RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets()
+                self.sets = RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_()
                 self.sets.parent = self
                 self.unused = RoutingPolicy.Sets.ExtendedCommunityBandwidth.Unused()
                 self.unused.parent = self
 
 
-            class Sets(object):
+            class Sets_(object):
                 """
                 Information about individual sets
                 
                 .. attribute:: set
                 
                 	Information about an individual set
-                	**type**\: list of  :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set>`
+                	**type**\: list of    :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set>`
                 
                 
 
@@ -7442,12 +7442,12 @@ class RoutingPolicy(object):
                     .. attribute:: attached
                     
                     	Information about where this policy or set is attached
-                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.Attached>`
+                    	**type**\:   :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached>`
                     
                     .. attribute:: used_by
                     
                     	Policies that use this object, directly or indirectly
-                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.UsedBy>`
+                    	**type**\:   :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy>`
                     
                     
 
@@ -7459,9 +7459,9 @@ class RoutingPolicy(object):
                     def __init__(self):
                         self.parent = None
                         self.set_name = None
-                        self.attached = RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.Attached()
+                        self.attached = RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached()
                         self.attached.parent = self
-                        self.used_by = RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.UsedBy()
+                        self.used_by = RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy()
                         self.used_by.parent = self
 
 
@@ -7473,7 +7473,7 @@ class RoutingPolicy(object):
                         .. attribute:: reference
                         
                         	Information about policies referring to this object
-                        	**type**\: list of  :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.UsedBy.Reference>`
+                        	**type**\: list of    :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy.Reference>`
                         
                         
 
@@ -7502,7 +7502,7 @@ class RoutingPolicy(object):
                             .. attribute:: status
                             
                             	Active, Inactive, or Unused
-                            	**type**\:  :py:class:`ObjectStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
+                            	**type**\:   :py:class:`ObjectStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
                             
                             .. attribute:: used_directly
                             
@@ -7550,7 +7550,7 @@ class RoutingPolicy(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.UsedBy.Reference']['meta_info']
+                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy.Reference']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -7576,7 +7576,7 @@ class RoutingPolicy(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.UsedBy']['meta_info']
+                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy']['meta_info']
 
 
                     class Attached(object):
@@ -7587,7 +7587,7 @@ class RoutingPolicy(object):
                         .. attribute:: binding
                         
                         	bindings list
-                        	**type**\: list of  :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.Attached.Binding>`
+                        	**type**\: list of    :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached.Binding>`
                         
                         
 
@@ -7610,7 +7610,7 @@ class RoutingPolicy(object):
                             .. attribute:: af_name
                             
                             	Address Family Identifier
-                            	**type**\:  :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
+                            	**type**\:   :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: aggregate_network_address
                             
@@ -7635,12 +7635,12 @@ class RoutingPolicy(object):
                             .. attribute:: direction
                             
                             	Direction In or Out
-                            	**type**\:  :py:class:`AttachPointDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
+                            	**type**\:   :py:class:`AttachPointDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
                             
                             .. attribute:: group
                             
                             	Neighbor Group 
-                            	**type**\:  :py:class:`GroupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
+                            	**type**\:   :py:class:`GroupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
                             
                             .. attribute:: group_name
                             
@@ -7665,7 +7665,7 @@ class RoutingPolicy(object):
                             .. attribute:: neighbor_af_name
                             
                             	Neighbor IP Address Family
-                            	**type**\:  :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
+                            	**type**\:   :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: propogate_from
                             
@@ -7699,7 +7699,7 @@ class RoutingPolicy(object):
                             .. attribute:: saf_name
                             
                             	Subsequent Address Family Identifier
-                            	**type**\:  :py:class:`SubAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
+                            	**type**\:   :py:class:`SubAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
                             
                             .. attribute:: source_protocol
                             
@@ -7820,7 +7820,7 @@ class RoutingPolicy(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.Attached.Binding']['meta_info']
+                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached.Binding']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -7846,7 +7846,7 @@ class RoutingPolicy(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.Attached']['meta_info']
+                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -7876,7 +7876,7 @@ class RoutingPolicy(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                        return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set']['meta_info']
+                        return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -7900,7 +7900,7 @@ class RoutingPolicy(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets']['meta_info']
+                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_']['meta_info']
 
 
             class Unused(object):
@@ -8034,22 +8034,22 @@ class RoutingPolicy(object):
             .. attribute:: active
             
             	All objects of a given type that are attached to a protocol
-            	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityRt.Active>`
+            	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityRt.Active>`
             
             .. attribute:: inactive
             
             	All objects of a given type that are not attached to a protocol
-            	**type**\:  :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityRt.Inactive>`
+            	**type**\:   :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityRt.Inactive>`
             
             .. attribute:: sets
             
             	Information about individual sets
-            	**type**\:  :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityRt.Sets>`
+            	**type**\:   :py:class:`Sets_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityRt.Sets_>`
             
             .. attribute:: unused
             
             	All objects of a given type that are not referenced at all
-            	**type**\:  :py:class:`Unused <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityRt.Unused>`
+            	**type**\:   :py:class:`Unused <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityRt.Unused>`
             
             
 
@@ -8064,20 +8064,20 @@ class RoutingPolicy(object):
                 self.active.parent = self
                 self.inactive = RoutingPolicy.Sets.ExtendedCommunityRt.Inactive()
                 self.inactive.parent = self
-                self.sets = RoutingPolicy.Sets.ExtendedCommunityRt.Sets()
+                self.sets = RoutingPolicy.Sets.ExtendedCommunityRt.Sets_()
                 self.sets.parent = self
                 self.unused = RoutingPolicy.Sets.ExtendedCommunityRt.Unused()
                 self.unused.parent = self
 
 
-            class Sets(object):
+            class Sets_(object):
                 """
                 Information about individual sets
                 
                 .. attribute:: set
                 
                 	Information about an individual set
-                	**type**\: list of  :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set>`
+                	**type**\: list of    :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set>`
                 
                 
 
@@ -8107,12 +8107,12 @@ class RoutingPolicy(object):
                     .. attribute:: attached
                     
                     	Information about where this policy or set is attached
-                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.Attached>`
+                    	**type**\:   :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.Attached>`
                     
                     .. attribute:: used_by
                     
                     	Policies that use this object, directly or indirectly
-                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.UsedBy>`
+                    	**type**\:   :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy>`
                     
                     
 
@@ -8124,9 +8124,9 @@ class RoutingPolicy(object):
                     def __init__(self):
                         self.parent = None
                         self.set_name = None
-                        self.attached = RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.Attached()
+                        self.attached = RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.Attached()
                         self.attached.parent = self
-                        self.used_by = RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.UsedBy()
+                        self.used_by = RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy()
                         self.used_by.parent = self
 
 
@@ -8138,7 +8138,7 @@ class RoutingPolicy(object):
                         .. attribute:: reference
                         
                         	Information about policies referring to this object
-                        	**type**\: list of  :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.UsedBy.Reference>`
+                        	**type**\: list of    :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy.Reference>`
                         
                         
 
@@ -8167,7 +8167,7 @@ class RoutingPolicy(object):
                             .. attribute:: status
                             
                             	Active, Inactive, or Unused
-                            	**type**\:  :py:class:`ObjectStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
+                            	**type**\:   :py:class:`ObjectStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
                             
                             .. attribute:: used_directly
                             
@@ -8215,7 +8215,7 @@ class RoutingPolicy(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.UsedBy.Reference']['meta_info']
+                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy.Reference']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -8241,7 +8241,7 @@ class RoutingPolicy(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.UsedBy']['meta_info']
+                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy']['meta_info']
 
 
                     class Attached(object):
@@ -8252,7 +8252,7 @@ class RoutingPolicy(object):
                         .. attribute:: binding
                         
                         	bindings list
-                        	**type**\: list of  :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.Attached.Binding>`
+                        	**type**\: list of    :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.Attached.Binding>`
                         
                         
 
@@ -8275,7 +8275,7 @@ class RoutingPolicy(object):
                             .. attribute:: af_name
                             
                             	Address Family Identifier
-                            	**type**\:  :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
+                            	**type**\:   :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: aggregate_network_address
                             
@@ -8300,12 +8300,12 @@ class RoutingPolicy(object):
                             .. attribute:: direction
                             
                             	Direction In or Out
-                            	**type**\:  :py:class:`AttachPointDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
+                            	**type**\:   :py:class:`AttachPointDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
                             
                             .. attribute:: group
                             
                             	Neighbor Group 
-                            	**type**\:  :py:class:`GroupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
+                            	**type**\:   :py:class:`GroupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
                             
                             .. attribute:: group_name
                             
@@ -8330,7 +8330,7 @@ class RoutingPolicy(object):
                             .. attribute:: neighbor_af_name
                             
                             	Neighbor IP Address Family
-                            	**type**\:  :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
+                            	**type**\:   :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: propogate_from
                             
@@ -8364,7 +8364,7 @@ class RoutingPolicy(object):
                             .. attribute:: saf_name
                             
                             	Subsequent Address Family Identifier
-                            	**type**\:  :py:class:`SubAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
+                            	**type**\:   :py:class:`SubAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
                             
                             .. attribute:: source_protocol
                             
@@ -8485,7 +8485,7 @@ class RoutingPolicy(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.Attached.Binding']['meta_info']
+                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.Attached.Binding']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -8511,7 +8511,7 @@ class RoutingPolicy(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.Attached']['meta_info']
+                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.Attached']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -8541,7 +8541,7 @@ class RoutingPolicy(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                        return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set']['meta_info']
+                        return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -8565,7 +8565,7 @@ class RoutingPolicy(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets']['meta_info']
+                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets_']['meta_info']
 
 
             class Unused(object):
@@ -8750,22 +8750,22 @@ class RoutingPolicy(object):
             .. attribute:: active
             
             	All objects of a given type that are attached to a protocol
-            	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Rd.Active>`
+            	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Rd.Active>`
             
             .. attribute:: inactive
             
             	All objects of a given type that are not attached to a protocol
-            	**type**\:  :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Rd.Inactive>`
+            	**type**\:   :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Rd.Inactive>`
             
             .. attribute:: sets
             
             	Information about individual sets
-            	**type**\:  :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Rd.Sets>`
+            	**type**\:   :py:class:`Sets_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Rd.Sets_>`
             
             .. attribute:: unused
             
             	All objects of a given type that are not referenced at all
-            	**type**\:  :py:class:`Unused <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Rd.Unused>`
+            	**type**\:   :py:class:`Unused <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Rd.Unused>`
             
             
 
@@ -8780,20 +8780,20 @@ class RoutingPolicy(object):
                 self.active.parent = self
                 self.inactive = RoutingPolicy.Sets.Rd.Inactive()
                 self.inactive.parent = self
-                self.sets = RoutingPolicy.Sets.Rd.Sets()
+                self.sets = RoutingPolicy.Sets.Rd.Sets_()
                 self.sets.parent = self
                 self.unused = RoutingPolicy.Sets.Rd.Unused()
                 self.unused.parent = self
 
 
-            class Sets(object):
+            class Sets_(object):
                 """
                 Information about individual sets
                 
                 .. attribute:: set
                 
                 	Information about an individual set
-                	**type**\: list of  :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Rd.Sets.Set>`
+                	**type**\: list of    :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Rd.Sets_.Set>`
                 
                 
 
@@ -8823,12 +8823,12 @@ class RoutingPolicy(object):
                     .. attribute:: attached
                     
                     	Information about where this policy or set is attached
-                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Rd.Sets.Set.Attached>`
+                    	**type**\:   :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Rd.Sets_.Set.Attached>`
                     
                     .. attribute:: used_by
                     
                     	Policies that use this object, directly or indirectly
-                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Rd.Sets.Set.UsedBy>`
+                    	**type**\:   :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Rd.Sets_.Set.UsedBy>`
                     
                     
 
@@ -8840,9 +8840,9 @@ class RoutingPolicy(object):
                     def __init__(self):
                         self.parent = None
                         self.set_name = None
-                        self.attached = RoutingPolicy.Sets.Rd.Sets.Set.Attached()
+                        self.attached = RoutingPolicy.Sets.Rd.Sets_.Set.Attached()
                         self.attached.parent = self
-                        self.used_by = RoutingPolicy.Sets.Rd.Sets.Set.UsedBy()
+                        self.used_by = RoutingPolicy.Sets.Rd.Sets_.Set.UsedBy()
                         self.used_by.parent = self
 
 
@@ -8854,7 +8854,7 @@ class RoutingPolicy(object):
                         .. attribute:: reference
                         
                         	Information about policies referring to this object
-                        	**type**\: list of  :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Rd.Sets.Set.UsedBy.Reference>`
+                        	**type**\: list of    :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Rd.Sets_.Set.UsedBy.Reference>`
                         
                         
 
@@ -8883,7 +8883,7 @@ class RoutingPolicy(object):
                             .. attribute:: status
                             
                             	Active, Inactive, or Unused
-                            	**type**\:  :py:class:`ObjectStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
+                            	**type**\:   :py:class:`ObjectStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
                             
                             .. attribute:: used_directly
                             
@@ -8931,7 +8931,7 @@ class RoutingPolicy(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                                return meta._meta_table['RoutingPolicy.Sets.Rd.Sets.Set.UsedBy.Reference']['meta_info']
+                                return meta._meta_table['RoutingPolicy.Sets.Rd.Sets_.Set.UsedBy.Reference']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -8957,7 +8957,7 @@ class RoutingPolicy(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                            return meta._meta_table['RoutingPolicy.Sets.Rd.Sets.Set.UsedBy']['meta_info']
+                            return meta._meta_table['RoutingPolicy.Sets.Rd.Sets_.Set.UsedBy']['meta_info']
 
 
                     class Attached(object):
@@ -8968,7 +8968,7 @@ class RoutingPolicy(object):
                         .. attribute:: binding
                         
                         	bindings list
-                        	**type**\: list of  :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Rd.Sets.Set.Attached.Binding>`
+                        	**type**\: list of    :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.Rd.Sets_.Set.Attached.Binding>`
                         
                         
 
@@ -8991,7 +8991,7 @@ class RoutingPolicy(object):
                             .. attribute:: af_name
                             
                             	Address Family Identifier
-                            	**type**\:  :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
+                            	**type**\:   :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: aggregate_network_address
                             
@@ -9016,12 +9016,12 @@ class RoutingPolicy(object):
                             .. attribute:: direction
                             
                             	Direction In or Out
-                            	**type**\:  :py:class:`AttachPointDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
+                            	**type**\:   :py:class:`AttachPointDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
                             
                             .. attribute:: group
                             
                             	Neighbor Group 
-                            	**type**\:  :py:class:`GroupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
+                            	**type**\:   :py:class:`GroupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
                             
                             .. attribute:: group_name
                             
@@ -9046,7 +9046,7 @@ class RoutingPolicy(object):
                             .. attribute:: neighbor_af_name
                             
                             	Neighbor IP Address Family
-                            	**type**\:  :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
+                            	**type**\:   :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: propogate_from
                             
@@ -9080,7 +9080,7 @@ class RoutingPolicy(object):
                             .. attribute:: saf_name
                             
                             	Subsequent Address Family Identifier
-                            	**type**\:  :py:class:`SubAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
+                            	**type**\:   :py:class:`SubAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
                             
                             .. attribute:: source_protocol
                             
@@ -9201,7 +9201,7 @@ class RoutingPolicy(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                                return meta._meta_table['RoutingPolicy.Sets.Rd.Sets.Set.Attached.Binding']['meta_info']
+                                return meta._meta_table['RoutingPolicy.Sets.Rd.Sets_.Set.Attached.Binding']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -9227,7 +9227,7 @@ class RoutingPolicy(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                            return meta._meta_table['RoutingPolicy.Sets.Rd.Sets.Set.Attached']['meta_info']
+                            return meta._meta_table['RoutingPolicy.Sets.Rd.Sets_.Set.Attached']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -9257,7 +9257,7 @@ class RoutingPolicy(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                        return meta._meta_table['RoutingPolicy.Sets.Rd.Sets.Set']['meta_info']
+                        return meta._meta_table['RoutingPolicy.Sets.Rd.Sets_.Set']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -9281,7 +9281,7 @@ class RoutingPolicy(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                    return meta._meta_table['RoutingPolicy.Sets.Rd.Sets']['meta_info']
+                    return meta._meta_table['RoutingPolicy.Sets.Rd.Sets_']['meta_info']
 
 
             class Unused(object):
@@ -9466,22 +9466,22 @@ class RoutingPolicy(object):
             .. attribute:: active
             
             	All objects of a given type that are attached to a protocol
-            	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityCost.Active>`
+            	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityCost.Active>`
             
             .. attribute:: inactive
             
             	All objects of a given type that are not attached to a protocol
-            	**type**\:  :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityCost.Inactive>`
+            	**type**\:   :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityCost.Inactive>`
             
             .. attribute:: sets
             
             	Information about individual sets
-            	**type**\:  :py:class:`Sets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityCost.Sets>`
+            	**type**\:   :py:class:`Sets_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityCost.Sets_>`
             
             .. attribute:: unused
             
             	All objects of a given type that are not referenced at all
-            	**type**\:  :py:class:`Unused <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityCost.Unused>`
+            	**type**\:   :py:class:`Unused <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityCost.Unused>`
             
             
 
@@ -9496,20 +9496,20 @@ class RoutingPolicy(object):
                 self.active.parent = self
                 self.inactive = RoutingPolicy.Sets.ExtendedCommunityCost.Inactive()
                 self.inactive.parent = self
-                self.sets = RoutingPolicy.Sets.ExtendedCommunityCost.Sets()
+                self.sets = RoutingPolicy.Sets.ExtendedCommunityCost.Sets_()
                 self.sets.parent = self
                 self.unused = RoutingPolicy.Sets.ExtendedCommunityCost.Unused()
                 self.unused.parent = self
 
 
-            class Sets(object):
+            class Sets_(object):
                 """
                 Information about individual sets
                 
                 .. attribute:: set
                 
                 	Information about an individual set
-                	**type**\: list of  :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set>`
+                	**type**\: list of    :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set>`
                 
                 
 
@@ -9539,12 +9539,12 @@ class RoutingPolicy(object):
                     .. attribute:: attached
                     
                     	Information about where this policy or set is attached
-                    	**type**\:  :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.Attached>`
+                    	**type**\:   :py:class:`Attached <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached>`
                     
                     .. attribute:: used_by
                     
                     	Policies that use this object, directly or indirectly
-                    	**type**\:  :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.UsedBy>`
+                    	**type**\:   :py:class:`UsedBy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy>`
                     
                     
 
@@ -9556,9 +9556,9 @@ class RoutingPolicy(object):
                     def __init__(self):
                         self.parent = None
                         self.set_name = None
-                        self.attached = RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.Attached()
+                        self.attached = RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached()
                         self.attached.parent = self
-                        self.used_by = RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.UsedBy()
+                        self.used_by = RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy()
                         self.used_by.parent = self
 
 
@@ -9570,7 +9570,7 @@ class RoutingPolicy(object):
                         .. attribute:: reference
                         
                         	Information about policies referring to this object
-                        	**type**\: list of  :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.UsedBy.Reference>`
+                        	**type**\: list of    :py:class:`Reference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy.Reference>`
                         
                         
 
@@ -9599,7 +9599,7 @@ class RoutingPolicy(object):
                             .. attribute:: status
                             
                             	Active, Inactive, or Unused
-                            	**type**\:  :py:class:`ObjectStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
+                            	**type**\:   :py:class:`ObjectStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.ObjectStatusEnum>`
                             
                             .. attribute:: used_directly
                             
@@ -9647,7 +9647,7 @@ class RoutingPolicy(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.UsedBy.Reference']['meta_info']
+                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy.Reference']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -9673,7 +9673,7 @@ class RoutingPolicy(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.UsedBy']['meta_info']
+                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy']['meta_info']
 
 
                     class Attached(object):
@@ -9684,7 +9684,7 @@ class RoutingPolicy(object):
                         .. attribute:: binding
                         
                         	bindings list
-                        	**type**\: list of  :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.Attached.Binding>`
+                        	**type**\: list of    :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached.Binding>`
                         
                         
 
@@ -9707,7 +9707,7 @@ class RoutingPolicy(object):
                             .. attribute:: af_name
                             
                             	Address Family Identifier
-                            	**type**\:  :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
+                            	**type**\:   :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: aggregate_network_address
                             
@@ -9732,12 +9732,12 @@ class RoutingPolicy(object):
                             .. attribute:: direction
                             
                             	Direction In or Out
-                            	**type**\:  :py:class:`AttachPointDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
+                            	**type**\:   :py:class:`AttachPointDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AttachPointDirectionEnum>`
                             
                             .. attribute:: group
                             
                             	Neighbor Group 
-                            	**type**\:  :py:class:`GroupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
+                            	**type**\:   :py:class:`GroupEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.GroupEnum>`
                             
                             .. attribute:: group_name
                             
@@ -9762,7 +9762,7 @@ class RoutingPolicy(object):
                             .. attribute:: neighbor_af_name
                             
                             	Neighbor IP Address Family
-                            	**type**\:  :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
+                            	**type**\:   :py:class:`AddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.AddressFamilyEnum>`
                             
                             .. attribute:: propogate_from
                             
@@ -9796,7 +9796,7 @@ class RoutingPolicy(object):
                             .. attribute:: saf_name
                             
                             	Subsequent Address Family Identifier
-                            	**type**\:  :py:class:`SubAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
+                            	**type**\:   :py:class:`SubAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper.SubAddressFamilyEnum>`
                             
                             .. attribute:: source_protocol
                             
@@ -9917,7 +9917,7 @@ class RoutingPolicy(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.Attached.Binding']['meta_info']
+                                return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached.Binding']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -9943,7 +9943,7 @@ class RoutingPolicy(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.Attached']['meta_info']
+                            return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -9973,7 +9973,7 @@ class RoutingPolicy(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                        return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set']['meta_info']
+                        return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -9997,7 +9997,7 @@ class RoutingPolicy(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_policy_repository_oper as meta
-                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets']['meta_info']
+                    return meta._meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets_']['meta_info']
 
 
             class Unused(object):

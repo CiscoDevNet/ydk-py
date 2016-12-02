@@ -16,15 +16,15 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'MacsecCtrlrCiphersuitEnum' : _MetaInfoEnum('MacsecCtrlrCiphersuitEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper',
         {
-            'gcm-aes-256':'GCM_AES_256',
-            'gcm-aes-128':'GCM_AES_128',
-            'gcm-aes-xpn-256':'GCM_AES_XPN_256',
+            'gcm-aes-256':'gcm_aes_256',
+            'gcm-aes-128':'gcm_aes_128',
+            'gcm-aes-xpn-256':'gcm_aes_xpn_256',
         }, 'Cisco-IOS-XR-macsec-ctrlr-oper', _yang_ns._namespaces['Cisco-IOS-XR-macsec-ctrlr-oper']),
     'MacsecCtrlrStateEnum' : _MetaInfoEnum('MacsecCtrlrStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper',
         {
-            'macsec-ctrlr-state-up':'MACSEC_CTRLR_STATE_UP',
-            'macsec-ctrlr-state-down':'MACSEC_CTRLR_STATE_DOWN',
-            'macsec-ctrlr-state-admin-down':'MACSEC_CTRLR_STATE_ADMIN_DOWN',
+            'macsec-ctrlr-state-up':'macsec_ctrlr_state_up',
+            'macsec-ctrlr-state-down':'macsec_ctrlr_state_down',
+            'macsec-ctrlr-state-admin-down':'macsec_ctrlr_state_admin_down',
         }, 'Cisco-IOS-XR-macsec-ctrlr-oper', _yang_ns._namespaces['Cisco-IOS-XR-macsec-ctrlr-oper']),
     'MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.EncryptScStatus.ActiveAssociation' : {
         'meta_info' : _MetaInfoClass('MacsecCtrlrOper.MacsecCtrlrPorts.MacsecCtrlrPort.MacsecCtrlrInfo.EncryptScStatus.ActiveAssociation',
@@ -89,8 +89,8 @@ _meta_table = {
                 ''',
                 'recent_packet_number',
                 'Cisco-IOS-XR-macsec-ctrlr-oper', False),
-            _MetaInfoClassMember('secure-channel-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
+            _MetaInfoClassMember('secure-channel-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
                 '''                Secure Channel Id
                 ''',
                 'secure_channel_id',
@@ -165,8 +165,8 @@ _meta_table = {
                 ''',
                 'recent_packet_number',
                 'Cisco-IOS-XR-macsec-ctrlr-oper', False),
-            _MetaInfoClassMember('secure-channel-id', ATTRIBUTE, 'int' , None, None, 
-                [('0', '18446744073709551615')], [], 
+            _MetaInfoClassMember('secure-channel-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
                 '''                Secure Channel Id
                 ''',
                 'secure_channel_id',

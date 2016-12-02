@@ -32,7 +32,7 @@ class ControllerPortMode(object):
     .. attribute:: optics_name
     
     	Name of optics controller
-    	**type**\: list of  :py:class:`OpticsName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_portmode_oper.ControllerPortMode.OpticsName>`
+    	**type**\: list of    :py:class:`OpticsName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_portmode_oper.ControllerPortMode.OpticsName>`
     
     
 
@@ -61,7 +61,7 @@ class ControllerPortMode(object):
         .. attribute:: port_mode_info
         
         	PortMode  operational data
-        	**type**\:  :py:class:`PortModeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_portmode_oper.ControllerPortMode.OpticsName.PortModeInfo>`
+        	**type**\:   :py:class:`PortModeInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_portmode_oper.ControllerPortMode.OpticsName.PortModeInfo>`
         
         
 

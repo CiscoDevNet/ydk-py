@@ -32,17 +32,17 @@ class MplsOam(object):
     .. attribute:: disable_vendor_extension
     
     	Disable vendor extension
-    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: enable_oam
     
     	Enable/Disable MPLS OAM globally.Without creating this object the MPLS OAM feature will not be enabled. Deleting this object will stop the MPLS OAM feature
-    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: reply_mode
     
     	Echo request reply mode attributes
-    	**type**\:  :py:class:`ReplyMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_cfg.MplsOam.ReplyMode>`
+    	**type**\:   :py:class:`ReplyMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_cfg.MplsOam.ReplyMode>`
     
     
 
@@ -65,7 +65,7 @@ class MplsOam(object):
         .. attribute:: control_channel
         
         	Configure control channel reply mode
-        	**type**\:  :py:class:`ControlChannel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_cfg.MplsOam.ReplyMode.ControlChannel>`
+        	**type**\:   :py:class:`ControlChannel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_cfg.MplsOam.ReplyMode.ControlChannel>`
         
         
 
@@ -87,7 +87,7 @@ class MplsOam(object):
             .. attribute:: allow_reverse_lsp
             
             	Use Reverse LSP as the control channel
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             
 

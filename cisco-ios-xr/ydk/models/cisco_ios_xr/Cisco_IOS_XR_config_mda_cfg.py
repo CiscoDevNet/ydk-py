@@ -33,7 +33,7 @@ class ActiveNodes(object):
     .. attribute:: active_node
     
     	The configuration for an active node
-    	**type**\: list of  :py:class:`ActiveNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode>`
+    	**type**\: list of    :py:class:`ActiveNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode>`
     
     
 
@@ -62,22 +62,22 @@ class ActiveNodes(object):
         .. attribute:: cisco_ios_xr_watchd_cfg_watchdog_node_threshold
         
         	watchdog node threshold
-        	**type**\:  :py:class:`CiscoIosXrWatchdCfg_WatchdogNodeThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold>`
+        	**type**\:   :py:class:`CiscoIosXrWatchdCfg_WatchdogNodeThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold>`
         
         .. attribute:: cisco_ios_xr_wd_cfg_watchdog_node_threshold
         
         	Watchdog threshold configuration
-        	**type**\:  :py:class:`CiscoIosXrWdCfg_WatchdogNodeThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold>`
+        	**type**\:   :py:class:`CiscoIosXrWdCfg_WatchdogNodeThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold>`
         
         .. attribute:: lpts_local
         
         	lpts node specific configuration commands
-        	**type**\:  :py:class:`LptsLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal>`
+        	**type**\:   :py:class:`LptsLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal>`
         
         .. attribute:: ltrace
         
         	Ltrace Memory configuration
-        	**type**\:  :py:class:`Ltrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.Ltrace>`
+        	**type**\:   :py:class:`Ltrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.Ltrace>`
         
         
 
@@ -106,7 +106,7 @@ class ActiveNodes(object):
             .. attribute:: allocation_params
             
             	Select Ltrace mode and scale\-factor
-            	**type**\:  :py:class:`AllocationParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.Ltrace.AllocationParams>`
+            	**type**\:   :py:class:`AllocationParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.Ltrace.AllocationParams>`
             
             
 
@@ -128,12 +128,12 @@ class ActiveNodes(object):
                 .. attribute:: mode
                 
                 	Select an allocation mode (static\:1, dynamic \:2)
-                	**type**\:  :py:class:`InfraLtraceModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceModeEnum>`
+                	**type**\:   :py:class:`InfraLtraceModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceModeEnum>`
                 
                 .. attribute:: scale_factor
                 
                 	Select a scaling down factor
-                	**type**\:  :py:class:`InfraLtraceScaleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceScaleEnum>`
+                	**type**\:   :py:class:`InfraLtraceScaleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceScaleEnum>`
                 
                 
 
@@ -206,12 +206,14 @@ class ActiveNodes(object):
             .. attribute:: ipolicer_local
             
             	Node specific Pre IFIB (Internal Forwarding Information Base) Configuration
-            	**type**\:  :py:class:`IpolicerLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal>`
+            	**type**\:   :py:class:`IpolicerLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal>`
+            
+            	**presence node**\: True
             
             .. attribute:: ipolicer_local_tables
             
             	Node specific Pre IFIB (Internal Forwarding Information Base) Configuration
-            	**type**\:  :py:class:`IpolicerLocalTables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables>`
+            	**type**\:   :py:class:`IpolicerLocalTables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables>`
             
             
 
@@ -235,7 +237,7 @@ class ActiveNodes(object):
                 .. attribute:: ipolicer_local_table
                 
                 	Pre IFIB (Internal Forwarding Information Base) configuration table
-                	**type**\: list of  :py:class:`IpolicerLocalTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable>`
+                	**type**\: list of    :py:class:`IpolicerLocalTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable>`
                 
                 
 
@@ -266,7 +268,7 @@ class ActiveNodes(object):
                     .. attribute:: nps
                     
                     	NP name
-                    	**type**\:  :py:class:`Nps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps>`
+                    	**type**\:   :py:class:`Nps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps>`
                     
                     
 
@@ -289,7 +291,7 @@ class ActiveNodes(object):
                         .. attribute:: np
                         
                         	Table of NP names
-                        	**type**\: list of  :py:class:`Np <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np>`
+                        	**type**\: list of    :py:class:`Np <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np>`
                         
                         
 
@@ -322,6 +324,8 @@ class ActiveNodes(object):
                             	**type**\:  int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**units**\: packet/s
                             
                             
 
@@ -454,14 +458,14 @@ class ActiveNodes(object):
                 .. attribute:: enable
                 
                 	Enabled
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 	**mandatory**\: True
                 
                 .. attribute:: flows
                 
                 	Table for Flows
-                	**type**\:  :py:class:`Flows <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows>`
+                	**type**\:   :py:class:`Flows <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows>`
                 
                 .. attribute:: _is_presence
                 
@@ -492,7 +496,7 @@ class ActiveNodes(object):
                     .. attribute:: flow
                     
                     	selected flow type
-                    	**type**\: list of  :py:class:`Flow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows.Flow>`
+                    	**type**\: list of    :py:class:`Flow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows.Flow>`
                     
                     
 
@@ -515,12 +519,12 @@ class ActiveNodes(object):
                         .. attribute:: flow_type  <key>
                         
                         	LPTS Flow Type
-                        	**type**\:  :py:class:`LptsFlowEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsFlowEnum>`
+                        	**type**\:   :py:class:`LptsFlowEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsFlowEnum>`
                         
                         .. attribute:: precedences
                         
                         	TOS Precedence value(s)
-                        	**type**\:  :py:class:`Precedences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows.Flow.Precedences>`
+                        	**type**\:   :py:class:`Precedences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal.Flows.Flow.Precedences>`
                         
                         .. attribute:: rate
                         
@@ -553,7 +557,7 @@ class ActiveNodes(object):
                             	Precedence values
                             	**type**\: one of the below types:
                             
-                            	**type**\:  list of :py:class:`LptsPreIFibPrecedenceNumberEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsPreIFibPrecedenceNumberEnum>`
+                            	**type**\:  list of   :py:class:`LptsPreIFibPrecedenceNumberEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsPreIFibPrecedenceNumberEnum>`
                             
                             
                             ----
@@ -724,7 +728,7 @@ class ActiveNodes(object):
             .. attribute:: memory_threshold
             
             	Memory thresholds
-            	**type**\:  :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold>`
+            	**type**\:   :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold>`
             
             
 
@@ -839,7 +843,7 @@ class ActiveNodes(object):
             .. attribute:: memory_threshold
             
             	Memory thresholds
-            	**type**\:  :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold>`
+            	**type**\:   :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold>`
             
             
 
@@ -1014,7 +1018,7 @@ class PreconfiguredNodes(object):
     .. attribute:: preconfigured_node
     
     	The configuration for a non\-active node
-    	**type**\: list of  :py:class:`PreconfiguredNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode>`
+    	**type**\: list of    :py:class:`PreconfiguredNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode>`
     
     
 
@@ -1043,22 +1047,22 @@ class PreconfiguredNodes(object):
         .. attribute:: cisco_ios_xr_watchd_cfg_watchdog_node_threshold
         
         	watchdog node threshold
-        	**type**\:  :py:class:`CiscoIosXrWatchdCfg_WatchdogNodeThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold>`
+        	**type**\:   :py:class:`CiscoIosXrWatchdCfg_WatchdogNodeThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold>`
         
         .. attribute:: cisco_ios_xr_wd_cfg_watchdog_node_threshold
         
         	Watchdog threshold configuration
-        	**type**\:  :py:class:`CiscoIosXrWdCfg_WatchdogNodeThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold>`
+        	**type**\:   :py:class:`CiscoIosXrWdCfg_WatchdogNodeThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold>`
         
         .. attribute:: lpts_local
         
         	lpts node specific configuration commands
-        	**type**\:  :py:class:`LptsLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal>`
+        	**type**\:   :py:class:`LptsLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal>`
         
         .. attribute:: ltrace
         
         	Ltrace Memory configuration
-        	**type**\:  :py:class:`Ltrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.Ltrace>`
+        	**type**\:   :py:class:`Ltrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.Ltrace>`
         
         
 
@@ -1087,7 +1091,7 @@ class PreconfiguredNodes(object):
             .. attribute:: allocation_params
             
             	Select Ltrace mode and scale\-factor
-            	**type**\:  :py:class:`AllocationParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams>`
+            	**type**\:   :py:class:`AllocationParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams>`
             
             
 
@@ -1109,12 +1113,12 @@ class PreconfiguredNodes(object):
                 .. attribute:: mode
                 
                 	Select an allocation mode (static\:1, dynamic \:2)
-                	**type**\:  :py:class:`InfraLtraceModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceModeEnum>`
+                	**type**\:   :py:class:`InfraLtraceModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceModeEnum>`
                 
                 .. attribute:: scale_factor
                 
                 	Select a scaling down factor
-                	**type**\:  :py:class:`InfraLtraceScaleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceScaleEnum>`
+                	**type**\:   :py:class:`InfraLtraceScaleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceScaleEnum>`
                 
                 
 
@@ -1187,12 +1191,14 @@ class PreconfiguredNodes(object):
             .. attribute:: ipolicer_local
             
             	Node specific Pre IFIB (Internal Forwarding Information Base) Configuration
-            	**type**\:  :py:class:`IpolicerLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal>`
+            	**type**\:   :py:class:`IpolicerLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal>`
+            
+            	**presence node**\: True
             
             .. attribute:: ipolicer_local_tables
             
             	Node specific Pre IFIB (Internal Forwarding Information Base) Configuration
-            	**type**\:  :py:class:`IpolicerLocalTables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables>`
+            	**type**\:   :py:class:`IpolicerLocalTables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables>`
             
             
 
@@ -1216,7 +1222,7 @@ class PreconfiguredNodes(object):
                 .. attribute:: ipolicer_local_table
                 
                 	Pre IFIB (Internal Forwarding Information Base) configuration table
-                	**type**\: list of  :py:class:`IpolicerLocalTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable>`
+                	**type**\: list of    :py:class:`IpolicerLocalTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable>`
                 
                 
 
@@ -1247,7 +1253,7 @@ class PreconfiguredNodes(object):
                     .. attribute:: nps
                     
                     	NP name
-                    	**type**\:  :py:class:`Nps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps>`
+                    	**type**\:   :py:class:`Nps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps>`
                     
                     
 
@@ -1270,7 +1276,7 @@ class PreconfiguredNodes(object):
                         .. attribute:: np
                         
                         	Table of NP names
-                        	**type**\: list of  :py:class:`Np <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np>`
+                        	**type**\: list of    :py:class:`Np <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np>`
                         
                         
 
@@ -1303,6 +1309,8 @@ class PreconfiguredNodes(object):
                             	**type**\:  int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**units**\: packet/s
                             
                             
 
@@ -1435,14 +1443,14 @@ class PreconfiguredNodes(object):
                 .. attribute:: enable
                 
                 	Enabled
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 	**mandatory**\: True
                 
                 .. attribute:: flows
                 
                 	Table for Flows
-                	**type**\:  :py:class:`Flows <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows>`
+                	**type**\:   :py:class:`Flows <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows>`
                 
                 .. attribute:: _is_presence
                 
@@ -1473,7 +1481,7 @@ class PreconfiguredNodes(object):
                     .. attribute:: flow
                     
                     	selected flow type
-                    	**type**\: list of  :py:class:`Flow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows.Flow>`
+                    	**type**\: list of    :py:class:`Flow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows.Flow>`
                     
                     
 
@@ -1496,12 +1504,12 @@ class PreconfiguredNodes(object):
                         .. attribute:: flow_type  <key>
                         
                         	LPTS Flow Type
-                        	**type**\:  :py:class:`LptsFlowEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsFlowEnum>`
+                        	**type**\:   :py:class:`LptsFlowEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsFlowEnum>`
                         
                         .. attribute:: precedences
                         
                         	TOS Precedence value(s)
-                        	**type**\:  :py:class:`Precedences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows.Flow.Precedences>`
+                        	**type**\:   :py:class:`Precedences <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal.Flows.Flow.Precedences>`
                         
                         .. attribute:: rate
                         
@@ -1534,7 +1542,7 @@ class PreconfiguredNodes(object):
                             	Precedence values
                             	**type**\: one of the below types:
                             
-                            	**type**\:  list of :py:class:`LptsPreIFibPrecedenceNumberEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsPreIFibPrecedenceNumberEnum>`
+                            	**type**\:  list of   :py:class:`LptsPreIFibPrecedenceNumberEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg.LptsPreIFibPrecedenceNumberEnum>`
                             
                             
                             ----
@@ -1705,7 +1713,7 @@ class PreconfiguredNodes(object):
             .. attribute:: memory_threshold
             
             	Memory thresholds
-            	**type**\:  :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold>`
+            	**type**\:   :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold>`
             
             
 
@@ -1820,7 +1828,7 @@ class PreconfiguredNodes(object):
             .. attribute:: memory_threshold
             
             	Memory thresholds
-            	**type**\:  :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold>`
+            	**type**\:   :py:class:`MemoryThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold>`
             
             
 

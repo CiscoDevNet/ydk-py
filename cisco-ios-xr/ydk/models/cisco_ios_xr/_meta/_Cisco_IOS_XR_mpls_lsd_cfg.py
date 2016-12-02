@@ -16,9 +16,9 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'MplsIpTtlPropagateDisableEnum' : _MetaInfoEnum('MplsIpTtlPropagateDisableEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg',
         {
-            'all':'ALL',
-            'forward':'FORWARD',
-            'local':'LOCAL',
+            'all':'all',
+            'forward':'forward',
+            'local':'local',
         }, 'Cisco-IOS-XR-mpls-lsd-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-lsd-cfg']),
     'MplsLsd.Ipv6' : {
         'meta_info' : _MetaInfoClass('MplsLsd.Ipv6',

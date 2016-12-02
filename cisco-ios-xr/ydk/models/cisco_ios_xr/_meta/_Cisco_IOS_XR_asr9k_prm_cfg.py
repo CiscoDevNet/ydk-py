@@ -16,19 +16,19 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'Asr9KEfdModeEnum' : _MetaInfoEnum('Asr9KEfdModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg',
         {
-            'only-outer-encap':'ONLY_OUTER_ENCAP',
-            'include-inner-encap':'INCLUDE_INNER_ENCAP',
+            'only-outer-encap':'only_outer_encap',
+            'include-inner-encap':'include_inner_encap',
         }, 'Cisco-IOS-XR-asr9k-prm-cfg', _yang_ns._namespaces['Cisco-IOS-XR-asr9k-prm-cfg']),
     'Asr9KEfdOperationEnum' : _MetaInfoEnum('Asr9KEfdOperationEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg',
         {
-            'less-than':'LESS_THAN',
-            'greater-than-or-equal':'GREATER_THAN_OR_EQUAL',
+            'less-than':'less_than',
+            'greater-than-or-equal':'greater_than_or_equal',
         }, 'Cisco-IOS-XR-asr9k-prm-cfg', _yang_ns._namespaces['Cisco-IOS-XR-asr9k-prm-cfg']),
     'PrmTcamProfileEnum' : _MetaInfoEnum('PrmTcamProfileEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg',
         {
-            'profile0':'PROFILE0',
-            'profile1':'PROFILE1',
-            'profile2':'PROFILE2',
+            'profile0':'profile0',
+            'profile1':'profile1',
+            'profile2':'profile2',
         }, 'Cisco-IOS-XR-asr9k-prm-cfg', _yang_ns._namespaces['Cisco-IOS-XR-asr9k-prm-cfg']),
     'HardwareModuleQosMode.Nodes.Node' : {
         'meta_info' : _MetaInfoClass('HardwareModuleQosMode.Nodes.Node',

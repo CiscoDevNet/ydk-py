@@ -30,37 +30,37 @@ class CryptoAlgEnum(Enum):
 
     Crypto alg
 
-    .. data:: ALG_HMAC_SHA1_12 = 2
+    .. data:: alg_hmac_sha1_12 = 2
 
     	HMAC SHA 1 12
 
-    .. data:: ALG_MD5_16 = 3
+    .. data:: alg_md5_16 = 3
 
     	MD5 16
 
-    .. data:: ALG_SHA1_20 = 4
+    .. data:: alg_sha1_20 = 4
 
     	SHA 1 20
 
-    .. data:: ALG_HMAC_MD5_16 = 5
+    .. data:: alg_hmac_md5_16 = 5
 
     	HMAC MD5 16
 
-    .. data:: ALG_HMAC_SHA1_20 = 6
+    .. data:: alg_hmac_sha1_20 = 6
 
     	HMAC SHA 1 20
 
     """
 
-    ALG_HMAC_SHA1_12 = 2
+    alg_hmac_sha1_12 = 2
 
-    ALG_MD5_16 = 3
+    alg_md5_16 = 3
 
-    ALG_SHA1_20 = 4
+    alg_sha1_20 = 4
 
-    ALG_HMAC_MD5_16 = 5
+    alg_hmac_md5_16 = 5
 
-    ALG_HMAC_SHA1_20 = 6
+    alg_hmac_sha1_20 = 6
 
 
     @staticmethod
@@ -75,79 +75,79 @@ class KeyChainMonthEnum(Enum):
 
     Key chain month
 
-    .. data:: JAN = 0
+    .. data:: jan = 0
 
     	January
 
-    .. data:: FEB = 1
+    .. data:: feb = 1
 
     	February
 
-    .. data:: MAR = 2
+    .. data:: mar = 2
 
     	March
 
-    .. data:: APR = 3
+    .. data:: apr = 3
 
     	April
 
-    .. data:: MAY = 4
+    .. data:: may = 4
 
     	May
 
-    .. data:: JUN = 5
+    .. data:: jun = 5
 
     	June
 
-    .. data:: JUL = 6
+    .. data:: jul = 6
 
     	July
 
-    .. data:: AUG = 7
+    .. data:: aug = 7
 
     	August
 
-    .. data:: SEP = 8
+    .. data:: sep = 8
 
     	September
 
-    .. data:: OCT = 9
+    .. data:: oct = 9
 
     	October
 
-    .. data:: NOV = 10
+    .. data:: nov = 10
 
     	November
 
-    .. data:: DEC = 11
+    .. data:: dec = 11
 
     	December
 
     """
 
-    JAN = 0
+    jan = 0
 
-    FEB = 1
+    feb = 1
 
-    MAR = 2
+    mar = 2
 
-    APR = 3
+    apr = 3
 
-    MAY = 4
+    may = 4
 
-    JUN = 5
+    jun = 5
 
-    JUL = 6
+    jul = 6
 
-    AUG = 7
+    aug = 7
 
-    SEP = 8
+    sep = 8
 
-    OCT = 9
+    oct = 9
 
-    NOV = 10
+    nov = 10
 
-    DEC = 11
+    dec = 11
 
 
     @staticmethod
@@ -164,7 +164,7 @@ class Keychains(object):
     .. attribute:: keychain
     
     	Name of the key chain
-    	**type**\: list of  :py:class:`Keychain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain>`
+    	**type**\: list of    :py:class:`Keychain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain>`
     
     
 
@@ -193,12 +193,12 @@ class Keychains(object):
         .. attribute:: accept_tolerance
         
         	Accept Tolerance in seconds or infinite
-        	**type**\:  :py:class:`AcceptTolerance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain.AcceptTolerance>`
+        	**type**\:   :py:class:`AcceptTolerance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain.AcceptTolerance>`
         
         .. attribute:: keies
         
         	Configure a Key
-        	**type**\:  :py:class:`Keies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain.Keies>`
+        	**type**\:   :py:class:`Keies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain.Keies>`
         
         
 
@@ -231,6 +231,8 @@ class Keychains(object):
             	**type**\:  int
             
             	**range:** 1..8640000
+            
+            	**units**\: second
             
             
 
@@ -279,7 +281,7 @@ class Keychains(object):
             .. attribute:: key
             
             	Key Identifier
-            	**type**\: list of  :py:class:`Key <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain.Keies.Key>`
+            	**type**\: list of    :py:class:`Key <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain.Keies.Key>`
             
             
 
@@ -309,12 +311,12 @@ class Keychains(object):
                 .. attribute:: accept_lifetime
                 
                 	Configure a key Acceptance Lifetime
-                	**type**\:  :py:class:`AcceptLifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain.Keies.Key.AcceptLifetime>`
+                	**type**\:   :py:class:`AcceptLifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain.Keies.Key.AcceptLifetime>`
                 
                 .. attribute:: cryptographic_algorithm
                 
                 	Configure the cryptographic algorithm
-                	**type**\:  :py:class:`CryptoAlgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.CryptoAlgEnum>`
+                	**type**\:   :py:class:`CryptoAlgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.CryptoAlgEnum>`
                 
                 .. attribute:: key_string
                 
@@ -326,7 +328,7 @@ class Keychains(object):
                 .. attribute:: send_lifetime
                 
                 	Configure a Send Lifetime
-                	**type**\:  :py:class:`SendLifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain.Keies.Key.SendLifetime>`
+                	**type**\:   :py:class:`SendLifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.Keychains.Keychain.Keies.Key.SendLifetime>`
                 
                 
 
@@ -371,10 +373,12 @@ class Keychains(object):
                     
                     	**range:** 0..59
                     
+                    	**units**\: minute
+                    
                     .. attribute:: end_month
                     
                     	End Month
-                    	**type**\:  :py:class:`KeyChainMonthEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.KeyChainMonthEnum>`
+                    	**type**\:   :py:class:`KeyChainMonthEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.KeyChainMonthEnum>`
                     
                     .. attribute:: end_seconds
                     
@@ -382,6 +386,8 @@ class Keychains(object):
                     	**type**\:  int
                     
                     	**range:** 0..59
+                    
+                    	**units**\: second
                     
                     .. attribute:: end_year
                     
@@ -401,6 +407,8 @@ class Keychains(object):
                     	**type**\:  int
                     
                     	**range:** 1..2147483647
+                    
+                    	**units**\: second
                     
                     .. attribute:: start_date
                     
@@ -423,10 +431,12 @@ class Keychains(object):
                     
                     	**range:** 0..59
                     
+                    	**units**\: minute
+                    
                     .. attribute:: start_month
                     
                     	Start Month
-                    	**type**\:  :py:class:`KeyChainMonthEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.KeyChainMonthEnum>`
+                    	**type**\:   :py:class:`KeyChainMonthEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.KeyChainMonthEnum>`
                     
                     .. attribute:: start_seconds
                     
@@ -434,6 +444,8 @@ class Keychains(object):
                     	**type**\:  int
                     
                     	**range:** 0..59
+                    
+                    	**units**\: second
                     
                     .. attribute:: start_year
                     
@@ -555,10 +567,12 @@ class Keychains(object):
                     
                     	**range:** 0..59
                     
+                    	**units**\: minute
+                    
                     .. attribute:: end_month
                     
                     	End Month
-                    	**type**\:  :py:class:`KeyChainMonthEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.KeyChainMonthEnum>`
+                    	**type**\:   :py:class:`KeyChainMonthEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.KeyChainMonthEnum>`
                     
                     .. attribute:: end_seconds
                     
@@ -566,6 +580,8 @@ class Keychains(object):
                     	**type**\:  int
                     
                     	**range:** 0..59
+                    
+                    	**units**\: second
                     
                     .. attribute:: end_year
                     
@@ -585,6 +601,8 @@ class Keychains(object):
                     	**type**\:  int
                     
                     	**range:** 1..2147483647
+                    
+                    	**units**\: second
                     
                     .. attribute:: start_date
                     
@@ -607,10 +625,12 @@ class Keychains(object):
                     
                     	**range:** 0..59
                     
+                    	**units**\: minute
+                    
                     .. attribute:: start_month
                     
                     	Start Month
-                    	**type**\:  :py:class:`KeyChainMonthEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.KeyChainMonthEnum>`
+                    	**type**\:   :py:class:`KeyChainMonthEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_cfg.KeyChainMonthEnum>`
                     
                     .. attribute:: start_seconds
                     
@@ -618,6 +638,8 @@ class Keychains(object):
                     	**type**\:  int
                     
                     	**range:** 0..59
+                    
+                    	**units**\: second
                     
                     .. attribute:: start_year
                     

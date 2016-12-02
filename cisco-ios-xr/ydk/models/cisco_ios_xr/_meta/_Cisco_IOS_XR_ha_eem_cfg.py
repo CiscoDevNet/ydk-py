@@ -16,23 +16,23 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'EventManagerPolicySecEnum' : _MetaInfoEnum('EventManagerPolicySecEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg',
         {
-            'rsa-2048':'RSA_2048',
-            'trust':'TRUST',
+            'rsa-2048':'rsa_2048',
+            'trust':'trust',
         }, 'Cisco-IOS-XR-ha-eem-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ha-eem-cfg']),
     'EventManagerPolicyModeEnum' : _MetaInfoEnum('EventManagerPolicyModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg',
         {
-            'cisco':'CISCO',
-            'trust':'TRUST',
+            'cisco':'cisco',
+            'trust':'trust',
         }, 'Cisco-IOS-XR-ha-eem-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ha-eem-cfg']),
     'EventManagerChecksumEnum' : _MetaInfoEnum('EventManagerChecksumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg',
         {
-            'sha-1':'SHA_1',
-            'md5':'MD5',
+            'sha-1':'sha_1',
+            'md5':'md5',
         }, 'Cisco-IOS-XR-ha-eem-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ha-eem-cfg']),
     'EventManagerPolicyEnum' : _MetaInfoEnum('EventManagerPolicyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg',
         {
-            'system':'SYSTEM',
-            'user':'USER',
+            'system':'system',
+            'user':'user',
         }, 'Cisco-IOS-XR-ha-eem-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ha-eem-cfg']),
     'EventManager.Policies.Policy' : {
         'meta_info' : _MetaInfoClass('EventManager.Policies.Policy',

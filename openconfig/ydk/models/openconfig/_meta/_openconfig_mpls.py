@@ -50,8 +50,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Global.Config' : {
-        'meta_info' : _MetaInfoClass('Mpls.Global.Config',
+    'Mpls.Global_.Config' : {
+        'meta_info' : _MetaInfoClass('Mpls.Global_.Config',
             False, 
             [
             _MetaInfoClassMember('null-label', REFERENCE_IDENTITY_CLASS, 'NullLabelTypeIdentity' , 'ydk.models.openconfig.openconfig_mpls_types', 'NullLabelTypeIdentity', 
@@ -67,8 +67,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Global.State' : {
-        'meta_info' : _MetaInfoClass('Mpls.Global.State',
+    'Mpls.Global_.State' : {
+        'meta_info' : _MetaInfoClass('Mpls.Global_.State',
             False, 
             [
             _MetaInfoClassMember('null-label', REFERENCE_IDENTITY_CLASS, 'NullLabelTypeIdentity' , 'ydk.models.openconfig.openconfig_mpls_types', 'NullLabelTypeIdentity', 
@@ -84,8 +84,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Global.MplsInterfaceAttributes.Interface.Config' : {
-        'meta_info' : _MetaInfoClass('Mpls.Global.MplsInterfaceAttributes.Interface.Config',
+    'Mpls.Global_.MplsInterfaceAttributes.Interface.Config' : {
+        'meta_info' : _MetaInfoClass('Mpls.Global_.MplsInterfaceAttributes.Interface.Config',
             False, 
             [
             _MetaInfoClassMember('mpls-enabled', ATTRIBUTE, 'bool' , None, None, 
@@ -107,8 +107,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Global.MplsInterfaceAttributes.Interface.State' : {
-        'meta_info' : _MetaInfoClass('Mpls.Global.MplsInterfaceAttributes.Interface.State',
+    'Mpls.Global_.MplsInterfaceAttributes.Interface.State' : {
+        'meta_info' : _MetaInfoClass('Mpls.Global_.MplsInterfaceAttributes.Interface.State',
             False, 
             [
             _MetaInfoClassMember('mpls-enabled', ATTRIBUTE, 'bool' , None, None, 
@@ -130,8 +130,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Global.MplsInterfaceAttributes.Interface' : {
-        'meta_info' : _MetaInfoClass('Mpls.Global.MplsInterfaceAttributes.Interface',
+    'Mpls.Global_.MplsInterfaceAttributes.Interface' : {
+        'meta_info' : _MetaInfoClass('Mpls.Global_.MplsInterfaceAttributes.Interface',
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
@@ -140,13 +140,13 @@ _meta_table = {
                 ''',
                 'name',
                 'openconfig-mpls', True),
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Global.MplsInterfaceAttributes.Interface.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Global_.MplsInterfaceAttributes.Interface.Config', 
                 [], [], 
                 '''                Configuration parameters related to MPLS interfaces:
                 ''',
                 'config',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Global.MplsInterfaceAttributes.Interface.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Global_.MplsInterfaceAttributes.Interface.State', 
                 [], [], 
                 '''                State parameters related to TE interfaces
                 ''',
@@ -159,11 +159,11 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Global.MplsInterfaceAttributes' : {
-        'meta_info' : _MetaInfoClass('Mpls.Global.MplsInterfaceAttributes',
+    'Mpls.Global_.MplsInterfaceAttributes' : {
+        'meta_info' : _MetaInfoClass('Mpls.Global_.MplsInterfaceAttributes',
             False, 
             [
-            _MetaInfoClassMember('interface', REFERENCE_LIST, 'Interface' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Global.MplsInterfaceAttributes.Interface', 
+            _MetaInfoClassMember('interface', REFERENCE_LIST, 'Interface' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Global_.MplsInterfaceAttributes.Interface', 
                 [], [], 
                 '''                List of TE interfaces
                 ''',
@@ -176,23 +176,23 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.Global' : {
-        'meta_info' : _MetaInfoClass('Mpls.Global',
+    'Mpls.Global_' : {
+        'meta_info' : _MetaInfoClass('Mpls.Global_',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Global.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Global_.Config', 
                 [], [], 
                 '''                Top level global MPLS configuration
                 ''',
                 'config',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('mpls-interface-attributes', REFERENCE_CLASS, 'MplsInterfaceAttributes' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Global.MplsInterfaceAttributes', 
+            _MetaInfoClassMember('mpls-interface-attributes', REFERENCE_CLASS, 'MplsInterfaceAttributes' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Global_.MplsInterfaceAttributes', 
                 [], [], 
                 '''                Parameters related to MPLS interfaces
                 ''',
                 'mpls_interface_attributes',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Global.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Global_.State', 
                 [], [], 
                 '''                Top level global MPLS state
                 ''',
@@ -205,8 +205,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.TeGlobalAttributes.Srlg.Srlg.Config' : {
-        'meta_info' : _MetaInfoClass('Mpls.TeGlobalAttributes.Srlg.Srlg.Config',
+    'Mpls.TeGlobalAttributes.Srlg.Srlg_.Config' : {
+        'meta_info' : _MetaInfoClass('Mpls.TeGlobalAttributes.Srlg.Srlg_.Config',
             False, 
             [
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
@@ -242,8 +242,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.TeGlobalAttributes.Srlg.Srlg.State' : {
-        'meta_info' : _MetaInfoClass('Mpls.TeGlobalAttributes.Srlg.Srlg.State',
+    'Mpls.TeGlobalAttributes.Srlg.Srlg_.State' : {
+        'meta_info' : _MetaInfoClass('Mpls.TeGlobalAttributes.Srlg.Srlg_.State',
             False, 
             [
             _MetaInfoClassMember('cost', ATTRIBUTE, 'int' , None, None, 
@@ -279,8 +279,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList.Config' : {
-        'meta_info' : _MetaInfoClass('Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList.Config',
+    'Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.Config' : {
+        'meta_info' : _MetaInfoClass('Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.Config',
             False, 
             [
             _MetaInfoClassMember('from-address', REFERENCE_UNION, 'str' , None, None, 
@@ -328,8 +328,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList.State' : {
-        'meta_info' : _MetaInfoClass('Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList.State',
+    'Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.State' : {
+        'meta_info' : _MetaInfoClass('Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.State',
             False, 
             [
             _MetaInfoClassMember('from-address', REFERENCE_UNION, 'str' , None, None, 
@@ -377,8 +377,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList' : {
-        'meta_info' : _MetaInfoClass('Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList',
+    'Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList' : {
+        'meta_info' : _MetaInfoClass('Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList',
             False, 
             [
             _MetaInfoClassMember('from-address', REFERENCE_UNION, 'str' , None, None, 
@@ -400,14 +400,14 @@ _meta_table = {
                         'from_address',
                         'openconfig-mpls', True),
                 ]),
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.Config', 
                 [], [], 
                 '''                Configuration parameters relating to the
                 SRLG members
                 ''',
                 'config',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.State', 
                 [], [], 
                 '''                State parameters relating to the SRLG
                 members
@@ -421,11 +421,11 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers' : {
-        'meta_info' : _MetaInfoClass('Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers',
+    'Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers' : {
+        'meta_info' : _MetaInfoClass('Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers',
             False, 
             [
-            _MetaInfoClassMember('members-list', REFERENCE_LIST, 'MembersList' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList', 
+            _MetaInfoClassMember('members-list', REFERENCE_LIST, 'MembersList' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList', 
                 [], [], 
                 '''                List of SRLG members, which are expressed
                 as IP address endpoints of links contained in the
@@ -440,8 +440,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.TeGlobalAttributes.Srlg.Srlg' : {
-        'meta_info' : _MetaInfoClass('Mpls.TeGlobalAttributes.Srlg.Srlg',
+    'Mpls.TeGlobalAttributes.Srlg.Srlg_' : {
+        'meta_info' : _MetaInfoClass('Mpls.TeGlobalAttributes.Srlg.Srlg_',
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
@@ -450,19 +450,19 @@ _meta_table = {
                 ''',
                 'name',
                 'openconfig-mpls', True),
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeGlobalAttributes.Srlg.Srlg.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeGlobalAttributes.Srlg.Srlg_.Config', 
                 [], [], 
                 '''                Configuration parameters related to the SRLG
                 ''',
                 'config',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeGlobalAttributes.Srlg.Srlg.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeGlobalAttributes.Srlg.Srlg_.State', 
                 [], [], 
                 '''                State parameters related to the SRLG
                 ''',
                 'state',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('static-srlg-members', REFERENCE_CLASS, 'StaticSrlgMembers' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers', 
+            _MetaInfoClassMember('static-srlg-members', REFERENCE_CLASS, 'StaticSrlgMembers' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers', 
                 [], [], 
                 '''                SRLG members for static (not flooded) SRLGs 
                 ''',
@@ -479,7 +479,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.TeGlobalAttributes.Srlg',
             False, 
             [
-            _MetaInfoClassMember('srlg', REFERENCE_LIST, 'Srlg' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeGlobalAttributes.Srlg.Srlg', 
+            _MetaInfoClassMember('srlg', REFERENCE_LIST, 'Srlg_' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.TeGlobalAttributes.Srlg.Srlg_', 
                 [], [], 
                 '''                List of shared risk link groups
                 ''',
@@ -1512,8 +1512,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.Config' : {
-        'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.Config',
+    'Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart.Config' : {
+        'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart.Config',
             False, 
             [
             _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
@@ -1541,8 +1541,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.State' : {
-        'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.State',
+    'Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart.State' : {
+        'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart.State',
             False, 
             [
             _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
@@ -1570,18 +1570,18 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart' : {
-        'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart',
+    'Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart' : {
+        'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart.Config', 
                 [], [], 
                 '''                Configuration parameters relating to
                 graceful-restart
                 ''',
                 'config',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart.State', 
                 [], [], 
                 '''                State information associated with
                 RSVP graceful-restart
@@ -1595,8 +1595,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.Config' : {
-        'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.Config',
+    'Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption.Config' : {
+        'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption.Config',
             False, 
             [
             _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
@@ -1619,8 +1619,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.State' : {
-        'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.State',
+    'Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption.State' : {
+        'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption.State',
             False, 
             [
             _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
@@ -1643,18 +1643,18 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption' : {
-        'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption',
+    'Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption' : {
+        'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption.Config', 
                 [], [], 
                 '''                Configuration parameters relating to RSVP
                 soft preemption support
                 ''',
                 'config',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption.State', 
                 [], [], 
                 '''                State parameters relating to RSVP
                 soft preemption support
@@ -1668,8 +1668,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.SignalingProtocols.RsvpTe.Global.Hellos.Config' : {
-        'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.Global.Hellos.Config',
+    'Mpls.SignalingProtocols.RsvpTe.Global_.Hellos.Config' : {
+        'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.Global_.Hellos.Config',
             False, 
             [
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
@@ -1694,8 +1694,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.SignalingProtocols.RsvpTe.Global.Hellos.State' : {
-        'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.Global.Hellos.State',
+    'Mpls.SignalingProtocols.RsvpTe.Global_.Hellos.State' : {
+        'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.Global_.Hellos.State',
             False, 
             [
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
@@ -1720,18 +1720,18 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.SignalingProtocols.RsvpTe.Global.Hellos' : {
-        'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.Global.Hellos',
+    'Mpls.SignalingProtocols.RsvpTe.Global_.Hellos' : {
+        'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.Global_.Hellos',
             False, 
             [
-            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Global.Hellos.Config', 
+            _MetaInfoClassMember('config', REFERENCE_CLASS, 'Config' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Global_.Hellos.Config', 
                 [], [], 
                 '''                Configuration parameters relating to RSVP
                 hellos
                 ''',
                 'config',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Global.Hellos.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Global_.Hellos.State', 
                 [], [], 
                 '''                State information associated with RSVP hellos
                 ''',
@@ -1744,8 +1744,8 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.SignalingProtocols.RsvpTe.Global.State.Counters' : {
-        'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.Global.State.Counters',
+    'Mpls.SignalingProtocols.RsvpTe.Global_.State.Counters' : {
+        'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.Global_.State.Counters',
             False, 
             [
             _MetaInfoClassMember('in-ack-messages', ATTRIBUTE, 'int' , None, None, 
@@ -1882,11 +1882,11 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.SignalingProtocols.RsvpTe.Global.State' : {
-        'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.Global.State',
+    'Mpls.SignalingProtocols.RsvpTe.Global_.State' : {
+        'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.Global_.State',
             False, 
             [
-            _MetaInfoClassMember('counters', REFERENCE_CLASS, 'Counters' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Global.State.Counters', 
+            _MetaInfoClassMember('counters', REFERENCE_CLASS, 'Counters' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Global_.State.Counters', 
                 [], [], 
                 '''                Platform wide RSVP statistics and counters
                 ''',
@@ -1899,31 +1899,31 @@ _meta_table = {
         'ydk.models.openconfig.openconfig_mpls'
         ),
     },
-    'Mpls.SignalingProtocols.RsvpTe.Global' : {
-        'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.Global',
+    'Mpls.SignalingProtocols.RsvpTe.Global_' : {
+        'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe.Global_',
             False, 
             [
-            _MetaInfoClassMember('graceful-restart', REFERENCE_CLASS, 'GracefulRestart' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart', 
+            _MetaInfoClassMember('graceful-restart', REFERENCE_CLASS, 'GracefulRestart' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart', 
                 [], [], 
                 '''                Operational state and configuration parameters relating to
                 graceful-restart for RSVP
                 ''',
                 'graceful_restart',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('hellos', REFERENCE_CLASS, 'Hellos' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Global.Hellos', 
+            _MetaInfoClassMember('hellos', REFERENCE_CLASS, 'Hellos' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Global_.Hellos', 
                 [], [], 
                 '''                Top level container for RSVP hello parameters
                 ''',
                 'hellos',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('soft-preemption', REFERENCE_CLASS, 'SoftPreemption' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption', 
+            _MetaInfoClassMember('soft-preemption', REFERENCE_CLASS, 'SoftPreemption' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption', 
                 [], [], 
                 '''                Protocol options relating to RSVP
                 soft preemption
                 ''',
                 'soft_preemption',
                 'openconfig-mpls', False),
-            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Global.State', 
+            _MetaInfoClassMember('state', REFERENCE_CLASS, 'State' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Global_.State', 
                 [], [], 
                 '''                Platform wide RSVP state, including counters
                 ''',
@@ -2497,7 +2497,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls.SignalingProtocols.RsvpTe',
             False, 
             [
-            _MetaInfoClassMember('global', REFERENCE_CLASS, 'Global' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Global', 
+            _MetaInfoClassMember('global', REFERENCE_CLASS, 'Global_' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.SignalingProtocols.RsvpTe.Global_', 
                 [], [], 
                 '''                Platform wide RSVP configuration and state
                 ''',
@@ -5499,7 +5499,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Mpls',
             False, 
             [
-            _MetaInfoClassMember('global', REFERENCE_CLASS, 'Global' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Global', 
+            _MetaInfoClassMember('global', REFERENCE_CLASS, 'Global_' , 'ydk.models.openconfig.openconfig_mpls', 'Mpls.Global_', 
                 [], [], 
                 '''                general mpls configuration applicable to any
                 type of LSP and signaling protocol - label ranges,
@@ -5573,19 +5573,19 @@ _meta_table = {
         ),
     },
 }
-_meta_table['Mpls.Global.MplsInterfaceAttributes.Interface.Config']['meta_info'].parent =_meta_table['Mpls.Global.MplsInterfaceAttributes.Interface']['meta_info']
-_meta_table['Mpls.Global.MplsInterfaceAttributes.Interface.State']['meta_info'].parent =_meta_table['Mpls.Global.MplsInterfaceAttributes.Interface']['meta_info']
-_meta_table['Mpls.Global.MplsInterfaceAttributes.Interface']['meta_info'].parent =_meta_table['Mpls.Global.MplsInterfaceAttributes']['meta_info']
-_meta_table['Mpls.Global.Config']['meta_info'].parent =_meta_table['Mpls.Global']['meta_info']
-_meta_table['Mpls.Global.State']['meta_info'].parent =_meta_table['Mpls.Global']['meta_info']
-_meta_table['Mpls.Global.MplsInterfaceAttributes']['meta_info'].parent =_meta_table['Mpls.Global']['meta_info']
-_meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList.Config']['meta_info'].parent =_meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList']['meta_info']
-_meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList.State']['meta_info'].parent =_meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList']['meta_info']
-_meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList']['meta_info'].parent =_meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers']['meta_info']
-_meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg.Config']['meta_info'].parent =_meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg']['meta_info']
-_meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg.State']['meta_info'].parent =_meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg']['meta_info']
-_meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers']['meta_info'].parent =_meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg']['meta_info']
-_meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg']['meta_info'].parent =_meta_table['Mpls.TeGlobalAttributes.Srlg']['meta_info']
+_meta_table['Mpls.Global_.MplsInterfaceAttributes.Interface.Config']['meta_info'].parent =_meta_table['Mpls.Global_.MplsInterfaceAttributes.Interface']['meta_info']
+_meta_table['Mpls.Global_.MplsInterfaceAttributes.Interface.State']['meta_info'].parent =_meta_table['Mpls.Global_.MplsInterfaceAttributes.Interface']['meta_info']
+_meta_table['Mpls.Global_.MplsInterfaceAttributes.Interface']['meta_info'].parent =_meta_table['Mpls.Global_.MplsInterfaceAttributes']['meta_info']
+_meta_table['Mpls.Global_.Config']['meta_info'].parent =_meta_table['Mpls.Global_']['meta_info']
+_meta_table['Mpls.Global_.State']['meta_info'].parent =_meta_table['Mpls.Global_']['meta_info']
+_meta_table['Mpls.Global_.MplsInterfaceAttributes']['meta_info'].parent =_meta_table['Mpls.Global_']['meta_info']
+_meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.Config']['meta_info'].parent =_meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList']['meta_info']
+_meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.State']['meta_info'].parent =_meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList']['meta_info']
+_meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList']['meta_info'].parent =_meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers']['meta_info']
+_meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg_.Config']['meta_info'].parent =_meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg_']['meta_info']
+_meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg_.State']['meta_info'].parent =_meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg_']['meta_info']
+_meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers']['meta_info'].parent =_meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg_']['meta_info']
+_meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg_']['meta_info'].parent =_meta_table['Mpls.TeGlobalAttributes.Srlg']['meta_info']
 _meta_table['Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config']['meta_info'].parent =_meta_table['Mpls.TeGlobalAttributes.IgpFloodingBandwidth']['meta_info']
 _meta_table['Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State']['meta_info'].parent =_meta_table['Mpls.TeGlobalAttributes.IgpFloodingBandwidth']['meta_info']
 _meta_table['Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.Config']['meta_info'].parent =_meta_table['Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup']['meta_info']
@@ -5609,17 +5609,17 @@ _meta_table['Mpls.SignalingProtocols.RsvpTe.Sessions.State']['meta_info'].parent
 _meta_table['Mpls.SignalingProtocols.RsvpTe.Neighbors.State.Neighbor']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe.Neighbors.State']['meta_info']
 _meta_table['Mpls.SignalingProtocols.RsvpTe.Neighbors.Config']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe.Neighbors']['meta_info']
 _meta_table['Mpls.SignalingProtocols.RsvpTe.Neighbors.State']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe.Neighbors']['meta_info']
-_meta_table['Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.Config']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart']['meta_info']
-_meta_table['Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.State']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart']['meta_info']
-_meta_table['Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.Config']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption']['meta_info']
-_meta_table['Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.State']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption']['meta_info']
-_meta_table['Mpls.SignalingProtocols.RsvpTe.Global.Hellos.Config']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe.Global.Hellos']['meta_info']
-_meta_table['Mpls.SignalingProtocols.RsvpTe.Global.Hellos.State']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe.Global.Hellos']['meta_info']
-_meta_table['Mpls.SignalingProtocols.RsvpTe.Global.State.Counters']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe.Global.State']['meta_info']
-_meta_table['Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe.Global']['meta_info']
-_meta_table['Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe.Global']['meta_info']
-_meta_table['Mpls.SignalingProtocols.RsvpTe.Global.Hellos']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe.Global']['meta_info']
-_meta_table['Mpls.SignalingProtocols.RsvpTe.Global.State']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe.Global']['meta_info']
+_meta_table['Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart.Config']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart']['meta_info']
+_meta_table['Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart.State']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart']['meta_info']
+_meta_table['Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption.Config']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption']['meta_info']
+_meta_table['Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption.State']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption']['meta_info']
+_meta_table['Mpls.SignalingProtocols.RsvpTe.Global_.Hellos.Config']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe.Global_.Hellos']['meta_info']
+_meta_table['Mpls.SignalingProtocols.RsvpTe.Global_.Hellos.State']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe.Global_.Hellos']['meta_info']
+_meta_table['Mpls.SignalingProtocols.RsvpTe.Global_.State.Counters']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe.Global_.State']['meta_info']
+_meta_table['Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe.Global_']['meta_info']
+_meta_table['Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe.Global_']['meta_info']
+_meta_table['Mpls.SignalingProtocols.RsvpTe.Global_.Hellos']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe.Global_']['meta_info']
+_meta_table['Mpls.SignalingProtocols.RsvpTe.Global_.State']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe.Global_']['meta_info']
 _meta_table['Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Bandwidth']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State']['meta_info']
 _meta_table['Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Counters']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State']['meta_info']
 _meta_table['Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.Config']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos']['meta_info']
@@ -5639,7 +5639,7 @@ _meta_table['Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protec
 _meta_table['Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes']['meta_info']
 _meta_table['Mpls.SignalingProtocols.RsvpTe.Sessions']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe']['meta_info']
 _meta_table['Mpls.SignalingProtocols.RsvpTe.Neighbors']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe']['meta_info']
-_meta_table['Mpls.SignalingProtocols.RsvpTe.Global']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe']['meta_info']
+_meta_table['Mpls.SignalingProtocols.RsvpTe.Global_']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe']['meta_info']
 _meta_table['Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.RsvpTe']['meta_info']
 _meta_table['Mpls.SignalingProtocols.SegmentRouting.Srgb.Config']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.SegmentRouting.Srgb']['meta_info']
 _meta_table['Mpls.SignalingProtocols.SegmentRouting.Srgb.State']['meta_info'].parent =_meta_table['Mpls.SignalingProtocols.SegmentRouting.Srgb']['meta_info']
@@ -5717,7 +5717,7 @@ _meta_table['Mpls.Lsps.StaticLsps.LabelSwitchedPath']['meta_info'].parent =_meta
 _meta_table['Mpls.Lsps.ConstrainedPath']['meta_info'].parent =_meta_table['Mpls.Lsps']['meta_info']
 _meta_table['Mpls.Lsps.UnconstrainedPath']['meta_info'].parent =_meta_table['Mpls.Lsps']['meta_info']
 _meta_table['Mpls.Lsps.StaticLsps']['meta_info'].parent =_meta_table['Mpls.Lsps']['meta_info']
-_meta_table['Mpls.Global']['meta_info'].parent =_meta_table['Mpls']['meta_info']
+_meta_table['Mpls.Global_']['meta_info'].parent =_meta_table['Mpls']['meta_info']
 _meta_table['Mpls.TeGlobalAttributes']['meta_info'].parent =_meta_table['Mpls']['meta_info']
 _meta_table['Mpls.TeInterfaceAttributes']['meta_info'].parent =_meta_table['Mpls']['meta_info']
 _meta_table['Mpls.SignalingProtocols']['meta_info'].parent =_meta_table['Mpls']['meta_info']

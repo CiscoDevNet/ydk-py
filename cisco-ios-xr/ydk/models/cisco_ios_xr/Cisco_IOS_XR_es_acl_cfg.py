@@ -30,19 +30,19 @@ class EsAclGrantEnumEnum(Enum):
 
     ES acl grant enum
 
-    .. data:: DENY = 0
+    .. data:: deny = 0
 
     	Deny
 
-    .. data:: PERMIT = 1
+    .. data:: permit = 1
 
     	Permit
 
     """
 
-    DENY = 0
+    deny = 0
 
-    PERMIT = 1
+    permit = 1
 
 
     @staticmethod
@@ -59,7 +59,7 @@ class EsAcl(object):
     .. attribute:: accesses
     
     	Table of access lists
-    	**type**\:  :py:class:`Accesses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAcl.Accesses>`
+    	**type**\:   :py:class:`Accesses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAcl.Accesses>`
     
     
 
@@ -80,7 +80,7 @@ class EsAcl(object):
         .. attribute:: access
         
         	An ACL
-        	**type**\: list of  :py:class:`Access <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAcl.Accesses.Access>`
+        	**type**\: list of    :py:class:`Access <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAcl.Accesses.Access>`
         
         
 
@@ -110,7 +110,7 @@ class EsAcl(object):
             .. attribute:: access_list_entries
             
             	ACL entry table; contains list of access list entries
-            	**type**\:  :py:class:`AccessListEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAcl.Accesses.Access.AccessListEntries>`
+            	**type**\:   :py:class:`AccessListEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAcl.Accesses.Access.AccessListEntries>`
             
             
 
@@ -134,7 +134,7 @@ class EsAcl(object):
                 .. attribute:: access_list_entry
                 
                 	An ACL entry; either a description (remark) or anAccess List Entry to match against
-                	**type**\: list of  :py:class:`AccessListEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAcl.Accesses.Access.AccessListEntries.AccessListEntry>`
+                	**type**\: list of    :py:class:`AccessListEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAcl.Accesses.Access.AccessListEntries.AccessListEntry>`
                 
                 
 
@@ -184,7 +184,7 @@ class EsAcl(object):
                     .. attribute:: destination_network
                     
                     	Destination network settings
-                    	**type**\:  :py:class:`DestinationNetwork <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork>`
+                    	**type**\:   :py:class:`DestinationNetwork <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork>`
                     
                     .. attribute:: ether_type_number
                     
@@ -196,7 +196,7 @@ class EsAcl(object):
                     .. attribute:: grant
                     
                     	Whether to forward or drop packets matching the ACE
-                    	**type**\:  :py:class:`EsAclGrantEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAclGrantEnumEnum>`
+                    	**type**\:   :py:class:`EsAclGrantEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAclGrantEnumEnum>`
                     
                     .. attribute:: inner_cos
                     
@@ -248,7 +248,7 @@ class EsAcl(object):
                     .. attribute:: source_network
                     
                     	Source network settings
-                    	**type**\:  :py:class:`SourceNetwork <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork>`
+                    	**type**\:   :py:class:`SourceNetwork <ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg.EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork>`
                     
                     .. attribute:: vlan1
                     

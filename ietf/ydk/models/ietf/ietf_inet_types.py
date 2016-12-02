@@ -40,27 +40,27 @@ class IpVersionEnum(Enum):
 
     to the InetVersion textual convention of the SMIv2.
 
-    .. data:: UNKNOWN = 0
+    .. data:: unknown = 0
 
     	An unknown or unspecified version of the Internet
 
     	protocol.
 
-    .. data:: IPV4 = 1
+    .. data:: ipv4 = 1
 
     	The IPv4 protocol as defined in RFC 791.
 
-    .. data:: IPV6 = 2
+    .. data:: ipv6 = 2
 
     	The IPv6 protocol as defined in RFC 2460.
 
     """
 
-    UNKNOWN = 0
+    unknown = 0
 
-    IPV4 = 1
+    ipv4 = 1
 
-    IPV6 = 2
+    ipv6 = 2
 
 
     @staticmethod

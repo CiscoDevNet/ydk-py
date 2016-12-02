@@ -30,11 +30,11 @@ class CertificateIssuerEnum(Enum):
 
     Certificate issuers
 
-    .. data:: UNKNOWN = 0
+    .. data:: unknown = 0
 
     	Issuer is not known
 
-    .. data:: CODE_SIGNING_SERVER_CERTIFICATE_AUTHORITY = 1
+    .. data:: code_signing_server_certificate_authority = 1
 
     	Issuer is code signing server certificate
 
@@ -42,9 +42,9 @@ class CertificateIssuerEnum(Enum):
 
     """
 
-    UNKNOWN = 0
+    unknown = 0
 
-    CODE_SIGNING_SERVER_CERTIFICATE_AUTHORITY = 1
+    code_signing_server_certificate_authority = 1
 
 
     @staticmethod
@@ -59,95 +59,95 @@ class LogCodeEnum(Enum):
 
     Log code types
 
-    .. data:: UNKNOWN = 0
+    .. data:: unknown = 0
 
     	Log code is not known
 
-    .. data:: SAM_SERVER_RESTARED_ROUTER_REBOOT = 1
+    .. data:: sam_server_restared_router_reboot = 1
 
     	Log code is SAM server restarted through router
 
     	reboot
 
-    .. data:: SAM_SERVER_RESTARED = 2
+    .. data:: sam_server_restared = 2
 
     	Log code is SAM server restarted
 
-    .. data:: ADDED_CERTIFICATE_IN_TABLE = 3
+    .. data:: added_certificate_in_table = 3
 
     	Log code is Added certificate in table
 
-    .. data:: COPIED_CERTIFICATE_IN_TABLE = 4
+    .. data:: copied_certificate_in_table = 4
 
     	Log code is Copied certificate in table
 
-    .. data:: CERTIFICATE_FLAG_CHANGED = 5
+    .. data:: certificate_flag_changed = 5
 
     	Log code is Certificate flag changed
 
-    .. data:: VALIDATED_CERTIFICATE = 6
+    .. data:: validated_certificate = 6
 
     	Log code is validated ceritificate
 
-    .. data:: CERTIFICATE_EXPIRED_DETECTED = 7
+    .. data:: certificate_expired_detected = 7
 
     	Log code is Ceritificate expired detected
 
-    .. data:: CERTIFICATE_REVOKED_DETECTED = 8
+    .. data:: certificate_revoked_detected = 8
 
     	Log code is Ceritificate revoked detected
 
-    .. data:: CA_CERTIFICATE_EXPIRED_DETECTED = 9
+    .. data:: ca_certificate_expired_detected = 9
 
     	Log code is CA Ceritificate expired detected
 
-    .. data:: CA_CERTIFICATE_REVOKED_DETECTED = 10
+    .. data:: ca_certificate_revoked_detected = 10
 
     	Log code is CA Ceritificate revoked detected
 
-    .. data:: DELETED_CERTIFICATE_FROM_TABLE = 11
+    .. data:: deleted_certificate_from_table = 11
 
     	Log code is Deleted certificate from table
 
-    .. data:: CRL_ADDED_UPDATED_IN_TABLE = 12
+    .. data:: crl_added_updated_in_table = 12
 
     	Log code is CRL added/updated in table
 
-    .. data:: CHECKED_MEMORY_DIGEST = 13
+    .. data:: checked_memory_digest = 13
 
     	Log code is Checked memory digest
 
-    .. data:: NVRAM_DIGEST_MISMATCH_DETECTED = 14
+    .. data:: nvram_digest_mismatch_detected = 14
 
     	Log code is NVRAM digest Mistmatch detected
 
-    .. data:: INSECURE_BACKUP_FILE_DETECTED = 15
+    .. data:: insecure_backup_file_detected = 15
 
     	Log code is Insecure backup file detected
 
-    .. data:: ERROR_RESTORE_OPERATION = 16
+    .. data:: error_restore_operation = 16
 
     	Log code is Error during restore operation,
 
     	backup file might have not been intact
 
-    .. data:: BACKUP_FILE_ON_NVRAM_DELETED = 17
+    .. data:: backup_file_on_nvram_deleted = 17
 
     	Log code is Found backup file on NVRAM for SAM
 
     	log had been deleted
 
-    .. data:: SAM_LOG_FILE_RECOVERED_FROM_SYSTEM_DATABASE = 18
+    .. data:: sam_log_file_recovered_from_system_database = 18
 
     	Log code is SAM log backup file recovered from
 
     	system database
 
-    .. data:: VALIDATED_ELF = 19
+    .. data:: validated_elf = 19
 
     	Log code is validated ELF
 
-    .. data:: NAMESPACE_DELETED_RECOVERED_BY_SAM = 20
+    .. data:: namespace_deleted_recovered_by_sam = 20
 
     	Log code is SAM system database name space
 
@@ -155,47 +155,47 @@ class LogCodeEnum(Enum):
 
     """
 
-    UNKNOWN = 0
+    unknown = 0
 
-    SAM_SERVER_RESTARED_ROUTER_REBOOT = 1
+    sam_server_restared_router_reboot = 1
 
-    SAM_SERVER_RESTARED = 2
+    sam_server_restared = 2
 
-    ADDED_CERTIFICATE_IN_TABLE = 3
+    added_certificate_in_table = 3
 
-    COPIED_CERTIFICATE_IN_TABLE = 4
+    copied_certificate_in_table = 4
 
-    CERTIFICATE_FLAG_CHANGED = 5
+    certificate_flag_changed = 5
 
-    VALIDATED_CERTIFICATE = 6
+    validated_certificate = 6
 
-    CERTIFICATE_EXPIRED_DETECTED = 7
+    certificate_expired_detected = 7
 
-    CERTIFICATE_REVOKED_DETECTED = 8
+    certificate_revoked_detected = 8
 
-    CA_CERTIFICATE_EXPIRED_DETECTED = 9
+    ca_certificate_expired_detected = 9
 
-    CA_CERTIFICATE_REVOKED_DETECTED = 10
+    ca_certificate_revoked_detected = 10
 
-    DELETED_CERTIFICATE_FROM_TABLE = 11
+    deleted_certificate_from_table = 11
 
-    CRL_ADDED_UPDATED_IN_TABLE = 12
+    crl_added_updated_in_table = 12
 
-    CHECKED_MEMORY_DIGEST = 13
+    checked_memory_digest = 13
 
-    NVRAM_DIGEST_MISMATCH_DETECTED = 14
+    nvram_digest_mismatch_detected = 14
 
-    INSECURE_BACKUP_FILE_DETECTED = 15
+    insecure_backup_file_detected = 15
 
-    ERROR_RESTORE_OPERATION = 16
+    error_restore_operation = 16
 
-    BACKUP_FILE_ON_NVRAM_DELETED = 17
+    backup_file_on_nvram_deleted = 17
 
-    SAM_LOG_FILE_RECOVERED_FROM_SYSTEM_DATABASE = 18
+    sam_log_file_recovered_from_system_database = 18
 
-    VALIDATED_ELF = 19
+    validated_elf = 19
 
-    NAMESPACE_DELETED_RECOVERED_BY_SAM = 20
+    namespace_deleted_recovered_by_sam = 20
 
 
     @staticmethod
@@ -210,25 +210,25 @@ class LogErrorEnum(Enum):
 
     Log errors
 
-    .. data:: UNKNOWN = 0
+    .. data:: unknown = 0
 
     	Log error is not known
 
-    .. data:: LOG_MESSAGE_ERROR = 1
+    .. data:: log_message_error = 1
 
     	Log error is message error
 
-    .. data:: GET_ISSUER_NAME_FAILED = 2
+    .. data:: get_issuer_name_failed = 2
 
     	Log error is get issuer name failed
 
     """
 
-    UNKNOWN = 0
+    unknown = 0
 
-    LOG_MESSAGE_ERROR = 1
+    log_message_error = 1
 
-    GET_ISSUER_NAME_FAILED = 2
+    get_issuer_name_failed = 2
 
 
     @staticmethod
@@ -243,31 +243,31 @@ class LogTablesEnum(Enum):
 
     Log tables
 
-    .. data:: UNKOWN = 0
+    .. data:: unkown = 0
 
     	Table is not known
 
-    .. data:: MEMORY_DIGEST_TABLE = 1
+    .. data:: memory_digest_table = 1
 
     	Table is memory digest table
 
-    .. data:: SYSTEM_DATABASE_DIGEST = 2
+    .. data:: system_database_digest = 2
 
     	Table is system database digest table
 
-    .. data:: SAM_TABLES = 3
+    .. data:: sam_tables = 3
 
     	Table is SAM table
 
     """
 
-    UNKOWN = 0
+    unkown = 0
 
-    MEMORY_DIGEST_TABLE = 1
+    memory_digest_table = 1
 
-    SYSTEM_DATABASE_DIGEST = 2
+    system_database_digest = 2
 
-    SAM_TABLES = 3
+    sam_tables = 3
 
 
     @staticmethod
@@ -285,32 +285,32 @@ class Sam(object):
     .. attribute:: certificate_revocation_list_summary
     
     	Certificate revocation list summary information 
-    	**type**\:  :py:class:`CertificateRevocationListSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocationListSummary>`
+    	**type**\:   :py:class:`CertificateRevocationListSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocationListSummary>`
     
     .. attribute:: certificate_revocations
     
     	Certificate revocation list index table information
-    	**type**\:  :py:class:`CertificateRevocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocations>`
+    	**type**\:   :py:class:`CertificateRevocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocations>`
     
     .. attribute:: devices
     
     	Certificate device table information
-    	**type**\:  :py:class:`Devices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices>`
+    	**type**\:   :py:class:`Devices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices>`
     
     .. attribute:: log_contents
     
     	SAM log content table information
-    	**type**\:  :py:class:`LogContents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.LogContents>`
+    	**type**\:   :py:class:`LogContents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.LogContents>`
     
     .. attribute:: packages
     
     	SAM certificate information  package
-    	**type**\:  :py:class:`Packages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Packages>`
+    	**type**\:   :py:class:`Packages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Packages>`
     
     .. attribute:: system_information
     
     	SAM system information
-    	**type**\:  :py:class:`SystemInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.SystemInformation>`
+    	**type**\:   :py:class:`SystemInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.SystemInformation>`
     
     
 
@@ -354,6 +354,8 @@ class Sam(object):
         	**type**\:  int
         
         	**range:** 0..4294967295
+        
+        	**units**\: second
         
         
 
@@ -404,7 +406,7 @@ class Sam(object):
         .. attribute:: log_content
         
         	Number of lines for SAM log message
-        	**type**\: list of  :py:class:`LogContent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.LogContents.LogContent>`
+        	**type**\: list of    :py:class:`LogContent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.LogContents.LogContent>`
         
         
 
@@ -441,7 +443,7 @@ class Sam(object):
             .. attribute:: logs
             
             	SAM logs
-            	**type**\: list of  :py:class:`Logs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.LogContents.LogContent.Logs>`
+            	**type**\: list of    :py:class:`Logs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.LogContents.LogContent.Logs>`
             
             .. attribute:: total_entries
             
@@ -474,12 +476,12 @@ class Sam(object):
                 .. attribute:: code
                 
                 	Log code
-                	**type**\:  :py:class:`LogCodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.LogCodeEnum>`
+                	**type**\:   :py:class:`LogCodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.LogCodeEnum>`
                 
                 .. attribute:: error
                 
                 	Log error message
-                	**type**\:  :py:class:`LogErrorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.LogErrorEnum>`
+                	**type**\:   :py:class:`LogErrorEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.LogErrorEnum>`
                 
                 .. attribute:: index
                 
@@ -491,7 +493,7 @@ class Sam(object):
                 .. attribute:: issuer
                 
                 	Issuer of the certificate
-                	**type**\:  :py:class:`CertificateIssuerEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.CertificateIssuerEnum>`
+                	**type**\:   :py:class:`CertificateIssuerEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.CertificateIssuerEnum>`
                 
                 .. attribute:: sam_table_index
                 
@@ -513,7 +515,7 @@ class Sam(object):
                 .. attribute:: table
                 
                 	Log table information
-                	**type**\:  :py:class:`LogTablesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.LogTablesEnum>`
+                	**type**\:   :py:class:`LogTablesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.LogTablesEnum>`
                 
                 .. attribute:: target_device
                 
@@ -672,7 +674,7 @@ class Sam(object):
         .. attribute:: device
         
         	Certificate table device information
-        	**type**\: list of  :py:class:`Device <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device>`
+        	**type**\: list of    :py:class:`Device <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device>`
         
         
 
@@ -702,7 +704,7 @@ class Sam(object):
             .. attribute:: certificate
             
             	Certificate table information
-            	**type**\:  :py:class:`Certificate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate>`
+            	**type**\:   :py:class:`Certificate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate>`
             
             
 
@@ -725,12 +727,12 @@ class Sam(object):
                 .. attribute:: brief
                 
                 	Certificate table brief information
-                	**type**\:  :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate.Brief>`
+                	**type**\:   :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate.Brief>`
                 
                 .. attribute:: certificate_indexes
                 
                 	Certificate detail index table information
-                	**type**\:  :py:class:`CertificateIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate.CertificateIndexes>`
+                	**type**\:   :py:class:`CertificateIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate.CertificateIndexes>`
                 
                 
 
@@ -754,7 +756,7 @@ class Sam(object):
                     .. attribute:: certificate_flags
                     
                     	Certificate flags
-                    	**type**\:  :py:class:`CertificateFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate.Brief.CertificateFlags>`
+                    	**type**\:   :py:class:`CertificateFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate.Brief.CertificateFlags>`
                     
                     .. attribute:: certificate_index
                     
@@ -892,7 +894,7 @@ class Sam(object):
                     .. attribute:: certificate_index
                     
                     	Certificate detail index information
-                    	**type**\: list of  :py:class:`CertificateIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex>`
+                    	**type**\: list of    :py:class:`CertificateIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex>`
                     
                     
 
@@ -922,7 +924,7 @@ class Sam(object):
                         .. attribute:: detail
                         
                         	Certificate table detail information
-                        	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail>`
+                        	**type**\:   :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail>`
                         
                         
 
@@ -945,7 +947,7 @@ class Sam(object):
                             .. attribute:: certificate_flags
                             
                             	Certificate flags
-                            	**type**\:  :py:class:`CertificateFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail.CertificateFlags>`
+                            	**type**\:   :py:class:`CertificateFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail.CertificateFlags>`
                             
                             .. attribute:: certificate_index
                             
@@ -1216,7 +1218,7 @@ class Sam(object):
         .. attribute:: package
         
         	SAM certificate information for a specific package
-        	**type**\: list of  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Packages.Package>`
+        	**type**\: list of    :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Packages.Package>`
         
         
 
@@ -1245,7 +1247,7 @@ class Sam(object):
             .. attribute:: certificate_flags
             
             	Certificate flags
-            	**type**\:  :py:class:`CertificateFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Packages.Package.CertificateFlags>`
+            	**type**\:   :py:class:`CertificateFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.Packages.Package.CertificateFlags>`
             
             .. attribute:: certificate_index
             
@@ -1412,7 +1414,7 @@ class Sam(object):
         .. attribute:: certificate_revocation
         
         	Certificate revocation list index information
-        	**type**\: list of  :py:class:`CertificateRevocation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocations.CertificateRevocation>`
+        	**type**\: list of    :py:class:`CertificateRevocation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocations.CertificateRevocation>`
         
         
 
@@ -1442,7 +1444,7 @@ class Sam(object):
             .. attribute:: certificate_revocation_list_detail
             
             	Certificate revocation list detail information
-            	**type**\:  :py:class:`CertificateRevocationListDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail>`
+            	**type**\:   :py:class:`CertificateRevocationListDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail>`
             
             
 
@@ -1472,7 +1474,7 @@ class Sam(object):
                 .. attribute:: issuer
                 
                 	Issuer name
-                	**type**\:  :py:class:`Issuer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail.Issuer>`
+                	**type**\:   :py:class:`Issuer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail.Issuer>`
                 
                 .. attribute:: updates
                 
@@ -1652,7 +1654,7 @@ class Sam(object):
         .. attribute:: issuer
         
         	Issuer name
-        	**type**\:  :py:class:`Issuer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocationListSummary.Issuer>`
+        	**type**\:   :py:class:`Issuer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper.Sam.CertificateRevocationListSummary.Issuer>`
         
         .. attribute:: updates
         

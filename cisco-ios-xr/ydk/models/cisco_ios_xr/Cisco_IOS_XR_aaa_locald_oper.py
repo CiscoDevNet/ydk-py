@@ -32,52 +32,52 @@ class Aaa(object):
     .. attribute:: all_tasks
     
     	All tasks supported by system
-    	**type**\:  :py:class:`AllTasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.AllTasks>`
+    	**type**\:   :py:class:`AllTasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.AllTasks>`
     
     .. attribute:: authen_method
     
     	Current users authentication method
-    	**type**\:  :py:class:`AuthenMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.AuthenMethod>`
+    	**type**\:   :py:class:`AuthenMethod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.AuthenMethod>`
     
     .. attribute:: current_usergroup
     
     	Specific Usergroup Information
-    	**type**\:  :py:class:`CurrentUsergroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.CurrentUsergroup>`
+    	**type**\:   :py:class:`CurrentUsergroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.CurrentUsergroup>`
     
     .. attribute:: currentuser_detail
     
     	Current user specific details
-    	**type**\:  :py:class:`CurrentuserDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.CurrentuserDetail>`
+    	**type**\:   :py:class:`CurrentuserDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.CurrentuserDetail>`
     
     .. attribute:: radius
     
     	RADIUS operational data
-    	**type**\:  :py:class:`Radius <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius>`
+    	**type**\:   :py:class:`Radius <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius>`
     
     .. attribute:: tacacs
     
     	TACACS operational data
-    	**type**\:  :py:class:`Tacacs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs>`
+    	**type**\:   :py:class:`Tacacs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs>`
     
     .. attribute:: task_map
     
     	Task map of current user
-    	**type**\:  :py:class:`TaskMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.TaskMap>`
+    	**type**\:   :py:class:`TaskMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.TaskMap>`
     
     .. attribute:: taskgroups
     
     	Individual taskgroups container
-    	**type**\:  :py:class:`Taskgroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Taskgroups>`
+    	**type**\:   :py:class:`Taskgroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Taskgroups>`
     
     .. attribute:: usergroups
     
     	Container for individual usergroup Information
-    	**type**\:  :py:class:`Usergroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups>`
+    	**type**\:   :py:class:`Usergroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups>`
     
     .. attribute:: users
     
     	Container for individual local user information
-    	**type**\:  :py:class:`Users <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Users>`
+    	**type**\:   :py:class:`Users <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Users>`
     
     
 
@@ -323,7 +323,7 @@ class Aaa(object):
         .. attribute:: taskgroup
         
         	Specific Taskgroup Information
-        	**type**\: list of  :py:class:`Taskgroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Taskgroups.Taskgroup>`
+        	**type**\: list of    :py:class:`Taskgroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Taskgroups.Taskgroup>`
         
         
 
@@ -351,7 +351,7 @@ class Aaa(object):
             .. attribute:: included_task_ids
             
             	Task\-ids included
-            	**type**\:  :py:class:`IncludedTaskIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Taskgroups.Taskgroup.IncludedTaskIds>`
+            	**type**\:   :py:class:`IncludedTaskIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Taskgroups.Taskgroup.IncludedTaskIds>`
             
             .. attribute:: name_xr
             
@@ -361,7 +361,7 @@ class Aaa(object):
             .. attribute:: task_map
             
             	Computed task map
-            	**type**\:  :py:class:`TaskMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Taskgroups.Taskgroup.TaskMap>`
+            	**type**\:   :py:class:`TaskMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Taskgroups.Taskgroup.TaskMap>`
             
             
 
@@ -387,7 +387,7 @@ class Aaa(object):
                 .. attribute:: tasks
                 
                 	List of permitted tasks
-                	**type**\: list of  :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Taskgroups.Taskgroup.IncludedTaskIds.Tasks>`
+                	**type**\: list of    :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Taskgroups.Taskgroup.IncludedTaskIds.Tasks>`
                 
                 
 
@@ -517,7 +517,7 @@ class Aaa(object):
                 .. attribute:: tasks
                 
                 	List of permitted tasks
-                	**type**\: list of  :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Taskgroups.Taskgroup.TaskMap.Tasks>`
+                	**type**\: list of    :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Taskgroups.Taskgroup.TaskMap.Tasks>`
                 
                 
 
@@ -704,7 +704,7 @@ class Aaa(object):
         .. attribute:: user
         
         	Specific local user information
-        	**type**\: list of  :py:class:`User <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Users.User>`
+        	**type**\: list of    :py:class:`User <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Users.User>`
         
         
 
@@ -747,7 +747,7 @@ class Aaa(object):
             .. attribute:: task_map
             
             	Computed taskmap
-            	**type**\:  :py:class:`TaskMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Users.User.TaskMap>`
+            	**type**\:   :py:class:`TaskMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Users.User.TaskMap>`
             
             .. attribute:: usergroup
             
@@ -781,7 +781,7 @@ class Aaa(object):
                 .. attribute:: tasks
                 
                 	List of permitted tasks
-                	**type**\: list of  :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Users.User.TaskMap.Tasks>`
+                	**type**\: list of    :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Users.User.TaskMap.Tasks>`
                 
                 
 
@@ -976,7 +976,7 @@ class Aaa(object):
         .. attribute:: usergroup
         
         	Specific Usergroup Information
-        	**type**\: list of  :py:class:`Usergroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup>`
+        	**type**\: list of    :py:class:`Usergroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup>`
         
         
 
@@ -1009,12 +1009,12 @@ class Aaa(object):
             .. attribute:: task_map
             
             	Computed task map
-            	**type**\:  :py:class:`TaskMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.TaskMap>`
+            	**type**\:   :py:class:`TaskMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.TaskMap>`
             
             .. attribute:: taskgroup
             
             	Component taskgroups
-            	**type**\: list of  :py:class:`Taskgroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.Taskgroup>`
+            	**type**\: list of    :py:class:`Taskgroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.Taskgroup>`
             
             
 
@@ -1041,7 +1041,7 @@ class Aaa(object):
                 .. attribute:: tasks
                 
                 	List of permitted tasks
-                	**type**\: list of  :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.TaskMap.Tasks>`
+                	**type**\: list of    :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.TaskMap.Tasks>`
                 
                 
 
@@ -1171,7 +1171,7 @@ class Aaa(object):
                 .. attribute:: included_task_ids
                 
                 	Task\-ids included
-                	**type**\:  :py:class:`IncludedTaskIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.Taskgroup.IncludedTaskIds>`
+                	**type**\:   :py:class:`IncludedTaskIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.Taskgroup.IncludedTaskIds>`
                 
                 .. attribute:: name_xr
                 
@@ -1181,7 +1181,7 @@ class Aaa(object):
                 .. attribute:: task_map
                 
                 	Computed task map
-                	**type**\:  :py:class:`TaskMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.Taskgroup.TaskMap>`
+                	**type**\:   :py:class:`TaskMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.Taskgroup.TaskMap>`
                 
                 
 
@@ -1206,7 +1206,7 @@ class Aaa(object):
                     .. attribute:: tasks
                     
                     	List of permitted tasks
-                    	**type**\: list of  :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.Taskgroup.IncludedTaskIds.Tasks>`
+                    	**type**\: list of    :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.Taskgroup.IncludedTaskIds.Tasks>`
                     
                     
 
@@ -1336,7 +1336,7 @@ class Aaa(object):
                     .. attribute:: tasks
                     
                     	List of permitted tasks
-                    	**type**\: list of  :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.Taskgroup.TaskMap.Tasks>`
+                    	**type**\: list of    :py:class:`Tasks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Usergroups.Usergroup.Taskgroup.TaskMap.Tasks>`
                     
                     
 
@@ -1715,12 +1715,12 @@ class Aaa(object):
         .. attribute:: global_
         
         	RADIUS Client Information
-        	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.Global>`
+        	**type**\:   :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.Global_>`
         
         .. attribute:: servers
         
         	List of RADIUS servers configured
-        	**type**\:  :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.Servers>`
+        	**type**\:   :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.Servers>`
         
         
 
@@ -1731,7 +1731,7 @@ class Aaa(object):
 
         def __init__(self):
             self.parent = None
-            self.global_ = Aaa.Radius.Global()
+            self.global_ = Aaa.Radius.Global_()
             self.global_.parent = self
             self.servers = Aaa.Radius.Servers()
             self.servers.parent = self
@@ -1744,7 +1744,7 @@ class Aaa(object):
             .. attribute:: server
             
             	RADIUS Server
-            	**type**\: list of  :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.Servers.Server>`
+            	**type**\: list of    :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Radius.Servers.Server>`
             
             
 
@@ -1847,6 +1847,8 @@ class Aaa(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: millisecond
                 
                 .. attribute:: accounting_timeouts
                 
@@ -1967,6 +1969,8 @@ class Aaa(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: author_incorrect_responses
                 
                 	Number of incorrect authorization responses
@@ -2072,6 +2076,8 @@ class Aaa(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: dead_detect_tries
                 
                 	Per\-server dead\-detect tries
@@ -2085,6 +2091,8 @@ class Aaa(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: minute
                 
                 .. attribute:: dropped_access_responses
                 
@@ -2293,6 +2301,8 @@ class Aaa(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: timeouts
                 
@@ -2784,7 +2794,7 @@ class Aaa(object):
                 return meta._meta_table['Aaa.Radius.Servers']['meta_info']
 
 
-        class Global(object):
+        class Global_(object):
             """
             RADIUS Client Information
             
@@ -2855,7 +2865,7 @@ class Aaa(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_locald_oper as meta
-                return meta._meta_table['Aaa.Radius.Global']['meta_info']
+                return meta._meta_table['Aaa.Radius.Global_']['meta_info']
 
         @property
         def _common_path(self):
@@ -2890,17 +2900,17 @@ class Aaa(object):
         .. attribute:: requests
         
         	TACACS Active Request List
-        	**type**\:  :py:class:`Requests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests>`
+        	**type**\:   :py:class:`Requests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests>`
         
         .. attribute:: server_groups
         
         	TACACS sg Information
-        	**type**\:  :py:class:`ServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups>`
+        	**type**\:   :py:class:`ServerGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups>`
         
         .. attribute:: servers
         
         	TACACS server Information
-        	**type**\:  :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Servers>`
+        	**type**\:   :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Servers>`
         
         
 
@@ -2926,7 +2936,7 @@ class Aaa(object):
             .. attribute:: request
             
             	request
-            	**type**\: list of  :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests.Request>`
+            	**type**\: list of    :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests.Request>`
             
             
 
@@ -2949,7 +2959,7 @@ class Aaa(object):
                 .. attribute:: tacacs_requestbag
                 
                 	tacacs requestbag
-                	**type**\: list of  :py:class:`TacacsRequestbag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests.Request.TacacsRequestbag>`
+                	**type**\: list of    :py:class:`TacacsRequestbag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Requests.Request.TacacsRequestbag>`
                 
                 
 
@@ -2976,12 +2986,16 @@ class Aaa(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: byte
+                    
                     .. attribute:: bytes_out
                     
                     	bytes written
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: byte
                     
                     .. attribute:: in_pak_size
                     
@@ -3140,7 +3154,7 @@ class Aaa(object):
             .. attribute:: server
             
             	server
-            	**type**\: list of  :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Servers.Server>`
+            	**type**\: list of    :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.Servers.Server>`
             
             
 
@@ -3188,12 +3202,16 @@ class Aaa(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: byte
+                
                 .. attribute:: bytes_out
                 
                 	# of bytes out
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: byte
                 
                 .. attribute:: closes
                 
@@ -3422,7 +3440,7 @@ class Aaa(object):
             .. attribute:: server_group
             
             	server group
-            	**type**\: list of  :py:class:`ServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups.ServerGroup>`
+            	**type**\: list of    :py:class:`ServerGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups.ServerGroup>`
             
             
 
@@ -3450,7 +3468,7 @@ class Aaa(object):
                 .. attribute:: server
                 
                 	list of servers in this group
-                	**type**\: list of  :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups.ServerGroup.Server>`
+                	**type**\: list of    :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_oper.Aaa.Tacacs.ServerGroups.ServerGroup.Server>`
                 
                 .. attribute:: sg_map_num
                 
@@ -3515,12 +3533,16 @@ class Aaa(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: byte
+                    
                     .. attribute:: bytes_out
                     
                     	# of bytes out
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: byte
                     
                     .. attribute:: closes
                     

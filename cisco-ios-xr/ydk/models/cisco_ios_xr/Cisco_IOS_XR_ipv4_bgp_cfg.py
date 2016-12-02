@@ -36,19 +36,19 @@ class BgpAdvRtEnum(Enum):
 
     Bgp adv rt
 
-    .. data:: BGP_REGULAR_RT = 0
+    .. data:: bgp_regular_rt = 0
 
     	Regular RT type
 
-    .. data:: BGP_STITCHING_RT = 1
+    .. data:: bgp_stitching_rt = 1
 
     	Stitching RT type
 
     """
 
-    BGP_REGULAR_RT = 0
+    bgp_regular_rt = 0
 
-    BGP_STITCHING_RT = 1
+    bgp_stitching_rt = 1
 
 
     @staticmethod
@@ -63,13 +63,13 @@ class BgpAfEncapsulationEnum(Enum):
 
     Bgp af encapsulation
 
-    .. data:: VX_LAN = 1
+    .. data:: vx_lan = 1
 
     	VxLAN encapsulation type
 
     """
 
-    VX_LAN = 1
+    vx_lan = 1
 
 
     @staticmethod
@@ -84,19 +84,19 @@ class BgpAigpCfgEnum(Enum):
 
     Bgp aigp cfg
 
-    .. data:: ENABLE = 1
+    .. data:: enable = 1
 
     	Enable AIGP
 
-    .. data:: DISABLE = 2
+    .. data:: disable = 2
 
     	Disable AIGP
 
     """
 
-    ENABLE = 1
+    enable = 1
 
-    DISABLE = 2
+    disable = 2
 
 
     @staticmethod
@@ -111,19 +111,19 @@ class BgpAigpCfgPoiEnum(Enum):
 
     Bgp aigp cfg poi
 
-    .. data:: PRE_BEST_PATH = 1
+    .. data:: pre_best_path = 1
 
     	AIGP Pre-bestpath POI
 
-    .. data:: IGP_COST = 2
+    .. data:: igp_cost = 2
 
     	AIGP igp-cost POI
 
     """
 
-    PRE_BEST_PATH = 1
+    pre_best_path = 1
 
-    IGP_COST = 2
+    igp_cost = 2
 
 
     @staticmethod
@@ -138,15 +138,15 @@ class BgpBfdEnableModeEnum(Enum):
 
     Bgp bfd enable mode
 
-    .. data:: DISABLE = 0
+    .. data:: disable = 0
 
     	Disable Mode - Prevent inheritance
 
-    .. data:: DEFAULT = 1
+    .. data:: default = 1
 
     	Default Mode - Default BFD behavior
 
-    .. data:: STRICT = 2
+    .. data:: strict = 2
 
     	Strict Mode - Hold down adj until BFD session
 
@@ -154,11 +154,11 @@ class BgpBfdEnableModeEnum(Enum):
 
     """
 
-    DISABLE = 0
+    disable = 0
 
-    DEFAULT = 1
+    default = 1
 
-    STRICT = 2
+    strict = 2
 
 
     @staticmethod
@@ -173,19 +173,19 @@ class BgpClusterIdEnum(Enum):
 
     Bgp cluster id
 
-    .. data:: NUMBER = 1
+    .. data:: number = 1
 
     	Number
 
-    .. data:: IPV4_ADDRESS = 2
+    .. data:: ipv4_address = 2
 
     	IPv4 Address
 
     """
 
-    NUMBER = 1
+    number = 1
 
-    IPV4_ADDRESS = 2
+    ipv4_address = 2
 
 
     @staticmethod
@@ -200,17 +200,17 @@ class BgpEbgpSendDmzEnableModeEnum(Enum):
 
     Bgp ebgp send dmz enable mode
 
-    .. data:: DISABLE = 0
+    .. data:: disable = 0
 
     	Disable Mode - Prevent inheritance
 
-    .. data:: DEFAULT = 1
+    .. data:: default = 1
 
     	Default Mode - Send dmz link bandwidth value to
 
     	ebgp neighbor
 
-    .. data:: CUMULATIVE = 2
+    .. data:: cumulative = 2
 
     	Strict Mode - Send cumulative dmz link
 
@@ -218,11 +218,11 @@ class BgpEbgpSendDmzEnableModeEnum(Enum):
 
     """
 
-    DISABLE = 0
+    disable = 0
 
-    DEFAULT = 1
+    default = 1
 
-    CUMULATIVE = 2
+    cumulative = 2
 
 
     @staticmethod
@@ -237,25 +237,25 @@ class BgpFlowspecValidationCfgEnum(Enum):
 
     Bgp flowspec validation cfg
 
-    .. data:: ENABLE = 1
+    .. data:: enable = 1
 
     	Enable Flowspec validation
 
-    .. data:: DISABLE = 2
+    .. data:: disable = 2
 
     	Disable Flowspec validation
 
-    .. data:: REDIRECT_NEXHOP_DISABLE = 3
+    .. data:: redirect_nexhop_disable = 3
 
     	Disable Flowspec redirect nexthop validation
 
     """
 
-    ENABLE = 1
+    enable = 1
 
-    DISABLE = 2
+    disable = 2
 
-    REDIRECT_NEXHOP_DISABLE = 3
+    redirect_nexhop_disable = 3
 
 
     @staticmethod
@@ -270,11 +270,11 @@ class BgpMvpnSfsSelectEnum(Enum):
 
     Bgp mvpn sfs select
 
-    .. data:: ALL_PATHS = 1
+    .. data:: all_paths = 1
 
     	Select all paths as single forwarder PE
 
-    .. data:: HIGHEST_IP_ADDRESS = 2
+    .. data:: highest_ip_address = 2
 
     	Select PE with highest address as single
 
@@ -282,9 +282,9 @@ class BgpMvpnSfsSelectEnum(Enum):
 
     """
 
-    ALL_PATHS = 1
+    all_paths = 1
 
-    HIGHEST_IP_ADDRESS = 2
+    highest_ip_address = 2
 
 
     @staticmethod
@@ -299,31 +299,31 @@ class BgpOrfEnum(Enum):
 
     Bgp orf
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	No capability to send or receive
 
-    .. data:: RECEIVE = 1
+    .. data:: receive = 1
 
     	Receive ORF capability
 
-    .. data:: SEND = 2
+    .. data:: send = 2
 
     	Send ORF capability
 
-    .. data:: BOTH = 3
+    .. data:: both = 3
 
     	Send and receive ORF capability
 
     """
 
-    NONE = 0
+    none = 0
 
-    RECEIVE = 1
+    receive = 1
 
-    SEND = 2
+    send = 2
 
-    BOTH = 3
+    both = 3
 
 
     @staticmethod
@@ -338,37 +338,37 @@ class BgpReorgOptEnum(Enum):
 
     Bgp reorg opt
 
-    .. data:: BGP_CFG_ADV = 1
+    .. data:: bgp_cfg_adv = 1
 
     	Advertise translated routes
 
-    .. data:: BGP_CFG_ADV_REORG = 2
+    .. data:: bgp_cfg_adv_reorg = 2
 
     	Advertise Reorig routes
 
-    .. data:: BGP_CFG_ADV_DISABLE = 3
+    .. data:: bgp_cfg_adv_disable = 3
 
     	Disable adv of routes
 
-    .. data:: BGP_CFG_ADV_LOCAL = 4
+    .. data:: bgp_cfg_adv_local = 4
 
     	Advertise local routes
 
-    .. data:: BGP_CFG_ADV_DEF_IMP_DISABLE = 5
+    .. data:: bgp_cfg_adv_def_imp_disable = 5
 
     	Disable adv of Def VRF Imported routes
 
     """
 
-    BGP_CFG_ADV = 1
+    bgp_cfg_adv = 1
 
-    BGP_CFG_ADV_REORG = 2
+    bgp_cfg_adv_reorg = 2
 
-    BGP_CFG_ADV_DISABLE = 3
+    bgp_cfg_adv_disable = 3
 
-    BGP_CFG_ADV_LOCAL = 4
+    bgp_cfg_adv_local = 4
 
-    BGP_CFG_ADV_DEF_IMP_DISABLE = 5
+    bgp_cfg_adv_def_imp_disable = 5
 
 
     @staticmethod
@@ -383,31 +383,31 @@ class BgpRouteDistinguisherEnum(Enum):
 
     Bgp route distinguisher
 
-    .. data:: AUTO = 1
+    .. data:: auto = 1
 
     	Automatically assigned
 
-    .. data:: AS = 2
+    .. data:: as_ = 2
 
     	AS format RD
 
-    .. data:: FOUR_BYTE_AS = 3
+    .. data:: four_byte_as = 3
 
     	4-byte AS format RD
 
-    .. data:: IPV4_ADDRESS = 4
+    .. data:: ipv4_address = 4
 
     	IPv4 address format RD
 
     """
 
-    AUTO = 1
+    auto = 1
 
-    AS = 2
+    as_ = 2
 
-    FOUR_BYTE_AS = 3
+    four_byte_as = 3
 
-    IPV4_ADDRESS = 4
+    ipv4_address = 4
 
 
     @staticmethod
@@ -422,19 +422,19 @@ class BgpRpkiTransportEnum(Enum):
 
     Bgp rpki transport
 
-    .. data:: TCP = 0
+    .. data:: tcp = 0
 
     	TCP Transport
 
-    .. data:: SSH = 1
+    .. data:: ssh = 1
 
     	SSH Transport
 
     """
 
-    TCP = 0
+    tcp = 0
 
-    SSH = 1
+    ssh = 1
 
 
     @staticmethod
@@ -449,19 +449,19 @@ class BgpSendMcastAttrCfgEnum(Enum):
 
     Bgp send mcast attr cfg
 
-    .. data:: ENABLE = 1
+    .. data:: enable = 1
 
     	Enable SendMcastAttr
 
-    .. data:: DISABLE = 2
+    .. data:: disable = 2
 
     	Disable SendMcastAttr
 
     """
 
-    ENABLE = 1
+    enable = 1
 
-    DISABLE = 2
+    disable = 2
 
 
     @staticmethod
@@ -476,19 +476,19 @@ class BgpSignalEnum(Enum):
 
     Bgp signal
 
-    .. data:: BGP_DISABLE = 1
+    .. data:: bgp_disable = 1
 
     	Signalling BGP disable
 
-    .. data:: LDP_DISABLE = 2
+    .. data:: ldp_disable = 2
 
     	Signalling LDP disable
 
     """
 
-    BGP_DISABLE = 1
+    bgp_disable = 1
 
-    LDP_DISABLE = 2
+    ldp_disable = 2
 
 
     @staticmethod
@@ -503,25 +503,25 @@ class BgpSiteOfOriginEnum(Enum):
 
     Bgp site of origin
 
-    .. data:: AS = 0
+    .. data:: as_ = 0
 
     	AS format SoO
 
-    .. data:: IPV4_ADDRESS = 1
+    .. data:: ipv4_address = 1
 
     	IPv4 address format SoO
 
-    .. data:: FOUR_BYTE_AS = 2
+    .. data:: four_byte_as = 2
 
     	4-byte AS format SoO
 
     """
 
-    AS = 0
+    as_ = 0
 
-    IPV4_ADDRESS = 1
+    ipv4_address = 1
 
-    FOUR_BYTE_AS = 2
+    four_byte_as = 2
 
 
     @staticmethod
@@ -536,25 +536,25 @@ class BgpTcpModeEnum(Enum):
 
     Bgp tcp mode
 
-    .. data:: EITHER = 0
+    .. data:: either = 0
 
     	Either active or passive mode
 
-    .. data:: ACTIVE_ONLY = 1
+    .. data:: active_only = 1
 
     	Active mode only
 
-    .. data:: PASSIVE_ONLY = 2
+    .. data:: passive_only = 2
 
     	Passive mode only
 
     """
 
-    EITHER = 0
+    either = 0
 
-    ACTIVE_ONLY = 1
+    active_only = 1
 
-    PASSIVE_ONLY = 2
+    passive_only = 2
 
 
     @staticmethod
@@ -569,25 +569,25 @@ class BgpVrfRouteTargetEnum(Enum):
 
     Bgp vrf route target
 
-    .. data:: AS = 0
+    .. data:: as_ = 0
 
     	AS format RT
 
-    .. data:: IPV4_ADDRESS = 1
+    .. data:: ipv4_address = 1
 
     	IPv4 address format RT
 
-    .. data:: FOUR_BYTE_AS = 2
+    .. data:: four_byte_as = 2
 
     	4-byte AS format RT
 
     """
 
-    AS = 0
+    as_ = 0
 
-    IPV4_ADDRESS = 1
+    ipv4_address = 1
 
-    FOUR_BYTE_AS = 2
+    four_byte_as = 2
 
 
     @staticmethod
@@ -604,7 +604,7 @@ class Bgp(object):
     .. attribute:: instance
     
     	BGP instance configuration commands
-    	**type**\: list of  :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance>`
+    	**type**\: list of    :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance>`
     
     
 
@@ -633,7 +633,7 @@ class Bgp(object):
         .. attribute:: instance_as
         
         	Autonomous system
-        	**type**\: list of  :py:class:`InstanceAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs>`
+        	**type**\: list of    :py:class:`InstanceAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs>`
         
         
 
@@ -664,7 +664,7 @@ class Bgp(object):
             .. attribute:: four_byte_as
             
             	4\-byte Autonomous system
-            	**type**\: list of  :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs>`
+            	**type**\: list of    :py:class:`FourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs>`
             
             
 
@@ -695,17 +695,17 @@ class Bgp(object):
                 .. attribute:: bgp_running
                 
                 	Enable BGP. Deletion of this object causes deletion of all the objects under FourByteAS associated with this object
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: default_vrf
                 
                 	Global default config
-                	**type**\:  :py:class:`DefaultVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf>`
+                	**type**\:   :py:class:`DefaultVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf>`
                 
                 .. attribute:: vrfs
                 
                 	VRF config
-                	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs>`
+                	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs>`
                 
                 
 
@@ -731,7 +731,7 @@ class Bgp(object):
                     .. attribute:: vrf
                     
                     	VRF config
-                    	**type**\: list of  :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf>`
+                    	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf>`
                     
                     
 
@@ -761,12 +761,12 @@ class Bgp(object):
                         .. attribute:: vrf_global
                         
                         	VRF attribute config
-                        	**type**\:  :py:class:`VrfGlobal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal>`
+                        	**type**\:   :py:class:`VrfGlobal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal>`
                         
                         .. attribute:: vrf_neighbors
                         
                         	BGP VRF peer
-                        	**type**\:  :py:class:`VrfNeighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors>`
+                        	**type**\:   :py:class:`VrfNeighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors>`
                         
                         
 
@@ -791,52 +791,52 @@ class Bgp(object):
                             .. attribute:: best_path_aigp_ignore
                             
                             	Change default route selection criteria to ignore AIGP unless both paths whichare compared have AIGP attribute
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: best_path_as_multipath_relax
                             
                             	Change default multi\-route selection criteria to relax as\-path checking \- only require same aspath length
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: best_path_as_path_length
                             
                             	Change default route selection criteria to ignore AS path length
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: best_path_confederation_paths
                             
                             	Change default route selection criteria and allow the comparing of MED among confederation paths
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: best_path_cost_community
                             
                             	Change default route selection criteria to ignore cost community comparison
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: best_path_med_always
                             
                             	Change default route selection criteria and allow comparing of MED from different neighbors
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: best_path_med_missing
                             
                             	Treat missing MED as the least preferred one
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: best_path_router_id
                             
                             	Change default route selection criteria and compare router\-id for identical EBGP paths
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: bfd
                             
                             	BFD configuration
-                            	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.Bfd>`
+                            	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.Bfd>`
                             
                             .. attribute:: default_info_originate
                             
                             	Control distribution of default information
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: default_metric
                             
@@ -848,47 +848,49 @@ class Bgp(object):
                             .. attribute:: disable_auto_soft_reset
                             
                             	Disable automatic soft peer reset on policy reconfiguration
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: disable_enforce_first_as
                             
                             	Disable enforce the first AS for EBGP routes
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: disable_fast_external_fallover
                             
                             	Disable immediate reset session if a link to a directly connected external peer goes down
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: disable_msg_log
                             
                             	Disable inbound and outbound messagelogging for all neighbors under the vrf
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: disable_neighbor_logging
                             
                             	Disable neighbor change logging
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: exists
                             
                             	Create this VRF. Deletion of this object causes deletion of all the objects under VRF associated with this object
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: global_timers
                             
                             	Adjust routing timers
-                            	**type**\:  :py:class:`GlobalTimers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.GlobalTimers>`
+                            	**type**\:   :py:class:`GlobalTimers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.GlobalTimers>`
                             
                             .. attribute:: igp_redist_internal
                             
                             	Allow redistribution of iBGP into IGPs (dangerous)
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: label_mode
                             
                             	MPLS/VPN label allocation mode
-                            	**type**\:  :py:class:`LabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.LabelMode>`
+                            	**type**\:   :py:class:`LabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.LabelMode>`
+                            
+                            	**status**\: obsolete
                             
                             .. attribute:: local_preference
                             
@@ -897,25 +899,27 @@ class Bgp(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**default value**\: 100
+                            
                             .. attribute:: mpls_activated_interfaces
                             
                             	Configure list of MPLS activated interfaces
-                            	**type**\:  :py:class:`MplsActivatedInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.MplsActivatedInterfaces>`
+                            	**type**\:   :py:class:`MplsActivatedInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.MplsActivatedInterfaces>`
                             
                             .. attribute:: multi_path_as_path_ignore_onwards
                             
                             	Change default multi\-route selection criteria to ignore everything onwards as\-path check
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: receive_socket_buffer_sizes
                             
                             	Set socket and BGP receive buffer sizes
-                            	**type**\:  :py:class:`ReceiveSocketBufferSizes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.ReceiveSocketBufferSizes>`
+                            	**type**\:   :py:class:`ReceiveSocketBufferSizes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.ReceiveSocketBufferSizes>`
                             
                             .. attribute:: route_distinguisher
                             
                             	Route distinguisher
-                            	**type**\:  :py:class:`RouteDistinguisher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.RouteDistinguisher>`
+                            	**type**\:   :py:class:`RouteDistinguisher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.RouteDistinguisher>`
                             
                             .. attribute:: router_id
                             
@@ -924,15 +928,17 @@ class Bgp(object):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**default value**\: 0.0.0.0
+                            
                             .. attribute:: send_socket_buffer_sizes
                             
                             	set socket parameters
-                            	**type**\:  :py:class:`SendSocketBufferSizes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.SendSocketBufferSizes>`
+                            	**type**\:   :py:class:`SendSocketBufferSizes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.SendSocketBufferSizes>`
                             
                             .. attribute:: vrf_global_afs
                             
                             	Global VRF\-specific configuration
-                            	**type**\:  :py:class:`VrfGlobalAfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs>`
+                            	**type**\:   :py:class:`VrfGlobalAfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs>`
                             
                             
 
@@ -1023,7 +1029,7 @@ class Bgp(object):
                                 .. attribute:: type
                                 
                                 	Type of RD
-                                	**type**\:  :py:class:`BgpRouteDistinguisherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpRouteDistinguisherEnum>`
+                                	**type**\:   :py:class:`BgpRouteDistinguisherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpRouteDistinguisherEnum>`
                                 
                                 
 
@@ -1142,7 +1148,7 @@ class Bgp(object):
                                 .. attribute:: vrf_global_af
                                 
                                 	Global VRF AF\-specific configuration
-                                	**type**\: list of  :py:class:`VrfGlobalAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf>`
+                                	**type**\: list of    :py:class:`VrfGlobalAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf>`
                                 
                                 
 
@@ -1165,32 +1171,32 @@ class Bgp(object):
                                     .. attribute:: af_name  <key>
                                     
                                     	Address family
-                                    	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                    	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                     
                                     .. attribute:: additional_paths_receive
                                     
                                     	Advertise additional paths Receive capability
-                                    	**type**\:  :py:class:`BgpafAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpafAdditionalPathsCfgEnum>`
+                                    	**type**\:   :py:class:`BgpafAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpafAdditionalPathsCfgEnum>`
                                     
                                     .. attribute:: additional_paths_selection
                                     
                                     	Configure additional paths selection
-                                    	**type**\:  :py:class:`AdditionalPathsSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AdditionalPathsSelection>`
+                                    	**type**\:   :py:class:`AdditionalPathsSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AdditionalPathsSelection>`
                                     
                                     .. attribute:: additional_paths_send
                                     
                                     	Advertise additional paths Send capability
-                                    	**type**\:  :py:class:`BgpafAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpafAdditionalPathsCfgEnum>`
+                                    	**type**\:   :py:class:`BgpafAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpafAdditionalPathsCfgEnum>`
                                     
                                     .. attribute:: aggregate_addresses
                                     
                                     	Configure BGP aggregate entries
-                                    	**type**\:  :py:class:`AggregateAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AggregateAddresses>`
+                                    	**type**\:   :py:class:`AggregateAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AggregateAddresses>`
                                     
                                     .. attribute:: allocate_label
                                     
                                     	Label allocation policy
-                                    	**type**\:  :py:class:`AllocateLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AllocateLabel>`
+                                    	**type**\:   :py:class:`AllocateLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AllocateLabel>`
                                     
                                     .. attribute:: allow_vpn_default_originate
                                     
@@ -1200,7 +1206,7 @@ class Bgp(object):
                                     .. attribute:: attribute_download
                                     
                                     	Attribute download configuration
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: best_external
                                     
@@ -1210,22 +1216,26 @@ class Bgp(object):
                                     .. attribute:: connected_routes
                                     
                                     	Redistribute connected routes
-                                    	**type**\:  :py:class:`ConnectedRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ConnectedRoutes>`
+                                    	**type**\:   :py:class:`ConnectedRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.ConnectedRoutes>`
+                                    
+                                    	**presence node**\: True
                                     
                                     .. attribute:: dampening
                                     
                                     	Enable route\-flap dampening
-                                    	**type**\:  :py:class:`Dampening <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Dampening>`
+                                    	**type**\:   :py:class:`Dampening <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Dampening>`
+                                    
+                                    	**presence node**\: True
                                     
                                     .. attribute:: disable_as_path_loop_check
                                     
                                     	Disable outbound AS Path loop check
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: distance
                                     
                                     	Define an administrative distance
-                                    	**type**\:  :py:class:`Distance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Distance>`
+                                    	**type**\:   :py:class:`Distance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Distance>`
                                     
                                     .. attribute:: dynamic_med_interval
                                     
@@ -1234,50 +1244,64 @@ class Bgp(object):
                                     
                                     	**range:** 0..10
                                     
+                                    	**units**\: minute
+                                    
+                                    	**default value**\: 10
+                                    
                                     .. attribute:: ebgp
                                     
                                     	Use eBGP multipaths
-                                    	**type**\:  :py:class:`Ebgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ebgp>`
+                                    	**type**\:   :py:class:`Ebgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ebgp>`
+                                    
+                                    	**presence node**\: True
                                     
                                     .. attribute:: eibgp
                                     
                                     	Use eiBGP multipaths
-                                    	**type**\:  :py:class:`Eibgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Eibgp>`
+                                    	**type**\:   :py:class:`Eibgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Eibgp>`
+                                    
+                                    	**presence node**\: True
                                     
                                     .. attribute:: eigrp_routes
                                     
                                     	Redistribute information for EIGRP routes
-                                    	**type**\:  :py:class:`EigrpRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.EigrpRoutes>`
+                                    	**type**\:   :py:class:`EigrpRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.EigrpRoutes>`
                                     
                                     .. attribute:: enable
                                     
                                     	Enable the address family. Deletion of this object causes deletion of all the objects under GlobalAF/VRFGlobalAF associated with this object 
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: ibgp
                                     
                                     	Use iBGP multipaths
-                                    	**type**\:  :py:class:`Ibgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ibgp>`
+                                    	**type**\:   :py:class:`Ibgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ibgp>`
+                                    
+                                    	**presence node**\: True
                                     
                                     .. attribute:: label_mode
                                     
                                     	BGP 6PE/MPLS\-VPN label allocation mode
-                                    	**type**\:  :py:class:`LabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.LabelMode>`
+                                    	**type**\:   :py:class:`LabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.LabelMode>`
                                     
                                     .. attribute:: lisp_routes
                                     
                                     	Redistribute lisp routes
-                                    	**type**\:  :py:class:`LispRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.LispRoutes>`
+                                    	**type**\:   :py:class:`LispRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.LispRoutes>`
+                                    
+                                    	**presence node**\: True
                                     
                                     .. attribute:: mobile_routes
                                     
                                     	Redistribute mobile routes
-                                    	**type**\:  :py:class:`MobileRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.MobileRoutes>`
+                                    	**type**\:   :py:class:`MobileRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.MobileRoutes>`
+                                    
+                                    	**presence node**\: True
                                     
                                     .. attribute:: mvpn
                                     
                                     	MVPN configurations
-                                    	**type**\:  :py:class:`Mvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Mvpn>`
+                                    	**type**\:   :py:class:`Mvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Mvpn>`
                                     
                                     .. attribute:: next_hop_resolution_prefix_length_minimum
                                     
@@ -1286,10 +1310,12 @@ class Bgp(object):
                                     
                                     	**range:** 0..128
                                     
+                                    	**default value**\: 0
+                                    
                                     .. attribute:: ospf_routes
                                     
                                     	Redistribute information for OSPF routes
-                                    	**type**\:  :py:class:`OspfRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OspfRoutes>`
+                                    	**type**\:   :py:class:`OspfRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OspfRoutes>`
                                     
                                     .. attribute:: permanent_network
                                     
@@ -1304,27 +1330,33 @@ class Bgp(object):
                                     .. attribute:: rip_routes
                                     
                                     	Redistribute RIP routes
-                                    	**type**\:  :py:class:`RipRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.RipRoutes>`
+                                    	**type**\:   :py:class:`RipRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.RipRoutes>`
+                                    
+                                    	**presence node**\: True
                                     
                                     .. attribute:: rt_download
                                     
                                     	Route\-Target download configuration
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: sourced_networks
                                     
                                     	Specify a network to announce via BGP
-                                    	**type**\:  :py:class:`SourcedNetworks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SourcedNetworks>`
+                                    	**type**\:   :py:class:`SourcedNetworks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SourcedNetworks>`
                                     
                                     .. attribute:: static_routes
                                     
                                     	Redistribute static routes
-                                    	**type**\:  :py:class:`StaticRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.StaticRoutes>`
+                                    	**type**\:   :py:class:`StaticRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.StaticRoutes>`
+                                    
+                                    	**presence node**\: True
                                     
                                     .. attribute:: subscriber_routes
                                     
                                     	Redistribute subscriber routes
-                                    	**type**\:  :py:class:`SubscriberRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SubscriberRoutes>`
+                                    	**type**\:   :py:class:`SubscriberRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SubscriberRoutes>`
+                                    
+                                    	**presence node**\: True
                                     
                                     .. attribute:: table_policy
                                     
@@ -1391,7 +1423,7 @@ class Bgp(object):
                                         .. attribute:: single_forwarder_selection
                                         
                                         	Select MVPN single forwarder selection
-                                        	**type**\:  :py:class:`BgpMvpnSfsSelectEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpMvpnSfsSelectEnum>`
+                                        	**type**\:   :py:class:`BgpMvpnSfsSelectEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpMvpnSfsSelectEnum>`
                                         
                                         
 
@@ -1429,6 +1461,282 @@ class Bgp(object):
                                             return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Mvpn']['meta_info']
 
 
+                                    class Ebgp(object):
+                                        """
+                                        Use eBGP multipaths
+                                        
+                                        .. attribute:: order_by_igp_metric
+                                        
+                                        	Order candidate multipaths by IGP metric
+                                        	**type**\:  bool
+                                        
+                                        	**default value**\: false
+                                        
+                                        .. attribute:: paths_value
+                                        
+                                        	Number of paths
+                                        	**type**\:  int
+                                        
+                                        	**range:** 2..32
+                                        
+                                        	**mandatory**\: True
+                                        
+                                        .. attribute:: selective
+                                        
+                                        	Allow multipaths only from marked neighbors
+                                        	**type**\:  bool
+                                        
+                                        	**default value**\: false
+                                        
+                                        .. attribute:: unequal_cost
+                                        
+                                        	UNUSED
+                                        	**type**\:  bool
+                                        
+                                        	**default value**\: false
+                                        
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
+                                        
+
+                                        This class is a :ref:`presence class<presence-class>`
+
+                                        """
+
+                                        _prefix = 'ipv4-bgp-cfg'
+                                        _revision = '2015-08-27'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self._is_presence = True
+                                            self.order_by_igp_metric = None
+                                            self.paths_value = None
+                                            self.selective = None
+                                            self.unequal_cost = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:ebgp'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self._is_presence:
+                                                return True
+                                            if self.order_by_igp_metric is not None:
+                                                return True
+
+                                            if self.paths_value is not None:
+                                                return True
+
+                                            if self.selective is not None:
+                                                return True
+
+                                            if self.unequal_cost is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ebgp']['meta_info']
+
+
+                                    class Eibgp(object):
+                                        """
+                                        Use eiBGP multipaths
+                                        
+                                        .. attribute:: order_by_igp_metric
+                                        
+                                        	Order candidate multipaths by IGP metric
+                                        	**type**\:  bool
+                                        
+                                        	**default value**\: false
+                                        
+                                        .. attribute:: paths_value
+                                        
+                                        	Number of paths
+                                        	**type**\:  int
+                                        
+                                        	**range:** 2..32
+                                        
+                                        	**mandatory**\: True
+                                        
+                                        .. attribute:: selective
+                                        
+                                        	Allow multipaths only from marked neighbors
+                                        	**type**\:  bool
+                                        
+                                        	**default value**\: false
+                                        
+                                        .. attribute:: unequal_cost
+                                        
+                                        	UNUSED
+                                        	**type**\:  bool
+                                        
+                                        	**default value**\: false
+                                        
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
+                                        
+
+                                        This class is a :ref:`presence class<presence-class>`
+
+                                        """
+
+                                        _prefix = 'ipv4-bgp-cfg'
+                                        _revision = '2015-08-27'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self._is_presence = True
+                                            self.order_by_igp_metric = None
+                                            self.paths_value = None
+                                            self.selective = None
+                                            self.unequal_cost = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:eibgp'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self._is_presence:
+                                                return True
+                                            if self.order_by_igp_metric is not None:
+                                                return True
+
+                                            if self.paths_value is not None:
+                                                return True
+
+                                            if self.selective is not None:
+                                                return True
+
+                                            if self.unequal_cost is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Eibgp']['meta_info']
+
+
+                                    class Ibgp(object):
+                                        """
+                                        Use iBGP multipaths
+                                        
+                                        .. attribute:: order_by_igp_metric
+                                        
+                                        	Order candidate multipaths by IGP metric
+                                        	**type**\:  bool
+                                        
+                                        	**default value**\: false
+                                        
+                                        .. attribute:: paths_value
+                                        
+                                        	Number of paths
+                                        	**type**\:  int
+                                        
+                                        	**range:** 2..32
+                                        
+                                        	**mandatory**\: True
+                                        
+                                        .. attribute:: selective
+                                        
+                                        	Allow multipaths only from marked neighbors
+                                        	**type**\:  bool
+                                        
+                                        	**default value**\: false
+                                        
+                                        .. attribute:: unequal_cost
+                                        
+                                        	Allow multipaths to have different IGP metrics
+                                        	**type**\:  bool
+                                        
+                                        	**default value**\: false
+                                        
+                                        .. attribute:: _is_presence
+                                        
+                                        	Is present if this instance represents presence container else not
+                                        	**type**\: bool
+                                        
+                                        
+
+                                        This class is a :ref:`presence class<presence-class>`
+
+                                        """
+
+                                        _prefix = 'ipv4-bgp-cfg'
+                                        _revision = '2015-08-27'
+
+                                        def __init__(self):
+                                            self.parent = None
+                                            self._is_presence = True
+                                            self.order_by_igp_metric = None
+                                            self.paths_value = None
+                                            self.selective = None
+                                            self.unequal_cost = None
+
+                                        @property
+                                        def _common_path(self):
+                                            if self.parent is None:
+                                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:ibgp'
+
+                                        def is_config(self):
+                                            ''' Returns True if this instance represents config data else returns False '''
+                                            return True
+
+                                        def _has_data(self):
+                                            if not self.is_config():
+                                                return False
+                                            if self._is_presence:
+                                                return True
+                                            if self.order_by_igp_metric is not None:
+                                                return True
+
+                                            if self.paths_value is not None:
+                                                return True
+
+                                            if self.selective is not None:
+                                                return True
+
+                                            if self.unequal_cost is not None:
+                                                return True
+
+                                            return False
+
+                                        @staticmethod
+                                        def _meta_info():
+                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ibgp']['meta_info']
+
+
                                     class AggregateAddresses(object):
                                         """
                                         Configure BGP aggregate entries
@@ -1436,7 +1744,7 @@ class Bgp(object):
                                         .. attribute:: aggregate_address
                                         
                                         	Aggregate address configuration
-                                        	**type**\: list of  :py:class:`AggregateAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AggregateAddresses.AggregateAddress>`
+                                        	**type**\: list of    :py:class:`AggregateAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AggregateAddresses.AggregateAddress>`
                                         
                                         
 
@@ -1597,6 +1905,8 @@ class Bgp(object):
                                         
                                         	**range:** 1..45
                                         
+                                        	**units**\: minute
+                                        
                                         .. attribute:: reuse_threshold
                                         
                                         	Value to start reusing a route
@@ -1622,6 +1932,8 @@ class Bgp(object):
                                         	**type**\:  int
                                         
                                         	**range:** 1..255
+                                        
+                                        	**units**\: second
                                         
                                         .. attribute:: _is_presence
                                         
@@ -1916,6 +2228,8 @@ class Bgp(object):
                                         
                                         	**range:** 1..255
                                         
+                                        	**default value**\: 20
+                                        
                                         .. attribute:: internal_routes
                                         
                                         	Distance for routes internal to the AS
@@ -1923,12 +2237,16 @@ class Bgp(object):
                                         
                                         	**range:** 1..255
                                         
+                                        	**default value**\: 200
+                                        
                                         .. attribute:: local_routes
                                         
                                         	Distance for local routes
                                         	**type**\:  int
                                         
                                         	**range:** 1..255
+                                        
+                                        	**default value**\: 200
                                         
                                         
 
@@ -2035,7 +2353,7 @@ class Bgp(object):
                                         .. attribute:: eigrp_route
                                         
                                         	Redistribute EIGRP routes
-                                        	**type**\: list of  :py:class:`EigrpRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.EigrpRoutes.EigrpRoute>`
+                                        	**type**\: list of    :py:class:`EigrpRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.EigrpRoutes.EigrpRoute>`
                                         
                                         
 
@@ -2164,7 +2482,7 @@ class Bgp(object):
                                         .. attribute:: sourced_network
                                         
                                         	Sourced network configuration
-                                        	**type**\: list of  :py:class:`SourcedNetwork <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SourcedNetworks.SourcedNetwork>`
+                                        	**type**\: list of    :py:class:`SourcedNetwork <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.SourcedNetworks.SourcedNetwork>`
                                         
                                         
 
@@ -2439,7 +2757,7 @@ class Bgp(object):
                                         .. attribute:: selection
                                         
                                         	Enable/disable selection 
-                                        	**type**\:  :py:class:`BgpafAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpafAdditionalPathsCfgEnum>`
+                                        	**type**\:   :py:class:`BgpafAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpafAdditionalPathsCfgEnum>`
                                         
                                         
 
@@ -2481,178 +2799,6 @@ class Bgp(object):
                                             return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.AdditionalPathsSelection']['meta_info']
 
 
-                                    class Ebgp(object):
-                                        """
-                                        Use eBGP multipaths
-                                        
-                                        .. attribute:: order_by_igp_metric
-                                        
-                                        	Order candidate multipaths by IGP metric
-                                        	**type**\:  bool
-                                        
-                                        .. attribute:: paths_value
-                                        
-                                        	Number of paths
-                                        	**type**\:  int
-                                        
-                                        	**range:** 2..64
-                                        
-                                        	**mandatory**\: True
-                                        
-                                        .. attribute:: selective
-                                        
-                                        	Allow multipaths only from marked neighbors
-                                        	**type**\:  bool
-                                        
-                                        .. attribute:: unequal_cost
-                                        
-                                        	UNUSED
-                                        	**type**\:  bool
-                                        
-                                        .. attribute:: _is_presence
-                                        
-                                        	Is present if this instance represents presence container else not
-                                        	**type**\: bool
-                                        
-                                        
-
-                                        This class is a :ref:`presence class<presence-class>`
-
-                                        """
-
-                                        _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2015-08-27'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self._is_presence = True
-                                            self.order_by_igp_metric = None
-                                            self.paths_value = None
-                                            self.selective = None
-                                            self.unequal_cost = None
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:ebgp'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return True
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self._is_presence:
-                                                return True
-                                            if self.order_by_igp_metric is not None:
-                                                return True
-
-                                            if self.paths_value is not None:
-                                                return True
-
-                                            if self.selective is not None:
-                                                return True
-
-                                            if self.unequal_cost is not None:
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ebgp']['meta_info']
-
-
-                                    class Eibgp(object):
-                                        """
-                                        Use eiBGP multipaths
-                                        
-                                        .. attribute:: order_by_igp_metric
-                                        
-                                        	Order candidate multipaths by IGP metric
-                                        	**type**\:  bool
-                                        
-                                        .. attribute:: paths_value
-                                        
-                                        	Number of paths
-                                        	**type**\:  int
-                                        
-                                        	**range:** 2..64
-                                        
-                                        	**mandatory**\: True
-                                        
-                                        .. attribute:: selective
-                                        
-                                        	Allow multipaths only from marked neighbors
-                                        	**type**\:  bool
-                                        
-                                        .. attribute:: unequal_cost
-                                        
-                                        	UNUSED
-                                        	**type**\:  bool
-                                        
-                                        .. attribute:: _is_presence
-                                        
-                                        	Is present if this instance represents presence container else not
-                                        	**type**\: bool
-                                        
-                                        
-
-                                        This class is a :ref:`presence class<presence-class>`
-
-                                        """
-
-                                        _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2015-08-27'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self._is_presence = True
-                                            self.order_by_igp_metric = None
-                                            self.paths_value = None
-                                            self.selective = None
-                                            self.unequal_cost = None
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:eibgp'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return True
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self._is_presence:
-                                                return True
-                                            if self.order_by_igp_metric is not None:
-                                                return True
-
-                                            if self.paths_value is not None:
-                                                return True
-
-                                            if self.selective is not None:
-                                                return True
-
-                                            if self.unequal_cost is not None:
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Eibgp']['meta_info']
-
-
                                     class OspfRoutes(object):
                                         """
                                         Redistribute information for OSPF routes.
@@ -2660,7 +2806,7 @@ class Bgp(object):
                                         .. attribute:: ospf_route
                                         
                                         	Redistribute OSPF routes
-                                        	**type**\: list of  :py:class:`OspfRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OspfRoutes.OspfRoute>`
+                                        	**type**\: list of    :py:class:`OspfRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OspfRoutes.OspfRoute>`
                                         
                                         
 
@@ -2780,92 +2926,6 @@ class Bgp(object):
                                         def _meta_info():
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
                                             return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.OspfRoutes']['meta_info']
-
-
-                                    class Ibgp(object):
-                                        """
-                                        Use iBGP multipaths
-                                        
-                                        .. attribute:: order_by_igp_metric
-                                        
-                                        	Order candidate multipaths by IGP metric
-                                        	**type**\:  bool
-                                        
-                                        .. attribute:: paths_value
-                                        
-                                        	Number of paths
-                                        	**type**\:  int
-                                        
-                                        	**range:** 2..64
-                                        
-                                        	**mandatory**\: True
-                                        
-                                        .. attribute:: selective
-                                        
-                                        	Allow multipaths only from marked neighbors
-                                        	**type**\:  bool
-                                        
-                                        .. attribute:: unequal_cost
-                                        
-                                        	Allow multipaths to have different IGP metrics
-                                        	**type**\:  bool
-                                        
-                                        .. attribute:: _is_presence
-                                        
-                                        	Is present if this instance represents presence container else not
-                                        	**type**\: bool
-                                        
-                                        
-
-                                        This class is a :ref:`presence class<presence-class>`
-
-                                        """
-
-                                        _prefix = 'ipv4-bgp-cfg'
-                                        _revision = '2015-08-27'
-
-                                        def __init__(self):
-                                            self.parent = None
-                                            self._is_presence = True
-                                            self.order_by_igp_metric = None
-                                            self.paths_value = None
-                                            self.selective = None
-                                            self.unequal_cost = None
-
-                                        @property
-                                        def _common_path(self):
-                                            if self.parent is None:
-                                                raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:ibgp'
-
-                                        def is_config(self):
-                                            ''' Returns True if this instance represents config data else returns False '''
-                                            return True
-
-                                        def _has_data(self):
-                                            if not self.is_config():
-                                                return False
-                                            if self._is_presence:
-                                                return True
-                                            if self.order_by_igp_metric is not None:
-                                                return True
-
-                                            if self.paths_value is not None:
-                                                return True
-
-                                            if self.selective is not None:
-                                                return True
-
-                                            if self.unequal_cost is not None:
-                                                return True
-
-                                            return False
-
-                                        @staticmethod
-                                        def _meta_info():
-                                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.VrfGlobalAfs.VrfGlobalAf.Ibgp']['meta_info']
 
 
                                     class MobileRoutes(object):
@@ -3177,7 +3237,7 @@ class Bgp(object):
                                 .. attribute:: mpls_activated_interface
                                 
                                 	Configure a MPLS activated interface
-                                	**type**\: list of  :py:class:`MplsActivatedInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.MplsActivatedInterfaces.MplsActivatedInterface>`
+                                	**type**\: list of    :py:class:`MplsActivatedInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfGlobal.MplsActivatedInterfaces.MplsActivatedInterface>`
                                 
                                 
 
@@ -3279,6 +3339,10 @@ class Bgp(object):
                                 
                                 	**range:** 0..65535
                                 
+                                	**units**\: second
+                                
+                                	**default value**\: 180
+                                
                                 .. attribute:: keepalive
                                 
                                 	Keepalive interval (seconds)
@@ -3286,12 +3350,20 @@ class Bgp(object):
                                 
                                 	**range:** 0..65535
                                 
+                                	**units**\: second
+                                
+                                	**default value**\: 60
+                                
                                 .. attribute:: min_accept_hold_time
                                 
                                 	Minimum acceptable hold time (seconds). Specify 0 to disable keepalives/hold time
                                 	**type**\:  int
                                 
                                 	**range:** 0..65535
+                                
+                                	**units**\: second
+                                
+                                	**default value**\: 3
                                 
                                 
 
@@ -3355,6 +3427,8 @@ class Bgp(object):
                                 
                                 	**range:** 3..30000
                                 
+                                	**units**\: millisecond
+                                
                                 
 
                                 """
@@ -3406,12 +3480,20 @@ class Bgp(object):
                                 
                                 	**range:** 4096..131072
                                 
+                                	**units**\: byte
+                                
+                                	**default value**\: 4096
+                                
                                 .. attribute:: socket_send_size
                                 
                                 	Send socket buffer size in bytes
                                 	**type**\:  int
                                 
                                 	**range:** 4096..131072
+                                
+                                	**units**\: byte
+                                
+                                	**default value**\: 24576
                                 
                                 
 
@@ -3464,12 +3546,20 @@ class Bgp(object):
                                 
                                 	**range:** 512..131072
                                 
+                                	**units**\: byte
+                                
+                                	**default value**\: 4096
+                                
                                 .. attribute:: socket_receive_size
                                 
                                 	Receive socket buffer size in bytes
                                 	**type**\:  int
                                 
                                 	**range:** 512..131072
+                                
+                                	**units**\: byte
+                                
+                                	**default value**\: 32768
                                 
                                 
 
@@ -3623,7 +3713,7 @@ class Bgp(object):
                             .. attribute:: vrf_neighbor
                             
                             	A particular VRF peer
-                            	**type**\: list of  :py:class:`VrfNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor>`
+                            	**type**\: list of    :py:class:`VrfNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor>`
                             
                             
 
@@ -3663,22 +3753,24 @@ class Bgp(object):
                                 .. attribute:: additional_paths_receive_capability
                                 
                                 	Advertise additional paths Receive capability
-                                	**type**\:  :py:class:`BgpNbrCapAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfgEnum>`
+                                	**type**\:   :py:class:`BgpNbrCapAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfgEnum>`
                                 
                                 .. attribute:: additional_paths_send_capability
                                 
                                 	Advertise additional paths Send capability
-                                	**type**\:  :py:class:`BgpNbrCapAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfgEnum>`
+                                	**type**\:   :py:class:`BgpNbrCapAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfgEnum>`
                                 
                                 .. attribute:: advertisement_interval
                                 
                                 	Minimum interval between sending BGP routing updates
-                                	**type**\:  :py:class:`AdvertisementInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.AdvertisementInterval>`
+                                	**type**\:   :py:class:`AdvertisementInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.AdvertisementInterval>`
+                                
+                                	**presence node**\: True
                                 
                                 .. attribute:: bfd_enable_modes
                                 
                                 	Strict mode, Default mode or Disable to prevent inheritance from a parent
-                                	**type**\:  :py:class:`BgpBfdEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpBfdEnableModeEnum>`
+                                	**type**\:   :py:class:`BgpBfdEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpBfdEnableModeEnum>`
                                 
                                 .. attribute:: bfd_minimum_interval
                                 
@@ -3686,6 +3778,8 @@ class Bgp(object):
                                 	**type**\:  int
                                 
                                 	**range:** 3..30000
+                                
+                                	**units**\: millisecond
                                 
                                 .. attribute:: bfd_multiplier
                                 
@@ -3697,7 +3791,7 @@ class Bgp(object):
                                 .. attribute:: bmp_activates
                                 
                                 	Enable BMP logging for this neighbor
-                                	**type**\:  :py:class:`BmpActivates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.BmpActivates>`
+                                	**type**\:   :py:class:`BmpActivates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.BmpActivates>`
                                 
                                 .. attribute:: description
                                 
@@ -3707,7 +3801,7 @@ class Bgp(object):
                                 .. attribute:: ebgp_multihop
                                 
                                 	Allow EBGP neighbors not on directly connected networks
-                                	**type**\:  :py:class:`EbgpMultihop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.EbgpMultihop>`
+                                	**type**\:   :py:class:`EbgpMultihop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.EbgpMultihop>`
                                 
                                 .. attribute:: ebgp_recv_dmz
                                 
@@ -3717,7 +3811,7 @@ class Bgp(object):
                                 .. attribute:: ebgp_send_dmz_enable_modes
                                 
                                 	Default mode, Cumulative mode or Disable to prevent inheritance from a parent
-                                	**type**\:  :py:class:`BgpEbgpSendDmzEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpEbgpSendDmzEnableModeEnum>`
+                                	**type**\:   :py:class:`BgpEbgpSendDmzEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpEbgpSendDmzEnableModeEnum>`
                                 
                                 .. attribute:: egress_peer_engineering
                                 
@@ -3732,7 +3826,7 @@ class Bgp(object):
                                 .. attribute:: graceful_maintenance
                                 
                                 	Graceful Maintenance mode
-                                	**type**\:  :py:class:`GracefulMaintenance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance>`
+                                	**type**\:   :py:class:`GracefulMaintenance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance>`
                                 
                                 .. attribute:: ignore_connected_check_ebgp
                                 
@@ -3747,32 +3841,32 @@ class Bgp(object):
                                 .. attribute:: keychain
                                 
                                 	Set or disable keychain based authentication
-                                	**type**\:  :py:class:`Keychain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Keychain>`
+                                	**type**\:   :py:class:`Keychain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Keychain>`
                                 
                                 .. attribute:: local_address
                                 
                                 	Local ip address
-                                	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAddress>`
+                                	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAddress>`
                                 
                                 .. attribute:: local_as
                                 
                                 	Specify a local\-as number
-                                	**type**\:  :py:class:`LocalAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAs>`
+                                	**type**\:   :py:class:`LocalAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.LocalAs>`
                                 
                                 .. attribute:: msg_log_in
                                 
                                 	Message log inbound
-                                	**type**\:  :py:class:`MsgLogIn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogIn>`
+                                	**type**\:   :py:class:`MsgLogIn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogIn>`
                                 
                                 .. attribute:: msg_log_out
                                 
                                 	Message log outbound
-                                	**type**\:  :py:class:`MsgLogOut <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogOut>`
+                                	**type**\:   :py:class:`MsgLogOut <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.MsgLogOut>`
                                 
                                 .. attribute:: neighbor_cluster_id
                                 
                                 	Neighbor Cluster\-id
-                                	**type**\:  :py:class:`NeighborClusterId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.NeighborClusterId>`
+                                	**type**\:   :py:class:`NeighborClusterId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.NeighborClusterId>`
                                 
                                 .. attribute:: neighbor_graceful_restart
                                 
@@ -3786,12 +3880,20 @@ class Bgp(object):
                                 
                                 	**range:** 1..4095
                                 
+                                	**units**\: second
+                                
+                                	**default value**\: 360
+                                
                                 .. attribute:: neighbor_graceful_restart_time
                                 
                                 	Restart time advertised to neighbor
                                 	**type**\:  int
                                 
                                 	**range:** 1..4095
+                                
+                                	**units**\: second
+                                
+                                	**default value**\: 120
                                 
                                 .. attribute:: neighbor_group_add_member
                                 
@@ -3801,7 +3903,7 @@ class Bgp(object):
                                 .. attribute:: password
                                 
                                 	Set or disable a password
-                                	**type**\:  :py:class:`Password <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Password>`
+                                	**type**\:   :py:class:`Password <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Password>`
                                 
                                 .. attribute:: propagate_dmz_link_bandwidth
                                 
@@ -3811,17 +3913,17 @@ class Bgp(object):
                                 .. attribute:: receive_buffer_size
                                 
                                 	Set socket receive buffer size and BGP read buffer size
-                                	**type**\:  :py:class:`ReceiveBufferSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.ReceiveBufferSize>`
+                                	**type**\:   :py:class:`ReceiveBufferSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.ReceiveBufferSize>`
                                 
                                 .. attribute:: remote_as
                                 
                                 	Set remote AS
-                                	**type**\:  :py:class:`RemoteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.RemoteAs>`
+                                	**type**\:   :py:class:`RemoteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.RemoteAs>`
                                 
                                 .. attribute:: send_buffer_size
                                 
                                 	Set socket send buffer size and BGP write buffer size
-                                	**type**\:  :py:class:`SendBufferSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.SendBufferSize>`
+                                	**type**\:   :py:class:`SendBufferSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.SendBufferSize>`
                                 
                                 .. attribute:: session_group_add_member
                                 
@@ -3831,7 +3933,9 @@ class Bgp(object):
                                 .. attribute:: session_open_mode
                                 
                                 	TCP mode to be used to establish BGP session
-                                	**type**\:  :py:class:`BgpTcpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpTcpModeEnum>`
+                                	**type**\:   :py:class:`BgpTcpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpTcpModeEnum>`
+                                
+                                	**default value**\: either
                                 
                                 .. attribute:: shutdown
                                 
@@ -3851,17 +3955,17 @@ class Bgp(object):
                                 .. attribute:: tcpmss
                                 
                                 	TCP Maximum segment size
-                                	**type**\:  :py:class:`Tcpmss <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tcpmss>`
+                                	**type**\:   :py:class:`Tcpmss <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tcpmss>`
                                 
                                 .. attribute:: timers
                                 
                                 	BGP per neighbor timers
-                                	**type**\:  :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Timers>`
+                                	**type**\:   :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Timers>`
                                 
                                 .. attribute:: tos
                                 
                                 	TOS (Type Of Service)
-                                	**type**\:  :py:class:`Tos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tos>`
+                                	**type**\:   :py:class:`Tos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tos>`
                                 
                                 .. attribute:: ttl_security
                                 
@@ -3871,7 +3975,7 @@ class Bgp(object):
                                 .. attribute:: update_in_filtering
                                 
                                 	Inbound update filtering
-                                	**type**\:  :py:class:`UpdateInFiltering <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.UpdateInFiltering>`
+                                	**type**\:   :py:class:`UpdateInFiltering <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.UpdateInFiltering>`
                                 
                                 .. attribute:: update_source_interface
                                 
@@ -3883,7 +3987,7 @@ class Bgp(object):
                                 .. attribute:: vrf_neighbor_afs
                                 
                                 	Address family type of a VRF neighbor
-                                	**type**\:  :py:class:`VrfNeighborAfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs>`
+                                	**type**\:   :py:class:`VrfNeighborAfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs>`
                                 
                                 
 
@@ -3965,7 +4069,7 @@ class Bgp(object):
                                     .. attribute:: vrf_neighbor_af
                                     
                                     	Address family type of a VRF neighbor
-                                    	**type**\: list of  :py:class:`VrfNeighborAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf>`
+                                    	**type**\: list of    :py:class:`VrfNeighborAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf>`
                                     
                                     
 
@@ -3988,7 +4092,7 @@ class Bgp(object):
                                         .. attribute:: af_name  <key>
                                         
                                         	BGP neighbor address family
-                                        	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                        	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                         
                                         .. attribute:: accept_own
                                         
@@ -4003,62 +4107,64 @@ class Bgp(object):
                                         .. attribute:: activate
                                         
                                         	Activate an address family for this neighbor. Deletion of this object causes deletion of all the objects under NeighborAF/VRFNeighborAF/NeighborGroupAF associated with this object
-                                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: advertise_def_imp_disable_v4
                                         
                                         	Disable Advertise Of Default VRF Imported Routes
-                                        	**type**\:  :py:class:`AdvertiseDefImpDisableV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4>`
+                                        	**type**\:   :py:class:`AdvertiseDefImpDisableV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4>`
                                         
                                         .. attribute:: advertise_def_imp_disable_v6
                                         
                                         	Disable Advertise Of Default VRF Imported Routes
-                                        	**type**\:  :py:class:`AdvertiseDefImpDisableV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV6>`
+                                        	**type**\:   :py:class:`AdvertiseDefImpDisableV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV6>`
                                         
                                         .. attribute:: advertise_disable
                                         
                                         	Disable Advertise Of Routes to the peer
-                                        	**type**\:  :py:class:`AdvertiseDisable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable>`
+                                        	**type**\:   :py:class:`AdvertiseDisable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable>`
                                         
                                         .. attribute:: advertise_l2vpnevpn
                                         
                                         	Advertise Translated Routes to the peer
-                                        	**type**\:  :py:class:`AdvertiseL2Vpnevpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2Vpnevpn>`
+                                        	**type**\:   :py:class:`AdvertiseL2Vpnevpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2Vpnevpn>`
                                         
                                         .. attribute:: advertise_local_l2vpnevpn
                                         
                                         	Advertise Of Local Routes to the peer with different RT
-                                        	**type**\:  :py:class:`AdvertiseLocalL2Vpnevpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2Vpnevpn>`
+                                        	**type**\:   :py:class:`AdvertiseLocalL2Vpnevpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2Vpnevpn>`
                                         
                                         .. attribute:: advertise_local_v4
                                         
                                         	Advertise Of Local Routes to the peer with different RT
-                                        	**type**\:  :py:class:`AdvertiseLocalV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4>`
+                                        	**type**\:   :py:class:`AdvertiseLocalV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4>`
                                         
                                         .. attribute:: advertise_local_v6
                                         
                                         	Advertise Of Local Routes to the peer with different RT
-                                        	**type**\:  :py:class:`AdvertiseLocalV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6>`
+                                        	**type**\:   :py:class:`AdvertiseLocalV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6>`
                                         
                                         .. attribute:: advertise_orf
                                         
                                         	Advertise ORF capability to the peer
-                                        	**type**\:  :py:class:`BgpOrfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpOrfEnum>`
+                                        	**type**\:   :py:class:`BgpOrfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpOrfEnum>`
+                                        
+                                        	**default value**\: none
                                         
                                         .. attribute:: advertise_permanent_network
                                         
                                         	Advertise Permanent Networks to the peer
-                                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: advertise_v4
                                         
                                         	Advertise Translated Routes to the peer
-                                        	**type**\:  :py:class:`AdvertiseV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV4>`
+                                        	**type**\:   :py:class:`AdvertiseV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV4>`
                                         
                                         .. attribute:: advertise_v6
                                         
                                         	Advertise Translated Routes to the peer
-                                        	**type**\:  :py:class:`AdvertiseV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6>`
+                                        	**type**\:   :py:class:`AdvertiseV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseV6>`
                                         
                                         .. attribute:: af_group
                                         
@@ -4068,17 +4174,19 @@ class Bgp(object):
                                         .. attribute:: aigp
                                         
                                         	Enable Accumulated IGP Metric for this neighbor
-                                        	**type**\:  :py:class:`BgpAigpCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgEnum>`
+                                        	**type**\:   :py:class:`BgpAigpCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgEnum>`
                                         
                                         .. attribute:: aigp_cost_community
                                         
                                         	Send AIGP value in Cost Community. 
-                                        	**type**\:  :py:class:`AigpCostCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity>`
+                                        	**type**\:   :py:class:`AigpCostCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity>`
+                                        
+                                        	**presence node**\: True
                                         
                                         .. attribute:: aigp_send_med
                                         
                                         	Enable/Disable sending AIGP in MED 
-                                        	**type**\:  :py:class:`BgpAigpCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgEnum>`
+                                        	**type**\:   :py:class:`BgpAigpCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgEnum>`
                                         
                                         .. attribute:: allow_as_in
                                         
@@ -4087,15 +4195,19 @@ class Bgp(object):
                                         
                                         	**range:** 1..10
                                         
+                                        	**default value**\: 3
+                                        
                                         .. attribute:: as_override
                                         
                                         	TRUE to override matching AS\-number while sending update. FALSE to prevent as\-override from being inherited from the parent
                                         	**type**\:  bool
                                         
+                                        	**default value**\: true
+                                        
                                         .. attribute:: default_originate
                                         
                                         	Originate default route to this neighbor
-                                        	**type**\:  :py:class:`DefaultOriginate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.DefaultOriginate>`
+                                        	**type**\:   :py:class:`DefaultOriginate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.DefaultOriginate>`
                                         
                                         .. attribute:: default_weight
                                         
@@ -4107,37 +4219,41 @@ class Bgp(object):
                                         .. attribute:: encapsulation_type
                                         
                                         	Encapsulation type for this neighbor
-                                        	**type**\:  :py:class:`BgpAfEncapsulationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAfEncapsulationEnum>`
+                                        	**type**\:   :py:class:`BgpAfEncapsulationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAfEncapsulationEnum>`
                                         
                                         .. attribute:: flowspec_validation
                                         
                                         	Config Flowspec validation for this neighbor
-                                        	**type**\:  :py:class:`BgpFlowspecValidationCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpFlowspecValidationCfgEnum>`
+                                        	**type**\:   :py:class:`BgpFlowspecValidationCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpFlowspecValidationCfgEnum>`
                                         
                                         .. attribute:: import_
                                         
                                         	Import Reorigination options for Routes from the peer
-                                        	**type**\:  :py:class:`Import <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.Import>`
+                                        	**type**\:   :py:class:`Import_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.Import_>`
                                         
                                         .. attribute:: maximum_prefixes
                                         
                                         	Maximum number of prefixes to accept from this peer
-                                        	**type**\:  :py:class:`MaximumPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.MaximumPrefixes>`
+                                        	**type**\:   :py:class:`MaximumPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.MaximumPrefixes>`
+                                        
+                                        	**presence node**\: True
                                         
                                         .. attribute:: multipath
                                         
                                         	Allow paths from this neighbor to be eligible for selective multipath
-                                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: neighbor_af_long_lived_graceful_restart_capable
                                         
                                         	TRUE to treat neighbor as Long\-lived Graceful\-restart capable. FALSE to rely on capability negotiation
                                         	**type**\:  bool
                                         
+                                        	**default value**\: false
+                                        
                                         .. attribute:: neighbor_af_long_lived_graceful_restart_stale_time
                                         
                                         	Maximum time to wait before purging long lived routes
-                                        	**type**\:  :py:class:`NeighborAfLongLivedGracefulRestartStaleTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime>`
+                                        	**type**\:   :py:class:`NeighborAfLongLivedGracefulRestartStaleTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime>`
                                         
                                         .. attribute:: next_hop_self
                                         
@@ -4162,12 +4278,16 @@ class Bgp(object):
                                         .. attribute:: remove_private_as_entire_as_path
                                         
                                         	Remove private AS number from outbound updates
-                                        	**type**\:  :py:class:`RemovePrivateAsEntireAsPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPath>`
+                                        	**type**\:   :py:class:`RemovePrivateAsEntireAsPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPath>`
+                                        
+                                        	**presence node**\: True
                                         
                                         .. attribute:: remove_private_as_entire_as_path_inbound
                                         
                                         	Remove private AS number from inbound updates
-                                        	**type**\:  :py:class:`RemovePrivateAsEntireAsPathInbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPathInbound>`
+                                        	**type**\:   :py:class:`RemovePrivateAsEntireAsPathInbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPathInbound>`
+                                        
+                                        	**presence node**\: True
                                         
                                         .. attribute:: route_policy_in
                                         
@@ -4202,12 +4322,12 @@ class Bgp(object):
                                         .. attribute:: site_of_origin
                                         
                                         	Site\-of\-Origin extended community associated with the neighbor
-                                        	**type**\:  :py:class:`SiteOfOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin>`
+                                        	**type**\:   :py:class:`SiteOfOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SiteOfOrigin>`
                                         
                                         .. attribute:: soft_reconfiguration
                                         
                                         	Enable/disable inbound soft reconfiguration for this neighbor/neighbor\-group/af\-group
-                                        	**type**\:  :py:class:`SoftReconfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SoftReconfiguration>`
+                                        	**type**\:   :py:class:`SoftReconfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.SoftReconfiguration>`
                                         
                                         
 
@@ -4253,7 +4373,7 @@ class Bgp(object):
                                             self.default_weight = None
                                             self.encapsulation_type = None
                                             self.flowspec_validation = None
-                                            self.import_ = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.Import()
+                                            self.import_ = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.Import_()
                                             self.import_.parent = self
                                             self.maximum_prefixes = None
                                             self.multipath = None
@@ -4294,7 +4414,7 @@ class Bgp(object):
                                             .. attribute:: cost_community_poi_type
                                             
                                             	Cost Community POI
-                                            	**type**\:  :py:class:`BgpAigpCfgPoiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgPoiEnum>`
+                                            	**type**\:   :py:class:`BgpAigpCfgPoiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgPoiEnum>`
                                             
                                             	**mandatory**\: True
                                             
@@ -4375,17 +4495,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -4438,17 +4558,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -4504,6 +4624,8 @@ class Bgp(object):
                                             	Discard extra paths when limit is exceeded
                                             	**type**\:  bool
                                             
+                                            	**default value**\: false
+                                            
                                             .. attribute:: prefix_limit
                                             
                                             	Maximum prefixes limit
@@ -4520,10 +4642,14 @@ class Bgp(object):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**default value**\: 0
+                                            
                                             .. attribute:: warning_only
                                             
                                             	TRUE to only give a warning message when limit is exceeded.  FALSE to accept max prefix limit only
                                             	**type**\:  bool
+                                            
+                                            	**default value**\: false
                                             
                                             .. attribute:: warning_percentage
                                             
@@ -4531,6 +4657,8 @@ class Bgp(object):
                                             	**type**\:  int
                                             
                                             	**range:** 1..100
+                                            
+                                            	**default value**\: 75
                                             
                                             .. attribute:: _is_presence
                                             
@@ -4667,17 +4795,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -4730,17 +4858,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -4794,17 +4922,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -4862,12 +4990,20 @@ class Bgp(object):
                                             
                                             	**range:** 0..16777215
                                             
+                                            	**units**\: second
+                                            
+                                            	**default value**\: 0
+                                            
                                             .. attribute:: stale_time_send
                                             
                                             	Max time (seconds)
                                             	**type**\:  int
                                             
                                             	**range:** 0..16777215
+                                            
+                                            	**units**\: second
+                                            
+                                            	**default value**\: 0
                                             
                                             
 
@@ -4952,7 +5088,7 @@ class Bgp(object):
                                             .. attribute:: type
                                             
                                             	Type of Extended community
-                                            	**type**\:  :py:class:`BgpSiteOfOriginEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSiteOfOriginEnum>`
+                                            	**type**\:   :py:class:`BgpSiteOfOriginEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSiteOfOriginEnum>`
                                             
                                             
 
@@ -5017,17 +5153,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -5081,17 +5217,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -5137,7 +5273,7 @@ class Bgp(object):
                                                 return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6']['meta_info']
 
 
-                                        class Import(object):
+                                        class Import_(object):
                                             """
                                             Import Reorigination options for Routes from the
                                             peer
@@ -5198,7 +5334,7 @@ class Bgp(object):
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.Import']['meta_info']
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.Import_']['meta_info']
 
 
                                         class DefaultOriginate(object):
@@ -5209,6 +5345,8 @@ class Bgp(object):
                                             
                                             	FALSE to prevent default\-originate from, being inherited from a parent. TRUE otherwise
                                             	**type**\:  bool
+                                            
+                                            	**default value**\: false
                                             
                                             .. attribute:: route_policy_name
                                             
@@ -5265,10 +5403,14 @@ class Bgp(object):
                                             	FALSE to prohibit inbound soft reconfiguration. TRUE otherwise
                                             	**type**\:  bool
                                             
+                                            	**default value**\: false
+                                            
                                             .. attribute:: soft_always
                                             
                                             	TRUE to always use soft reconfig, even if route refresh is supported.  FALSE otherwise
                                             	**type**\:  bool
+                                            
+                                            	**default value**\: false
                                             
                                             
 
@@ -5317,17 +5459,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -5381,17 +5523,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -5757,7 +5899,7 @@ class Bgp(object):
                                     .. attribute:: bmp_activate
                                     
                                     	Enable BMP logging for this particular server
-                                    	**type**\: list of  :py:class:`BmpActivate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.BmpActivates.BmpActivate>`
+                                    	**type**\: list of    :py:class:`BmpActivate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.BmpActivates.BmpActivate>`
                                     
                                     
 
@@ -5860,10 +6002,14 @@ class Bgp(object):
                                     
                                     	**range:** 1..255
                                     
+                                    	**default value**\: 255
+                                    
                                     .. attribute:: mpls_deactivation
                                     
                                     	TRUE to not enable MPLS and NULL rewrite
                                     	**type**\:  bool
+                                    
+                                    	**default value**\: false
                                     
                                     
 
@@ -5984,22 +6130,22 @@ class Bgp(object):
                                     .. attribute:: disable
                                     
                                     	Disable Local AS and prevent it from being inherited from a parent
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: dual_as
                                     
                                     	Dual\-AS mode
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: no_prepend
                                     
                                     	Do not prepend Local AS to announcements from this neighbor
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: replace_as
                                     
                                     	Prepend only Local AS to announcements from this neighbor
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     
 
@@ -6127,12 +6273,16 @@ class Bgp(object):
                                     
                                     	**mandatory**\: True
                                     
+                                    	**units**\: second
+                                    
                                     .. attribute:: minimum_interval_msecs
                                     
                                     	Minimum advertisement interval time, msecs part
                                     	**type**\:  int
                                     
                                     	**range:** 0..999
+                                    
+                                    	**units**\: millisecond
                                     
                                     .. attribute:: _is_presence
                                     
@@ -6305,14 +6455,14 @@ class Bgp(object):
                                     .. attribute:: type
                                     
                                     	Set type of service
-                                    	**type**\:  :py:class:`BgpTosEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpTosEnum>`
+                                    	**type**\:   :py:class:`BgpTosEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpTosEnum>`
                                     
                                     .. attribute:: value
                                     
                                     	TOS value to set
                                     	**type**\: one of the below types:
                                     
-                                    	**type**\:  :py:class:`BgpPrecedenceDscpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpPrecedenceDscpEnum>`
+                                    	**type**\:   :py:class:`BgpPrecedenceDscpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpPrecedenceDscpEnum>`
                                     
                                     
                                     ----
@@ -6369,7 +6519,7 @@ class Bgp(object):
                                     .. attribute:: enable
                                     
                                     	Configure inbound update filtering
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: update_in_filtering_attribute_filter_group
                                     
@@ -6379,12 +6529,14 @@ class Bgp(object):
                                     .. attribute:: update_in_filtering_message_buffers
                                     
                                     	Message buffers to store filtered updates
-                                    	**type**\:  :py:class:`UpdateInFilteringMessageBuffers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.UpdateInFiltering.UpdateInFilteringMessageBuffers>`
+                                    	**type**\:   :py:class:`UpdateInFilteringMessageBuffers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.UpdateInFiltering.UpdateInFilteringMessageBuffers>`
+                                    
+                                    	**presence node**\: True
                                     
                                     .. attribute:: update_in_filtering_syslog_disable
                                     
                                     	Disable inbound update filtering syslog messages
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     
 
@@ -6581,12 +6733,20 @@ class Bgp(object):
                                     
                                     	**range:** 512..131072
                                     
+                                    	**units**\: byte
+                                    
+                                    	**default value**\: 4096
+                                    
                                     .. attribute:: socket_receive_size
                                     
                                     	Receive socket buffer size in bytes
                                     	**type**\:  int
                                     
                                     	**range:** 512..131072
+                                    
+                                    	**units**\: byte
+                                    
+                                    	**default value**\: 32768
                                     
                                     
 
@@ -6705,12 +6865,20 @@ class Bgp(object):
                                     
                                     	**range:** 4096..131072
                                     
+                                    	**units**\: byte
+                                    
+                                    	**default value**\: 4096
+                                    
                                     .. attribute:: socket_send_size
                                     
                                     	Send socket buffer size in bytes
                                     	**type**\:  int
                                     
                                     	**range:** 4096..131072
+                                    
+                                    	**units**\: byte
+                                    
+                                    	**default value**\: 24576
                                     
                                     
 
@@ -6763,6 +6931,8 @@ class Bgp(object):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**default value**\: 180
+                                    
                                     .. attribute:: keepalive_interval
                                     
                                     	Keepalive interval
@@ -6770,12 +6940,16 @@ class Bgp(object):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**default value**\: 60
+                                    
                                     .. attribute:: min_accept_hold_time
                                     
                                     	Minimum acceptable hold time.  Specify 0 to disable keepalives/hold time
                                     	**type**\:  int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**default value**\: 3
                                     
                                     
 
@@ -6882,7 +7056,7 @@ class Bgp(object):
                                     .. attribute:: enable
                                     
                                     	Enter Graceful Maintenance mode to configure parametrs
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: graceful_maintenance_activate
                                     
@@ -6892,12 +7066,12 @@ class Bgp(object):
                                     .. attribute:: graceful_maintenance_as_prepends
                                     
                                     	Number of times to prepend local AS number to the AS path
-                                    	**type**\:  :py:class:`GracefulMaintenanceAsPrepends <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance.GracefulMaintenanceAsPrepends>`
+                                    	**type**\:   :py:class:`GracefulMaintenanceAsPrepends <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance.GracefulMaintenanceAsPrepends>`
                                     
                                     .. attribute:: graceful_maintenance_local_preference
                                     
                                     	Set Local Preference to advertise routes with
-                                    	**type**\:  :py:class:`GracefulMaintenanceLocalPreference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance.GracefulMaintenanceLocalPreference>`
+                                    	**type**\:   :py:class:`GracefulMaintenanceLocalPreference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance.GracefulMaintenanceLocalPreference>`
                                     
                                     
 
@@ -7308,12 +7482,12 @@ class Bgp(object):
                     .. attribute:: bgp_entity
                     
                     	Neighbor, neighbor\-group, af\-group and session\-group configuration
-                    	**type**\:  :py:class:`BgpEntity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity>`
+                    	**type**\:   :py:class:`BgpEntity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity>`
                     
                     .. attribute:: global_
                     
                     	Global default config
-                    	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global>`
+                    	**type**\:   :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_>`
                     
                     
 
@@ -7326,7 +7500,7 @@ class Bgp(object):
                         self.parent = None
                         self.bgp_entity = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity()
                         self.bgp_entity.parent = self
-                        self.global_ = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global()
+                        self.global_ = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_()
                         self.global_.parent = self
 
 
@@ -7338,22 +7512,22 @@ class Bgp(object):
                         .. attribute:: af_groups
                         
                         	AF\-group configuration
-                        	**type**\:  :py:class:`AfGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups>`
+                        	**type**\:   :py:class:`AfGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups>`
                         
                         .. attribute:: neighbor_groups
                         
                         	Neighbor\-group configuration
-                        	**type**\:  :py:class:`NeighborGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups>`
+                        	**type**\:   :py:class:`NeighborGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups>`
                         
                         .. attribute:: neighbors
                         
                         	Neighbor configuration
-                        	**type**\:  :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors>`
+                        	**type**\:   :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors>`
                         
                         .. attribute:: session_groups
                         
                         	Session group configuration
-                        	**type**\:  :py:class:`SessionGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups>`
+                        	**type**\:   :py:class:`SessionGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups>`
                         
                         
 
@@ -7381,7 +7555,7 @@ class Bgp(object):
                             .. attribute:: neighbor
                             
                             	A particular BGP peer
-                            	**type**\: list of  :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor>`
+                            	**type**\: list of    :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor>`
                             
                             
 
@@ -7421,22 +7595,24 @@ class Bgp(object):
                                 .. attribute:: additional_paths_receive_capability
                                 
                                 	Advertise additional paths Receive capability
-                                	**type**\:  :py:class:`BgpNbrCapAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfgEnum>`
+                                	**type**\:   :py:class:`BgpNbrCapAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfgEnum>`
                                 
                                 .. attribute:: additional_paths_send_capability
                                 
                                 	Advertise additional paths Send capability
-                                	**type**\:  :py:class:`BgpNbrCapAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfgEnum>`
+                                	**type**\:   :py:class:`BgpNbrCapAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfgEnum>`
                                 
                                 .. attribute:: advertisement_interval
                                 
                                 	Minimum interval between sending BGP routing updates
-                                	**type**\:  :py:class:`AdvertisementInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.AdvertisementInterval>`
+                                	**type**\:   :py:class:`AdvertisementInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.AdvertisementInterval>`
+                                
+                                	**presence node**\: True
                                 
                                 .. attribute:: bfd_enable_modes
                                 
                                 	Strict mode, Default mode or Disable to prevent inheritance from a parent
-                                	**type**\:  :py:class:`BgpBfdEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpBfdEnableModeEnum>`
+                                	**type**\:   :py:class:`BgpBfdEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpBfdEnableModeEnum>`
                                 
                                 .. attribute:: bfd_minimum_interval
                                 
@@ -7444,6 +7620,8 @@ class Bgp(object):
                                 	**type**\:  int
                                 
                                 	**range:** 3..30000
+                                
+                                	**units**\: millisecond
                                 
                                 .. attribute:: bfd_multiplier
                                 
@@ -7455,7 +7633,7 @@ class Bgp(object):
                                 .. attribute:: bmp_activates
                                 
                                 	Enable BMP logging for this neighbor
-                                	**type**\:  :py:class:`BmpActivates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.BmpActivates>`
+                                	**type**\:   :py:class:`BmpActivates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.BmpActivates>`
                                 
                                 .. attribute:: description
                                 
@@ -7465,7 +7643,7 @@ class Bgp(object):
                                 .. attribute:: ebgp_multihop
                                 
                                 	Allow EBGP neighbors not on directly connected networks
-                                	**type**\:  :py:class:`EbgpMultihop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.EbgpMultihop>`
+                                	**type**\:   :py:class:`EbgpMultihop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.EbgpMultihop>`
                                 
                                 .. attribute:: ebgp_recv_dmz
                                 
@@ -7475,7 +7653,7 @@ class Bgp(object):
                                 .. attribute:: ebgp_send_dmz_enable_modes
                                 
                                 	Default mode, Cumulative mode or Disable to prevent inheritance from a parent
-                                	**type**\:  :py:class:`BgpEbgpSendDmzEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpEbgpSendDmzEnableModeEnum>`
+                                	**type**\:   :py:class:`BgpEbgpSendDmzEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpEbgpSendDmzEnableModeEnum>`
                                 
                                 .. attribute:: egress_peer_engineering
                                 
@@ -7490,7 +7668,7 @@ class Bgp(object):
                                 .. attribute:: graceful_maintenance
                                 
                                 	Graceful Maintenance mode
-                                	**type**\:  :py:class:`GracefulMaintenance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance>`
+                                	**type**\:   :py:class:`GracefulMaintenance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance>`
                                 
                                 .. attribute:: ignore_connected_check_ebgp
                                 
@@ -7505,37 +7683,37 @@ class Bgp(object):
                                 .. attribute:: keychain
                                 
                                 	Set or disable keychain based authentication
-                                	**type**\:  :py:class:`Keychain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Keychain>`
+                                	**type**\:   :py:class:`Keychain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Keychain>`
                                 
                                 .. attribute:: local_address
                                 
                                 	Local ip address
-                                	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAddress>`
+                                	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAddress>`
                                 
                                 .. attribute:: local_as
                                 
                                 	Specify a local\-as number
-                                	**type**\:  :py:class:`LocalAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAs>`
+                                	**type**\:   :py:class:`LocalAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.LocalAs>`
                                 
                                 .. attribute:: msg_log_in
                                 
                                 	Message log inbound
-                                	**type**\:  :py:class:`MsgLogIn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogIn>`
+                                	**type**\:   :py:class:`MsgLogIn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogIn>`
                                 
                                 .. attribute:: msg_log_out
                                 
                                 	Message log outbound
-                                	**type**\:  :py:class:`MsgLogOut <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogOut>`
+                                	**type**\:   :py:class:`MsgLogOut <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.MsgLogOut>`
                                 
                                 .. attribute:: neighbor_afs
                                 
                                 	BGP neighbor AF configuration table
-                                	**type**\:  :py:class:`NeighborAfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs>`
+                                	**type**\:   :py:class:`NeighborAfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs>`
                                 
                                 .. attribute:: neighbor_cluster_id
                                 
                                 	Neighbor Cluster\-id
-                                	**type**\:  :py:class:`NeighborClusterId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborClusterId>`
+                                	**type**\:   :py:class:`NeighborClusterId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborClusterId>`
                                 
                                 .. attribute:: neighbor_graceful_restart
                                 
@@ -7549,12 +7727,20 @@ class Bgp(object):
                                 
                                 	**range:** 1..4095
                                 
+                                	**units**\: second
+                                
+                                	**default value**\: 360
+                                
                                 .. attribute:: neighbor_graceful_restart_time
                                 
                                 	Restart time advertised to neighbor
                                 	**type**\:  int
                                 
                                 	**range:** 1..4095
+                                
+                                	**units**\: second
+                                
+                                	**default value**\: 120
                                 
                                 .. attribute:: neighbor_group_add_member
                                 
@@ -7564,7 +7750,7 @@ class Bgp(object):
                                 .. attribute:: password
                                 
                                 	Set or disable a password
-                                	**type**\:  :py:class:`Password <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Password>`
+                                	**type**\:   :py:class:`Password <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Password>`
                                 
                                 .. attribute:: propagate_dmz_link_bandwidth
                                 
@@ -7574,27 +7760,27 @@ class Bgp(object):
                                 .. attribute:: receive_buffer_size
                                 
                                 	Set socket receive buffer size and BGP read buffer size
-                                	**type**\:  :py:class:`ReceiveBufferSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.ReceiveBufferSize>`
+                                	**type**\:   :py:class:`ReceiveBufferSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.ReceiveBufferSize>`
                                 
                                 .. attribute:: remote_as
                                 
                                 	Set remote AS
-                                	**type**\:  :py:class:`RemoteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.RemoteAs>`
+                                	**type**\:   :py:class:`RemoteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.RemoteAs>`
                                 
                                 .. attribute:: rpki_bestpath_origin_as_allow_invalid
                                 
                                 	RPKI bestpath origin\-AS allow invalid
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: rpki_origin_as_validation_disable
                                 
                                 	RPKI origin\-AS validation disable
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: send_buffer_size
                                 
                                 	Set socket send buffer size and BGP write buffer size
-                                	**type**\:  :py:class:`SendBufferSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.SendBufferSize>`
+                                	**type**\:   :py:class:`SendBufferSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.SendBufferSize>`
                                 
                                 .. attribute:: session_group_add_member
                                 
@@ -7604,7 +7790,9 @@ class Bgp(object):
                                 .. attribute:: session_open_mode
                                 
                                 	TCP mode to be used to establish BGP session
-                                	**type**\:  :py:class:`BgpTcpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpTcpModeEnum>`
+                                	**type**\:   :py:class:`BgpTcpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpTcpModeEnum>`
+                                
+                                	**default value**\: either
                                 
                                 .. attribute:: shutdown
                                 
@@ -7624,17 +7812,17 @@ class Bgp(object):
                                 .. attribute:: tcpmss
                                 
                                 	TCP Maximum segment size
-                                	**type**\:  :py:class:`Tcpmss <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tcpmss>`
+                                	**type**\:   :py:class:`Tcpmss <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tcpmss>`
                                 
                                 .. attribute:: timers
                                 
                                 	BGP per neighbor timers
-                                	**type**\:  :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Timers>`
+                                	**type**\:   :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Timers>`
                                 
                                 .. attribute:: tos
                                 
                                 	TOS (Type Of Service)
-                                	**type**\:  :py:class:`Tos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tos>`
+                                	**type**\:   :py:class:`Tos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tos>`
                                 
                                 .. attribute:: ttl_security
                                 
@@ -7644,7 +7832,7 @@ class Bgp(object):
                                 .. attribute:: update_in_filtering
                                 
                                 	Inbound update filtering
-                                	**type**\:  :py:class:`UpdateInFiltering <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.UpdateInFiltering>`
+                                	**type**\:   :py:class:`UpdateInFiltering <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.UpdateInFiltering>`
                                 
                                 .. attribute:: update_source_interface
                                 
@@ -7735,7 +7923,7 @@ class Bgp(object):
                                     .. attribute:: neighbor_af
                                     
                                     	Address family type of neighbor
-                                    	**type**\: list of  :py:class:`NeighborAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf>`
+                                    	**type**\: list of    :py:class:`NeighborAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf>`
                                     
                                     
 
@@ -7758,7 +7946,7 @@ class Bgp(object):
                                         .. attribute:: af_name  <key>
                                         
                                         	BGP neighbor address family
-                                        	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                        	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                         
                                         .. attribute:: accept_own
                                         
@@ -7773,62 +7961,64 @@ class Bgp(object):
                                         .. attribute:: activate
                                         
                                         	Activate an address family for this neighbor. Deletion of this object causes deletion of all the objects under NeighborAF/VRFNeighborAF/NeighborGroupAF associated with this object
-                                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: advertise_def_imp_disable_v4
                                         
                                         	Disable Advertise Of Default VRF Imported Routes
-                                        	**type**\:  :py:class:`AdvertiseDefImpDisableV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4>`
+                                        	**type**\:   :py:class:`AdvertiseDefImpDisableV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4>`
                                         
                                         .. attribute:: advertise_def_imp_disable_v6
                                         
                                         	Disable Advertise Of Default VRF Imported Routes
-                                        	**type**\:  :py:class:`AdvertiseDefImpDisableV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV6>`
+                                        	**type**\:   :py:class:`AdvertiseDefImpDisableV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV6>`
                                         
                                         .. attribute:: advertise_disable
                                         
                                         	Disable Advertise Of Routes to the peer
-                                        	**type**\:  :py:class:`AdvertiseDisable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDisable>`
+                                        	**type**\:   :py:class:`AdvertiseDisable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDisable>`
                                         
                                         .. attribute:: advertise_l2vpnevpn
                                         
                                         	Advertise Translated Routes to the peer
-                                        	**type**\:  :py:class:`AdvertiseL2Vpnevpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseL2Vpnevpn>`
+                                        	**type**\:   :py:class:`AdvertiseL2Vpnevpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseL2Vpnevpn>`
                                         
                                         .. attribute:: advertise_local_l2vpnevpn
                                         
                                         	Advertise Of Local Routes to the peer with different RT
-                                        	**type**\:  :py:class:`AdvertiseLocalL2Vpnevpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalL2Vpnevpn>`
+                                        	**type**\:   :py:class:`AdvertiseLocalL2Vpnevpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalL2Vpnevpn>`
                                         
                                         .. attribute:: advertise_local_v4
                                         
                                         	Advertise Of Local Routes to the peer with different RT
-                                        	**type**\:  :py:class:`AdvertiseLocalV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV4>`
+                                        	**type**\:   :py:class:`AdvertiseLocalV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV4>`
                                         
                                         .. attribute:: advertise_local_v6
                                         
                                         	Advertise Of Local Routes to the peer with different RT
-                                        	**type**\:  :py:class:`AdvertiseLocalV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV6>`
+                                        	**type**\:   :py:class:`AdvertiseLocalV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV6>`
                                         
                                         .. attribute:: advertise_orf
                                         
                                         	Advertise ORF capability to the peer
-                                        	**type**\:  :py:class:`BgpOrfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpOrfEnum>`
+                                        	**type**\:   :py:class:`BgpOrfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpOrfEnum>`
+                                        
+                                        	**default value**\: none
                                         
                                         .. attribute:: advertise_permanent_network
                                         
                                         	Advertise Permanent Networks to the peer
-                                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: advertise_v4
                                         
                                         	Advertise Translated Routes to the peer
-                                        	**type**\:  :py:class:`AdvertiseV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV4>`
+                                        	**type**\:   :py:class:`AdvertiseV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV4>`
                                         
                                         .. attribute:: advertise_v6
                                         
                                         	Advertise Translated Routes to the peer
-                                        	**type**\:  :py:class:`AdvertiseV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV6>`
+                                        	**type**\:   :py:class:`AdvertiseV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseV6>`
                                         
                                         .. attribute:: af_group
                                         
@@ -7838,17 +8028,19 @@ class Bgp(object):
                                         .. attribute:: aigp
                                         
                                         	Enable Accumulated IGP Metric for this neighbor
-                                        	**type**\:  :py:class:`BgpAigpCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgEnum>`
+                                        	**type**\:   :py:class:`BgpAigpCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgEnum>`
                                         
                                         .. attribute:: aigp_cost_community
                                         
                                         	Send AIGP value in Cost Community. 
-                                        	**type**\:  :py:class:`AigpCostCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AigpCostCommunity>`
+                                        	**type**\:   :py:class:`AigpCostCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AigpCostCommunity>`
+                                        
+                                        	**presence node**\: True
                                         
                                         .. attribute:: aigp_send_med
                                         
                                         	Enable/Disable sending AIGP in MED 
-                                        	**type**\:  :py:class:`BgpAigpCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgEnum>`
+                                        	**type**\:   :py:class:`BgpAigpCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgEnum>`
                                         
                                         .. attribute:: allow_as_in
                                         
@@ -7857,15 +8049,19 @@ class Bgp(object):
                                         
                                         	**range:** 1..10
                                         
+                                        	**default value**\: 3
+                                        
                                         .. attribute:: as_override
                                         
                                         	TRUE to override matching AS\-number while sending update. FALSE to prevent as\-override from being inherited from the parent
                                         	**type**\:  bool
                                         
+                                        	**default value**\: true
+                                        
                                         .. attribute:: default_originate
                                         
                                         	Originate default route to this neighbor
-                                        	**type**\:  :py:class:`DefaultOriginate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.DefaultOriginate>`
+                                        	**type**\:   :py:class:`DefaultOriginate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.DefaultOriginate>`
                                         
                                         .. attribute:: default_weight
                                         
@@ -7877,42 +8073,46 @@ class Bgp(object):
                                         .. attribute:: encapsulation_type
                                         
                                         	Encapsulation type for this neighbor
-                                        	**type**\:  :py:class:`BgpAfEncapsulationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAfEncapsulationEnum>`
+                                        	**type**\:   :py:class:`BgpAfEncapsulationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAfEncapsulationEnum>`
                                         
                                         .. attribute:: flowspec_validation
                                         
                                         	Config Flowspec validation for this neighbor
-                                        	**type**\:  :py:class:`BgpFlowspecValidationCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpFlowspecValidationCfgEnum>`
+                                        	**type**\:   :py:class:`BgpFlowspecValidationCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpFlowspecValidationCfgEnum>`
                                         
                                         .. attribute:: import_
                                         
                                         	Import Reorigination options for Routes from the peer
-                                        	**type**\:  :py:class:`Import <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.Import>`
+                                        	**type**\:   :py:class:`Import_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.Import_>`
                                         
                                         .. attribute:: l2vpn_signalling
                                         
                                         	Disable signalling type on the peer
-                                        	**type**\:  :py:class:`BgpSignalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSignalEnum>`
+                                        	**type**\:   :py:class:`BgpSignalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSignalEnum>`
                                         
                                         .. attribute:: maximum_prefixes
                                         
                                         	Maximum number of prefixes to accept from this peer
-                                        	**type**\:  :py:class:`MaximumPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.MaximumPrefixes>`
+                                        	**type**\:   :py:class:`MaximumPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.MaximumPrefixes>`
+                                        
+                                        	**presence node**\: True
                                         
                                         .. attribute:: multipath
                                         
                                         	Allow paths from this neighbor to be eligible for selective multipath
-                                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: neighbor_af_long_lived_graceful_restart_capable
                                         
                                         	TRUE to treat neighbor as Long\-lived Graceful\-restart capable. FALSE to rely on capability negotiation
                                         	**type**\:  bool
                                         
+                                        	**default value**\: false
+                                        
                                         .. attribute:: neighbor_af_long_lived_graceful_restart_stale_time
                                         
                                         	Maximum time to wait before purging long lived routes
-                                        	**type**\:  :py:class:`NeighborAfLongLivedGracefulRestartStaleTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime>`
+                                        	**type**\:   :py:class:`NeighborAfLongLivedGracefulRestartStaleTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.NeighborAfLongLivedGracefulRestartStaleTime>`
                                         
                                         .. attribute:: next_hop_self
                                         
@@ -7937,12 +8137,16 @@ class Bgp(object):
                                         .. attribute:: remove_private_as_entire_as_path
                                         
                                         	Remove private AS number from outbound updates
-                                        	**type**\:  :py:class:`RemovePrivateAsEntireAsPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPath>`
+                                        	**type**\:   :py:class:`RemovePrivateAsEntireAsPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPath>`
+                                        
+                                        	**presence node**\: True
                                         
                                         .. attribute:: remove_private_as_entire_as_path_inbound
                                         
                                         	Remove private AS number from inbound updates
-                                        	**type**\:  :py:class:`RemovePrivateAsEntireAsPathInbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPathInbound>`
+                                        	**type**\:   :py:class:`RemovePrivateAsEntireAsPathInbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPathInbound>`
+                                        
+                                        	**presence node**\: True
                                         
                                         .. attribute:: route_policy_in
                                         
@@ -7962,12 +8166,12 @@ class Bgp(object):
                                         .. attribute:: rpki_bestpath_origin_as_allow_invalid
                                         
                                         	RPKI bestpath origin\-AS allow invalid
-                                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: rpki_origin_as_validation_disable
                                         
                                         	RPKI origin\-AS validation disable
-                                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: send_community_ebgp
                                         
@@ -7987,12 +8191,12 @@ class Bgp(object):
                                         .. attribute:: send_multicast_attr
                                         
                                         	Config send multicast attribute for this neighbor
-                                        	**type**\:  :py:class:`BgpSendMcastAttrCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSendMcastAttrCfgEnum>`
+                                        	**type**\:   :py:class:`BgpSendMcastAttrCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSendMcastAttrCfgEnum>`
                                         
                                         .. attribute:: soft_reconfiguration
                                         
                                         	Enable/disable inbound soft reconfiguration for this neighbor/neighbor\-group/af\-group
-                                        	**type**\:  :py:class:`SoftReconfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.SoftReconfiguration>`
+                                        	**type**\:   :py:class:`SoftReconfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.SoftReconfiguration>`
                                         
                                         
 
@@ -8038,7 +8242,7 @@ class Bgp(object):
                                             self.default_weight = None
                                             self.encapsulation_type = None
                                             self.flowspec_validation = None
-                                            self.import_ = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.Import()
+                                            self.import_ = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.Import_()
                                             self.import_.parent = self
                                             self.l2vpn_signalling = None
                                             self.maximum_prefixes = None
@@ -8081,7 +8285,7 @@ class Bgp(object):
                                             .. attribute:: cost_community_poi_type
                                             
                                             	Cost Community POI
-                                            	**type**\:  :py:class:`BgpAigpCfgPoiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgPoiEnum>`
+                                            	**type**\:   :py:class:`BgpAigpCfgPoiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgPoiEnum>`
                                             
                                             	**mandatory**\: True
                                             
@@ -8162,17 +8366,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -8225,17 +8429,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -8291,6 +8495,8 @@ class Bgp(object):
                                             	Discard extra paths when limit is exceeded
                                             	**type**\:  bool
                                             
+                                            	**default value**\: false
+                                            
                                             .. attribute:: prefix_limit
                                             
                                             	Maximum prefixes limit
@@ -8307,10 +8513,14 @@ class Bgp(object):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**default value**\: 0
+                                            
                                             .. attribute:: warning_only
                                             
                                             	TRUE to only give a warning message when limit is exceeded.  FALSE to accept max prefix limit only
                                             	**type**\:  bool
+                                            
+                                            	**default value**\: false
                                             
                                             .. attribute:: warning_percentage
                                             
@@ -8318,6 +8528,8 @@ class Bgp(object):
                                             	**type**\:  int
                                             
                                             	**range:** 1..100
+                                            
+                                            	**default value**\: 75
                                             
                                             .. attribute:: _is_presence
                                             
@@ -8454,17 +8666,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -8517,17 +8729,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -8581,17 +8793,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -8649,12 +8861,20 @@ class Bgp(object):
                                             
                                             	**range:** 0..16777215
                                             
+                                            	**units**\: second
+                                            
+                                            	**default value**\: 0
+                                            
                                             .. attribute:: stale_time_send
                                             
                                             	Max time (seconds)
                                             	**type**\:  int
                                             
                                             	**range:** 0..16777215
+                                            
+                                            	**units**\: second
+                                            
+                                            	**default value**\: 0
                                             
                                             
 
@@ -8703,17 +8923,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -8767,17 +8987,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -8823,7 +9043,7 @@ class Bgp(object):
                                                 return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV6']['meta_info']
 
 
-                                        class Import(object):
+                                        class Import_(object):
                                             """
                                             Import Reorigination options for Routes from the
                                             peer
@@ -8884,7 +9104,7 @@ class Bgp(object):
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.Import']['meta_info']
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.Import_']['meta_info']
 
 
                                         class DefaultOriginate(object):
@@ -8895,6 +9115,8 @@ class Bgp(object):
                                             
                                             	FALSE to prevent default\-originate from, being inherited from a parent. TRUE otherwise
                                             	**type**\:  bool
+                                            
+                                            	**default value**\: false
                                             
                                             .. attribute:: route_policy_name
                                             
@@ -8951,10 +9173,14 @@ class Bgp(object):
                                             	FALSE to prohibit inbound soft reconfiguration. TRUE otherwise
                                             	**type**\:  bool
                                             
+                                            	**default value**\: false
+                                            
                                             .. attribute:: soft_always
                                             
                                             	TRUE to always use soft reconfig, even if route refresh is supported.  FALSE otherwise
                                             	**type**\:  bool
+                                            
+                                            	**default value**\: false
                                             
                                             
 
@@ -9003,17 +9229,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -9067,17 +9293,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -9452,7 +9678,7 @@ class Bgp(object):
                                     .. attribute:: bmp_activate
                                     
                                     	Enable BMP logging for this particular server
-                                    	**type**\: list of  :py:class:`BmpActivate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.BmpActivates.BmpActivate>`
+                                    	**type**\: list of    :py:class:`BmpActivate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.BmpActivates.BmpActivate>`
                                     
                                     
 
@@ -9555,10 +9781,14 @@ class Bgp(object):
                                     
                                     	**range:** 1..255
                                     
+                                    	**default value**\: 255
+                                    
                                     .. attribute:: mpls_deactivation
                                     
                                     	TRUE to not enable MPLS and NULL rewrite
                                     	**type**\:  bool
+                                    
+                                    	**default value**\: false
                                     
                                     
 
@@ -9679,22 +9909,22 @@ class Bgp(object):
                                     .. attribute:: disable
                                     
                                     	Disable Local AS and prevent it from being inherited from a parent
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: dual_as
                                     
                                     	Dual\-AS mode
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: no_prepend
                                     
                                     	Do not prepend Local AS to announcements from this neighbor
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: replace_as
                                     
                                     	Prepend only Local AS to announcements from this neighbor
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     
 
@@ -9822,12 +10052,16 @@ class Bgp(object):
                                     
                                     	**mandatory**\: True
                                     
+                                    	**units**\: second
+                                    
                                     .. attribute:: minimum_interval_msecs
                                     
                                     	Minimum advertisement interval time, msecs part
                                     	**type**\:  int
                                     
                                     	**range:** 0..999
+                                    
+                                    	**units**\: millisecond
                                     
                                     .. attribute:: _is_presence
                                     
@@ -10000,14 +10234,14 @@ class Bgp(object):
                                     .. attribute:: type
                                     
                                     	Set type of service
-                                    	**type**\:  :py:class:`BgpTosEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpTosEnum>`
+                                    	**type**\:   :py:class:`BgpTosEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpTosEnum>`
                                     
                                     .. attribute:: value
                                     
                                     	TOS value to set
                                     	**type**\: one of the below types:
                                     
-                                    	**type**\:  :py:class:`BgpPrecedenceDscpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpPrecedenceDscpEnum>`
+                                    	**type**\:   :py:class:`BgpPrecedenceDscpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpPrecedenceDscpEnum>`
                                     
                                     
                                     ----
@@ -10064,7 +10298,7 @@ class Bgp(object):
                                     .. attribute:: enable
                                     
                                     	Configure inbound update filtering
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: update_in_filtering_attribute_filter_group
                                     
@@ -10074,12 +10308,14 @@ class Bgp(object):
                                     .. attribute:: update_in_filtering_message_buffers
                                     
                                     	Message buffers to store filtered updates
-                                    	**type**\:  :py:class:`UpdateInFilteringMessageBuffers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.UpdateInFiltering.UpdateInFilteringMessageBuffers>`
+                                    	**type**\:   :py:class:`UpdateInFilteringMessageBuffers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.UpdateInFiltering.UpdateInFilteringMessageBuffers>`
+                                    
+                                    	**presence node**\: True
                                     
                                     .. attribute:: update_in_filtering_syslog_disable
                                     
                                     	Disable inbound update filtering syslog messages
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     
 
@@ -10276,12 +10512,20 @@ class Bgp(object):
                                     
                                     	**range:** 512..131072
                                     
+                                    	**units**\: byte
+                                    
+                                    	**default value**\: 4096
+                                    
                                     .. attribute:: socket_receive_size
                                     
                                     	Receive socket buffer size in bytes
                                     	**type**\:  int
                                     
                                     	**range:** 512..131072
+                                    
+                                    	**units**\: byte
+                                    
+                                    	**default value**\: 32768
                                     
                                     
 
@@ -10400,12 +10644,20 @@ class Bgp(object):
                                     
                                     	**range:** 4096..131072
                                     
+                                    	**units**\: byte
+                                    
+                                    	**default value**\: 4096
+                                    
                                     .. attribute:: socket_send_size
                                     
                                     	Send socket buffer size in bytes
                                     	**type**\:  int
                                     
                                     	**range:** 4096..131072
+                                    
+                                    	**units**\: byte
+                                    
+                                    	**default value**\: 24576
                                     
                                     
 
@@ -10458,6 +10710,8 @@ class Bgp(object):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**default value**\: 180
+                                    
                                     .. attribute:: keepalive_interval
                                     
                                     	Keepalive interval
@@ -10465,12 +10719,16 @@ class Bgp(object):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**default value**\: 60
+                                    
                                     .. attribute:: min_accept_hold_time
                                     
                                     	Minimum acceptable hold time.  Specify 0 to disable keepalives/hold time
                                     	**type**\:  int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**default value**\: 3
                                     
                                     
 
@@ -10577,7 +10835,7 @@ class Bgp(object):
                                     .. attribute:: enable
                                     
                                     	Enter Graceful Maintenance mode to configure parametrs
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: graceful_maintenance_activate
                                     
@@ -10587,12 +10845,12 @@ class Bgp(object):
                                     .. attribute:: graceful_maintenance_as_prepends
                                     
                                     	Number of times to prepend local AS number to the AS path
-                                    	**type**\:  :py:class:`GracefulMaintenanceAsPrepends <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance.GracefulMaintenanceAsPrepends>`
+                                    	**type**\:   :py:class:`GracefulMaintenanceAsPrepends <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance.GracefulMaintenanceAsPrepends>`
                                     
                                     .. attribute:: graceful_maintenance_local_preference
                                     
                                     	Set Local Preference to advertise routes with
-                                    	**type**\:  :py:class:`GracefulMaintenanceLocalPreference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance.GracefulMaintenanceLocalPreference>`
+                                    	**type**\:   :py:class:`GracefulMaintenanceLocalPreference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance.GracefulMaintenanceLocalPreference>`
                                     
                                     
 
@@ -10951,7 +11209,7 @@ class Bgp(object):
                             .. attribute:: neighbor_group
                             
                             	A particular BGP neighbor group
-                            	**type**\: list of  :py:class:`NeighborGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup>`
+                            	**type**\: list of    :py:class:`NeighborGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup>`
                             
                             
 
@@ -10981,22 +11239,24 @@ class Bgp(object):
                                 .. attribute:: additional_paths_receive_capability
                                 
                                 	Advertise additional paths Receive capability
-                                	**type**\:  :py:class:`BgpNbrCapAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfgEnum>`
+                                	**type**\:   :py:class:`BgpNbrCapAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfgEnum>`
                                 
                                 .. attribute:: additional_paths_send_capability
                                 
                                 	Advertise additional paths Send capability
-                                	**type**\:  :py:class:`BgpNbrCapAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfgEnum>`
+                                	**type**\:   :py:class:`BgpNbrCapAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfgEnum>`
                                 
                                 .. attribute:: advertisement_interval
                                 
                                 	Minimum interval between sending BGP routing updates
-                                	**type**\:  :py:class:`AdvertisementInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.AdvertisementInterval>`
+                                	**type**\:   :py:class:`AdvertisementInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.AdvertisementInterval>`
+                                
+                                	**presence node**\: True
                                 
                                 .. attribute:: bfd_enable_modes
                                 
                                 	Strict mode, Default mode or Disable to prevent inheritance from a parent
-                                	**type**\:  :py:class:`BgpBfdEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpBfdEnableModeEnum>`
+                                	**type**\:   :py:class:`BgpBfdEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpBfdEnableModeEnum>`
                                 
                                 .. attribute:: bfd_minimum_interval
                                 
@@ -11004,6 +11264,8 @@ class Bgp(object):
                                 	**type**\:  int
                                 
                                 	**range:** 3..30000
+                                
+                                	**units**\: millisecond
                                 
                                 .. attribute:: bfd_multiplier
                                 
@@ -11015,12 +11277,12 @@ class Bgp(object):
                                 .. attribute:: bmp_activates
                                 
                                 	Enable BMP logging for this neighbor
-                                	**type**\:  :py:class:`BmpActivates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.BmpActivates>`
+                                	**type**\:   :py:class:`BmpActivates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.BmpActivates>`
                                 
                                 .. attribute:: create
                                 
                                 	Create this group. Deletion of this object causes deletion of all the objects under NeighborGroup/SessionGroup associated with this object
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: description
                                 
@@ -11030,7 +11292,7 @@ class Bgp(object):
                                 .. attribute:: ebgp_multihop
                                 
                                 	Allow EBGP neighbors not on directly connected networks
-                                	**type**\:  :py:class:`EbgpMultihop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.EbgpMultihop>`
+                                	**type**\:   :py:class:`EbgpMultihop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.EbgpMultihop>`
                                 
                                 .. attribute:: ebgp_recv_dmz
                                 
@@ -11040,7 +11302,7 @@ class Bgp(object):
                                 .. attribute:: ebgp_send_dmz_enable_modes
                                 
                                 	Default mode, Cumulative mode or Disable to prevent inheritance from a parent
-                                	**type**\:  :py:class:`BgpEbgpSendDmzEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpEbgpSendDmzEnableModeEnum>`
+                                	**type**\:   :py:class:`BgpEbgpSendDmzEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpEbgpSendDmzEnableModeEnum>`
                                 
                                 .. attribute:: egress_peer_engineering
                                 
@@ -11055,7 +11317,7 @@ class Bgp(object):
                                 .. attribute:: graceful_maintenance
                                 
                                 	Graceful Maintenance mode
-                                	**type**\:  :py:class:`GracefulMaintenance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance>`
+                                	**type**\:   :py:class:`GracefulMaintenance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance>`
                                 
                                 .. attribute:: ignore_connected_check_ebgp
                                 
@@ -11070,32 +11332,32 @@ class Bgp(object):
                                 .. attribute:: keychain
                                 
                                 	Set or disable keychain based authentication
-                                	**type**\:  :py:class:`Keychain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Keychain>`
+                                	**type**\:   :py:class:`Keychain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Keychain>`
                                 
                                 .. attribute:: local_address
                                 
                                 	Local ip address
-                                	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAddress>`
+                                	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAddress>`
                                 
                                 .. attribute:: local_as
                                 
                                 	Specify a local\-as number
-                                	**type**\:  :py:class:`LocalAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAs>`
+                                	**type**\:   :py:class:`LocalAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.LocalAs>`
                                 
                                 .. attribute:: msg_log_in
                                 
                                 	Message log inbound
-                                	**type**\:  :py:class:`MsgLogIn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogIn>`
+                                	**type**\:   :py:class:`MsgLogIn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogIn>`
                                 
                                 .. attribute:: msg_log_out
                                 
                                 	Message log outbound
-                                	**type**\:  :py:class:`MsgLogOut <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogOut>`
+                                	**type**\:   :py:class:`MsgLogOut <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.MsgLogOut>`
                                 
                                 .. attribute:: neighbor_cluster_id
                                 
                                 	Neighbor Cluster\-id
-                                	**type**\:  :py:class:`NeighborClusterId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborClusterId>`
+                                	**type**\:   :py:class:`NeighborClusterId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborClusterId>`
                                 
                                 .. attribute:: neighbor_graceful_restart
                                 
@@ -11109,12 +11371,20 @@ class Bgp(object):
                                 
                                 	**range:** 1..4095
                                 
+                                	**units**\: second
+                                
+                                	**default value**\: 360
+                                
                                 .. attribute:: neighbor_graceful_restart_time
                                 
                                 	Restart time advertised to neighbor
                                 	**type**\:  int
                                 
                                 	**range:** 1..4095
+                                
+                                	**units**\: second
+                                
+                                	**default value**\: 120
                                 
                                 .. attribute:: neighbor_group_add_member
                                 
@@ -11124,12 +11394,12 @@ class Bgp(object):
                                 .. attribute:: neighbor_group_afs
                                 
                                 	BGP neighbor\-group AF configuration table
-                                	**type**\:  :py:class:`NeighborGroupAfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs>`
+                                	**type**\:   :py:class:`NeighborGroupAfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs>`
                                 
                                 .. attribute:: password
                                 
                                 	Set or disable a password
-                                	**type**\:  :py:class:`Password <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Password>`
+                                	**type**\:   :py:class:`Password <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Password>`
                                 
                                 .. attribute:: propagate_dmz_link_bandwidth
                                 
@@ -11139,27 +11409,27 @@ class Bgp(object):
                                 .. attribute:: receive_buffer_size
                                 
                                 	Set socket receive buffer size and BGP read buffer size
-                                	**type**\:  :py:class:`ReceiveBufferSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.ReceiveBufferSize>`
+                                	**type**\:   :py:class:`ReceiveBufferSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.ReceiveBufferSize>`
                                 
                                 .. attribute:: remote_as
                                 
                                 	Set remote AS
-                                	**type**\:  :py:class:`RemoteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.RemoteAs>`
+                                	**type**\:   :py:class:`RemoteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.RemoteAs>`
                                 
                                 .. attribute:: rpki_bestpath_origin_as_allow_invalid
                                 
                                 	RPKI bestpath origin\-AS allow invalid
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: rpki_origin_as_validation_disable
                                 
                                 	RPKI origin\-AS validation disable
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: send_buffer_size
                                 
                                 	Set socket send buffer size and BGP write buffer size
-                                	**type**\:  :py:class:`SendBufferSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.SendBufferSize>`
+                                	**type**\:   :py:class:`SendBufferSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.SendBufferSize>`
                                 
                                 .. attribute:: session_group_add_member
                                 
@@ -11169,7 +11439,9 @@ class Bgp(object):
                                 .. attribute:: session_open_mode
                                 
                                 	TCP mode to be used to establish BGP session
-                                	**type**\:  :py:class:`BgpTcpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpTcpModeEnum>`
+                                	**type**\:   :py:class:`BgpTcpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpTcpModeEnum>`
+                                
+                                	**default value**\: either
                                 
                                 .. attribute:: shutdown
                                 
@@ -11189,17 +11461,17 @@ class Bgp(object):
                                 .. attribute:: tcpmss
                                 
                                 	TCP Maximum segment size
-                                	**type**\:  :py:class:`Tcpmss <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tcpmss>`
+                                	**type**\:   :py:class:`Tcpmss <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tcpmss>`
                                 
                                 .. attribute:: timers
                                 
                                 	BGP per neighbor timers
-                                	**type**\:  :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Timers>`
+                                	**type**\:   :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Timers>`
                                 
                                 .. attribute:: tos
                                 
                                 	TOS (Type Of Service)
-                                	**type**\:  :py:class:`Tos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tos>`
+                                	**type**\:   :py:class:`Tos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tos>`
                                 
                                 .. attribute:: ttl_security
                                 
@@ -11209,7 +11481,7 @@ class Bgp(object):
                                 .. attribute:: update_in_filtering
                                 
                                 	Inbound update filtering
-                                	**type**\:  :py:class:`UpdateInFiltering <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.UpdateInFiltering>`
+                                	**type**\:   :py:class:`UpdateInFiltering <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.UpdateInFiltering>`
                                 
                                 .. attribute:: update_source_interface
                                 
@@ -11301,7 +11573,7 @@ class Bgp(object):
                                     .. attribute:: neighbor_group_af
                                     
                                     	Address family type of neighbor group
-                                    	**type**\: list of  :py:class:`NeighborGroupAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf>`
+                                    	**type**\: list of    :py:class:`NeighborGroupAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf>`
                                     
                                     
 
@@ -11324,7 +11596,7 @@ class Bgp(object):
                                         .. attribute:: af_name  <key>
                                         
                                         	BGP neighbor group address family
-                                        	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                        	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                         
                                         .. attribute:: accept_own
                                         
@@ -11339,62 +11611,64 @@ class Bgp(object):
                                         .. attribute:: activate
                                         
                                         	Activate an address family for this neighbor. Deletion of this object causes deletion of all the objects under NeighborAF/VRFNeighborAF/NeighborGroupAF associated with this object
-                                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: advertise_def_imp_disable_v4
                                         
                                         	Disable Advertise Of Default VRF Imported Routes
-                                        	**type**\:  :py:class:`AdvertiseDefImpDisableV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV4>`
+                                        	**type**\:   :py:class:`AdvertiseDefImpDisableV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV4>`
                                         
                                         .. attribute:: advertise_def_imp_disable_v6
                                         
                                         	Disable Advertise Of Default VRF Imported Routes
-                                        	**type**\:  :py:class:`AdvertiseDefImpDisableV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV6>`
+                                        	**type**\:   :py:class:`AdvertiseDefImpDisableV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV6>`
                                         
                                         .. attribute:: advertise_disable
                                         
                                         	Disable Advertise Of Routes to the peer
-                                        	**type**\:  :py:class:`AdvertiseDisable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDisable>`
+                                        	**type**\:   :py:class:`AdvertiseDisable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDisable>`
                                         
                                         .. attribute:: advertise_l2vpnevpn
                                         
                                         	Advertise Translated Routes to the peer
-                                        	**type**\:  :py:class:`AdvertiseL2Vpnevpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseL2Vpnevpn>`
+                                        	**type**\:   :py:class:`AdvertiseL2Vpnevpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseL2Vpnevpn>`
                                         
                                         .. attribute:: advertise_local_l2vpnevpn
                                         
                                         	Advertise Of Local Routes to the peer with different RT
-                                        	**type**\:  :py:class:`AdvertiseLocalL2Vpnevpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalL2Vpnevpn>`
+                                        	**type**\:   :py:class:`AdvertiseLocalL2Vpnevpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalL2Vpnevpn>`
                                         
                                         .. attribute:: advertise_local_v4
                                         
                                         	Advertise Of Local Routes to the peer with different RT
-                                        	**type**\:  :py:class:`AdvertiseLocalV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV4>`
+                                        	**type**\:   :py:class:`AdvertiseLocalV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV4>`
                                         
                                         .. attribute:: advertise_local_v6
                                         
                                         	Advertise Of Local Routes to the peer with different RT
-                                        	**type**\:  :py:class:`AdvertiseLocalV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV6>`
+                                        	**type**\:   :py:class:`AdvertiseLocalV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV6>`
                                         
                                         .. attribute:: advertise_orf
                                         
                                         	Advertise ORF capability to the peer
-                                        	**type**\:  :py:class:`BgpOrfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpOrfEnum>`
+                                        	**type**\:   :py:class:`BgpOrfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpOrfEnum>`
+                                        
+                                        	**default value**\: none
                                         
                                         .. attribute:: advertise_permanent_network
                                         
                                         	Advertise Permanent Networks to the peer
-                                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: advertise_v4
                                         
                                         	Advertise Translated Routes to the peer
-                                        	**type**\:  :py:class:`AdvertiseV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV4>`
+                                        	**type**\:   :py:class:`AdvertiseV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV4>`
                                         
                                         .. attribute:: advertise_v6
                                         
                                         	Advertise Translated Routes to the peer
-                                        	**type**\:  :py:class:`AdvertiseV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV6>`
+                                        	**type**\:   :py:class:`AdvertiseV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseV6>`
                                         
                                         .. attribute:: af_group
                                         
@@ -11404,17 +11678,19 @@ class Bgp(object):
                                         .. attribute:: aigp
                                         
                                         	Enable Accumulated IGP Metric for this neighbor
-                                        	**type**\:  :py:class:`BgpAigpCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgEnum>`
+                                        	**type**\:   :py:class:`BgpAigpCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgEnum>`
                                         
                                         .. attribute:: aigp_cost_community
                                         
                                         	Send AIGP value in Cost Community. 
-                                        	**type**\:  :py:class:`AigpCostCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AigpCostCommunity>`
+                                        	**type**\:   :py:class:`AigpCostCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AigpCostCommunity>`
+                                        
+                                        	**presence node**\: True
                                         
                                         .. attribute:: aigp_send_med
                                         
                                         	Enable/Disable sending AIGP in MED 
-                                        	**type**\:  :py:class:`BgpAigpCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgEnum>`
+                                        	**type**\:   :py:class:`BgpAigpCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgEnum>`
                                         
                                         .. attribute:: allow_as_in
                                         
@@ -11423,15 +11699,19 @@ class Bgp(object):
                                         
                                         	**range:** 1..10
                                         
+                                        	**default value**\: 3
+                                        
                                         .. attribute:: as_override
                                         
                                         	TRUE to override matching AS\-number while sending update. FALSE to prevent as\-override from being inherited from the parent
                                         	**type**\:  bool
                                         
+                                        	**default value**\: true
+                                        
                                         .. attribute:: default_originate
                                         
                                         	Originate default route to this neighbor
-                                        	**type**\:  :py:class:`DefaultOriginate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.DefaultOriginate>`
+                                        	**type**\:   :py:class:`DefaultOriginate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.DefaultOriginate>`
                                         
                                         .. attribute:: default_weight
                                         
@@ -11443,42 +11723,46 @@ class Bgp(object):
                                         .. attribute:: encapsulation_type
                                         
                                         	Encapsulation type for this neighbor
-                                        	**type**\:  :py:class:`BgpAfEncapsulationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAfEncapsulationEnum>`
+                                        	**type**\:   :py:class:`BgpAfEncapsulationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAfEncapsulationEnum>`
                                         
                                         .. attribute:: flowspec_validation
                                         
                                         	Config Flowspec validation for this neighbor
-                                        	**type**\:  :py:class:`BgpFlowspecValidationCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpFlowspecValidationCfgEnum>`
+                                        	**type**\:   :py:class:`BgpFlowspecValidationCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpFlowspecValidationCfgEnum>`
                                         
                                         .. attribute:: import_
                                         
                                         	Import Reorigination options for Routes from the peer
-                                        	**type**\:  :py:class:`Import <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.Import>`
+                                        	**type**\:   :py:class:`Import_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.Import_>`
                                         
                                         .. attribute:: l2vpn_signalling
                                         
                                         	Disable signalling type on the peer
-                                        	**type**\:  :py:class:`BgpSignalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSignalEnum>`
+                                        	**type**\:   :py:class:`BgpSignalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSignalEnum>`
                                         
                                         .. attribute:: maximum_prefixes
                                         
                                         	Maximum number of prefixes to accept from this peer
-                                        	**type**\:  :py:class:`MaximumPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.MaximumPrefixes>`
+                                        	**type**\:   :py:class:`MaximumPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.MaximumPrefixes>`
+                                        
+                                        	**presence node**\: True
                                         
                                         .. attribute:: multipath
                                         
                                         	Allow paths from this neighbor to be eligible for selective multipath
-                                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: neighbor_af_long_lived_graceful_restart_capable
                                         
                                         	TRUE to treat neighbor as Long\-lived Graceful\-restart capable. FALSE to rely on capability negotiation
                                         	**type**\:  bool
                                         
+                                        	**default value**\: false
+                                        
                                         .. attribute:: neighbor_af_long_lived_graceful_restart_stale_time
                                         
                                         	Maximum time to wait before purging long lived routes
-                                        	**type**\:  :py:class:`NeighborAfLongLivedGracefulRestartStaleTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.NeighborAfLongLivedGracefulRestartStaleTime>`
+                                        	**type**\:   :py:class:`NeighborAfLongLivedGracefulRestartStaleTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.NeighborAfLongLivedGracefulRestartStaleTime>`
                                         
                                         .. attribute:: next_hop_self
                                         
@@ -11503,12 +11787,16 @@ class Bgp(object):
                                         .. attribute:: remove_private_as_entire_as_path
                                         
                                         	Remove private AS number from outbound updates
-                                        	**type**\:  :py:class:`RemovePrivateAsEntireAsPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.RemovePrivateAsEntireAsPath>`
+                                        	**type**\:   :py:class:`RemovePrivateAsEntireAsPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.RemovePrivateAsEntireAsPath>`
+                                        
+                                        	**presence node**\: True
                                         
                                         .. attribute:: remove_private_as_entire_as_path_inbound
                                         
                                         	Remove private AS number from inbound updates
-                                        	**type**\:  :py:class:`RemovePrivateAsEntireAsPathInbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.RemovePrivateAsEntireAsPathInbound>`
+                                        	**type**\:   :py:class:`RemovePrivateAsEntireAsPathInbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.RemovePrivateAsEntireAsPathInbound>`
+                                        
+                                        	**presence node**\: True
                                         
                                         .. attribute:: route_policy_in
                                         
@@ -11528,12 +11816,12 @@ class Bgp(object):
                                         .. attribute:: rpki_bestpath_origin_as_allow_invalid
                                         
                                         	RPKI bestpath origin\-AS allow invalid
-                                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: rpki_origin_as_validation_disable
                                         
                                         	RPKI origin\-AS validation disable
-                                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: send_community_ebgp
                                         
@@ -11553,17 +11841,17 @@ class Bgp(object):
                                         .. attribute:: send_multicast_attr
                                         
                                         	Config send multicast attribute for this neighbor
-                                        	**type**\:  :py:class:`BgpSendMcastAttrCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSendMcastAttrCfgEnum>`
+                                        	**type**\:   :py:class:`BgpSendMcastAttrCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSendMcastAttrCfgEnum>`
                                         
                                         .. attribute:: site_of_origin
                                         
                                         	Site\-of\-Origin extended community associated with the neighbor
-                                        	**type**\:  :py:class:`SiteOfOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SiteOfOrigin>`
+                                        	**type**\:   :py:class:`SiteOfOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SiteOfOrigin>`
                                         
                                         .. attribute:: soft_reconfiguration
                                         
                                         	Enable/disable inbound soft reconfiguration for this neighbor/neighbor\-group/af\-group
-                                        	**type**\:  :py:class:`SoftReconfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SoftReconfiguration>`
+                                        	**type**\:   :py:class:`SoftReconfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.SoftReconfiguration>`
                                         
                                         
 
@@ -11609,7 +11897,7 @@ class Bgp(object):
                                             self.default_weight = None
                                             self.encapsulation_type = None
                                             self.flowspec_validation = None
-                                            self.import_ = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.Import()
+                                            self.import_ = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.Import_()
                                             self.import_.parent = self
                                             self.l2vpn_signalling = None
                                             self.maximum_prefixes = None
@@ -11654,7 +11942,7 @@ class Bgp(object):
                                             .. attribute:: cost_community_poi_type
                                             
                                             	Cost Community POI
-                                            	**type**\:  :py:class:`BgpAigpCfgPoiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgPoiEnum>`
+                                            	**type**\:   :py:class:`BgpAigpCfgPoiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgPoiEnum>`
                                             
                                             	**mandatory**\: True
                                             
@@ -11735,17 +12023,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -11798,17 +12086,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -11864,6 +12152,8 @@ class Bgp(object):
                                             	Discard extra paths when limit is exceeded
                                             	**type**\:  bool
                                             
+                                            	**default value**\: false
+                                            
                                             .. attribute:: prefix_limit
                                             
                                             	Maximum prefixes limit
@@ -11880,10 +12170,14 @@ class Bgp(object):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**default value**\: 0
+                                            
                                             .. attribute:: warning_only
                                             
                                             	TRUE to only give a warning message when limit is exceeded.  FALSE to accept max prefix limit only
                                             	**type**\:  bool
+                                            
+                                            	**default value**\: false
                                             
                                             .. attribute:: warning_percentage
                                             
@@ -11891,6 +12185,8 @@ class Bgp(object):
                                             	**type**\:  int
                                             
                                             	**range:** 1..100
+                                            
+                                            	**default value**\: 75
                                             
                                             .. attribute:: _is_presence
                                             
@@ -12027,17 +12323,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -12090,17 +12386,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -12154,17 +12450,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -12222,12 +12518,20 @@ class Bgp(object):
                                             
                                             	**range:** 0..16777215
                                             
+                                            	**units**\: second
+                                            
+                                            	**default value**\: 0
+                                            
                                             .. attribute:: stale_time_send
                                             
                                             	Max time (seconds)
                                             	**type**\:  int
                                             
                                             	**range:** 0..16777215
+                                            
+                                            	**units**\: second
+                                            
+                                            	**default value**\: 0
                                             
                                             
 
@@ -12312,7 +12616,7 @@ class Bgp(object):
                                             .. attribute:: type
                                             
                                             	Type of Extended community
-                                            	**type**\:  :py:class:`BgpSiteOfOriginEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSiteOfOriginEnum>`
+                                            	**type**\:   :py:class:`BgpSiteOfOriginEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSiteOfOriginEnum>`
                                             
                                             
 
@@ -12377,17 +12681,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -12441,17 +12745,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -12497,7 +12801,7 @@ class Bgp(object):
                                                 return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV6']['meta_info']
 
 
-                                        class Import(object):
+                                        class Import_(object):
                                             """
                                             Import Reorigination options for Routes from the
                                             peer
@@ -12558,7 +12862,7 @@ class Bgp(object):
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.Import']['meta_info']
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.Import_']['meta_info']
 
 
                                         class DefaultOriginate(object):
@@ -12569,6 +12873,8 @@ class Bgp(object):
                                             
                                             	FALSE to prevent default\-originate from, being inherited from a parent. TRUE otherwise
                                             	**type**\:  bool
+                                            
+                                            	**default value**\: false
                                             
                                             .. attribute:: route_policy_name
                                             
@@ -12625,10 +12931,14 @@ class Bgp(object):
                                             	FALSE to prohibit inbound soft reconfiguration. TRUE otherwise
                                             	**type**\:  bool
                                             
+                                            	**default value**\: false
+                                            
                                             .. attribute:: soft_always
                                             
                                             	TRUE to always use soft reconfig, even if route refresh is supported.  FALSE otherwise
                                             	**type**\:  bool
+                                            
+                                            	**default value**\: false
                                             
                                             
 
@@ -12677,17 +12987,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -12741,17 +13051,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -13129,7 +13439,7 @@ class Bgp(object):
                                     .. attribute:: bmp_activate
                                     
                                     	Enable BMP logging for this particular server
-                                    	**type**\: list of  :py:class:`BmpActivate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.BmpActivates.BmpActivate>`
+                                    	**type**\: list of    :py:class:`BmpActivate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.BmpActivates.BmpActivate>`
                                     
                                     
 
@@ -13232,10 +13542,14 @@ class Bgp(object):
                                     
                                     	**range:** 1..255
                                     
+                                    	**default value**\: 255
+                                    
                                     .. attribute:: mpls_deactivation
                                     
                                     	TRUE to not enable MPLS and NULL rewrite
                                     	**type**\:  bool
+                                    
+                                    	**default value**\: false
                                     
                                     
 
@@ -13356,22 +13670,22 @@ class Bgp(object):
                                     .. attribute:: disable
                                     
                                     	Disable Local AS and prevent it from being inherited from a parent
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: dual_as
                                     
                                     	Dual\-AS mode
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: no_prepend
                                     
                                     	Do not prepend Local AS to announcements from this neighbor
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: replace_as
                                     
                                     	Prepend only Local AS to announcements from this neighbor
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     
 
@@ -13499,12 +13813,16 @@ class Bgp(object):
                                     
                                     	**mandatory**\: True
                                     
+                                    	**units**\: second
+                                    
                                     .. attribute:: minimum_interval_msecs
                                     
                                     	Minimum advertisement interval time, msecs part
                                     	**type**\:  int
                                     
                                     	**range:** 0..999
+                                    
+                                    	**units**\: millisecond
                                     
                                     .. attribute:: _is_presence
                                     
@@ -13677,14 +13995,14 @@ class Bgp(object):
                                     .. attribute:: type
                                     
                                     	Set type of service
-                                    	**type**\:  :py:class:`BgpTosEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpTosEnum>`
+                                    	**type**\:   :py:class:`BgpTosEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpTosEnum>`
                                     
                                     .. attribute:: value
                                     
                                     	TOS value to set
                                     	**type**\: one of the below types:
                                     
-                                    	**type**\:  :py:class:`BgpPrecedenceDscpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpPrecedenceDscpEnum>`
+                                    	**type**\:   :py:class:`BgpPrecedenceDscpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpPrecedenceDscpEnum>`
                                     
                                     
                                     ----
@@ -13741,7 +14059,7 @@ class Bgp(object):
                                     .. attribute:: enable
                                     
                                     	Configure inbound update filtering
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: update_in_filtering_attribute_filter_group
                                     
@@ -13751,12 +14069,14 @@ class Bgp(object):
                                     .. attribute:: update_in_filtering_message_buffers
                                     
                                     	Message buffers to store filtered updates
-                                    	**type**\:  :py:class:`UpdateInFilteringMessageBuffers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.UpdateInFiltering.UpdateInFilteringMessageBuffers>`
+                                    	**type**\:   :py:class:`UpdateInFilteringMessageBuffers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.UpdateInFiltering.UpdateInFilteringMessageBuffers>`
+                                    
+                                    	**presence node**\: True
                                     
                                     .. attribute:: update_in_filtering_syslog_disable
                                     
                                     	Disable inbound update filtering syslog messages
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     
 
@@ -13953,12 +14273,20 @@ class Bgp(object):
                                     
                                     	**range:** 512..131072
                                     
+                                    	**units**\: byte
+                                    
+                                    	**default value**\: 4096
+                                    
                                     .. attribute:: socket_receive_size
                                     
                                     	Receive socket buffer size in bytes
                                     	**type**\:  int
                                     
                                     	**range:** 512..131072
+                                    
+                                    	**units**\: byte
+                                    
+                                    	**default value**\: 32768
                                     
                                     
 
@@ -14077,12 +14405,20 @@ class Bgp(object):
                                     
                                     	**range:** 4096..131072
                                     
+                                    	**units**\: byte
+                                    
+                                    	**default value**\: 4096
+                                    
                                     .. attribute:: socket_send_size
                                     
                                     	Send socket buffer size in bytes
                                     	**type**\:  int
                                     
                                     	**range:** 4096..131072
+                                    
+                                    	**units**\: byte
+                                    
+                                    	**default value**\: 24576
                                     
                                     
 
@@ -14135,6 +14471,8 @@ class Bgp(object):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**default value**\: 180
+                                    
                                     .. attribute:: keepalive_interval
                                     
                                     	Keepalive interval
@@ -14142,12 +14480,16 @@ class Bgp(object):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**default value**\: 60
+                                    
                                     .. attribute:: min_accept_hold_time
                                     
                                     	Minimum acceptable hold time.  Specify 0 to disable keepalives/hold time
                                     	**type**\:  int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**default value**\: 3
                                     
                                     
 
@@ -14254,7 +14596,7 @@ class Bgp(object):
                                     .. attribute:: enable
                                     
                                     	Enter Graceful Maintenance mode to configure parametrs
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: graceful_maintenance_activate
                                     
@@ -14264,12 +14606,12 @@ class Bgp(object):
                                     .. attribute:: graceful_maintenance_as_prepends
                                     
                                     	Number of times to prepend local AS number to the AS path
-                                    	**type**\:  :py:class:`GracefulMaintenanceAsPrepends <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance.GracefulMaintenanceAsPrepends>`
+                                    	**type**\:   :py:class:`GracefulMaintenanceAsPrepends <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance.GracefulMaintenanceAsPrepends>`
                                     
                                     .. attribute:: graceful_maintenance_local_preference
                                     
                                     	Set Local Preference to advertise routes with
-                                    	**type**\:  :py:class:`GracefulMaintenanceLocalPreference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance.GracefulMaintenanceLocalPreference>`
+                                    	**type**\:   :py:class:`GracefulMaintenanceLocalPreference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance.GracefulMaintenanceLocalPreference>`
                                     
                                     
 
@@ -14631,7 +14973,7 @@ class Bgp(object):
                             .. attribute:: af_group
                             
                             	A particular BGP AF group
-                            	**type**\: list of  :py:class:`AfGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup>`
+                            	**type**\: list of    :py:class:`AfGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup>`
                             
                             
 
@@ -14661,7 +15003,7 @@ class Bgp(object):
                                 .. attribute:: af_group_afs
                                 
                                 	AF group configuration table
-                                	**type**\:  :py:class:`AfGroupAfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs>`
+                                	**type**\:   :py:class:`AfGroupAfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs>`
                                 
                                 
 
@@ -14684,7 +15026,7 @@ class Bgp(object):
                                     .. attribute:: af_group_af
                                     
                                     	Address family type of an AF group
-                                    	**type**\: list of  :py:class:`AfGroupAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf>`
+                                    	**type**\: list of    :py:class:`AfGroupAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf>`
                                     
                                     
 
@@ -14707,7 +15049,7 @@ class Bgp(object):
                                         .. attribute:: af_name  <key>
                                         
                                         	BGP AF group address family
-                                        	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                        	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                         
                                         .. attribute:: accept_own
                                         
@@ -14722,57 +15064,59 @@ class Bgp(object):
                                         .. attribute:: advertise_def_imp_disable_v4
                                         
                                         	Disable Advertise Of Default VRF Imported Routes
-                                        	**type**\:  :py:class:`AdvertiseDefImpDisableV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV4>`
+                                        	**type**\:   :py:class:`AdvertiseDefImpDisableV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV4>`
                                         
                                         .. attribute:: advertise_def_imp_disable_v6
                                         
                                         	Disable Advertise Of Default VRF Imported Routes
-                                        	**type**\:  :py:class:`AdvertiseDefImpDisableV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV6>`
+                                        	**type**\:   :py:class:`AdvertiseDefImpDisableV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV6>`
                                         
                                         .. attribute:: advertise_disable
                                         
                                         	Disable Advertise Of Routes to the peer
-                                        	**type**\:  :py:class:`AdvertiseDisable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDisable>`
+                                        	**type**\:   :py:class:`AdvertiseDisable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDisable>`
                                         
                                         .. attribute:: advertise_l2vpnevpn
                                         
                                         	Advertise Translated Routes to the peer
-                                        	**type**\:  :py:class:`AdvertiseL2Vpnevpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseL2Vpnevpn>`
+                                        	**type**\:   :py:class:`AdvertiseL2Vpnevpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseL2Vpnevpn>`
                                         
                                         .. attribute:: advertise_local_l2vpnevpn
                                         
                                         	Advertise Of Local Routes to the peer with different RT
-                                        	**type**\:  :py:class:`AdvertiseLocalL2Vpnevpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalL2Vpnevpn>`
+                                        	**type**\:   :py:class:`AdvertiseLocalL2Vpnevpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalL2Vpnevpn>`
                                         
                                         .. attribute:: advertise_local_v4
                                         
                                         	Advertise Of Local Routes to the peer with different RT
-                                        	**type**\:  :py:class:`AdvertiseLocalV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV4>`
+                                        	**type**\:   :py:class:`AdvertiseLocalV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV4>`
                                         
                                         .. attribute:: advertise_local_v6
                                         
                                         	Advertise Of Local Routes to the peer with different RT
-                                        	**type**\:  :py:class:`AdvertiseLocalV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV6>`
+                                        	**type**\:   :py:class:`AdvertiseLocalV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV6>`
                                         
                                         .. attribute:: advertise_orf
                                         
                                         	Advertise ORF capability to the peer
-                                        	**type**\:  :py:class:`BgpOrfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpOrfEnum>`
+                                        	**type**\:   :py:class:`BgpOrfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpOrfEnum>`
+                                        
+                                        	**default value**\: none
                                         
                                         .. attribute:: advertise_permanent_network
                                         
                                         	Advertise Permanent Networks to the peer
-                                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: advertise_v4
                                         
                                         	Advertise Translated Routes to the peer
-                                        	**type**\:  :py:class:`AdvertiseV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV4>`
+                                        	**type**\:   :py:class:`AdvertiseV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV4>`
                                         
                                         .. attribute:: advertise_v6
                                         
                                         	Advertise Translated Routes to the peer
-                                        	**type**\:  :py:class:`AdvertiseV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV6>`
+                                        	**type**\:   :py:class:`AdvertiseV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseV6>`
                                         
                                         .. attribute:: af_group
                                         
@@ -14782,17 +15126,19 @@ class Bgp(object):
                                         .. attribute:: aigp
                                         
                                         	Enable Accumulated IGP Metric for this neighbor
-                                        	**type**\:  :py:class:`BgpAigpCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgEnum>`
+                                        	**type**\:   :py:class:`BgpAigpCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgEnum>`
                                         
                                         .. attribute:: aigp_cost_community
                                         
                                         	Send AIGP value in Cost Community. 
-                                        	**type**\:  :py:class:`AigpCostCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AigpCostCommunity>`
+                                        	**type**\:   :py:class:`AigpCostCommunity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AigpCostCommunity>`
+                                        
+                                        	**presence node**\: True
                                         
                                         .. attribute:: aigp_send_med
                                         
                                         	Enable/Disable sending AIGP in MED 
-                                        	**type**\:  :py:class:`BgpAigpCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgEnum>`
+                                        	**type**\:   :py:class:`BgpAigpCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgEnum>`
                                         
                                         .. attribute:: allow_as_in
                                         
@@ -14801,20 +15147,24 @@ class Bgp(object):
                                         
                                         	**range:** 1..10
                                         
+                                        	**default value**\: 3
+                                        
                                         .. attribute:: as_override
                                         
                                         	TRUE to override matching AS\-number while sending update. FALSE to prevent as\-override from being inherited from the parent
                                         	**type**\:  bool
                                         
+                                        	**default value**\: true
+                                        
                                         .. attribute:: create
                                         
                                         	Create this address family group. Deletion of this object causes deletion of all the objects under AFGroup associated with this object
-                                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: default_originate
                                         
                                         	Originate default route to this neighbor
-                                        	**type**\:  :py:class:`DefaultOriginate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.DefaultOriginate>`
+                                        	**type**\:   :py:class:`DefaultOriginate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.DefaultOriginate>`
                                         
                                         .. attribute:: default_weight
                                         
@@ -14826,42 +15176,46 @@ class Bgp(object):
                                         .. attribute:: encapsulation_type
                                         
                                         	Encapsulation type for this neighbor
-                                        	**type**\:  :py:class:`BgpAfEncapsulationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAfEncapsulationEnum>`
+                                        	**type**\:   :py:class:`BgpAfEncapsulationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAfEncapsulationEnum>`
                                         
                                         .. attribute:: flowspec_validation
                                         
                                         	Config Flowspec validation for this neighbor
-                                        	**type**\:  :py:class:`BgpFlowspecValidationCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpFlowspecValidationCfgEnum>`
+                                        	**type**\:   :py:class:`BgpFlowspecValidationCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpFlowspecValidationCfgEnum>`
                                         
                                         .. attribute:: import_
                                         
                                         	Import Reorigination options for Routes from the peer
-                                        	**type**\:  :py:class:`Import <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.Import>`
+                                        	**type**\:   :py:class:`Import_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.Import_>`
                                         
                                         .. attribute:: l2vpn_signalling
                                         
                                         	Disable signalling type on the peer
-                                        	**type**\:  :py:class:`BgpSignalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSignalEnum>`
+                                        	**type**\:   :py:class:`BgpSignalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSignalEnum>`
                                         
                                         .. attribute:: maximum_prefixes
                                         
                                         	Maximum number of prefixes to accept from this peer
-                                        	**type**\:  :py:class:`MaximumPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.MaximumPrefixes>`
+                                        	**type**\:   :py:class:`MaximumPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.MaximumPrefixes>`
+                                        
+                                        	**presence node**\: True
                                         
                                         .. attribute:: multipath
                                         
                                         	Allow paths from this neighbor to be eligible for selective multipath
-                                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: neighbor_af_long_lived_graceful_restart_capable
                                         
                                         	TRUE to treat neighbor as Long\-lived Graceful\-restart capable. FALSE to rely on capability negotiation
                                         	**type**\:  bool
                                         
+                                        	**default value**\: false
+                                        
                                         .. attribute:: neighbor_af_long_lived_graceful_restart_stale_time
                                         
                                         	Maximum time to wait before purging long lived routes
-                                        	**type**\:  :py:class:`NeighborAfLongLivedGracefulRestartStaleTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.NeighborAfLongLivedGracefulRestartStaleTime>`
+                                        	**type**\:   :py:class:`NeighborAfLongLivedGracefulRestartStaleTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.NeighborAfLongLivedGracefulRestartStaleTime>`
                                         
                                         .. attribute:: next_hop_self
                                         
@@ -14886,12 +15240,16 @@ class Bgp(object):
                                         .. attribute:: remove_private_as_entire_as_path
                                         
                                         	Remove private AS number from outbound updates
-                                        	**type**\:  :py:class:`RemovePrivateAsEntireAsPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.RemovePrivateAsEntireAsPath>`
+                                        	**type**\:   :py:class:`RemovePrivateAsEntireAsPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.RemovePrivateAsEntireAsPath>`
+                                        
+                                        	**presence node**\: True
                                         
                                         .. attribute:: remove_private_as_entire_as_path_inbound
                                         
                                         	Remove private AS number from inbound updates
-                                        	**type**\:  :py:class:`RemovePrivateAsEntireAsPathInbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.RemovePrivateAsEntireAsPathInbound>`
+                                        	**type**\:   :py:class:`RemovePrivateAsEntireAsPathInbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.RemovePrivateAsEntireAsPathInbound>`
+                                        
+                                        	**presence node**\: True
                                         
                                         .. attribute:: route_policy_in
                                         
@@ -14911,12 +15269,12 @@ class Bgp(object):
                                         .. attribute:: rpki_bestpath_origin_as_allow_invalid
                                         
                                         	RPKI bestpath origin\-AS allow invalid
-                                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: rpki_origin_as_validation_disable
                                         
                                         	RPKI origin\-AS validation disable
-                                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                         
                                         .. attribute:: send_community_ebgp
                                         
@@ -14936,17 +15294,17 @@ class Bgp(object):
                                         .. attribute:: send_multicast_attr
                                         
                                         	Config send multicast attribute for this neighbor
-                                        	**type**\:  :py:class:`BgpSendMcastAttrCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSendMcastAttrCfgEnum>`
+                                        	**type**\:   :py:class:`BgpSendMcastAttrCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSendMcastAttrCfgEnum>`
                                         
                                         .. attribute:: site_of_origin
                                         
                                         	Site\-of\-Origin extended community associated with the neighbor
-                                        	**type**\:  :py:class:`SiteOfOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SiteOfOrigin>`
+                                        	**type**\:   :py:class:`SiteOfOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SiteOfOrigin>`
                                         
                                         .. attribute:: soft_reconfiguration
                                         
                                         	Enable/disable inbound soft reconfiguration for this neighbor/neighbor\-group/af\-group
-                                        	**type**\:  :py:class:`SoftReconfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SoftReconfiguration>`
+                                        	**type**\:   :py:class:`SoftReconfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.SoftReconfiguration>`
                                         
                                         
 
@@ -14992,7 +15350,7 @@ class Bgp(object):
                                             self.default_weight = None
                                             self.encapsulation_type = None
                                             self.flowspec_validation = None
-                                            self.import_ = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.Import()
+                                            self.import_ = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.Import_()
                                             self.import_.parent = self
                                             self.l2vpn_signalling = None
                                             self.maximum_prefixes = None
@@ -15037,7 +15395,7 @@ class Bgp(object):
                                             .. attribute:: cost_community_poi_type
                                             
                                             	Cost Community POI
-                                            	**type**\:  :py:class:`BgpAigpCfgPoiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgPoiEnum>`
+                                            	**type**\:   :py:class:`BgpAigpCfgPoiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAigpCfgPoiEnum>`
                                             
                                             	**mandatory**\: True
                                             
@@ -15118,17 +15476,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -15181,17 +15539,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -15247,6 +15605,8 @@ class Bgp(object):
                                             	Discard extra paths when limit is exceeded
                                             	**type**\:  bool
                                             
+                                            	**default value**\: false
+                                            
                                             .. attribute:: prefix_limit
                                             
                                             	Maximum prefixes limit
@@ -15263,10 +15623,14 @@ class Bgp(object):
                                             
                                             	**range:** 0..65535
                                             
+                                            	**default value**\: 0
+                                            
                                             .. attribute:: warning_only
                                             
                                             	TRUE to only give a warning message when limit is exceeded.  FALSE to accept max prefix limit only
                                             	**type**\:  bool
+                                            
+                                            	**default value**\: false
                                             
                                             .. attribute:: warning_percentage
                                             
@@ -15274,6 +15638,8 @@ class Bgp(object):
                                             	**type**\:  int
                                             
                                             	**range:** 1..100
+                                            
+                                            	**default value**\: 75
                                             
                                             .. attribute:: _is_presence
                                             
@@ -15410,17 +15776,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -15473,17 +15839,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -15537,17 +15903,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -15605,12 +15971,20 @@ class Bgp(object):
                                             
                                             	**range:** 0..16777215
                                             
+                                            	**units**\: second
+                                            
+                                            	**default value**\: 0
+                                            
                                             .. attribute:: stale_time_send
                                             
                                             	Max time (seconds)
                                             	**type**\:  int
                                             
                                             	**range:** 0..16777215
+                                            
+                                            	**units**\: second
+                                            
+                                            	**default value**\: 0
                                             
                                             
 
@@ -15695,7 +16069,7 @@ class Bgp(object):
                                             .. attribute:: type
                                             
                                             	Type of Extended community
-                                            	**type**\:  :py:class:`BgpSiteOfOriginEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSiteOfOriginEnum>`
+                                            	**type**\:   :py:class:`BgpSiteOfOriginEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpSiteOfOriginEnum>`
                                             
                                             
 
@@ -15760,17 +16134,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -15824,17 +16198,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -15880,7 +16254,7 @@ class Bgp(object):
                                                 return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV6']['meta_info']
 
 
-                                        class Import(object):
+                                        class Import_(object):
                                             """
                                             Import Reorigination options for Routes from the
                                             peer
@@ -15941,7 +16315,7 @@ class Bgp(object):
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.Import']['meta_info']
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.Import_']['meta_info']
 
 
                                         class DefaultOriginate(object):
@@ -15952,6 +16326,8 @@ class Bgp(object):
                                             
                                             	FALSE to prevent default\-originate from, being inherited from a parent. TRUE otherwise
                                             	**type**\:  bool
+                                            
+                                            	**default value**\: false
                                             
                                             .. attribute:: route_policy_name
                                             
@@ -16008,10 +16384,14 @@ class Bgp(object):
                                             	FALSE to prohibit inbound soft reconfiguration. TRUE otherwise
                                             	**type**\:  bool
                                             
+                                            	**default value**\: false
+                                            
                                             .. attribute:: soft_always
                                             
                                             	TRUE to always use soft reconfig, even if route refresh is supported.  FALSE otherwise
                                             	**type**\:  bool
+                                            
+                                            	**default value**\: false
                                             
                                             
 
@@ -16060,17 +16440,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -16124,17 +16504,17 @@ class Bgp(object):
                                             .. attribute:: af_name
                                             
                                             	Address family
-                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                             
                                             .. attribute:: reorg_option
                                             
                                             	Reorigination option
-                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            	**type**\:   :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
                                             .. attribute:: rt_type
                                             
                                             	RT type
-                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            	**type**\:   :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
                                             
                                             
 
@@ -16501,7 +16881,7 @@ class Bgp(object):
                             .. attribute:: session_group
                             
                             	A particular BGP session group
-                            	**type**\: list of  :py:class:`SessionGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup>`
+                            	**type**\: list of    :py:class:`SessionGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup>`
                             
                             
 
@@ -16531,22 +16911,24 @@ class Bgp(object):
                                 .. attribute:: additional_paths_receive_capability
                                 
                                 	Advertise additional paths Receive capability
-                                	**type**\:  :py:class:`BgpNbrCapAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfgEnum>`
+                                	**type**\:   :py:class:`BgpNbrCapAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfgEnum>`
                                 
                                 .. attribute:: additional_paths_send_capability
                                 
                                 	Advertise additional paths Send capability
-                                	**type**\:  :py:class:`BgpNbrCapAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfgEnum>`
+                                	**type**\:   :py:class:`BgpNbrCapAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpNbrCapAdditionalPathsCfgEnum>`
                                 
                                 .. attribute:: advertisement_interval
                                 
                                 	Minimum interval between sending BGP routing updates
-                                	**type**\:  :py:class:`AdvertisementInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.AdvertisementInterval>`
+                                	**type**\:   :py:class:`AdvertisementInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.AdvertisementInterval>`
+                                
+                                	**presence node**\: True
                                 
                                 .. attribute:: bfd_enable_modes
                                 
                                 	Strict mode, Default mode or Disable to prevent inheritance from a parent
-                                	**type**\:  :py:class:`BgpBfdEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpBfdEnableModeEnum>`
+                                	**type**\:   :py:class:`BgpBfdEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpBfdEnableModeEnum>`
                                 
                                 .. attribute:: bfd_minimum_interval
                                 
@@ -16554,6 +16936,8 @@ class Bgp(object):
                                 	**type**\:  int
                                 
                                 	**range:** 3..30000
+                                
+                                	**units**\: millisecond
                                 
                                 .. attribute:: bfd_multiplier
                                 
@@ -16565,12 +16949,12 @@ class Bgp(object):
                                 .. attribute:: bmp_activates
                                 
                                 	Enable BMP logging for this neighbor
-                                	**type**\:  :py:class:`BmpActivates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.BmpActivates>`
+                                	**type**\:   :py:class:`BmpActivates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.BmpActivates>`
                                 
                                 .. attribute:: create
                                 
                                 	Create this group. Deletion of this object causes deletion of all the objects under NeighborGroup/SessionGroup associated with this object
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: description
                                 
@@ -16580,7 +16964,7 @@ class Bgp(object):
                                 .. attribute:: ebgp_multihop
                                 
                                 	Allow EBGP neighbors not on directly connected networks
-                                	**type**\:  :py:class:`EbgpMultihop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.EbgpMultihop>`
+                                	**type**\:   :py:class:`EbgpMultihop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.EbgpMultihop>`
                                 
                                 .. attribute:: ebgp_recv_dmz
                                 
@@ -16590,7 +16974,7 @@ class Bgp(object):
                                 .. attribute:: ebgp_send_dmz_enable_modes
                                 
                                 	Default mode, Cumulative mode or Disable to prevent inheritance from a parent
-                                	**type**\:  :py:class:`BgpEbgpSendDmzEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpEbgpSendDmzEnableModeEnum>`
+                                	**type**\:   :py:class:`BgpEbgpSendDmzEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpEbgpSendDmzEnableModeEnum>`
                                 
                                 .. attribute:: egress_peer_engineering
                                 
@@ -16605,7 +16989,7 @@ class Bgp(object):
                                 .. attribute:: graceful_maintenance
                                 
                                 	Graceful Maintenance mode
-                                	**type**\:  :py:class:`GracefulMaintenance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance>`
+                                	**type**\:   :py:class:`GracefulMaintenance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance>`
                                 
                                 .. attribute:: ignore_connected_check_ebgp
                                 
@@ -16620,32 +17004,32 @@ class Bgp(object):
                                 .. attribute:: keychain
                                 
                                 	Set or disable keychain based authentication
-                                	**type**\:  :py:class:`Keychain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Keychain>`
+                                	**type**\:   :py:class:`Keychain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Keychain>`
                                 
                                 .. attribute:: local_address
                                 
                                 	Local ip address
-                                	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAddress>`
+                                	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAddress>`
                                 
                                 .. attribute:: local_as
                                 
                                 	Specify a local\-as number
-                                	**type**\:  :py:class:`LocalAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAs>`
+                                	**type**\:   :py:class:`LocalAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.LocalAs>`
                                 
                                 .. attribute:: msg_log_in
                                 
                                 	Message log inbound
-                                	**type**\:  :py:class:`MsgLogIn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogIn>`
+                                	**type**\:   :py:class:`MsgLogIn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogIn>`
                                 
                                 .. attribute:: msg_log_out
                                 
                                 	Message log outbound
-                                	**type**\:  :py:class:`MsgLogOut <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogOut>`
+                                	**type**\:   :py:class:`MsgLogOut <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.MsgLogOut>`
                                 
                                 .. attribute:: neighbor_cluster_id
                                 
                                 	Neighbor Cluster\-id
-                                	**type**\:  :py:class:`NeighborClusterId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.NeighborClusterId>`
+                                	**type**\:   :py:class:`NeighborClusterId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.NeighborClusterId>`
                                 
                                 .. attribute:: neighbor_graceful_restart
                                 
@@ -16659,6 +17043,10 @@ class Bgp(object):
                                 
                                 	**range:** 1..4095
                                 
+                                	**units**\: second
+                                
+                                	**default value**\: 360
+                                
                                 .. attribute:: neighbor_graceful_restart_time
                                 
                                 	Restart time advertised to neighbor
@@ -16666,10 +17054,14 @@ class Bgp(object):
                                 
                                 	**range:** 1..4095
                                 
+                                	**units**\: second
+                                
+                                	**default value**\: 120
+                                
                                 .. attribute:: password
                                 
                                 	Set or disable a password
-                                	**type**\:  :py:class:`Password <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Password>`
+                                	**type**\:   :py:class:`Password <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Password>`
                                 
                                 .. attribute:: propagate_dmz_link_bandwidth
                                 
@@ -16679,27 +17071,27 @@ class Bgp(object):
                                 .. attribute:: receive_buffer_size
                                 
                                 	Set socket receive buffer size and BGP read buffer size
-                                	**type**\:  :py:class:`ReceiveBufferSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.ReceiveBufferSize>`
+                                	**type**\:   :py:class:`ReceiveBufferSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.ReceiveBufferSize>`
                                 
                                 .. attribute:: remote_as
                                 
                                 	Set remote AS
-                                	**type**\:  :py:class:`RemoteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.RemoteAs>`
+                                	**type**\:   :py:class:`RemoteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.RemoteAs>`
                                 
                                 .. attribute:: rpki_bestpath_origin_as_allow_invalid
                                 
                                 	RPKI bestpath origin\-AS allow invalid
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: rpki_origin_as_validation_disable
                                 
                                 	RPKI origin\-AS validation disable
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: send_buffer_size
                                 
                                 	Set socket send buffer size and BGP write buffer size
-                                	**type**\:  :py:class:`SendBufferSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.SendBufferSize>`
+                                	**type**\:   :py:class:`SendBufferSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.SendBufferSize>`
                                 
                                 .. attribute:: session_group_add_member
                                 
@@ -16709,7 +17101,9 @@ class Bgp(object):
                                 .. attribute:: session_open_mode
                                 
                                 	TCP mode to be used to establish BGP session
-                                	**type**\:  :py:class:`BgpTcpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpTcpModeEnum>`
+                                	**type**\:   :py:class:`BgpTcpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpTcpModeEnum>`
+                                
+                                	**default value**\: either
                                 
                                 .. attribute:: shutdown
                                 
@@ -16729,17 +17123,17 @@ class Bgp(object):
                                 .. attribute:: tcpmss
                                 
                                 	TCP Maximum segment size
-                                	**type**\:  :py:class:`Tcpmss <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tcpmss>`
+                                	**type**\:   :py:class:`Tcpmss <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tcpmss>`
                                 
                                 .. attribute:: timers
                                 
                                 	BGP per neighbor timers
-                                	**type**\:  :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Timers>`
+                                	**type**\:   :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Timers>`
                                 
                                 .. attribute:: tos
                                 
                                 	TOS (Type Of Service)
-                                	**type**\:  :py:class:`Tos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tos>`
+                                	**type**\:   :py:class:`Tos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tos>`
                                 
                                 .. attribute:: ttl_security
                                 
@@ -16749,7 +17143,7 @@ class Bgp(object):
                                 .. attribute:: update_in_filtering
                                 
                                 	Inbound update filtering
-                                	**type**\:  :py:class:`UpdateInFiltering <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.UpdateInFiltering>`
+                                	**type**\:   :py:class:`UpdateInFiltering <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.UpdateInFiltering>`
                                 
                                 .. attribute:: update_source_interface
                                 
@@ -16904,7 +17298,7 @@ class Bgp(object):
                                     .. attribute:: bmp_activate
                                     
                                     	Enable BMP logging for this particular server
-                                    	**type**\: list of  :py:class:`BmpActivate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.BmpActivates.BmpActivate>`
+                                    	**type**\: list of    :py:class:`BmpActivate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.BmpActivates.BmpActivate>`
                                     
                                     
 
@@ -17007,10 +17401,14 @@ class Bgp(object):
                                     
                                     	**range:** 1..255
                                     
+                                    	**default value**\: 255
+                                    
                                     .. attribute:: mpls_deactivation
                                     
                                     	TRUE to not enable MPLS and NULL rewrite
                                     	**type**\:  bool
+                                    
+                                    	**default value**\: false
                                     
                                     
 
@@ -17131,22 +17529,22 @@ class Bgp(object):
                                     .. attribute:: disable
                                     
                                     	Disable Local AS and prevent it from being inherited from a parent
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: dual_as
                                     
                                     	Dual\-AS mode
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: no_prepend
                                     
                                     	Do not prepend Local AS to announcements from this neighbor
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: replace_as
                                     
                                     	Prepend only Local AS to announcements from this neighbor
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     
 
@@ -17274,12 +17672,16 @@ class Bgp(object):
                                     
                                     	**mandatory**\: True
                                     
+                                    	**units**\: second
+                                    
                                     .. attribute:: minimum_interval_msecs
                                     
                                     	Minimum advertisement interval time, msecs part
                                     	**type**\:  int
                                     
                                     	**range:** 0..999
+                                    
+                                    	**units**\: millisecond
                                     
                                     .. attribute:: _is_presence
                                     
@@ -17452,14 +17854,14 @@ class Bgp(object):
                                     .. attribute:: type
                                     
                                     	Set type of service
-                                    	**type**\:  :py:class:`BgpTosEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpTosEnum>`
+                                    	**type**\:   :py:class:`BgpTosEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpTosEnum>`
                                     
                                     .. attribute:: value
                                     
                                     	TOS value to set
                                     	**type**\: one of the below types:
                                     
-                                    	**type**\:  :py:class:`BgpPrecedenceDscpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpPrecedenceDscpEnum>`
+                                    	**type**\:   :py:class:`BgpPrecedenceDscpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpPrecedenceDscpEnum>`
                                     
                                     
                                     ----
@@ -17516,7 +17918,7 @@ class Bgp(object):
                                     .. attribute:: enable
                                     
                                     	Configure inbound update filtering
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: update_in_filtering_attribute_filter_group
                                     
@@ -17526,12 +17928,14 @@ class Bgp(object):
                                     .. attribute:: update_in_filtering_message_buffers
                                     
                                     	Message buffers to store filtered updates
-                                    	**type**\:  :py:class:`UpdateInFilteringMessageBuffers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.UpdateInFiltering.UpdateInFilteringMessageBuffers>`
+                                    	**type**\:   :py:class:`UpdateInFilteringMessageBuffers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.UpdateInFiltering.UpdateInFilteringMessageBuffers>`
+                                    
+                                    	**presence node**\: True
                                     
                                     .. attribute:: update_in_filtering_syslog_disable
                                     
                                     	Disable inbound update filtering syslog messages
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     
 
@@ -17728,12 +18132,20 @@ class Bgp(object):
                                     
                                     	**range:** 512..131072
                                     
+                                    	**units**\: byte
+                                    
+                                    	**default value**\: 4096
+                                    
                                     .. attribute:: socket_receive_size
                                     
                                     	Receive socket buffer size in bytes
                                     	**type**\:  int
                                     
                                     	**range:** 512..131072
+                                    
+                                    	**units**\: byte
+                                    
+                                    	**default value**\: 32768
                                     
                                     
 
@@ -17852,12 +18264,20 @@ class Bgp(object):
                                     
                                     	**range:** 4096..131072
                                     
+                                    	**units**\: byte
+                                    
+                                    	**default value**\: 4096
+                                    
                                     .. attribute:: socket_send_size
                                     
                                     	Send socket buffer size in bytes
                                     	**type**\:  int
                                     
                                     	**range:** 4096..131072
+                                    
+                                    	**units**\: byte
+                                    
+                                    	**default value**\: 24576
                                     
                                     
 
@@ -17910,6 +18330,8 @@ class Bgp(object):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**default value**\: 180
+                                    
                                     .. attribute:: keepalive_interval
                                     
                                     	Keepalive interval
@@ -17917,12 +18339,16 @@ class Bgp(object):
                                     
                                     	**range:** 0..65535
                                     
+                                    	**default value**\: 60
+                                    
                                     .. attribute:: min_accept_hold_time
                                     
                                     	Minimum acceptable hold time.  Specify 0 to disable keepalives/hold time
                                     	**type**\:  int
                                     
                                     	**range:** 0..65535
+                                    
+                                    	**default value**\: 3
                                     
                                     
 
@@ -18029,7 +18455,7 @@ class Bgp(object):
                                     .. attribute:: enable
                                     
                                     	Enter Graceful Maintenance mode to configure parametrs
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: graceful_maintenance_activate
                                     
@@ -18039,12 +18465,12 @@ class Bgp(object):
                                     .. attribute:: graceful_maintenance_as_prepends
                                     
                                     	Number of times to prepend local AS number to the AS path
-                                    	**type**\:  :py:class:`GracefulMaintenanceAsPrepends <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance.GracefulMaintenanceAsPrepends>`
+                                    	**type**\:   :py:class:`GracefulMaintenanceAsPrepends <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance.GracefulMaintenanceAsPrepends>`
                                     
                                     .. attribute:: graceful_maintenance_local_preference
                                     
                                     	Set Local Preference to advertise routes with
-                                    	**type**\:  :py:class:`GracefulMaintenanceLocalPreference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance.GracefulMaintenanceLocalPreference>`
+                                    	**type**\:   :py:class:`GracefulMaintenanceLocalPreference <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance.GracefulMaintenanceLocalPreference>`
                                     
                                     
 
@@ -18426,84 +18852,84 @@ class Bgp(object):
                             return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity']['meta_info']
 
 
-                    class Global(object):
+                    class Global_(object):
                         """
                         Global default config
                         
                         .. attribute:: as_league
                         
                         	AS League
-                        	**type**\:  :py:class:`AsLeague <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague>`
+                        	**type**\:   :py:class:`AsLeague <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsLeague>`
                         
                         .. attribute:: attribute_filter_groups
                         
                         	Attribute\-filter groups list
-                        	**type**\:  :py:class:`AttributeFilterGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups>`
+                        	**type**\:   :py:class:`AttributeFilterGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AttributeFilterGroups>`
                         
                         .. attribute:: best_path_aigp_ignore
                         
                         	Change default route selection criteria to ignore AIGP unless both paths whichare compared have AIGP attribute
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: best_path_as_multipath_relax
                         
                         	Change default multi\-route selection criteria to relax as\-path checking \- only require same aspath length
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: best_path_as_path_length
                         
                         	Change default route selection criteria to ignore AS path length
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: best_path_confederation_paths
                         
                         	Change default route selection criteria and allow the comparing of MED among confederation paths
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: best_path_cost_community
                         
                         	Change default route selection criteria to ignore cost community comparison
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: best_path_med_always
                         
                         	Change default route selection criteria and allow comparing of MED from different neighbors
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: best_path_med_missing
                         
                         	Treat missing MED as the least preferred one
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: best_path_router_id
                         
                         	Change default route selection criteria and compare router\-id for identical EBGP paths
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: bfd
                         
                         	BFD configuration
-                        	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Bfd>`
+                        	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.Bfd>`
                         
                         .. attribute:: cluster_id
                         
                         	Configure Route\-Reflector Cluster\-id
-                        	**type**\:  :py:class:`ClusterId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ClusterId>`
+                        	**type**\:   :py:class:`ClusterId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ClusterId>`
                         
                         .. attribute:: confederation_domain
                         
                         	Set routing domain confederation AS
-                        	**type**\:  :py:class:`ConfederationDomain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationDomain>`
+                        	**type**\:   :py:class:`ConfederationDomain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ConfederationDomain>`
                         
                         .. attribute:: confederation_peer_ases
                         
                         	Define peer ASes in BGP confederation
-                        	**type**\:  :py:class:`ConfederationPeerAses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses>`
+                        	**type**\:   :py:class:`ConfederationPeerAses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ConfederationPeerAses>`
                         
                         .. attribute:: default_info_originate
                         
                         	Control distribution of default information
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: default_metric
                         
@@ -18515,42 +18941,42 @@ class Bgp(object):
                         .. attribute:: disable_auto_soft_reset
                         
                         	Disable automatic soft peer reset on policy reconfiguration
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: disable_enforce_first_as
                         
                         	Disable enforce the first AS for EBGP routes
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: disable_fast_external_fallover
                         
                         	Disable immediate reset session if a link to a directly connected external peer goes down
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: disable_msg_log
                         
                         	Disable inbound and outbound messagelogging for all neighbors under the vrf
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: disable_neighbor_logging
                         
                         	Disable neighbor change logging
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: enforce_ibgp_out_policy
                         
                         	Allow all attributes to be modified by outbound policy for iBGP peers
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: global_afs
                         
                         	Global AF\-specific configuration
-                        	**type**\:  :py:class:`GlobalAfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs>`
+                        	**type**\:   :py:class:`GlobalAfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs>`
                         
                         .. attribute:: global_graceful_maintenance_activate
                         
                         	Activate Graceful Maintenance Mode for all neighbors with graceful maintenance config
-                        	**type**\:  :py:class:`GlobalGracefulMaintenanceActivate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate>`
+                        	**type**\:   :py:class:`GlobalGracefulMaintenanceActivate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalGracefulMaintenanceActivate>`
                         
                         .. attribute:: global_scan_time
                         
@@ -18559,20 +18985,24 @@ class Bgp(object):
                         
                         	**range:** 5..3600
                         
+                        	**units**\: second
+                        
+                        	**default value**\: 60
+                        
                         .. attribute:: global_timers
                         
                         	Adjust routing timers
-                        	**type**\:  :py:class:`GlobalTimers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalTimers>`
+                        	**type**\:   :py:class:`GlobalTimers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalTimers>`
                         
                         .. attribute:: graceful_reset
                         
                         	Reset gracefully if configuration change forces a peer reset
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: graceful_restart
                         
                         	Enable graceful restart support
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: graceful_restart_purge_time
                         
@@ -18581,12 +19011,20 @@ class Bgp(object):
                         
                         	**range:** 1..6000
                         
+                        	**units**\: second
+                        
+                        	**default value**\: 600
+                        
                         .. attribute:: graceful_restart_stalepath_time
                         
                         	Maximum time to wait for restart of GR capable peers
                         	**type**\:  int
                         
                         	**range:** 1..4095
+                        
+                        	**units**\: second
+                        
+                        	**default value**\: 360
                         
                         .. attribute:: graceful_restart_time
                         
@@ -18595,25 +19033,29 @@ class Bgp(object):
                         
                         	**range:** 1..4095
                         
+                        	**units**\: second
+                        
+                        	**default value**\: 120
+                        
                         .. attribute:: igp_loop_check
                         
                         	Enable AS\-path loop checking for iBGP peers
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: igp_redist_internal
                         
                         	Allow redistribution of iBGP into IGPs (dangerous)
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: install_diversion
                         
                         	Install diversion path to RIB/CEF
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: limits
                         
                         	Maximum number that can be configured
-                        	**type**\:  :py:class:`Limits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Limits>`
+                        	**type**\:   :py:class:`Limits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.Limits>`
                         
                         .. attribute:: local_preference
                         
@@ -18622,25 +19064,27 @@ class Bgp(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**default value**\: 100
+                        
                         .. attribute:: mpls_activated_interfaces
                         
                         	Configure list of MPLS activated interfaces
-                        	**type**\:  :py:class:`MplsActivatedInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces>`
+                        	**type**\:   :py:class:`MplsActivatedInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.MplsActivatedInterfaces>`
                         
                         .. attribute:: multi_path_as_path_ignore_onwards
                         
                         	Change default multi\-route selection criteria to ignore everything onwards as\-path check
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: mvpn
                         
                         	Connect to PIM/PIM6
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: neighbor_logging_detail
                         
                         	Include extra detail in neighbor change messages
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: next_hop_trigger_delay
                         
@@ -18648,6 +19092,10 @@ class Bgp(object):
                         	**type**\:  int
                         
                         	**range:** 0..300
+                        
+                        	**units**\: second
+                        
+                        	**default value**\: 5
                         
                         .. attribute:: nsr
                         
@@ -18657,12 +19105,12 @@ class Bgp(object):
                         .. attribute:: read_only
                         
                         	Allow duplicate table config and disable update generation
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: receive_socket_buffer_sizes
                         
                         	Set socket and BGP receive buffer sizes
-                        	**type**\:  :py:class:`ReceiveSocketBufferSizes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ReceiveSocketBufferSizes>`
+                        	**type**\:   :py:class:`ReceiveSocketBufferSizes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ReceiveSocketBufferSizes>`
                         
                         .. attribute:: router_id
                         
@@ -18671,20 +19119,22 @@ class Bgp(object):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
+                        	**default value**\: 0.0.0.0
+                        
                         .. attribute:: rpki_bestpath_origin_as_allow_invalid
                         
                         	RPKI bestpath origin\-AS allow invalid
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: rpki_bestpath_use_origin_as_validity
                         
                         	RPKI bestpath use origin\-AS validity
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: rpki_origin_as_validation_disable
                         
                         	RPKI origin\-AS validation disable
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: rpki_origin_as_validation_time
                         
@@ -18693,50 +19143,52 @@ class Bgp(object):
                         
                         	**range:** 0..60
                         
+                        	**units**\: second
+                        
                         .. attribute:: rpki_origin_as_validity_signal_ibgp
                         
                         	RPKI origin\-AS validity signal ibgp
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: rpki_servers
                         
                         	RPKI server configuration
-                        	**type**\:  :py:class:`RpkiServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers>`
+                        	**type**\:   :py:class:`RpkiServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiServers>`
                         
                         .. attribute:: rpki_static_routes
                         
                         	RPKI static route configuration
-                        	**type**\:  :py:class:`RpkiStaticRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes>`
+                        	**type**\:   :py:class:`RpkiStaticRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiStaticRoutes>`
                         
                         .. attribute:: send_socket_buffer_sizes
                         
                         	set socket parameters
-                        	**type**\:  :py:class:`SendSocketBufferSizes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SendSocketBufferSizes>`
+                        	**type**\:   :py:class:`SendSocketBufferSizes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.SendSocketBufferSizes>`
                         
                         .. attribute:: update_delay
                         
                         	Set the max initial delay for sending updates
-                        	**type**\:  :py:class:`UpdateDelay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.UpdateDelay>`
+                        	**type**\:   :py:class:`UpdateDelay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.UpdateDelay>`
                         
                         .. attribute:: update_error_handling_basic_ebgp_disable
                         
                         	Inbound update basic error\-handling for EBGP neighbors
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: update_error_handling_basic_ibgp_disable
                         
                         	Inbound update basic error\-handling for IBGP neighbors
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: update_error_handling_extended_ebgp
                         
                         	Inbound update extended error\-handling for EBGP neighbors
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: update_error_handling_extended_ibgp
                         
                         	Inbound update extended error\-handling for IBGP neighbors
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: update_limit_process
                         
@@ -18745,15 +19197,19 @@ class Bgp(object):
                         
                         	**range:** 16..2048
                         
+                        	**units**\: megabyte
+                        
+                        	**default value**\: 512
+                        
                         .. attribute:: update_out_logging
                         
                         	Enables logging of update generation events
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: write_limit
                         
                         	Set write\-queue limit for each update group
-                        	**type**\:  :py:class:`WriteLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.WriteLimit>`
+                        	**type**\:   :py:class:`WriteLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.WriteLimit>`
                         
                         
 
@@ -18764,9 +19220,9 @@ class Bgp(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.as_league = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague()
+                            self.as_league = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsLeague()
                             self.as_league.parent = self
-                            self.attribute_filter_groups = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups()
+                            self.attribute_filter_groups = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AttributeFilterGroups()
                             self.attribute_filter_groups.parent = self
                             self.best_path_aigp_ignore = None
                             self.best_path_as_multipath_relax = None
@@ -18776,13 +19232,13 @@ class Bgp(object):
                             self.best_path_med_always = None
                             self.best_path_med_missing = None
                             self.best_path_router_id = None
-                            self.bfd = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Bfd()
+                            self.bfd = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.Bfd()
                             self.bfd.parent = self
-                            self.cluster_id = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ClusterId()
+                            self.cluster_id = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ClusterId()
                             self.cluster_id.parent = self
-                            self.confederation_domain = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationDomain()
+                            self.confederation_domain = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ConfederationDomain()
                             self.confederation_domain.parent = self
-                            self.confederation_peer_ases = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses()
+                            self.confederation_peer_ases = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ConfederationPeerAses()
                             self.confederation_peer_ases.parent = self
                             self.default_info_originate = None
                             self.default_metric = None
@@ -18792,12 +19248,12 @@ class Bgp(object):
                             self.disable_msg_log = None
                             self.disable_neighbor_logging = None
                             self.enforce_ibgp_out_policy = None
-                            self.global_afs = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs()
+                            self.global_afs = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs()
                             self.global_afs.parent = self
-                            self.global_graceful_maintenance_activate = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate()
+                            self.global_graceful_maintenance_activate = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalGracefulMaintenanceActivate()
                             self.global_graceful_maintenance_activate.parent = self
                             self.global_scan_time = None
-                            self.global_timers = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalTimers()
+                            self.global_timers = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalTimers()
                             self.global_timers.parent = self
                             self.graceful_reset = None
                             self.graceful_restart = None
@@ -18807,10 +19263,10 @@ class Bgp(object):
                             self.igp_loop_check = None
                             self.igp_redist_internal = None
                             self.install_diversion = None
-                            self.limits = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Limits()
+                            self.limits = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.Limits()
                             self.limits.parent = self
                             self.local_preference = None
-                            self.mpls_activated_interfaces = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces()
+                            self.mpls_activated_interfaces = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.MplsActivatedInterfaces()
                             self.mpls_activated_interfaces.parent = self
                             self.multi_path_as_path_ignore_onwards = None
                             self.mvpn = None
@@ -18818,7 +19274,7 @@ class Bgp(object):
                             self.next_hop_trigger_delay = None
                             self.nsr = None
                             self.read_only = None
-                            self.receive_socket_buffer_sizes = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ReceiveSocketBufferSizes()
+                            self.receive_socket_buffer_sizes = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ReceiveSocketBufferSizes()
                             self.receive_socket_buffer_sizes.parent = self
                             self.router_id = None
                             self.rpki_bestpath_origin_as_allow_invalid = None
@@ -18826,13 +19282,13 @@ class Bgp(object):
                             self.rpki_origin_as_validation_disable = None
                             self.rpki_origin_as_validation_time = None
                             self.rpki_origin_as_validity_signal_ibgp = None
-                            self.rpki_servers = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers()
+                            self.rpki_servers = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiServers()
                             self.rpki_servers.parent = self
-                            self.rpki_static_routes = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes()
+                            self.rpki_static_routes = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiStaticRoutes()
                             self.rpki_static_routes.parent = self
-                            self.send_socket_buffer_sizes = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SendSocketBufferSizes()
+                            self.send_socket_buffer_sizes = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.SendSocketBufferSizes()
                             self.send_socket_buffer_sizes.parent = self
-                            self.update_delay = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.UpdateDelay()
+                            self.update_delay = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.UpdateDelay()
                             self.update_delay.parent = self
                             self.update_error_handling_basic_ebgp_disable = None
                             self.update_error_handling_basic_ibgp_disable = None
@@ -18840,7 +19296,7 @@ class Bgp(object):
                             self.update_error_handling_extended_ibgp = None
                             self.update_limit_process = None
                             self.update_out_logging = None
-                            self.write_limit = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.WriteLimit()
+                            self.write_limit = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.WriteLimit()
                             self.write_limit.parent = self
 
 
@@ -18899,7 +19355,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ClusterId']['meta_info']
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ClusterId']['meta_info']
 
 
                         class WriteLimit(object):
@@ -18911,6 +19367,8 @@ class Bgp(object):
                             	TRUE to enable desynchronization, FALSE otherwise
                             	**type**\:  bool
                             
+                            	**default value**\: false
+                            
                             .. attribute:: enqueued_messages
                             
                             	Number of messages that can be enqueued in total
@@ -18918,12 +19376,16 @@ class Bgp(object):
                             
                             	**range:** 500..100000000
                             
+                            	**default value**\: 250000
+                            
                             .. attribute:: formatted_messages
                             
                             	Number of messages to be formatted per update group
                             	**type**\:  int
                             
                             	**range:** 500..100000000
+                            
+                            	**default value**\: 50000
                             
                             
 
@@ -18966,7 +19428,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.WriteLimit']['meta_info']
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.WriteLimit']['meta_info']
 
 
                         class UpdateDelay(object):
@@ -18979,12 +19441,18 @@ class Bgp(object):
                             	Set to TRUE to disable keepalive trigger bestpath and delay is enforced
                             	**type**\:  bool
                             
+                            	**default value**\: false
+                            
                             .. attribute:: delay
                             
                             	Delay value (seconds)
                             	**type**\:  int
                             
                             	**range:** 0..3600
+                            
+                            	**units**\: second
+                            
+                            	**default value**\: 120
                             
                             
 
@@ -19023,7 +19491,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.UpdateDelay']['meta_info']
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.UpdateDelay']['meta_info']
 
 
                         class AsLeague(object):
@@ -19033,12 +19501,12 @@ class Bgp(object):
                             .. attribute:: enable
                             
                             	AS League creation
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: peers
                             
                             	AS League Peers
-                            	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers>`
+                            	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsLeague.Peers>`
                             
                             
 
@@ -19050,7 +19518,7 @@ class Bgp(object):
                             def __init__(self):
                                 self.parent = None
                                 self.enable = None
-                                self.peers = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers()
+                                self.peers = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsLeague.Peers()
                                 self.peers.parent = self
 
 
@@ -19061,7 +19529,7 @@ class Bgp(object):
                                 .. attribute:: peer
                                 
                                 	AS League Peer AS
-                                	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers.Peer>`
+                                	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsLeague.Peers.Peer>`
                                 
                                 
 
@@ -19136,7 +19604,7 @@ class Bgp(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers.Peer']['meta_info']
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsLeague.Peers.Peer']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -19162,7 +19630,7 @@ class Bgp(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague.Peers']['meta_info']
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsLeague.Peers']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -19189,7 +19657,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AsLeague']['meta_info']
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AsLeague']['meta_info']
 
 
                         class RpkiServers(object):
@@ -19199,7 +19667,7 @@ class Bgp(object):
                             .. attribute:: rpki_server
                             
                             	RPKI server configuration
-                            	**type**\: list of  :py:class:`RpkiServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer>`
+                            	**type**\: list of    :py:class:`RpkiServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiServers.RpkiServer>`
                             
                             
 
@@ -19227,7 +19695,7 @@ class Bgp(object):
                                 .. attribute:: enable
                                 
                                 	RPKI server configuration
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: password
                                 
@@ -19241,12 +19709,16 @@ class Bgp(object):
                                 
                                 	**range:** \-2147483648..2147483647
                                 
+                                	**units**\: second
+                                
                                 .. attribute:: refresh_time
                                 
                                 	RPKI server refresh\-time (seconds)
                                 	**type**\:  int
                                 
                                 	**range:** \-2147483648..2147483647
+                                
+                                	**units**\: second
                                 
                                 .. attribute:: response_time
                                 
@@ -19255,15 +19727,17 @@ class Bgp(object):
                                 
                                 	**range:** \-2147483648..2147483647
                                 
+                                	**units**\: second
+                                
                                 .. attribute:: shutdown
                                 
                                 	RPKI server shutdown
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: transport
                                 
                                 	RPKI server transport
-                                	**type**\:  :py:class:`Transport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer.Transport>`
+                                	**type**\:   :py:class:`Transport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiServers.RpkiServer.Transport>`
                                 
                                 .. attribute:: username
                                 
@@ -19286,7 +19760,7 @@ class Bgp(object):
                                     self.refresh_time = None
                                     self.response_time = None
                                     self.shutdown = None
-                                    self.transport = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer.Transport()
+                                    self.transport = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiServers.RpkiServer.Transport()
                                     self.transport.parent = self
                                     self.username = None
 
@@ -19302,10 +19776,14 @@ class Bgp(object):
                                     
                                     	**range:** 1..65535
                                     
+                                    	**default value**\: 22
+                                    
                                     .. attribute:: transport
                                     
                                     	RPKI server transport
-                                    	**type**\:  :py:class:`BgpRpkiTransportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpRpkiTransportEnum>`
+                                    	**type**\:   :py:class:`BgpRpkiTransportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpRpkiTransportEnum>`
+                                    
+                                    	**default value**\: ssh
                                     
                                     
 
@@ -19344,7 +19822,7 @@ class Bgp(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer.Transport']['meta_info']
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiServers.RpkiServer.Transport']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -19394,7 +19872,7 @@ class Bgp(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers.RpkiServer']['meta_info']
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiServers.RpkiServer']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -19420,7 +19898,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiServers']['meta_info']
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiServers']['meta_info']
 
 
                         class Limits(object):
@@ -19433,6 +19911,8 @@ class Bgp(object):
                             	**type**\:  int
                             
                             	**range:** 1..15000
+                            
+                            	**default value**\: 10000
                             
                             
 
@@ -19467,7 +19947,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Limits']['meta_info']
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.Limits']['meta_info']
 
 
                         class ConfederationDomain(object):
@@ -19525,7 +20005,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationDomain']['meta_info']
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ConfederationDomain']['meta_info']
 
 
                         class ConfederationPeerAses(object):
@@ -19535,7 +20015,7 @@ class Bgp(object):
                             .. attribute:: confederation_peer_as
                             
                             	Confederation peer AS
-                            	**type**\: list of  :py:class:`ConfederationPeerAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses.ConfederationPeerAs>`
+                            	**type**\: list of    :py:class:`ConfederationPeerAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ConfederationPeerAses.ConfederationPeerAs>`
                             
                             
 
@@ -19610,7 +20090,7 @@ class Bgp(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses.ConfederationPeerAs']['meta_info']
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ConfederationPeerAses.ConfederationPeerAs']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -19636,7 +20116,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ConfederationPeerAses']['meta_info']
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ConfederationPeerAses']['meta_info']
 
 
                         class AttributeFilterGroups(object):
@@ -19646,7 +20126,7 @@ class Bgp(object):
                             .. attribute:: attribute_filter_group
                             
                             	Attribute\-filter group
-                            	**type**\: list of  :py:class:`AttributeFilterGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup>`
+                            	**type**\: list of    :py:class:`AttributeFilterGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AttributeFilterGroups.AttributeFilterGroup>`
                             
                             
 
@@ -19676,12 +20156,12 @@ class Bgp(object):
                                 .. attribute:: attribute_filters
                                 
                                 	Attribute\-filter group attributes list
-                                	**type**\:  :py:class:`AttributeFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters>`
+                                	**type**\:   :py:class:`AttributeFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters>`
                                 
                                 .. attribute:: enable
                                 
                                 	Attribute\-filter group creation
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -19693,7 +20173,7 @@ class Bgp(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.attribute_filter_group_name = None
-                                    self.attribute_filters = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters()
+                                    self.attribute_filters = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters()
                                     self.attribute_filters.parent = self
                                     self.enable = None
 
@@ -19705,7 +20185,7 @@ class Bgp(object):
                                     .. attribute:: attribute_filter
                                     
                                     	Attribute\-filter group attribute
-                                    	**type**\: list of  :py:class:`AttributeFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters.AttributeFilter>`
+                                    	**type**\: list of    :py:class:`AttributeFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters.AttributeFilter>`
                                     
                                     
 
@@ -19742,7 +20222,7 @@ class Bgp(object):
                                         .. attribute:: filter_action
                                         
                                         	Filtering action
-                                        	**type**\:  :py:class:`BgpUpdateFilterActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpUpdateFilterActionEnum>`
+                                        	**type**\:   :py:class:`BgpUpdateFilterActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpUpdateFilterActionEnum>`
                                         
                                         	**mandatory**\: True
                                         
@@ -19791,7 +20271,7 @@ class Bgp(object):
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters.AttributeFilter']['meta_info']
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters.AttributeFilter']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -19817,7 +20297,7 @@ class Bgp(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters']['meta_info']
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AttributeFilterGroups.AttributeFilterGroup.AttributeFilters']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -19849,7 +20329,7 @@ class Bgp(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups.AttributeFilterGroup']['meta_info']
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AttributeFilterGroups.AttributeFilterGroup']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -19875,7 +20355,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.AttributeFilterGroups']['meta_info']
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.AttributeFilterGroups']['meta_info']
 
 
                         class GlobalGracefulMaintenanceActivate(object):
@@ -19930,7 +20410,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalGracefulMaintenanceActivate']['meta_info']
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalGracefulMaintenanceActivate']['meta_info']
 
 
                         class GlobalAfs(object):
@@ -19940,7 +20420,7 @@ class Bgp(object):
                             .. attribute:: global_af
                             
                             	Global AF\-specific configuration
-                            	**type**\: list of  :py:class:`GlobalAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf>`
+                            	**type**\: list of    :py:class:`GlobalAf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf>`
                             
                             
 
@@ -19963,42 +20443,42 @@ class Bgp(object):
                                 .. attribute:: af_name  <key>
                                 
                                 	Address family
-                                	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                	**type**\:   :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
                                 
                                 .. attribute:: additional_paths_receive
                                 
                                 	Advertise additional paths Receive capability
-                                	**type**\:  :py:class:`BgpafAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpafAdditionalPathsCfgEnum>`
+                                	**type**\:   :py:class:`BgpafAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpafAdditionalPathsCfgEnum>`
                                 
                                 .. attribute:: additional_paths_selection
                                 
                                 	Configure additional paths selection
-                                	**type**\:  :py:class:`AdditionalPathsSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AdditionalPathsSelection>`
+                                	**type**\:   :py:class:`AdditionalPathsSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.AdditionalPathsSelection>`
                                 
                                 .. attribute:: additional_paths_send
                                 
                                 	Advertise additional paths Send capability
-                                	**type**\:  :py:class:`BgpafAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpafAdditionalPathsCfgEnum>`
+                                	**type**\:   :py:class:`BgpafAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpafAdditionalPathsCfgEnum>`
                                 
                                 .. attribute:: aggregate_addresses
                                 
                                 	Configure BGP aggregate entries
-                                	**type**\:  :py:class:`AggregateAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses>`
+                                	**type**\:   :py:class:`AggregateAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.AggregateAddresses>`
                                 
                                 .. attribute:: allocate_label
                                 
                                 	Label allocation policy
-                                	**type**\:  :py:class:`AllocateLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AllocateLabel>`
+                                	**type**\:   :py:class:`AllocateLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.AllocateLabel>`
                                 
                                 .. attribute:: application_routes
                                 
                                 	Redistribute information for Application routes
-                                	**type**\:  :py:class:`ApplicationRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes>`
+                                	**type**\:   :py:class:`ApplicationRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.ApplicationRoutes>`
                                 
                                 .. attribute:: attribute_download
                                 
                                 	Attribute download configuration
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: best_external
                                 
@@ -20008,42 +20488,48 @@ class Bgp(object):
                                 .. attribute:: connected_routes
                                 
                                 	Redistribute connected routes
-                                	**type**\:  :py:class:`ConnectedRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ConnectedRoutes>`
+                                	**type**\:   :py:class:`ConnectedRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.ConnectedRoutes>`
+                                
+                                	**presence node**\: True
                                 
                                 .. attribute:: dampening
                                 
                                 	Enable route\-flap dampening
-                                	**type**\:  :py:class:`Dampening <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Dampening>`
+                                	**type**\:   :py:class:`Dampening <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.Dampening>`
+                                
+                                	**presence node**\: True
                                 
                                 .. attribute:: disable_as_path_loop_check
                                 
                                 	Disable outbound AS Path loop check
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: disable_client_to_client_rr
                                 
                                 	Disable client\-to\-client reflection
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: disable_cluster_client_to_client_rrs
                                 
                                 	Disable client\-to\-client reflection for a cluster
-                                	**type**\:  :py:class:`DisableClusterClientToClientRrs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs>`
+                                	**type**\:   :py:class:`DisableClusterClientToClientRrs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs>`
                                 
                                 .. attribute:: disable_default_martian_check
                                 
                                 	Disable default Martian Check
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: distance
                                 
                                 	Define an administrative distance
-                                	**type**\:  :py:class:`Distance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Distance>`
+                                	**type**\:   :py:class:`Distance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.Distance>`
                                 
                                 .. attribute:: domain_distinguisher
                                 
                                 	<ASN, router\-id> tuple to use to identify the link\-state domain
-                                	**type**\:  :py:class:`DomainDistinguisher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DomainDistinguisher>`
+                                	**type**\:   :py:class:`DomainDistinguisher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DomainDistinguisher>`
+                                
+                                	**presence node**\: True
                                 
                                 .. attribute:: dynamic_med_interval
                                 
@@ -20052,60 +20538,74 @@ class Bgp(object):
                                 
                                 	**range:** 0..10
                                 
+                                	**units**\: minute
+                                
+                                	**default value**\: 10
+                                
                                 .. attribute:: ebgp
                                 
                                 	Use eBGP multipaths
-                                	**type**\:  :py:class:`Ebgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ebgp>`
+                                	**type**\:   :py:class:`Ebgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.Ebgp>`
+                                
+                                	**presence node**\: True
                                 
                                 .. attribute:: eibgp
                                 
                                 	Use eiBGP multipaths
-                                	**type**\:  :py:class:`Eibgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Eibgp>`
+                                	**type**\:   :py:class:`Eibgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.Eibgp>`
+                                
+                                	**presence node**\: True
                                 
                                 .. attribute:: eigrp_routes
                                 
                                 	Redistribute information for EIGRP routes
-                                	**type**\:  :py:class:`EigrpRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes>`
+                                	**type**\:   :py:class:`EigrpRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.EigrpRoutes>`
                                 
                                 .. attribute:: enable
                                 
                                 	Enable the address family. Deletion of this object causes deletion of all the objects under GlobalAF/VRFGlobalAF associated with this object 
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: global_table_mcast
                                 
                                 	Enable global table multicast
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: ibgp
                                 
                                 	Use iBGP multipaths
-                                	**type**\:  :py:class:`Ibgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ibgp>`
+                                	**type**\:   :py:class:`Ibgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.Ibgp>`
+                                
+                                	**presence node**\: True
                                 
                                 .. attribute:: import_delay
                                 
                                 	Delay timer to batch import processing
-                                	**type**\:  :py:class:`ImportDelay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ImportDelay>`
+                                	**type**\:   :py:class:`ImportDelay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.ImportDelay>`
+                                
+                                	**presence node**\: True
                                 
                                 .. attribute:: inter_as_install
                                 
                                 	Enable install remote MVPN routes to PIM in default VRF
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: isis_routes
                                 
                                 	Redistribute information for IS\-IS routes 
-                                	**type**\:  :py:class:`IsisRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes>`
+                                	**type**\:   :py:class:`IsisRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.IsisRoutes>`
                                 
                                 .. attribute:: label_delay
                                 
                                 	Delay timer to batch label processing
-                                	**type**\:  :py:class:`LabelDelay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelDelay>`
+                                	**type**\:   :py:class:`LabelDelay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.LabelDelay>`
+                                
+                                	**presence node**\: True
                                 
                                 .. attribute:: label_mode
                                 
                                 	BGP 6PE/MPLS\-VPN label allocation mode
-                                	**type**\:  :py:class:`LabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelMode>`
+                                	**type**\:   :py:class:`LabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.LabelMode>`
                                 
                                 .. attribute:: label_retain
                                 
@@ -20114,20 +20614,26 @@ class Bgp(object):
                                 
                                 	**range:** 3..60
                                 
+                                	**units**\: minute
+                                
                                 .. attribute:: label_security_rpf
                                 
                                 	Calculate label\-security RPF lists and install to RIB/LSD
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: lisp_routes
                                 
                                 	Redistribute lisp routes
-                                	**type**\:  :py:class:`LispRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LispRoutes>`
+                                	**type**\:   :py:class:`LispRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.LispRoutes>`
+                                
+                                	**presence node**\: True
                                 
                                 .. attribute:: mobile_routes
                                 
                                 	Redistribute mobile routes
-                                	**type**\:  :py:class:`MobileRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.MobileRoutes>`
+                                	**type**\:   :py:class:`MobileRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.MobileRoutes>`
+                                
+                                	**presence node**\: True
                                 
                                 .. attribute:: next_hop_critical_trigger_delay
                                 
@@ -20136,6 +20642,10 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**units**\: millisecond
+                                
+                                	**default value**\: 3000
+                                
                                 .. attribute:: next_hop_non_critical_trigger_delay
                                 
                                 	Next hop Non\-critical Trigger Delay
@@ -20143,12 +20653,18 @@ class Bgp(object):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**units**\: millisecond
+                                
+                                	**default value**\: 10000
+                                
                                 .. attribute:: next_hop_resolution_prefix_length_minimum
                                 
                                 	Minimum prefix\-length for nexthop resolution
                                 	**type**\:  int
                                 
                                 	**range:** 0..128
+                                
+                                	**default value**\: 0
                                 
                                 .. attribute:: next_hop_route_policy
                                 
@@ -20158,7 +20674,7 @@ class Bgp(object):
                                 .. attribute:: ospf_routes
                                 
                                 	Redistribute information for OSPF routes
-                                	**type**\:  :py:class:`OspfRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes>`
+                                	**type**\:   :py:class:`OspfRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.OspfRoutes>`
                                 
                                 .. attribute:: permanent_network
                                 
@@ -20173,32 +20689,34 @@ class Bgp(object):
                                 .. attribute:: retain_rt
                                 
                                 	Accept received updates with the specified attributes
-                                	**type**\:  :py:class:`RetainRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RetainRt>`
+                                	**type**\:   :py:class:`RetainRt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.RetainRt>`
                                 
                                 .. attribute:: rip_routes
                                 
                                 	Redistribute RIP routes
-                                	**type**\:  :py:class:`RipRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RipRoutes>`
+                                	**type**\:   :py:class:`RipRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.RipRoutes>`
+                                
+                                	**presence node**\: True
                                 
                                 .. attribute:: rpki_bestpath_origin_as_allow_invalid
                                 
                                 	RPKI bestpath origin\-AS allow invalid
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: rpki_bestpath_use_origin_as_validity
                                 
                                 	RPKI bestpath use origin\-AS validity
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: rpki_origin_as_validation_disable
                                 
                                 	RPKI origin\-AS validation disable
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: rpki_origin_as_validity_signal_ibgp
                                 
                                 	RPKI origin\-AS validity signal ibgp
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: scan_time
                                 
@@ -20207,25 +20725,33 @@ class Bgp(object):
                                 
                                 	**range:** 5..3600
                                 
+                                	**units**\: second
+                                
+                                	**default value**\: 60
+                                
                                 .. attribute:: segmented_mcast
                                 
                                 	Enable segmented multicast
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: sourced_networks
                                 
                                 	Specify a network to announce via BGP
-                                	**type**\:  :py:class:`SourcedNetworks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks>`
+                                	**type**\:   :py:class:`SourcedNetworks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.SourcedNetworks>`
                                 
                                 .. attribute:: static_routes
                                 
                                 	Redistribute static routes
-                                	**type**\:  :py:class:`StaticRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.StaticRoutes>`
+                                	**type**\:   :py:class:`StaticRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.StaticRoutes>`
+                                
+                                	**presence node**\: True
                                 
                                 .. attribute:: subscriber_routes
                                 
                                 	Redistribute subscriber routes
-                                	**type**\:  :py:class:`SubscriberRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SubscriberRoutes>`
+                                	**type**\:   :py:class:`SubscriberRoutes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.SubscriberRoutes>`
+                                
+                                	**presence node**\: True
                                 
                                 .. attribute:: table_policy
                                 
@@ -20239,12 +20765,20 @@ class Bgp(object):
                                 
                                 	**range:** 4..2048
                                 
+                                	**units**\: megabyte
+                                
+                                	**default value**\: 256
+                                
                                 .. attribute:: update_limit_sub_group_ebgp
                                 
                                 	Upper bound on update generation transient memory usage for every EBGP Sub\-group
                                 	**type**\:  int
                                 
                                 	**range:** 1..512
+                                
+                                	**units**\: megabyte
+                                
+                                	**default value**\: 32
                                 
                                 .. attribute:: update_limit_sub_group_ibgp
                                 
@@ -20253,15 +20787,19 @@ class Bgp(object):
                                 
                                 	**range:** 1..512
                                 
+                                	**units**\: megabyte
+                                
+                                	**default value**\: 32
+                                
                                 .. attribute:: vrf_all
                                 
                                 	Configurations to be inherited to all vrfs
-                                	**type**\:  :py:class:`VrfAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll>`
+                                	**type**\:   :py:class:`VrfAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.VrfAll>`
                                 
                                 .. attribute:: wait_rib_install
                                 
                                 	Wait for route install before sending updates to neighbors
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -20274,14 +20812,14 @@ class Bgp(object):
                                     self.parent = None
                                     self.af_name = None
                                     self.additional_paths_receive = None
-                                    self.additional_paths_selection = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AdditionalPathsSelection()
+                                    self.additional_paths_selection = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.AdditionalPathsSelection()
                                     self.additional_paths_selection.parent = self
                                     self.additional_paths_send = None
-                                    self.aggregate_addresses = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses()
+                                    self.aggregate_addresses = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.AggregateAddresses()
                                     self.aggregate_addresses.parent = self
-                                    self.allocate_label = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AllocateLabel()
+                                    self.allocate_label = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.AllocateLabel()
                                     self.allocate_label.parent = self
-                                    self.application_routes = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes()
+                                    self.application_routes = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.ApplicationRoutes()
                                     self.application_routes.parent = self
                                     self.attribute_download = None
                                     self.best_external = None
@@ -20289,26 +20827,26 @@ class Bgp(object):
                                     self.dampening = None
                                     self.disable_as_path_loop_check = None
                                     self.disable_client_to_client_rr = None
-                                    self.disable_cluster_client_to_client_rrs = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs()
+                                    self.disable_cluster_client_to_client_rrs = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs()
                                     self.disable_cluster_client_to_client_rrs.parent = self
                                     self.disable_default_martian_check = None
-                                    self.distance = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Distance()
+                                    self.distance = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.Distance()
                                     self.distance.parent = self
                                     self.domain_distinguisher = None
                                     self.dynamic_med_interval = None
                                     self.ebgp = None
                                     self.eibgp = None
-                                    self.eigrp_routes = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes()
+                                    self.eigrp_routes = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.EigrpRoutes()
                                     self.eigrp_routes.parent = self
                                     self.enable = None
                                     self.global_table_mcast = None
                                     self.ibgp = None
                                     self.import_delay = None
                                     self.inter_as_install = None
-                                    self.isis_routes = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes()
+                                    self.isis_routes = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.IsisRoutes()
                                     self.isis_routes.parent = self
                                     self.label_delay = None
-                                    self.label_mode = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelMode()
+                                    self.label_mode = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.LabelMode()
                                     self.label_mode.parent = self
                                     self.label_retain = None
                                     self.label_security_rpf = None
@@ -20318,11 +20856,11 @@ class Bgp(object):
                                     self.next_hop_non_critical_trigger_delay = None
                                     self.next_hop_resolution_prefix_length_minimum = None
                                     self.next_hop_route_policy = None
-                                    self.ospf_routes = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes()
+                                    self.ospf_routes = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.OspfRoutes()
                                     self.ospf_routes.parent = self
                                     self.permanent_network = None
                                     self.reset_weight_on_import = None
-                                    self.retain_rt = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RetainRt()
+                                    self.retain_rt = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.RetainRt()
                                     self.retain_rt.parent = self
                                     self.rip_routes = None
                                     self.rpki_bestpath_origin_as_allow_invalid = None
@@ -20331,7 +20869,7 @@ class Bgp(object):
                                     self.rpki_origin_as_validity_signal_ibgp = None
                                     self.scan_time = None
                                     self.segmented_mcast = None
-                                    self.sourced_networks = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks()
+                                    self.sourced_networks = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.SourcedNetworks()
                                     self.sourced_networks.parent = self
                                     self.static_routes = None
                                     self.subscriber_routes = None
@@ -20339,7 +20877,7 @@ class Bgp(object):
                                     self.update_limit_address_family = None
                                     self.update_limit_sub_group_ebgp = None
                                     self.update_limit_sub_group_ibgp = None
-                                    self.vrf_all = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll()
+                                    self.vrf_all = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.VrfAll()
                                     self.vrf_all.parent = self
                                     self.wait_rib_install = None
 
@@ -20352,7 +20890,7 @@ class Bgp(object):
                                     .. attribute:: isis_route
                                     
                                     	Redistribute IS\-IS routes
-                                    	**type**\: list of  :py:class:`IsisRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes.IsisRoute>`
+                                    	**type**\: list of    :py:class:`IsisRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.IsisRoutes.IsisRoute>`
                                     
                                     
 
@@ -20445,7 +20983,7 @@ class Bgp(object):
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes.IsisRoute']['meta_info']
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.IsisRoutes.IsisRoute']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -20471,7 +21009,7 @@ class Bgp(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.IsisRoutes']['meta_info']
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.IsisRoutes']['meta_info']
 
 
                                 class DomainDistinguisher(object):
@@ -20544,7 +21082,7 @@ class Bgp(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DomainDistinguisher']['meta_info']
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DomainDistinguisher']['meta_info']
 
 
                                 class VrfAll(object):
@@ -20555,17 +21093,17 @@ class Bgp(object):
                                     .. attribute:: enable
                                     
                                     	Enable vrf all configuration submode
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: label_mode
                                     
                                     	MPLS\-VPN label allocation mode
-                                    	**type**\:  :py:class:`LabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.LabelMode>`
+                                    	**type**\:   :py:class:`LabelMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.VrfAll.LabelMode>`
                                     
                                     .. attribute:: source_rt_import_policy
                                     
                                     	Enable sourcing of import route\-targets  from import\-policy
-                                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                     
                                     .. attribute:: table_policy
                                     
@@ -20582,7 +21120,7 @@ class Bgp(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.enable = None
-                                        self.label_mode = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.LabelMode()
+                                        self.label_mode = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.VrfAll.LabelMode()
                                         self.label_mode.parent = self
                                         self.source_rt_import_policy = None
                                         self.table_policy = None
@@ -20639,7 +21177,7 @@ class Bgp(object):
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll.LabelMode']['meta_info']
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.VrfAll.LabelMode']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -20672,7 +21210,7 @@ class Bgp(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.VrfAll']['meta_info']
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.VrfAll']['meta_info']
 
 
                                 class ApplicationRoutes(object):
@@ -20683,7 +21221,7 @@ class Bgp(object):
                                     .. attribute:: application_route
                                     
                                     	Redistribute application routes
-                                    	**type**\: list of  :py:class:`ApplicationRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes.ApplicationRoute>`
+                                    	**type**\: list of    :py:class:`ApplicationRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.ApplicationRoutes.ApplicationRoute>`
                                     
                                     
 
@@ -20776,7 +21314,7 @@ class Bgp(object):
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes.ApplicationRoute']['meta_info']
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.ApplicationRoutes.ApplicationRoute']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -20802,7 +21340,7 @@ class Bgp(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ApplicationRoutes']['meta_info']
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.ApplicationRoutes']['meta_info']
 
 
                                 class DisableClusterClientToClientRrs(object):
@@ -20813,7 +21351,7 @@ class Bgp(object):
                                     .. attribute:: disable_cluster_client_to_client_rr
                                     
                                     	Cluster ID for which reflection is to be disbled
-                                    	**type**\: list of  :py:class:`DisableClusterClientToClientRr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr>`
+                                    	**type**\: list of    :py:class:`DisableClusterClientToClientRr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr>`
                                     
                                     
 
@@ -20837,17 +21375,17 @@ class Bgp(object):
                                         .. attribute:: cluster_type  <key>
                                         
                                         	Type of cluster\-id
-                                        	**type**\:  :py:class:`BgpClusterIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpClusterIdEnum>`
+                                        	**type**\:   :py:class:`BgpClusterIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpClusterIdEnum>`
                                         
                                         .. attribute:: ipv4_address
                                         
                                         	ipv4 address
-                                        	**type**\: list of  :py:class:`Ipv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Ipv4Address>`
+                                        	**type**\: list of    :py:class:`Ipv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Ipv4Address>`
                                         
                                         .. attribute:: number
                                         
                                         	number
-                                        	**type**\: list of  :py:class:`Number <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Number>`
+                                        	**type**\: list of    :py:class:`Number <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Number>`
                                         
                                         
 
@@ -20913,7 +21451,7 @@ class Bgp(object):
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Number']['meta_info']
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Number']['meta_info']
 
 
                                         class Ipv4Address(object):
@@ -20972,7 +21510,7 @@ class Bgp(object):
                                             @staticmethod
                                             def _meta_info():
                                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Ipv4Address']['meta_info']
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr.Ipv4Address']['meta_info']
 
                                         @property
                                         def _common_path(self):
@@ -21008,7 +21546,7 @@ class Bgp(object):
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr']['meta_info']
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs.DisableClusterClientToClientRr']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -21034,7 +21572,7 @@ class Bgp(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs']['meta_info']
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.DisableClusterClientToClientRrs']['meta_info']
 
 
                                 class LabelDelay(object):
@@ -21050,6 +21588,8 @@ class Bgp(object):
                                     
                                     	**mandatory**\: True
                                     
+                                    	**units**\: millisecond
+                                    
                                     .. attribute:: seconds
                                     
                                     	Delay, seconds part
@@ -21058,6 +21598,8 @@ class Bgp(object):
                                     	**range:** 0..10
                                     
                                     	**mandatory**\: True
+                                    
+                                    	**units**\: second
                                     
                                     .. attribute:: _is_presence
                                     
@@ -21106,7 +21648,191 @@ class Bgp(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelDelay']['meta_info']
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.LabelDelay']['meta_info']
+
+
+                                class Ebgp(object):
+                                    """
+                                    Use eBGP multipaths
+                                    
+                                    .. attribute:: order_by_igp_metric
+                                    
+                                    	Order candidate multipaths by IGP metric
+                                    	**type**\:  bool
+                                    
+                                    	**default value**\: false
+                                    
+                                    .. attribute:: paths_value
+                                    
+                                    	Number of paths
+                                    	**type**\:  int
+                                    
+                                    	**range:** 2..64
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    .. attribute:: selective
+                                    
+                                    	Allow multipaths only from marked neighbors
+                                    	**type**\:  bool
+                                    
+                                    	**default value**\: false
+                                    
+                                    .. attribute:: unequal_cost
+                                    
+                                    	UNUSED
+                                    	**type**\:  bool
+                                    
+                                    	**default value**\: false
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
+                                    
+
+                                    This class is a :ref:`presence class<presence-class>`
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self._is_presence = True
+                                        self.order_by_igp_metric = None
+                                        self.paths_value = None
+                                        self.selective = None
+                                        self.unequal_cost = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:ebgp'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self._is_presence:
+                                            return True
+                                        if self.order_by_igp_metric is not None:
+                                            return True
+
+                                        if self.paths_value is not None:
+                                            return True
+
+                                        if self.selective is not None:
+                                            return True
+
+                                        if self.unequal_cost is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.Ebgp']['meta_info']
+
+
+                                class Eibgp(object):
+                                    """
+                                    Use eiBGP multipaths
+                                    
+                                    .. attribute:: order_by_igp_metric
+                                    
+                                    	Order candidate multipaths by IGP metric
+                                    	**type**\:  bool
+                                    
+                                    	**default value**\: false
+                                    
+                                    .. attribute:: paths_value
+                                    
+                                    	Number of paths
+                                    	**type**\:  int
+                                    
+                                    	**range:** 2..64
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    .. attribute:: selective
+                                    
+                                    	Allow multipaths only from marked neighbors
+                                    	**type**\:  bool
+                                    
+                                    	**default value**\: false
+                                    
+                                    .. attribute:: unequal_cost
+                                    
+                                    	UNUSED
+                                    	**type**\:  bool
+                                    
+                                    	**default value**\: false
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
+                                    
+
+                                    This class is a :ref:`presence class<presence-class>`
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self._is_presence = True
+                                        self.order_by_igp_metric = None
+                                        self.paths_value = None
+                                        self.selective = None
+                                        self.unequal_cost = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:eibgp'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self._is_presence:
+                                            return True
+                                        if self.order_by_igp_metric is not None:
+                                            return True
+
+                                        if self.paths_value is not None:
+                                            return True
+
+                                        if self.selective is not None:
+                                            return True
+
+                                        if self.unequal_cost is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.Eibgp']['meta_info']
 
 
                                 class RetainRt(object):
@@ -21161,7 +21887,99 @@ class Bgp(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RetainRt']['meta_info']
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.RetainRt']['meta_info']
+
+
+                                class Ibgp(object):
+                                    """
+                                    Use iBGP multipaths
+                                    
+                                    .. attribute:: order_by_igp_metric
+                                    
+                                    	Order candidate multipaths by IGP metric
+                                    	**type**\:  bool
+                                    
+                                    	**default value**\: false
+                                    
+                                    .. attribute:: paths_value
+                                    
+                                    	Number of paths
+                                    	**type**\:  int
+                                    
+                                    	**range:** 2..64
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    .. attribute:: selective
+                                    
+                                    	Allow multipaths only from marked neighbors
+                                    	**type**\:  bool
+                                    
+                                    	**default value**\: false
+                                    
+                                    .. attribute:: unequal_cost
+                                    
+                                    	Allow multipaths to have different IGP metrics
+                                    	**type**\:  bool
+                                    
+                                    	**default value**\: false
+                                    
+                                    .. attribute:: _is_presence
+                                    
+                                    	Is present if this instance represents presence container else not
+                                    	**type**\: bool
+                                    
+                                    
+
+                                    This class is a :ref:`presence class<presence-class>`
+
+                                    """
+
+                                    _prefix = 'ipv4-bgp-cfg'
+                                    _revision = '2015-08-27'
+
+                                    def __init__(self):
+                                        self.parent = None
+                                        self._is_presence = True
+                                        self.order_by_igp_metric = None
+                                        self.paths_value = None
+                                        self.selective = None
+                                        self.unequal_cost = None
+
+                                    @property
+                                    def _common_path(self):
+                                        if self.parent is None:
+                                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:ibgp'
+
+                                    def is_config(self):
+                                        ''' Returns True if this instance represents config data else returns False '''
+                                        return True
+
+                                    def _has_data(self):
+                                        if not self.is_config():
+                                            return False
+                                        if self._is_presence:
+                                            return True
+                                        if self.order_by_igp_metric is not None:
+                                            return True
+
+                                        if self.paths_value is not None:
+                                            return True
+
+                                        if self.selective is not None:
+                                            return True
+
+                                        if self.unequal_cost is not None:
+                                            return True
+
+                                        return False
+
+                                    @staticmethod
+                                    def _meta_info():
+                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.Ibgp']['meta_info']
 
 
                                 class ImportDelay(object):
@@ -21177,6 +21995,8 @@ class Bgp(object):
                                     
                                     	**mandatory**\: True
                                     
+                                    	**units**\: millisecond
+                                    
                                     .. attribute:: seconds
                                     
                                     	Delay, seconds part
@@ -21185,6 +22005,8 @@ class Bgp(object):
                                     	**range:** 0..10
                                     
                                     	**mandatory**\: True
+                                    
+                                    	**units**\: second
                                     
                                     .. attribute:: _is_presence
                                     
@@ -21233,7 +22055,7 @@ class Bgp(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ImportDelay']['meta_info']
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.ImportDelay']['meta_info']
 
 
                                 class AggregateAddresses(object):
@@ -21243,7 +22065,7 @@ class Bgp(object):
                                     .. attribute:: aggregate_address
                                     
                                     	Aggregate address configuration
-                                    	**type**\: list of  :py:class:`AggregateAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses.AggregateAddress>`
+                                    	**type**\: list of    :py:class:`AggregateAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.AggregateAddresses.AggregateAddress>`
                                     
                                     
 
@@ -21364,7 +22186,7 @@ class Bgp(object):
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses.AggregateAddress']['meta_info']
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.AggregateAddresses.AggregateAddress']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -21390,7 +22212,7 @@ class Bgp(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AggregateAddresses']['meta_info']
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.AggregateAddresses']['meta_info']
 
 
                                 class Dampening(object):
@@ -21403,6 +22225,8 @@ class Bgp(object):
                                     	**type**\:  int
                                     
                                     	**range:** 1..45
+                                    
+                                    	**units**\: minute
                                     
                                     .. attribute:: reuse_threshold
                                     
@@ -21429,6 +22253,8 @@ class Bgp(object):
                                     	**type**\:  int
                                     
                                     	**range:** 1..255
+                                    
+                                    	**units**\: second
                                     
                                     .. attribute:: _is_presence
                                     
@@ -21489,7 +22315,7 @@ class Bgp(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Dampening']['meta_info']
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.Dampening']['meta_info']
 
 
                                 class RipRoutes(object):
@@ -21566,7 +22392,7 @@ class Bgp(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.RipRoutes']['meta_info']
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.RipRoutes']['meta_info']
 
 
                                 class LispRoutes(object):
@@ -21632,7 +22458,7 @@ class Bgp(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LispRoutes']['meta_info']
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.LispRoutes']['meta_info']
 
 
                                 class StaticRoutes(object):
@@ -21709,7 +22535,7 @@ class Bgp(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.StaticRoutes']['meta_info']
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.StaticRoutes']['meta_info']
 
 
                                 class Distance(object):
@@ -21723,6 +22549,8 @@ class Bgp(object):
                                     
                                     	**range:** 1..255
                                     
+                                    	**default value**\: 20
+                                    
                                     .. attribute:: internal_routes
                                     
                                     	Distance for routes internal to the AS
@@ -21730,12 +22558,16 @@ class Bgp(object):
                                     
                                     	**range:** 1..255
                                     
+                                    	**default value**\: 200
+                                    
                                     .. attribute:: local_routes
                                     
                                     	Distance for local routes
                                     	**type**\:  int
                                     
                                     	**range:** 1..255
+                                    
+                                    	**default value**\: 200
                                     
                                     
 
@@ -21778,7 +22610,7 @@ class Bgp(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Distance']['meta_info']
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.Distance']['meta_info']
 
 
                                 class LabelMode(object):
@@ -21832,7 +22664,7 @@ class Bgp(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.LabelMode']['meta_info']
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.LabelMode']['meta_info']
 
 
                                 class EigrpRoutes(object):
@@ -21842,7 +22674,7 @@ class Bgp(object):
                                     .. attribute:: eigrp_route
                                     
                                     	Redistribute EIGRP routes
-                                    	**type**\: list of  :py:class:`EigrpRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes.EigrpRoute>`
+                                    	**type**\: list of    :py:class:`EigrpRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.EigrpRoutes.EigrpRoute>`
                                     
                                     
 
@@ -21935,7 +22767,7 @@ class Bgp(object):
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes.EigrpRoute']['meta_info']
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.EigrpRoutes.EigrpRoute']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -21961,7 +22793,7 @@ class Bgp(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.EigrpRoutes']['meta_info']
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.EigrpRoutes']['meta_info']
 
 
                                 class SourcedNetworks(object):
@@ -21971,7 +22803,7 @@ class Bgp(object):
                                     .. attribute:: sourced_network
                                     
                                     	Sourced network configuration
-                                    	**type**\: list of  :py:class:`SourcedNetwork <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks.SourcedNetwork>`
+                                    	**type**\: list of    :py:class:`SourcedNetwork <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.SourcedNetworks.SourcedNetwork>`
                                     
                                     
 
@@ -22074,7 +22906,7 @@ class Bgp(object):
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks.SourcedNetwork']['meta_info']
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.SourcedNetworks.SourcedNetwork']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -22100,7 +22932,7 @@ class Bgp(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SourcedNetworks']['meta_info']
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.SourcedNetworks']['meta_info']
 
 
                                 class ConnectedRoutes(object):
@@ -22177,7 +23009,7 @@ class Bgp(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.ConnectedRoutes']['meta_info']
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.ConnectedRoutes']['meta_info']
 
 
                                 class AllocateLabel(object):
@@ -22231,7 +23063,7 @@ class Bgp(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AllocateLabel']['meta_info']
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.AllocateLabel']['meta_info']
 
 
                                 class AdditionalPathsSelection(object):
@@ -22246,7 +23078,7 @@ class Bgp(object):
                                     .. attribute:: selection
                                     
                                     	Enable/disable selection 
-                                    	**type**\:  :py:class:`BgpafAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpafAdditionalPathsCfgEnum>`
+                                    	**type**\:   :py:class:`BgpafAdditionalPathsCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpafAdditionalPathsCfgEnum>`
                                     
                                     
 
@@ -22285,179 +23117,7 @@ class Bgp(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.AdditionalPathsSelection']['meta_info']
-
-
-                                class Ebgp(object):
-                                    """
-                                    Use eBGP multipaths
-                                    
-                                    .. attribute:: order_by_igp_metric
-                                    
-                                    	Order candidate multipaths by IGP metric
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: paths_value
-                                    
-                                    	Number of paths
-                                    	**type**\:  int
-                                    
-                                    	**range:** 2..64
-                                    
-                                    	**mandatory**\: True
-                                    
-                                    .. attribute:: selective
-                                    
-                                    	Allow multipaths only from marked neighbors
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: unequal_cost
-                                    
-                                    	UNUSED
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: _is_presence
-                                    
-                                    	Is present if this instance represents presence container else not
-                                    	**type**\: bool
-                                    
-                                    
-
-                                    This class is a :ref:`presence class<presence-class>`
-
-                                    """
-
-                                    _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2015-08-27'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self._is_presence = True
-                                        self.order_by_igp_metric = None
-                                        self.paths_value = None
-                                        self.selective = None
-                                        self.unequal_cost = None
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:ebgp'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self._is_presence:
-                                            return True
-                                        if self.order_by_igp_metric is not None:
-                                            return True
-
-                                        if self.paths_value is not None:
-                                            return True
-
-                                        if self.selective is not None:
-                                            return True
-
-                                        if self.unequal_cost is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ebgp']['meta_info']
-
-
-                                class Eibgp(object):
-                                    """
-                                    Use eiBGP multipaths
-                                    
-                                    .. attribute:: order_by_igp_metric
-                                    
-                                    	Order candidate multipaths by IGP metric
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: paths_value
-                                    
-                                    	Number of paths
-                                    	**type**\:  int
-                                    
-                                    	**range:** 2..64
-                                    
-                                    	**mandatory**\: True
-                                    
-                                    .. attribute:: selective
-                                    
-                                    	Allow multipaths only from marked neighbors
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: unequal_cost
-                                    
-                                    	UNUSED
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: _is_presence
-                                    
-                                    	Is present if this instance represents presence container else not
-                                    	**type**\: bool
-                                    
-                                    
-
-                                    This class is a :ref:`presence class<presence-class>`
-
-                                    """
-
-                                    _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2015-08-27'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self._is_presence = True
-                                        self.order_by_igp_metric = None
-                                        self.paths_value = None
-                                        self.selective = None
-                                        self.unequal_cost = None
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:eibgp'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self._is_presence:
-                                            return True
-                                        if self.order_by_igp_metric is not None:
-                                            return True
-
-                                        if self.paths_value is not None:
-                                            return True
-
-                                        if self.selective is not None:
-                                            return True
-
-                                        if self.unequal_cost is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Eibgp']['meta_info']
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.AdditionalPathsSelection']['meta_info']
 
 
                                 class OspfRoutes(object):
@@ -22467,7 +23127,7 @@ class Bgp(object):
                                     .. attribute:: ospf_route
                                     
                                     	Redistribute OSPF routes
-                                    	**type**\: list of  :py:class:`OspfRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes.OspfRoute>`
+                                    	**type**\: list of    :py:class:`OspfRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.OspfRoutes.OspfRoute>`
                                     
                                     
 
@@ -22560,7 +23220,7 @@ class Bgp(object):
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes.OspfRoute']['meta_info']
+                                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.OspfRoutes.OspfRoute']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -22586,93 +23246,7 @@ class Bgp(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.OspfRoutes']['meta_info']
-
-
-                                class Ibgp(object):
-                                    """
-                                    Use iBGP multipaths
-                                    
-                                    .. attribute:: order_by_igp_metric
-                                    
-                                    	Order candidate multipaths by IGP metric
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: paths_value
-                                    
-                                    	Number of paths
-                                    	**type**\:  int
-                                    
-                                    	**range:** 2..64
-                                    
-                                    	**mandatory**\: True
-                                    
-                                    .. attribute:: selective
-                                    
-                                    	Allow multipaths only from marked neighbors
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: unequal_cost
-                                    
-                                    	Allow multipaths to have different IGP metrics
-                                    	**type**\:  bool
-                                    
-                                    .. attribute:: _is_presence
-                                    
-                                    	Is present if this instance represents presence container else not
-                                    	**type**\: bool
-                                    
-                                    
-
-                                    This class is a :ref:`presence class<presence-class>`
-
-                                    """
-
-                                    _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2015-08-27'
-
-                                    def __init__(self):
-                                        self.parent = None
-                                        self._is_presence = True
-                                        self.order_by_igp_metric = None
-                                        self.paths_value = None
-                                        self.selective = None
-                                        self.unequal_cost = None
-
-                                    @property
-                                    def _common_path(self):
-                                        if self.parent is None:
-                                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                        return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:ibgp'
-
-                                    def is_config(self):
-                                        ''' Returns True if this instance represents config data else returns False '''
-                                        return True
-
-                                    def _has_data(self):
-                                        if not self.is_config():
-                                            return False
-                                        if self._is_presence:
-                                            return True
-                                        if self.order_by_igp_metric is not None:
-                                            return True
-
-                                        if self.paths_value is not None:
-                                            return True
-
-                                        if self.selective is not None:
-                                            return True
-
-                                        if self.unequal_cost is not None:
-                                            return True
-
-                                        return False
-
-                                    @staticmethod
-                                    def _meta_info():
-                                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.Ibgp']['meta_info']
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.OspfRoutes']['meta_info']
 
 
                                 class MobileRoutes(object):
@@ -22749,7 +23323,7 @@ class Bgp(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.MobileRoutes']['meta_info']
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.MobileRoutes']['meta_info']
 
 
                                 class SubscriberRoutes(object):
@@ -22826,7 +23400,7 @@ class Bgp(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf.SubscriberRoutes']['meta_info']
+                                        return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf.SubscriberRoutes']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -23020,7 +23594,7 @@ class Bgp(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs.GlobalAf']['meta_info']
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs.GlobalAf']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -23046,7 +23620,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalAfs']['meta_info']
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalAfs']['meta_info']
 
 
                         class RpkiStaticRoutes(object):
@@ -23056,7 +23630,7 @@ class Bgp(object):
                             .. attribute:: rpki_static_route
                             
                             	RPKI static route
-                            	**type**\: list of  :py:class:`RpkiStaticRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes.RpkiStaticRoute>`
+                            	**type**\: list of    :py:class:`RpkiStaticRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiStaticRoutes.RpkiStaticRoute>`
                             
                             
 
@@ -23167,7 +23741,7 @@ class Bgp(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes.RpkiStaticRoute']['meta_info']
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiStaticRoutes.RpkiStaticRoute']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -23193,7 +23767,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.RpkiStaticRoutes']['meta_info']
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.RpkiStaticRoutes']['meta_info']
 
 
                         class MplsActivatedInterfaces(object):
@@ -23203,7 +23777,7 @@ class Bgp(object):
                             .. attribute:: mpls_activated_interface
                             
                             	Configure a MPLS activated interface
-                            	**type**\: list of  :py:class:`MplsActivatedInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces.MplsActivatedInterface>`
+                            	**type**\: list of    :py:class:`MplsActivatedInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.MplsActivatedInterfaces.MplsActivatedInterface>`
                             
                             
 
@@ -23265,7 +23839,7 @@ class Bgp(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces.MplsActivatedInterface']['meta_info']
+                                    return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.MplsActivatedInterfaces.MplsActivatedInterface']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -23291,7 +23865,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.MplsActivatedInterfaces']['meta_info']
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.MplsActivatedInterfaces']['meta_info']
 
 
                         class GlobalTimers(object):
@@ -23305,6 +23879,10 @@ class Bgp(object):
                             
                             	**range:** 0..65535
                             
+                            	**units**\: second
+                            
+                            	**default value**\: 180
+                            
                             .. attribute:: keepalive
                             
                             	Keepalive interval (seconds)
@@ -23312,12 +23890,20 @@ class Bgp(object):
                             
                             	**range:** 0..65535
                             
+                            	**units**\: second
+                            
+                            	**default value**\: 60
+                            
                             .. attribute:: min_accept_hold_time
                             
                             	Minimum acceptable hold time (seconds). Specify 0 to disable keepalives/hold time
                             	**type**\:  int
                             
                             	**range:** 0..65535
+                            
+                            	**units**\: second
+                            
+                            	**default value**\: 3
                             
                             
 
@@ -23360,7 +23946,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.GlobalTimers']['meta_info']
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.GlobalTimers']['meta_info']
 
 
                         class Bfd(object):
@@ -23380,6 +23966,8 @@ class Bgp(object):
                             	**type**\:  int
                             
                             	**range:** 3..30000
+                            
+                            	**units**\: millisecond
                             
                             
 
@@ -23418,7 +24006,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.Bfd']['meta_info']
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.Bfd']['meta_info']
 
 
                         class SendSocketBufferSizes(object):
@@ -23432,12 +24020,20 @@ class Bgp(object):
                             
                             	**range:** 4096..131072
                             
+                            	**units**\: byte
+                            
+                            	**default value**\: 4096
+                            
                             .. attribute:: socket_send_size
                             
                             	Send socket buffer size in bytes
                             	**type**\:  int
                             
                             	**range:** 4096..131072
+                            
+                            	**units**\: byte
+                            
+                            	**default value**\: 24576
                             
                             
 
@@ -23476,7 +24072,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.SendSocketBufferSizes']['meta_info']
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.SendSocketBufferSizes']['meta_info']
 
 
                         class ReceiveSocketBufferSizes(object):
@@ -23490,12 +24086,20 @@ class Bgp(object):
                             
                             	**range:** 512..131072
                             
+                            	**units**\: byte
+                            
+                            	**default value**\: 4096
+                            
                             .. attribute:: socket_receive_size
                             
                             	Receive socket buffer size in bytes
                             	**type**\:  int
                             
                             	**range:** 512..131072
+                            
+                            	**units**\: byte
+                            
+                            	**default value**\: 32768
                             
                             
 
@@ -23534,7 +24138,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global.ReceiveSocketBufferSizes']['meta_info']
+                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_.ReceiveSocketBufferSizes']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -23738,7 +24342,7 @@ class Bgp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
-                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global']['meta_info']
+                            return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.Global_']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -23894,7 +24498,7 @@ class BmpServers(object):
     .. attribute:: bmp_server
     
     	A particular BMP server
-    	**type**\: list of  :py:class:`BmpServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BmpServers.BmpServer>`
+    	**type**\: list of    :py:class:`BmpServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BmpServers.BmpServer>`
     
     
 
@@ -23923,7 +24527,7 @@ class BmpServers(object):
         .. attribute:: create
         
         	BMP Server Creation
-        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: description
         
@@ -23937,10 +24541,12 @@ class BmpServers(object):
         
         	**range:** 60..3600
         
+        	**units**\: second
+        
         .. attribute:: host_port
         
         	Configure Host Name/Address and Port for BMP Server
-        	**type**\:  :py:class:`HostPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BmpServers.BmpServer.HostPort>`
+        	**type**\:   :py:class:`HostPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BmpServers.BmpServer.HostPort>`
         
         .. attribute:: initial_delay
         
@@ -23949,10 +24555,12 @@ class BmpServers(object):
         
         	**range:** 1..3600
         
+        	**units**\: second
+        
         .. attribute:: initial_refresh_delay
         
         	Initial refresh to generate BGP updates
-        	**type**\:  :py:class:`InitialRefreshDelay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BmpServers.BmpServer.InitialRefreshDelay>`
+        	**type**\:   :py:class:`InitialRefreshDelay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BmpServers.BmpServer.InitialRefreshDelay>`
         
         .. attribute:: maximum_buffer_size
         
@@ -23960,6 +24568,8 @@ class BmpServers(object):
         	**type**\:  int
         
         	**range:** 1..4294967295
+        
+        	**units**\: megabyte
         
         .. attribute:: shutdown
         
@@ -23973,10 +24583,12 @@ class BmpServers(object):
         
         	**range:** 1..3600
         
+        	**units**\: second
+        
         .. attribute:: tos
         
         	TOS (Type Of Service)
-        	**type**\:  :py:class:`Tos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BmpServers.BmpServer.Tos>`
+        	**type**\:   :py:class:`Tos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BmpServers.BmpServer.Tos>`
         
         .. attribute:: update_source_interface
         
@@ -24027,6 +24639,8 @@ class BmpServers(object):
             	**type**\:  int
             
             	**range:** 0..3600
+            
+            	**units**\: second
             
             .. attribute:: spread
             
@@ -24139,14 +24753,14 @@ class BmpServers(object):
             .. attribute:: type
             
             	Set type of service
-            	**type**\:  :py:class:`BgpTosEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpTosEnum>`
+            	**type**\:   :py:class:`BgpTosEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpTosEnum>`
             
             .. attribute:: value
             
             	TOS value to set
             	**type**\: one of the below types:
             
-            	**type**\:  :py:class:`BgpPrecedenceDscpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpPrecedenceDscpEnum>`
+            	**type**\:   :py:class:`BgpPrecedenceDscpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpPrecedenceDscpEnum>`
             
             
             ----

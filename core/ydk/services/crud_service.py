@@ -157,6 +157,7 @@ class CRUDService(Service):
             err_msg = "'provider', 'entity', 'operation', and 'only_config' cannot be None"
             raise YPYServiceError(error_msg=err_msg)
         try:
+            self.service_logger.info('{0} operation initiated'.format(operation))
             return self.execute_payload(
                                         provider,
                                         provider.encode(

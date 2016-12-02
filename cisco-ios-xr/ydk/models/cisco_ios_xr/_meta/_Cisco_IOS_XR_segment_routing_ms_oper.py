@@ -16,20 +16,20 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'SrmsMiAfEBEnum' : _MetaInfoEnum('SrmsMiAfEBEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper',
         {
-            'none':'NONE',
-            'ipv4':'IPV4',
-            'ipv6':'IPV6',
+            'none':'none',
+            'ipv4':'ipv4',
+            'ipv6':'ipv6',
         }, 'Cisco-IOS-XR-segment-routing-ms-oper', _yang_ns._namespaces['Cisco-IOS-XR-segment-routing-ms-oper']),
     'SrmsMiFlagEBEnum' : _MetaInfoEnum('SrmsMiFlagEBEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper',
         {
-            'false':'FALSE',
-            'true':'TRUE',
+            'false':'false',
+            'true':'true',
         }, 'Cisco-IOS-XR-segment-routing-ms-oper', _yang_ns._namespaces['Cisco-IOS-XR-segment-routing-ms-oper']),
     'SrmsMiSrcEBEnum' : _MetaInfoEnum('SrmsMiSrcEBEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper',
         {
-            'none':'NONE',
-            'local':'LOCAL',
-            'remote':'REMOTE',
+            'none':'none',
+            'local':'local',
+            'remote':'remote',
         }, 'Cisco-IOS-XR-segment-routing-ms-oper', _yang_ns._namespaces['Cisco-IOS-XR-segment-routing-ms-oper']),
     'Srms.Mapping.MappingIpv4.MappingMi.Addr' : {
         'meta_info' : _MetaInfoClass('Srms.Mapping.MappingIpv4.MappingMi.Addr',

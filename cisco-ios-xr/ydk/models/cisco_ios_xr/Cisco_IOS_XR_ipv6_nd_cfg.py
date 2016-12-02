@@ -35,79 +35,79 @@ class Ipv6NdMonthEnum(Enum):
 
     Ipv6nd month
 
-    .. data:: JANUARY = 0
+    .. data:: january = 0
 
     	January
 
-    .. data:: FEBRUARY = 1
+    .. data:: february = 1
 
     	February
 
-    .. data:: MARCH = 2
+    .. data:: march = 2
 
     	March
 
-    .. data:: APRIL = 3
+    .. data:: april = 3
 
     	April
 
-    .. data:: MAY = 4
+    .. data:: may = 4
 
     	May
 
-    .. data:: JUNE = 5
+    .. data:: june = 5
 
     	June
 
-    .. data:: JULY = 6
+    .. data:: july = 6
 
     	July
 
-    .. data:: AUGUST = 7
+    .. data:: august = 7
 
     	August
 
-    .. data:: SEPTEMBER = 8
+    .. data:: september = 8
 
     	September
 
-    .. data:: OCTOBER = 9
+    .. data:: october = 9
 
     	October
 
-    .. data:: NOVEMBER = 10
+    .. data:: november = 10
 
     	November
 
-    .. data:: DECEMBER = 11
+    .. data:: december = 11
 
     	December
 
     """
 
-    JANUARY = 0
+    january = 0
 
-    FEBRUARY = 1
+    february = 1
 
-    MARCH = 2
+    march = 2
 
-    APRIL = 3
+    april = 3
 
-    MAY = 4
+    may = 4
 
-    JUNE = 5
+    june = 5
 
-    JULY = 6
+    july = 6
 
-    AUGUST = 7
+    august = 7
 
-    SEPTEMBER = 8
+    september = 8
 
-    OCTOBER = 9
+    october = 9
 
-    NOVEMBER = 10
+    november = 10
 
-    DECEMBER = 11
+    december = 11
 
 
     @staticmethod
@@ -122,25 +122,25 @@ class Ipv6NdRouterPrefEnum(Enum):
 
     Ipv6 nd router pref
 
-    .. data:: HIGH = 1
+    .. data:: high = 1
 
     	High preference
 
-    .. data:: MEDIUM = 2
+    .. data:: medium = 2
 
     	Medium preference
 
-    .. data:: LOW = 3
+    .. data:: low = 3
 
     	Low preference
 
     """
 
-    HIGH = 1
+    high = 1
 
-    MEDIUM = 2
+    medium = 2
 
-    LOW = 3
+    low = 3
 
 
     @staticmethod
@@ -155,19 +155,19 @@ class Ipv6SrpEncapsulationEnum(Enum):
 
     Ipv6srp encapsulation
 
-    .. data:: SRPA = 5
+    .. data:: srpa = 5
 
     	Encapsulation type SRP, prefer side A
 
-    .. data:: SRPB = 6
+    .. data:: srpb = 6
 
     	Encapsulation type SRP, prefer side B
 
     """
 
-    SRPA = 5
+    srpa = 5
 
-    SRPB = 6
+    srpb = 6
 
 
     @staticmethod
@@ -184,7 +184,7 @@ class Ipv6Neighbor(object):
     .. attribute:: neighbors
     
     	IPv6 neighbors
-    	**type**\:  :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6Neighbor.Neighbors>`
+    	**type**\:   :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6Neighbor.Neighbors>`
     
     .. attribute:: scavenge_timeout
     
@@ -192,6 +192,8 @@ class Ipv6Neighbor(object):
     	**type**\:  int
     
     	**range:** 1..43200
+    
+    	**units**\: second
     
     
 
@@ -213,7 +215,7 @@ class Ipv6Neighbor(object):
         .. attribute:: neighbor
         
         	IPv6 neighbor configuration
-        	**type**\: list of  :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6Neighbor.Neighbors.Neighbor>`
+        	**type**\: list of    :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6Neighbor.Neighbors.Neighbor>`
         
         
 
@@ -250,7 +252,7 @@ class Ipv6Neighbor(object):
             .. attribute:: encapsulation
             
             	Encapsulation type only if interface type is SRP
-            	**type**\:  :py:class:`Ipv6SrpEncapsulationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6SrpEncapsulationEnum>`
+            	**type**\:   :py:class:`Ipv6SrpEncapsulationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6SrpEncapsulationEnum>`
             
             .. attribute:: mac_address
             
@@ -265,6 +267,8 @@ class Ipv6Neighbor(object):
             
             	IPv6 address zone
             	**type**\:  str
+            
+            	**default value**\: 0
             
             
 

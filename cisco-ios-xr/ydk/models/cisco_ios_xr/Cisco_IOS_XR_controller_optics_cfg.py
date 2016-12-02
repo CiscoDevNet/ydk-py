@@ -30,19 +30,19 @@ class OpticsDwdmCarrierGridEnum(Enum):
 
     Optics dwdm carrier grid
 
-    .. data:: Y_50G_HZ_GRID = 0
+    .. data:: Y_50g_hz_grid = 0
 
     	50GHz Grid
 
-    .. data:: Y_100MHZ_GRID = 1
+    .. data:: Y_100mhz_grid = 1
 
     	100MHz Grid
 
     """
 
-    Y_50G_HZ_GRID = 0
+    Y_50g_hz_grid = 0
 
-    Y_100MHZ_GRID = 1
+    Y_100mhz_grid = 1
 
 
     @staticmethod
@@ -57,25 +57,25 @@ class OpticsDwdmCarrierParamEnum(Enum):
 
     Optics dwdm carrier param
 
-    .. data:: ITU_CH = 0
+    .. data:: itu_ch = 0
 
     	ITU Wave Channel Number
 
-    .. data:: WAVELENGTH = 1
+    .. data:: wavelength = 1
 
     	Wavelength in nm
 
-    .. data:: FREQUENCY = 2
+    .. data:: frequency = 2
 
     	Frequency in Hertz
 
     """
 
-    ITU_CH = 0
+    itu_ch = 0
 
-    WAVELENGTH = 1
+    wavelength = 1
 
-    FREQUENCY = 2
+    frequency = 2
 
 
     @staticmethod
@@ -90,25 +90,37 @@ class OpticsFecEnum(Enum):
 
     Optics fec
 
-    .. data:: FEC_NONE = 0
+    .. data:: fec_none = 0
 
     	No Fec
 
-    .. data:: FEC_H15 = 1
+    .. data:: fec_h15 = 1
 
     	Enhanced H15
 
-    .. data:: FEC_H25 = 2
+    .. data:: fec_h25 = 2
 
     	Enhanced H25
 
+    .. data:: fec_h15_de = 4
+
+    	Enhanced H15 DE
+
+    .. data:: fec_h25_de = 8
+
+    	Enhanced H25 DE
+
     """
 
-    FEC_NONE = 0
+    fec_none = 0
 
-    FEC_H15 = 1
+    fec_h15 = 1
 
-    FEC_H25 = 2
+    fec_h25 = 2
+
+    fec_h15_de = 4
+
+    fec_h25_de = 8
 
 
     @staticmethod
@@ -123,25 +135,25 @@ class OpticsLoopbackEnum(Enum):
 
     Optics loopback
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	No Loopback
 
-    .. data:: INTERNAL = 1
+    .. data:: internal = 1
 
     	Internal Loopback
 
-    .. data:: LINE = 2
+    .. data:: line = 2
 
     	Line Loopback
 
     """
 
-    NONE = 0
+    none = 0
 
-    INTERNAL = 1
+    internal = 1
 
-    LINE = 2
+    line = 2
 
 
     @staticmethod
@@ -156,19 +168,19 @@ class ThresholdEnum(Enum):
 
     Threshold
 
-    .. data:: LOW = 1
+    .. data:: low = 1
 
     	Low Threshold
 
-    .. data:: HIGH = 2
+    .. data:: high = 2
 
     	High Threshold
 
     """
 
-    LOW = 1
+    low = 1
 
-    HIGH = 2
+    high = 2
 
 
     @staticmethod

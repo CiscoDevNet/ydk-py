@@ -34,23 +34,23 @@ class SpanMirrorIntervalEnum(Enum):
 
     	Mirror 1 in every 512 packets
 
-    .. data:: Y_1K = 2
+    .. data:: Y_1k = 2
 
     	Mirror 1 in every 1024 packets
 
-    .. data:: Y_2K = 3
+    .. data:: Y_2k = 3
 
     	Mirror 1 in every 2048 packets
 
-    .. data:: Y_4K = 4
+    .. data:: Y_4k = 4
 
     	Mirror 1 in every 4096 packets
 
-    .. data:: Y_8K = 5
+    .. data:: Y_8k = 5
 
     	Mirror 1 in every 8192 packets
 
-    .. data:: Y_16K = 6
+    .. data:: Y_16k = 6
 
     	Mirror 1 in every 16384 packets
 
@@ -58,15 +58,15 @@ class SpanMirrorIntervalEnum(Enum):
 
     Y_512 = 1
 
-    Y_1K = 2
+    Y_1k = 2
 
-    Y_2K = 3
+    Y_2k = 3
 
-    Y_4K = 4
+    Y_4k = 4
 
-    Y_8K = 5
+    Y_8k = 5
 
-    Y_16K = 6
+    Y_16k = 6
 
 
     @staticmethod
@@ -81,19 +81,19 @@ class SpanTrafficDirectionEnum(Enum):
 
     Span traffic direction
 
-    .. data:: RX_ONLY = 1
+    .. data:: rx_only = 1
 
     	Replicate only received (ingress) traffic
 
-    .. data:: TX_ONLY = 2
+    .. data:: tx_only = 2
 
     	Replicate only transmitted (egress) traffic
 
     """
 
-    RX_ONLY = 1
+    rx_only = 1
 
-    TX_ONLY = 2
+    tx_only = 2
 
 
     @staticmethod

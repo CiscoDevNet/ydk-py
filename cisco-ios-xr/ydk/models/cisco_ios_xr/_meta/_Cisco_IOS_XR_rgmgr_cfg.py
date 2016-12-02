@@ -16,7 +16,7 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'IccpModeEnum' : _MetaInfoEnum('IccpModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg',
         {
-            'singleton':'SINGLETON',
+            'singleton':'singleton',
         }, 'Cisco-IOS-XR-rgmgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-rgmgr-cfg']),
     'RedundancyGroupManager.Aps.DefaultRedundancyGroup' : {
         'meta_info' : _MetaInfoClass('RedundancyGroupManager.Aps.DefaultRedundancyGroup',

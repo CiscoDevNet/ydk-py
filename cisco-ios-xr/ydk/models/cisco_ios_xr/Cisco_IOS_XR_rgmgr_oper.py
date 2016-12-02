@@ -33,7 +33,7 @@ class RedundancyGroupManager(object):
     .. attribute:: controllers
     
     	Redundancy group manager data
-    	**type**\:  :py:class:`Controllers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_oper.RedundancyGroupManager.Controllers>`
+    	**type**\:   :py:class:`Controllers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_oper.RedundancyGroupManager.Controllers>`
     
     
 
@@ -54,7 +54,7 @@ class RedundancyGroupManager(object):
         .. attribute:: controller
         
         	Display redundancy group by controller name
-        	**type**\: list of  :py:class:`Controller <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_oper.RedundancyGroupManager.Controllers.Controller>`
+        	**type**\: list of    :py:class:`Controller <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_oper.RedundancyGroupManager.Controllers.Controller>`
         
         
 

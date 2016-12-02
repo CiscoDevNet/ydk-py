@@ -32,7 +32,7 @@ class FabricStats(object):
     .. attribute:: nodes
     
     	Table of Nodes
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fsi_oper.FabricStats.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fsi_oper.FabricStats.Nodes>`
     
     
 
@@ -53,7 +53,7 @@ class FabricStats(object):
         .. attribute:: node
         
         	Information about a particular node
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fsi_oper.FabricStats.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fsi_oper.FabricStats.Nodes.Node>`
         
         
 
@@ -83,7 +83,7 @@ class FabricStats(object):
             .. attribute:: statses
             
             	Table of stats information
-            	**type**\:  :py:class:`Statses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fsi_oper.FabricStats.Nodes.Node.Statses>`
+            	**type**\:   :py:class:`Statses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fsi_oper.FabricStats.Nodes.Node.Statses>`
             
             
 
@@ -106,7 +106,7 @@ class FabricStats(object):
                 .. attribute:: stats
                 
                 	Stats information for a particular type
-                	**type**\: list of  :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fsi_oper.FabricStats.Nodes.Node.Statses.Stats>`
+                	**type**\: list of    :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fsi_oper.FabricStats.Nodes.Node.Statses.Stats>`
                 
                 
 
@@ -141,7 +141,7 @@ class FabricStats(object):
                     .. attribute:: stats_table
                     
                     	Array of counters 
-                    	**type**\: list of  :py:class:`StatsTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fsi_oper.FabricStats.Nodes.Node.Statses.Stats.StatsTable>`
+                    	**type**\: list of    :py:class:`StatsTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fsi_oper.FabricStats.Nodes.Node.Statses.Stats.StatsTable>`
                     
                     
 
@@ -166,7 +166,7 @@ class FabricStats(object):
                         .. attribute:: fsi_stat
                         
                         	Stats Table
-                        	**type**\: list of  :py:class:`FsiStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fsi_oper.FabricStats.Nodes.Node.Statses.Stats.StatsTable.FsiStat>`
+                        	**type**\: list of    :py:class:`FsiStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fsi_oper.FabricStats.Nodes.Node.Statses.Stats.StatsTable.FsiStat>`
                         
                         
 

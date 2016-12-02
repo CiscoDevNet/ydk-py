@@ -16,322 +16,322 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'NsfRtrEnum' : _MetaInfoEnum('NsfRtrEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'mgmt-nsf-rtr-none':'MGMT_NSF_RTR_NONE',
-            'mgmt-nsf-rtr-requester':'MGMT_NSF_RTR_REQUESTER',
-            'mgmt-nsf-rtr-receiver':'MGMT_NSF_RTR_RECEIVER',
+            'mgmt-nsf-rtr-none':'mgmt_nsf_rtr_none',
+            'mgmt-nsf-rtr-requester':'mgmt_nsf_rtr_requester',
+            'mgmt-nsf-rtr-receiver':'mgmt_nsf_rtr_receiver',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'IpfrrTbrkrEnum' : _MetaInfoEnum('IpfrrTbrkrEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'downstream':'DOWNSTREAM',
-            'line-card-disjoint':'LINE_CARD_DISJOINT',
-            'backup-metric':'BACKUP_METRIC',
-            'node-protect':'NODE_PROTECT',
-            'primary-path':'PRIMARY_PATH',
-            'secondary-path':'SECONDARY_PATH',
-            'srlg-disjoint':'SRLG_DISJOINT',
-            'tunnel':'TUNNEL',
-            'post-convergence':'POST_CONVERGENCE',
+            'downstream':'downstream',
+            'line-card-disjoint':'line_card_disjoint',
+            'backup-metric':'backup_metric',
+            'node-protect':'node_protect',
+            'primary-path':'primary_path',
+            'secondary-path':'secondary_path',
+            'srlg-disjoint':'srlg_disjoint',
+            'tunnel':'tunnel',
+            'post-convergence':'post_convergence',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'IgpteLibBwModelEnum' : _MetaInfoEnum('IgpteLibBwModelEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'rdm':'RDM',
-            'mam':'MAM',
-            'not-set':'NOT_SET',
+            'rdm':'rdm',
+            'mam':'mam',
+            'not-set':'not_set',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'LinkSubnetEnum' : _MetaInfoEnum('LinkSubnetEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'mgmt-igp-subnet-type-none':'MGMT_IGP_SUBNET_TYPE_NONE',
-            'mgmt-igp-subnet-type-p2p':'MGMT_IGP_SUBNET_TYPE_P2P',
-            'mgmt-igp-subnet-type-broadcast':'MGMT_IGP_SUBNET_TYPE_BROADCAST',
-            'mgmt-igp-subnet-type-nbma':'MGMT_IGP_SUBNET_TYPE_NBMA',
-            'mgmt-igp-subnet-type-p2mp':'MGMT_IGP_SUBNET_TYPE_P2MP',
-            'mgmt-igp-subnet-type-loop-back':'MGMT_IGP_SUBNET_TYPE_LOOP_BACK',
-            'mgmt-igp-subnet-type-max':'MGMT_IGP_SUBNET_TYPE_MAX',
+            'mgmt-igp-subnet-type-none':'mgmt_igp_subnet_type_none',
+            'mgmt-igp-subnet-type-p2p':'mgmt_igp_subnet_type_p2p',
+            'mgmt-igp-subnet-type-broadcast':'mgmt_igp_subnet_type_broadcast',
+            'mgmt-igp-subnet-type-nbma':'mgmt_igp_subnet_type_nbma',
+            'mgmt-igp-subnet-type-p2mp':'mgmt_igp_subnet_type_p2mp',
+            'mgmt-igp-subnet-type-loop-back':'mgmt_igp_subnet_type_loop_back',
+            'mgmt-igp-subnet-type-max':'mgmt_igp_subnet_type_max',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'AuthenticationEnum' : _MetaInfoEnum('AuthenticationEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'mgmt-ospf-auth-none':'MGMT_OSPF_AUTH_NONE',
-            'mgmt-ospf-auth-ct':'MGMT_OSPF_AUTH_CT',
-            'mgmt-ospf-auth-md':'MGMT_OSPF_AUTH_MD',
-            'mgmt-ospf-auth-kc':'MGMT_OSPF_AUTH_KC',
+            'mgmt-ospf-auth-none':'mgmt_ospf_auth_none',
+            'mgmt-ospf-auth-ct':'mgmt_ospf_auth_ct',
+            'mgmt-ospf-auth-md':'mgmt_ospf_auth_md',
+            'mgmt-ospf-auth-kc':'mgmt_ospf_auth_kc',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'OspfLinkTypesEnum' : _MetaInfoEnum('OspfLinkTypesEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'mgmt-rtr-link':'MGMT_RTR_LINK',
-            'mgmt-trans-link':'MGMT_TRANS_LINK',
-            'mgmt-stub-net':'MGMT_STUB_NET',
-            'mgmt-vitural-link':'MGMT_VITURAL_LINK',
+            'mgmt-rtr-link':'mgmt_rtr_link',
+            'mgmt-trans-link':'mgmt_trans_link',
+            'mgmt-stub-net':'mgmt_stub_net',
+            'mgmt-vitural-link':'mgmt_vitural_link',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'SrmsMiSrcEBEnum' : _MetaInfoEnum('SrmsMiSrcEBEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'none':'NONE',
-            'local':'LOCAL',
-            'remote':'REMOTE',
+            'none':'none',
+            'local':'local',
+            'remote':'remote',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'OspfInterfaceStateEnum' : _MetaInfoEnum('OspfInterfaceStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'mgmt-ospf-ifs-down':'MGMT_OSPF_IFS_DOWN',
-            'mgmt-ospf-ifs-loop-back':'MGMT_OSPF_IFS_LOOP_BACK',
-            'mgmt-ospf-ifs-waiting':'MGMT_OSPF_IFS_WAITING',
-            'mgmt-ospf-ifs-point-to-m-point':'MGMT_OSPF_IFS_POINT_TO_M_POINT',
-            'mgmt-ospf-ifs-point-to-point':'MGMT_OSPF_IFS_POINT_TO_POINT',
-            'mgmt-ospf-ifs-dr':'MGMT_OSPF_IFS_DR',
-            'mgmt-ospf-ifs-backup':'MGMT_OSPF_IFS_BACKUP',
-            'mgmt-ospf-ifs-other':'MGMT_OSPF_IFS_OTHER',
+            'mgmt-ospf-ifs-down':'mgmt_ospf_ifs_down',
+            'mgmt-ospf-ifs-loop-back':'mgmt_ospf_ifs_loop_back',
+            'mgmt-ospf-ifs-waiting':'mgmt_ospf_ifs_waiting',
+            'mgmt-ospf-ifs-point-to-m-point':'mgmt_ospf_ifs_point_to_m_point',
+            'mgmt-ospf-ifs-point-to-point':'mgmt_ospf_ifs_point_to_point',
+            'mgmt-ospf-ifs-dr':'mgmt_ospf_ifs_dr',
+            'mgmt-ospf-ifs-backup':'mgmt_ospf_ifs_backup',
+            'mgmt-ospf-ifs-other':'mgmt_ospf_ifs_other',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'IpfrrEnum' : _MetaInfoEnum('IpfrrEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'none':'NONE',
-            'per-link':'PER_LINK',
-            'per-prefix':'PER_PREFIX',
+            'none':'none',
+            'per-link':'per_link',
+            'per-prefix':'per_prefix',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'OspfSrgbStatusEnum' : _MetaInfoEnum('OspfSrgbStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'not-allocated':'NOT_ALLOCATED',
-            'pending':'PENDING',
-            'allocated':'ALLOCATED',
+            'not-allocated':'not_allocated',
+            'pending':'pending',
+            'allocated':'allocated',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'InterfaceEnum' : _MetaInfoEnum('InterfaceEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'mgmt-if-broadcast':'MGMT_IF_BROADCAST',
-            'mgmt-if-nonbroadcast':'MGMT_IF_NONBROADCAST',
-            'mgmt-if-point-to-point':'MGMT_IF_POINT_TO_POINT',
-            'mgmt-if-point-to-m-point':'MGMT_IF_POINT_TO_M_POINT',
-            'mgmt-if-p2mp-non-bcast':'MGMT_IF_P2MP_NON_BCAST',
-            'mgmt-if-virtual-link':'MGMT_IF_VIRTUAL_LINK',
-            'mgmt-if-sham-link':'MGMT_IF_SHAM_LINK',
-            'mgmt-if-loop-back':'MGMT_IF_LOOP_BACK',
+            'mgmt-if-broadcast':'mgmt_if_broadcast',
+            'mgmt-if-nonbroadcast':'mgmt_if_nonbroadcast',
+            'mgmt-if-point-to-point':'mgmt_if_point_to_point',
+            'mgmt-if-point-to-m-point':'mgmt_if_point_to_m_point',
+            'mgmt-if-p2mp-non-bcast':'mgmt_if_p2mp_non_bcast',
+            'mgmt-if-virtual-link':'mgmt_if_virtual_link',
+            'mgmt-if-sham-link':'mgmt_if_sham_link',
+            'mgmt-if-loop-back':'mgmt_if_loop_back',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'InterfaceStateEnum' : _MetaInfoEnum('InterfaceStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'mgmt-ifs-unknown':'MGMT_IFS_UNKNOWN',
-            'mgmt-ifs-admin-down':'MGMT_IFS_ADMIN_DOWN',
-            'mgmt-ifs-down':'MGMT_IFS_DOWN',
-            'mgmt-ifs-up':'MGMT_IFS_UP',
-            'mgmt-ifs-shutdown':'MGMT_IFS_SHUTDOWN',
+            'mgmt-ifs-unknown':'mgmt_ifs_unknown',
+            'mgmt-ifs-admin-down':'mgmt_ifs_admin_down',
+            'mgmt-ifs-down':'mgmt_ifs_down',
+            'mgmt-ifs-up':'mgmt_ifs_up',
+            'mgmt-ifs-shutdown':'mgmt_ifs_shutdown',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'ExMetricEnum' : _MetaInfoEnum('ExMetricEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'mgmt-ex-metric-type-none':'MGMT_EX_METRIC_TYPE_NONE',
-            'mgmt-ex-metric-type-1':'MGMT_EX_METRIC_TYPE_1',
-            'mgmt-ex-metric-type-2':'MGMT_EX_METRIC_TYPE_2',
+            'mgmt-ex-metric-type-none':'mgmt_ex_metric_type_none',
+            'mgmt-ex-metric-type-1':'mgmt_ex_metric_type_1',
+            'mgmt-ex-metric-type-2':'mgmt_ex_metric_type_2',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'GsStateEnum' : _MetaInfoEnum('GsStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'mgmt-gs-init':'MGMT_GS_INIT',
-            'mgmt-gs-normal':'MGMT_GS_NORMAL',
-            'mgmt-gs-delay':'MGMT_GS_DELAY',
-            'mgmt-gs-flush':'MGMT_GS_FLUSH',
-            'mgmt-gs-hello':'MGMT_GS_HELLO',
-            'mgmt-gs-quiet':'MGMT_GS_QUIET',
+            'mgmt-gs-init':'mgmt_gs_init',
+            'mgmt-gs-normal':'mgmt_gs_normal',
+            'mgmt-gs-delay':'mgmt_gs_delay',
+            'mgmt-gs-flush':'mgmt_gs_flush',
+            'mgmt-gs-hello':'mgmt_gs_hello',
+            'mgmt-gs-quiet':'mgmt_gs_quiet',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'OspfShOpqRiPceAddrTypesEnum' : _MetaInfoEnum('OspfShOpqRiPceAddrTypesEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'mgmt-ospf-opq-pce-addr-type-invalid':'MGMT_OSPF_OPQ_PCE_ADDR_TYPE_INVALID',
-            'mgmt-ospf-opq-pce-addr-type-ipv4':'MGMT_OSPF_OPQ_PCE_ADDR_TYPE_IPV4',
-            'mgmt-ospf-opq-pce-addr-type-ipv6':'MGMT_OSPF_OPQ_PCE_ADDR_TYPE_IPV6',
+            'mgmt-ospf-opq-pce-addr-type-invalid':'mgmt_ospf_opq_pce_addr_type_invalid',
+            'mgmt-ospf-opq-pce-addr-type-ipv4':'mgmt_ospf_opq_pce_addr_type_ipv4',
+            'mgmt-ospf-opq-pce-addr-type-ipv6':'mgmt_ospf_opq_pce_addr_type_ipv6',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'MaxMetricSetReasonEnum' : _MetaInfoEnum('MaxMetricSetReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'mgmt-max-metric-on-proc-migration':'MGMT_MAX_METRIC_ON_PROC_MIGRATION',
-            'mgmt-max-metric-on-proc-restart':'MGMT_MAX_METRIC_ON_PROC_RESTART',
-            'mgmt-max-metric-on-switchover':'MGMT_MAX_METRIC_ON_SWITCHOVER',
-            'mgmt-max-metric-on-startup':'MGMT_MAX_METRIC_ON_STARTUP',
-            'mgmt-max-metric-always':'MGMT_MAX_METRIC_ALWAYS',
-            'mgmt-max-metric-reason-none':'MGMT_MAX_METRIC_REASON_NONE',
+            'mgmt-max-metric-on-proc-migration':'mgmt_max_metric_on_proc_migration',
+            'mgmt-max-metric-on-proc-restart':'mgmt_max_metric_on_proc_restart',
+            'mgmt-max-metric-on-switchover':'mgmt_max_metric_on_switchover',
+            'mgmt-max-metric-on-startup':'mgmt_max_metric_on_startup',
+            'mgmt-max-metric-always':'mgmt_max_metric_always',
+            'mgmt-max-metric-reason-none':'mgmt_max_metric_reason_none',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'OspfRouteEnum' : _MetaInfoEnum('OspfRouteEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'mgmt-r-type-none':'MGMT_R_TYPE_NONE',
-            'mgmt-r-type-other':'MGMT_R_TYPE_OTHER',
-            'mgmt-r-type-intra':'MGMT_R_TYPE_INTRA',
-            'mgmt-r-type-inter':'MGMT_R_TYPE_INTER',
-            'mgmt-r-type-extern1':'MGMT_R_TYPE_EXTERN1',
-            'mgmt-r-type-extern2':'MGMT_R_TYPE_EXTERN2',
-            'mgmt-r-type-isis-sum':'MGMT_R_TYPE_ISIS_SUM',
-            'mgmt-r-type-isis-l1':'MGMT_R_TYPE_ISIS_L1',
-            'mgmt-r-type-isis-l2':'MGMT_R_TYPE_ISIS_L2',
-            'mgmt-r-type-isis-l1-ia':'MGMT_R_TYPE_ISIS_L1_IA',
-            'mgmt-r-type-bgp-int':'MGMT_R_TYPE_BGP_INT',
-            'mgmt-r-type-bgp-ext':'MGMT_R_TYPE_BGP_EXT',
-            'mgmt-r-type-bgp-loc':'MGMT_R_TYPE_BGP_LOC',
-            'mgmt-r-type-nssa1':'MGMT_R_TYPE_NSSA1',
-            'mgmt-r-type-nssa2':'MGMT_R_TYPE_NSSA2',
-            'mgmt-r-type-i-grp2-int':'MGMT_R_TYPE_I_GRP2_INT',
-            'mgmt-r-type-i-grp2-ext':'MGMT_R_TYPE_I_GRP2_EXT',
+            'mgmt-r-type-none':'mgmt_r_type_none',
+            'mgmt-r-type-other':'mgmt_r_type_other',
+            'mgmt-r-type-intra':'mgmt_r_type_intra',
+            'mgmt-r-type-inter':'mgmt_r_type_inter',
+            'mgmt-r-type-extern1':'mgmt_r_type_extern1',
+            'mgmt-r-type-extern2':'mgmt_r_type_extern2',
+            'mgmt-r-type-isis-sum':'mgmt_r_type_isis_sum',
+            'mgmt-r-type-isis-l1':'mgmt_r_type_isis_l1',
+            'mgmt-r-type-isis-l2':'mgmt_r_type_isis_l2',
+            'mgmt-r-type-isis-l1-ia':'mgmt_r_type_isis_l1_ia',
+            'mgmt-r-type-bgp-int':'mgmt_r_type_bgp_int',
+            'mgmt-r-type-bgp-ext':'mgmt_r_type_bgp_ext',
+            'mgmt-r-type-bgp-loc':'mgmt_r_type_bgp_loc',
+            'mgmt-r-type-nssa1':'mgmt_r_type_nssa1',
+            'mgmt-r-type-nssa2':'mgmt_r_type_nssa2',
+            'mgmt-r-type-i-grp2-int':'mgmt_r_type_i_grp2_int',
+            'mgmt-r-type-i-grp2-ext':'mgmt_r_type_i_grp2_ext',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'OspfShOpqRiTlvTypesEnum' : _MetaInfoEnum('OspfShOpqRiTlvTypesEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'mgmt-ospf-opq-ri-tlv-type-unknown':'MGMT_OSPF_OPQ_RI_TLV_TYPE_UNKNOWN',
-            'mgmt-ospf-opq-ri-tlv-type-rtrcap':'MGMT_OSPF_OPQ_RI_TLV_TYPE_RTRCAP',
-            'mgmt-ospf-opq-ri-tlv-type-pce-discovery':'MGMT_OSPF_OPQ_RI_TLV_TYPE_PCE_DISCOVERY',
-            'mgmt-ospf-opq-ri-tlv-type-sr-algo':'MGMT_OSPF_OPQ_RI_TLV_TYPE_SR_ALGO',
-            'mgmt-ospf-opq-ri-tlv-type-sr-range':'MGMT_OSPF_OPQ_RI_TLV_TYPE_SR_RANGE',
+            'mgmt-ospf-opq-ri-tlv-type-unknown':'mgmt_ospf_opq_ri_tlv_type_unknown',
+            'mgmt-ospf-opq-ri-tlv-type-rtrcap':'mgmt_ospf_opq_ri_tlv_type_rtrcap',
+            'mgmt-ospf-opq-ri-tlv-type-pce-discovery':'mgmt_ospf_opq_ri_tlv_type_pce_discovery',
+            'mgmt-ospf-opq-ri-tlv-type-sr-algo':'mgmt_ospf_opq_ri_tlv_type_sr_algo',
+            'mgmt-ospf-opq-ri-tlv-type-sr-range':'mgmt_ospf_opq_ri_tlv_type_sr_range',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'TimerEnum' : _MetaInfoEnum('TimerEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'mgmt-db-stop':'MGMT_DB_STOP',
-            'mgmt-db-refresh':'MGMT_DB_REFRESH',
-            'mgmt-db-checksum':'MGMT_DB_CHECKSUM',
-            'mgmt-db-max-age':'MGMT_DB_MAX_AGE',
+            'mgmt-db-stop':'mgmt_db_stop',
+            'mgmt-db-refresh':'mgmt_db_refresh',
+            'mgmt-db-checksum':'mgmt_db_checksum',
+            'mgmt-db-max-age':'mgmt_db_max_age',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'MaxMetricUnsetReasonEnum' : _MetaInfoEnum('MaxMetricUnsetReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'mgmt-max-metric-unset-none':'MGMT_MAX_METRIC_UNSET_NONE',
-            'mgmt-max-metric-unset-bgp':'MGMT_MAX_METRIC_UNSET_BGP',
-            'mgmt-max-metric-unset-timer':'MGMT_MAX_METRIC_UNSET_TIMER',
-            'mgmt-max-metric-unset-cfg':'MGMT_MAX_METRIC_UNSET_CFG',
-            'mgmt-max-metric-unset-process-cleared':'MGMT_MAX_METRIC_UNSET_PROCESS_CLEARED',
-            'mgmt-max-metric-unset-over-write':'MGMT_MAX_METRIC_UNSET_OVER_WRITE',
+            'mgmt-max-metric-unset-none':'mgmt_max_metric_unset_none',
+            'mgmt-max-metric-unset-bgp':'mgmt_max_metric_unset_bgp',
+            'mgmt-max-metric-unset-timer':'mgmt_max_metric_unset_timer',
+            'mgmt-max-metric-unset-cfg':'mgmt_max_metric_unset_cfg',
+            'mgmt-max-metric-unset-process-cleared':'mgmt_max_metric_unset_process_cleared',
+            'mgmt-max-metric-unset-over-write':'mgmt_max_metric_unset_over_write',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'OspfBrEnum' : _MetaInfoEnum('OspfBrEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'mgmt-d-type-abr-asbr':'MGMT_D_TYPE_ABR_ASBR',
-            'mgmt-d-type-asbr':'MGMT_D_TYPE_ASBR',
-            'mgmt-d-type-abr':'MGMT_D_TYPE_ABR',
+            'mgmt-d-type-abr-asbr':'mgmt_d_type_abr_asbr',
+            'mgmt-d-type-asbr':'mgmt_d_type_asbr',
+            'mgmt-d-type-abr':'mgmt_d_type_abr',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'StlvEnum' : _MetaInfoEnum('StlvEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'mgmt-rrr-link-type':'MGMT_RRR_LINK_TYPE',
-            'mgmt-rrr-link-id':'MGMT_RRR_LINK_ID',
-            'mgmt-rrr-link-local-if-addr':'MGMT_RRR_LINK_LOCAL_IF_ADDR',
-            'mgmt-rrr-link-remote-if-addr':'MGMT_RRR_LINK_REMOTE_IF_ADDR',
-            'mgmt-rrr-link-metric':'MGMT_RRR_LINK_METRIC',
-            'mgmt-rrr-link-max-bw':'MGMT_RRR_LINK_MAX_BW',
-            'mgmt-rrr-link-max-reservable-bw':'MGMT_RRR_LINK_MAX_RESERVABLE_BW',
-            'mgmt-rrr-link-unreserved-bw':'MGMT_RRR_LINK_UNRESERVED_BW',
-            'mgmt-rrr-link-re-source-class':'MGMT_RRR_LINK_RE_SOURCE_CLASS',
-            'mgmt-rrr-link-in-out-if-id':'MGMT_RRR_LINK_IN_OUT_IF_ID',
-            'mgmt-rrr-link-if-switching-cap-desc':'MGMT_RRR_LINK_IF_SWITCHING_CAP_DESC',
-            'mgmt-ospf-rrr-link-srlg':'MGMT_OSPF_RRR_LINK_SRLG',
-            'mgmt-rrr-link-bw-constraints-sub':'MGMT_RRR_LINK_BW_CONSTRAINTS_SUB',
-            'mgmt-ospf-rrr-link-uni-delay':'MGMT_OSPF_RRR_LINK_UNI_DELAY',
-            'mgmt-ospf-rrr-link-max-reservable-bw-sub':'MGMT_OSPF_RRR_LINK_MAX_RESERVABLE_BW_SUB',
-            'mgmt-ospf-rrr-link-unreserved-bw-sub':'MGMT_OSPF_RRR_LINK_UNRESERVED_BW_SUB',
-            'mgmt-rrr-link-igp-metric':'MGMT_RRR_LINK_IGP_METRIC',
-            'mgmt-ospf-rrr-link-ext-admin-sub':'MGMT_OSPF_RRR_LINK_EXT_ADMIN_SUB',
+            'mgmt-rrr-link-type':'mgmt_rrr_link_type',
+            'mgmt-rrr-link-id':'mgmt_rrr_link_id',
+            'mgmt-rrr-link-local-if-addr':'mgmt_rrr_link_local_if_addr',
+            'mgmt-rrr-link-remote-if-addr':'mgmt_rrr_link_remote_if_addr',
+            'mgmt-rrr-link-metric':'mgmt_rrr_link_metric',
+            'mgmt-rrr-link-max-bw':'mgmt_rrr_link_max_bw',
+            'mgmt-rrr-link-max-reservable-bw':'mgmt_rrr_link_max_reservable_bw',
+            'mgmt-rrr-link-unreserved-bw':'mgmt_rrr_link_unreserved_bw',
+            'mgmt-rrr-link-re-source-class':'mgmt_rrr_link_re_source_class',
+            'mgmt-rrr-link-in-out-if-id':'mgmt_rrr_link_in_out_if_id',
+            'mgmt-rrr-link-if-switching-cap-desc':'mgmt_rrr_link_if_switching_cap_desc',
+            'mgmt-ospf-rrr-link-srlg':'mgmt_ospf_rrr_link_srlg',
+            'mgmt-rrr-link-bw-constraints-sub':'mgmt_rrr_link_bw_constraints_sub',
+            'mgmt-ospf-rrr-link-uni-delay':'mgmt_ospf_rrr_link_uni_delay',
+            'mgmt-ospf-rrr-link-max-reservable-bw-sub':'mgmt_ospf_rrr_link_max_reservable_bw_sub',
+            'mgmt-ospf-rrr-link-unreserved-bw-sub':'mgmt_ospf_rrr_link_unreserved_bw_sub',
+            'mgmt-rrr-link-igp-metric':'mgmt_rrr_link_igp_metric',
+            'mgmt-ospf-rrr-link-ext-admin-sub':'mgmt_ospf_rrr_link_ext_admin_sub',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'SrmsMiFlagEBEnum' : _MetaInfoEnum('SrmsMiFlagEBEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'false':'FALSE',
-            'true':'TRUE',
+            'false':'false',
+            'true':'true',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'SrmsMiAfEBEnum' : _MetaInfoEnum('SrmsMiAfEBEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'none':'NONE',
-            'ipv4':'IPV4',
-            'ipv6':'IPV6',
+            'none':'none',
+            'ipv4':'ipv4',
+            'ipv6':'ipv6',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'NeighborStateEnum' : _MetaInfoEnum('NeighborStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'mgmt-nbr-down':'MGMT_NBR_DOWN',
-            'mgmt-nbr-attempt':'MGMT_NBR_ATTEMPT',
-            'mgmt-nbr-init':'MGMT_NBR_INIT',
-            'mgmt-nbr-2way':'MGMT_NBR_2WAY',
-            'mgmt-nbr-ex-start':'MGMT_NBR_EX_START',
-            'mgmt-nbr-ex-change':'MGMT_NBR_EX_CHANGE',
-            'mgmt-nbr-load-ing':'MGMT_NBR_LOAD_ING',
-            'mgmt-nbr-full':'MGMT_NBR_FULL',
-            'mgmt-nbr-sc-virtual':'MGMT_NBR_SC_VIRTUAL',
+            'mgmt-nbr-down':'mgmt_nbr_down',
+            'mgmt-nbr-attempt':'mgmt_nbr_attempt',
+            'mgmt-nbr-init':'mgmt_nbr_init',
+            'mgmt-nbr-2way':'mgmt_nbr_2way',
+            'mgmt-nbr-ex-start':'mgmt_nbr_ex_start',
+            'mgmt-nbr-ex-change':'mgmt_nbr_ex_change',
+            'mgmt-nbr-load-ing':'mgmt_nbr_load_ing',
+            'mgmt-nbr-full':'mgmt_nbr_full',
+            'mgmt-nbr-sc-virtual':'mgmt_nbr_sc_virtual',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'OspfInternalLsaTypesEnum' : _MetaInfoEnum('OspfInternalLsaTypesEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'mgmt-rtr-type':'MGMT_RTR_TYPE',
-            'mgmt-ntwk-type':'MGMT_NTWK_TYPE',
-            'mgmt-sum-type':'MGMT_SUM_TYPE',
-            'mgmt-ext-type':'MGMT_EXT_TYPE',
-            'mgmt-opq-type':'MGMT_OPQ_TYPE',
-            'mgmt-opq-link-type':'MGMT_OPQ_LINK_TYPE',
-            'mgmt-opq-rrr-type':'MGMT_OPQ_RRR_TYPE',
-            'mgmt-opq-gr-type':'MGMT_OPQ_GR_TYPE',
-            'mgmt-opq-ri-type':'MGMT_OPQ_RI_TYPE',
-            'mgmt-opq-epl-type':'MGMT_OPQ_EPL_TYPE',
-            'mgmt-opq-ell-type':'MGMT_OPQ_ELL_TYPE',
+            'mgmt-rtr-type':'mgmt_rtr_type',
+            'mgmt-ntwk-type':'mgmt_ntwk_type',
+            'mgmt-sum-type':'mgmt_sum_type',
+            'mgmt-ext-type':'mgmt_ext_type',
+            'mgmt-opq-type':'mgmt_opq_type',
+            'mgmt-opq-link-type':'mgmt_opq_link_type',
+            'mgmt-opq-rrr-type':'mgmt_opq_rrr_type',
+            'mgmt-opq-gr-type':'mgmt_opq_gr_type',
+            'mgmt-opq-ri-type':'mgmt_opq_ri_type',
+            'mgmt-opq-epl-type':'mgmt_opq_epl_type',
+            'mgmt-opq-ell-type':'mgmt_opq_ell_type',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'MplsTeOptTlvEnum' : _MetaInfoEnum('MplsTeOptTlvEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'mpls-te-opt-tlv-type-none':'MPLS_TE_OPT_TLV_TYPE_NONE',
-            'mpls-te-opt-tlv-type-srlg':'MPLS_TE_OPT_TLV_TYPE_SRLG',
-            'mpls-te-opt-tlv-type-bc':'MPLS_TE_OPT_TLV_TYPE_BC',
-            'mpls-te-opt-tlv-type-ixcd':'MPLS_TE_OPT_TLV_TYPE_IXCD',
-            'mpls-te-opt-tlv-type-uni-delay':'MPLS_TE_OPT_TLV_TYPE_UNI_DELAY',
+            'mpls-te-opt-tlv-type-none':'mpls_te_opt_tlv_type_none',
+            'mpls-te-opt-tlv-type-srlg':'mpls_te_opt_tlv_type_srlg',
+            'mpls-te-opt-tlv-type-bc':'mpls_te_opt_tlv_type_bc',
+            'mpls-te-opt-tlv-type-ixcd':'mpls_te_opt_tlv_type_ixcd',
+            'mpls-te-opt-tlv-type-uni-delay':'mpls_te_opt_tlv_type_uni_delay',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'RedistProtocolEnum' : _MetaInfoEnum('RedistProtocolEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'mgmt-rib-protocol-all':'MGMT_RIB_PROTOCOL_ALL',
-            'mgmt-rib-protocol-connected':'MGMT_RIB_PROTOCOL_CONNECTED',
-            'mgmt-rib-protocol-local':'MGMT_RIB_PROTOCOL_LOCAL',
-            'mgmt-rib-protocol-static':'MGMT_RIB_PROTOCOL_STATIC',
-            'mgmt-rib-protocol-bgp':'MGMT_RIB_PROTOCOL_BGP',
-            'mgmt-rib-protocol-rip':'MGMT_RIB_PROTOCOL_RIP',
-            'mgmt-rib-protocol-isis':'MGMT_RIB_PROTOCOL_ISIS',
-            'mgmt-rib-protocol-ospf':'MGMT_RIB_PROTOCOL_OSPF',
-            'mgmt-rib-protocol-eigrp':'MGMT_RIB_PROTOCOL_EIGRP',
-            'mgmt-rib-protocol-dagr':'MGMT_RIB_PROTOCOL_DAGR',
-            'mgmt-rib-protocol-subscriber':'MGMT_RIB_PROTOCOL_SUBSCRIBER',
-            'mgmt-rib-protocol-application':'MGMT_RIB_PROTOCOL_APPLICATION',
-            'mgmt-rib-protocol-mobile':'MGMT_RIB_PROTOCOL_MOBILE',
+            'mgmt-rib-protocol-all':'mgmt_rib_protocol_all',
+            'mgmt-rib-protocol-connected':'mgmt_rib_protocol_connected',
+            'mgmt-rib-protocol-local':'mgmt_rib_protocol_local',
+            'mgmt-rib-protocol-static':'mgmt_rib_protocol_static',
+            'mgmt-rib-protocol-bgp':'mgmt_rib_protocol_bgp',
+            'mgmt-rib-protocol-rip':'mgmt_rib_protocol_rip',
+            'mgmt-rib-protocol-isis':'mgmt_rib_protocol_isis',
+            'mgmt-rib-protocol-ospf':'mgmt_rib_protocol_ospf',
+            'mgmt-rib-protocol-eigrp':'mgmt_rib_protocol_eigrp',
+            'mgmt-rib-protocol-dagr':'mgmt_rib_protocol_dagr',
+            'mgmt-rib-protocol-subscriber':'mgmt_rib_protocol_subscriber',
+            'mgmt-rib-protocol-application':'mgmt_rib_protocol_application',
+            'mgmt-rib-protocol-mobile':'mgmt_rib_protocol_mobile',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'OspfLsaOpqRiScopeEnum' : _MetaInfoEnum('OspfLsaOpqRiScopeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'mgmt-lsa-opq-ri-scope-link':'MGMT_LSA_OPQ_RI_SCOPE_LINK',
-            'mgmt-lsa-opq-ri-scope-area':'MGMT_LSA_OPQ_RI_SCOPE_AREA',
-            'mgmt-lsa-opq-ri-scope-as':'MGMT_LSA_OPQ_RI_SCOPE_AS',
+            'mgmt-lsa-opq-ri-scope-link':'mgmt_lsa_opq_ri_scope_link',
+            'mgmt-lsa-opq-ri-scope-area':'mgmt_lsa_opq_ri_scope_area',
+            'mgmt-lsa-opq-ri-scope-as':'mgmt_lsa_opq_ri_scope_as',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'LsaEnum' : _MetaInfoEnum('LsaEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'mgmt-lsa-type-rtr':'MGMT_LSA_TYPE_RTR',
-            'mgmt-lsa-type-net':'MGMT_LSA_TYPE_NET',
-            'mgmt-lsa-type-sum-net':'MGMT_LSA_TYPE_SUM_NET',
-            'mgmt-lsa-type-sum-asb':'MGMT_LSA_TYPE_SUM_ASB',
-            'mgmt-lsa-type-ext':'MGMT_LSA_TYPE_EXT',
-            'mgmt-lsa-type-mospf':'MGMT_LSA_TYPE_MOSPF',
-            'mgmt-lsa-type-7-ase':'MGMT_LSA_TYPE_7_ASE',
-            'mgmt-lsa-type-8-ignore':'MGMT_LSA_TYPE_8_IGNORE',
-            'mgmt-lsa-type-opq-link':'MGMT_LSA_TYPE_OPQ_LINK',
-            'mgmt-lsa-type-opq-area':'MGMT_LSA_TYPE_OPQ_AREA',
-            'mgmt-lsa-type-opq-as':'MGMT_LSA_TYPE_OPQ_AS',
+            'mgmt-lsa-type-rtr':'mgmt_lsa_type_rtr',
+            'mgmt-lsa-type-net':'mgmt_lsa_type_net',
+            'mgmt-lsa-type-sum-net':'mgmt_lsa_type_sum_net',
+            'mgmt-lsa-type-sum-asb':'mgmt_lsa_type_sum_asb',
+            'mgmt-lsa-type-ext':'mgmt_lsa_type_ext',
+            'mgmt-lsa-type-mospf':'mgmt_lsa_type_mospf',
+            'mgmt-lsa-type-7-ase':'mgmt_lsa_type_7_ase',
+            'mgmt-lsa-type-8-ignore':'mgmt_lsa_type_8_ignore',
+            'mgmt-lsa-type-opq-link':'mgmt_lsa_type_opq_link',
+            'mgmt-lsa-type-opq-area':'mgmt_lsa_type_opq_area',
+            'mgmt-lsa-type-opq-as':'mgmt_lsa_type_opq_as',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'DrBdrStateEnum' : _MetaInfoEnum('DrBdrStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'mgmt-dbdr-none':'MGMT_DBDR_NONE',
-            'mgmt-dbdr-dr':'MGMT_DBDR_DR',
-            'mgmt-dbdr-bdr':'MGMT_DBDR_BDR',
-            'mgmt-dbdr-dr-other':'MGMT_DBDR_DR_OTHER',
+            'mgmt-dbdr-none':'mgmt_dbdr_none',
+            'mgmt-dbdr-dr':'mgmt_dbdr_dr',
+            'mgmt-dbdr-bdr':'mgmt_dbdr_bdr',
+            'mgmt-dbdr-dr-other':'mgmt_dbdr_dr_other',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'TimerTableEnum' : _MetaInfoEnum('TimerTableEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'mgmt-db-no-table':'MGMT_DB_NO_TABLE',
-            'mgmt-db-sec-table':'MGMT_DB_SEC_TABLE',
-            'mgmt-db-buffer-table':'MGMT_DB_BUFFER_TABLE',
-            'mgmt-db-min-table':'MGMT_DB_MIN_TABLE',
+            'mgmt-db-no-table':'mgmt_db_no_table',
+            'mgmt-db-sec-table':'mgmt_db_sec_table',
+            'mgmt-db-buffer-table':'mgmt_db_buffer_table',
+            'mgmt-db-min-table':'mgmt_db_min_table',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'OspfGrReasonEnum' : _MetaInfoEnum('OspfGrReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'mgmt-gr-reason-unknown':'MGMT_GR_REASON_UNKNOWN',
-            'mgmt-gr-reason-sw-restart':'MGMT_GR_REASON_SW_RESTART',
-            'mgmt-gr-reason-sw-upgrade':'MGMT_GR_REASON_SW_UPGRADE',
-            'mgmt-gr-reason-switchover':'MGMT_GR_REASON_SWITCHOVER',
+            'mgmt-gr-reason-unknown':'mgmt_gr_reason_unknown',
+            'mgmt-gr-reason-sw-restart':'mgmt_gr_reason_sw_restart',
+            'mgmt-gr-reason-sw-upgrade':'mgmt_gr_reason_sw_upgrade',
+            'mgmt-gr-reason-switchover':'mgmt_gr_reason_switchover',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'OspfMaxMetricAbrOffReasonsEnum' : _MetaInfoEnum('OspfMaxMetricAbrOffReasonsEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'ospf-max-metric-abr-off-reason-none':'OSPF_MAX_METRIC_ABR_OFF_REASON_NONE',
-            'ospf-max-metric-abr-off-reason-no-nbr':'OSPF_MAX_METRIC_ABR_OFF_REASON_NO_NBR',
-            'ospf-max-metric-abr-off-reason-new-nbr':'OSPF_MAX_METRIC_ABR_OFF_REASON_NEW_NBR',
-            'ospf-max-metric-abr-off-reason-nbr-full':'OSPF_MAX_METRIC_ABR_OFF_REASON_NBR_FULL',
-            'ospf-max-metric-abr-off-reason-flush-p-end':'OSPF_MAX_METRIC_ABR_OFF_REASON_FLUSH_P_END',
+            'ospf-max-metric-abr-off-reason-none':'ospf_max_metric_abr_off_reason_none',
+            'ospf-max-metric-abr-off-reason-no-nbr':'ospf_max_metric_abr_off_reason_no_nbr',
+            'ospf-max-metric-abr-off-reason-new-nbr':'ospf_max_metric_abr_off_reason_new_nbr',
+            'ospf-max-metric-abr-off-reason-nbr-full':'ospf_max_metric_abr_off_reason_nbr_full',
+            'ospf-max-metric-abr-off-reason-flush-p-end':'ospf_max_metric_abr_off_reason_flush_p_end',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'OspfLsEnum' : _MetaInfoEnum('OspfLsEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper',
         {
-            'router':'ROUTER',
-            'network':'NETWORK',
-            'summary':'SUMMARY',
-            'asbr-summary':'ASBR_SUMMARY',
-            'external':'EXTERNAL',
-            'nssa-external':'NSSA_EXTERNAL',
-            'opaque-link':'OPAQUE_LINK',
-            'opaque-area':'OPAQUE_AREA',
-            'opaque-as':'OPAQUE_AS',
+            'router':'router',
+            'network':'network',
+            'summary':'summary',
+            'asbr-summary':'asbr_summary',
+            'external':'external',
+            'nssa-external':'nssa_external',
+            'opaque-link':'opaque_link',
+            'opaque-area':'opaque_area',
+            'opaque-as':'opaque_as',
         }, 'Cisco-IOS-XR-ipv4-ospf-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ospf-oper']),
     'Ospf.Processes.Process.Vrfs.Vrf.InterfaceVrfInformation.ShamLinks.ShamLink.ShamLinkNeighbor.ShamLinkRetransmissoin' : {
         'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.InterfaceVrfInformation.ShamLinks.ShamLink.ShamLinkNeighbor.ShamLinkRetransmissoin',
@@ -875,8 +875,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.GlobalUnreserveBwPerPriority' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.GlobalUnreserveBwPerPriority',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.GlobalUnreserveBwPerPriority' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.GlobalUnreserveBwPerPriority',
             False, 
             [
             _MetaInfoClassMember('bw-per-priority', REFERENCE_LEAFLIST, 'int' , None, None, 
@@ -892,8 +892,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.SubPoolUnreserveBwPerPriority' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.SubPoolUnreserveBwPerPriority',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.SubPoolUnreserveBwPerPriority' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.SubPoolUnreserveBwPerPriority',
             False, 
             [
             _MetaInfoClassMember('bw-per-priority', REFERENCE_LEAFLIST, 'int' , None, None, 
@@ -909,8 +909,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.LinkProtocolPriorityCapability' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.LinkProtocolPriorityCapability',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.LinkProtocolPriorityCapability' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.LinkProtocolPriorityCapability',
             False, 
             [
             _MetaInfoClassMember('link-protocol-capability', ATTRIBUTE, 'int' , None, None, 
@@ -932,8 +932,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.LinkSwCapability' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.LinkSwCapability',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.LinkSwCapability' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.LinkSwCapability',
             False, 
             [
             _MetaInfoClassMember('link-encoding', ATTRIBUTE, 'int' , None, None, 
@@ -974,8 +974,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.ExtendedAdminGroupList' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.ExtendedAdminGroupList',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.ExtendedAdminGroupList' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.ExtendedAdminGroupList',
             False, 
             [
             _MetaInfoClassMember('ext-admin-data', REFERENCE_LEAFLIST, 'int' , None, None, 
@@ -997,8 +997,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue',
             False, 
             [
             _MetaInfoClassMember('model-id', ATTRIBUTE, 'int' , None, None, 
@@ -1026,8 +1026,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue',
             False, 
             [
             _MetaInfoClassMember('mplste-link-srlg-data', REFERENCE_LEAFLIST, 'int' , None, None, 
@@ -1055,8 +1055,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo',
             False, 
             [
             _MetaInfoClassMember('min-lsp-bandwidth', ATTRIBUTE, 'int' , None, None, 
@@ -1078,8 +1078,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue',
             False, 
             [
             _MetaInfoClassMember('num-stages', ATTRIBUTE, 'int' , None, None, 
@@ -1179,11 +1179,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue',
             False, 
             [
-            _MetaInfoClassMember('fixed-sub-tlv-value', REFERENCE_CLASS, 'FixedSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue', 
+            _MetaInfoClassMember('fixed-sub-tlv-value', REFERENCE_CLASS, 'FixedSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue', 
                 [], [], 
                 '''                Value of Fixed Sub TLV
                 ''',
@@ -1202,8 +1202,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon',
             False, 
             [
             _MetaInfoClassMember('num-stages', ATTRIBUTE, 'int' , None, None, 
@@ -1303,11 +1303,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue',
             False, 
             [
-            _MetaInfoClassMember('flex-sub-tlv-value-common', REFERENCE_CLASS, 'FlexSubTlvValueCommon' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon', 
+            _MetaInfoClassMember('flex-sub-tlv-value-common', REFERENCE_CLASS, 'FlexSubTlvValueCommon' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon', 
                 [], [], 
                 '''                Flex Sub TLV Value
                 ''',
@@ -1332,17 +1332,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue',
             False, 
             [
-            _MetaInfoClassMember('fixed-bw-sub-tlv-value', REFERENCE_CLASS, 'FixedBwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue', 
+            _MetaInfoClassMember('fixed-bw-sub-tlv-value', REFERENCE_CLASS, 'FixedBwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue', 
                 [], [], 
                 '''                Value of Fixed Sub TLV
                 ''',
                 'fixed_bw_sub_tlv_value',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('flex-bw-sub-tlv-value', REFERENCE_CLASS, 'FlexBwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue', 
+            _MetaInfoClassMember('flex-bw-sub-tlv-value', REFERENCE_CLASS, 'FlexBwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue', 
                 [], [], 
                 '''                Value of Flex Sub TLV
                 ''',
@@ -1361,8 +1361,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv',
             False, 
             [
             _MetaInfoClassMember('bw-sub-tlv-length', ATTRIBUTE, 'int' , None, None, 
@@ -1377,7 +1377,7 @@ _meta_table = {
                 ''',
                 'bw_sub_tlv_type',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('bw-sub-tlv-value', REFERENCE_CLASS, 'BwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue', 
+            _MetaInfoClassMember('bw-sub-tlv-value', REFERENCE_CLASS, 'BwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue', 
                 [], [], 
                 '''                Value of BW Sub TLV
                 ''',
@@ -1390,11 +1390,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv',
             False, 
             [
-            _MetaInfoClassMember('arr-bw-sub-tlv', REFERENCE_LIST, 'ArrBwSubTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv', 
+            _MetaInfoClassMember('arr-bw-sub-tlv', REFERENCE_LIST, 'ArrBwSubTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv', 
                 [], [], 
                 '''                Array of sub tlvs
                 ''',
@@ -1407,17 +1407,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType',
             False, 
             [
-            _MetaInfoClassMember('ixcdbw-sub-tlv', REFERENCE_CLASS, 'IxcdbwSubTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv', 
+            _MetaInfoClassMember('ixcdbw-sub-tlv', REFERENCE_CLASS, 'IxcdbwSubTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv', 
                 [], [], 
                 '''                Sub TLVs
                 ''',
                 'ixcdbw_sub_tlv',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ixcdpsc-info', REFERENCE_CLASS, 'IxcdpscInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo', 
+            _MetaInfoClassMember('ixcdpsc-info', REFERENCE_CLASS, 'IxcdpscInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo', 
                 [], [], 
                 '''                IXCD PSC information
                 ''',
@@ -1436,8 +1436,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue',
             False, 
             [
             _MetaInfoClassMember('fixed-scsi-count', ATTRIBUTE, 'int' , None, None, 
@@ -1452,7 +1452,7 @@ _meta_table = {
                 ''',
                 'flex_scsi_count',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ixcd-switching-cap-type', REFERENCE_CLASS, 'IxcdSwitchingCapType' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType', 
+            _MetaInfoClassMember('ixcd-switching-cap-type', REFERENCE_CLASS, 'IxcdSwitchingCapType' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType', 
                 [], [], 
                 '''                Switching Cap type
                 ''',
@@ -1483,8 +1483,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue',
             False, 
             [
             _MetaInfoClassMember('uni-dir-delay', ATTRIBUTE, 'int' , None, None, 
@@ -1500,17 +1500,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue',
             False, 
             [
-            _MetaInfoClassMember('bctlv-value', REFERENCE_CLASS, 'BctlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue', 
+            _MetaInfoClassMember('bctlv-value', REFERENCE_CLASS, 'BctlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue', 
                 [], [], 
                 '''                Value of Bandwidth Constraints TLV
                 ''',
                 'bctlv_value',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ixcdtlv-value', REFERENCE_CLASS, 'IxcdtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue', 
+            _MetaInfoClassMember('ixcdtlv-value', REFERENCE_CLASS, 'IxcdtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue', 
                 [], [], 
                 '''                Value of IXCD TLV
                 ''',
@@ -1522,13 +1522,13 @@ _meta_table = {
                 ''',
                 'opaque_tlv_type',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('srlgtlv-value', REFERENCE_CLASS, 'SrlgtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue', 
+            _MetaInfoClassMember('srlgtlv-value', REFERENCE_CLASS, 'SrlgtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue', 
                 [], [], 
                 '''                Value of SRLG TLV
                 ''',
                 'srlgtlv_value',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('unidtlv-value', REFERENCE_CLASS, 'UnidtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue', 
+            _MetaInfoClassMember('unidtlv-value', REFERENCE_CLASS, 'UnidtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue', 
                 [], [], 
                 '''                Value of Uni Delay TLV
                 ''',
@@ -1541,8 +1541,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv',
             False, 
             [
             _MetaInfoClassMember('mplste-link-opt-tlv-len', ATTRIBUTE, 'int' , None, None, 
@@ -1557,7 +1557,7 @@ _meta_table = {
                 ''',
                 'mplste_link_opt_tlv_type',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mplste-link-opt-tlv-value', REFERENCE_LIST, 'MplsteLinkOptTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue', 
+            _MetaInfoClassMember('mplste-link-opt-tlv-value', REFERENCE_LIST, 'MplsteLinkOptTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue', 
                 [], [], 
                 '''                Value of Opt TLV
                 ''',
@@ -1570,8 +1570,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_',
             False, 
             [
             _MetaInfoClassMember('affinity', ATTRIBUTE, 'int' , None, None, 
@@ -1592,7 +1592,7 @@ _meta_table = {
                 ''',
                 'dste_in_use',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('extended-admin-group-list', REFERENCE_CLASS, 'ExtendedAdminGroupList' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.ExtendedAdminGroupList', 
+            _MetaInfoClassMember('extended-admin-group-list', REFERENCE_CLASS, 'ExtendedAdminGroupList' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.ExtendedAdminGroupList', 
                 [], [], 
                 '''                Extended Admin Group
                 ''',
@@ -1604,7 +1604,7 @@ _meta_table = {
                 ''',
                 'fragment_id',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('global-unreserve-bw-per-priority', REFERENCE_CLASS, 'GlobalUnreserveBwPerPriority' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.GlobalUnreserveBwPerPriority', 
+            _MetaInfoClassMember('global-unreserve-bw-per-priority', REFERENCE_CLASS, 'GlobalUnreserveBwPerPriority' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.GlobalUnreserveBwPerPriority', 
                 [], [], 
                 '''                Global pool unreserved bandwidth for each
                 priority (bytes/s)
@@ -1629,13 +1629,13 @@ _meta_table = {
                 ''',
                 'link_address',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('link-protocol-priority-capability', REFERENCE_CLASS, 'LinkProtocolPriorityCapability' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.LinkProtocolPriorityCapability', 
+            _MetaInfoClassMember('link-protocol-priority-capability', REFERENCE_CLASS, 'LinkProtocolPriorityCapability' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.LinkProtocolPriorityCapability', 
                 [], [], 
                 '''                Link protocol and protocol priority capability
                 ''',
                 'link_protocol_priority_capability',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('link-sw-capability', REFERENCE_CLASS, 'LinkSwCapability' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.LinkSwCapability', 
+            _MetaInfoClassMember('link-sw-capability', REFERENCE_CLASS, 'LinkSwCapability' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.LinkSwCapability', 
                 [], [], 
                 '''                Link switching capability
                 ''',
@@ -1673,7 +1673,7 @@ _meta_table = {
                 ''',
                 'mpls_link_type',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mplste-link-opt-tlv', REFERENCE_LIST, 'MplsteLinkOptTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv', 
+            _MetaInfoClassMember('mplste-link-opt-tlv', REFERENCE_LIST, 'MplsteLinkOptTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv', 
                 [], [], 
                 '''                List of Optional TLVs
                 ''',
@@ -1715,7 +1715,7 @@ _meta_table = {
                 ''',
                 'priority_count',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('sub-pool-unreserve-bw-per-priority', REFERENCE_CLASS, 'SubPoolUnreserveBwPerPriority' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.SubPoolUnreserveBwPerPriority', 
+            _MetaInfoClassMember('sub-pool-unreserve-bw-per-priority', REFERENCE_CLASS, 'SubPoolUnreserveBwPerPriority' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.SubPoolUnreserveBwPerPriority', 
                 [], [], 
                 '''                Sub pool unreserved bandwidth for each priority
                 (bytes/s)
@@ -1735,8 +1735,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.GlobalUnreserveBwPerPriority' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.GlobalUnreserveBwPerPriority',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.GlobalUnreserveBwPerPriority' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.GlobalUnreserveBwPerPriority',
             False, 
             [
             _MetaInfoClassMember('bw-per-priority', REFERENCE_LEAFLIST, 'int' , None, None, 
@@ -1752,8 +1752,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.SubPoolUnreserveBwPerPriority' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.SubPoolUnreserveBwPerPriority',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.SubPoolUnreserveBwPerPriority' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.SubPoolUnreserveBwPerPriority',
             False, 
             [
             _MetaInfoClassMember('bw-per-priority', REFERENCE_LEAFLIST, 'int' , None, None, 
@@ -1769,8 +1769,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.LinkProtocolPriorityCapability' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.LinkProtocolPriorityCapability',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.LinkProtocolPriorityCapability' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.LinkProtocolPriorityCapability',
             False, 
             [
             _MetaInfoClassMember('link-protocol-capability', ATTRIBUTE, 'int' , None, None, 
@@ -1792,8 +1792,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.LinkSwCapability' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.LinkSwCapability',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.LinkSwCapability' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.LinkSwCapability',
             False, 
             [
             _MetaInfoClassMember('link-encoding', ATTRIBUTE, 'int' , None, None, 
@@ -1834,8 +1834,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.ExtendedAdminGroupList' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.ExtendedAdminGroupList',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.ExtendedAdminGroupList' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.ExtendedAdminGroupList',
             False, 
             [
             _MetaInfoClassMember('ext-admin-data', REFERENCE_LEAFLIST, 'int' , None, None, 
@@ -1857,8 +1857,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue',
             False, 
             [
             _MetaInfoClassMember('model-id', ATTRIBUTE, 'int' , None, None, 
@@ -1886,8 +1886,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue',
             False, 
             [
             _MetaInfoClassMember('mplste-link-srlg-data', REFERENCE_LEAFLIST, 'int' , None, None, 
@@ -1915,8 +1915,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo',
             False, 
             [
             _MetaInfoClassMember('min-lsp-bandwidth', ATTRIBUTE, 'int' , None, None, 
@@ -1938,8 +1938,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue',
             False, 
             [
             _MetaInfoClassMember('num-stages', ATTRIBUTE, 'int' , None, None, 
@@ -2039,11 +2039,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue',
             False, 
             [
-            _MetaInfoClassMember('fixed-sub-tlv-value', REFERENCE_CLASS, 'FixedSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue', 
+            _MetaInfoClassMember('fixed-sub-tlv-value', REFERENCE_CLASS, 'FixedSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue', 
                 [], [], 
                 '''                Value of Fixed Sub TLV
                 ''',
@@ -2062,8 +2062,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon',
             False, 
             [
             _MetaInfoClassMember('num-stages', ATTRIBUTE, 'int' , None, None, 
@@ -2163,11 +2163,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue',
             False, 
             [
-            _MetaInfoClassMember('flex-sub-tlv-value-common', REFERENCE_CLASS, 'FlexSubTlvValueCommon' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon', 
+            _MetaInfoClassMember('flex-sub-tlv-value-common', REFERENCE_CLASS, 'FlexSubTlvValueCommon' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon', 
                 [], [], 
                 '''                Flex Sub TLV Value
                 ''',
@@ -2192,17 +2192,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue',
             False, 
             [
-            _MetaInfoClassMember('fixed-bw-sub-tlv-value', REFERENCE_CLASS, 'FixedBwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue', 
+            _MetaInfoClassMember('fixed-bw-sub-tlv-value', REFERENCE_CLASS, 'FixedBwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue', 
                 [], [], 
                 '''                Value of Fixed Sub TLV
                 ''',
                 'fixed_bw_sub_tlv_value',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('flex-bw-sub-tlv-value', REFERENCE_CLASS, 'FlexBwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue', 
+            _MetaInfoClassMember('flex-bw-sub-tlv-value', REFERENCE_CLASS, 'FlexBwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue', 
                 [], [], 
                 '''                Value of Flex Sub TLV
                 ''',
@@ -2221,8 +2221,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv',
             False, 
             [
             _MetaInfoClassMember('bw-sub-tlv-length', ATTRIBUTE, 'int' , None, None, 
@@ -2237,7 +2237,7 @@ _meta_table = {
                 ''',
                 'bw_sub_tlv_type',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('bw-sub-tlv-value', REFERENCE_CLASS, 'BwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue', 
+            _MetaInfoClassMember('bw-sub-tlv-value', REFERENCE_CLASS, 'BwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue', 
                 [], [], 
                 '''                Value of BW Sub TLV
                 ''',
@@ -2250,11 +2250,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv',
             False, 
             [
-            _MetaInfoClassMember('arr-bw-sub-tlv', REFERENCE_LIST, 'ArrBwSubTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv', 
+            _MetaInfoClassMember('arr-bw-sub-tlv', REFERENCE_LIST, 'ArrBwSubTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv', 
                 [], [], 
                 '''                Array of sub tlvs
                 ''',
@@ -2267,17 +2267,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType',
             False, 
             [
-            _MetaInfoClassMember('ixcdbw-sub-tlv', REFERENCE_CLASS, 'IxcdbwSubTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv', 
+            _MetaInfoClassMember('ixcdbw-sub-tlv', REFERENCE_CLASS, 'IxcdbwSubTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv', 
                 [], [], 
                 '''                Sub TLVs
                 ''',
                 'ixcdbw_sub_tlv',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ixcdpsc-info', REFERENCE_CLASS, 'IxcdpscInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo', 
+            _MetaInfoClassMember('ixcdpsc-info', REFERENCE_CLASS, 'IxcdpscInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo', 
                 [], [], 
                 '''                IXCD PSC information
                 ''',
@@ -2296,8 +2296,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue',
             False, 
             [
             _MetaInfoClassMember('fixed-scsi-count', ATTRIBUTE, 'int' , None, None, 
@@ -2312,7 +2312,7 @@ _meta_table = {
                 ''',
                 'flex_scsi_count',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ixcd-switching-cap-type', REFERENCE_CLASS, 'IxcdSwitchingCapType' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType', 
+            _MetaInfoClassMember('ixcd-switching-cap-type', REFERENCE_CLASS, 'IxcdSwitchingCapType' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType', 
                 [], [], 
                 '''                Switching Cap type
                 ''',
@@ -2343,8 +2343,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue',
             False, 
             [
             _MetaInfoClassMember('uni-dir-delay', ATTRIBUTE, 'int' , None, None, 
@@ -2360,17 +2360,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue',
             False, 
             [
-            _MetaInfoClassMember('bctlv-value', REFERENCE_CLASS, 'BctlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue', 
+            _MetaInfoClassMember('bctlv-value', REFERENCE_CLASS, 'BctlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue', 
                 [], [], 
                 '''                Value of Bandwidth Constraints TLV
                 ''',
                 'bctlv_value',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ixcdtlv-value', REFERENCE_CLASS, 'IxcdtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue', 
+            _MetaInfoClassMember('ixcdtlv-value', REFERENCE_CLASS, 'IxcdtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue', 
                 [], [], 
                 '''                Value of IXCD TLV
                 ''',
@@ -2382,13 +2382,13 @@ _meta_table = {
                 ''',
                 'opaque_tlv_type',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('srlgtlv-value', REFERENCE_CLASS, 'SrlgtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue', 
+            _MetaInfoClassMember('srlgtlv-value', REFERENCE_CLASS, 'SrlgtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue', 
                 [], [], 
                 '''                Value of SRLG TLV
                 ''',
                 'srlgtlv_value',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('unidtlv-value', REFERENCE_CLASS, 'UnidtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue', 
+            _MetaInfoClassMember('unidtlv-value', REFERENCE_CLASS, 'UnidtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue', 
                 [], [], 
                 '''                Value of Uni Delay TLV
                 ''',
@@ -2401,8 +2401,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv',
             False, 
             [
             _MetaInfoClassMember('mplste-link-opt-tlv-len', ATTRIBUTE, 'int' , None, None, 
@@ -2417,7 +2417,7 @@ _meta_table = {
                 ''',
                 'mplste_link_opt_tlv_type',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mplste-link-opt-tlv-value', REFERENCE_LIST, 'MplsteLinkOptTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue', 
+            _MetaInfoClassMember('mplste-link-opt-tlv-value', REFERENCE_LIST, 'MplsteLinkOptTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue', 
                 [], [], 
                 '''                Value of Opt TLV
                 ''',
@@ -2430,8 +2430,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_',
             False, 
             [
             _MetaInfoClassMember('affinity', ATTRIBUTE, 'int' , None, None, 
@@ -2452,7 +2452,7 @@ _meta_table = {
                 ''',
                 'dste_in_use',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('extended-admin-group-list', REFERENCE_CLASS, 'ExtendedAdminGroupList' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.ExtendedAdminGroupList', 
+            _MetaInfoClassMember('extended-admin-group-list', REFERENCE_CLASS, 'ExtendedAdminGroupList' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.ExtendedAdminGroupList', 
                 [], [], 
                 '''                Extended Admin Group
                 ''',
@@ -2464,7 +2464,7 @@ _meta_table = {
                 ''',
                 'fragment_id',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('global-unreserve-bw-per-priority', REFERENCE_CLASS, 'GlobalUnreserveBwPerPriority' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.GlobalUnreserveBwPerPriority', 
+            _MetaInfoClassMember('global-unreserve-bw-per-priority', REFERENCE_CLASS, 'GlobalUnreserveBwPerPriority' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.GlobalUnreserveBwPerPriority', 
                 [], [], 
                 '''                Global pool unreserved bandwidth for each
                 priority (bytes/s)
@@ -2489,13 +2489,13 @@ _meta_table = {
                 ''',
                 'link_address',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('link-protocol-priority-capability', REFERENCE_CLASS, 'LinkProtocolPriorityCapability' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.LinkProtocolPriorityCapability', 
+            _MetaInfoClassMember('link-protocol-priority-capability', REFERENCE_CLASS, 'LinkProtocolPriorityCapability' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.LinkProtocolPriorityCapability', 
                 [], [], 
                 '''                Link protocol and protocol priority capability
                 ''',
                 'link_protocol_priority_capability',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('link-sw-capability', REFERENCE_CLASS, 'LinkSwCapability' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.LinkSwCapability', 
+            _MetaInfoClassMember('link-sw-capability', REFERENCE_CLASS, 'LinkSwCapability' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.LinkSwCapability', 
                 [], [], 
                 '''                Link switching capability
                 ''',
@@ -2533,7 +2533,7 @@ _meta_table = {
                 ''',
                 'mpls_link_type',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mplste-link-opt-tlv', REFERENCE_LIST, 'MplsteLinkOptTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv', 
+            _MetaInfoClassMember('mplste-link-opt-tlv', REFERENCE_LIST, 'MplsteLinkOptTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv', 
                 [], [], 
                 '''                List of Optional TLVs
                 ''',
@@ -2575,7 +2575,7 @@ _meta_table = {
                 ''',
                 'priority_count',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('sub-pool-unreserve-bw-per-priority', REFERENCE_CLASS, 'SubPoolUnreserveBwPerPriority' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.SubPoolUnreserveBwPerPriority', 
+            _MetaInfoClassMember('sub-pool-unreserve-bw-per-priority', REFERENCE_CLASS, 'SubPoolUnreserveBwPerPriority' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.SubPoolUnreserveBwPerPriority', 
                 [], [], 
                 '''                Sub pool unreserved bandwidth for each priority
                 (bytes/s)
@@ -2617,7 +2617,7 @@ _meta_table = {
                 ''',
                 'fragment_instance',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mpls-te-link', REFERENCE_LIST, 'MplsTeLink' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink', 
+            _MetaInfoClassMember('mpls-te-link', REFERENCE_LIST, 'MplsTeLink_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_', 
                 [], [], 
                 '''                List of fragment links
                 ''',
@@ -2678,7 +2678,7 @@ _meta_table = {
                 ''',
                 'mpls_te_initialized',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mpls-te-link', REFERENCE_LIST, 'MplsTeLink' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink', 
+            _MetaInfoClassMember('mpls-te-link', REFERENCE_LIST, 'MplsTeLink_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_', 
                 [], [], 
                 '''                MPLS-TE links in the area
                 ''',
@@ -3592,8 +3592,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.GlobalUnreserveBwPerPriority' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.GlobalUnreserveBwPerPriority',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.GlobalUnreserveBwPerPriority' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.GlobalUnreserveBwPerPriority',
             False, 
             [
             _MetaInfoClassMember('bw-per-priority', REFERENCE_LEAFLIST, 'int' , None, None, 
@@ -3609,8 +3609,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.SubPoolUnreserveBwPerPriority' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.SubPoolUnreserveBwPerPriority',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.SubPoolUnreserveBwPerPriority' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.SubPoolUnreserveBwPerPriority',
             False, 
             [
             _MetaInfoClassMember('bw-per-priority', REFERENCE_LEAFLIST, 'int' , None, None, 
@@ -3626,8 +3626,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.LinkProtocolPriorityCapability' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.LinkProtocolPriorityCapability',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.LinkProtocolPriorityCapability' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.LinkProtocolPriorityCapability',
             False, 
             [
             _MetaInfoClassMember('link-protocol-capability', ATTRIBUTE, 'int' , None, None, 
@@ -3649,8 +3649,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.LinkSwCapability' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.LinkSwCapability',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.LinkSwCapability' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.LinkSwCapability',
             False, 
             [
             _MetaInfoClassMember('link-encoding', ATTRIBUTE, 'int' , None, None, 
@@ -3691,8 +3691,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.ExtendedAdminGroupList' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.ExtendedAdminGroupList',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.ExtendedAdminGroupList' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.ExtendedAdminGroupList',
             False, 
             [
             _MetaInfoClassMember('ext-admin-data', REFERENCE_LEAFLIST, 'int' , None, None, 
@@ -3714,8 +3714,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue',
             False, 
             [
             _MetaInfoClassMember('model-id', ATTRIBUTE, 'int' , None, None, 
@@ -3743,8 +3743,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue',
             False, 
             [
             _MetaInfoClassMember('mplste-link-srlg-data', REFERENCE_LEAFLIST, 'int' , None, None, 
@@ -3772,8 +3772,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo',
             False, 
             [
             _MetaInfoClassMember('min-lsp-bandwidth', ATTRIBUTE, 'int' , None, None, 
@@ -3795,8 +3795,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue',
             False, 
             [
             _MetaInfoClassMember('num-stages', ATTRIBUTE, 'int' , None, None, 
@@ -3896,11 +3896,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue',
             False, 
             [
-            _MetaInfoClassMember('fixed-sub-tlv-value', REFERENCE_CLASS, 'FixedSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue', 
+            _MetaInfoClassMember('fixed-sub-tlv-value', REFERENCE_CLASS, 'FixedSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue', 
                 [], [], 
                 '''                Value of Fixed Sub TLV
                 ''',
@@ -3919,8 +3919,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon',
             False, 
             [
             _MetaInfoClassMember('num-stages', ATTRIBUTE, 'int' , None, None, 
@@ -4020,11 +4020,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue',
             False, 
             [
-            _MetaInfoClassMember('flex-sub-tlv-value-common', REFERENCE_CLASS, 'FlexSubTlvValueCommon' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon', 
+            _MetaInfoClassMember('flex-sub-tlv-value-common', REFERENCE_CLASS, 'FlexSubTlvValueCommon' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon', 
                 [], [], 
                 '''                Flex Sub TLV Value
                 ''',
@@ -4049,17 +4049,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue',
             False, 
             [
-            _MetaInfoClassMember('fixed-bw-sub-tlv-value', REFERENCE_CLASS, 'FixedBwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue', 
+            _MetaInfoClassMember('fixed-bw-sub-tlv-value', REFERENCE_CLASS, 'FixedBwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue', 
                 [], [], 
                 '''                Value of Fixed Sub TLV
                 ''',
                 'fixed_bw_sub_tlv_value',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('flex-bw-sub-tlv-value', REFERENCE_CLASS, 'FlexBwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue', 
+            _MetaInfoClassMember('flex-bw-sub-tlv-value', REFERENCE_CLASS, 'FlexBwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue', 
                 [], [], 
                 '''                Value of Flex Sub TLV
                 ''',
@@ -4078,8 +4078,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv',
             False, 
             [
             _MetaInfoClassMember('bw-sub-tlv-length', ATTRIBUTE, 'int' , None, None, 
@@ -4094,7 +4094,7 @@ _meta_table = {
                 ''',
                 'bw_sub_tlv_type',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('bw-sub-tlv-value', REFERENCE_CLASS, 'BwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue', 
+            _MetaInfoClassMember('bw-sub-tlv-value', REFERENCE_CLASS, 'BwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue', 
                 [], [], 
                 '''                Value of BW Sub TLV
                 ''',
@@ -4107,11 +4107,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv',
             False, 
             [
-            _MetaInfoClassMember('arr-bw-sub-tlv', REFERENCE_LIST, 'ArrBwSubTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv', 
+            _MetaInfoClassMember('arr-bw-sub-tlv', REFERENCE_LIST, 'ArrBwSubTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv', 
                 [], [], 
                 '''                Array of sub tlvs
                 ''',
@@ -4124,17 +4124,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType',
             False, 
             [
-            _MetaInfoClassMember('ixcdbw-sub-tlv', REFERENCE_CLASS, 'IxcdbwSubTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv', 
+            _MetaInfoClassMember('ixcdbw-sub-tlv', REFERENCE_CLASS, 'IxcdbwSubTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv', 
                 [], [], 
                 '''                Sub TLVs
                 ''',
                 'ixcdbw_sub_tlv',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ixcdpsc-info', REFERENCE_CLASS, 'IxcdpscInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo', 
+            _MetaInfoClassMember('ixcdpsc-info', REFERENCE_CLASS, 'IxcdpscInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo', 
                 [], [], 
                 '''                IXCD PSC information
                 ''',
@@ -4153,8 +4153,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue',
             False, 
             [
             _MetaInfoClassMember('fixed-scsi-count', ATTRIBUTE, 'int' , None, None, 
@@ -4169,7 +4169,7 @@ _meta_table = {
                 ''',
                 'flex_scsi_count',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ixcd-switching-cap-type', REFERENCE_CLASS, 'IxcdSwitchingCapType' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType', 
+            _MetaInfoClassMember('ixcd-switching-cap-type', REFERENCE_CLASS, 'IxcdSwitchingCapType' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType', 
                 [], [], 
                 '''                Switching Cap type
                 ''',
@@ -4200,8 +4200,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue',
             False, 
             [
             _MetaInfoClassMember('uni-dir-delay', ATTRIBUTE, 'int' , None, None, 
@@ -4217,17 +4217,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue',
             False, 
             [
-            _MetaInfoClassMember('bctlv-value', REFERENCE_CLASS, 'BctlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue', 
+            _MetaInfoClassMember('bctlv-value', REFERENCE_CLASS, 'BctlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue', 
                 [], [], 
                 '''                Value of Bandwidth Constraints TLV
                 ''',
                 'bctlv_value',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ixcdtlv-value', REFERENCE_CLASS, 'IxcdtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue', 
+            _MetaInfoClassMember('ixcdtlv-value', REFERENCE_CLASS, 'IxcdtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue', 
                 [], [], 
                 '''                Value of IXCD TLV
                 ''',
@@ -4239,13 +4239,13 @@ _meta_table = {
                 ''',
                 'opaque_tlv_type',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('srlgtlv-value', REFERENCE_CLASS, 'SrlgtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue', 
+            _MetaInfoClassMember('srlgtlv-value', REFERENCE_CLASS, 'SrlgtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue', 
                 [], [], 
                 '''                Value of SRLG TLV
                 ''',
                 'srlgtlv_value',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('unidtlv-value', REFERENCE_CLASS, 'UnidtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue', 
+            _MetaInfoClassMember('unidtlv-value', REFERENCE_CLASS, 'UnidtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue', 
                 [], [], 
                 '''                Value of Uni Delay TLV
                 ''',
@@ -4258,8 +4258,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv',
             False, 
             [
             _MetaInfoClassMember('mplste-link-opt-tlv-len', ATTRIBUTE, 'int' , None, None, 
@@ -4274,7 +4274,7 @@ _meta_table = {
                 ''',
                 'mplste_link_opt_tlv_type',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mplste-link-opt-tlv-value', REFERENCE_LIST, 'MplsteLinkOptTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue', 
+            _MetaInfoClassMember('mplste-link-opt-tlv-value', REFERENCE_LIST, 'MplsteLinkOptTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue', 
                 [], [], 
                 '''                Value of Opt TLV
                 ''',
@@ -4287,8 +4287,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink',
             False, 
             [
             _MetaInfoClassMember('affinity', ATTRIBUTE, 'int' , None, None, 
@@ -4309,7 +4309,7 @@ _meta_table = {
                 ''',
                 'dste_in_use',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('extended-admin-group-list', REFERENCE_CLASS, 'ExtendedAdminGroupList' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.ExtendedAdminGroupList', 
+            _MetaInfoClassMember('extended-admin-group-list', REFERENCE_CLASS, 'ExtendedAdminGroupList' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.ExtendedAdminGroupList', 
                 [], [], 
                 '''                Extended Admin Group
                 ''',
@@ -4321,7 +4321,7 @@ _meta_table = {
                 ''',
                 'fragment_id',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('global-unreserve-bw-per-priority', REFERENCE_CLASS, 'GlobalUnreserveBwPerPriority' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.GlobalUnreserveBwPerPriority', 
+            _MetaInfoClassMember('global-unreserve-bw-per-priority', REFERENCE_CLASS, 'GlobalUnreserveBwPerPriority' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.GlobalUnreserveBwPerPriority', 
                 [], [], 
                 '''                Global pool unreserved bandwidth for each
                 priority (bytes/s)
@@ -4346,13 +4346,13 @@ _meta_table = {
                 ''',
                 'link_address',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('link-protocol-priority-capability', REFERENCE_CLASS, 'LinkProtocolPriorityCapability' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.LinkProtocolPriorityCapability', 
+            _MetaInfoClassMember('link-protocol-priority-capability', REFERENCE_CLASS, 'LinkProtocolPriorityCapability' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.LinkProtocolPriorityCapability', 
                 [], [], 
                 '''                Link protocol and protocol priority capability
                 ''',
                 'link_protocol_priority_capability',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('link-sw-capability', REFERENCE_CLASS, 'LinkSwCapability' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.LinkSwCapability', 
+            _MetaInfoClassMember('link-sw-capability', REFERENCE_CLASS, 'LinkSwCapability' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.LinkSwCapability', 
                 [], [], 
                 '''                Link switching capability
                 ''',
@@ -4390,7 +4390,7 @@ _meta_table = {
                 ''',
                 'mpls_link_type',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mplste-link-opt-tlv', REFERENCE_LIST, 'MplsteLinkOptTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv', 
+            _MetaInfoClassMember('mplste-link-opt-tlv', REFERENCE_LIST, 'MplsteLinkOptTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv', 
                 [], [], 
                 '''                List of Optional TLVs
                 ''',
@@ -4432,7 +4432,7 @@ _meta_table = {
                 ''',
                 'priority_count',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('sub-pool-unreserve-bw-per-priority', REFERENCE_CLASS, 'SubPoolUnreserveBwPerPriority' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.SubPoolUnreserveBwPerPriority', 
+            _MetaInfoClassMember('sub-pool-unreserve-bw-per-priority', REFERENCE_CLASS, 'SubPoolUnreserveBwPerPriority' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.SubPoolUnreserveBwPerPriority', 
                 [], [], 
                 '''                Sub pool unreserved bandwidth for each priority
                 (bytes/s)
@@ -4452,8 +4452,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment',
+    'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_',
             False, 
             [
             _MetaInfoClassMember('dste-model-id', ATTRIBUTE, 'int' , None, None, 
@@ -4474,7 +4474,7 @@ _meta_table = {
                 ''',
                 'fragment_instance',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mpls-te-link', REFERENCE_LIST, 'MplsTeLink' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink', 
+            _MetaInfoClassMember('mpls-te-link', REFERENCE_LIST, 'MplsTeLink' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink', 
                 [], [], 
                 '''                List of fragment links
                 ''',
@@ -4523,7 +4523,7 @@ _meta_table = {
                 ''',
                 'mpls_te_enabled',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mpls-te-fragment', REFERENCE_LIST, 'MplsTeFragment' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment', 
+            _MetaInfoClassMember('mpls-te-fragment', REFERENCE_LIST, 'MplsTeFragment_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_', 
                 [], [], 
                 '''                MPLS TE fragments in the area
                 ''',
@@ -4735,8 +4735,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.AdjacencyInformation.Requests.Request.Request' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AdjacencyInformation.Requests.Request.Request',
+    'Ospf.Processes.Process.Vrfs.Vrf.AdjacencyInformation.Requests.Request.Request_' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.AdjacencyInformation.Requests.Request.Request_',
             False, 
             [
             _MetaInfoClassMember('header-advertising-router', ATTRIBUTE, 'str' , None, None, 
@@ -4798,7 +4798,7 @@ _meta_table = {
                 ''',
                 'neighbor_address',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('request', REFERENCE_LIST, 'Request' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.AdjacencyInformation.Requests.Request.Request', 
+            _MetaInfoClassMember('request', REFERENCE_LIST, 'Request_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.AdjacencyInformation.Requests.Request.Request_', 
                 [], [], 
                 '''                List of request list entries
                 ''',
@@ -9671,8 +9671,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RouteInfo.RouteUpdateTime' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RouteInfo.RouteUpdateTime',
+    'Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RouteInfo.RouteUpdateTime' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RouteInfo.RouteUpdateTime',
             False, 
             [
             _MetaInfoClassMember('nanosecond', ATTRIBUTE, 'int' , None, None, 
@@ -9694,8 +9694,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RouteInfo.RouteFailTime' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RouteInfo.RouteFailTime',
+    'Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RouteInfo.RouteFailTime' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RouteInfo.RouteFailTime',
             False, 
             [
             _MetaInfoClassMember('nanosecond', ATTRIBUTE, 'int' , None, None, 
@@ -9717,8 +9717,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RouteInfo' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RouteInfo',
+    'Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RouteInfo' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RouteInfo',
             False, 
             [
             _MetaInfoClassMember('route-area-id', ATTRIBUTE, 'int' , None, None, 
@@ -9733,7 +9733,7 @@ _meta_table = {
                 ''',
                 'route_auto_excluded',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('route-fail-time', REFERENCE_CLASS, 'RouteFailTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RouteInfo.RouteFailTime', 
+            _MetaInfoClassMember('route-fail-time', REFERENCE_CLASS, 'RouteFailTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RouteInfo.RouteFailTime', 
                 [], [], 
                 '''                Last time update failed
                 ''',
@@ -9787,7 +9787,7 @@ _meta_table = {
                 ''',
                 'route_te_metric',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('route-update-time', REFERENCE_CLASS, 'RouteUpdateTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RouteInfo.RouteUpdateTime', 
+            _MetaInfoClassMember('route-update-time', REFERENCE_CLASS, 'RouteUpdateTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RouteInfo.RouteUpdateTime', 
                 [], [], 
                 '''                Last time updated
                 ''',
@@ -9800,8 +9800,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RoutePath' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RoutePath',
+    'Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RoutePath' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RoutePath',
             False, 
             [
             _MetaInfoClassMember('area-format', ATTRIBUTE, 'bool' , None, None, 
@@ -9871,8 +9871,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation',
+    'Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_',
             False, 
             [
             _MetaInfoClassMember('route-connected', ATTRIBUTE, 'bool' , None, None, 
@@ -9881,7 +9881,7 @@ _meta_table = {
                 ''',
                 'route_connected',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('route-info', REFERENCE_CLASS, 'RouteInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RouteInfo', 
+            _MetaInfoClassMember('route-info', REFERENCE_CLASS, 'RouteInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RouteInfo', 
                 [], [], 
                 '''                Route information
                 ''',
@@ -9893,7 +9893,7 @@ _meta_table = {
                 ''',
                 'route_metric',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('route-path', REFERENCE_LIST, 'RoutePath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RoutePath', 
+            _MetaInfoClassMember('route-path', REFERENCE_LIST, 'RoutePath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RoutePath', 
                 [], [], 
                 '''                List of paths to this route
                 ''',
@@ -10047,7 +10047,7 @@ _meta_table = {
                 ''',
                 'route_extended_community',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('route-information', REFERENCE_CLASS, 'RouteInformation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation', 
+            _MetaInfoClassMember('route-information', REFERENCE_CLASS, 'RouteInformation_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_', 
                 [], [], 
                 '''                Route information
                 ''',
@@ -13412,8 +13412,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.Vrfs.Vrf.Areas.Area.Requests.Request.Request' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.Areas.Area.Requests.Request.Request',
+    'Ospf.Processes.Process.Vrfs.Vrf.Areas.Area.Requests.Request.Request_' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.Vrfs.Vrf.Areas.Area.Requests.Request.Request_',
             False, 
             [
             _MetaInfoClassMember('header-advertising-router', ATTRIBUTE, 'str' , None, None, 
@@ -13475,7 +13475,7 @@ _meta_table = {
                 ''',
                 'neighbor_address',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('request', REFERENCE_LIST, 'Request' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.Areas.Area.Requests.Request.Request', 
+            _MetaInfoClassMember('request', REFERENCE_LIST, 'Request_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.Vrfs.Vrf.Areas.Area.Requests.Request.Request_', 
                 [], [], 
                 '''                List of request list entries
                 ''',
@@ -19610,8 +19610,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.GlobalUnreserveBwPerPriority' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.GlobalUnreserveBwPerPriority',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.GlobalUnreserveBwPerPriority' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.GlobalUnreserveBwPerPriority',
             False, 
             [
             _MetaInfoClassMember('bw-per-priority', REFERENCE_LEAFLIST, 'int' , None, None, 
@@ -19627,8 +19627,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.SubPoolUnreserveBwPerPriority' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.SubPoolUnreserveBwPerPriority',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.SubPoolUnreserveBwPerPriority' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.SubPoolUnreserveBwPerPriority',
             False, 
             [
             _MetaInfoClassMember('bw-per-priority', REFERENCE_LEAFLIST, 'int' , None, None, 
@@ -19644,8 +19644,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.LinkProtocolPriorityCapability' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.LinkProtocolPriorityCapability',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.LinkProtocolPriorityCapability' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.LinkProtocolPriorityCapability',
             False, 
             [
             _MetaInfoClassMember('link-protocol-capability', ATTRIBUTE, 'int' , None, None, 
@@ -19667,8 +19667,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.LinkSwCapability' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.LinkSwCapability',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.LinkSwCapability' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.LinkSwCapability',
             False, 
             [
             _MetaInfoClassMember('link-encoding', ATTRIBUTE, 'int' , None, None, 
@@ -19709,8 +19709,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.ExtendedAdminGroupList' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.ExtendedAdminGroupList',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.ExtendedAdminGroupList' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.ExtendedAdminGroupList',
             False, 
             [
             _MetaInfoClassMember('ext-admin-data', REFERENCE_LEAFLIST, 'int' , None, None, 
@@ -19732,8 +19732,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue',
             False, 
             [
             _MetaInfoClassMember('model-id', ATTRIBUTE, 'int' , None, None, 
@@ -19761,8 +19761,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue',
             False, 
             [
             _MetaInfoClassMember('mplste-link-srlg-data', REFERENCE_LEAFLIST, 'int' , None, None, 
@@ -19790,8 +19790,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo',
             False, 
             [
             _MetaInfoClassMember('min-lsp-bandwidth', ATTRIBUTE, 'int' , None, None, 
@@ -19813,8 +19813,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue',
             False, 
             [
             _MetaInfoClassMember('num-stages', ATTRIBUTE, 'int' , None, None, 
@@ -19914,11 +19914,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue',
             False, 
             [
-            _MetaInfoClassMember('fixed-sub-tlv-value', REFERENCE_CLASS, 'FixedSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue', 
+            _MetaInfoClassMember('fixed-sub-tlv-value', REFERENCE_CLASS, 'FixedSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue', 
                 [], [], 
                 '''                Value of Fixed Sub TLV
                 ''',
@@ -19937,8 +19937,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon',
             False, 
             [
             _MetaInfoClassMember('num-stages', ATTRIBUTE, 'int' , None, None, 
@@ -20038,11 +20038,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue',
             False, 
             [
-            _MetaInfoClassMember('flex-sub-tlv-value-common', REFERENCE_CLASS, 'FlexSubTlvValueCommon' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon', 
+            _MetaInfoClassMember('flex-sub-tlv-value-common', REFERENCE_CLASS, 'FlexSubTlvValueCommon' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon', 
                 [], [], 
                 '''                Flex Sub TLV Value
                 ''',
@@ -20067,17 +20067,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue',
             False, 
             [
-            _MetaInfoClassMember('fixed-bw-sub-tlv-value', REFERENCE_CLASS, 'FixedBwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue', 
+            _MetaInfoClassMember('fixed-bw-sub-tlv-value', REFERENCE_CLASS, 'FixedBwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue', 
                 [], [], 
                 '''                Value of Fixed Sub TLV
                 ''',
                 'fixed_bw_sub_tlv_value',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('flex-bw-sub-tlv-value', REFERENCE_CLASS, 'FlexBwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue', 
+            _MetaInfoClassMember('flex-bw-sub-tlv-value', REFERENCE_CLASS, 'FlexBwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue', 
                 [], [], 
                 '''                Value of Flex Sub TLV
                 ''',
@@ -20096,8 +20096,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv',
             False, 
             [
             _MetaInfoClassMember('bw-sub-tlv-length', ATTRIBUTE, 'int' , None, None, 
@@ -20112,7 +20112,7 @@ _meta_table = {
                 ''',
                 'bw_sub_tlv_type',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('bw-sub-tlv-value', REFERENCE_CLASS, 'BwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue', 
+            _MetaInfoClassMember('bw-sub-tlv-value', REFERENCE_CLASS, 'BwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue', 
                 [], [], 
                 '''                Value of BW Sub TLV
                 ''',
@@ -20125,11 +20125,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv',
             False, 
             [
-            _MetaInfoClassMember('arr-bw-sub-tlv', REFERENCE_LIST, 'ArrBwSubTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv', 
+            _MetaInfoClassMember('arr-bw-sub-tlv', REFERENCE_LIST, 'ArrBwSubTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv', 
                 [], [], 
                 '''                Array of sub tlvs
                 ''',
@@ -20142,17 +20142,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType',
             False, 
             [
-            _MetaInfoClassMember('ixcdbw-sub-tlv', REFERENCE_CLASS, 'IxcdbwSubTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv', 
+            _MetaInfoClassMember('ixcdbw-sub-tlv', REFERENCE_CLASS, 'IxcdbwSubTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv', 
                 [], [], 
                 '''                Sub TLVs
                 ''',
                 'ixcdbw_sub_tlv',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ixcdpsc-info', REFERENCE_CLASS, 'IxcdpscInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo', 
+            _MetaInfoClassMember('ixcdpsc-info', REFERENCE_CLASS, 'IxcdpscInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo', 
                 [], [], 
                 '''                IXCD PSC information
                 ''',
@@ -20171,8 +20171,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue',
             False, 
             [
             _MetaInfoClassMember('fixed-scsi-count', ATTRIBUTE, 'int' , None, None, 
@@ -20187,7 +20187,7 @@ _meta_table = {
                 ''',
                 'flex_scsi_count',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ixcd-switching-cap-type', REFERENCE_CLASS, 'IxcdSwitchingCapType' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType', 
+            _MetaInfoClassMember('ixcd-switching-cap-type', REFERENCE_CLASS, 'IxcdSwitchingCapType' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType', 
                 [], [], 
                 '''                Switching Cap type
                 ''',
@@ -20218,8 +20218,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue',
             False, 
             [
             _MetaInfoClassMember('uni-dir-delay', ATTRIBUTE, 'int' , None, None, 
@@ -20235,17 +20235,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue',
             False, 
             [
-            _MetaInfoClassMember('bctlv-value', REFERENCE_CLASS, 'BctlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue', 
+            _MetaInfoClassMember('bctlv-value', REFERENCE_CLASS, 'BctlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue', 
                 [], [], 
                 '''                Value of Bandwidth Constraints TLV
                 ''',
                 'bctlv_value',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ixcdtlv-value', REFERENCE_CLASS, 'IxcdtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue', 
+            _MetaInfoClassMember('ixcdtlv-value', REFERENCE_CLASS, 'IxcdtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue', 
                 [], [], 
                 '''                Value of IXCD TLV
                 ''',
@@ -20257,13 +20257,13 @@ _meta_table = {
                 ''',
                 'opaque_tlv_type',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('srlgtlv-value', REFERENCE_CLASS, 'SrlgtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue', 
+            _MetaInfoClassMember('srlgtlv-value', REFERENCE_CLASS, 'SrlgtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue', 
                 [], [], 
                 '''                Value of SRLG TLV
                 ''',
                 'srlgtlv_value',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('unidtlv-value', REFERENCE_CLASS, 'UnidtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue', 
+            _MetaInfoClassMember('unidtlv-value', REFERENCE_CLASS, 'UnidtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue', 
                 [], [], 
                 '''                Value of Uni Delay TLV
                 ''',
@@ -20276,8 +20276,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv',
             False, 
             [
             _MetaInfoClassMember('mplste-link-opt-tlv-len', ATTRIBUTE, 'int' , None, None, 
@@ -20292,7 +20292,7 @@ _meta_table = {
                 ''',
                 'mplste_link_opt_tlv_type',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mplste-link-opt-tlv-value', REFERENCE_LIST, 'MplsteLinkOptTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue', 
+            _MetaInfoClassMember('mplste-link-opt-tlv-value', REFERENCE_LIST, 'MplsteLinkOptTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue', 
                 [], [], 
                 '''                Value of Opt TLV
                 ''',
@@ -20305,8 +20305,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_',
             False, 
             [
             _MetaInfoClassMember('affinity', ATTRIBUTE, 'int' , None, None, 
@@ -20327,7 +20327,7 @@ _meta_table = {
                 ''',
                 'dste_in_use',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('extended-admin-group-list', REFERENCE_CLASS, 'ExtendedAdminGroupList' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.ExtendedAdminGroupList', 
+            _MetaInfoClassMember('extended-admin-group-list', REFERENCE_CLASS, 'ExtendedAdminGroupList' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.ExtendedAdminGroupList', 
                 [], [], 
                 '''                Extended Admin Group
                 ''',
@@ -20339,7 +20339,7 @@ _meta_table = {
                 ''',
                 'fragment_id',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('global-unreserve-bw-per-priority', REFERENCE_CLASS, 'GlobalUnreserveBwPerPriority' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.GlobalUnreserveBwPerPriority', 
+            _MetaInfoClassMember('global-unreserve-bw-per-priority', REFERENCE_CLASS, 'GlobalUnreserveBwPerPriority' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.GlobalUnreserveBwPerPriority', 
                 [], [], 
                 '''                Global pool unreserved bandwidth for each
                 priority (bytes/s)
@@ -20364,13 +20364,13 @@ _meta_table = {
                 ''',
                 'link_address',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('link-protocol-priority-capability', REFERENCE_CLASS, 'LinkProtocolPriorityCapability' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.LinkProtocolPriorityCapability', 
+            _MetaInfoClassMember('link-protocol-priority-capability', REFERENCE_CLASS, 'LinkProtocolPriorityCapability' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.LinkProtocolPriorityCapability', 
                 [], [], 
                 '''                Link protocol and protocol priority capability
                 ''',
                 'link_protocol_priority_capability',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('link-sw-capability', REFERENCE_CLASS, 'LinkSwCapability' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.LinkSwCapability', 
+            _MetaInfoClassMember('link-sw-capability', REFERENCE_CLASS, 'LinkSwCapability' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.LinkSwCapability', 
                 [], [], 
                 '''                Link switching capability
                 ''',
@@ -20408,7 +20408,7 @@ _meta_table = {
                 ''',
                 'mpls_link_type',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mplste-link-opt-tlv', REFERENCE_LIST, 'MplsteLinkOptTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv', 
+            _MetaInfoClassMember('mplste-link-opt-tlv', REFERENCE_LIST, 'MplsteLinkOptTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv', 
                 [], [], 
                 '''                List of Optional TLVs
                 ''',
@@ -20450,7 +20450,7 @@ _meta_table = {
                 ''',
                 'priority_count',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('sub-pool-unreserve-bw-per-priority', REFERENCE_CLASS, 'SubPoolUnreserveBwPerPriority' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.SubPoolUnreserveBwPerPriority', 
+            _MetaInfoClassMember('sub-pool-unreserve-bw-per-priority', REFERENCE_CLASS, 'SubPoolUnreserveBwPerPriority' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.SubPoolUnreserveBwPerPriority', 
                 [], [], 
                 '''                Sub pool unreserved bandwidth for each priority
                 (bytes/s)
@@ -20470,8 +20470,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.GlobalUnreserveBwPerPriority' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.GlobalUnreserveBwPerPriority',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.GlobalUnreserveBwPerPriority' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.GlobalUnreserveBwPerPriority',
             False, 
             [
             _MetaInfoClassMember('bw-per-priority', REFERENCE_LEAFLIST, 'int' , None, None, 
@@ -20487,8 +20487,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.SubPoolUnreserveBwPerPriority' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.SubPoolUnreserveBwPerPriority',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.SubPoolUnreserveBwPerPriority' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.SubPoolUnreserveBwPerPriority',
             False, 
             [
             _MetaInfoClassMember('bw-per-priority', REFERENCE_LEAFLIST, 'int' , None, None, 
@@ -20504,8 +20504,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.LinkProtocolPriorityCapability' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.LinkProtocolPriorityCapability',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.LinkProtocolPriorityCapability' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.LinkProtocolPriorityCapability',
             False, 
             [
             _MetaInfoClassMember('link-protocol-capability', ATTRIBUTE, 'int' , None, None, 
@@ -20527,8 +20527,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.LinkSwCapability' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.LinkSwCapability',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.LinkSwCapability' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.LinkSwCapability',
             False, 
             [
             _MetaInfoClassMember('link-encoding', ATTRIBUTE, 'int' , None, None, 
@@ -20569,8 +20569,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.ExtendedAdminGroupList' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.ExtendedAdminGroupList',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.ExtendedAdminGroupList' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.ExtendedAdminGroupList',
             False, 
             [
             _MetaInfoClassMember('ext-admin-data', REFERENCE_LEAFLIST, 'int' , None, None, 
@@ -20592,8 +20592,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue',
             False, 
             [
             _MetaInfoClassMember('model-id', ATTRIBUTE, 'int' , None, None, 
@@ -20621,8 +20621,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue',
             False, 
             [
             _MetaInfoClassMember('mplste-link-srlg-data', REFERENCE_LEAFLIST, 'int' , None, None, 
@@ -20650,8 +20650,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo',
             False, 
             [
             _MetaInfoClassMember('min-lsp-bandwidth', ATTRIBUTE, 'int' , None, None, 
@@ -20673,8 +20673,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue',
             False, 
             [
             _MetaInfoClassMember('num-stages', ATTRIBUTE, 'int' , None, None, 
@@ -20774,11 +20774,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue',
             False, 
             [
-            _MetaInfoClassMember('fixed-sub-tlv-value', REFERENCE_CLASS, 'FixedSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue', 
+            _MetaInfoClassMember('fixed-sub-tlv-value', REFERENCE_CLASS, 'FixedSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue', 
                 [], [], 
                 '''                Value of Fixed Sub TLV
                 ''',
@@ -20797,8 +20797,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon',
             False, 
             [
             _MetaInfoClassMember('num-stages', ATTRIBUTE, 'int' , None, None, 
@@ -20898,11 +20898,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue',
             False, 
             [
-            _MetaInfoClassMember('flex-sub-tlv-value-common', REFERENCE_CLASS, 'FlexSubTlvValueCommon' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon', 
+            _MetaInfoClassMember('flex-sub-tlv-value-common', REFERENCE_CLASS, 'FlexSubTlvValueCommon' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon', 
                 [], [], 
                 '''                Flex Sub TLV Value
                 ''',
@@ -20927,17 +20927,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue',
             False, 
             [
-            _MetaInfoClassMember('fixed-bw-sub-tlv-value', REFERENCE_CLASS, 'FixedBwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue', 
+            _MetaInfoClassMember('fixed-bw-sub-tlv-value', REFERENCE_CLASS, 'FixedBwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue', 
                 [], [], 
                 '''                Value of Fixed Sub TLV
                 ''',
                 'fixed_bw_sub_tlv_value',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('flex-bw-sub-tlv-value', REFERENCE_CLASS, 'FlexBwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue', 
+            _MetaInfoClassMember('flex-bw-sub-tlv-value', REFERENCE_CLASS, 'FlexBwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue', 
                 [], [], 
                 '''                Value of Flex Sub TLV
                 ''',
@@ -20956,8 +20956,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv',
             False, 
             [
             _MetaInfoClassMember('bw-sub-tlv-length', ATTRIBUTE, 'int' , None, None, 
@@ -20972,7 +20972,7 @@ _meta_table = {
                 ''',
                 'bw_sub_tlv_type',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('bw-sub-tlv-value', REFERENCE_CLASS, 'BwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue', 
+            _MetaInfoClassMember('bw-sub-tlv-value', REFERENCE_CLASS, 'BwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue', 
                 [], [], 
                 '''                Value of BW Sub TLV
                 ''',
@@ -20985,11 +20985,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv',
             False, 
             [
-            _MetaInfoClassMember('arr-bw-sub-tlv', REFERENCE_LIST, 'ArrBwSubTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv', 
+            _MetaInfoClassMember('arr-bw-sub-tlv', REFERENCE_LIST, 'ArrBwSubTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv', 
                 [], [], 
                 '''                Array of sub tlvs
                 ''',
@@ -21002,17 +21002,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType',
             False, 
             [
-            _MetaInfoClassMember('ixcdbw-sub-tlv', REFERENCE_CLASS, 'IxcdbwSubTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv', 
+            _MetaInfoClassMember('ixcdbw-sub-tlv', REFERENCE_CLASS, 'IxcdbwSubTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv', 
                 [], [], 
                 '''                Sub TLVs
                 ''',
                 'ixcdbw_sub_tlv',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ixcdpsc-info', REFERENCE_CLASS, 'IxcdpscInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo', 
+            _MetaInfoClassMember('ixcdpsc-info', REFERENCE_CLASS, 'IxcdpscInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo', 
                 [], [], 
                 '''                IXCD PSC information
                 ''',
@@ -21031,8 +21031,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue',
             False, 
             [
             _MetaInfoClassMember('fixed-scsi-count', ATTRIBUTE, 'int' , None, None, 
@@ -21047,7 +21047,7 @@ _meta_table = {
                 ''',
                 'flex_scsi_count',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ixcd-switching-cap-type', REFERENCE_CLASS, 'IxcdSwitchingCapType' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType', 
+            _MetaInfoClassMember('ixcd-switching-cap-type', REFERENCE_CLASS, 'IxcdSwitchingCapType' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType', 
                 [], [], 
                 '''                Switching Cap type
                 ''',
@@ -21078,8 +21078,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue',
             False, 
             [
             _MetaInfoClassMember('uni-dir-delay', ATTRIBUTE, 'int' , None, None, 
@@ -21095,17 +21095,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue',
             False, 
             [
-            _MetaInfoClassMember('bctlv-value', REFERENCE_CLASS, 'BctlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue', 
+            _MetaInfoClassMember('bctlv-value', REFERENCE_CLASS, 'BctlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue', 
                 [], [], 
                 '''                Value of Bandwidth Constraints TLV
                 ''',
                 'bctlv_value',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ixcdtlv-value', REFERENCE_CLASS, 'IxcdtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue', 
+            _MetaInfoClassMember('ixcdtlv-value', REFERENCE_CLASS, 'IxcdtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue', 
                 [], [], 
                 '''                Value of IXCD TLV
                 ''',
@@ -21117,13 +21117,13 @@ _meta_table = {
                 ''',
                 'opaque_tlv_type',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('srlgtlv-value', REFERENCE_CLASS, 'SrlgtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue', 
+            _MetaInfoClassMember('srlgtlv-value', REFERENCE_CLASS, 'SrlgtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue', 
                 [], [], 
                 '''                Value of SRLG TLV
                 ''',
                 'srlgtlv_value',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('unidtlv-value', REFERENCE_CLASS, 'UnidtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue', 
+            _MetaInfoClassMember('unidtlv-value', REFERENCE_CLASS, 'UnidtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue', 
                 [], [], 
                 '''                Value of Uni Delay TLV
                 ''',
@@ -21136,8 +21136,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv',
             False, 
             [
             _MetaInfoClassMember('mplste-link-opt-tlv-len', ATTRIBUTE, 'int' , None, None, 
@@ -21152,7 +21152,7 @@ _meta_table = {
                 ''',
                 'mplste_link_opt_tlv_type',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mplste-link-opt-tlv-value', REFERENCE_LIST, 'MplsteLinkOptTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue', 
+            _MetaInfoClassMember('mplste-link-opt-tlv-value', REFERENCE_LIST, 'MplsteLinkOptTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue', 
                 [], [], 
                 '''                Value of Opt TLV
                 ''',
@@ -21165,8 +21165,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_',
             False, 
             [
             _MetaInfoClassMember('affinity', ATTRIBUTE, 'int' , None, None, 
@@ -21187,7 +21187,7 @@ _meta_table = {
                 ''',
                 'dste_in_use',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('extended-admin-group-list', REFERENCE_CLASS, 'ExtendedAdminGroupList' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.ExtendedAdminGroupList', 
+            _MetaInfoClassMember('extended-admin-group-list', REFERENCE_CLASS, 'ExtendedAdminGroupList' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.ExtendedAdminGroupList', 
                 [], [], 
                 '''                Extended Admin Group
                 ''',
@@ -21199,7 +21199,7 @@ _meta_table = {
                 ''',
                 'fragment_id',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('global-unreserve-bw-per-priority', REFERENCE_CLASS, 'GlobalUnreserveBwPerPriority' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.GlobalUnreserveBwPerPriority', 
+            _MetaInfoClassMember('global-unreserve-bw-per-priority', REFERENCE_CLASS, 'GlobalUnreserveBwPerPriority' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.GlobalUnreserveBwPerPriority', 
                 [], [], 
                 '''                Global pool unreserved bandwidth for each
                 priority (bytes/s)
@@ -21224,13 +21224,13 @@ _meta_table = {
                 ''',
                 'link_address',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('link-protocol-priority-capability', REFERENCE_CLASS, 'LinkProtocolPriorityCapability' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.LinkProtocolPriorityCapability', 
+            _MetaInfoClassMember('link-protocol-priority-capability', REFERENCE_CLASS, 'LinkProtocolPriorityCapability' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.LinkProtocolPriorityCapability', 
                 [], [], 
                 '''                Link protocol and protocol priority capability
                 ''',
                 'link_protocol_priority_capability',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('link-sw-capability', REFERENCE_CLASS, 'LinkSwCapability' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.LinkSwCapability', 
+            _MetaInfoClassMember('link-sw-capability', REFERENCE_CLASS, 'LinkSwCapability' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.LinkSwCapability', 
                 [], [], 
                 '''                Link switching capability
                 ''',
@@ -21268,7 +21268,7 @@ _meta_table = {
                 ''',
                 'mpls_link_type',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mplste-link-opt-tlv', REFERENCE_LIST, 'MplsteLinkOptTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv', 
+            _MetaInfoClassMember('mplste-link-opt-tlv', REFERENCE_LIST, 'MplsteLinkOptTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv', 
                 [], [], 
                 '''                List of Optional TLVs
                 ''',
@@ -21310,7 +21310,7 @@ _meta_table = {
                 ''',
                 'priority_count',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('sub-pool-unreserve-bw-per-priority', REFERENCE_CLASS, 'SubPoolUnreserveBwPerPriority' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.SubPoolUnreserveBwPerPriority', 
+            _MetaInfoClassMember('sub-pool-unreserve-bw-per-priority', REFERENCE_CLASS, 'SubPoolUnreserveBwPerPriority' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.SubPoolUnreserveBwPerPriority', 
                 [], [], 
                 '''                Sub pool unreserved bandwidth for each priority
                 (bytes/s)
@@ -21352,7 +21352,7 @@ _meta_table = {
                 ''',
                 'fragment_instance',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mpls-te-link', REFERENCE_LIST, 'MplsTeLink' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink', 
+            _MetaInfoClassMember('mpls-te-link', REFERENCE_LIST, 'MplsTeLink_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_', 
                 [], [], 
                 '''                List of fragment links
                 ''',
@@ -21413,7 +21413,7 @@ _meta_table = {
                 ''',
                 'mpls_te_initialized',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mpls-te-link', REFERENCE_LIST, 'MplsTeLink' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink', 
+            _MetaInfoClassMember('mpls-te-link', REFERENCE_LIST, 'MplsTeLink_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_', 
                 [], [], 
                 '''                MPLS-TE links in the area
                 ''',
@@ -22327,8 +22327,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.GlobalUnreserveBwPerPriority' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.GlobalUnreserveBwPerPriority',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.GlobalUnreserveBwPerPriority' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.GlobalUnreserveBwPerPriority',
             False, 
             [
             _MetaInfoClassMember('bw-per-priority', REFERENCE_LEAFLIST, 'int' , None, None, 
@@ -22344,8 +22344,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.SubPoolUnreserveBwPerPriority' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.SubPoolUnreserveBwPerPriority',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.SubPoolUnreserveBwPerPriority' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.SubPoolUnreserveBwPerPriority',
             False, 
             [
             _MetaInfoClassMember('bw-per-priority', REFERENCE_LEAFLIST, 'int' , None, None, 
@@ -22361,8 +22361,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.LinkProtocolPriorityCapability' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.LinkProtocolPriorityCapability',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.LinkProtocolPriorityCapability' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.LinkProtocolPriorityCapability',
             False, 
             [
             _MetaInfoClassMember('link-protocol-capability', ATTRIBUTE, 'int' , None, None, 
@@ -22384,8 +22384,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.LinkSwCapability' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.LinkSwCapability',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.LinkSwCapability' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.LinkSwCapability',
             False, 
             [
             _MetaInfoClassMember('link-encoding', ATTRIBUTE, 'int' , None, None, 
@@ -22426,8 +22426,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.ExtendedAdminGroupList' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.ExtendedAdminGroupList',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.ExtendedAdminGroupList' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.ExtendedAdminGroupList',
             False, 
             [
             _MetaInfoClassMember('ext-admin-data', REFERENCE_LEAFLIST, 'int' , None, None, 
@@ -22449,8 +22449,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue',
             False, 
             [
             _MetaInfoClassMember('model-id', ATTRIBUTE, 'int' , None, None, 
@@ -22478,8 +22478,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue',
             False, 
             [
             _MetaInfoClassMember('mplste-link-srlg-data', REFERENCE_LEAFLIST, 'int' , None, None, 
@@ -22507,8 +22507,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo',
             False, 
             [
             _MetaInfoClassMember('min-lsp-bandwidth', ATTRIBUTE, 'int' , None, None, 
@@ -22530,8 +22530,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue',
             False, 
             [
             _MetaInfoClassMember('num-stages', ATTRIBUTE, 'int' , None, None, 
@@ -22631,11 +22631,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue',
             False, 
             [
-            _MetaInfoClassMember('fixed-sub-tlv-value', REFERENCE_CLASS, 'FixedSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue', 
+            _MetaInfoClassMember('fixed-sub-tlv-value', REFERENCE_CLASS, 'FixedSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue', 
                 [], [], 
                 '''                Value of Fixed Sub TLV
                 ''',
@@ -22654,8 +22654,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon',
             False, 
             [
             _MetaInfoClassMember('num-stages', ATTRIBUTE, 'int' , None, None, 
@@ -22755,11 +22755,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue',
             False, 
             [
-            _MetaInfoClassMember('flex-sub-tlv-value-common', REFERENCE_CLASS, 'FlexSubTlvValueCommon' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon', 
+            _MetaInfoClassMember('flex-sub-tlv-value-common', REFERENCE_CLASS, 'FlexSubTlvValueCommon' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon', 
                 [], [], 
                 '''                Flex Sub TLV Value
                 ''',
@@ -22784,17 +22784,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue',
             False, 
             [
-            _MetaInfoClassMember('fixed-bw-sub-tlv-value', REFERENCE_CLASS, 'FixedBwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue', 
+            _MetaInfoClassMember('fixed-bw-sub-tlv-value', REFERENCE_CLASS, 'FixedBwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue', 
                 [], [], 
                 '''                Value of Fixed Sub TLV
                 ''',
                 'fixed_bw_sub_tlv_value',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('flex-bw-sub-tlv-value', REFERENCE_CLASS, 'FlexBwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue', 
+            _MetaInfoClassMember('flex-bw-sub-tlv-value', REFERENCE_CLASS, 'FlexBwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue', 
                 [], [], 
                 '''                Value of Flex Sub TLV
                 ''',
@@ -22813,8 +22813,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv',
             False, 
             [
             _MetaInfoClassMember('bw-sub-tlv-length', ATTRIBUTE, 'int' , None, None, 
@@ -22829,7 +22829,7 @@ _meta_table = {
                 ''',
                 'bw_sub_tlv_type',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('bw-sub-tlv-value', REFERENCE_CLASS, 'BwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue', 
+            _MetaInfoClassMember('bw-sub-tlv-value', REFERENCE_CLASS, 'BwSubTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue', 
                 [], [], 
                 '''                Value of BW Sub TLV
                 ''',
@@ -22842,11 +22842,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv',
             False, 
             [
-            _MetaInfoClassMember('arr-bw-sub-tlv', REFERENCE_LIST, 'ArrBwSubTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv', 
+            _MetaInfoClassMember('arr-bw-sub-tlv', REFERENCE_LIST, 'ArrBwSubTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv', 
                 [], [], 
                 '''                Array of sub tlvs
                 ''',
@@ -22859,17 +22859,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType',
             False, 
             [
-            _MetaInfoClassMember('ixcdbw-sub-tlv', REFERENCE_CLASS, 'IxcdbwSubTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv', 
+            _MetaInfoClassMember('ixcdbw-sub-tlv', REFERENCE_CLASS, 'IxcdbwSubTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv', 
                 [], [], 
                 '''                Sub TLVs
                 ''',
                 'ixcdbw_sub_tlv',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ixcdpsc-info', REFERENCE_CLASS, 'IxcdpscInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo', 
+            _MetaInfoClassMember('ixcdpsc-info', REFERENCE_CLASS, 'IxcdpscInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo', 
                 [], [], 
                 '''                IXCD PSC information
                 ''',
@@ -22888,8 +22888,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue',
             False, 
             [
             _MetaInfoClassMember('fixed-scsi-count', ATTRIBUTE, 'int' , None, None, 
@@ -22904,7 +22904,7 @@ _meta_table = {
                 ''',
                 'flex_scsi_count',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ixcd-switching-cap-type', REFERENCE_CLASS, 'IxcdSwitchingCapType' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType', 
+            _MetaInfoClassMember('ixcd-switching-cap-type', REFERENCE_CLASS, 'IxcdSwitchingCapType' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType', 
                 [], [], 
                 '''                Switching Cap type
                 ''',
@@ -22935,8 +22935,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue',
             False, 
             [
             _MetaInfoClassMember('uni-dir-delay', ATTRIBUTE, 'int' , None, None, 
@@ -22952,17 +22952,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue',
             False, 
             [
-            _MetaInfoClassMember('bctlv-value', REFERENCE_CLASS, 'BctlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue', 
+            _MetaInfoClassMember('bctlv-value', REFERENCE_CLASS, 'BctlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue', 
                 [], [], 
                 '''                Value of Bandwidth Constraints TLV
                 ''',
                 'bctlv_value',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('ixcdtlv-value', REFERENCE_CLASS, 'IxcdtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue', 
+            _MetaInfoClassMember('ixcdtlv-value', REFERENCE_CLASS, 'IxcdtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue', 
                 [], [], 
                 '''                Value of IXCD TLV
                 ''',
@@ -22974,13 +22974,13 @@ _meta_table = {
                 ''',
                 'opaque_tlv_type',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('srlgtlv-value', REFERENCE_CLASS, 'SrlgtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue', 
+            _MetaInfoClassMember('srlgtlv-value', REFERENCE_CLASS, 'SrlgtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue', 
                 [], [], 
                 '''                Value of SRLG TLV
                 ''',
                 'srlgtlv_value',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('unidtlv-value', REFERENCE_CLASS, 'UnidtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue', 
+            _MetaInfoClassMember('unidtlv-value', REFERENCE_CLASS, 'UnidtlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue', 
                 [], [], 
                 '''                Value of Uni Delay TLV
                 ''',
@@ -22993,8 +22993,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv',
             False, 
             [
             _MetaInfoClassMember('mplste-link-opt-tlv-len', ATTRIBUTE, 'int' , None, None, 
@@ -23009,7 +23009,7 @@ _meta_table = {
                 ''',
                 'mplste_link_opt_tlv_type',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mplste-link-opt-tlv-value', REFERENCE_LIST, 'MplsteLinkOptTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue', 
+            _MetaInfoClassMember('mplste-link-opt-tlv-value', REFERENCE_LIST, 'MplsteLinkOptTlvValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue', 
                 [], [], 
                 '''                Value of Opt TLV
                 ''',
@@ -23022,8 +23022,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink',
             False, 
             [
             _MetaInfoClassMember('affinity', ATTRIBUTE, 'int' , None, None, 
@@ -23044,7 +23044,7 @@ _meta_table = {
                 ''',
                 'dste_in_use',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('extended-admin-group-list', REFERENCE_CLASS, 'ExtendedAdminGroupList' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.ExtendedAdminGroupList', 
+            _MetaInfoClassMember('extended-admin-group-list', REFERENCE_CLASS, 'ExtendedAdminGroupList' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.ExtendedAdminGroupList', 
                 [], [], 
                 '''                Extended Admin Group
                 ''',
@@ -23056,7 +23056,7 @@ _meta_table = {
                 ''',
                 'fragment_id',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('global-unreserve-bw-per-priority', REFERENCE_CLASS, 'GlobalUnreserveBwPerPriority' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.GlobalUnreserveBwPerPriority', 
+            _MetaInfoClassMember('global-unreserve-bw-per-priority', REFERENCE_CLASS, 'GlobalUnreserveBwPerPriority' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.GlobalUnreserveBwPerPriority', 
                 [], [], 
                 '''                Global pool unreserved bandwidth for each
                 priority (bytes/s)
@@ -23081,13 +23081,13 @@ _meta_table = {
                 ''',
                 'link_address',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('link-protocol-priority-capability', REFERENCE_CLASS, 'LinkProtocolPriorityCapability' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.LinkProtocolPriorityCapability', 
+            _MetaInfoClassMember('link-protocol-priority-capability', REFERENCE_CLASS, 'LinkProtocolPriorityCapability' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.LinkProtocolPriorityCapability', 
                 [], [], 
                 '''                Link protocol and protocol priority capability
                 ''',
                 'link_protocol_priority_capability',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('link-sw-capability', REFERENCE_CLASS, 'LinkSwCapability' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.LinkSwCapability', 
+            _MetaInfoClassMember('link-sw-capability', REFERENCE_CLASS, 'LinkSwCapability' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.LinkSwCapability', 
                 [], [], 
                 '''                Link switching capability
                 ''',
@@ -23125,7 +23125,7 @@ _meta_table = {
                 ''',
                 'mpls_link_type',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mplste-link-opt-tlv', REFERENCE_LIST, 'MplsteLinkOptTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv', 
+            _MetaInfoClassMember('mplste-link-opt-tlv', REFERENCE_LIST, 'MplsteLinkOptTlv' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv', 
                 [], [], 
                 '''                List of Optional TLVs
                 ''',
@@ -23167,7 +23167,7 @@ _meta_table = {
                 ''',
                 'priority_count',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('sub-pool-unreserve-bw-per-priority', REFERENCE_CLASS, 'SubPoolUnreserveBwPerPriority' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.SubPoolUnreserveBwPerPriority', 
+            _MetaInfoClassMember('sub-pool-unreserve-bw-per-priority', REFERENCE_CLASS, 'SubPoolUnreserveBwPerPriority' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.SubPoolUnreserveBwPerPriority', 
                 [], [], 
                 '''                Sub pool unreserved bandwidth for each priority
                 (bytes/s)
@@ -23187,8 +23187,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment',
+    'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_',
             False, 
             [
             _MetaInfoClassMember('dste-model-id', ATTRIBUTE, 'int' , None, None, 
@@ -23209,7 +23209,7 @@ _meta_table = {
                 ''',
                 'fragment_instance',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mpls-te-link', REFERENCE_LIST, 'MplsTeLink' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink', 
+            _MetaInfoClassMember('mpls-te-link', REFERENCE_LIST, 'MplsTeLink' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink', 
                 [], [], 
                 '''                List of fragment links
                 ''',
@@ -23258,7 +23258,7 @@ _meta_table = {
                 ''',
                 'mpls_te_enabled',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('mpls-te-fragment', REFERENCE_LIST, 'MplsTeFragment' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment', 
+            _MetaInfoClassMember('mpls-te-fragment', REFERENCE_LIST, 'MplsTeFragment_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_', 
                 [], [], 
                 '''                MPLS TE fragments in the area
                 ''',
@@ -23470,8 +23470,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.AdjacencyInformation.Requests.Request.Request' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AdjacencyInformation.Requests.Request.Request',
+    'Ospf.Processes.Process.DefaultVrf.AdjacencyInformation.Requests.Request.Request_' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.AdjacencyInformation.Requests.Request.Request_',
             False, 
             [
             _MetaInfoClassMember('header-advertising-router', ATTRIBUTE, 'str' , None, None, 
@@ -23533,7 +23533,7 @@ _meta_table = {
                 ''',
                 'neighbor_address',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('request', REFERENCE_LIST, 'Request' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.AdjacencyInformation.Requests.Request.Request', 
+            _MetaInfoClassMember('request', REFERENCE_LIST, 'Request_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.AdjacencyInformation.Requests.Request.Request_', 
                 [], [], 
                 '''                List of request list entries
                 ''',
@@ -28406,8 +28406,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RouteInfo.RouteUpdateTime' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RouteInfo.RouteUpdateTime',
+    'Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RouteInfo.RouteUpdateTime' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RouteInfo.RouteUpdateTime',
             False, 
             [
             _MetaInfoClassMember('nanosecond', ATTRIBUTE, 'int' , None, None, 
@@ -28429,8 +28429,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RouteInfo.RouteFailTime' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RouteInfo.RouteFailTime',
+    'Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RouteInfo.RouteFailTime' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RouteInfo.RouteFailTime',
             False, 
             [
             _MetaInfoClassMember('nanosecond', ATTRIBUTE, 'int' , None, None, 
@@ -28452,8 +28452,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RouteInfo' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RouteInfo',
+    'Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RouteInfo' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RouteInfo',
             False, 
             [
             _MetaInfoClassMember('route-area-id', ATTRIBUTE, 'int' , None, None, 
@@ -28468,7 +28468,7 @@ _meta_table = {
                 ''',
                 'route_auto_excluded',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('route-fail-time', REFERENCE_CLASS, 'RouteFailTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RouteInfo.RouteFailTime', 
+            _MetaInfoClassMember('route-fail-time', REFERENCE_CLASS, 'RouteFailTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RouteInfo.RouteFailTime', 
                 [], [], 
                 '''                Last time update failed
                 ''',
@@ -28522,7 +28522,7 @@ _meta_table = {
                 ''',
                 'route_te_metric',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('route-update-time', REFERENCE_CLASS, 'RouteUpdateTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RouteInfo.RouteUpdateTime', 
+            _MetaInfoClassMember('route-update-time', REFERENCE_CLASS, 'RouteUpdateTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RouteInfo.RouteUpdateTime', 
                 [], [], 
                 '''                Last time updated
                 ''',
@@ -28535,8 +28535,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RoutePath' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RoutePath',
+    'Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RoutePath' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RoutePath',
             False, 
             [
             _MetaInfoClassMember('area-format', ATTRIBUTE, 'bool' , None, None, 
@@ -28606,8 +28606,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation',
+    'Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_',
             False, 
             [
             _MetaInfoClassMember('route-connected', ATTRIBUTE, 'bool' , None, None, 
@@ -28616,7 +28616,7 @@ _meta_table = {
                 ''',
                 'route_connected',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('route-info', REFERENCE_CLASS, 'RouteInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RouteInfo', 
+            _MetaInfoClassMember('route-info', REFERENCE_CLASS, 'RouteInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RouteInfo', 
                 [], [], 
                 '''                Route information
                 ''',
@@ -28628,7 +28628,7 @@ _meta_table = {
                 ''',
                 'route_metric',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('route-path', REFERENCE_LIST, 'RoutePath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RoutePath', 
+            _MetaInfoClassMember('route-path', REFERENCE_LIST, 'RoutePath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RoutePath', 
                 [], [], 
                 '''                List of paths to this route
                 ''',
@@ -28782,7 +28782,7 @@ _meta_table = {
                 ''',
                 'route_extended_community',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('route-information', REFERENCE_CLASS, 'RouteInformation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation', 
+            _MetaInfoClassMember('route-information', REFERENCE_CLASS, 'RouteInformation_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_', 
                 [], [], 
                 '''                Route information
                 ''',
@@ -32147,8 +32147,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper'
         ),
     },
-    'Ospf.Processes.Process.DefaultVrf.Areas.Area.Requests.Request.Request' : {
-        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.Areas.Area.Requests.Request.Request',
+    'Ospf.Processes.Process.DefaultVrf.Areas.Area.Requests.Request.Request_' : {
+        'meta_info' : _MetaInfoClass('Ospf.Processes.Process.DefaultVrf.Areas.Area.Requests.Request.Request_',
             False, 
             [
             _MetaInfoClassMember('header-advertising-router', ATTRIBUTE, 'str' , None, None, 
@@ -32210,7 +32210,7 @@ _meta_table = {
                 ''',
                 'neighbor_address',
                 'Cisco-IOS-XR-ipv4-ospf-oper', False),
-            _MetaInfoClassMember('request', REFERENCE_LIST, 'Request' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.Areas.Area.Requests.Request.Request', 
+            _MetaInfoClassMember('request', REFERENCE_LIST, 'Request_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper', 'Ospf.Processes.Process.DefaultVrf.Areas.Area.Requests.Request.Request_', 
                 [], [], 
                 '''                List of request list entries
                 ''',
@@ -37932,48 +37932,48 @@ _meta_table['Ospf.Processes.Process.Vrfs.Vrf.InterfaceVrfInformation.ShamLinks']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.FloodListTable.Flood.AreaFlood']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.FloodListTable.Flood']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.FloodListTable.Flood.AsFlood']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.FloodListTable.Flood']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.FloodListTable.Flood']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.FloodListTable']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.GlobalUnreserveBwPerPriority']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.SubPoolUnreserveBwPerPriority']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.LinkProtocolPriorityCapability']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.LinkSwCapability']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.ExtendedAdminGroupList']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.GlobalUnreserveBwPerPriority']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.SubPoolUnreserveBwPerPriority']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.LinkProtocolPriorityCapability']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.LinkSwCapability']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.ExtendedAdminGroupList']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.GlobalUnreserveBwPerPriority']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.SubPoolUnreserveBwPerPriority']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.LinkProtocolPriorityCapability']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.LinkSwCapability']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.ExtendedAdminGroupList']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.GlobalUnreserveBwPerPriority']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.SubPoolUnreserveBwPerPriority']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.LinkProtocolPriorityCapability']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.LinkSwCapability']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.ExtendedAdminGroupList']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks.MplsTeLink']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue']['meta_info']
@@ -37996,35 +37996,35 @@ _meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragme
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeLink.LinkSwCapability']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeLink']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeLink.ExtendedAdminGroupList']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeLink']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.GlobalUnreserveBwPerPriority']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.SubPoolUnreserveBwPerPriority']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.LinkProtocolPriorityCapability']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.LinkSwCapability']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.ExtendedAdminGroupList']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.GlobalUnreserveBwPerPriority']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.SubPoolUnreserveBwPerPriority']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.LinkProtocolPriorityCapability']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.LinkSwCapability']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.ExtendedAdminGroupList']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeLink']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments.MplsTeFragment']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeLinks']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe.MplsTeFragments']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.MplsTe']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.AdjacencyInformation.Neighbors.Neighbor.NeighborBfdInformation']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.AdjacencyInformation.Neighbors.Neighbor']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.AdjacencyInformation.Neighbors.Neighbor']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.AdjacencyInformation.Neighbors']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.AdjacencyInformation.Requests.Request.Request']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.AdjacencyInformation.Requests.Request']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.AdjacencyInformation.Requests.Request.Request_']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.AdjacencyInformation.Requests.Request']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.AdjacencyInformation.Requests.Request']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.AdjacencyInformation.Requests']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.AdjacencyInformation.Retransmissions.Retransmission.RetransmissionAreaDb']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.AdjacencyInformation.Retransmissions.Retransmission']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.AdjacencyInformation.Retransmissions.Retransmission.RetransmissionAsdb']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.AdjacencyInformation.Retransmissions.Retransmission']['meta_info']
@@ -38118,11 +38118,11 @@ _meta_table['Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.RouteTable.Route.R
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.RouteTable.Route.RouteInfo']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.RouteTable.Route']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.RouteTable.Route.RoutePath']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.RouteTable.Route']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.RouteTable.Route']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.RouteTable']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RouteInfo.RouteUpdateTime']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RouteInfo']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RouteInfo.RouteFailTime']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RouteInfo']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RouteInfo']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RoutePath']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RouteInfo.RouteUpdateTime']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RouteInfo']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RouteInfo.RouteFailTime']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RouteInfo']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RouteInfo']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RoutePath']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.ProtocolName']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteExtendedCommunity']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes.ExternalRoute']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.RouteInformation.ExternalRoutes']['meta_info']
@@ -38176,7 +38176,7 @@ _meta_table['Ospf.Processes.Process.Vrfs.Vrf.Areas.Area.Neighbors.Neighbor.Neigh
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.Areas.Area.Neighbors.Neighbor']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Areas.Area.Neighbors']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.Areas.Area.InterfaceBriefs.InterfaceBrief.InterfaceMadj']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Areas.Area.InterfaceBriefs.InterfaceBrief']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.Areas.Area.InterfaceBriefs.InterfaceBrief']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Areas.Area.InterfaceBriefs']['meta_info']
-_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Areas.Area.Requests.Request.Request']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Areas.Area.Requests.Request']['meta_info']
+_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Areas.Area.Requests.Request.Request_']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Areas.Area.Requests.Request']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.Areas.Area.Requests.Request']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Areas.Area.Requests']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.Areas.Area.Retransmissions.Retransmission.RetransmissionAreaDb']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Areas.Area.Retransmissions.Retransmission']['meta_info']
 _meta_table['Ospf.Processes.Process.Vrfs.Vrf.Areas.Area.Retransmissions.Retransmission.RetransmissionAsdb']['meta_info'].parent =_meta_table['Ospf.Processes.Process.Vrfs.Vrf.Areas.Area.Retransmissions.Retransmission']['meta_info']
@@ -38326,48 +38326,48 @@ _meta_table['Ospf.Processes.Process.Srms.Policy']['meta_info'].parent =_meta_tab
 _meta_table['Ospf.Processes.Process.DefaultVrf.FloodListTable.Flood.AreaFlood']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.FloodListTable.Flood']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.FloodListTable.Flood.AsFlood']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.FloodListTable.Flood']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.FloodListTable.Flood']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.FloodListTable']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.GlobalUnreserveBwPerPriority']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.SubPoolUnreserveBwPerPriority']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.LinkProtocolPriorityCapability']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.LinkSwCapability']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.ExtendedAdminGroupList']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink.MplsteLinkOptTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.GlobalUnreserveBwPerPriority']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.SubPoolUnreserveBwPerPriority']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.LinkProtocolPriorityCapability']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.LinkSwCapability']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.ExtendedAdminGroupList']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.GlobalUnreserveBwPerPriority']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.SubPoolUnreserveBwPerPriority']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.LinkProtocolPriorityCapability']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.LinkSwCapability']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.ExtendedAdminGroupList']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_.MplsteLinkOptTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.GlobalUnreserveBwPerPriority']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.SubPoolUnreserveBwPerPriority']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.LinkProtocolPriorityCapability']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.LinkSwCapability']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.ExtendedAdminGroupList']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_.MplsteLinkOptTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment.MplsTeLink_']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeLink_']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink.MplsTeFragment']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks.MplsTeLink']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue']['meta_info']
@@ -38390,35 +38390,35 @@ _meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFrag
 _meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeLink.LinkSwCapability']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeLink']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeLink.ExtendedAdminGroupList']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeLink']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.GlobalUnreserveBwPerPriority']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.SubPoolUnreserveBwPerPriority']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.LinkProtocolPriorityCapability']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.LinkSwCapability']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.ExtendedAdminGroupList']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink.MplsteLinkOptTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment.MplsTeLink']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue.FixedSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue.FlexSubTlvValueCommon']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FixedBwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue.FlexBwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv.BwSubTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv.ArrBwSubTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdpscInfo']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType.IxcdbwSubTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue.IxcdSwitchingCapType']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.BctlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.SrlgtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.IxcdtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue.UnidtlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv.MplsteLinkOptTlvValue']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.GlobalUnreserveBwPerPriority']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.SubPoolUnreserveBwPerPriority']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.LinkProtocolPriorityCapability']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.LinkSwCapability']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.ExtendedAdminGroupList']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink.MplsteLinkOptTlv']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_.MplsTeLink']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeLink']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment.MplsTeFragment_']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments.MplsTeFragment']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeLinks']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe.MplsTeFragments']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.MplsTe']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.AdjacencyInformation.Neighbors.Neighbor.NeighborBfdInformation']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.AdjacencyInformation.Neighbors.Neighbor']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.AdjacencyInformation.Neighbors.Neighbor']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.AdjacencyInformation.Neighbors']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.AdjacencyInformation.Requests.Request.Request']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.AdjacencyInformation.Requests.Request']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.AdjacencyInformation.Requests.Request.Request_']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.AdjacencyInformation.Requests.Request']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.AdjacencyInformation.Requests.Request']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.AdjacencyInformation.Requests']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.AdjacencyInformation.Retransmissions.Retransmission.RetransmissionAreaDb']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.AdjacencyInformation.Retransmissions.Retransmission']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.AdjacencyInformation.Retransmissions.Retransmission.RetransmissionAsdb']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.AdjacencyInformation.Retransmissions.Retransmission']['meta_info']
@@ -38512,11 +38512,11 @@ _meta_table['Ospf.Processes.Process.DefaultVrf.RouteInformation.RouteTable.Route
 _meta_table['Ospf.Processes.Process.DefaultVrf.RouteInformation.RouteTable.Route.RouteInfo']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.RouteInformation.RouteTable.Route']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.RouteInformation.RouteTable.Route.RoutePath']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.RouteInformation.RouteTable.Route']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.RouteInformation.RouteTable.Route']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.RouteInformation.RouteTable']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RouteInfo.RouteUpdateTime']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RouteInfo']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RouteInfo.RouteFailTime']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RouteInfo']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RouteInfo']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation.RoutePath']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RouteInfo.RouteUpdateTime']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RouteInfo']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RouteInfo.RouteFailTime']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RouteInfo']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RouteInfo']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_.RoutePath']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteInformation_']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.ProtocolName']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute.RouteExtendedCommunity']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes.ExternalRoute']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.RouteInformation.ExternalRoutes']['meta_info']
@@ -38570,7 +38570,7 @@ _meta_table['Ospf.Processes.Process.DefaultVrf.Areas.Area.Neighbors.Neighbor.Nei
 _meta_table['Ospf.Processes.Process.DefaultVrf.Areas.Area.Neighbors.Neighbor']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.Areas.Area.Neighbors']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.Areas.Area.InterfaceBriefs.InterfaceBrief.InterfaceMadj']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.Areas.Area.InterfaceBriefs.InterfaceBrief']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.Areas.Area.InterfaceBriefs.InterfaceBrief']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.Areas.Area.InterfaceBriefs']['meta_info']
-_meta_table['Ospf.Processes.Process.DefaultVrf.Areas.Area.Requests.Request.Request']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.Areas.Area.Requests.Request']['meta_info']
+_meta_table['Ospf.Processes.Process.DefaultVrf.Areas.Area.Requests.Request.Request_']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.Areas.Area.Requests.Request']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.Areas.Area.Requests.Request']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.Areas.Area.Requests']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.Areas.Area.Retransmissions.Retransmission.RetransmissionAreaDb']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.Areas.Area.Retransmissions.Retransmission']['meta_info']
 _meta_table['Ospf.Processes.Process.DefaultVrf.Areas.Area.Retransmissions.Retransmission.RetransmissionAsdb']['meta_info'].parent =_meta_table['Ospf.Processes.Process.DefaultVrf.Areas.Area.Retransmissions.Retransmission']['meta_info']

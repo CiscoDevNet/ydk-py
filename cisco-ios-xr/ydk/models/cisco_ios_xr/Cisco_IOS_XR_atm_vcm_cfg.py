@@ -31,19 +31,19 @@ class AtmPvcTestModeEnum(Enum):
 
     Atm pvc test mode
 
-    .. data:: LOOP = 1
+    .. data:: loop = 1
 
     	Loop mode applicable to L2/L3 PVC
 
-    .. data:: RESERVED = 2
+    .. data:: reserved = 2
 
     	Reserved mode applicable to L2 PVC
 
     """
 
-    LOOP = 1
+    loop = 1
 
-    RESERVED = 2
+    reserved = 2
 
 
     @staticmethod
@@ -58,13 +58,13 @@ class AtmPvpTestModeEnum(Enum):
 
     Atm pvp test mode
 
-    .. data:: LOOP = 1
+    .. data:: loop = 1
 
     	Loop mode
 
     """
 
-    LOOP = 1
+    loop = 1
 
 
     @staticmethod
@@ -79,13 +79,13 @@ class AtmVpiBitsModeEnum(Enum):
 
     Atm vpi bits mode
 
-    .. data:: TWELVE = 12
+    .. data:: twelve = 12
 
     	12-bits VPI cell format
 
     """
 
-    TWELVE = 12
+    twelve = 12
 
 
     @staticmethod

@@ -30,25 +30,25 @@ class AlAlarmBistateEnum(Enum):
 
     Al alarm bistate
 
-    .. data:: NOT_AVAILABLE = 0
+    .. data:: not_available = 0
 
     	not available
 
-    .. data:: ACTIVE = 1
+    .. data:: active = 1
 
     	active
 
-    .. data:: CLEAR = 2
+    .. data:: clear = 2
 
     	clear
 
     """
 
-    NOT_AVAILABLE = 0
+    not_available = 0
 
-    ACTIVE = 1
+    active = 1
 
-    CLEAR = 2
+    clear = 2
 
 
     @staticmethod
@@ -63,61 +63,61 @@ class AlAlarmSeverityEnum(Enum):
 
     Al alarm severity
 
-    .. data:: UNKNOWN = -1
+    .. data:: unknown = -1
 
     	unknown
 
-    .. data:: EMERGENCY = 0
+    .. data:: emergency = 0
 
     	emergency
 
-    .. data:: ALERT = 1
+    .. data:: alert = 1
 
     	alert
 
-    .. data:: CRITICAL = 2
+    .. data:: critical = 2
 
     	critical
 
-    .. data:: ERROR = 3
+    .. data:: error = 3
 
     	error
 
-    .. data:: WARNING = 4
+    .. data:: warning = 4
 
     	warning
 
-    .. data:: NOTICE = 5
+    .. data:: notice = 5
 
     	notice
 
-    .. data:: INFORMATIONAL = 6
+    .. data:: informational = 6
 
     	informational
 
-    .. data:: DEBUGGING = 7
+    .. data:: debugging = 7
 
     	debugging
 
     """
 
-    UNKNOWN = -1
+    unknown = -1
 
-    EMERGENCY = 0
+    emergency = 0
 
-    ALERT = 1
+    alert = 1
 
-    CRITICAL = 2
+    critical = 2
 
-    ERROR = 3
+    error = 3
 
-    WARNING = 4
+    warning = 4
 
-    NOTICE = 5
+    notice = 5
 
-    INFORMATIONAL = 6
+    informational = 6
 
-    DEBUGGING = 7
+    debugging = 7
 
 
     @staticmethod
@@ -134,12 +134,12 @@ class AlarmLogger(object):
     .. attribute:: alarms
     
     	Table that contains the database of logged alarms
-    	**type**\:  :py:class:`Alarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlarmLogger.Alarms>`
+    	**type**\:   :py:class:`Alarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlarmLogger.Alarms>`
     
     .. attribute:: buffer_status
     
     	Describes buffer utilization and parameters configured
-    	**type**\:  :py:class:`BufferStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlarmLogger.BufferStatus>`
+    	**type**\:   :py:class:`BufferStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlarmLogger.BufferStatus>`
     
     
 
@@ -167,6 +167,8 @@ class AlarmLogger(object):
         
         	**range:** 0..4294967295
         
+        	**units**\: percentage
+        
         .. attribute:: log_buffer_size
         
         	Current Logging Buffer Size (Bytes)
@@ -174,12 +176,16 @@ class AlarmLogger(object):
         
         	**range:** 0..4294967295
         
+        	**units**\: byte
+        
         .. attribute:: max_log_buffer_size
         
         	Maximum Logging Buffer Size (Bytes) 
         	**type**\:  int
         
         	**range:** 0..4294967295
+        
+        	**units**\: byte
         
         .. attribute:: record_count
         
@@ -191,7 +197,7 @@ class AlarmLogger(object):
         .. attribute:: severity_filter
         
         	Severity Filter
-        	**type**\:  :py:class:`AlAlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmSeverityEnum>`
+        	**type**\:   :py:class:`AlAlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmSeverityEnum>`
         
         
 
@@ -251,7 +257,7 @@ class AlarmLogger(object):
         .. attribute:: alarm
         
         	One of the logged alarms
-        	**type**\: list of  :py:class:`Alarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlarmLogger.Alarms.Alarm>`
+        	**type**\: list of    :py:class:`Alarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlarmLogger.Alarms.Alarm>`
         
         
 
@@ -313,7 +319,7 @@ class AlarmLogger(object):
             .. attribute:: severity
             
             	Severity of the alarm
-            	**type**\:  :py:class:`AlAlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmSeverityEnum>`
+            	**type**\:   :py:class:`AlAlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmSeverityEnum>`
             
             .. attribute:: source_id
             
@@ -323,7 +329,7 @@ class AlarmLogger(object):
             .. attribute:: state
             
             	State of the alarm (bistate alarms only)
-            	**type**\:  :py:class:`AlAlarmBistateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmBistateEnum>`
+            	**type**\:   :py:class:`AlAlarmBistateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper.AlAlarmBistateEnum>`
             
             .. attribute:: timestamp
             
@@ -331,6 +337,8 @@ class AlarmLogger(object):
             	**type**\:  int
             
             	**range:** 0..18446744073709551615
+            
+            	**units**\: millisecond
             
             
 

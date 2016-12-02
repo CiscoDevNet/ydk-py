@@ -30,31 +30,31 @@ class AaaLocaldTaskClassEnum(Enum):
 
     Aaa locald task class
 
-    .. data:: READ = 0
+    .. data:: read = 0
 
     	Permits read operation for a Task ID
 
-    .. data:: WRITE = 1
+    .. data:: write = 1
 
     	Permits write operation for a Task ID
 
-    .. data:: EXECUTE = 2
+    .. data:: execute = 2
 
     	Permits execute operation for a Task ID
 
-    .. data:: DEBUG = 3
+    .. data:: debug = 3
 
     	Permits debug operation for a Task ID
 
     """
 
-    READ = 0
+    read = 0
 
-    WRITE = 1
+    write = 1
 
-    EXECUTE = 2
+    execute = 2
 
-    DEBUG = 3
+    debug = 3
 
 
     @staticmethod

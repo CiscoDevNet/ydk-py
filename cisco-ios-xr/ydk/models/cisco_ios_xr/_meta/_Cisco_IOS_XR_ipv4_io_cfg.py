@@ -16,23 +16,23 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'Ipv4DefaultPingEnum' : _MetaInfoEnum('Ipv4DefaultPingEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_cfg',
         {
-            'disabled':'DISABLED',
-            'enabled':'ENABLED',
+            'disabled':'disabled',
+            'enabled':'enabled',
         }, 'Cisco-IOS-XR-ipv4-io-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-io-cfg']),
     'Ipv4SelfPingEnum' : _MetaInfoEnum('Ipv4SelfPingEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_cfg',
         {
-            'disabled':'DISABLED',
-            'enabled':'ENABLED',
+            'disabled':'disabled',
+            'enabled':'enabled',
         }, 'Cisco-IOS-XR-ipv4-io-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-io-cfg']),
     'Ipv4ReachableEnum' : _MetaInfoEnum('Ipv4ReachableEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_cfg',
         {
-            'any':'ANY',
-            'received':'RECEIVED',
+            'any':'any',
+            'received':'received',
         }, 'Cisco-IOS-XR-ipv4-io-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-io-cfg']),
     'Ipv4InterfaceQppbEnum' : _MetaInfoEnum('Ipv4InterfaceQppbEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_cfg',
         {
-            'ip-precedence':'IP_PRECEDENCE',
-            'qos-group':'QOS_GROUP',
-            'both':'BOTH',
+            'ip-precedence':'ip_precedence',
+            'qos-group':'qos_group',
+            'both':'both',
         }, 'Cisco-IOS-XR-ipv4-io-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-io-cfg']),
 }

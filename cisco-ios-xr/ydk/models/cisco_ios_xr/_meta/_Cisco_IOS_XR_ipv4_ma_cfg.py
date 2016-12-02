@@ -16,10 +16,10 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'Ipv4QppbEnum' : _MetaInfoEnum('Ipv4QppbEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg',
         {
-            'none':'NONE',
-            'ip-prec':'IP_PREC',
-            'qos-grp':'QOS_GRP',
-            'both':'BOTH',
+            'none':'none',
+            'ip-prec':'ip_prec',
+            'qos-grp':'qos_grp',
+            'both':'both',
         }, 'Cisco-IOS-XR-ipv4-ma-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-ma-cfg']),
     'Ipv4NetworkGlobal.Unnumbered.Mpls.Te' : {
         'meta_info' : _MetaInfoClass('Ipv4NetworkGlobal.Unnumbered.Mpls.Te',

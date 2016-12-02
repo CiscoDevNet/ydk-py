@@ -82,6 +82,6 @@ class ValueEncoder(object):
         elif member.ptype == 'int' and isinstance(value, (int, long)):
             text = str(value)
         else:
-            ydk_logger = logging.getLogger('ydk.providers.NetconfServiceProvider')
+            ydk_logger = logging.getLogger(__name__)
             ydk_logger.info('Could not encode leaf {0}, type: {1}, {2} value: {3}'.format(member.name, member.mtype, member.ptype, value))
         return text

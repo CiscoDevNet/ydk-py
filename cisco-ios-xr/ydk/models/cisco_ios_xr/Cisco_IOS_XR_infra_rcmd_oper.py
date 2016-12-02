@@ -31,19 +31,19 @@ class RcmdBagEnableDisableEnum(Enum):
 
     status enum
 
-    .. data:: DISABLE = 0
+    .. data:: disable = 0
 
     	Disabled
 
-    .. data:: ENABLE = 1
+    .. data:: enable = 1
 
     	Enabled
 
     """
 
-    DISABLE = 0
+    disable = 0
 
-    ENABLE = 1
+    enable = 1
 
 
     @staticmethod
@@ -58,19 +58,19 @@ class RcmdBagEnblDsblEnum(Enum):
 
     status enum
 
-    .. data:: DSBL = 0
+    .. data:: dsbl = 0
 
     	Disabled
 
-    .. data:: ENBL = 1
+    .. data:: enbl = 1
 
     	Enabled
 
     """
 
-    DSBL = 0
+    dsbl = 0
 
-    ENBL = 1
+    enbl = 1
 
 
     @staticmethod
@@ -85,19 +85,19 @@ class RcmdBoolYesNoEnum(Enum):
 
     Boolean enum
 
-    .. data:: NO = 0
+    .. data:: no = 0
 
     	No
 
-    .. data:: YES = 1
+    .. data:: yes = 1
 
     	Yes
 
     """
 
-    NO = 0
+    no = 0
 
-    YES = 1
+    yes = 1
 
 
     @staticmethod
@@ -112,37 +112,37 @@ class RcmdChangeEnum(Enum):
 
     Type of change
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	Invalid
 
-    .. data:: ADD = 1
+    .. data:: add = 1
 
     	Added
 
-    .. data:: DELETE = 2
+    .. data:: delete = 2
 
     	Deleted
 
-    .. data:: MODIFY = 3
+    .. data:: modify = 3
 
     	Modified
 
-    .. data:: NO_CHANGE = 4
+    .. data:: no_change = 4
 
     	No Change
 
     """
 
-    NONE = 0
+    none = 0
 
-    ADD = 1
+    add = 1
 
-    DELETE = 2
+    delete = 2
 
-    MODIFY = 3
+    modify = 3
 
-    NO_CHANGE = 4
+    no_change = 4
 
 
     @staticmethod
@@ -157,19 +157,19 @@ class RcmdIsisLvlEnum(Enum):
 
     Type of an ISIS Level
 
-    .. data:: L1 = 0
+    .. data:: l1 = 0
 
     	Level 1
 
-    .. data:: L2 = 1
+    .. data:: l2 = 1
 
     	Level 2
 
     """
 
-    L1 = 0
+    l1 = 0
 
-    L2 = 1
+    l2 = 1
 
 
     @staticmethod
@@ -184,31 +184,31 @@ class RcmdIsisSpfEnum(Enum):
 
     Type of an ISIS SPF run
 
-    .. data:: FULL = 0
+    .. data:: full = 0
 
     	Full
 
-    .. data:: INCREMENTAL = 1
+    .. data:: incremental = 1
 
     	Incremental
 
-    .. data:: NEXT_HOP = 2
+    .. data:: next_hop = 2
 
     	Next hop calculation
 
-    .. data:: PARTIAL_ROUTE = 3
+    .. data:: partial_route = 3
 
     	Partial route calculation
 
     """
 
-    FULL = 0
+    full = 0
 
-    INCREMENTAL = 1
+    incremental = 1
 
-    NEXT_HOP = 2
+    next_hop = 2
 
-    PARTIAL_ROUTE = 3
+    partial_route = 3
 
 
     @staticmethod
@@ -223,19 +223,19 @@ class RcmdLdpEventEnum(Enum):
 
     Type of LDP Event
 
-    .. data:: NEIGHBOR = 1
+    .. data:: neighbor = 1
 
     	Neighbor Event
 
-    .. data:: ADJACENCY = 2
+    .. data:: adjacency = 2
 
     	Adjacency Event
 
     """
 
-    NEIGHBOR = 1
+    neighbor = 1
 
-    ADJACENCY = 2
+    adjacency = 2
 
 
     @staticmethod
@@ -250,25 +250,25 @@ class RcmdLinecardSpeedEnum(Enum):
 
     Comparative speed of programming on linecard
 
-    .. data:: OTHER = 0
+    .. data:: other = 0
 
     	Other linecard
 
-    .. data:: FASTEST = 1
+    .. data:: fastest = 1
 
     	Fastest linecard
 
-    .. data:: SLOWEST = 2
+    .. data:: slowest = 2
 
     	Slowest linecard
 
     """
 
-    OTHER = 0
+    other = 0
 
-    FASTEST = 1
+    fastest = 1
 
-    SLOWEST = 2
+    slowest = 2
 
 
     @staticmethod
@@ -283,31 +283,31 @@ class RcmdLsChangeEnum(Enum):
 
     Type of change
 
-    .. data:: NEW = 0
+    .. data:: new = 0
 
     	Added
 
-    .. data:: DELETE = 1
+    .. data:: delete = 1
 
     	Deleted
 
-    .. data:: MODIFY = 2
+    .. data:: modify = 2
 
     	Modified
 
-    .. data:: NOOP = 3
+    .. data:: noop = 3
 
     	No operation
 
     """
 
-    NEW = 0
+    new = 0
 
-    DELETE = 1
+    delete = 1
 
-    MODIFY = 2
+    modify = 2
 
-    NOOP = 3
+    noop = 3
 
 
     @staticmethod
@@ -322,55 +322,55 @@ class RcmdLsaEnum(Enum):
 
     Type of LSA
 
-    .. data:: UNKNOWN = 0
+    .. data:: unknown = 0
 
     	Invalid LSA
 
-    .. data:: ROUTER = 1
+    .. data:: router = 1
 
     	Router LSA
 
-    .. data:: NETWORK = 2
+    .. data:: network = 2
 
     	Network LSA
 
-    .. data:: SUMMARY = 3
+    .. data:: summary = 3
 
     	Summary LSA
 
-    .. data:: ASBR = 4
+    .. data:: asbr = 4
 
     	ASBR LSA
 
-    .. data:: EXTERNAL = 5
+    .. data:: external = 5
 
     	External LSA
 
-    .. data:: MULTICAST = 6
+    .. data:: multicast = 6
 
     	Multicast LSA
 
-    .. data:: NSSA = 7
+    .. data:: nssa = 7
 
     	NSSA LSA
 
     """
 
-    UNKNOWN = 0
+    unknown = 0
 
-    ROUTER = 1
+    router = 1
 
-    NETWORK = 2
+    network = 2
 
-    SUMMARY = 3
+    summary = 3
 
-    ASBR = 4
+    asbr = 4
 
-    EXTERNAL = 5
+    external = 5
 
-    MULTICAST = 6
+    multicast = 6
 
-    NSSA = 7
+    nssa = 7
 
 
     @staticmethod
@@ -385,31 +385,31 @@ class RcmdPriorityLevelEnum(Enum):
 
     Level of priority
 
-    .. data:: CRITICAL = 0
+    .. data:: critical = 0
 
     	Critical
 
-    .. data:: HIGH = 1
+    .. data:: high = 1
 
     	High
 
-    .. data:: MEDIUM = 2
+    .. data:: medium = 2
 
     	Medium
 
-    .. data:: LOW = 3
+    .. data:: low = 3
 
     	Low
 
     """
 
-    CRITICAL = 0
+    critical = 0
 
-    HIGH = 1
+    high = 1
 
-    MEDIUM = 2
+    medium = 2
 
-    LOW = 3
+    low = 3
 
 
     @staticmethod
@@ -424,25 +424,25 @@ class RcmdProtocolIdEnum(Enum):
 
     Protocol Info
 
-    .. data:: OSPF = 0
+    .. data:: ospf = 0
 
     	OSPF protocol
 
-    .. data:: ISIS = 1
+    .. data:: isis = 1
 
     	ISIS Prrotocol
 
-    .. data:: NA = 2
+    .. data:: na = 2
 
     	Max NA
 
     """
 
-    OSPF = 0
+    ospf = 0
 
-    ISIS = 1
+    isis = 1
 
-    NA = 2
+    na = 2
 
 
     @staticmethod
@@ -457,25 +457,25 @@ class RcmdShowCompIdEnum(Enum):
 
     Component Info
 
-    .. data:: OSPF = 0
+    .. data:: ospf = 0
 
     	OSPF component
 
-    .. data:: ISIS = 1
+    .. data:: isis = 1
 
     	ISIS component
 
-    .. data:: UN_KNOWN = 2
+    .. data:: un_known = 2
 
     	Max NA
 
     """
 
-    OSPF = 0
+    ospf = 0
 
-    ISIS = 1
+    isis = 1
 
-    UN_KNOWN = 2
+    un_known = 2
 
 
     @staticmethod
@@ -490,31 +490,31 @@ class RcmdShowInstStateEnum(Enum):
 
     instance state
 
-    .. data:: UNKNOWN = 0
+    .. data:: unknown = 0
 
     	Unknown state
 
-    .. data:: ACTIVE = 1
+    .. data:: active = 1
 
     	Active state
 
-    .. data:: IN_ACTIVE = 2
+    .. data:: in_active = 2
 
     	InActive state
 
-    .. data:: NA = 3
+    .. data:: na = 3
 
     	Max state
 
     """
 
-    UNKNOWN = 0
+    unknown = 0
 
-    ACTIVE = 1
+    active = 1
 
-    IN_ACTIVE = 2
+    in_active = 2
 
-    NA = 3
+    na = 3
 
 
     @staticmethod
@@ -529,85 +529,85 @@ class RcmdShowIntfEventEnum(Enum):
 
     Rcmd show intf event
 
-    .. data:: CREATE = 1
+    .. data:: create = 1
 
     	Create
 
-    .. data:: DELETE = 2
+    .. data:: delete = 2
 
     	Delete
 
-    .. data:: LINK_UP = 3
+    .. data:: link_up = 3
 
     	LinkUp
 
-    .. data:: LINK_DOWN = 4
+    .. data:: link_down = 4
 
     	LinkDown
 
-    .. data:: PRIMARY_ADDRESS = 5
+    .. data:: primary_address = 5
 
     	PrimaryAddress
 
-    .. data:: SECONDARY_ADDRESS = 6
+    .. data:: secondary_address = 6
 
     	SecondaryAddress
 
-    .. data:: IPV6_LINK_LOCAL_ADDRESS = 7
+    .. data:: ipv6_link_local_address = 7
 
     	Ipv6LinkLocalAddress
 
-    .. data:: IPV6_GLOBAL_ADDRESS = 8
+    .. data:: ipv6_global_address = 8
 
     	Ipv6GlobalAddress
 
-    .. data:: MTU = 9
+    .. data:: mtu = 9
 
     	MTU
 
-    .. data:: BAND_WIDTH = 10
+    .. data:: band_width = 10
 
     	BandWidth
 
-    .. data:: LDP_SYNC = 11
+    .. data:: ldp_sync = 11
 
     	LDPSync
 
-    .. data:: FORWARD_REFERENCE = 12
+    .. data:: forward_reference = 12
 
     	ForwardReference
 
-    .. data:: LDP_NO_SYNC = 13
+    .. data:: ldp_no_sync = 13
 
     	LDPNoSync
 
     """
 
-    CREATE = 1
+    create = 1
 
-    DELETE = 2
+    delete = 2
 
-    LINK_UP = 3
+    link_up = 3
 
-    LINK_DOWN = 4
+    link_down = 4
 
-    PRIMARY_ADDRESS = 5
+    primary_address = 5
 
-    SECONDARY_ADDRESS = 6
+    secondary_address = 6
 
-    IPV6_LINK_LOCAL_ADDRESS = 7
+    ipv6_link_local_address = 7
 
-    IPV6_GLOBAL_ADDRESS = 8
+    ipv6_global_address = 8
 
-    MTU = 9
+    mtu = 9
 
-    BAND_WIDTH = 10
+    band_width = 10
 
-    LDP_SYNC = 11
+    ldp_sync = 11
 
-    FORWARD_REFERENCE = 12
+    forward_reference = 12
 
-    LDP_NO_SYNC = 13
+    ldp_no_sync = 13
 
 
     @staticmethod
@@ -622,25 +622,25 @@ class RcmdShowIpfrrLfaEnum(Enum):
 
     IP Frr LFA Types
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	No IP Frr LFA Type 
 
-    .. data:: LOCAL = 1
+    .. data:: local = 1
 
     	IP Frr Local LFA
 
-    .. data:: REMOTE = 2
+    .. data:: remote = 2
 
     	IP Frr Remote LFA
 
     """
 
-    NONE = 0
+    none = 0
 
-    LOCAL = 1
+    local = 1
 
-    REMOTE = 2
+    remote = 2
 
 
     @staticmethod
@@ -655,37 +655,37 @@ class RcmdShowLdpConvStateEnum(Enum):
 
     LDP Convergence States
 
-    .. data:: NOT_FULL = 0
+    .. data:: not_full = 0
 
     	Not Fully Covered
 
-    .. data:: FULLY_COVERED = 1
+    .. data:: fully_covered = 1
 
     	Fully Covered
 
-    .. data:: COVERAGE_ABOVE_THRESHOLD = 2
+    .. data:: coverage_above_threshold = 2
 
     	Backup Coverage Above Threshold
 
-    .. data:: COVERAGE_BELOW_THRESHOLD = 3
+    .. data:: coverage_below_threshold = 3
 
     	Backup Coverage Below Threshold
 
-    .. data:: COVERAGE_FLAPPING = 4
+    .. data:: coverage_flapping = 4
 
     	Backup Coverage is Flappping
 
     """
 
-    NOT_FULL = 0
+    not_full = 0
 
-    FULLY_COVERED = 1
+    fully_covered = 1
 
-    COVERAGE_ABOVE_THRESHOLD = 2
+    coverage_above_threshold = 2
 
-    COVERAGE_BELOW_THRESHOLD = 3
+    coverage_below_threshold = 3
 
-    COVERAGE_FLAPPING = 4
+    coverage_flapping = 4
 
 
     @staticmethod
@@ -700,19 +700,19 @@ class RcmdShowLdpNeighbourStatusEnum(Enum):
 
     LDP Adjacency Session Status
 
-    .. data:: DOWN = 0
+    .. data:: down = 0
 
     	Down State
 
-    .. data:: UP = 1
+    .. data:: up = 1
 
     	Up State
 
     """
 
-    DOWN = 0
+    down = 0
 
-    UP = 1
+    up = 1
 
 
     @staticmethod
@@ -727,49 +727,49 @@ class RcmdShowLdpSessionStateEnum(Enum):
 
     LDP Session State
 
-    .. data:: GR_DOWN = 0
+    .. data:: gr_down = 0
 
     	GR Down State
 
-    .. data:: GR_CONVERGING = 1
+    .. data:: gr_converging = 1
 
     	GR Converging State
 
-    .. data:: ESTABLISHING = 2
+    .. data:: establishing = 2
 
     	Establishing State
 
-    .. data:: CONVERGING = 3
+    .. data:: converging = 3
 
     	Converging State
 
-    .. data:: CONVERGED = 4
+    .. data:: converged = 4
 
     	Converged State
 
-    .. data:: RETRYING = 5
+    .. data:: retrying = 5
 
     	Retrying State
 
-    .. data:: TOTAL = 6
+    .. data:: total = 6
 
     	Cumulative Coverage for all the States
 
     """
 
-    GR_DOWN = 0
+    gr_down = 0
 
-    GR_CONVERGING = 1
+    gr_converging = 1
 
-    ESTABLISHING = 2
+    establishing = 2
 
-    CONVERGING = 3
+    converging = 3
 
-    CONVERGED = 4
+    converged = 4
 
-    RETRYING = 5
+    retrying = 5
 
-    TOTAL = 6
+    total = 6
 
 
     @staticmethod
@@ -784,43 +784,43 @@ class RcmdShowMemEnum(Enum):
 
     RCMD Memory Manager type
 
-    .. data:: STANDARD = 0
+    .. data:: standard = 0
 
     	Standard type
 
-    .. data:: CHUNK = 1
+    .. data:: chunk = 1
 
     	Chunk type
 
-    .. data:: EDM = 2
+    .. data:: edm = 2
 
     	EDM type
 
-    .. data:: STRING = 3
+    .. data:: string = 3
 
     	String type
 
-    .. data:: STATIC = 4
+    .. data:: static = 4
 
     	Static type
 
-    .. data:: UNKNOWN = 5
+    .. data:: unknown = 5
 
     	Unknown type
 
     """
 
-    STANDARD = 0
+    standard = 0
 
-    CHUNK = 1
+    chunk = 1
 
-    EDM = 2
+    edm = 2
 
-    STRING = 3
+    string = 3
 
-    STATIC = 4
+    static = 4
 
-    UNKNOWN = 5
+    unknown = 5
 
 
     @staticmethod
@@ -835,25 +835,25 @@ class RcmdShowNodeEnum(Enum):
 
     Type of Node
 
-    .. data:: UNKNOWN = 0
+    .. data:: unknown = 0
 
     	Unknown Type
 
-    .. data:: LC = 1
+    .. data:: lc = 1
 
     	LC Type
 
-    .. data:: RP = 2
+    .. data:: rp = 2
 
     	RP Type
 
     """
 
-    UNKNOWN = 0
+    unknown = 0
 
-    LC = 1
+    lc = 1
 
-    RP = 2
+    rp = 2
 
 
     @staticmethod
@@ -868,25 +868,25 @@ class RcmdShowPrcsStateEnum(Enum):
 
     Post Processing Info
 
-    .. data:: SUCCESS = 0
+    .. data:: success = 0
 
     	Success
 
-    .. data:: CPU = 1
+    .. data:: cpu = 1
 
     	Cpu overload
 
-    .. data:: MEMORY = 2
+    .. data:: memory = 2
 
     	Memory overload
 
     """
 
-    SUCCESS = 0
+    success = 0
 
-    CPU = 1
+    cpu = 1
 
-    MEMORY = 2
+    memory = 2
 
 
     @staticmethod
@@ -901,97 +901,97 @@ class RcmdShowRouteEnum(Enum):
 
     Route Types
 
-    .. data:: OSPF = 0
+    .. data:: ospf = 0
 
     	OSPF route init
 
-    .. data:: INTRA = 1
+    .. data:: intra = 1
 
     	OSPF Intra route
 
-    .. data:: INTER = 2
+    .. data:: inter = 2
 
     	OSPF Inter route
 
-    .. data:: EXT_1 = 3
+    .. data:: ext_1 = 3
 
     	OSPF External Type-1 Route
 
-    .. data:: EXT_2 = 4
+    .. data:: ext_2 = 4
 
     	OSPF External Type-2 Route
 
-    .. data:: NSSA_1 = 5
+    .. data:: nssa_1 = 5
 
     	OSPF NSSA Type-1 Route
 
-    .. data:: NSSA_2 = 6
+    .. data:: nssa_2 = 6
 
     	OSPF NSSA Type-2 Route
 
-    .. data:: ISIS = 7
+    .. data:: isis = 7
 
     	ISIS route init
 
-    .. data:: L1_SUMMARY = 8
+    .. data:: l1_summary = 8
 
     	ISIS L1 Summary
 
-    .. data:: L1 = 9
+    .. data:: l1 = 9
 
     	ISIS L1
 
-    .. data:: L2_SUMMARY = 10
+    .. data:: l2_summary = 10
 
     	ISIS L2 Summary
 
-    .. data:: L2 = 11
+    .. data:: l2 = 11
 
     	ISIS L2
 
-    .. data:: INTER_AREA_SUMMARY = 12
+    .. data:: inter_area_summary = 12
 
     	ISIS Inter Area Summary
 
-    .. data:: INTER_AREA = 13
+    .. data:: inter_area = 13
 
     	ISIS Inter Area
 
-    .. data:: DEFAULT_ATTACHED = 14
+    .. data:: default_attached = 14
 
     	ISIS Default Route Attached
 
     """
 
-    OSPF = 0
+    ospf = 0
 
-    INTRA = 1
+    intra = 1
 
-    INTER = 2
+    inter = 2
 
-    EXT_1 = 3
+    ext_1 = 3
 
-    EXT_2 = 4
+    ext_2 = 4
 
-    NSSA_1 = 5
+    nssa_1 = 5
 
-    NSSA_2 = 6
+    nssa_2 = 6
 
-    ISIS = 7
+    isis = 7
 
-    L1_SUMMARY = 8
+    l1_summary = 8
 
-    L1 = 9
+    l1 = 9
 
-    L2_SUMMARY = 10
+    l2_summary = 10
 
-    L2 = 11
+    l2 = 11
 
-    INTER_AREA_SUMMARY = 12
+    inter_area_summary = 12
 
-    INTER_AREA = 13
+    inter_area = 13
 
-    DEFAULT_ATTACHED = 14
+    default_attached = 14
 
 
     @staticmethod
@@ -1006,19 +1006,19 @@ class RcmdShowRoutePathChangeEnum(Enum):
 
     Type of route change
 
-    .. data:: PRIMARY = 0
+    .. data:: primary = 0
 
     	Primary path is changed
 
-    .. data:: BACKUP = 1
+    .. data:: backup = 1
 
     	Backup path is changed
 
     """
 
-    PRIMARY = 0
+    primary = 0
 
-    BACKUP = 1
+    backup = 1
 
 
     @staticmethod
@@ -1033,31 +1033,31 @@ class RcmdSpfStateEnum(Enum):
 
     Type of an ISIS Level
 
-    .. data:: COMPLETE = 0
+    .. data:: complete = 0
 
     	Complete
 
-    .. data:: IN_COMPLETE = 1
+    .. data:: in_complete = 1
 
     	InComplete
 
-    .. data:: COLLECTING = 2
+    .. data:: collecting = 2
 
     	Collecting data
 
-    .. data:: NO_ROUTE_CHANGE = 3
+    .. data:: no_route_change = 3
 
     	No Route Change
 
     """
 
-    COMPLETE = 0
+    complete = 0
 
-    IN_COMPLETE = 1
+    in_complete = 1
 
-    COLLECTING = 2
+    collecting = 2
 
-    NO_ROUTE_CHANGE = 3
+    no_route_change = 3
 
 
     @staticmethod
@@ -1075,42 +1075,42 @@ class Rcmd(object):
     .. attribute:: intf
     
     	Interface data
-    	**type**\:  :py:class:`Intf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Intf>`
+    	**type**\:   :py:class:`Intf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Intf>`
     
     .. attribute:: isis
     
     	Operational data for ISIS
-    	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis>`
+    	**type**\:   :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis>`
     
     .. attribute:: ldp
     
     	LDP data
-    	**type**\:  :py:class:`Ldp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp>`
+    	**type**\:   :py:class:`Ldp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp>`
     
     .. attribute:: memory
     
     	Memory Info
-    	**type**\:  :py:class:`Memory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Memory>`
+    	**type**\:   :py:class:`Memory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Memory>`
     
     .. attribute:: node
     
     	Node Info
-    	**type**\:  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Node>`
+    	**type**\:   :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Node>`
     
     .. attribute:: ospf
     
     	Operational data for OSPF
-    	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf>`
+    	**type**\:   :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf>`
     
     .. attribute:: process
     
     	Process information
-    	**type**\:  :py:class:`Process <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process>`
+    	**type**\:   :py:class:`Process <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process>`
     
     .. attribute:: server
     
     	Server Info
-    	**type**\:  :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Server>`
+    	**type**\:   :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Server>`
     
     
 
@@ -1145,7 +1145,7 @@ class Rcmd(object):
         .. attribute:: instances
         
         	Operational data
-        	**type**\:  :py:class:`Instances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances>`
+        	**type**\:   :py:class:`Instances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances>`
         
         
 
@@ -1167,7 +1167,7 @@ class Rcmd(object):
             .. attribute:: instance
             
             	Operational data for a particular instance
-            	**type**\: list of  :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance>`
+            	**type**\: list of    :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance>`
             
             
 
@@ -1197,52 +1197,52 @@ class Rcmd(object):
                 .. attribute:: ipfrr_event_offlines
                 
                 	OSPF IP\-FRR Event offline data
-                	**type**\:  :py:class:`IpfrrEventOfflines <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines>`
+                	**type**\:   :py:class:`IpfrrEventOfflines <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines>`
                 
                 .. attribute:: ipfrr_event_summaries
                 
                 	OSPF IP\-FRR events summary data
-                	**type**\:  :py:class:`IpfrrEventSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries>`
+                	**type**\:   :py:class:`IpfrrEventSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries>`
                 
                 .. attribute:: prefix_event_offlines
                 
                 	OSPF Prefix events offline data
-                	**type**\:  :py:class:`PrefixEventOfflines <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventOfflines>`
+                	**type**\:   :py:class:`PrefixEventOfflines <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventOfflines>`
                 
                 .. attribute:: prefix_event_statistics
                 
                 	OSPF Prefix events summary data
-                	**type**\:  :py:class:`PrefixEventStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventStatistics>`
+                	**type**\:   :py:class:`PrefixEventStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventStatistics>`
                 
                 .. attribute:: prefix_event_summaries
                 
                 	OSPF Prefix events summary data
-                	**type**\:  :py:class:`PrefixEventSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventSummaries>`
+                	**type**\:   :py:class:`PrefixEventSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventSummaries>`
                 
                 .. attribute:: spf_run_offlines
                 
                 	OSPF SPF run offline data
-                	**type**\:  :py:class:`SpfRunOfflines <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines>`
+                	**type**\:   :py:class:`SpfRunOfflines <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines>`
                 
                 .. attribute:: spf_run_summaries
                 
                 	OSPF SPF run summary data
-                	**type**\:  :py:class:`SpfRunSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries>`
+                	**type**\:   :py:class:`SpfRunSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries>`
                 
                 .. attribute:: summary_external_event_offlines
                 
                 	OSPF Summary\-External Prefix events offline data
-                	**type**\:  :py:class:`SummaryExternalEventOfflines <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines>`
+                	**type**\:   :py:class:`SummaryExternalEventOfflines <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines>`
                 
                 .. attribute:: summary_external_event_statistics
                 
                 	Summary\-External prefix monitoring statistics
-                	**type**\:  :py:class:`SummaryExternalEventStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventStatistics>`
+                	**type**\:   :py:class:`SummaryExternalEventStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventStatistics>`
                 
                 .. attribute:: summary_external_event_summaries
                 
                 	OSPF Summary\-External Prefix events summary data
-                	**type**\:  :py:class:`SummaryExternalEventSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries>`
+                	**type**\:   :py:class:`SummaryExternalEventSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries>`
                 
                 
 
@@ -1283,7 +1283,7 @@ class Rcmd(object):
                     .. attribute:: ipfrr_event_summary
                     
                     	IP\-FRR Event data
-                    	**type**\: list of  :py:class:`IpfrrEventSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary>`
+                    	**type**\: list of    :py:class:`IpfrrEventSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary>`
                     
                     
 
@@ -1322,10 +1322,14 @@ class Rcmd(object):
                         	Coverage in percentage for all priorities
                         	**type**\:  str
                         
+                        	**units**\: percentage
+                        
                         .. attribute:: duration
                         
                         	Duration for the calculation (in milliseconds)
                         	**type**\:  str
+                        
+                        	**units**\: millisecond
                         
                         .. attribute:: event_id_xr
                         
@@ -1344,7 +1348,7 @@ class Rcmd(object):
                         .. attribute:: ipfrr_statistic
                         
                         	IP\-Frr Statistics categorized by priority
-                        	**type**\: list of  :py:class:`IpfrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.IpfrrStatistic>`
+                        	**type**\: list of    :py:class:`IpfrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.IpfrrStatistic>`
                         
                         .. attribute:: partially_protected_routes
                         
@@ -1356,12 +1360,14 @@ class Rcmd(object):
                         .. attribute:: remote_node
                         
                         	Remote Node Information
-                        	**type**\: list of  :py:class:`RemoteNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode>`
+                        	**type**\: list of    :py:class:`RemoteNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode>`
                         
                         .. attribute:: start_time_offset
                         
                         	Start Time offset from trigger time (in milliseconds)
                         	**type**\:  str
+                        
+                        	**units**\: millisecond
                         
                         .. attribute:: total_routes
                         
@@ -1388,6 +1394,8 @@ class Rcmd(object):
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: millisecond
                         
                         
 
@@ -1432,6 +1440,8 @@ class Rcmd(object):
                             	Coverage in percentage
                             	**type**\:  str
                             
+                            	**units**\: percentage
+                            
                             .. attribute:: fully_protected_routes
                             
                             	Fully Protected Routes
@@ -1444,6 +1454,8 @@ class Rcmd(object):
                             	Local LFA Coverage in percentage
                             	**type**\:  str
                             
+                            	**units**\: percentage
+                            
                             .. attribute:: partially_protected_routes
                             
                             	Partially Protected Routes
@@ -1454,12 +1466,14 @@ class Rcmd(object):
                             .. attribute:: priority
                             
                             	Priority
-                            	**type**\:  :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
+                            	**type**\:   :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                             
                             .. attribute:: remote_lfa_coverage
                             
                             	Remote LFA Coverage in percentage
                             	**type**\:  str
+                            
+                            	**units**\: percentage
                             
                             .. attribute:: total_routes
                             
@@ -1563,7 +1577,7 @@ class Rcmd(object):
                             .. attribute:: primary_path
                             
                             	Protected Primary Paths
-                            	**type**\: list of  :py:class:`PrimaryPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode.PrimaryPath>`
+                            	**type**\: list of    :py:class:`PrimaryPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode.PrimaryPath>`
                             
                             .. attribute:: remote_node_id
                             
@@ -1790,7 +1804,7 @@ class Rcmd(object):
                     .. attribute:: prefix_event_statistic
                     
                     	Prefix Event statistics
-                    	**type**\: list of  :py:class:`PrefixEventStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventStatistics.PrefixEventStatistic>`
+                    	**type**\: list of    :py:class:`PrefixEventStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventStatistics.PrefixEventStatistic>`
                     
                     
 
@@ -1858,7 +1872,7 @@ class Rcmd(object):
                         .. attribute:: last_change_type
                         
                         	Last event Add/Delete
-                        	**type**\:  :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
+                        	**type**\:   :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                         
                         .. attribute:: last_cost
                         
@@ -1875,12 +1889,12 @@ class Rcmd(object):
                         .. attribute:: last_priority
                         
                         	Last event processed priority
-                        	**type**\:  :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
+                        	**type**\:   :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                         
                         .. attribute:: last_route_type
                         
                         	Last event Route Type
-                        	**type**\:  :py:class:`RcmdShowRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRouteEnum>`
+                        	**type**\:   :py:class:`RcmdShowRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRouteEnum>`
                         
                         .. attribute:: low_priority
                         
@@ -2055,7 +2069,7 @@ class Rcmd(object):
                     .. attribute:: spf_run_summary
                     
                     	SPF Event data
-                    	**type**\: list of  :py:class:`SpfRunSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary>`
+                    	**type**\: list of    :py:class:`SpfRunSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary>`
                     
                     
 
@@ -2085,17 +2099,17 @@ class Rcmd(object):
                         .. attribute:: dijkstra_run
                         
                         	List of Dijkstra runs
-                        	**type**\: list of  :py:class:`DijkstraRun <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun>`
+                        	**type**\: list of    :py:class:`DijkstraRun <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun>`
                         
                         .. attribute:: inter_area_and_external
                         
                         	Inter\-area & external calculation information
-                        	**type**\: list of  :py:class:`InterAreaAndExternal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal>`
+                        	**type**\: list of    :py:class:`InterAreaAndExternal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal>`
                         
                         .. attribute:: spf_summary
                         
                         	SPF summary information
-                        	**type**\:  :py:class:`SpfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary>`
+                        	**type**\:   :py:class:`SpfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary>`
                         
                         
 
@@ -2134,7 +2148,7 @@ class Rcmd(object):
                             .. attribute:: priority_summary
                             
                             	Convergence information summary on per\-priority basis
-                            	**type**\: list of  :py:class:`PrioritySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary>`
+                            	**type**\: list of    :py:class:`PrioritySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary>`
                             
                             .. attribute:: start_time
                             
@@ -2144,7 +2158,7 @@ class Rcmd(object):
                             .. attribute:: state
                             
                             	SPF state
-                            	**type**\:  :py:class:`RcmdSpfStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdSpfStateEnum>`
+                            	**type**\:   :py:class:`RcmdSpfStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdSpfStateEnum>`
                             
                             .. attribute:: threshold_exceeded
                             
@@ -2216,27 +2230,27 @@ class Rcmd(object):
                                 .. attribute:: frr_statistic
                                 
                                 	Fast Re\-Route Statistics
-                                	**type**\: list of  :py:class:`FrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.FrrStatistic>`
+                                	**type**\: list of    :py:class:`FrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.FrrStatistic>`
                                 
                                 .. attribute:: ip_convergence_time
                                 
                                 	Convergence time for IP route programming
-                                	**type**\:  :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.IpConvergenceTime>`
+                                	**type**\:   :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.IpConvergenceTime>`
                                 
                                 .. attribute:: level
                                 
                                 	Critical, High, Medium or Low
-                                	**type**\:  :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
+                                	**type**\:   :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                                 
                                 .. attribute:: mpls_convergence_time
                                 
                                 	Convergence time for MPLS label programming
-                                	**type**\:  :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.MplsConvergenceTime>`
+                                	**type**\:   :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.MplsConvergenceTime>`
                                 
                                 .. attribute:: route_statistics
                                 
                                 	Route statistics
-                                	**type**\:  :py:class:`RouteStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.RouteStatistics>`
+                                	**type**\:   :py:class:`RouteStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.RouteStatistics>`
                                 
                                 .. attribute:: threshold_exceeded
                                 
@@ -2381,10 +2395,14 @@ class Rcmd(object):
                                     	Maximum time(in seconds.milliseconds)
                                     	**type**\:  str
                                     
+                                    	**units**\: millisecond
+                                    
                                     .. attribute:: minimum_time
                                     
                                     	Minimum time(in seconds.milliseconds)
                                     	**type**\:  str
+                                    
+                                    	**units**\: millisecond
                                     
                                     .. attribute:: slowest_node_name
                                     
@@ -2453,10 +2471,14 @@ class Rcmd(object):
                                     	Maximum time(in seconds.milliseconds)
                                     	**type**\:  str
                                     
+                                    	**units**\: millisecond
+                                    
                                     .. attribute:: minimum_time
                                     
                                     	Minimum time(in seconds.milliseconds)
                                     	**type**\:  str
+                                    
+                                    	**units**\: millisecond
                                     
                                     .. attribute:: slowest_node_name
                                     
@@ -2519,6 +2541,8 @@ class Rcmd(object):
                                     
                                     	Coverage in percentage
                                     	**type**\:  str
+                                    
+                                    	**units**\: percentage
                                     
                                     .. attribute:: fully_protected_routes
                                     
@@ -2712,12 +2736,12 @@ class Rcmd(object):
                             .. attribute:: lsa_processed
                             
                             	List of type 1/2 LSA changes processed
-                            	**type**\: list of  :py:class:`LsaProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.LsaProcessed>`
+                            	**type**\: list of    :py:class:`LsaProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.LsaProcessed>`
                             
                             .. attribute:: priority
                             
                             	Convergence information on per\-priority basis
-                            	**type**\: list of  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority>`
+                            	**type**\: list of    :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority>`
                             
                             .. attribute:: start_time
                             
@@ -2732,7 +2756,7 @@ class Rcmd(object):
                             .. attribute:: trigger_lsa
                             
                             	LSA that triggered the Dijkstra run
-                            	**type**\: list of  :py:class:`TriggerLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.TriggerLsa>`
+                            	**type**\: list of    :py:class:`TriggerLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.TriggerLsa>`
                             
                             .. attribute:: trigger_time
                             
@@ -2780,7 +2804,7 @@ class Rcmd(object):
                                 .. attribute:: change_type
                                 
                                 	Add, Delete, Modify
-                                	**type**\:  :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
+                                	**type**\:   :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                                 
                                 .. attribute:: lsa_id
                                 
@@ -2792,7 +2816,7 @@ class Rcmd(object):
                                 .. attribute:: lsa_type
                                 
                                 	LSA type
-                                	**type**\:  :py:class:`RcmdLsaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
+                                	**type**\:   :py:class:`RcmdLsaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
                                 
                                 .. attribute:: origin_router_id
                                 
@@ -2874,22 +2898,22 @@ class Rcmd(object):
                                 .. attribute:: convergence_timeline
                                 
                                 	Convergence timeline details
-                                	**type**\: list of  :py:class:`ConvergenceTimeline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline>`
+                                	**type**\: list of    :py:class:`ConvergenceTimeline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline>`
                                 
                                 .. attribute:: leaf_networks_added
                                 
                                 	List of Leaf Networks Added
-                                	**type**\: list of  :py:class:`LeafNetworksAdded <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.LeafNetworksAdded>`
+                                	**type**\: list of    :py:class:`LeafNetworksAdded <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.LeafNetworksAdded>`
                                 
                                 .. attribute:: leaf_networks_deleted
                                 
                                 	List of Leaf Networks Deleted
-                                	**type**\: list of  :py:class:`LeafNetworksDeleted <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.LeafNetworksDeleted>`
+                                	**type**\: list of    :py:class:`LeafNetworksDeleted <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.LeafNetworksDeleted>`
                                 
                                 .. attribute:: priority_summary
                                 
                                 	Summary of the priority
-                                	**type**\:  :py:class:`PrioritySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary>`
+                                	**type**\:   :py:class:`PrioritySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary>`
                                 
                                 
 
@@ -2920,27 +2944,27 @@ class Rcmd(object):
                                     .. attribute:: frr_statistic
                                     
                                     	Fast Re\-Route Statistics
-                                    	**type**\: list of  :py:class:`FrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.FrrStatistic>`
+                                    	**type**\: list of    :py:class:`FrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.FrrStatistic>`
                                     
                                     .. attribute:: ip_convergence_time
                                     
                                     	Convergence time for IP route programming
-                                    	**type**\:  :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.IpConvergenceTime>`
+                                    	**type**\:   :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.IpConvergenceTime>`
                                     
                                     .. attribute:: level
                                     
                                     	Critical, High, Medium or Low
-                                    	**type**\:  :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
+                                    	**type**\:   :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                                     
                                     .. attribute:: mpls_convergence_time
                                     
                                     	Convergence time for MPLS label programming
-                                    	**type**\:  :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.MplsConvergenceTime>`
+                                    	**type**\:   :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.MplsConvergenceTime>`
                                     
                                     .. attribute:: route_statistics
                                     
                                     	Route statistics
-                                    	**type**\:  :py:class:`RouteStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.RouteStatistics>`
+                                    	**type**\:   :py:class:`RouteStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.PrioritySummary.RouteStatistics>`
                                     
                                     .. attribute:: threshold_exceeded
                                     
@@ -3085,10 +3109,14 @@ class Rcmd(object):
                                         	Maximum time(in seconds.milliseconds)
                                         	**type**\:  str
                                         
+                                        	**units**\: millisecond
+                                        
                                         .. attribute:: minimum_time
                                         
                                         	Minimum time(in seconds.milliseconds)
                                         	**type**\:  str
+                                        
+                                        	**units**\: millisecond
                                         
                                         .. attribute:: slowest_node_name
                                         
@@ -3157,10 +3185,14 @@ class Rcmd(object):
                                         	Maximum time(in seconds.milliseconds)
                                         	**type**\:  str
                                         
+                                        	**units**\: millisecond
+                                        
                                         .. attribute:: minimum_time
                                         
                                         	Minimum time(in seconds.milliseconds)
                                         	**type**\:  str
+                                        
+                                        	**units**\: millisecond
                                         
                                         .. attribute:: slowest_node_name
                                         
@@ -3223,6 +3255,8 @@ class Rcmd(object):
                                         
                                         	Coverage in percentage
                                         	**type**\:  str
+                                        
+                                        	**units**\: percentage
                                         
                                         .. attribute:: fully_protected_routes
                                         
@@ -3341,52 +3375,52 @@ class Rcmd(object):
                                     .. attribute:: lc_ip
                                     
                                     	List of Linecards' completion point for IP routes
-                                    	**type**\: list of  :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcIp>`
+                                    	**type**\: list of    :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcIp>`
                                     
                                     .. attribute:: lc_mpls
                                     
                                     	List of Linecards' completion point for MPLS labels
-                                    	**type**\: list of  :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcMpls>`
+                                    	**type**\: list of    :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcMpls>`
                                     
                                     .. attribute:: ldp_enter
                                     
                                     	Entry point of LDP
-                                    	**type**\:  :py:class:`LdpEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LdpEnter>`
+                                    	**type**\:   :py:class:`LdpEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LdpEnter>`
                                     
                                     .. attribute:: ldp_exit
                                     
                                     	Exit point of LDP to LSD
-                                    	**type**\:  :py:class:`LdpExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LdpExit>`
+                                    	**type**\:   :py:class:`LdpExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LdpExit>`
                                     
                                     .. attribute:: lsd_enter
                                     
                                     	Entry point of LSD
-                                    	**type**\:  :py:class:`LsdEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LsdEnter>`
+                                    	**type**\:   :py:class:`LsdEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LsdEnter>`
                                     
                                     .. attribute:: lsd_exit
                                     
                                     	Exit point of LSD to FIBs
-                                    	**type**\:  :py:class:`LsdExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LsdExit>`
+                                    	**type**\:   :py:class:`LsdExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LsdExit>`
                                     
                                     .. attribute:: ri_bv4_enter
                                     
                                     	Entry point of IPv4 RIB
-                                    	**type**\:  :py:class:`RiBv4Enter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Enter>`
+                                    	**type**\:   :py:class:`RiBv4Enter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Enter>`
                                     
                                     .. attribute:: ri_bv4_exit
                                     
                                     	Exit point from IPv4 RIB to FIBs
-                                    	**type**\:  :py:class:`RiBv4Exit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Exit>`
+                                    	**type**\:   :py:class:`RiBv4Exit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Exit>`
                                     
                                     .. attribute:: ri_bv4_redistribute
                                     
                                     	Route Redistribute point from IPv4 RIB to LDP
-                                    	**type**\:  :py:class:`RiBv4Redistribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Redistribute>`
+                                    	**type**\:   :py:class:`RiBv4Redistribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Redistribute>`
                                     
                                     .. attribute:: route_origin
                                     
                                     	Route origin (routing protocol)
-                                    	**type**\:  :py:class:`RouteOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RouteOrigin>`
+                                    	**type**\:   :py:class:`RouteOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.RouteOrigin>`
                                     
                                     
 
@@ -3933,7 +3967,7 @@ class Rcmd(object):
                                         .. attribute:: fib_complete
                                         
                                         	Completion point of FIB
-                                        	**type**\:  :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcIp.FibComplete>`
+                                        	**type**\:   :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcIp.FibComplete>`
                                         
                                         .. attribute:: node_name
                                         
@@ -3943,7 +3977,7 @@ class Rcmd(object):
                                         .. attribute:: speed
                                         
                                         	Relative convergence speed
-                                        	**type**\:  :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
+                                        	**type**\:   :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                         
                                         
 
@@ -4061,7 +4095,7 @@ class Rcmd(object):
                                         .. attribute:: fib_complete
                                         
                                         	Completion point of FIB
-                                        	**type**\:  :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcMpls.FibComplete>`
+                                        	**type**\:   :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.DijkstraRun.Priority.ConvergenceTimeline.LcMpls.FibComplete>`
                                         
                                         .. attribute:: node_name
                                         
@@ -4071,7 +4105,7 @@ class Rcmd(object):
                                         .. attribute:: speed
                                         
                                         	Relative convergence speed
-                                        	**type**\:  :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
+                                        	**type**\:   :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                         
                                         
 
@@ -4398,7 +4432,7 @@ class Rcmd(object):
                                 .. attribute:: change_type
                                 
                                 	Add, Delete, Modify
-                                	**type**\:  :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
+                                	**type**\:   :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                                 
                                 .. attribute:: lsa_id
                                 
@@ -4410,7 +4444,7 @@ class Rcmd(object):
                                 .. attribute:: lsa_type
                                 
                                 	LSA type
-                                	**type**\:  :py:class:`RcmdLsaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
+                                	**type**\:   :py:class:`RcmdLsaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
                                 
                                 .. attribute:: origin_router_id
                                 
@@ -4549,7 +4583,7 @@ class Rcmd(object):
                             .. attribute:: priority
                             
                             	Convergence information on a per\-priority basis
-                            	**type**\: list of  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority>`
+                            	**type**\: list of    :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority>`
                             
                             
 
@@ -4572,22 +4606,22 @@ class Rcmd(object):
                                 .. attribute:: convergence_timeline
                                 
                                 	Convergence timeline details
-                                	**type**\: list of  :py:class:`ConvergenceTimeline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline>`
+                                	**type**\: list of    :py:class:`ConvergenceTimeline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline>`
                                 
                                 .. attribute:: leaf_networks_added
                                 
                                 	List of Leaf Networks Added
-                                	**type**\: list of  :py:class:`LeafNetworksAdded <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.LeafNetworksAdded>`
+                                	**type**\: list of    :py:class:`LeafNetworksAdded <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.LeafNetworksAdded>`
                                 
                                 .. attribute:: leaf_networks_deleted
                                 
                                 	List of Leaf Networks Deleted
-                                	**type**\: list of  :py:class:`LeafNetworksDeleted <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.LeafNetworksDeleted>`
+                                	**type**\: list of    :py:class:`LeafNetworksDeleted <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.LeafNetworksDeleted>`
                                 
                                 .. attribute:: priority_summary
                                 
                                 	Summary of the priority
-                                	**type**\:  :py:class:`PrioritySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary>`
+                                	**type**\:   :py:class:`PrioritySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary>`
                                 
                                 
 
@@ -4618,22 +4652,22 @@ class Rcmd(object):
                                     .. attribute:: ip_convergence_time
                                     
                                     	Convergence time for IP route programming
-                                    	**type**\:  :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.IpConvergenceTime>`
+                                    	**type**\:   :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.IpConvergenceTime>`
                                     
                                     .. attribute:: level
                                     
                                     	Critical, High, Medium or Low
-                                    	**type**\:  :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
+                                    	**type**\:   :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                                     
                                     .. attribute:: mpls_convergence_time
                                     
                                     	Convergence time for MPLS label programming
-                                    	**type**\:  :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.MplsConvergenceTime>`
+                                    	**type**\:   :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.MplsConvergenceTime>`
                                     
                                     .. attribute:: route_statistics
                                     
                                     	Route statistics
-                                    	**type**\:  :py:class:`RouteStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.RouteStatistics>`
+                                    	**type**\:   :py:class:`RouteStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.PrioritySummary.RouteStatistics>`
                                     
                                     .. attribute:: threshold_exceeded
                                     
@@ -4799,10 +4833,14 @@ class Rcmd(object):
                                         	Maximum time(in seconds.milliseconds)
                                         	**type**\:  str
                                         
+                                        	**units**\: millisecond
+                                        
                                         .. attribute:: minimum_time
                                         
                                         	Minimum time(in seconds.milliseconds)
                                         	**type**\:  str
+                                        
+                                        	**units**\: millisecond
                                         
                                         .. attribute:: slowest_node_name
                                         
@@ -4871,10 +4909,14 @@ class Rcmd(object):
                                         	Maximum time(in seconds.milliseconds)
                                         	**type**\:  str
                                         
+                                        	**units**\: millisecond
+                                        
                                         .. attribute:: minimum_time
                                         
                                         	Minimum time(in seconds.milliseconds)
                                         	**type**\:  str
+                                        
+                                        	**units**\: millisecond
                                         
                                         .. attribute:: slowest_node_name
                                         
@@ -4981,52 +5023,52 @@ class Rcmd(object):
                                     .. attribute:: lc_ip
                                     
                                     	List of Linecards' completion point for IP routes
-                                    	**type**\: list of  :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp>`
+                                    	**type**\: list of    :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp>`
                                     
                                     .. attribute:: lc_mpls
                                     
                                     	List of Linecards' completion point for MPLS labels
-                                    	**type**\: list of  :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls>`
+                                    	**type**\: list of    :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls>`
                                     
                                     .. attribute:: ldp_enter
                                     
                                     	Entry point of LDP
-                                    	**type**\:  :py:class:`LdpEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpEnter>`
+                                    	**type**\:   :py:class:`LdpEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpEnter>`
                                     
                                     .. attribute:: ldp_exit
                                     
                                     	Exit point of LDP to LSD
-                                    	**type**\:  :py:class:`LdpExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpExit>`
+                                    	**type**\:   :py:class:`LdpExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpExit>`
                                     
                                     .. attribute:: lsd_enter
                                     
                                     	Entry point of LSD
-                                    	**type**\:  :py:class:`LsdEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdEnter>`
+                                    	**type**\:   :py:class:`LsdEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdEnter>`
                                     
                                     .. attribute:: lsd_exit
                                     
                                     	Exit point of LSD to FIBs
-                                    	**type**\:  :py:class:`LsdExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdExit>`
+                                    	**type**\:   :py:class:`LsdExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdExit>`
                                     
                                     .. attribute:: ri_bv4_enter
                                     
                                     	Entry point of IPv4 RIB
-                                    	**type**\:  :py:class:`RiBv4Enter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Enter>`
+                                    	**type**\:   :py:class:`RiBv4Enter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Enter>`
                                     
                                     .. attribute:: ri_bv4_exit
                                     
                                     	Exit point from IPv4 RIB to FIBs
-                                    	**type**\:  :py:class:`RiBv4Exit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Exit>`
+                                    	**type**\:   :py:class:`RiBv4Exit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Exit>`
                                     
                                     .. attribute:: ri_bv4_redistribute
                                     
                                     	Route Redistribute point from IPv4 RIB to LDP
-                                    	**type**\:  :py:class:`RiBv4Redistribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Redistribute>`
+                                    	**type**\:   :py:class:`RiBv4Redistribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Redistribute>`
                                     
                                     .. attribute:: route_origin
                                     
                                     	Route origin (routing protocol)
-                                    	**type**\:  :py:class:`RouteOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RouteOrigin>`
+                                    	**type**\:   :py:class:`RouteOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.RouteOrigin>`
                                     
                                     
 
@@ -5573,7 +5615,7 @@ class Rcmd(object):
                                         .. attribute:: fib_complete
                                         
                                         	Completion point of FIB
-                                        	**type**\:  :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp.FibComplete>`
+                                        	**type**\:   :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp.FibComplete>`
                                         
                                         .. attribute:: node_name
                                         
@@ -5583,7 +5625,7 @@ class Rcmd(object):
                                         .. attribute:: speed
                                         
                                         	Relative convergence speed
-                                        	**type**\:  :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
+                                        	**type**\:   :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                         
                                         
 
@@ -5701,7 +5743,7 @@ class Rcmd(object):
                                         .. attribute:: fib_complete
                                         
                                         	Completion point of FIB
-                                        	**type**\:  :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls.FibComplete>`
+                                        	**type**\:   :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunSummaries.SpfRunSummary.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls.FibComplete>`
                                         
                                         .. attribute:: node_name
                                         
@@ -5711,7 +5753,7 @@ class Rcmd(object):
                                         .. attribute:: speed
                                         
                                         	Relative convergence speed
-                                        	**type**\:  :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
+                                        	**type**\:   :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                         
                                         
 
@@ -6129,7 +6171,7 @@ class Rcmd(object):
                     .. attribute:: ipfrr_event_offline
                     
                     	Offline operational data for particular OSPF IP\-FRR Event
-                    	**type**\: list of  :py:class:`IpfrrEventOffline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline>`
+                    	**type**\: list of    :py:class:`IpfrrEventOffline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline>`
                     
                     
 
@@ -6169,10 +6211,14 @@ class Rcmd(object):
                         	Coverage in percentage for all priorities
                         	**type**\:  str
                         
+                        	**units**\: percentage
+                        
                         .. attribute:: duration
                         
                         	Duration for the calculation (in milliseconds)
                         	**type**\:  str
+                        
+                        	**units**\: millisecond
                         
                         .. attribute:: event_id_xr
                         
@@ -6191,7 +6237,7 @@ class Rcmd(object):
                         .. attribute:: ipfrr_statistic
                         
                         	IP\-Frr Statistics categorized by priority
-                        	**type**\: list of  :py:class:`IpfrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.IpfrrStatistic>`
+                        	**type**\: list of    :py:class:`IpfrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.IpfrrStatistic>`
                         
                         .. attribute:: partially_protected_routes
                         
@@ -6203,12 +6249,14 @@ class Rcmd(object):
                         .. attribute:: remote_node
                         
                         	Remote Node Information
-                        	**type**\: list of  :py:class:`RemoteNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode>`
+                        	**type**\: list of    :py:class:`RemoteNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode>`
                         
                         .. attribute:: start_time_offset
                         
                         	Start Time offset from trigger time (in milliseconds)
                         	**type**\:  str
+                        
+                        	**units**\: millisecond
                         
                         .. attribute:: total_routes
                         
@@ -6235,6 +6283,8 @@ class Rcmd(object):
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: millisecond
                         
                         
 
@@ -6279,6 +6329,8 @@ class Rcmd(object):
                             	Coverage in percentage
                             	**type**\:  str
                             
+                            	**units**\: percentage
+                            
                             .. attribute:: fully_protected_routes
                             
                             	Fully Protected Routes
@@ -6291,6 +6343,8 @@ class Rcmd(object):
                             	Local LFA Coverage in percentage
                             	**type**\:  str
                             
+                            	**units**\: percentage
+                            
                             .. attribute:: partially_protected_routes
                             
                             	Partially Protected Routes
@@ -6301,12 +6355,14 @@ class Rcmd(object):
                             .. attribute:: priority
                             
                             	Priority
-                            	**type**\:  :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
+                            	**type**\:   :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                             
                             .. attribute:: remote_lfa_coverage
                             
                             	Remote LFA Coverage in percentage
                             	**type**\:  str
+                            
+                            	**units**\: percentage
                             
                             .. attribute:: total_routes
                             
@@ -6410,7 +6466,7 @@ class Rcmd(object):
                             .. attribute:: primary_path
                             
                             	Protected Primary Paths
-                            	**type**\: list of  :py:class:`PrimaryPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode.PrimaryPath>`
+                            	**type**\: list of    :py:class:`PrimaryPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode.PrimaryPath>`
                             
                             .. attribute:: remote_node_id
                             
@@ -6637,7 +6693,7 @@ class Rcmd(object):
                     .. attribute:: spf_run_offline
                     
                     	Offline operational data for particular OSPF SPF run
-                    	**type**\: list of  :py:class:`SpfRunOffline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline>`
+                    	**type**\: list of    :py:class:`SpfRunOffline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline>`
                     
                     
 
@@ -6668,17 +6724,17 @@ class Rcmd(object):
                         .. attribute:: dijkstra_run
                         
                         	List of Dijkstra runs
-                        	**type**\: list of  :py:class:`DijkstraRun <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun>`
+                        	**type**\: list of    :py:class:`DijkstraRun <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun>`
                         
                         .. attribute:: inter_area_and_external
                         
                         	Inter\-area & external calculation information
-                        	**type**\: list of  :py:class:`InterAreaAndExternal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal>`
+                        	**type**\: list of    :py:class:`InterAreaAndExternal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal>`
                         
                         .. attribute:: spf_summary
                         
                         	SPF summary information
-                        	**type**\:  :py:class:`SpfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary>`
+                        	**type**\:   :py:class:`SpfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary>`
                         
                         
 
@@ -6717,7 +6773,7 @@ class Rcmd(object):
                             .. attribute:: priority_summary
                             
                             	Convergence information summary on per\-priority basis
-                            	**type**\: list of  :py:class:`PrioritySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary>`
+                            	**type**\: list of    :py:class:`PrioritySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary>`
                             
                             .. attribute:: start_time
                             
@@ -6727,7 +6783,7 @@ class Rcmd(object):
                             .. attribute:: state
                             
                             	SPF state
-                            	**type**\:  :py:class:`RcmdSpfStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdSpfStateEnum>`
+                            	**type**\:   :py:class:`RcmdSpfStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdSpfStateEnum>`
                             
                             .. attribute:: threshold_exceeded
                             
@@ -6799,27 +6855,27 @@ class Rcmd(object):
                                 .. attribute:: frr_statistic
                                 
                                 	Fast Re\-Route Statistics
-                                	**type**\: list of  :py:class:`FrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.FrrStatistic>`
+                                	**type**\: list of    :py:class:`FrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.FrrStatistic>`
                                 
                                 .. attribute:: ip_convergence_time
                                 
                                 	Convergence time for IP route programming
-                                	**type**\:  :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.IpConvergenceTime>`
+                                	**type**\:   :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.IpConvergenceTime>`
                                 
                                 .. attribute:: level
                                 
                                 	Critical, High, Medium or Low
-                                	**type**\:  :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
+                                	**type**\:   :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                                 
                                 .. attribute:: mpls_convergence_time
                                 
                                 	Convergence time for MPLS label programming
-                                	**type**\:  :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.MplsConvergenceTime>`
+                                	**type**\:   :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.MplsConvergenceTime>`
                                 
                                 .. attribute:: route_statistics
                                 
                                 	Route statistics
-                                	**type**\:  :py:class:`RouteStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.RouteStatistics>`
+                                	**type**\:   :py:class:`RouteStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.RouteStatistics>`
                                 
                                 .. attribute:: threshold_exceeded
                                 
@@ -6964,10 +7020,14 @@ class Rcmd(object):
                                     	Maximum time(in seconds.milliseconds)
                                     	**type**\:  str
                                     
+                                    	**units**\: millisecond
+                                    
                                     .. attribute:: minimum_time
                                     
                                     	Minimum time(in seconds.milliseconds)
                                     	**type**\:  str
+                                    
+                                    	**units**\: millisecond
                                     
                                     .. attribute:: slowest_node_name
                                     
@@ -7036,10 +7096,14 @@ class Rcmd(object):
                                     	Maximum time(in seconds.milliseconds)
                                     	**type**\:  str
                                     
+                                    	**units**\: millisecond
+                                    
                                     .. attribute:: minimum_time
                                     
                                     	Minimum time(in seconds.milliseconds)
                                     	**type**\:  str
+                                    
+                                    	**units**\: millisecond
                                     
                                     .. attribute:: slowest_node_name
                                     
@@ -7102,6 +7166,8 @@ class Rcmd(object):
                                     
                                     	Coverage in percentage
                                     	**type**\:  str
+                                    
+                                    	**units**\: percentage
                                     
                                     .. attribute:: fully_protected_routes
                                     
@@ -7295,12 +7361,12 @@ class Rcmd(object):
                             .. attribute:: lsa_processed
                             
                             	List of type 1/2 LSA changes processed
-                            	**type**\: list of  :py:class:`LsaProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.LsaProcessed>`
+                            	**type**\: list of    :py:class:`LsaProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.LsaProcessed>`
                             
                             .. attribute:: priority
                             
                             	Convergence information on per\-priority basis
-                            	**type**\: list of  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority>`
+                            	**type**\: list of    :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority>`
                             
                             .. attribute:: start_time
                             
@@ -7315,7 +7381,7 @@ class Rcmd(object):
                             .. attribute:: trigger_lsa
                             
                             	LSA that triggered the Dijkstra run
-                            	**type**\: list of  :py:class:`TriggerLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.TriggerLsa>`
+                            	**type**\: list of    :py:class:`TriggerLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.TriggerLsa>`
                             
                             .. attribute:: trigger_time
                             
@@ -7363,7 +7429,7 @@ class Rcmd(object):
                                 .. attribute:: change_type
                                 
                                 	Add, Delete, Modify
-                                	**type**\:  :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
+                                	**type**\:   :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                                 
                                 .. attribute:: lsa_id
                                 
@@ -7375,7 +7441,7 @@ class Rcmd(object):
                                 .. attribute:: lsa_type
                                 
                                 	LSA type
-                                	**type**\:  :py:class:`RcmdLsaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
+                                	**type**\:   :py:class:`RcmdLsaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
                                 
                                 .. attribute:: origin_router_id
                                 
@@ -7457,22 +7523,22 @@ class Rcmd(object):
                                 .. attribute:: convergence_timeline
                                 
                                 	Convergence timeline details
-                                	**type**\: list of  :py:class:`ConvergenceTimeline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline>`
+                                	**type**\: list of    :py:class:`ConvergenceTimeline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline>`
                                 
                                 .. attribute:: leaf_networks_added
                                 
                                 	List of Leaf Networks Added
-                                	**type**\: list of  :py:class:`LeafNetworksAdded <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.LeafNetworksAdded>`
+                                	**type**\: list of    :py:class:`LeafNetworksAdded <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.LeafNetworksAdded>`
                                 
                                 .. attribute:: leaf_networks_deleted
                                 
                                 	List of Leaf Networks Deleted
-                                	**type**\: list of  :py:class:`LeafNetworksDeleted <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.LeafNetworksDeleted>`
+                                	**type**\: list of    :py:class:`LeafNetworksDeleted <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.LeafNetworksDeleted>`
                                 
                                 .. attribute:: priority_summary
                                 
                                 	Summary of the priority
-                                	**type**\:  :py:class:`PrioritySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary>`
+                                	**type**\:   :py:class:`PrioritySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary>`
                                 
                                 
 
@@ -7503,27 +7569,27 @@ class Rcmd(object):
                                     .. attribute:: frr_statistic
                                     
                                     	Fast Re\-Route Statistics
-                                    	**type**\: list of  :py:class:`FrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.FrrStatistic>`
+                                    	**type**\: list of    :py:class:`FrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.FrrStatistic>`
                                     
                                     .. attribute:: ip_convergence_time
                                     
                                     	Convergence time for IP route programming
-                                    	**type**\:  :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.IpConvergenceTime>`
+                                    	**type**\:   :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.IpConvergenceTime>`
                                     
                                     .. attribute:: level
                                     
                                     	Critical, High, Medium or Low
-                                    	**type**\:  :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
+                                    	**type**\:   :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                                     
                                     .. attribute:: mpls_convergence_time
                                     
                                     	Convergence time for MPLS label programming
-                                    	**type**\:  :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.MplsConvergenceTime>`
+                                    	**type**\:   :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.MplsConvergenceTime>`
                                     
                                     .. attribute:: route_statistics
                                     
                                     	Route statistics
-                                    	**type**\:  :py:class:`RouteStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.RouteStatistics>`
+                                    	**type**\:   :py:class:`RouteStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.PrioritySummary.RouteStatistics>`
                                     
                                     .. attribute:: threshold_exceeded
                                     
@@ -7668,10 +7734,14 @@ class Rcmd(object):
                                         	Maximum time(in seconds.milliseconds)
                                         	**type**\:  str
                                         
+                                        	**units**\: millisecond
+                                        
                                         .. attribute:: minimum_time
                                         
                                         	Minimum time(in seconds.milliseconds)
                                         	**type**\:  str
+                                        
+                                        	**units**\: millisecond
                                         
                                         .. attribute:: slowest_node_name
                                         
@@ -7740,10 +7810,14 @@ class Rcmd(object):
                                         	Maximum time(in seconds.milliseconds)
                                         	**type**\:  str
                                         
+                                        	**units**\: millisecond
+                                        
                                         .. attribute:: minimum_time
                                         
                                         	Minimum time(in seconds.milliseconds)
                                         	**type**\:  str
+                                        
+                                        	**units**\: millisecond
                                         
                                         .. attribute:: slowest_node_name
                                         
@@ -7806,6 +7880,8 @@ class Rcmd(object):
                                         
                                         	Coverage in percentage
                                         	**type**\:  str
+                                        
+                                        	**units**\: percentage
                                         
                                         .. attribute:: fully_protected_routes
                                         
@@ -7924,52 +8000,52 @@ class Rcmd(object):
                                     .. attribute:: lc_ip
                                     
                                     	List of Linecards' completion point for IP routes
-                                    	**type**\: list of  :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcIp>`
+                                    	**type**\: list of    :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcIp>`
                                     
                                     .. attribute:: lc_mpls
                                     
                                     	List of Linecards' completion point for MPLS labels
-                                    	**type**\: list of  :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcMpls>`
+                                    	**type**\: list of    :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcMpls>`
                                     
                                     .. attribute:: ldp_enter
                                     
                                     	Entry point of LDP
-                                    	**type**\:  :py:class:`LdpEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LdpEnter>`
+                                    	**type**\:   :py:class:`LdpEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LdpEnter>`
                                     
                                     .. attribute:: ldp_exit
                                     
                                     	Exit point of LDP to LSD
-                                    	**type**\:  :py:class:`LdpExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LdpExit>`
+                                    	**type**\:   :py:class:`LdpExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LdpExit>`
                                     
                                     .. attribute:: lsd_enter
                                     
                                     	Entry point of LSD
-                                    	**type**\:  :py:class:`LsdEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LsdEnter>`
+                                    	**type**\:   :py:class:`LsdEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LsdEnter>`
                                     
                                     .. attribute:: lsd_exit
                                     
                                     	Exit point of LSD to FIBs
-                                    	**type**\:  :py:class:`LsdExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LsdExit>`
+                                    	**type**\:   :py:class:`LsdExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LsdExit>`
                                     
                                     .. attribute:: ri_bv4_enter
                                     
                                     	Entry point of IPv4 RIB
-                                    	**type**\:  :py:class:`RiBv4Enter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Enter>`
+                                    	**type**\:   :py:class:`RiBv4Enter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Enter>`
                                     
                                     .. attribute:: ri_bv4_exit
                                     
                                     	Exit point from IPv4 RIB to FIBs
-                                    	**type**\:  :py:class:`RiBv4Exit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Exit>`
+                                    	**type**\:   :py:class:`RiBv4Exit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Exit>`
                                     
                                     .. attribute:: ri_bv4_redistribute
                                     
                                     	Route Redistribute point from IPv4 RIB to LDP
-                                    	**type**\:  :py:class:`RiBv4Redistribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Redistribute>`
+                                    	**type**\:   :py:class:`RiBv4Redistribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RiBv4Redistribute>`
                                     
                                     .. attribute:: route_origin
                                     
                                     	Route origin (routing protocol)
-                                    	**type**\:  :py:class:`RouteOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RouteOrigin>`
+                                    	**type**\:   :py:class:`RouteOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.RouteOrigin>`
                                     
                                     
 
@@ -8516,7 +8592,7 @@ class Rcmd(object):
                                         .. attribute:: fib_complete
                                         
                                         	Completion point of FIB
-                                        	**type**\:  :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcIp.FibComplete>`
+                                        	**type**\:   :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcIp.FibComplete>`
                                         
                                         .. attribute:: node_name
                                         
@@ -8526,7 +8602,7 @@ class Rcmd(object):
                                         .. attribute:: speed
                                         
                                         	Relative convergence speed
-                                        	**type**\:  :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
+                                        	**type**\:   :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                         
                                         
 
@@ -8644,7 +8720,7 @@ class Rcmd(object):
                                         .. attribute:: fib_complete
                                         
                                         	Completion point of FIB
-                                        	**type**\:  :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcMpls.FibComplete>`
+                                        	**type**\:   :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.DijkstraRun.Priority.ConvergenceTimeline.LcMpls.FibComplete>`
                                         
                                         .. attribute:: node_name
                                         
@@ -8654,7 +8730,7 @@ class Rcmd(object):
                                         .. attribute:: speed
                                         
                                         	Relative convergence speed
-                                        	**type**\:  :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
+                                        	**type**\:   :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                         
                                         
 
@@ -8981,7 +9057,7 @@ class Rcmd(object):
                                 .. attribute:: change_type
                                 
                                 	Add, Delete, Modify
-                                	**type**\:  :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
+                                	**type**\:   :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                                 
                                 .. attribute:: lsa_id
                                 
@@ -8993,7 +9069,7 @@ class Rcmd(object):
                                 .. attribute:: lsa_type
                                 
                                 	LSA type
-                                	**type**\:  :py:class:`RcmdLsaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
+                                	**type**\:   :py:class:`RcmdLsaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
                                 
                                 .. attribute:: origin_router_id
                                 
@@ -9132,7 +9208,7 @@ class Rcmd(object):
                             .. attribute:: priority
                             
                             	Convergence information on a per\-priority basis
-                            	**type**\: list of  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority>`
+                            	**type**\: list of    :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority>`
                             
                             
 
@@ -9155,22 +9231,22 @@ class Rcmd(object):
                                 .. attribute:: convergence_timeline
                                 
                                 	Convergence timeline details
-                                	**type**\: list of  :py:class:`ConvergenceTimeline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline>`
+                                	**type**\: list of    :py:class:`ConvergenceTimeline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline>`
                                 
                                 .. attribute:: leaf_networks_added
                                 
                                 	List of Leaf Networks Added
-                                	**type**\: list of  :py:class:`LeafNetworksAdded <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.LeafNetworksAdded>`
+                                	**type**\: list of    :py:class:`LeafNetworksAdded <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.LeafNetworksAdded>`
                                 
                                 .. attribute:: leaf_networks_deleted
                                 
                                 	List of Leaf Networks Deleted
-                                	**type**\: list of  :py:class:`LeafNetworksDeleted <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.LeafNetworksDeleted>`
+                                	**type**\: list of    :py:class:`LeafNetworksDeleted <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.LeafNetworksDeleted>`
                                 
                                 .. attribute:: priority_summary
                                 
                                 	Summary of the priority
-                                	**type**\:  :py:class:`PrioritySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary>`
+                                	**type**\:   :py:class:`PrioritySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary>`
                                 
                                 
 
@@ -9201,22 +9277,22 @@ class Rcmd(object):
                                     .. attribute:: ip_convergence_time
                                     
                                     	Convergence time for IP route programming
-                                    	**type**\:  :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.IpConvergenceTime>`
+                                    	**type**\:   :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.IpConvergenceTime>`
                                     
                                     .. attribute:: level
                                     
                                     	Critical, High, Medium or Low
-                                    	**type**\:  :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
+                                    	**type**\:   :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                                     
                                     .. attribute:: mpls_convergence_time
                                     
                                     	Convergence time for MPLS label programming
-                                    	**type**\:  :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.MplsConvergenceTime>`
+                                    	**type**\:   :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.MplsConvergenceTime>`
                                     
                                     .. attribute:: route_statistics
                                     
                                     	Route statistics
-                                    	**type**\:  :py:class:`RouteStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.RouteStatistics>`
+                                    	**type**\:   :py:class:`RouteStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.PrioritySummary.RouteStatistics>`
                                     
                                     .. attribute:: threshold_exceeded
                                     
@@ -9382,10 +9458,14 @@ class Rcmd(object):
                                         	Maximum time(in seconds.milliseconds)
                                         	**type**\:  str
                                         
+                                        	**units**\: millisecond
+                                        
                                         .. attribute:: minimum_time
                                         
                                         	Minimum time(in seconds.milliseconds)
                                         	**type**\:  str
+                                        
+                                        	**units**\: millisecond
                                         
                                         .. attribute:: slowest_node_name
                                         
@@ -9454,10 +9534,14 @@ class Rcmd(object):
                                         	Maximum time(in seconds.milliseconds)
                                         	**type**\:  str
                                         
+                                        	**units**\: millisecond
+                                        
                                         .. attribute:: minimum_time
                                         
                                         	Minimum time(in seconds.milliseconds)
                                         	**type**\:  str
+                                        
+                                        	**units**\: millisecond
                                         
                                         .. attribute:: slowest_node_name
                                         
@@ -9564,52 +9648,52 @@ class Rcmd(object):
                                     .. attribute:: lc_ip
                                     
                                     	List of Linecards' completion point for IP routes
-                                    	**type**\: list of  :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp>`
+                                    	**type**\: list of    :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp>`
                                     
                                     .. attribute:: lc_mpls
                                     
                                     	List of Linecards' completion point for MPLS labels
-                                    	**type**\: list of  :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls>`
+                                    	**type**\: list of    :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls>`
                                     
                                     .. attribute:: ldp_enter
                                     
                                     	Entry point of LDP
-                                    	**type**\:  :py:class:`LdpEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpEnter>`
+                                    	**type**\:   :py:class:`LdpEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpEnter>`
                                     
                                     .. attribute:: ldp_exit
                                     
                                     	Exit point of LDP to LSD
-                                    	**type**\:  :py:class:`LdpExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpExit>`
+                                    	**type**\:   :py:class:`LdpExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LdpExit>`
                                     
                                     .. attribute:: lsd_enter
                                     
                                     	Entry point of LSD
-                                    	**type**\:  :py:class:`LsdEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdEnter>`
+                                    	**type**\:   :py:class:`LsdEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdEnter>`
                                     
                                     .. attribute:: lsd_exit
                                     
                                     	Exit point of LSD to FIBs
-                                    	**type**\:  :py:class:`LsdExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdExit>`
+                                    	**type**\:   :py:class:`LsdExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LsdExit>`
                                     
                                     .. attribute:: ri_bv4_enter
                                     
                                     	Entry point of IPv4 RIB
-                                    	**type**\:  :py:class:`RiBv4Enter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Enter>`
+                                    	**type**\:   :py:class:`RiBv4Enter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Enter>`
                                     
                                     .. attribute:: ri_bv4_exit
                                     
                                     	Exit point from IPv4 RIB to FIBs
-                                    	**type**\:  :py:class:`RiBv4Exit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Exit>`
+                                    	**type**\:   :py:class:`RiBv4Exit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Exit>`
                                     
                                     .. attribute:: ri_bv4_redistribute
                                     
                                     	Route Redistribute point from IPv4 RIB to LDP
-                                    	**type**\:  :py:class:`RiBv4Redistribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Redistribute>`
+                                    	**type**\:   :py:class:`RiBv4Redistribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RiBv4Redistribute>`
                                     
                                     .. attribute:: route_origin
                                     
                                     	Route origin (routing protocol)
-                                    	**type**\:  :py:class:`RouteOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RouteOrigin>`
+                                    	**type**\:   :py:class:`RouteOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.RouteOrigin>`
                                     
                                     
 
@@ -10156,7 +10240,7 @@ class Rcmd(object):
                                         .. attribute:: fib_complete
                                         
                                         	Completion point of FIB
-                                        	**type**\:  :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp.FibComplete>`
+                                        	**type**\:   :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcIp.FibComplete>`
                                         
                                         .. attribute:: node_name
                                         
@@ -10166,7 +10250,7 @@ class Rcmd(object):
                                         .. attribute:: speed
                                         
                                         	Relative convergence speed
-                                        	**type**\:  :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
+                                        	**type**\:   :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                         
                                         
 
@@ -10284,7 +10368,7 @@ class Rcmd(object):
                                         .. attribute:: fib_complete
                                         
                                         	Completion point of FIB
-                                        	**type**\:  :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls.FibComplete>`
+                                        	**type**\:   :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SpfRunOfflines.SpfRunOffline.InterAreaAndExternal.Priority.ConvergenceTimeline.LcMpls.FibComplete>`
                                         
                                         .. attribute:: node_name
                                         
@@ -10294,7 +10378,7 @@ class Rcmd(object):
                                         .. attribute:: speed
                                         
                                         	Relative convergence speed
-                                        	**type**\:  :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
+                                        	**type**\:   :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                         
                                         
 
@@ -10713,7 +10797,7 @@ class Rcmd(object):
                     .. attribute:: summary_external_event_summary
                     
                     	OSPF Summary\-External Prefix Event data
-                    	**type**\: list of  :py:class:`SummaryExternalEventSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary>`
+                    	**type**\: list of    :py:class:`SummaryExternalEventSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary>`
                     
                     
 
@@ -10743,7 +10827,7 @@ class Rcmd(object):
                         .. attribute:: change_type
                         
                         	Event Add/Delete
-                        	**type**\:  :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
+                        	**type**\:   :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                         
                         .. attribute:: cost
                         
@@ -10755,7 +10839,7 @@ class Rcmd(object):
                         .. attribute:: ip_convergence_time
                         
                         	Convergence time for IP route programming
-                        	**type**\:  :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.IpConvergenceTime>`
+                        	**type**\:   :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.IpConvergenceTime>`
                         
                         .. attribute:: ipfrr_event_id
                         
@@ -10767,17 +10851,17 @@ class Rcmd(object):
                         .. attribute:: lsa_processed
                         
                         	List of LSAs processed
-                        	**type**\: list of  :py:class:`LsaProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.LsaProcessed>`
+                        	**type**\: list of    :py:class:`LsaProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.LsaProcessed>`
                         
                         .. attribute:: mpls_convergence_time
                         
                         	Convergence time for MPLS label programming
-                        	**type**\:  :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.MplsConvergenceTime>`
+                        	**type**\:   :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.MplsConvergenceTime>`
                         
                         .. attribute:: path
                         
                         	Path information
-                        	**type**\: list of  :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.Path>`
+                        	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.Path>`
                         
                         .. attribute:: prefix
                         
@@ -10796,17 +10880,17 @@ class Rcmd(object):
                         .. attribute:: priority
                         
                         	Event processed priority
-                        	**type**\:  :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
+                        	**type**\:   :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                         
                         .. attribute:: route_path_change_type
                         
                         	Route Path Change Type
-                        	**type**\:  :py:class:`RcmdShowRoutePathChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoutePathChangeEnum>`
+                        	**type**\:   :py:class:`RcmdShowRoutePathChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoutePathChangeEnum>`
                         
                         .. attribute:: route_type
                         
                         	Route Type intra/inter/l1/l2
-                        	**type**\:  :py:class:`RcmdShowRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRouteEnum>`
+                        	**type**\:   :py:class:`RcmdShowRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRouteEnum>`
                         
                         .. attribute:: spf_run_no
                         
@@ -10823,12 +10907,12 @@ class Rcmd(object):
                         .. attribute:: time_line
                         
                         	Timeline information
-                        	**type**\: list of  :py:class:`TimeLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine>`
+                        	**type**\: list of    :py:class:`TimeLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine>`
                         
                         .. attribute:: trigger_lsa
                         
                         	LSA that triggered this event
-                        	**type**\: list of  :py:class:`TriggerLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TriggerLsa>`
+                        	**type**\: list of    :py:class:`TriggerLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TriggerLsa>`
                         
                         .. attribute:: trigger_time
                         
@@ -10888,10 +10972,14 @@ class Rcmd(object):
                             	Maximum time(in seconds.milliseconds)
                             	**type**\:  str
                             
+                            	**units**\: millisecond
+                            
                             .. attribute:: minimum_time
                             
                             	Minimum time(in seconds.milliseconds)
                             	**type**\:  str
+                            
+                            	**units**\: millisecond
                             
                             .. attribute:: slowest_node_name
                             
@@ -10960,10 +11048,14 @@ class Rcmd(object):
                             	Maximum time(in seconds.milliseconds)
                             	**type**\:  str
                             
+                            	**units**\: millisecond
+                            
                             .. attribute:: minimum_time
                             
                             	Minimum time(in seconds.milliseconds)
                             	**type**\:  str
+                            
+                            	**units**\: millisecond
                             
                             .. attribute:: slowest_node_name
                             
@@ -11025,7 +11117,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Event Add/Delete
-                            	**type**\:  :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
+                            	**type**\:   :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                             
                             .. attribute:: interface_name
                             
@@ -11035,7 +11127,7 @@ class Rcmd(object):
                             .. attribute:: lfa_path
                             
                             	Backup Path Informatoin
-                            	**type**\: list of  :py:class:`LfaPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.Path.LfaPath>`
+                            	**type**\: list of    :py:class:`LfaPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.Path.LfaPath>`
                             
                             .. attribute:: neighbour_address
                             
@@ -11076,7 +11168,7 @@ class Rcmd(object):
                                 .. attribute:: change_type
                                 
                                 	Event Add/Delete
-                                	**type**\:  :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
+                                	**type**\:   :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                                 
                                 .. attribute:: interface_name
                                 
@@ -11086,7 +11178,7 @@ class Rcmd(object):
                                 .. attribute:: lfa_type
                                 
                                 	Type of LFA
-                                	**type**\:  :py:class:`RcmdShowIpfrrLfaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIpfrrLfaEnum>`
+                                	**type**\:   :py:class:`RcmdShowIpfrrLfaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIpfrrLfaEnum>`
                                 
                                 .. attribute:: neighbour_address
                                 
@@ -11210,7 +11302,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
-                            	**type**\:  :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
+                            	**type**\:   :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                             
                             .. attribute:: lsa_id
                             
@@ -11222,7 +11314,7 @@ class Rcmd(object):
                             .. attribute:: lsa_type
                             
                             	LSA type
-                            	**type**\:  :py:class:`RcmdLsaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
+                            	**type**\:   :py:class:`RcmdLsaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
                             
                             .. attribute:: origin_router_id
                             
@@ -11304,12 +11396,12 @@ class Rcmd(object):
                             .. attribute:: lc_ip
                             
                             	List of Linecards' completion point for IP routes
-                            	**type**\: list of  :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine.LcIp>`
+                            	**type**\: list of    :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine.LcIp>`
                             
                             .. attribute:: lc_mpls
                             
                             	List of Linecards' completion point for MPLS labels
-                            	**type**\: list of  :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine.LcMpls>`
+                            	**type**\: list of    :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventSummaries.SummaryExternalEventSummary.TimeLine.LcMpls>`
                             
                             .. attribute:: ldp_enter
                             
@@ -11394,7 +11486,7 @@ class Rcmd(object):
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
-                                	**type**\:  :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
+                                	**type**\:   :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                 
                                 
 
@@ -11458,7 +11550,7 @@ class Rcmd(object):
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
-                                	**type**\:  :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
+                                	**type**\:   :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                 
                                 
 
@@ -11566,7 +11658,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
-                            	**type**\:  :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
+                            	**type**\:   :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                             
                             .. attribute:: lsa_id
                             
@@ -11578,7 +11670,7 @@ class Rcmd(object):
                             .. attribute:: lsa_type
                             
                             	LSA type
-                            	**type**\:  :py:class:`RcmdLsaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
+                            	**type**\:   :py:class:`RcmdLsaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
                             
                             .. attribute:: origin_router_id
                             
@@ -11771,7 +11863,7 @@ class Rcmd(object):
                     .. attribute:: prefix_event_summary
                     
                     	OSPF Prefix Event data
-                    	**type**\: list of  :py:class:`PrefixEventSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary>`
+                    	**type**\: list of    :py:class:`PrefixEventSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary>`
                     
                     
 
@@ -11801,7 +11893,7 @@ class Rcmd(object):
                         .. attribute:: change_type
                         
                         	Event Add/Delete
-                        	**type**\:  :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
+                        	**type**\:   :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                         
                         .. attribute:: cost
                         
@@ -11813,7 +11905,7 @@ class Rcmd(object):
                         .. attribute:: ip_convergence_time
                         
                         	Convergence time for IP route programming
-                        	**type**\:  :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.IpConvergenceTime>`
+                        	**type**\:   :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.IpConvergenceTime>`
                         
                         .. attribute:: ipfrr_event_id
                         
@@ -11825,17 +11917,17 @@ class Rcmd(object):
                         .. attribute:: lsa_processed
                         
                         	List of LSAs processed
-                        	**type**\: list of  :py:class:`LsaProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.LsaProcessed>`
+                        	**type**\: list of    :py:class:`LsaProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.LsaProcessed>`
                         
                         .. attribute:: mpls_convergence_time
                         
                         	Convergence time for MPLS label programming
-                        	**type**\:  :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.MplsConvergenceTime>`
+                        	**type**\:   :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.MplsConvergenceTime>`
                         
                         .. attribute:: path
                         
                         	Path information
-                        	**type**\: list of  :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path>`
+                        	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path>`
                         
                         .. attribute:: prefix
                         
@@ -11854,17 +11946,17 @@ class Rcmd(object):
                         .. attribute:: priority
                         
                         	Event processed priority
-                        	**type**\:  :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
+                        	**type**\:   :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                         
                         .. attribute:: route_path_change_type
                         
                         	Route Path Change Type
-                        	**type**\:  :py:class:`RcmdShowRoutePathChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoutePathChangeEnum>`
+                        	**type**\:   :py:class:`RcmdShowRoutePathChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoutePathChangeEnum>`
                         
                         .. attribute:: route_type
                         
                         	Route Type intra/inter/l1/l2
-                        	**type**\:  :py:class:`RcmdShowRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRouteEnum>`
+                        	**type**\:   :py:class:`RcmdShowRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRouteEnum>`
                         
                         .. attribute:: spf_run_no
                         
@@ -11881,12 +11973,12 @@ class Rcmd(object):
                         .. attribute:: time_line
                         
                         	Timeline information
-                        	**type**\: list of  :py:class:`TimeLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine>`
+                        	**type**\: list of    :py:class:`TimeLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine>`
                         
                         .. attribute:: trigger_lsa
                         
                         	LSA that triggered this event
-                        	**type**\: list of  :py:class:`TriggerLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TriggerLsa>`
+                        	**type**\: list of    :py:class:`TriggerLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TriggerLsa>`
                         
                         .. attribute:: trigger_time
                         
@@ -11946,10 +12038,14 @@ class Rcmd(object):
                             	Maximum time(in seconds.milliseconds)
                             	**type**\:  str
                             
+                            	**units**\: millisecond
+                            
                             .. attribute:: minimum_time
                             
                             	Minimum time(in seconds.milliseconds)
                             	**type**\:  str
+                            
+                            	**units**\: millisecond
                             
                             .. attribute:: slowest_node_name
                             
@@ -12018,10 +12114,14 @@ class Rcmd(object):
                             	Maximum time(in seconds.milliseconds)
                             	**type**\:  str
                             
+                            	**units**\: millisecond
+                            
                             .. attribute:: minimum_time
                             
                             	Minimum time(in seconds.milliseconds)
                             	**type**\:  str
+                            
+                            	**units**\: millisecond
                             
                             .. attribute:: slowest_node_name
                             
@@ -12083,7 +12183,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Event Add/Delete
-                            	**type**\:  :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
+                            	**type**\:   :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                             
                             .. attribute:: interface_name
                             
@@ -12093,7 +12193,7 @@ class Rcmd(object):
                             .. attribute:: lfa_path
                             
                             	Backup Path Informatoin
-                            	**type**\: list of  :py:class:`LfaPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path.LfaPath>`
+                            	**type**\: list of    :py:class:`LfaPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path.LfaPath>`
                             
                             .. attribute:: neighbour_address
                             
@@ -12134,7 +12234,7 @@ class Rcmd(object):
                                 .. attribute:: change_type
                                 
                                 	Event Add/Delete
-                                	**type**\:  :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
+                                	**type**\:   :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                                 
                                 .. attribute:: interface_name
                                 
@@ -12144,7 +12244,7 @@ class Rcmd(object):
                                 .. attribute:: lfa_type
                                 
                                 	Type of LFA
-                                	**type**\:  :py:class:`RcmdShowIpfrrLfaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIpfrrLfaEnum>`
+                                	**type**\:   :py:class:`RcmdShowIpfrrLfaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIpfrrLfaEnum>`
                                 
                                 .. attribute:: neighbour_address
                                 
@@ -12268,7 +12368,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
-                            	**type**\:  :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
+                            	**type**\:   :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                             
                             .. attribute:: lsa_id
                             
@@ -12280,7 +12380,7 @@ class Rcmd(object):
                             .. attribute:: lsa_type
                             
                             	LSA type
-                            	**type**\:  :py:class:`RcmdLsaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
+                            	**type**\:   :py:class:`RcmdLsaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
                             
                             .. attribute:: origin_router_id
                             
@@ -12362,12 +12462,12 @@ class Rcmd(object):
                             .. attribute:: lc_ip
                             
                             	List of Linecards' completion point for IP routes
-                            	**type**\: list of  :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcIp>`
+                            	**type**\: list of    :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcIp>`
                             
                             .. attribute:: lc_mpls
                             
                             	List of Linecards' completion point for MPLS labels
-                            	**type**\: list of  :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcMpls>`
+                            	**type**\: list of    :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcMpls>`
                             
                             .. attribute:: ldp_enter
                             
@@ -12452,7 +12552,7 @@ class Rcmd(object):
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
-                                	**type**\:  :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
+                                	**type**\:   :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                 
                                 
 
@@ -12516,7 +12616,7 @@ class Rcmd(object):
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
-                                	**type**\:  :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
+                                	**type**\:   :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                 
                                 
 
@@ -12624,7 +12724,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
-                            	**type**\:  :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
+                            	**type**\:   :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                             
                             .. attribute:: lsa_id
                             
@@ -12636,7 +12736,7 @@ class Rcmd(object):
                             .. attribute:: lsa_type
                             
                             	LSA type
-                            	**type**\:  :py:class:`RcmdLsaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
+                            	**type**\:   :py:class:`RcmdLsaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
                             
                             .. attribute:: origin_router_id
                             
@@ -12830,7 +12930,7 @@ class Rcmd(object):
                     .. attribute:: summary_external_event_offline
                     
                     	Offline operational data for particular OSPF Prefix Event
-                    	**type**\: list of  :py:class:`SummaryExternalEventOffline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline>`
+                    	**type**\: list of    :py:class:`SummaryExternalEventOffline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline>`
                     
                     
 
@@ -12861,7 +12961,7 @@ class Rcmd(object):
                         .. attribute:: change_type
                         
                         	Event Add/Delete
-                        	**type**\:  :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
+                        	**type**\:   :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                         
                         .. attribute:: cost
                         
@@ -12873,7 +12973,7 @@ class Rcmd(object):
                         .. attribute:: ip_convergence_time
                         
                         	Convergence time for IP route programming
-                        	**type**\:  :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.IpConvergenceTime>`
+                        	**type**\:   :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.IpConvergenceTime>`
                         
                         .. attribute:: ipfrr_event_id
                         
@@ -12885,17 +12985,17 @@ class Rcmd(object):
                         .. attribute:: lsa_processed
                         
                         	List of LSAs processed
-                        	**type**\: list of  :py:class:`LsaProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.LsaProcessed>`
+                        	**type**\: list of    :py:class:`LsaProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.LsaProcessed>`
                         
                         .. attribute:: mpls_convergence_time
                         
                         	Convergence time for MPLS label programming
-                        	**type**\:  :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.MplsConvergenceTime>`
+                        	**type**\:   :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.MplsConvergenceTime>`
                         
                         .. attribute:: path
                         
                         	Path information
-                        	**type**\: list of  :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.Path>`
+                        	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.Path>`
                         
                         .. attribute:: prefix
                         
@@ -12914,17 +13014,17 @@ class Rcmd(object):
                         .. attribute:: priority
                         
                         	Event processed priority
-                        	**type**\:  :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
+                        	**type**\:   :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                         
                         .. attribute:: route_path_change_type
                         
                         	Route Path Change Type
-                        	**type**\:  :py:class:`RcmdShowRoutePathChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoutePathChangeEnum>`
+                        	**type**\:   :py:class:`RcmdShowRoutePathChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoutePathChangeEnum>`
                         
                         .. attribute:: route_type
                         
                         	Route Type intra/inter/l1/l2
-                        	**type**\:  :py:class:`RcmdShowRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRouteEnum>`
+                        	**type**\:   :py:class:`RcmdShowRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRouteEnum>`
                         
                         .. attribute:: spf_run_no
                         
@@ -12941,12 +13041,12 @@ class Rcmd(object):
                         .. attribute:: time_line
                         
                         	Timeline information
-                        	**type**\: list of  :py:class:`TimeLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine>`
+                        	**type**\: list of    :py:class:`TimeLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine>`
                         
                         .. attribute:: trigger_lsa
                         
                         	LSA that triggered this event
-                        	**type**\: list of  :py:class:`TriggerLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TriggerLsa>`
+                        	**type**\: list of    :py:class:`TriggerLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TriggerLsa>`
                         
                         .. attribute:: trigger_time
                         
@@ -13006,10 +13106,14 @@ class Rcmd(object):
                             	Maximum time(in seconds.milliseconds)
                             	**type**\:  str
                             
+                            	**units**\: millisecond
+                            
                             .. attribute:: minimum_time
                             
                             	Minimum time(in seconds.milliseconds)
                             	**type**\:  str
+                            
+                            	**units**\: millisecond
                             
                             .. attribute:: slowest_node_name
                             
@@ -13078,10 +13182,14 @@ class Rcmd(object):
                             	Maximum time(in seconds.milliseconds)
                             	**type**\:  str
                             
+                            	**units**\: millisecond
+                            
                             .. attribute:: minimum_time
                             
                             	Minimum time(in seconds.milliseconds)
                             	**type**\:  str
+                            
+                            	**units**\: millisecond
                             
                             .. attribute:: slowest_node_name
                             
@@ -13143,7 +13251,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Event Add/Delete
-                            	**type**\:  :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
+                            	**type**\:   :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                             
                             .. attribute:: interface_name
                             
@@ -13153,7 +13261,7 @@ class Rcmd(object):
                             .. attribute:: lfa_path
                             
                             	Backup Path Informatoin
-                            	**type**\: list of  :py:class:`LfaPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.Path.LfaPath>`
+                            	**type**\: list of    :py:class:`LfaPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.Path.LfaPath>`
                             
                             .. attribute:: neighbour_address
                             
@@ -13194,7 +13302,7 @@ class Rcmd(object):
                                 .. attribute:: change_type
                                 
                                 	Event Add/Delete
-                                	**type**\:  :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
+                                	**type**\:   :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                                 
                                 .. attribute:: interface_name
                                 
@@ -13204,7 +13312,7 @@ class Rcmd(object):
                                 .. attribute:: lfa_type
                                 
                                 	Type of LFA
-                                	**type**\:  :py:class:`RcmdShowIpfrrLfaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIpfrrLfaEnum>`
+                                	**type**\:   :py:class:`RcmdShowIpfrrLfaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIpfrrLfaEnum>`
                                 
                                 .. attribute:: neighbour_address
                                 
@@ -13328,7 +13436,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
-                            	**type**\:  :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
+                            	**type**\:   :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                             
                             .. attribute:: lsa_id
                             
@@ -13340,7 +13448,7 @@ class Rcmd(object):
                             .. attribute:: lsa_type
                             
                             	LSA type
-                            	**type**\:  :py:class:`RcmdLsaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
+                            	**type**\:   :py:class:`RcmdLsaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
                             
                             .. attribute:: origin_router_id
                             
@@ -13422,12 +13530,12 @@ class Rcmd(object):
                             .. attribute:: lc_ip
                             
                             	List of Linecards' completion point for IP routes
-                            	**type**\: list of  :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine.LcIp>`
+                            	**type**\: list of    :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine.LcIp>`
                             
                             .. attribute:: lc_mpls
                             
                             	List of Linecards' completion point for MPLS labels
-                            	**type**\: list of  :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine.LcMpls>`
+                            	**type**\: list of    :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.SummaryExternalEventOfflines.SummaryExternalEventOffline.TimeLine.LcMpls>`
                             
                             .. attribute:: ldp_enter
                             
@@ -13512,7 +13620,7 @@ class Rcmd(object):
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
-                                	**type**\:  :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
+                                	**type**\:   :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                 
                                 
 
@@ -13576,7 +13684,7 @@ class Rcmd(object):
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
-                                	**type**\:  :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
+                                	**type**\:   :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                 
                                 
 
@@ -13684,7 +13792,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
-                            	**type**\:  :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
+                            	**type**\:   :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                             
                             .. attribute:: lsa_id
                             
@@ -13696,7 +13804,7 @@ class Rcmd(object):
                             .. attribute:: lsa_type
                             
                             	LSA type
-                            	**type**\:  :py:class:`RcmdLsaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
+                            	**type**\:   :py:class:`RcmdLsaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
                             
                             .. attribute:: origin_router_id
                             
@@ -13889,7 +13997,7 @@ class Rcmd(object):
                     .. attribute:: prefix_event_offline
                     
                     	Offline operational data for particular OSPF Prefix Event
-                    	**type**\: list of  :py:class:`PrefixEventOffline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline>`
+                    	**type**\: list of    :py:class:`PrefixEventOffline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline>`
                     
                     
 
@@ -13920,7 +14028,7 @@ class Rcmd(object):
                         .. attribute:: change_type
                         
                         	Event Add/Delete
-                        	**type**\:  :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
+                        	**type**\:   :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                         
                         .. attribute:: cost
                         
@@ -13932,7 +14040,7 @@ class Rcmd(object):
                         .. attribute:: ip_convergence_time
                         
                         	Convergence time for IP route programming
-                        	**type**\:  :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.IpConvergenceTime>`
+                        	**type**\:   :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.IpConvergenceTime>`
                         
                         .. attribute:: ipfrr_event_id
                         
@@ -13944,17 +14052,17 @@ class Rcmd(object):
                         .. attribute:: lsa_processed
                         
                         	List of LSAs processed
-                        	**type**\: list of  :py:class:`LsaProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.LsaProcessed>`
+                        	**type**\: list of    :py:class:`LsaProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.LsaProcessed>`
                         
                         .. attribute:: mpls_convergence_time
                         
                         	Convergence time for MPLS label programming
-                        	**type**\:  :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.MplsConvergenceTime>`
+                        	**type**\:   :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.MplsConvergenceTime>`
                         
                         .. attribute:: path
                         
                         	Path information
-                        	**type**\: list of  :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path>`
+                        	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path>`
                         
                         .. attribute:: prefix
                         
@@ -13973,17 +14081,17 @@ class Rcmd(object):
                         .. attribute:: priority
                         
                         	Event processed priority
-                        	**type**\:  :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
+                        	**type**\:   :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                         
                         .. attribute:: route_path_change_type
                         
                         	Route Path Change Type
-                        	**type**\:  :py:class:`RcmdShowRoutePathChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoutePathChangeEnum>`
+                        	**type**\:   :py:class:`RcmdShowRoutePathChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoutePathChangeEnum>`
                         
                         .. attribute:: route_type
                         
                         	Route Type intra/inter/l1/l2
-                        	**type**\:  :py:class:`RcmdShowRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRouteEnum>`
+                        	**type**\:   :py:class:`RcmdShowRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRouteEnum>`
                         
                         .. attribute:: spf_run_no
                         
@@ -14000,12 +14108,12 @@ class Rcmd(object):
                         .. attribute:: time_line
                         
                         	Timeline information
-                        	**type**\: list of  :py:class:`TimeLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine>`
+                        	**type**\: list of    :py:class:`TimeLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine>`
                         
                         .. attribute:: trigger_lsa
                         
                         	LSA that triggered this event
-                        	**type**\: list of  :py:class:`TriggerLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TriggerLsa>`
+                        	**type**\: list of    :py:class:`TriggerLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TriggerLsa>`
                         
                         .. attribute:: trigger_time
                         
@@ -14065,10 +14173,14 @@ class Rcmd(object):
                             	Maximum time(in seconds.milliseconds)
                             	**type**\:  str
                             
+                            	**units**\: millisecond
+                            
                             .. attribute:: minimum_time
                             
                             	Minimum time(in seconds.milliseconds)
                             	**type**\:  str
+                            
+                            	**units**\: millisecond
                             
                             .. attribute:: slowest_node_name
                             
@@ -14137,10 +14249,14 @@ class Rcmd(object):
                             	Maximum time(in seconds.milliseconds)
                             	**type**\:  str
                             
+                            	**units**\: millisecond
+                            
                             .. attribute:: minimum_time
                             
                             	Minimum time(in seconds.milliseconds)
                             	**type**\:  str
+                            
+                            	**units**\: millisecond
                             
                             .. attribute:: slowest_node_name
                             
@@ -14202,7 +14318,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Event Add/Delete
-                            	**type**\:  :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
+                            	**type**\:   :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                             
                             .. attribute:: interface_name
                             
@@ -14212,7 +14328,7 @@ class Rcmd(object):
                             .. attribute:: lfa_path
                             
                             	Backup Path Informatoin
-                            	**type**\: list of  :py:class:`LfaPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path.LfaPath>`
+                            	**type**\: list of    :py:class:`LfaPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path.LfaPath>`
                             
                             .. attribute:: neighbour_address
                             
@@ -14253,7 +14369,7 @@ class Rcmd(object):
                                 .. attribute:: change_type
                                 
                                 	Event Add/Delete
-                                	**type**\:  :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
+                                	**type**\:   :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                                 
                                 .. attribute:: interface_name
                                 
@@ -14263,7 +14379,7 @@ class Rcmd(object):
                                 .. attribute:: lfa_type
                                 
                                 	Type of LFA
-                                	**type**\:  :py:class:`RcmdShowIpfrrLfaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIpfrrLfaEnum>`
+                                	**type**\:   :py:class:`RcmdShowIpfrrLfaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIpfrrLfaEnum>`
                                 
                                 .. attribute:: neighbour_address
                                 
@@ -14387,7 +14503,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
-                            	**type**\:  :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
+                            	**type**\:   :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                             
                             .. attribute:: lsa_id
                             
@@ -14399,7 +14515,7 @@ class Rcmd(object):
                             .. attribute:: lsa_type
                             
                             	LSA type
-                            	**type**\:  :py:class:`RcmdLsaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
+                            	**type**\:   :py:class:`RcmdLsaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
                             
                             .. attribute:: origin_router_id
                             
@@ -14481,12 +14597,12 @@ class Rcmd(object):
                             .. attribute:: lc_ip
                             
                             	List of Linecards' completion point for IP routes
-                            	**type**\: list of  :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcIp>`
+                            	**type**\: list of    :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcIp>`
                             
                             .. attribute:: lc_mpls
                             
                             	List of Linecards' completion point for MPLS labels
-                            	**type**\: list of  :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcMpls>`
+                            	**type**\: list of    :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ospf.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcMpls>`
                             
                             .. attribute:: ldp_enter
                             
@@ -14571,7 +14687,7 @@ class Rcmd(object):
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
-                                	**type**\:  :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
+                                	**type**\:   :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                 
                                 
 
@@ -14635,7 +14751,7 @@ class Rcmd(object):
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
-                                	**type**\:  :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
+                                	**type**\:   :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                 
                                 
 
@@ -14743,7 +14859,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
-                            	**type**\:  :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
+                            	**type**\:   :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                             
                             .. attribute:: lsa_id
                             
@@ -14755,7 +14871,7 @@ class Rcmd(object):
                             .. attribute:: lsa_type
                             
                             	LSA type
-                            	**type**\:  :py:class:`RcmdLsaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
+                            	**type**\:   :py:class:`RcmdLsaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
                             
                             .. attribute:: origin_router_id
                             
@@ -15260,12 +15376,12 @@ class Rcmd(object):
         .. attribute:: detail
         
         	Server Info
-        	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Server.Detail>`
+        	**type**\:   :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Server.Detail>`
         
         .. attribute:: normal
         
         	Server Info
-        	**type**\:  :py:class:`Normal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Server.Normal>`
+        	**type**\:   :py:class:`Normal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Server.Normal>`
         
         
 
@@ -15371,7 +15487,7 @@ class Rcmd(object):
             .. attribute:: last_process_state
             
             	Process state
-            	**type**\:  :py:class:`RcmdShowPrcsStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowPrcsStateEnum>`
+            	**type**\:   :py:class:`RcmdShowPrcsStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowPrcsStateEnum>`
             
             .. attribute:: max_events
             
@@ -15425,7 +15541,7 @@ class Rcmd(object):
             .. attribute:: protocol_config
             
             	Protocol level configuration
-            	**type**\: list of  :py:class:`ProtocolConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Server.Normal.ProtocolConfig>`
+            	**type**\: list of    :py:class:`ProtocolConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Server.Normal.ProtocolConfig>`
             
             .. attribute:: reports_archive_node
             
@@ -15440,7 +15556,7 @@ class Rcmd(object):
             .. attribute:: server_detail
             
             	Detailed Information
-            	**type**\: list of  :py:class:`ServerDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Server.Normal.ServerDetail>`
+            	**type**\: list of    :py:class:`ServerDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Server.Normal.ServerDetail>`
             
             .. attribute:: spf_process_count
             
@@ -15452,7 +15568,7 @@ class Rcmd(object):
             .. attribute:: status
             
             	Server Status
-            	**type**\:  :py:class:`RcmdBagEnableDisableEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBagEnableDisableEnum>`
+            	**type**\:   :py:class:`RcmdBagEnableDisableEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBagEnableDisableEnum>`
             
             
 
@@ -15504,7 +15620,7 @@ class Rcmd(object):
                 .. attribute:: priority
                 
                 	Priority level configuration
-                	**type**\: list of  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Server.Normal.ProtocolConfig.Priority>`
+                	**type**\: list of    :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Server.Normal.ProtocolConfig.Priority>`
                 
                 .. attribute:: protocol_name
                 
@@ -15533,12 +15649,12 @@ class Rcmd(object):
                     .. attribute:: disable
                     
                     	Enable/Disable cfg
-                    	**type**\:  :py:class:`RcmdBoolYesNoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNoEnum>`
+                    	**type**\:   :py:class:`RcmdBoolYesNoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNoEnum>`
                     
                     .. attribute:: priority_name
                     
                     	Priority Level
-                    	**type**\:  :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
+                    	**type**\:   :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                     
                     .. attribute:: threshold
                     
@@ -15637,7 +15753,7 @@ class Rcmd(object):
                 .. attribute:: trace_information
                 
                 	Trace Information
-                	**type**\: list of  :py:class:`TraceInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Server.Normal.ServerDetail.TraceInformation>`
+                	**type**\: list of    :py:class:`TraceInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Server.Normal.ServerDetail.TraceInformation>`
                 
                 
 
@@ -15957,7 +16073,7 @@ class Rcmd(object):
             .. attribute:: last_process_state
             
             	Process state
-            	**type**\:  :py:class:`RcmdShowPrcsStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowPrcsStateEnum>`
+            	**type**\:   :py:class:`RcmdShowPrcsStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowPrcsStateEnum>`
             
             .. attribute:: max_events
             
@@ -16011,7 +16127,7 @@ class Rcmd(object):
             .. attribute:: protocol_config
             
             	Protocol level configuration
-            	**type**\: list of  :py:class:`ProtocolConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Server.Detail.ProtocolConfig>`
+            	**type**\: list of    :py:class:`ProtocolConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Server.Detail.ProtocolConfig>`
             
             .. attribute:: reports_archive_node
             
@@ -16026,7 +16142,7 @@ class Rcmd(object):
             .. attribute:: server_detail
             
             	Detailed Information
-            	**type**\: list of  :py:class:`ServerDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Server.Detail.ServerDetail>`
+            	**type**\: list of    :py:class:`ServerDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Server.Detail.ServerDetail>`
             
             .. attribute:: spf_process_count
             
@@ -16038,7 +16154,7 @@ class Rcmd(object):
             .. attribute:: status
             
             	Server Status
-            	**type**\:  :py:class:`RcmdBagEnableDisableEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBagEnableDisableEnum>`
+            	**type**\:   :py:class:`RcmdBagEnableDisableEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBagEnableDisableEnum>`
             
             
 
@@ -16090,7 +16206,7 @@ class Rcmd(object):
                 .. attribute:: priority
                 
                 	Priority level configuration
-                	**type**\: list of  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Server.Detail.ProtocolConfig.Priority>`
+                	**type**\: list of    :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Server.Detail.ProtocolConfig.Priority>`
                 
                 .. attribute:: protocol_name
                 
@@ -16119,12 +16235,12 @@ class Rcmd(object):
                     .. attribute:: disable
                     
                     	Enable/Disable cfg
-                    	**type**\:  :py:class:`RcmdBoolYesNoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNoEnum>`
+                    	**type**\:   :py:class:`RcmdBoolYesNoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNoEnum>`
                     
                     .. attribute:: priority_name
                     
                     	Priority Level
-                    	**type**\:  :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
+                    	**type**\:   :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                     
                     .. attribute:: threshold
                     
@@ -16223,7 +16339,7 @@ class Rcmd(object):
                 .. attribute:: trace_information
                 
                 	Trace Information
-                	**type**\: list of  :py:class:`TraceInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Server.Detail.ServerDetail.TraceInformation>`
+                	**type**\: list of    :py:class:`TraceInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Server.Detail.ServerDetail.TraceInformation>`
                 
                 
 
@@ -16486,7 +16602,7 @@ class Rcmd(object):
         .. attribute:: node_information
         
         	Node Info
-        	**type**\: list of  :py:class:`NodeInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Node.NodeInformation>`
+        	**type**\: list of    :py:class:`NodeInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Node.NodeInformation>`
         
         
 
@@ -16523,7 +16639,7 @@ class Rcmd(object):
             .. attribute:: fwd_referenced
             
             	Forward Referenced
-            	**type**\:  :py:class:`RcmdBoolYesNoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNoEnum>`
+            	**type**\:   :py:class:`RcmdBoolYesNoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNoEnum>`
             
             .. attribute:: last_update_time
             
@@ -16545,12 +16661,12 @@ class Rcmd(object):
             .. attribute:: node_state
             
             	Node State
-            	**type**\:  :py:class:`RcmdBoolYesNoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNoEnum>`
+            	**type**\:   :py:class:`RcmdBoolYesNoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNoEnum>`
             
             .. attribute:: node_type
             
             	Node Type
-            	**type**\:  :py:class:`RcmdShowNodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowNodeEnum>`
+            	**type**\:   :py:class:`RcmdShowNodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowNodeEnum>`
             
             .. attribute:: rack_id
             
@@ -16576,7 +16692,7 @@ class Rcmd(object):
             .. attribute:: status
             
             	Status
-            	**type**\:  :py:class:`RcmdBagEnblDsblEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBagEnblDsblEnum>`
+            	**type**\:   :py:class:`RcmdBagEnblDsblEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBagEnblDsblEnum>`
             
             
 
@@ -16687,7 +16803,7 @@ class Rcmd(object):
         .. attribute:: instances
         
         	Operational data
-        	**type**\:  :py:class:`Instances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances>`
+        	**type**\:   :py:class:`Instances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances>`
         
         
 
@@ -16709,7 +16825,7 @@ class Rcmd(object):
             .. attribute:: instance
             
             	Operational data for a particular instance
-            	**type**\: list of  :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance>`
+            	**type**\: list of    :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance>`
             
             
 
@@ -16739,42 +16855,42 @@ class Rcmd(object):
                 .. attribute:: ipfrr_event_offlines
                 
                 	ISIS IP\-FRR Event offline data
-                	**type**\:  :py:class:`IpfrrEventOfflines <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.IpfrrEventOfflines>`
+                	**type**\:   :py:class:`IpfrrEventOfflines <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.IpfrrEventOfflines>`
                 
                 .. attribute:: ipfrr_event_summaries
                 
                 	ISIS IP\-FRR events summary data
-                	**type**\:  :py:class:`IpfrrEventSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.IpfrrEventSummaries>`
+                	**type**\:   :py:class:`IpfrrEventSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.IpfrrEventSummaries>`
                 
                 .. attribute:: lsp_regenerateds
                 
                 	Regenerated LSP data
-                	**type**\:  :py:class:`LspRegenerateds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.LspRegenerateds>`
+                	**type**\:   :py:class:`LspRegenerateds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.LspRegenerateds>`
                 
                 .. attribute:: prefix_event_offlines
                 
                 	ISIS Prefix events offline data
-                	**type**\:  :py:class:`PrefixEventOfflines <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventOfflines>`
+                	**type**\:   :py:class:`PrefixEventOfflines <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventOfflines>`
                 
                 .. attribute:: prefix_event_statistics
                 
                 	ISIS Prefix events statistics data
-                	**type**\:  :py:class:`PrefixEventStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventStatistics>`
+                	**type**\:   :py:class:`PrefixEventStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventStatistics>`
                 
                 .. attribute:: prefix_event_summaries
                 
                 	ISIS Prefix events summary data
-                	**type**\:  :py:class:`PrefixEventSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventSummaries>`
+                	**type**\:   :py:class:`PrefixEventSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventSummaries>`
                 
                 .. attribute:: spf_run_offlines
                 
                 	ISIS SPF run offline data
-                	**type**\:  :py:class:`SpfRunOfflines <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines>`
+                	**type**\:   :py:class:`SpfRunOfflines <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines>`
                 
                 .. attribute:: spf_run_summaries
                 
                 	ISIS SPF run summary data
-                	**type**\:  :py:class:`SpfRunSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries>`
+                	**type**\:   :py:class:`SpfRunSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries>`
                 
                 
 
@@ -16811,7 +16927,7 @@ class Rcmd(object):
                     .. attribute:: ipfrr_event_summary
                     
                     	IP\-FRR Event data
-                    	**type**\: list of  :py:class:`IpfrrEventSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary>`
+                    	**type**\: list of    :py:class:`IpfrrEventSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary>`
                     
                     
 
@@ -16850,10 +16966,14 @@ class Rcmd(object):
                         	Coverage in percentage for all priorities
                         	**type**\:  str
                         
+                        	**units**\: percentage
+                        
                         .. attribute:: duration
                         
                         	Duration for the calculation (in milliseconds)
                         	**type**\:  str
+                        
+                        	**units**\: millisecond
                         
                         .. attribute:: event_id_xr
                         
@@ -16872,7 +16992,7 @@ class Rcmd(object):
                         .. attribute:: ipfrr_statistic
                         
                         	IP\-Frr Statistics categorized by priority
-                        	**type**\: list of  :py:class:`IpfrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.IpfrrStatistic>`
+                        	**type**\: list of    :py:class:`IpfrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.IpfrrStatistic>`
                         
                         .. attribute:: partially_protected_routes
                         
@@ -16884,12 +17004,14 @@ class Rcmd(object):
                         .. attribute:: remote_node
                         
                         	Remote Node Information
-                        	**type**\: list of  :py:class:`RemoteNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode>`
+                        	**type**\: list of    :py:class:`RemoteNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode>`
                         
                         .. attribute:: start_time_offset
                         
                         	Start Time offset from trigger time (in milliseconds)
                         	**type**\:  str
+                        
+                        	**units**\: millisecond
                         
                         .. attribute:: total_routes
                         
@@ -16916,6 +17038,8 @@ class Rcmd(object):
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: millisecond
                         
                         
 
@@ -16960,6 +17084,8 @@ class Rcmd(object):
                             	Coverage in percentage
                             	**type**\:  str
                             
+                            	**units**\: percentage
+                            
                             .. attribute:: fully_protected_routes
                             
                             	Fully Protected Routes
@@ -16972,6 +17098,8 @@ class Rcmd(object):
                             	Local LFA Coverage in percentage
                             	**type**\:  str
                             
+                            	**units**\: percentage
+                            
                             .. attribute:: partially_protected_routes
                             
                             	Partially Protected Routes
@@ -16982,12 +17110,14 @@ class Rcmd(object):
                             .. attribute:: priority
                             
                             	Priority
-                            	**type**\:  :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
+                            	**type**\:   :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                             
                             .. attribute:: remote_lfa_coverage
                             
                             	Remote LFA Coverage in percentage
                             	**type**\:  str
+                            
+                            	**units**\: percentage
                             
                             .. attribute:: total_routes
                             
@@ -17091,7 +17221,7 @@ class Rcmd(object):
                             .. attribute:: primary_path
                             
                             	Protected Primary Paths
-                            	**type**\: list of  :py:class:`PrimaryPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode.PrimaryPath>`
+                            	**type**\: list of    :py:class:`PrimaryPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.RemoteNode.PrimaryPath>`
                             
                             .. attribute:: remote_node_id
                             
@@ -17318,7 +17448,7 @@ class Rcmd(object):
                     .. attribute:: prefix_event_statistic
                     
                     	Monitoring Statistics
-                    	**type**\: list of  :py:class:`PrefixEventStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventStatistics.PrefixEventStatistic>`
+                    	**type**\: list of    :py:class:`PrefixEventStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventStatistics.PrefixEventStatistic>`
                     
                     
 
@@ -17386,7 +17516,7 @@ class Rcmd(object):
                         .. attribute:: last_change_type
                         
                         	Last event Add/Delete
-                        	**type**\:  :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
+                        	**type**\:   :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                         
                         .. attribute:: last_cost
                         
@@ -17403,12 +17533,12 @@ class Rcmd(object):
                         .. attribute:: last_priority
                         
                         	Last event processed priority
-                        	**type**\:  :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
+                        	**type**\:   :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                         
                         .. attribute:: last_route_type
                         
                         	Last event Route Type
-                        	**type**\:  :py:class:`RcmdShowRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRouteEnum>`
+                        	**type**\:   :py:class:`RcmdShowRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRouteEnum>`
                         
                         .. attribute:: low_priority
                         
@@ -17583,7 +17713,7 @@ class Rcmd(object):
                     .. attribute:: spf_run_summary
                     
                     	SPF Event data
-                    	**type**\: list of  :py:class:`SpfRunSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary>`
+                    	**type**\: list of    :py:class:`SpfRunSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary>`
                     
                     
 
@@ -17613,22 +17743,22 @@ class Rcmd(object):
                         .. attribute:: lsp_processed
                         
                         	List of LSP changes processed
-                        	**type**\: list of  :py:class:`LspProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.LspProcessed>`
+                        	**type**\: list of    :py:class:`LspProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.LspProcessed>`
                         
                         .. attribute:: lsp_regenerated
                         
                         	List of LSP regenerated
-                        	**type**\: list of  :py:class:`LspRegenerated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.LspRegenerated>`
+                        	**type**\: list of    :py:class:`LspRegenerated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.LspRegenerated>`
                         
                         .. attribute:: node_statistics
                         
                         	SPF Node statistics
-                        	**type**\:  :py:class:`NodeStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.NodeStatistics>`
+                        	**type**\:   :py:class:`NodeStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.NodeStatistics>`
                         
                         .. attribute:: priority
                         
                         	Convergence information on per\-priority basis
-                        	**type**\: list of  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority>`
+                        	**type**\: list of    :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority>`
                         
                         .. attribute:: reason
                         
@@ -17638,7 +17768,7 @@ class Rcmd(object):
                         .. attribute:: spf_summary
                         
                         	SPF summary information
-                        	**type**\:  :py:class:`SpfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary>`
+                        	**type**\:   :py:class:`SpfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary>`
                         
                         .. attribute:: start_time
                         
@@ -17648,7 +17778,7 @@ class Rcmd(object):
                         .. attribute:: trigger_lsp
                         
                         	Trigger LSP
-                        	**type**\: list of  :py:class:`TriggerLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.TriggerLsp>`
+                        	**type**\: list of    :py:class:`TriggerLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.TriggerLsp>`
                         
                         .. attribute:: wait_time
                         
@@ -17705,17 +17835,17 @@ class Rcmd(object):
                             .. attribute:: isis_level
                             
                             	ISIS Level
-                            	**type**\:  :py:class:`RcmdIsisLvlEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisLvlEnum>`
+                            	**type**\:   :py:class:`RcmdIsisLvlEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisLvlEnum>`
                             
                             .. attribute:: priority_summary
                             
                             	Convergence information summary on per\-priority basis
-                            	**type**\: list of  :py:class:`PrioritySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary>`
+                            	**type**\: list of    :py:class:`PrioritySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary>`
                             
                             .. attribute:: state
                             
                             	SPF state
-                            	**type**\:  :py:class:`RcmdSpfStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdSpfStateEnum>`
+                            	**type**\:   :py:class:`RcmdSpfStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdSpfStateEnum>`
                             
                             .. attribute:: threshold_exceeded
                             
@@ -17744,7 +17874,7 @@ class Rcmd(object):
                             .. attribute:: type
                             
                             	Type of SPF
-                            	**type**\:  :py:class:`RcmdIsisSpfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisSpfEnum>`
+                            	**type**\:   :py:class:`RcmdIsisSpfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisSpfEnum>`
                             
                             
 
@@ -17777,27 +17907,27 @@ class Rcmd(object):
                                 .. attribute:: frr_statistic
                                 
                                 	Fast Re\-Route Statistics
-                                	**type**\: list of  :py:class:`FrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.FrrStatistic>`
+                                	**type**\: list of    :py:class:`FrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.FrrStatistic>`
                                 
                                 .. attribute:: ip_convergence_time
                                 
                                 	Convergence time for IP route programming
-                                	**type**\:  :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.IpConvergenceTime>`
+                                	**type**\:   :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.IpConvergenceTime>`
                                 
                                 .. attribute:: level
                                 
                                 	Critical, High, Medium or Low
-                                	**type**\:  :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
+                                	**type**\:   :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                                 
                                 .. attribute:: mpls_convergence_time
                                 
                                 	Convergence time for MPLS label programming
-                                	**type**\:  :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.MplsConvergenceTime>`
+                                	**type**\:   :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.MplsConvergenceTime>`
                                 
                                 .. attribute:: route_statistics
                                 
                                 	Route statistics
-                                	**type**\:  :py:class:`RouteStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.RouteStatistics>`
+                                	**type**\:   :py:class:`RouteStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.SpfSummary.PrioritySummary.RouteStatistics>`
                                 
                                 .. attribute:: threshold_exceeded
                                 
@@ -17942,10 +18072,14 @@ class Rcmd(object):
                                     	Maximum time(in seconds.milliseconds)
                                     	**type**\:  str
                                     
+                                    	**units**\: millisecond
+                                    
                                     .. attribute:: minimum_time
                                     
                                     	Minimum time(in seconds.milliseconds)
                                     	**type**\:  str
+                                    
+                                    	**units**\: millisecond
                                     
                                     .. attribute:: slowest_node_name
                                     
@@ -18014,10 +18148,14 @@ class Rcmd(object):
                                     	Maximum time(in seconds.milliseconds)
                                     	**type**\:  str
                                     
+                                    	**units**\: millisecond
+                                    
                                     .. attribute:: minimum_time
                                     
                                     	Minimum time(in seconds.milliseconds)
                                     	**type**\:  str
+                                    
+                                    	**units**\: millisecond
                                     
                                     .. attribute:: slowest_node_name
                                     
@@ -18080,6 +18218,8 @@ class Rcmd(object):
                                     
                                     	Coverage in percentage
                                     	**type**\:  str
+                                    
+                                    	**units**\: percentage
                                     
                                     .. attribute:: fully_protected_routes
                                     
@@ -18353,7 +18493,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
-                            	**type**\:  :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
+                            	**type**\:   :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                             
                             .. attribute:: lsp_id
                             
@@ -18427,22 +18567,22 @@ class Rcmd(object):
                             .. attribute:: convergence_timeline
                             
                             	Convergence timeline details
-                            	**type**\: list of  :py:class:`ConvergenceTimeline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline>`
+                            	**type**\: list of    :py:class:`ConvergenceTimeline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline>`
                             
                             .. attribute:: leaf_networks_added
                             
                             	List of Leaf Networks Added
-                            	**type**\: list of  :py:class:`LeafNetworksAdded <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.LeafNetworksAdded>`
+                            	**type**\: list of    :py:class:`LeafNetworksAdded <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.LeafNetworksAdded>`
                             
                             .. attribute:: leaf_networks_deleted
                             
                             	List of Leaf Networks Deleted
-                            	**type**\: list of  :py:class:`LeafNetworksDeleted <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.LeafNetworksDeleted>`
+                            	**type**\: list of    :py:class:`LeafNetworksDeleted <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.LeafNetworksDeleted>`
                             
                             .. attribute:: priority_summary
                             
                             	Summary of the priority
-                            	**type**\:  :py:class:`PrioritySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary>`
+                            	**type**\:   :py:class:`PrioritySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary>`
                             
                             
 
@@ -18473,27 +18613,27 @@ class Rcmd(object):
                                 .. attribute:: frr_statistic
                                 
                                 	Fast Re\-Route Statistics
-                                	**type**\: list of  :py:class:`FrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.FrrStatistic>`
+                                	**type**\: list of    :py:class:`FrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.FrrStatistic>`
                                 
                                 .. attribute:: ip_convergence_time
                                 
                                 	Convergence time for IP route programming
-                                	**type**\:  :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.IpConvergenceTime>`
+                                	**type**\:   :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.IpConvergenceTime>`
                                 
                                 .. attribute:: level
                                 
                                 	Critical, High, Medium or Low
-                                	**type**\:  :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
+                                	**type**\:   :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                                 
                                 .. attribute:: mpls_convergence_time
                                 
                                 	Convergence time for MPLS label programming
-                                	**type**\:  :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.MplsConvergenceTime>`
+                                	**type**\:   :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.MplsConvergenceTime>`
                                 
                                 .. attribute:: route_statistics
                                 
                                 	Route statistics
-                                	**type**\:  :py:class:`RouteStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.RouteStatistics>`
+                                	**type**\:   :py:class:`RouteStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.PrioritySummary.RouteStatistics>`
                                 
                                 .. attribute:: threshold_exceeded
                                 
@@ -18638,10 +18778,14 @@ class Rcmd(object):
                                     	Maximum time(in seconds.milliseconds)
                                     	**type**\:  str
                                     
+                                    	**units**\: millisecond
+                                    
                                     .. attribute:: minimum_time
                                     
                                     	Minimum time(in seconds.milliseconds)
                                     	**type**\:  str
+                                    
+                                    	**units**\: millisecond
                                     
                                     .. attribute:: slowest_node_name
                                     
@@ -18710,10 +18854,14 @@ class Rcmd(object):
                                     	Maximum time(in seconds.milliseconds)
                                     	**type**\:  str
                                     
+                                    	**units**\: millisecond
+                                    
                                     .. attribute:: minimum_time
                                     
                                     	Minimum time(in seconds.milliseconds)
                                     	**type**\:  str
+                                    
+                                    	**units**\: millisecond
                                     
                                     .. attribute:: slowest_node_name
                                     
@@ -18776,6 +18924,8 @@ class Rcmd(object):
                                     
                                     	Coverage in percentage
                                     	**type**\:  str
+                                    
+                                    	**units**\: percentage
                                     
                                     .. attribute:: fully_protected_routes
                                     
@@ -18894,52 +19044,52 @@ class Rcmd(object):
                                 .. attribute:: lc_ip
                                 
                                 	List of Linecards' completion point for IP routes
-                                	**type**\: list of  :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcIp>`
+                                	**type**\: list of    :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcIp>`
                                 
                                 .. attribute:: lc_mpls
                                 
                                 	List of Linecards' completion point for MPLS labels
-                                	**type**\: list of  :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcMpls>`
+                                	**type**\: list of    :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcMpls>`
                                 
                                 .. attribute:: ldp_enter
                                 
                                 	Entry point of LDP
-                                	**type**\:  :py:class:`LdpEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LdpEnter>`
+                                	**type**\:   :py:class:`LdpEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LdpEnter>`
                                 
                                 .. attribute:: ldp_exit
                                 
                                 	Exit point of LDP to LSD
-                                	**type**\:  :py:class:`LdpExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LdpExit>`
+                                	**type**\:   :py:class:`LdpExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LdpExit>`
                                 
                                 .. attribute:: lsd_enter
                                 
                                 	Entry point of LSD
-                                	**type**\:  :py:class:`LsdEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LsdEnter>`
+                                	**type**\:   :py:class:`LsdEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LsdEnter>`
                                 
                                 .. attribute:: lsd_exit
                                 
                                 	Exit point of LSD to FIBs
-                                	**type**\:  :py:class:`LsdExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LsdExit>`
+                                	**type**\:   :py:class:`LsdExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LsdExit>`
                                 
                                 .. attribute:: ri_bv4_enter
                                 
                                 	Entry point of IPv4 RIB
-                                	**type**\:  :py:class:`RiBv4Enter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Enter>`
+                                	**type**\:   :py:class:`RiBv4Enter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Enter>`
                                 
                                 .. attribute:: ri_bv4_exit
                                 
                                 	Exit point from IPv4 RIB to FIBs
-                                	**type**\:  :py:class:`RiBv4Exit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Exit>`
+                                	**type**\:   :py:class:`RiBv4Exit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Exit>`
                                 
                                 .. attribute:: ri_bv4_redistribute
                                 
                                 	Route Redistribute point from IPv4 RIB to LDP
-                                	**type**\:  :py:class:`RiBv4Redistribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Redistribute>`
+                                	**type**\:   :py:class:`RiBv4Redistribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RiBv4Redistribute>`
                                 
                                 .. attribute:: route_origin
                                 
                                 	Route origin (routing protocol)
-                                	**type**\:  :py:class:`RouteOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RouteOrigin>`
+                                	**type**\:   :py:class:`RouteOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.RouteOrigin>`
                                 
                                 
 
@@ -19486,7 +19636,7 @@ class Rcmd(object):
                                     .. attribute:: fib_complete
                                     
                                     	Completion point of FIB
-                                    	**type**\:  :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcIp.FibComplete>`
+                                    	**type**\:   :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcIp.FibComplete>`
                                     
                                     .. attribute:: node_name
                                     
@@ -19496,7 +19646,7 @@ class Rcmd(object):
                                     .. attribute:: speed
                                     
                                     	Relative convergence speed
-                                    	**type**\:  :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
+                                    	**type**\:   :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                     
                                     
 
@@ -19614,7 +19764,7 @@ class Rcmd(object):
                                     .. attribute:: fib_complete
                                     
                                     	Completion point of FIB
-                                    	**type**\:  :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcMpls.FibComplete>`
+                                    	**type**\:   :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunSummaries.SpfRunSummary.Priority.ConvergenceTimeline.LcMpls.FibComplete>`
                                     
                                     .. attribute:: node_name
                                     
@@ -19624,7 +19774,7 @@ class Rcmd(object):
                                     .. attribute:: speed
                                     
                                     	Relative convergence speed
-                                    	**type**\:  :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
+                                    	**type**\:   :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                     
                                     
 
@@ -19951,7 +20101,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
-                            	**type**\:  :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
+                            	**type**\:   :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                             
                             .. attribute:: lsp_id
                             
@@ -20025,7 +20175,7 @@ class Rcmd(object):
                             .. attribute:: isis_level
                             
                             	ISIS Level
-                            	**type**\:  :py:class:`RcmdIsisLvlEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisLvlEnum>`
+                            	**type**\:   :py:class:`RcmdIsisLvlEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisLvlEnum>`
                             
                             .. attribute:: lsp_id
                             
@@ -20217,7 +20367,7 @@ class Rcmd(object):
                     .. attribute:: ipfrr_event_offline
                     
                     	Offline operational data for particular ISIS IP\-FRR Event
-                    	**type**\: list of  :py:class:`IpfrrEventOffline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline>`
+                    	**type**\: list of    :py:class:`IpfrrEventOffline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline>`
                     
                     
 
@@ -20257,10 +20407,14 @@ class Rcmd(object):
                         	Coverage in percentage for all priorities
                         	**type**\:  str
                         
+                        	**units**\: percentage
+                        
                         .. attribute:: duration
                         
                         	Duration for the calculation (in milliseconds)
                         	**type**\:  str
+                        
+                        	**units**\: millisecond
                         
                         .. attribute:: event_id_xr
                         
@@ -20279,7 +20433,7 @@ class Rcmd(object):
                         .. attribute:: ipfrr_statistic
                         
                         	IP\-Frr Statistics categorized by priority
-                        	**type**\: list of  :py:class:`IpfrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.IpfrrStatistic>`
+                        	**type**\: list of    :py:class:`IpfrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.IpfrrStatistic>`
                         
                         .. attribute:: partially_protected_routes
                         
@@ -20291,12 +20445,14 @@ class Rcmd(object):
                         .. attribute:: remote_node
                         
                         	Remote Node Information
-                        	**type**\: list of  :py:class:`RemoteNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode>`
+                        	**type**\: list of    :py:class:`RemoteNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode>`
                         
                         .. attribute:: start_time_offset
                         
                         	Start Time offset from trigger time (in milliseconds)
                         	**type**\:  str
+                        
+                        	**units**\: millisecond
                         
                         .. attribute:: total_routes
                         
@@ -20323,6 +20479,8 @@ class Rcmd(object):
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: millisecond
                         
                         
 
@@ -20367,6 +20525,8 @@ class Rcmd(object):
                             	Coverage in percentage
                             	**type**\:  str
                             
+                            	**units**\: percentage
+                            
                             .. attribute:: fully_protected_routes
                             
                             	Fully Protected Routes
@@ -20379,6 +20539,8 @@ class Rcmd(object):
                             	Local LFA Coverage in percentage
                             	**type**\:  str
                             
+                            	**units**\: percentage
+                            
                             .. attribute:: partially_protected_routes
                             
                             	Partially Protected Routes
@@ -20389,12 +20551,14 @@ class Rcmd(object):
                             .. attribute:: priority
                             
                             	Priority
-                            	**type**\:  :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
+                            	**type**\:   :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                             
                             .. attribute:: remote_lfa_coverage
                             
                             	Remote LFA Coverage in percentage
                             	**type**\:  str
+                            
+                            	**units**\: percentage
                             
                             .. attribute:: total_routes
                             
@@ -20498,7 +20662,7 @@ class Rcmd(object):
                             .. attribute:: primary_path
                             
                             	Protected Primary Paths
-                            	**type**\: list of  :py:class:`PrimaryPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode.PrimaryPath>`
+                            	**type**\: list of    :py:class:`PrimaryPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.IpfrrEventOfflines.IpfrrEventOffline.RemoteNode.PrimaryPath>`
                             
                             .. attribute:: remote_node_id
                             
@@ -20725,7 +20889,7 @@ class Rcmd(object):
                     .. attribute:: spf_run_offline
                     
                     	Offline operational data for particular ISIS SPF run
-                    	**type**\: list of  :py:class:`SpfRunOffline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline>`
+                    	**type**\: list of    :py:class:`SpfRunOffline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline>`
                     
                     
 
@@ -20756,22 +20920,22 @@ class Rcmd(object):
                         .. attribute:: lsp_processed
                         
                         	List of LSP changes processed
-                        	**type**\: list of  :py:class:`LspProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.LspProcessed>`
+                        	**type**\: list of    :py:class:`LspProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.LspProcessed>`
                         
                         .. attribute:: lsp_regenerated
                         
                         	List of LSP regenerated
-                        	**type**\: list of  :py:class:`LspRegenerated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.LspRegenerated>`
+                        	**type**\: list of    :py:class:`LspRegenerated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.LspRegenerated>`
                         
                         .. attribute:: node_statistics
                         
                         	SPF Node statistics
-                        	**type**\:  :py:class:`NodeStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.NodeStatistics>`
+                        	**type**\:   :py:class:`NodeStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.NodeStatistics>`
                         
                         .. attribute:: priority
                         
                         	Convergence information on per\-priority basis
-                        	**type**\: list of  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority>`
+                        	**type**\: list of    :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority>`
                         
                         .. attribute:: reason
                         
@@ -20781,7 +20945,7 @@ class Rcmd(object):
                         .. attribute:: spf_summary
                         
                         	SPF summary information
-                        	**type**\:  :py:class:`SpfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary>`
+                        	**type**\:   :py:class:`SpfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary>`
                         
                         .. attribute:: start_time
                         
@@ -20791,7 +20955,7 @@ class Rcmd(object):
                         .. attribute:: trigger_lsp
                         
                         	Trigger LSP
-                        	**type**\: list of  :py:class:`TriggerLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.TriggerLsp>`
+                        	**type**\: list of    :py:class:`TriggerLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.TriggerLsp>`
                         
                         .. attribute:: wait_time
                         
@@ -20848,17 +21012,17 @@ class Rcmd(object):
                             .. attribute:: isis_level
                             
                             	ISIS Level
-                            	**type**\:  :py:class:`RcmdIsisLvlEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisLvlEnum>`
+                            	**type**\:   :py:class:`RcmdIsisLvlEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisLvlEnum>`
                             
                             .. attribute:: priority_summary
                             
                             	Convergence information summary on per\-priority basis
-                            	**type**\: list of  :py:class:`PrioritySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary>`
+                            	**type**\: list of    :py:class:`PrioritySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary>`
                             
                             .. attribute:: state
                             
                             	SPF state
-                            	**type**\:  :py:class:`RcmdSpfStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdSpfStateEnum>`
+                            	**type**\:   :py:class:`RcmdSpfStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdSpfStateEnum>`
                             
                             .. attribute:: threshold_exceeded
                             
@@ -20887,7 +21051,7 @@ class Rcmd(object):
                             .. attribute:: type
                             
                             	Type of SPF
-                            	**type**\:  :py:class:`RcmdIsisSpfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisSpfEnum>`
+                            	**type**\:   :py:class:`RcmdIsisSpfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisSpfEnum>`
                             
                             
 
@@ -20920,27 +21084,27 @@ class Rcmd(object):
                                 .. attribute:: frr_statistic
                                 
                                 	Fast Re\-Route Statistics
-                                	**type**\: list of  :py:class:`FrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.FrrStatistic>`
+                                	**type**\: list of    :py:class:`FrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.FrrStatistic>`
                                 
                                 .. attribute:: ip_convergence_time
                                 
                                 	Convergence time for IP route programming
-                                	**type**\:  :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.IpConvergenceTime>`
+                                	**type**\:   :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.IpConvergenceTime>`
                                 
                                 .. attribute:: level
                                 
                                 	Critical, High, Medium or Low
-                                	**type**\:  :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
+                                	**type**\:   :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                                 
                                 .. attribute:: mpls_convergence_time
                                 
                                 	Convergence time for MPLS label programming
-                                	**type**\:  :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.MplsConvergenceTime>`
+                                	**type**\:   :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.MplsConvergenceTime>`
                                 
                                 .. attribute:: route_statistics
                                 
                                 	Route statistics
-                                	**type**\:  :py:class:`RouteStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.RouteStatistics>`
+                                	**type**\:   :py:class:`RouteStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.SpfSummary.PrioritySummary.RouteStatistics>`
                                 
                                 .. attribute:: threshold_exceeded
                                 
@@ -21085,10 +21249,14 @@ class Rcmd(object):
                                     	Maximum time(in seconds.milliseconds)
                                     	**type**\:  str
                                     
+                                    	**units**\: millisecond
+                                    
                                     .. attribute:: minimum_time
                                     
                                     	Minimum time(in seconds.milliseconds)
                                     	**type**\:  str
+                                    
+                                    	**units**\: millisecond
                                     
                                     .. attribute:: slowest_node_name
                                     
@@ -21157,10 +21325,14 @@ class Rcmd(object):
                                     	Maximum time(in seconds.milliseconds)
                                     	**type**\:  str
                                     
+                                    	**units**\: millisecond
+                                    
                                     .. attribute:: minimum_time
                                     
                                     	Minimum time(in seconds.milliseconds)
                                     	**type**\:  str
+                                    
+                                    	**units**\: millisecond
                                     
                                     .. attribute:: slowest_node_name
                                     
@@ -21223,6 +21395,8 @@ class Rcmd(object):
                                     
                                     	Coverage in percentage
                                     	**type**\:  str
+                                    
+                                    	**units**\: percentage
                                     
                                     .. attribute:: fully_protected_routes
                                     
@@ -21496,7 +21670,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
-                            	**type**\:  :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
+                            	**type**\:   :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                             
                             .. attribute:: lsp_id
                             
@@ -21570,22 +21744,22 @@ class Rcmd(object):
                             .. attribute:: convergence_timeline
                             
                             	Convergence timeline details
-                            	**type**\: list of  :py:class:`ConvergenceTimeline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline>`
+                            	**type**\: list of    :py:class:`ConvergenceTimeline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline>`
                             
                             .. attribute:: leaf_networks_added
                             
                             	List of Leaf Networks Added
-                            	**type**\: list of  :py:class:`LeafNetworksAdded <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.LeafNetworksAdded>`
+                            	**type**\: list of    :py:class:`LeafNetworksAdded <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.LeafNetworksAdded>`
                             
                             .. attribute:: leaf_networks_deleted
                             
                             	List of Leaf Networks Deleted
-                            	**type**\: list of  :py:class:`LeafNetworksDeleted <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.LeafNetworksDeleted>`
+                            	**type**\: list of    :py:class:`LeafNetworksDeleted <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.LeafNetworksDeleted>`
                             
                             .. attribute:: priority_summary
                             
                             	Summary of the priority
-                            	**type**\:  :py:class:`PrioritySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary>`
+                            	**type**\:   :py:class:`PrioritySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary>`
                             
                             
 
@@ -21616,27 +21790,27 @@ class Rcmd(object):
                                 .. attribute:: frr_statistic
                                 
                                 	Fast Re\-Route Statistics
-                                	**type**\: list of  :py:class:`FrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.FrrStatistic>`
+                                	**type**\: list of    :py:class:`FrrStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.FrrStatistic>`
                                 
                                 .. attribute:: ip_convergence_time
                                 
                                 	Convergence time for IP route programming
-                                	**type**\:  :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.IpConvergenceTime>`
+                                	**type**\:   :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.IpConvergenceTime>`
                                 
                                 .. attribute:: level
                                 
                                 	Critical, High, Medium or Low
-                                	**type**\:  :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
+                                	**type**\:   :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                                 
                                 .. attribute:: mpls_convergence_time
                                 
                                 	Convergence time for MPLS label programming
-                                	**type**\:  :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.MplsConvergenceTime>`
+                                	**type**\:   :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.MplsConvergenceTime>`
                                 
                                 .. attribute:: route_statistics
                                 
                                 	Route statistics
-                                	**type**\:  :py:class:`RouteStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.RouteStatistics>`
+                                	**type**\:   :py:class:`RouteStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.PrioritySummary.RouteStatistics>`
                                 
                                 .. attribute:: threshold_exceeded
                                 
@@ -21781,10 +21955,14 @@ class Rcmd(object):
                                     	Maximum time(in seconds.milliseconds)
                                     	**type**\:  str
                                     
+                                    	**units**\: millisecond
+                                    
                                     .. attribute:: minimum_time
                                     
                                     	Minimum time(in seconds.milliseconds)
                                     	**type**\:  str
+                                    
+                                    	**units**\: millisecond
                                     
                                     .. attribute:: slowest_node_name
                                     
@@ -21853,10 +22031,14 @@ class Rcmd(object):
                                     	Maximum time(in seconds.milliseconds)
                                     	**type**\:  str
                                     
+                                    	**units**\: millisecond
+                                    
                                     .. attribute:: minimum_time
                                     
                                     	Minimum time(in seconds.milliseconds)
                                     	**type**\:  str
+                                    
+                                    	**units**\: millisecond
                                     
                                     .. attribute:: slowest_node_name
                                     
@@ -21919,6 +22101,8 @@ class Rcmd(object):
                                     
                                     	Coverage in percentage
                                     	**type**\:  str
+                                    
+                                    	**units**\: percentage
                                     
                                     .. attribute:: fully_protected_routes
                                     
@@ -22037,52 +22221,52 @@ class Rcmd(object):
                                 .. attribute:: lc_ip
                                 
                                 	List of Linecards' completion point for IP routes
-                                	**type**\: list of  :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcIp>`
+                                	**type**\: list of    :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcIp>`
                                 
                                 .. attribute:: lc_mpls
                                 
                                 	List of Linecards' completion point for MPLS labels
-                                	**type**\: list of  :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcMpls>`
+                                	**type**\: list of    :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcMpls>`
                                 
                                 .. attribute:: ldp_enter
                                 
                                 	Entry point of LDP
-                                	**type**\:  :py:class:`LdpEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LdpEnter>`
+                                	**type**\:   :py:class:`LdpEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LdpEnter>`
                                 
                                 .. attribute:: ldp_exit
                                 
                                 	Exit point of LDP to LSD
-                                	**type**\:  :py:class:`LdpExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LdpExit>`
+                                	**type**\:   :py:class:`LdpExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LdpExit>`
                                 
                                 .. attribute:: lsd_enter
                                 
                                 	Entry point of LSD
-                                	**type**\:  :py:class:`LsdEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LsdEnter>`
+                                	**type**\:   :py:class:`LsdEnter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LsdEnter>`
                                 
                                 .. attribute:: lsd_exit
                                 
                                 	Exit point of LSD to FIBs
-                                	**type**\:  :py:class:`LsdExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LsdExit>`
+                                	**type**\:   :py:class:`LsdExit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LsdExit>`
                                 
                                 .. attribute:: ri_bv4_enter
                                 
                                 	Entry point of IPv4 RIB
-                                	**type**\:  :py:class:`RiBv4Enter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Enter>`
+                                	**type**\:   :py:class:`RiBv4Enter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Enter>`
                                 
                                 .. attribute:: ri_bv4_exit
                                 
                                 	Exit point from IPv4 RIB to FIBs
-                                	**type**\:  :py:class:`RiBv4Exit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Exit>`
+                                	**type**\:   :py:class:`RiBv4Exit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Exit>`
                                 
                                 .. attribute:: ri_bv4_redistribute
                                 
                                 	Route Redistribute point from IPv4 RIB to LDP
-                                	**type**\:  :py:class:`RiBv4Redistribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Redistribute>`
+                                	**type**\:   :py:class:`RiBv4Redistribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RiBv4Redistribute>`
                                 
                                 .. attribute:: route_origin
                                 
                                 	Route origin (routing protocol)
-                                	**type**\:  :py:class:`RouteOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RouteOrigin>`
+                                	**type**\:   :py:class:`RouteOrigin <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.RouteOrigin>`
                                 
                                 
 
@@ -22629,7 +22813,7 @@ class Rcmd(object):
                                     .. attribute:: fib_complete
                                     
                                     	Completion point of FIB
-                                    	**type**\:  :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcIp.FibComplete>`
+                                    	**type**\:   :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcIp.FibComplete>`
                                     
                                     .. attribute:: node_name
                                     
@@ -22639,7 +22823,7 @@ class Rcmd(object):
                                     .. attribute:: speed
                                     
                                     	Relative convergence speed
-                                    	**type**\:  :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
+                                    	**type**\:   :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                     
                                     
 
@@ -22757,7 +22941,7 @@ class Rcmd(object):
                                     .. attribute:: fib_complete
                                     
                                     	Completion point of FIB
-                                    	**type**\:  :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcMpls.FibComplete>`
+                                    	**type**\:   :py:class:`FibComplete <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.SpfRunOfflines.SpfRunOffline.Priority.ConvergenceTimeline.LcMpls.FibComplete>`
                                     
                                     .. attribute:: node_name
                                     
@@ -22767,7 +22951,7 @@ class Rcmd(object):
                                     .. attribute:: speed
                                     
                                     	Relative convergence speed
-                                    	**type**\:  :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
+                                    	**type**\:   :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                     
                                     
 
@@ -23094,7 +23278,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
-                            	**type**\:  :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
+                            	**type**\:   :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                             
                             .. attribute:: lsp_id
                             
@@ -23168,7 +23352,7 @@ class Rcmd(object):
                             .. attribute:: isis_level
                             
                             	ISIS Level
-                            	**type**\:  :py:class:`RcmdIsisLvlEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisLvlEnum>`
+                            	**type**\:   :py:class:`RcmdIsisLvlEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisLvlEnum>`
                             
                             .. attribute:: lsp_id
                             
@@ -23360,7 +23544,7 @@ class Rcmd(object):
                     .. attribute:: prefix_event_summary
                     
                     	Prefix Event data
-                    	**type**\: list of  :py:class:`PrefixEventSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary>`
+                    	**type**\: list of    :py:class:`PrefixEventSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary>`
                     
                     
 
@@ -23390,7 +23574,7 @@ class Rcmd(object):
                         .. attribute:: change_type
                         
                         	Event Add/Delete
-                        	**type**\:  :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
+                        	**type**\:   :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                         
                         .. attribute:: cost
                         
@@ -23402,7 +23586,7 @@ class Rcmd(object):
                         .. attribute:: ip_convergence_time
                         
                         	Convergence time for IP route programming
-                        	**type**\:  :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.IpConvergenceTime>`
+                        	**type**\:   :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.IpConvergenceTime>`
                         
                         .. attribute:: ipfrr_event_id
                         
@@ -23414,17 +23598,17 @@ class Rcmd(object):
                         .. attribute:: lsa_processed
                         
                         	List of LSAs processed
-                        	**type**\: list of  :py:class:`LsaProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.LsaProcessed>`
+                        	**type**\: list of    :py:class:`LsaProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.LsaProcessed>`
                         
                         .. attribute:: mpls_convergence_time
                         
                         	Convergence time for MPLS label programming
-                        	**type**\:  :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.MplsConvergenceTime>`
+                        	**type**\:   :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.MplsConvergenceTime>`
                         
                         .. attribute:: path
                         
                         	Path information
-                        	**type**\: list of  :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path>`
+                        	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path>`
                         
                         .. attribute:: prefix
                         
@@ -23443,17 +23627,17 @@ class Rcmd(object):
                         .. attribute:: priority
                         
                         	Event processed priority
-                        	**type**\:  :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
+                        	**type**\:   :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                         
                         .. attribute:: route_path_change_type
                         
                         	Route Path Change Type
-                        	**type**\:  :py:class:`RcmdShowRoutePathChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoutePathChangeEnum>`
+                        	**type**\:   :py:class:`RcmdShowRoutePathChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoutePathChangeEnum>`
                         
                         .. attribute:: route_type
                         
                         	Route Type intra/inter/l1/l2
-                        	**type**\:  :py:class:`RcmdShowRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRouteEnum>`
+                        	**type**\:   :py:class:`RcmdShowRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRouteEnum>`
                         
                         .. attribute:: spf_run_no
                         
@@ -23470,12 +23654,12 @@ class Rcmd(object):
                         .. attribute:: time_line
                         
                         	Timeline information
-                        	**type**\: list of  :py:class:`TimeLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine>`
+                        	**type**\: list of    :py:class:`TimeLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine>`
                         
                         .. attribute:: trigger_lsa
                         
                         	LSA that triggered this event
-                        	**type**\: list of  :py:class:`TriggerLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TriggerLsa>`
+                        	**type**\: list of    :py:class:`TriggerLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TriggerLsa>`
                         
                         .. attribute:: trigger_time
                         
@@ -23535,10 +23719,14 @@ class Rcmd(object):
                             	Maximum time(in seconds.milliseconds)
                             	**type**\:  str
                             
+                            	**units**\: millisecond
+                            
                             .. attribute:: minimum_time
                             
                             	Minimum time(in seconds.milliseconds)
                             	**type**\:  str
+                            
+                            	**units**\: millisecond
                             
                             .. attribute:: slowest_node_name
                             
@@ -23607,10 +23795,14 @@ class Rcmd(object):
                             	Maximum time(in seconds.milliseconds)
                             	**type**\:  str
                             
+                            	**units**\: millisecond
+                            
                             .. attribute:: minimum_time
                             
                             	Minimum time(in seconds.milliseconds)
                             	**type**\:  str
+                            
+                            	**units**\: millisecond
                             
                             .. attribute:: slowest_node_name
                             
@@ -23672,7 +23864,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Event Add/Delete
-                            	**type**\:  :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
+                            	**type**\:   :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                             
                             .. attribute:: interface_name
                             
@@ -23682,7 +23874,7 @@ class Rcmd(object):
                             .. attribute:: lfa_path
                             
                             	Backup Path Informatoin
-                            	**type**\: list of  :py:class:`LfaPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path.LfaPath>`
+                            	**type**\: list of    :py:class:`LfaPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.Path.LfaPath>`
                             
                             .. attribute:: neighbour_address
                             
@@ -23723,7 +23915,7 @@ class Rcmd(object):
                                 .. attribute:: change_type
                                 
                                 	Event Add/Delete
-                                	**type**\:  :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
+                                	**type**\:   :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                                 
                                 .. attribute:: interface_name
                                 
@@ -23733,7 +23925,7 @@ class Rcmd(object):
                                 .. attribute:: lfa_type
                                 
                                 	Type of LFA
-                                	**type**\:  :py:class:`RcmdShowIpfrrLfaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIpfrrLfaEnum>`
+                                	**type**\:   :py:class:`RcmdShowIpfrrLfaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIpfrrLfaEnum>`
                                 
                                 .. attribute:: neighbour_address
                                 
@@ -23857,7 +24049,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
-                            	**type**\:  :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
+                            	**type**\:   :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                             
                             .. attribute:: lsa_id
                             
@@ -23869,7 +24061,7 @@ class Rcmd(object):
                             .. attribute:: lsa_type
                             
                             	LSA type
-                            	**type**\:  :py:class:`RcmdLsaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
+                            	**type**\:   :py:class:`RcmdLsaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
                             
                             .. attribute:: origin_router_id
                             
@@ -23951,12 +24143,12 @@ class Rcmd(object):
                             .. attribute:: lc_ip
                             
                             	List of Linecards' completion point for IP routes
-                            	**type**\: list of  :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcIp>`
+                            	**type**\: list of    :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcIp>`
                             
                             .. attribute:: lc_mpls
                             
                             	List of Linecards' completion point for MPLS labels
-                            	**type**\: list of  :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcMpls>`
+                            	**type**\: list of    :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventSummaries.PrefixEventSummary.TimeLine.LcMpls>`
                             
                             .. attribute:: ldp_enter
                             
@@ -24041,7 +24233,7 @@ class Rcmd(object):
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
-                                	**type**\:  :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
+                                	**type**\:   :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                 
                                 
 
@@ -24105,7 +24297,7 @@ class Rcmd(object):
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
-                                	**type**\:  :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
+                                	**type**\:   :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                 
                                 
 
@@ -24213,7 +24405,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
-                            	**type**\:  :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
+                            	**type**\:   :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                             
                             .. attribute:: lsa_id
                             
@@ -24225,7 +24417,7 @@ class Rcmd(object):
                             .. attribute:: lsa_type
                             
                             	LSA type
-                            	**type**\:  :py:class:`RcmdLsaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
+                            	**type**\:   :py:class:`RcmdLsaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
                             
                             .. attribute:: origin_router_id
                             
@@ -24418,7 +24610,7 @@ class Rcmd(object):
                     .. attribute:: prefix_event_offline
                     
                     	Offline operational data for particular ISIS Prefix Event
-                    	**type**\: list of  :py:class:`PrefixEventOffline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline>`
+                    	**type**\: list of    :py:class:`PrefixEventOffline <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline>`
                     
                     
 
@@ -24449,7 +24641,7 @@ class Rcmd(object):
                         .. attribute:: change_type
                         
                         	Event Add/Delete
-                        	**type**\:  :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
+                        	**type**\:   :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                         
                         .. attribute:: cost
                         
@@ -24461,7 +24653,7 @@ class Rcmd(object):
                         .. attribute:: ip_convergence_time
                         
                         	Convergence time for IP route programming
-                        	**type**\:  :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.IpConvergenceTime>`
+                        	**type**\:   :py:class:`IpConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.IpConvergenceTime>`
                         
                         .. attribute:: ipfrr_event_id
                         
@@ -24473,17 +24665,17 @@ class Rcmd(object):
                         .. attribute:: lsa_processed
                         
                         	List of LSAs processed
-                        	**type**\: list of  :py:class:`LsaProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.LsaProcessed>`
+                        	**type**\: list of    :py:class:`LsaProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.LsaProcessed>`
                         
                         .. attribute:: mpls_convergence_time
                         
                         	Convergence time for MPLS label programming
-                        	**type**\:  :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.MplsConvergenceTime>`
+                        	**type**\:   :py:class:`MplsConvergenceTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.MplsConvergenceTime>`
                         
                         .. attribute:: path
                         
                         	Path information
-                        	**type**\: list of  :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path>`
+                        	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path>`
                         
                         .. attribute:: prefix
                         
@@ -24502,17 +24694,17 @@ class Rcmd(object):
                         .. attribute:: priority
                         
                         	Event processed priority
-                        	**type**\:  :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
+                        	**type**\:   :py:class:`RcmdPriorityLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdPriorityLevelEnum>`
                         
                         .. attribute:: route_path_change_type
                         
                         	Route Path Change Type
-                        	**type**\:  :py:class:`RcmdShowRoutePathChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoutePathChangeEnum>`
+                        	**type**\:   :py:class:`RcmdShowRoutePathChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRoutePathChangeEnum>`
                         
                         .. attribute:: route_type
                         
                         	Route Type intra/inter/l1/l2
-                        	**type**\:  :py:class:`RcmdShowRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRouteEnum>`
+                        	**type**\:   :py:class:`RcmdShowRouteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowRouteEnum>`
                         
                         .. attribute:: spf_run_no
                         
@@ -24529,12 +24721,12 @@ class Rcmd(object):
                         .. attribute:: time_line
                         
                         	Timeline information
-                        	**type**\: list of  :py:class:`TimeLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine>`
+                        	**type**\: list of    :py:class:`TimeLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine>`
                         
                         .. attribute:: trigger_lsa
                         
                         	LSA that triggered this event
-                        	**type**\: list of  :py:class:`TriggerLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TriggerLsa>`
+                        	**type**\: list of    :py:class:`TriggerLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TriggerLsa>`
                         
                         .. attribute:: trigger_time
                         
@@ -24594,10 +24786,14 @@ class Rcmd(object):
                             	Maximum time(in seconds.milliseconds)
                             	**type**\:  str
                             
+                            	**units**\: millisecond
+                            
                             .. attribute:: minimum_time
                             
                             	Minimum time(in seconds.milliseconds)
                             	**type**\:  str
+                            
+                            	**units**\: millisecond
                             
                             .. attribute:: slowest_node_name
                             
@@ -24666,10 +24862,14 @@ class Rcmd(object):
                             	Maximum time(in seconds.milliseconds)
                             	**type**\:  str
                             
+                            	**units**\: millisecond
+                            
                             .. attribute:: minimum_time
                             
                             	Minimum time(in seconds.milliseconds)
                             	**type**\:  str
+                            
+                            	**units**\: millisecond
                             
                             .. attribute:: slowest_node_name
                             
@@ -24731,7 +24931,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Event Add/Delete
-                            	**type**\:  :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
+                            	**type**\:   :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                             
                             .. attribute:: interface_name
                             
@@ -24741,7 +24941,7 @@ class Rcmd(object):
                             .. attribute:: lfa_path
                             
                             	Backup Path Informatoin
-                            	**type**\: list of  :py:class:`LfaPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path.LfaPath>`
+                            	**type**\: list of    :py:class:`LfaPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.Path.LfaPath>`
                             
                             .. attribute:: neighbour_address
                             
@@ -24782,7 +24982,7 @@ class Rcmd(object):
                                 .. attribute:: change_type
                                 
                                 	Event Add/Delete
-                                	**type**\:  :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
+                                	**type**\:   :py:class:`RcmdChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdChangeEnum>`
                                 
                                 .. attribute:: interface_name
                                 
@@ -24792,7 +24992,7 @@ class Rcmd(object):
                                 .. attribute:: lfa_type
                                 
                                 	Type of LFA
-                                	**type**\:  :py:class:`RcmdShowIpfrrLfaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIpfrrLfaEnum>`
+                                	**type**\:   :py:class:`RcmdShowIpfrrLfaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIpfrrLfaEnum>`
                                 
                                 .. attribute:: neighbour_address
                                 
@@ -24916,7 +25116,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
-                            	**type**\:  :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
+                            	**type**\:   :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                             
                             .. attribute:: lsa_id
                             
@@ -24928,7 +25128,7 @@ class Rcmd(object):
                             .. attribute:: lsa_type
                             
                             	LSA type
-                            	**type**\:  :py:class:`RcmdLsaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
+                            	**type**\:   :py:class:`RcmdLsaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
                             
                             .. attribute:: origin_router_id
                             
@@ -25010,12 +25210,12 @@ class Rcmd(object):
                             .. attribute:: lc_ip
                             
                             	List of Linecards' completion point for IP routes
-                            	**type**\: list of  :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcIp>`
+                            	**type**\: list of    :py:class:`LcIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcIp>`
                             
                             .. attribute:: lc_mpls
                             
                             	List of Linecards' completion point for MPLS labels
-                            	**type**\: list of  :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcMpls>`
+                            	**type**\: list of    :py:class:`LcMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.PrefixEventOfflines.PrefixEventOffline.TimeLine.LcMpls>`
                             
                             .. attribute:: ldp_enter
                             
@@ -25100,7 +25300,7 @@ class Rcmd(object):
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
-                                	**type**\:  :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
+                                	**type**\:   :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                 
                                 
 
@@ -25164,7 +25364,7 @@ class Rcmd(object):
                                 .. attribute:: speed
                                 
                                 	Relative convergence speed
-                                	**type**\:  :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
+                                	**type**\:   :py:class:`RcmdLinecardSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLinecardSpeedEnum>`
                                 
                                 
 
@@ -25272,7 +25472,7 @@ class Rcmd(object):
                             .. attribute:: change_type
                             
                             	Add, Delete, Modify
-                            	**type**\:  :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
+                            	**type**\:   :py:class:`RcmdLsChangeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsChangeEnum>`
                             
                             .. attribute:: lsa_id
                             
@@ -25284,7 +25484,7 @@ class Rcmd(object):
                             .. attribute:: lsa_type
                             
                             	LSA type
-                            	**type**\:  :py:class:`RcmdLsaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
+                            	**type**\:   :py:class:`RcmdLsaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLsaEnum>`
                             
                             .. attribute:: origin_router_id
                             
@@ -25477,7 +25677,7 @@ class Rcmd(object):
                     .. attribute:: lsp_regenerated
                     
                     	Regenerated LSP data
-                    	**type**\: list of  :py:class:`LspRegenerated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.LspRegenerateds.LspRegenerated>`
+                    	**type**\: list of    :py:class:`LspRegenerated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Isis.Instances.Instance.LspRegenerateds.LspRegenerated>`
                     
                     
 
@@ -25507,7 +25707,7 @@ class Rcmd(object):
                         .. attribute:: isis_level
                         
                         	ISIS Level
-                        	**type**\:  :py:class:`RcmdIsisLvlEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisLvlEnum>`
+                        	**type**\:   :py:class:`RcmdIsisLvlEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdIsisLvlEnum>`
                         
                         .. attribute:: lsp_id
                         
@@ -25738,17 +25938,17 @@ class Rcmd(object):
         .. attribute:: edm_memory_info
         
         	Memory Info
-        	**type**\: list of  :py:class:`EdmMemoryInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Memory.EdmMemoryInfo>`
+        	**type**\: list of    :py:class:`EdmMemoryInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Memory.EdmMemoryInfo>`
         
         .. attribute:: memory_info
         
         	Memory Info
-        	**type**\: list of  :py:class:`MemoryInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Memory.MemoryInfo>`
+        	**type**\: list of    :py:class:`MemoryInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Memory.MemoryInfo>`
         
         .. attribute:: string_memory_info
         
         	Memory Info
-        	**type**\: list of  :py:class:`StringMemoryInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Memory.StringMemoryInfo>`
+        	**type**\: list of    :py:class:`StringMemoryInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Memory.StringMemoryInfo>`
         
         
 
@@ -25805,7 +26005,7 @@ class Rcmd(object):
             .. attribute:: memory_type
             
             	Memory Type
-            	**type**\:  :py:class:`RcmdShowMemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowMemEnum>`
+            	**type**\:   :py:class:`RcmdShowMemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowMemEnum>`
             
             .. attribute:: size
             
@@ -26074,17 +26274,17 @@ class Rcmd(object):
         .. attribute:: remote_lfa_s
         
         	Remote LFA Coverage Events
-        	**type**\:  :py:class:`RemoteLfaS <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.RemoteLfaS>`
+        	**type**\:   :py:class:`RemoteLfaS <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.RemoteLfaS>`
         
         .. attribute:: remote_lfa_summaries
         
         	Remote LFA Coverage Events
-        	**type**\:  :py:class:`RemoteLfaSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.RemoteLfaSummaries>`
+        	**type**\:   :py:class:`RemoteLfaSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.RemoteLfaSummaries>`
         
         .. attribute:: sessions
         
         	Session Events
-        	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.Sessions>`
+        	**type**\:   :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.Sessions>`
         
         
 
@@ -26110,7 +26310,7 @@ class Rcmd(object):
             .. attribute:: session
             
             	Session
-            	**type**\: list of  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.Sessions.Session>`
+            	**type**\: list of    :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.Sessions.Session>`
             
             
 
@@ -26159,7 +26359,7 @@ class Rcmd(object):
                 .. attribute:: event_type
                 
                 	Type of event
-                	**type**\:  :py:class:`RcmdLdpEventEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLdpEventEnum>`
+                	**type**\:   :py:class:`RcmdLdpEventEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdLdpEventEnum>`
                 
                 .. attribute:: interface_name
                 
@@ -26176,7 +26376,7 @@ class Rcmd(object):
                 .. attribute:: state
                 
                 	Adjacency Session Status
-                	**type**\:  :py:class:`RcmdShowLdpNeighbourStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpNeighbourStatusEnum>`
+                	**type**\:   :py:class:`RcmdShowLdpNeighbourStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpNeighbourStatusEnum>`
                 
                 
 
@@ -26273,7 +26473,7 @@ class Rcmd(object):
             .. attribute:: remote_lfa
             
             	RemoteLFA
-            	**type**\: list of  :py:class:`RemoteLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.RemoteLfaS.RemoteLfa>`
+            	**type**\: list of    :py:class:`RemoteLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.RemoteLfaS.RemoteLfa>`
             
             
 
@@ -26320,7 +26520,7 @@ class Rcmd(object):
                 .. attribute:: igp_protocol
                 
                 	IGP Protocol
-                	**type**\:  :py:class:`RcmdProtocolIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdProtocolIdEnum>`
+                	**type**\:   :py:class:`RcmdProtocolIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdProtocolIdEnum>`
                 
                 .. attribute:: ipfrr_event_id
                 
@@ -26332,7 +26532,7 @@ class Rcmd(object):
                 .. attribute:: logs
                 
                 	Logs Information
-                	**type**\: list of  :py:class:`Logs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.RemoteLfaS.RemoteLfa.Logs>`
+                	**type**\: list of    :py:class:`Logs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.RemoteLfaS.RemoteLfa.Logs>`
                 
                 .. attribute:: process_name
                 
@@ -26342,12 +26542,12 @@ class Rcmd(object):
                 .. attribute:: remote_node
                 
                 	Remote Node Information
-                	**type**\: list of  :py:class:`RemoteNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.RemoteLfaS.RemoteLfa.RemoteNode>`
+                	**type**\: list of    :py:class:`RemoteNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.RemoteLfaS.RemoteLfa.RemoteNode>`
                 
                 .. attribute:: session_statistic
                 
                 	RLFA Statistics categorized by session state
-                	**type**\: list of  :py:class:`SessionStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.RemoteLfaS.RemoteLfa.SessionStatistic>`
+                	**type**\: list of    :py:class:`SessionStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.RemoteLfaS.RemoteLfa.SessionStatistic>`
                 
                 
 
@@ -26425,7 +26625,7 @@ class Rcmd(object):
                     .. attribute:: session_state
                     
                     	Session State
-                    	**type**\:  :py:class:`RcmdShowLdpSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpSessionStateEnum>`
+                    	**type**\:   :py:class:`RcmdShowLdpSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpSessionStateEnum>`
                     
                     
 
@@ -26548,7 +26748,7 @@ class Rcmd(object):
                     .. attribute:: session_state
                     
                     	Session State
-                    	**type**\:  :py:class:`RcmdShowLdpSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpSessionStateEnum>`
+                    	**type**\:   :py:class:`RcmdShowLdpSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpSessionStateEnum>`
                     
                     .. attribute:: transport_address
                     
@@ -26636,7 +26836,7 @@ class Rcmd(object):
                     .. attribute:: label_coverage_state
                     
                     	Label Coverage State
-                    	**type**\:  :py:class:`RcmdShowLdpConvStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpConvStateEnum>`
+                    	**type**\:   :py:class:`RcmdShowLdpConvStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpConvStateEnum>`
                     
                     .. attribute:: log_time
                     
@@ -26793,7 +26993,7 @@ class Rcmd(object):
             .. attribute:: remote_lfa_summary
             
             	Summary operational data for Remote LFA
-            	**type**\: list of  :py:class:`RemoteLfaSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary>`
+            	**type**\: list of    :py:class:`RemoteLfaSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary>`
             
             
 
@@ -26840,7 +27040,7 @@ class Rcmd(object):
                 .. attribute:: igp_protocol
                 
                 	IGP Protocol
-                	**type**\:  :py:class:`RcmdProtocolIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdProtocolIdEnum>`
+                	**type**\:   :py:class:`RcmdProtocolIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdProtocolIdEnum>`
                 
                 .. attribute:: ipfrr_event_id
                 
@@ -26852,7 +27052,7 @@ class Rcmd(object):
                 .. attribute:: logs
                 
                 	Logs Information
-                	**type**\: list of  :py:class:`Logs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.Logs>`
+                	**type**\: list of    :py:class:`Logs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.Logs>`
                 
                 .. attribute:: process_name
                 
@@ -26862,12 +27062,12 @@ class Rcmd(object):
                 .. attribute:: remote_node
                 
                 	Remote Node Information
-                	**type**\: list of  :py:class:`RemoteNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.RemoteNode>`
+                	**type**\: list of    :py:class:`RemoteNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.RemoteNode>`
                 
                 .. attribute:: session_statistic
                 
                 	RLFA Statistics categorized by session state
-                	**type**\: list of  :py:class:`SessionStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.SessionStatistic>`
+                	**type**\: list of    :py:class:`SessionStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Ldp.RemoteLfaSummaries.RemoteLfaSummary.SessionStatistic>`
                 
                 
 
@@ -26945,7 +27145,7 @@ class Rcmd(object):
                     .. attribute:: session_state
                     
                     	Session State
-                    	**type**\:  :py:class:`RcmdShowLdpSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpSessionStateEnum>`
+                    	**type**\:   :py:class:`RcmdShowLdpSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpSessionStateEnum>`
                     
                     
 
@@ -27068,7 +27268,7 @@ class Rcmd(object):
                     .. attribute:: session_state
                     
                     	Session State
-                    	**type**\:  :py:class:`RcmdShowLdpSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpSessionStateEnum>`
+                    	**type**\:   :py:class:`RcmdShowLdpSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpSessionStateEnum>`
                     
                     .. attribute:: transport_address
                     
@@ -27156,7 +27356,7 @@ class Rcmd(object):
                     .. attribute:: label_coverage_state
                     
                     	Label Coverage State
-                    	**type**\:  :py:class:`RcmdShowLdpConvStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpConvStateEnum>`
+                    	**type**\:   :py:class:`RcmdShowLdpConvStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowLdpConvStateEnum>`
                     
                     .. attribute:: log_time
                     
@@ -27341,7 +27541,7 @@ class Rcmd(object):
         .. attribute:: events
         
         	Events
-        	**type**\:  :py:class:`Events <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Intf.Events>`
+        	**type**\:   :py:class:`Events <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Intf.Events>`
         
         
 
@@ -27363,7 +27563,7 @@ class Rcmd(object):
             .. attribute:: event
             
             	Events
-            	**type**\: list of  :py:class:`Event <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Intf.Events.Event>`
+            	**type**\: list of    :py:class:`Event <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Intf.Events.Event>`
             
             
 
@@ -27393,7 +27593,7 @@ class Rcmd(object):
                 .. attribute:: component
                 
                 	Component info
-                	**type**\:  :py:class:`RcmdShowCompIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowCompIdEnum>`
+                	**type**\:   :py:class:`RcmdShowCompIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowCompIdEnum>`
                 
                 .. attribute:: event_time
                 
@@ -27403,7 +27603,7 @@ class Rcmd(object):
                 .. attribute:: event_type
                 
                 	Event Info
-                	**type**\:  :py:class:`RcmdShowIntfEventEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIntfEventEnum>`
+                	**type**\:   :py:class:`RcmdShowIntfEventEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowIntfEventEnum>`
                 
                 .. attribute:: interface_name
                 
@@ -27537,17 +27737,17 @@ class Rcmd(object):
         .. attribute:: isis
         
         	ISIS Process Information
-        	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Isis>`
+        	**type**\:   :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Isis>`
         
         .. attribute:: ldp
         
         	LDP Process Information
-        	**type**\:  :py:class:`Ldp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ldp>`
+        	**type**\:   :py:class:`Ldp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ldp>`
         
         .. attribute:: ospf
         
         	OSPF Process Information
-        	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ospf>`
+        	**type**\:   :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ospf>`
         
         
 
@@ -27573,7 +27773,7 @@ class Rcmd(object):
             .. attribute:: process
             
             	Process Information
-            	**type**\: list of  :py:class:`Process <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Isis.Process>`
+            	**type**\: list of    :py:class:`Process_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Isis.Process_>`
             
             
 
@@ -27589,14 +27789,14 @@ class Rcmd(object):
                 self.process.name = 'process'
 
 
-            class Process(object):
+            class Process_(object):
                 """
                 Process Information
                 
                 .. attribute:: instance_name
                 
                 	Instance/VRF Name
-                	**type**\: list of  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Isis.Process.InstanceName>`
+                	**type**\: list of    :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Isis.Process_.InstanceName>`
                 
                 .. attribute:: process_name
                 
@@ -27606,7 +27806,7 @@ class Rcmd(object):
                 .. attribute:: protocol_id
                 
                 	Protocol id
-                	**type**\:  :py:class:`RcmdProtocolIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdProtocolIdEnum>`
+                	**type**\:   :py:class:`RcmdProtocolIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdProtocolIdEnum>`
                 
                 
 
@@ -27645,7 +27845,7 @@ class Rcmd(object):
                     .. attribute:: instance
                     
                     	Instance Information
-                    	**type**\: list of  :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Isis.Process.InstanceName.Instance>`
+                    	**type**\: list of    :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Isis.Process_.InstanceName.Instance>`
                     
                     .. attribute:: last_update_time
                     
@@ -27737,12 +27937,12 @@ class Rcmd(object):
                         .. attribute:: fwd_referenced
                         
                         	Forward Referenced
-                        	**type**\:  :py:class:`RcmdBoolYesNoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNoEnum>`
+                        	**type**\:   :py:class:`RcmdBoolYesNoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNoEnum>`
                         
                         .. attribute:: instance_deleted
                         
                         	Instance Deleted
-                        	**type**\:  :py:class:`RcmdBoolYesNoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNoEnum>`
+                        	**type**\:   :py:class:`RcmdBoolYesNoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNoEnum>`
                         
                         .. attribute:: instance_id
                         
@@ -27754,7 +27954,7 @@ class Rcmd(object):
                         .. attribute:: instance_state
                         
                         	Instance State
-                        	**type**\:  :py:class:`RcmdShowInstStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowInstStateEnum>`
+                        	**type**\:   :py:class:`RcmdShowInstStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowInstStateEnum>`
                         
                         .. attribute:: last_update_time
                         
@@ -27889,7 +28089,7 @@ class Rcmd(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-                            return meta._meta_table['Rcmd.Process.Isis.Process.InstanceName.Instance']['meta_info']
+                            return meta._meta_table['Rcmd.Process.Isis.Process_.InstanceName.Instance']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -27943,7 +28143,7 @@ class Rcmd(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-                        return meta._meta_table['Rcmd.Process.Isis.Process.InstanceName']['meta_info']
+                        return meta._meta_table['Rcmd.Process.Isis.Process_.InstanceName']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -27973,7 +28173,7 @@ class Rcmd(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-                    return meta._meta_table['Rcmd.Process.Isis.Process']['meta_info']
+                    return meta._meta_table['Rcmd.Process.Isis.Process_']['meta_info']
 
             @property
             def _common_path(self):
@@ -28007,7 +28207,7 @@ class Rcmd(object):
             .. attribute:: process
             
             	Process Information
-            	**type**\: list of  :py:class:`Process <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ospf.Process>`
+            	**type**\: list of    :py:class:`Process_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ospf.Process_>`
             
             
 
@@ -28023,14 +28223,14 @@ class Rcmd(object):
                 self.process.name = 'process'
 
 
-            class Process(object):
+            class Process_(object):
                 """
                 Process Information
                 
                 .. attribute:: instance_name
                 
                 	Instance/VRF Name
-                	**type**\: list of  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ospf.Process.InstanceName>`
+                	**type**\: list of    :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ospf.Process_.InstanceName>`
                 
                 .. attribute:: process_name
                 
@@ -28040,7 +28240,7 @@ class Rcmd(object):
                 .. attribute:: protocol_id
                 
                 	Protocol id
-                	**type**\:  :py:class:`RcmdProtocolIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdProtocolIdEnum>`
+                	**type**\:   :py:class:`RcmdProtocolIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdProtocolIdEnum>`
                 
                 
 
@@ -28079,7 +28279,7 @@ class Rcmd(object):
                     .. attribute:: instance
                     
                     	Instance Information
-                    	**type**\: list of  :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ospf.Process.InstanceName.Instance>`
+                    	**type**\: list of    :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ospf.Process_.InstanceName.Instance>`
                     
                     .. attribute:: last_update_time
                     
@@ -28171,12 +28371,12 @@ class Rcmd(object):
                         .. attribute:: fwd_referenced
                         
                         	Forward Referenced
-                        	**type**\:  :py:class:`RcmdBoolYesNoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNoEnum>`
+                        	**type**\:   :py:class:`RcmdBoolYesNoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNoEnum>`
                         
                         .. attribute:: instance_deleted
                         
                         	Instance Deleted
-                        	**type**\:  :py:class:`RcmdBoolYesNoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNoEnum>`
+                        	**type**\:   :py:class:`RcmdBoolYesNoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNoEnum>`
                         
                         .. attribute:: instance_id
                         
@@ -28188,7 +28388,7 @@ class Rcmd(object):
                         .. attribute:: instance_state
                         
                         	Instance State
-                        	**type**\:  :py:class:`RcmdShowInstStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowInstStateEnum>`
+                        	**type**\:   :py:class:`RcmdShowInstStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowInstStateEnum>`
                         
                         .. attribute:: last_update_time
                         
@@ -28323,7 +28523,7 @@ class Rcmd(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-                            return meta._meta_table['Rcmd.Process.Ospf.Process.InstanceName.Instance']['meta_info']
+                            return meta._meta_table['Rcmd.Process.Ospf.Process_.InstanceName.Instance']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -28377,7 +28577,7 @@ class Rcmd(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-                        return meta._meta_table['Rcmd.Process.Ospf.Process.InstanceName']['meta_info']
+                        return meta._meta_table['Rcmd.Process.Ospf.Process_.InstanceName']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -28407,7 +28607,7 @@ class Rcmd(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-                    return meta._meta_table['Rcmd.Process.Ospf.Process']['meta_info']
+                    return meta._meta_table['Rcmd.Process.Ospf.Process_']['meta_info']
 
             @property
             def _common_path(self):
@@ -28441,7 +28641,7 @@ class Rcmd(object):
             .. attribute:: process
             
             	Process Information
-            	**type**\: list of  :py:class:`Process <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ldp.Process>`
+            	**type**\: list of    :py:class:`Process_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ldp.Process_>`
             
             
 
@@ -28457,14 +28657,14 @@ class Rcmd(object):
                 self.process.name = 'process'
 
 
-            class Process(object):
+            class Process_(object):
                 """
                 Process Information
                 
                 .. attribute:: instance_name
                 
                 	Instance/VRF Name
-                	**type**\: list of  :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ldp.Process.InstanceName>`
+                	**type**\: list of    :py:class:`InstanceName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ldp.Process_.InstanceName>`
                 
                 .. attribute:: process_name
                 
@@ -28474,7 +28674,7 @@ class Rcmd(object):
                 .. attribute:: protocol_id
                 
                 	Protocol id
-                	**type**\:  :py:class:`RcmdProtocolIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdProtocolIdEnum>`
+                	**type**\:   :py:class:`RcmdProtocolIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdProtocolIdEnum>`
                 
                 
 
@@ -28513,7 +28713,7 @@ class Rcmd(object):
                     .. attribute:: instance
                     
                     	Instance Information
-                    	**type**\: list of  :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ldp.Process.InstanceName.Instance>`
+                    	**type**\: list of    :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.Rcmd.Process.Ldp.Process_.InstanceName.Instance>`
                     
                     .. attribute:: last_update_time
                     
@@ -28605,12 +28805,12 @@ class Rcmd(object):
                         .. attribute:: fwd_referenced
                         
                         	Forward Referenced
-                        	**type**\:  :py:class:`RcmdBoolYesNoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNoEnum>`
+                        	**type**\:   :py:class:`RcmdBoolYesNoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNoEnum>`
                         
                         .. attribute:: instance_deleted
                         
                         	Instance Deleted
-                        	**type**\:  :py:class:`RcmdBoolYesNoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNoEnum>`
+                        	**type**\:   :py:class:`RcmdBoolYesNoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdBoolYesNoEnum>`
                         
                         .. attribute:: instance_id
                         
@@ -28622,7 +28822,7 @@ class Rcmd(object):
                         .. attribute:: instance_state
                         
                         	Instance State
-                        	**type**\:  :py:class:`RcmdShowInstStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowInstStateEnum>`
+                        	**type**\:   :py:class:`RcmdShowInstStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper.RcmdShowInstStateEnum>`
                         
                         .. attribute:: last_update_time
                         
@@ -28757,7 +28957,7 @@ class Rcmd(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-                            return meta._meta_table['Rcmd.Process.Ldp.Process.InstanceName.Instance']['meta_info']
+                            return meta._meta_table['Rcmd.Process.Ldp.Process_.InstanceName.Instance']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -28811,7 +29011,7 @@ class Rcmd(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-                        return meta._meta_table['Rcmd.Process.Ldp.Process.InstanceName']['meta_info']
+                        return meta._meta_table['Rcmd.Process.Ldp.Process_.InstanceName']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -28841,7 +29041,7 @@ class Rcmd(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rcmd_oper as meta
-                    return meta._meta_table['Rcmd.Process.Ldp.Process']['meta_info']
+                    return meta._meta_table['Rcmd.Process.Ldp.Process_']['meta_info']
 
             @property
             def _common_path(self):

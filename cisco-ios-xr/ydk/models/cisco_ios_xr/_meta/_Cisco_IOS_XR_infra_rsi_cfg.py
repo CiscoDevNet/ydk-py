@@ -16,22 +16,22 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'VrfAddressFamilyEnum' : _MetaInfoEnum('VrfAddressFamilyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg',
         {
-            'ipv4':'IPV4',
-            'ipv6':'IPV6',
+            'ipv4':'ipv4',
+            'ipv6':'ipv6',
         }, 'Cisco-IOS-XR-infra-rsi-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-rsi-cfg']),
     'SrlgPriorityEnum' : _MetaInfoEnum('SrlgPriorityEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg',
         {
-            'critical':'CRITICAL',
-            'high':'HIGH',
-            'default':'DEFAULT',
-            'low':'LOW',
-            'very-low':'VERY_LOW',
+            'critical':'critical',
+            'high':'high',
+            'default':'default',
+            'low':'low',
+            'very-low':'very_low',
         }, 'Cisco-IOS-XR-infra-rsi-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-rsi-cfg']),
     'VrfSubAddressFamilyEnum' : _MetaInfoEnum('VrfSubAddressFamilyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg',
         {
-            'unicast':'UNICAST',
-            'multicast':'MULTICAST',
-            'flow-spec':'FLOW_SPEC',
+            'unicast':'unicast',
+            'multicast':'multicast',
+            'flow-spec':'flow_spec',
         }, 'Cisco-IOS-XR-infra-rsi-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-rsi-cfg']),
     'Vrfs.Vrf.VpnId' : {
         'meta_info' : _MetaInfoClass('Vrfs.Vrf.VpnId',
@@ -53,6 +53,29 @@ _meta_table = {
             'Cisco-IOS-XR-infra-rsi-cfg',
             'vpn-id',
             _yang_ns._namespaces['Cisco-IOS-XR-infra-rsi-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg'
+        ),
+    },
+    'Vrfs.Vrf.Afs.Af.MaximumPrefix' : {
+        'meta_info' : _MetaInfoClass('Vrfs.Vrf.Afs.Af.MaximumPrefix',
+            False, 
+            [
+            _MetaInfoClassMember('mid-threshold', ATTRIBUTE, 'int' , None, None, 
+                [('1', '100')], [], 
+                '''                Mid-threshold (% of maximum)
+                ''',
+                'mid_threshold',
+                'Cisco-IOS-XR-ip-rib-cfg', False),
+            _MetaInfoClassMember('prefix-limit', ATTRIBUTE, 'int' , None, None, 
+                [('32', '5000000')], [], 
+                '''                Set table's maximum prefix limit
+                ''',
+                'prefix_limit',
+                'Cisco-IOS-XR-ip-rib-cfg', False),
+            ],
+            'Cisco-IOS-XR-ip-rib-cfg',
+            'maximum-prefix',
+            _yang_ns._namespaces['Cisco-IOS-XR-ip-rib-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg'
         ),
     },
@@ -314,10 +337,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vrfs.Vrf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy',
             False, 
             [
-            _MetaInfoClassMember('allow-imported-vpn', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('allow-imported-vpn', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Enable imported VPN paths to be exported to
-                Default VRF
+                '''                TRUE Enable imported VPN paths to be exported
+                to Default VRF.FALSE Disable imported VPN
+                paths to be exported to Default VRF.
                 ''',
                 'allow_imported_vpn',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
@@ -334,26 +358,29 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg'
         ),
     },
-    'Vrfs.Vrf.Afs.Af.Bgp.ExportAllowImportedVpn' : {
-        'meta_info' : _MetaInfoClass('Vrfs.Vrf.Afs.Af.Bgp.ExportAllowImportedVpn',
+    'Vrfs.Vrf.Afs.Af.Bgp.ExportVrfOptions' : {
+        'meta_info' : _MetaInfoClass('Vrfs.Vrf.Afs.Af.Bgp.ExportVrfOptions',
             False, 
             [
-            _MetaInfoClassMember('allow-imported-vpn', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('allow-imported-vpn', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Enable imported VPN paths to be exported to
-                non-default VRF
+                '''                TRUE Enable imported VPN paths to be exported
+                to non-default VRFFALSE Disable imported VPN
+                paths to be exported to non-default VRF
                 ''',
                 'allow_imported_vpn',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
-            _MetaInfoClassMember('import-stitching-rt', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('import-stitching-rt', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Use stitchng RTs to import extranet paths
+                '''                TRUE Use stitchng RTs to import extranet
+                pathsFALSE Use regular RTs to import extranet
+                paths
                 ''',
                 'import_stitching_rt',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-bgp-cfg',
-            'export-allow-imported-vpn',
+            'export-vrf-options',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv4-bgp-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg'
         ),
@@ -362,9 +389,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vrfs.Vrf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy',
             False, 
             [
-            _MetaInfoClassMember('advertise-as-vpn', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('advertise-as-vpn', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                Enable advertising imported paths to PEs
+                '''                TRUE Enable advertising imported paths to
+                PEsFALSE Disable advertising imported paths to
+                PEs
                 ''',
                 'advertise_as_vpn',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
@@ -385,13 +414,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Vrfs.Vrf.Afs.Af.Bgp',
             False, 
             [
-            _MetaInfoClassMember('export-allow-imported-vpn', REFERENCE_CLASS, 'ExportAllowImportedVpn' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg', 'Vrfs.Vrf.Afs.Af.Bgp.ExportAllowImportedVpn', 
-                [], [], 
-                '''                Allow export of imported paths to non-default
-                VRF
-                ''',
-                'export_allow_imported_vpn',
-                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('export-route-policy', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Route policy for export filtering
@@ -403,6 +425,12 @@ _meta_table = {
                 '''                Export Route targets
                 ''',
                 'export_route_targets',
+                'Cisco-IOS-XR-ipv4-bgp-cfg', False),
+            _MetaInfoClassMember('export-vrf-options', REFERENCE_CLASS, 'ExportVrfOptions' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg', 'Vrfs.Vrf.Afs.Af.Bgp.ExportVrfOptions', 
+                [], [], 
+                '''                Export VRF options
+                ''',
+                'export_vrf_options',
                 'Cisco-IOS-XR-ipv4-bgp-cfg', False),
             _MetaInfoClassMember('global-to-vrf-import-route-policy', REFERENCE_CLASS, 'GlobalToVrfImportRoutePolicy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg', 'Vrfs.Vrf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy', 
                 [], [], 
@@ -470,6 +498,12 @@ _meta_table = {
                 ''',
                 'create',
                 'Cisco-IOS-XR-infra-rsi-cfg', False),
+            _MetaInfoClassMember('maximum-prefix', REFERENCE_CLASS, 'MaximumPrefix' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg', 'Vrfs.Vrf.Afs.Af.MaximumPrefix', 
+                [], [], 
+                '''                Set maximum prefix limits
+                ''',
+                'maximum_prefix',
+                'Cisco-IOS-XR-ip-rib-cfg', False),
             ],
             'Cisco-IOS-XR-infra-rsi-cfg',
             'af',
@@ -491,6 +525,63 @@ _meta_table = {
             'Cisco-IOS-XR-infra-rsi-cfg',
             'afs',
             _yang_ns._namespaces['Cisco-IOS-XR-infra-rsi-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg'
+        ),
+    },
+    'Vrfs.Vrf.MulticastHost.Ipv4' : {
+        'meta_info' : _MetaInfoClass('Vrfs.Vrf.MulticastHost.Ipv4',
+            False, 
+            [
+            _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Default multicast host interface name
+                ''',
+                'interface',
+                'Cisco-IOS-XR-ip-iarm-vrf-cfg', False),
+            ],
+            'Cisco-IOS-XR-ip-iarm-vrf-cfg',
+            'ipv4',
+            _yang_ns._namespaces['Cisco-IOS-XR-ip-iarm-vrf-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg'
+        ),
+    },
+    'Vrfs.Vrf.MulticastHost.Ipv6' : {
+        'meta_info' : _MetaInfoClass('Vrfs.Vrf.MulticastHost.Ipv6',
+            False, 
+            [
+            _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Default multicast host interface name
+                ''',
+                'interface',
+                'Cisco-IOS-XR-ip-iarm-vrf-cfg', False),
+            ],
+            'Cisco-IOS-XR-ip-iarm-vrf-cfg',
+            'ipv6',
+            _yang_ns._namespaces['Cisco-IOS-XR-ip-iarm-vrf-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg'
+        ),
+    },
+    'Vrfs.Vrf.MulticastHost' : {
+        'meta_info' : _MetaInfoClass('Vrfs.Vrf.MulticastHost',
+            False, 
+            [
+            _MetaInfoClassMember('ipv4', REFERENCE_CLASS, 'Ipv4' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg', 'Vrfs.Vrf.MulticastHost.Ipv4', 
+                [], [], 
+                '''                IPv4 configuration
+                ''',
+                'ipv4',
+                'Cisco-IOS-XR-ip-iarm-vrf-cfg', False),
+            _MetaInfoClassMember('ipv6', REFERENCE_CLASS, 'Ipv6' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg', 'Vrfs.Vrf.MulticastHost.Ipv6', 
+                [], [], 
+                '''                IPv6 configuration
+                ''',
+                'ipv6',
+                'Cisco-IOS-XR-ip-iarm-vrf-cfg', False),
+            ],
+            'Cisco-IOS-XR-ip-iarm-vrf-cfg',
+            'multicast-host',
+            _yang_ns._namespaces['Cisco-IOS-XR-ip-iarm-vrf-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg'
         ),
     },
@@ -534,6 +625,12 @@ _meta_table = {
                 ''',
                 'mode_big',
                 'Cisco-IOS-XR-infra-rsi-cfg', False),
+            _MetaInfoClassMember('multicast-host', REFERENCE_CLASS, 'MulticastHost' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg', 'Vrfs.Vrf.MulticastHost', 
+                [], [], 
+                '''                Multicast host stack configuration
+                ''',
+                'multicast_host',
+                'Cisco-IOS-XR-ip-iarm-vrf-cfg', False),
             _MetaInfoClassMember('remote-route-filter-disable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                For disabling remote route filtering for this
@@ -1252,12 +1349,16 @@ _meta_table['Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets']['meta_info'].
 _meta_table['Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets']['meta_info'].parent =_meta_table['Vrfs.Vrf.Afs.Af.Bgp']['meta_info']
 _meta_table['Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets']['meta_info'].parent =_meta_table['Vrfs.Vrf.Afs.Af.Bgp']['meta_info']
 _meta_table['Vrfs.Vrf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy']['meta_info'].parent =_meta_table['Vrfs.Vrf.Afs.Af.Bgp']['meta_info']
-_meta_table['Vrfs.Vrf.Afs.Af.Bgp.ExportAllowImportedVpn']['meta_info'].parent =_meta_table['Vrfs.Vrf.Afs.Af.Bgp']['meta_info']
+_meta_table['Vrfs.Vrf.Afs.Af.Bgp.ExportVrfOptions']['meta_info'].parent =_meta_table['Vrfs.Vrf.Afs.Af.Bgp']['meta_info']
 _meta_table['Vrfs.Vrf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy']['meta_info'].parent =_meta_table['Vrfs.Vrf.Afs.Af.Bgp']['meta_info']
+_meta_table['Vrfs.Vrf.Afs.Af.MaximumPrefix']['meta_info'].parent =_meta_table['Vrfs.Vrf.Afs.Af']['meta_info']
 _meta_table['Vrfs.Vrf.Afs.Af.Bgp']['meta_info'].parent =_meta_table['Vrfs.Vrf.Afs.Af']['meta_info']
 _meta_table['Vrfs.Vrf.Afs.Af']['meta_info'].parent =_meta_table['Vrfs.Vrf.Afs']['meta_info']
+_meta_table['Vrfs.Vrf.MulticastHost.Ipv4']['meta_info'].parent =_meta_table['Vrfs.Vrf.MulticastHost']['meta_info']
+_meta_table['Vrfs.Vrf.MulticastHost.Ipv6']['meta_info'].parent =_meta_table['Vrfs.Vrf.MulticastHost']['meta_info']
 _meta_table['Vrfs.Vrf.VpnId']['meta_info'].parent =_meta_table['Vrfs.Vrf']['meta_info']
 _meta_table['Vrfs.Vrf.Afs']['meta_info'].parent =_meta_table['Vrfs.Vrf']['meta_info']
+_meta_table['Vrfs.Vrf.MulticastHost']['meta_info'].parent =_meta_table['Vrfs.Vrf']['meta_info']
 _meta_table['Vrfs.Vrf']['meta_info'].parent =_meta_table['Vrfs']['meta_info']
 _meta_table['GlobalAf.Afs.Af']['meta_info'].parent =_meta_table['GlobalAf.Afs']['meta_info']
 _meta_table['GlobalAf.Afs']['meta_info'].parent =_meta_table['GlobalAf']['meta_info']

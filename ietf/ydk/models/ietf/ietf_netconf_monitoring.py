@@ -37,19 +37,19 @@ class NetconfDatastoreTypeEnum(Enum):
 
     Enumeration of possible NETCONF datastore types.
 
-    .. data:: RUNNING = 0
+    .. data:: running = 0
 
-    .. data:: CANDIDATE = 1
+    .. data:: candidate = 1
 
-    .. data:: STARTUP = 2
+    .. data:: startup = 2
 
     """
 
-    RUNNING = 0
+    running = 0
 
-    CANDIDATE = 1
+    candidate = 1
 
-    STARTUP = 2
+    startup = 2
 
 
     @staticmethod
@@ -107,27 +107,27 @@ class NetconfState(object):
     .. attribute:: capabilities
     
     	Contains the list of NETCONF capabilities supported by the server
-    	**type**\:  :py:class:`Capabilities <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Capabilities>`
+    	**type**\:   :py:class:`Capabilities <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Capabilities>`
     
     .. attribute:: datastores
     
     	Contains the list of NETCONF configuration datastores
-    	**type**\:  :py:class:`Datastores <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Datastores>`
+    	**type**\:   :py:class:`Datastores <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Datastores>`
     
     .. attribute:: schemas
     
     	Contains the list of data model schemas supported by the server
-    	**type**\:  :py:class:`Schemas <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Schemas>`
+    	**type**\:   :py:class:`Schemas <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Schemas>`
     
     .. attribute:: sessions
     
     	The sessions container includes session\-specific data for NETCONF management sessions.  The session list MUST include all currently active NETCONF sessions
-    	**type**\:  :py:class:`Sessions <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Sessions>`
+    	**type**\:   :py:class:`Sessions <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Sessions>`
     
     .. attribute:: statistics
     
     	Statistical data pertaining to the NETCONF server
-    	**type**\:  :py:class:`Statistics <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Statistics>`
+    	**type**\:   :py:class:`Statistics <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Statistics>`
     
     
 
@@ -204,7 +204,7 @@ class NetconfState(object):
         .. attribute:: datastore
         
         	List of NETCONF configuration datastores supported by the NETCONF server and related information
-        	**type**\: list of  :py:class:`Datastore <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Datastores.Datastore>`
+        	**type**\: list of    :py:class:`Datastore <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Datastores.Datastore>`
         
         
 
@@ -228,12 +228,14 @@ class NetconfState(object):
             .. attribute:: name  <key>
             
             	Name of the datastore associated with this list entry
-            	**type**\:  :py:class:`NetconfDatastoreTypeEnum <ydk.models.ietf.ietf_netconf_monitoring.NetconfDatastoreTypeEnum>`
+            	**type**\:   :py:class:`NetconfDatastoreTypeEnum <ydk.models.ietf.ietf_netconf_monitoring.NetconfDatastoreTypeEnum>`
             
             .. attribute:: locks
             
             	The NETCONF <lock> and <partial\-lock> operations allow a client to lock specific resources in a datastore.  The NETCONF server will prevent changes to the locked resources by all sessions except the one that acquired the lock(s).  Monitoring information is provided for each datastore entry including details such as the session that acquired the lock, the type of lock (global or partial) and the list of locked resources.  Multiple locks per datastore are supported
-            	**type**\:  :py:class:`Locks <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Datastores.Datastore.Locks>`
+            	**type**\:   :py:class:`Locks <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Datastores.Datastore.Locks>`
+            
+            	**presence node**\: True
             
             
 
@@ -265,12 +267,12 @@ class NetconfState(object):
                 .. attribute:: global_lock
                 
                 	Present if the global lock is set
-                	**type**\:  :py:class:`GlobalLock <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Datastores.Datastore.Locks.GlobalLock>`
+                	**type**\:   :py:class:`GlobalLock <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Datastores.Datastore.Locks.GlobalLock>`
                 
                 .. attribute:: partial_lock
                 
                 	List of partial locks
-                	**type**\: list of  :py:class:`PartialLock <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Datastores.Datastore.Locks.PartialLock>`
+                	**type**\: list of    :py:class:`PartialLock <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Datastores.Datastore.Locks.PartialLock>`
                 
                 .. attribute:: _is_presence
                 
@@ -549,7 +551,7 @@ class NetconfState(object):
         .. attribute:: schema
         
         	List of data model schemas supported by the server
-        	**type**\: list of  :py:class:`Schema <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Schemas.Schema>`
+        	**type**\: list of    :py:class:`Schema <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Schemas.Schema>`
         
         
 
@@ -572,7 +574,7 @@ class NetconfState(object):
             .. attribute:: format  <key>
             
             	The data modeling language the schema is written in (currently xsd, yang, yin, rng, or rnc).  For YANG data models, 'yang' format MUST be supported and 'yin' format MAY also be provided
-            	**type**\:  :py:class:`SchemaFormatIdentity <ydk.models.ietf.ietf_netconf_monitoring.SchemaFormatIdentity>`
+            	**type**\:   :py:class:`SchemaFormatIdentity <ydk.models.ietf.ietf_netconf_monitoring.SchemaFormatIdentity>`
             
             .. attribute:: identifier  <key>
             
@@ -589,7 +591,7 @@ class NetconfState(object):
             	One or more locations from which the schema can be retrieved.  This list SHOULD contain at least one entry per schema.  A schema entry may be located on a remote file system (e.g., reference to file system for ftp retrieval) or retrieved directly from a server supporting the <get\-schema> operation (denoted by the value 'NETCONF')
             	**type**\: one of the below types:
             
-            	**type**\:  list of :py:class:`LocationEnum <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Schemas.Schema.LocationEnum>`
+            	**type**\:  list of   :py:class:`LocationEnum <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Schemas.Schema.LocationEnum>`
             
             
             ----
@@ -728,7 +730,7 @@ class NetconfState(object):
         .. attribute:: session
         
         	All NETCONF sessions managed by the NETCONF server MUST be reported in this list
-        	**type**\: list of  :py:class:`Session <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Sessions.Session>`
+        	**type**\: list of    :py:class:`Session <ydk.models.ietf.ietf_netconf_monitoring.NetconfState.Sessions.Session>`
         
         
 
@@ -821,7 +823,7 @@ class NetconfState(object):
             .. attribute:: transport
             
             	Identifies the transport for each session, e.g., 'netconf\-ssh', 'netconf\-soap', etc
-            	**type**\:  :py:class:`TransportIdentity <ydk.models.ietf.ietf_netconf_monitoring.TransportIdentity>`
+            	**type**\:   :py:class:`TransportIdentity <ydk.models.ietf.ietf_netconf_monitoring.TransportIdentity>`
             
             	**mandatory**\: True
             
@@ -1099,12 +1101,12 @@ class GetSchemaRpc(object):
     .. attribute:: input
     
     	
-    	**type**\:  :py:class:`Input <ydk.models.ietf.ietf_netconf_monitoring.GetSchemaRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf_monitoring.GetSchemaRpc.Input>`
     
     .. attribute:: output
     
     	
-    	**type**\:  :py:class:`Output <ydk.models.ietf.ietf_netconf_monitoring.GetSchemaRpc.Output>`
+    	**type**\:   :py:class:`Output <ydk.models.ietf.ietf_netconf_monitoring.GetSchemaRpc.Output>`
     
     
 
@@ -1129,7 +1131,7 @@ class GetSchemaRpc(object):
         .. attribute:: format
         
         	The data modeling language of the schema.  If this parameter is not present, and more than one formats of the schema exists on the server, a 'data\-not\-unique' error is returned, as described above
-        	**type**\:  :py:class:`SchemaFormatIdentity <ydk.models.ietf.ietf_netconf_monitoring.SchemaFormatIdentity>`
+        	**type**\:   :py:class:`SchemaFormatIdentity <ydk.models.ietf.ietf_netconf_monitoring.SchemaFormatIdentity>`
         
         .. attribute:: identifier
         

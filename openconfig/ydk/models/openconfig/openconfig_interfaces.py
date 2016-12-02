@@ -30,7 +30,7 @@ class Interfaces(object):
     .. attribute:: interface
     
     	The list of named interfaces on the device
-    	**type**\: list of  :py:class:`Interface <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+    	**type**\: list of    :py:class:`Interface <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
     
     
 
@@ -54,42 +54,44 @@ class Interfaces(object):
         	References the configured name of the interface
         	**type**\:  str
         
-        	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Config>`
+        	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Config>`
         
         .. attribute:: aggregation
         
         	Options for logical interfaces representing aggregates
-        	**type**\:  :py:class:`Aggregation <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation>`
+        	**type**\:   :py:class:`Aggregation <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation>`
+        
+        	**presence node**\: True
         
         .. attribute:: config
         
         	Configurable items at the global, physical interface level
-        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Config>`
+        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Config>`
         
         .. attribute:: ethernet
         
         	Top\-level container for ethernet configuration and state
-        	**type**\:  :py:class:`Ethernet <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Ethernet>`
+        	**type**\:   :py:class:`Ethernet <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Ethernet>`
         
         .. attribute:: hold_time
         
         	Top\-level container for hold\-time settings to enable dampening advertisements of interface transitions
-        	**type**\:  :py:class:`HoldTime <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.HoldTime>`
+        	**type**\:   :py:class:`HoldTime <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.HoldTime>`
         
         .. attribute:: routed_vlan
         
         	Top\-level container for routed vlan interfaces.  These logical interfaces are also known as SVI (switched virtual interface), IRB (integrated routing and bridging), RVI (routed VLAN interface)
-        	**type**\:  :py:class:`RoutedVlan <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan>`
+        	**type**\:   :py:class:`RoutedVlan <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan>`
         
         .. attribute:: state
         
         	Operational state data at the global interface level
-        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.State>`
+        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.State>`
         
         .. attribute:: subinterfaces
         
         	Enclosing container for the list of subinterfaces associated with a physical interface
-        	**type**\:  :py:class:`Subinterfaces <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces>`
+        	**type**\:   :py:class:`Subinterfaces <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces>`
         
         
 
@@ -131,6 +133,8 @@ class Interfaces(object):
             	[adapted from IETF interfaces model (RFC 7223)]  This leaf contains the configured, desired state of the interface.  Systems that implement the IF\-MIB use the value of this leaf in the 'running' datastore to set IF\-MIB.ifAdminStatus to 'up' or 'down' after an ifEntry has been initialized, as described in RFC 2863.  Changes in this leaf in the 'running' datastore are reflected in ifAdminStatus, but if ifAdminStatus is changed over SNMP, this leaf is not affected
             	**type**\:  bool
             
+            	**default value**\: true
+            
             .. attribute:: mtu
             
             	Set the max transmission unit size in octets for the physical interface.  If this is not set, the mtu is set to the operational default \-\- e.g., 1514 bytes on an Ethernet interface
@@ -146,7 +150,7 @@ class Interfaces(object):
             .. attribute:: type
             
             	[adapted from IETF interfaces model (RFC 7223)]  The type of the interface.  When an interface entry is created, a server MAY initialize the type leaf with a valid value, e.g., if it is possible to derive the type from the name of the interface.  If a client tries to set the type of an interface to a value that can never be used by the system, e.g., if the type is not supported or if the type does not match the name of the interface, the server MUST reject the request. A NETCONF server MUST reply with an rpc\-error with the error\-tag 'invalid\-value' in this case
-            	**type**\:  :py:class:`InterfaceTypeIdentity <ydk.models.ietf.ietf_interfaces.InterfaceTypeIdentity>`
+            	**type**\:   :py:class:`InterfaceTypeIdentity <ydk.models.ietf.ietf_interfaces.InterfaceTypeIdentity>`
             
             	**mandatory**\: True
             
@@ -209,14 +213,14 @@ class Interfaces(object):
             .. attribute:: admin_status
             
             	[adapted from IETF interfaces model (RFC 7223)]  The desired state of the interface.  In RFC 7223 this leaf has the same read semantics as ifAdminStatus.  Here, it reflects the administrative state as set by enabling or disabling the interface
-            	**type**\:  :py:class:`AdminStatusEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.State.AdminStatusEnum>`
+            	**type**\:   :py:class:`AdminStatusEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.State.AdminStatusEnum>`
             
             	**mandatory**\: True
             
             .. attribute:: counters
             
             	A collection of interface\-related statistics objects
-            	**type**\:  :py:class:`Counters <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.State.Counters>`
+            	**type**\:   :py:class:`Counters <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.State.Counters>`
             
             .. attribute:: description
             
@@ -228,12 +232,14 @@ class Interfaces(object):
             	[adapted from IETF interfaces model (RFC 7223)]  This leaf contains the configured, desired state of the interface.  Systems that implement the IF\-MIB use the value of this leaf in the 'running' datastore to set IF\-MIB.ifAdminStatus to 'up' or 'down' after an ifEntry has been initialized, as described in RFC 2863.  Changes in this leaf in the 'running' datastore are reflected in ifAdminStatus, but if ifAdminStatus is changed over SNMP, this leaf is not affected
             	**type**\:  bool
             
+            	**default value**\: true
+            
             .. attribute:: hardware_port
             
             	References the hardware port in the device inventory
             	**type**\:  str
             
-            	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
+            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_platform.Components.Component>`
             
             .. attribute:: ifindex
             
@@ -264,14 +270,14 @@ class Interfaces(object):
             .. attribute:: oper_status
             
             	[adapted from IETF interfaces model (RFC 7223)]  The current operational state of the interface.  This leaf has the same semantics as ifOperStatus
-            	**type**\:  :py:class:`OperStatusEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.State.OperStatusEnum>`
+            	**type**\:   :py:class:`OperStatusEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.State.OperStatusEnum>`
             
             	**mandatory**\: True
             
             .. attribute:: type
             
             	[adapted from IETF interfaces model (RFC 7223)]  The type of the interface.  When an interface entry is created, a server MAY initialize the type leaf with a valid value, e.g., if it is possible to derive the type from the name of the interface.  If a client tries to set the type of an interface to a value that can never be used by the system, e.g., if the type is not supported or if the type does not match the name of the interface, the server MUST reject the request. A NETCONF server MUST reply with an rpc\-error with the error\-tag 'invalid\-value' in this case
-            	**type**\:  :py:class:`InterfaceTypeIdentity <ydk.models.ietf.ietf_interfaces.InterfaceTypeIdentity>`
+            	**type**\:   :py:class:`InterfaceTypeIdentity <ydk.models.ietf.ietf_interfaces.InterfaceTypeIdentity>`
             
             	**mandatory**\: True
             
@@ -654,12 +660,12 @@ class Interfaces(object):
             .. attribute:: config
             
             	Configuration data for interface hold\-time settings
-            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.HoldTime.Config>`
+            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.HoldTime.Config>`
             
             .. attribute:: state
             
             	Operational state data for interface hold\-time
-            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.HoldTime.State>`
+            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.HoldTime.State>`
             
             
 
@@ -687,12 +693,20 @@ class Interfaces(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: milliseconds
+                
+                	**default value**\: 0
+                
                 .. attribute:: up
                 
                 	Dampens advertisement when the interface transitions from down to up.  A zero value means dampening is turned off, i.e., immediate notification
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: milliseconds
+                
+                	**default value**\: 0
                 
                 
 
@@ -745,12 +759,20 @@ class Interfaces(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: milliseconds
+                
+                	**default value**\: 0
+                
                 .. attribute:: up
                 
                 	Dampens advertisement when the interface transitions from down to up.  A zero value means dampening is turned off, i.e., immediate notification
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: milliseconds
+                
+                	**default value**\: 0
                 
                 
 
@@ -827,7 +849,7 @@ class Interfaces(object):
             .. attribute:: subinterface
             
             	The list of subinterfaces (logical interfaces) associated with a physical interface
-            	**type**\: list of  :py:class:`Subinterface <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface>`
+            	**type**\: list of    :py:class:`Subinterface <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface>`
             
             
 
@@ -855,32 +877,36 @@ class Interfaces(object):
                 
                 	**range:** 0..4294967295
                 
-                	**refers to**\: :py:class:`index <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Config>`
+                	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Config>`
                 
                 .. attribute:: config
                 
                 	Configurable items at the subinterface level
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Config>`
                 
                 .. attribute:: ipv4
                 
                 	Parameters for the IPv4 address family
-                	**type**\:  :py:class:`Ipv4 <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4>`
+                	**type**\:   :py:class:`Ipv4 <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4>`
+                
+                	**presence node**\: True
                 
                 .. attribute:: ipv6
                 
                 	Parameters for the IPv6 address family
-                	**type**\:  :py:class:`Ipv6 <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6>`
+                	**type**\:   :py:class:`Ipv6 <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6>`
+                
+                	**presence node**\: True
                 
                 .. attribute:: state
                 
                 	Operational state data for logical interfaces
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.State>`
                 
                 .. attribute:: vlan
                 
                 	Enclosing container for VLAN interface\-specific data on subinterfaces
-                	**type**\:  :py:class:`Vlan <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Vlan>`
+                	**type**\:   :py:class:`Vlan <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Vlan>`
                 
                 
 
@@ -916,12 +942,16 @@ class Interfaces(object):
                     	[adapted from IETF interfaces model (RFC 7223)]  This leaf contains the configured, desired state of the interface.  Systems that implement the IF\-MIB use the value of this leaf in the 'running' datastore to set IF\-MIB.ifAdminStatus to 'up' or 'down' after an ifEntry has been initialized, as described in RFC 2863.  Changes in this leaf in the 'running' datastore are reflected in ifAdminStatus, but if ifAdminStatus is changed over SNMP, this leaf is not affected
                     	**type**\:  bool
                     
+                    	**default value**\: true
+                    
                     .. attribute:: index
                     
                     	The index of the subinterface, or logical interface number. On systems with no support for subinterfaces, or not using subinterfaces, this value should default to 0, i.e., the default subinterface
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**default value**\: 0
                     
                     .. attribute:: name
                     
@@ -935,7 +965,9 @@ class Interfaces(object):
                     
                     	**range:** 0..4294967295
                     
-                    	**refers to**\: :py:class:`index <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface>`
+                    	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface>`
+                    
+                    	**default value**\: false
                     
                     
 
@@ -996,14 +1028,14 @@ class Interfaces(object):
                     .. attribute:: admin_status
                     
                     	[adapted from IETF interfaces model (RFC 7223)]  The desired state of the interface.  In RFC 7223 this leaf has the same read semantics as ifAdminStatus.  Here, it reflects the administrative state as set by enabling or disabling the interface
-                    	**type**\:  :py:class:`AdminStatusEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.State.AdminStatusEnum>`
+                    	**type**\:   :py:class:`AdminStatusEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.State.AdminStatusEnum>`
                     
                     	**mandatory**\: True
                     
                     .. attribute:: counters
                     
                     	A collection of interface\-related statistics objects
-                    	**type**\:  :py:class:`Counters <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.State.Counters>`
+                    	**type**\:   :py:class:`Counters <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.State.Counters>`
                     
                     .. attribute:: description
                     
@@ -1014,6 +1046,8 @@ class Interfaces(object):
                     
                     	[adapted from IETF interfaces model (RFC 7223)]  This leaf contains the configured, desired state of the interface.  Systems that implement the IF\-MIB use the value of this leaf in the 'running' datastore to set IF\-MIB.ifAdminStatus to 'up' or 'down' after an ifEntry has been initialized, as described in RFC 2863.  Changes in this leaf in the 'running' datastore are reflected in ifAdminStatus, but if ifAdminStatus is changed over SNMP, this leaf is not affected
                     	**type**\:  bool
+                    
+                    	**default value**\: true
                     
                     .. attribute:: ifindex
                     
@@ -1028,6 +1062,8 @@ class Interfaces(object):
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**default value**\: 0
                     
                     .. attribute:: last_change
                     
@@ -1044,7 +1080,7 @@ class Interfaces(object):
                     .. attribute:: oper_status
                     
                     	[adapted from IETF interfaces model (RFC 7223)]  The current operational state of the interface.  This leaf has the same semantics as ifOperStatus
-                    	**type**\:  :py:class:`OperStatusEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.State.OperStatusEnum>`
+                    	**type**\:   :py:class:`OperStatusEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.State.OperStatusEnum>`
                     
                     	**mandatory**\: True
                     
@@ -1055,7 +1091,9 @@ class Interfaces(object):
                     
                     	**range:** 0..4294967295
                     
-                    	**refers to**\: :py:class:`index <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface>`
+                    	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface>`
+                    
+                    	**default value**\: false
                     
                     
 
@@ -1432,12 +1470,12 @@ class Interfaces(object):
                     .. attribute:: config
                     
                     	Configuration parameters for VLANs
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Vlan.Config>`
+                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Vlan.Config>`
                     
                     .. attribute:: state
                     
                     	State variables for VLANs
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Vlan.State>`
+                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Vlan.State>`
                     
                     
 
@@ -1640,22 +1678,22 @@ class Interfaces(object):
                     .. attribute:: address
                     
                     	The list of configured IPv4 addresses on the interface
-                    	**type**\: list of  :py:class:`Address <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address>`
+                    	**type**\: list of    :py:class:`Address <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address>`
                     
                     .. attribute:: config
                     
                     	Top\-level IPv4 configuration data for the interface
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Config>`
+                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Config>`
                     
                     .. attribute:: neighbor
                     
                     	A list of mappings from IPv4 addresses to link\-layer addresses.  Entries in this list are used as static entries in the ARP Cache
-                    	**type**\: list of  :py:class:`Neighbor <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbor>`
+                    	**type**\: list of    :py:class:`Neighbor <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbor>`
                     
                     .. attribute:: state
                     
                     	Top level IPv4 operational state data
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.State>`
+                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.State>`
                     
                     .. attribute:: _is_presence
                     
@@ -1697,22 +1735,22 @@ class Interfaces(object):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        	**refers to**\: :py:class:`ip <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Config>`
+                        	**refers to**\:  :py:class:`ip <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Config>`
                         
                         .. attribute:: config
                         
                         	Configuration data for each configured IPv4 address on the interface
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Config>`
                         
                         .. attribute:: state
                         
                         	Operational state data for each IPv4 address configured on the interface
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.State>`
                         
                         .. attribute:: vrrp
                         
                         	Enclosing container for VRRP groups handled by this IP interface
-                        	**type**\:  :py:class:`Vrrp <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp>`
+                        	**type**\:   :py:class:`Vrrp <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp>`
                         
                         
 
@@ -1806,7 +1844,7 @@ class Interfaces(object):
                             .. attribute:: origin
                             
                             	The origin of this address, e.g., statically configured, assigned by DHCP, etc.
-                            	**type**\:  :py:class:`IpAddressOriginEnum <ydk.models.openconfig.openconfig_if_ip.IpAddressOriginEnum>`
+                            	**type**\:   :py:class:`IpAddressOriginEnum <ydk.models.openconfig.openconfig_if_ip.IpAddressOriginEnum>`
                             
                             .. attribute:: prefix_length
                             
@@ -1867,7 +1905,7 @@ class Interfaces(object):
                             .. attribute:: vrrp_group
                             
                             	List of VRRP groups, keyed by virtual router id
-                            	**type**\: list of  :py:class:`VrrpGroup <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup>`
+                            	**type**\: list of    :py:class:`VrrpGroup <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup>`
                             
                             
 
@@ -1894,22 +1932,22 @@ class Interfaces(object):
                                 
                                 	**range:** 1..255
                                 
-                                	**refers to**\: :py:class:`virtual_router_id <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup.Config>`
+                                	**refers to**\:  :py:class:`virtual_router_id <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup.Config>`
                                 
                                 .. attribute:: config
                                 
                                 	Configuration data for the VRRP group
-                                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup.Config>`
+                                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup.Config>`
                                 
                                 .. attribute:: interface_tracking
                                 
                                 	Top\-level container for VRRP interface tracking
-                                	**type**\:  :py:class:`InterfaceTracking <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup.InterfaceTracking>`
+                                	**type**\:   :py:class:`InterfaceTracking <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup.InterfaceTracking>`
                                 
                                 .. attribute:: state
                                 
                                 	Operational state data for the VRRP group
-                                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup.State>`
+                                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup.State>`
                                 
                                 
 
@@ -1938,6 +1976,8 @@ class Interfaces(object):
                                     	Configure whether packets destined for virtual addresses are accepted even when the virtual address is not owned by the router interface
                                     	**type**\:  bool
                                     
+                                    	**default value**\: false
+                                    
                                     .. attribute:: advertisement_interval
                                     
                                     	Sets the interval between successive VRRP advertisements \-\- RFC 5798 defines this as a 12\-bit value expressed as 0.1 seconds, with default 100, i.e., 1 second.  Several implementation express this in units of seconds
@@ -1945,10 +1985,16 @@ class Interfaces(object):
                                     
                                     	**range:** 1..4095
                                     
+                                    	**units**\: centiseconds
+                                    
+                                    	**default value**\: 100
+                                    
                                     .. attribute:: preempt
                                     
                                     	When set to true, enables preemption by a higher priority backup router of a lower priority master router
                                     	**type**\:  bool
+                                    
+                                    	**default value**\: true
                                     
                                     .. attribute:: preempt_delay
                                     
@@ -1957,12 +2003,16 @@ class Interfaces(object):
                                     
                                     	**range:** 0..3600
                                     
+                                    	**default value**\: 0
+                                    
                                     .. attribute:: priority
                                     
                                     	Specifies the sending VRRP interface's priority for the virtual router.  Higher values equal higher priority
                                     	**type**\:  int
                                     
                                     	**range:** 1..254
+                                    
+                                    	**default value**\: 100
                                     
                                     .. attribute:: virtual_address
                                     
@@ -2061,12 +2111,18 @@ class Interfaces(object):
                                     	Configure whether packets destined for virtual addresses are accepted even when the virtual address is not owned by the router interface
                                     	**type**\:  bool
                                     
+                                    	**default value**\: false
+                                    
                                     .. attribute:: advertisement_interval
                                     
                                     	Sets the interval between successive VRRP advertisements \-\- RFC 5798 defines this as a 12\-bit value expressed as 0.1 seconds, with default 100, i.e., 1 second.  Several implementation express this in units of seconds
                                     	**type**\:  int
                                     
                                     	**range:** 1..4095
+                                    
+                                    	**units**\: centiseconds
+                                    
+                                    	**default value**\: 100
                                     
                                     .. attribute:: current_priority
                                     
@@ -2080,6 +2136,8 @@ class Interfaces(object):
                                     	When set to true, enables preemption by a higher priority backup router of a lower priority master router
                                     	**type**\:  bool
                                     
+                                    	**default value**\: true
+                                    
                                     .. attribute:: preempt_delay
                                     
                                     	Set the delay the higher priority router waits before preempting
@@ -2087,12 +2145,16 @@ class Interfaces(object):
                                     
                                     	**range:** 0..3600
                                     
+                                    	**default value**\: 0
+                                    
                                     .. attribute:: priority
                                     
                                     	Specifies the sending VRRP interface's priority for the virtual router.  Higher values equal higher priority
                                     	**type**\:  int
                                     
                                     	**range:** 1..254
+                                    
+                                    	**default value**\: 100
                                     
                                     .. attribute:: virtual_address
                                     
@@ -2193,12 +2255,12 @@ class Interfaces(object):
                                     .. attribute:: config
                                     
                                     	Configuration data for VRRP interface tracking
-                                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup.InterfaceTracking.Config>`
+                                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup.InterfaceTracking.Config>`
                                     
                                     .. attribute:: state
                                     
                                     	Operational state data for VRRP interface tracking
-                                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup.InterfaceTracking.State>`
+                                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Address.Vrrp.VrrpGroup.InterfaceTracking.State>`
                                     
                                     
 
@@ -2226,12 +2288,14 @@ class Interfaces(object):
                                         
                                         	**range:** 0..254
                                         
+                                        	**default value**\: 0
+                                        
                                         .. attribute:: track_interface
                                         
                                         	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
                                         	**type**\:  str
                                         
-                                        	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                                        	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                                         
                                         
 
@@ -2284,12 +2348,14 @@ class Interfaces(object):
                                         
                                         	**range:** 0..254
                                         
+                                        	**default value**\: 0
+                                        
                                         .. attribute:: track_interface
                                         
                                         	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
                                         	**type**\:  str
                                         
-                                        	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                                        	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                                         
                                         
 
@@ -2469,17 +2535,17 @@ class Interfaces(object):
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                         
-                        	**refers to**\: :py:class:`ip <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbor.Config>`
+                        	**refers to**\:  :py:class:`ip <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbor.Config>`
                         
                         .. attribute:: config
                         
                         	Configuration data for each configured IPv4 address on the interface
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbor.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbor.Config>`
                         
                         .. attribute:: state
                         
                         	Operational state data for each IPv4 address configured on the interface
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbor.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv4.Neighbor.State>`
                         
                         
 
@@ -2582,7 +2648,7 @@ class Interfaces(object):
                             .. attribute:: origin
                             
                             	The origin of this neighbor entry, static or dynamic
-                            	**type**\:  :py:class:`NeighborOriginEnum <ydk.models.openconfig.openconfig_if_ip.NeighborOriginEnum>`
+                            	**type**\:   :py:class:`NeighborOriginEnum <ydk.models.openconfig.openconfig_if_ip.NeighborOriginEnum>`
                             
                             
 
@@ -2669,12 +2735,16 @@ class Interfaces(object):
                         	Controls whether IPv4 is enabled or disabled on this interface.  When IPv4 is enabled, this interface is connected to an IPv4 stack, and the interface can send and receive IPv4 packets
                         	**type**\:  bool
                         
+                        	**default value**\: true
+                        
                         .. attribute:: mtu
                         
                         	The size, in octets, of the largest IPv4 packet that the interface will send and receive.  The server may restrict the allowed values for this leaf, depending on the interface's type.  If this leaf is not configured, the operationally used MTU depends on the interface's type
                         	**type**\:  int
                         
                         	**range:** 68..65535
+                        
+                        	**units**\: octets
                         
                         
 
@@ -2725,12 +2795,16 @@ class Interfaces(object):
                         	Controls whether IPv4 is enabled or disabled on this interface.  When IPv4 is enabled, this interface is connected to an IPv4 stack, and the interface can send and receive IPv4 packets
                         	**type**\:  bool
                         
+                        	**default value**\: true
+                        
                         .. attribute:: mtu
                         
                         	The size, in octets, of the largest IPv4 packet that the interface will send and receive.  The server may restrict the allowed values for this leaf, depending on the interface's type.  If this leaf is not configured, the operationally used MTU depends on the interface's type
                         	**type**\:  int
                         
                         	**range:** 68..65535
+                        
+                        	**units**\: octets
                         
                         
 
@@ -2818,27 +2892,27 @@ class Interfaces(object):
                     .. attribute:: address
                     
                     	The list of configured IPv6 addresses on the interface
-                    	**type**\: list of  :py:class:`Address <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address>`
+                    	**type**\: list of    :py:class:`Address <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address>`
                     
                     .. attribute:: autoconf
                     
                     	Top\-level container for IPv6 autoconf
-                    	**type**\:  :py:class:`Autoconf <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf>`
+                    	**type**\:   :py:class:`Autoconf <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf>`
                     
                     .. attribute:: config
                     
                     	Top\-level config data for the IPv6 interface
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Config>`
+                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Config>`
                     
                     .. attribute:: neighbor
                     
                     	A list of mappings from IPv6 addresses to link\-layer addresses.  Entries in this list are used as static entries in the Neighbor Cache
-                    	**type**\: list of  :py:class:`Neighbor <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbor>`
+                    	**type**\: list of    :py:class:`Neighbor <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbor>`
                     
                     .. attribute:: state
                     
                     	Top\-level operational state data for the IPv6 interface
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.State>`
+                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.State>`
                     
                     .. attribute:: _is_presence
                     
@@ -2882,22 +2956,22 @@ class Interfaces(object):
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        	**refers to**\: :py:class:`ip <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Config>`
+                        	**refers to**\:  :py:class:`ip <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Config>`
                         
                         .. attribute:: config
                         
                         	Configuration data for each IPv6 address on the interface
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Config>`
                         
                         .. attribute:: state
                         
                         	State data for each IPv6 address on the interface
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.State>`
                         
                         .. attribute:: vrrp
                         
                         	Enclosing container for VRRP groups handled by this IP interface
-                        	**type**\:  :py:class:`Vrrp <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Vrrp>`
+                        	**type**\:   :py:class:`Vrrp <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Vrrp>`
                         
                         
 
@@ -2993,7 +3067,7 @@ class Interfaces(object):
                             .. attribute:: origin
                             
                             	[adapted from IETF IP model RFC 7277]  The origin of this address, e.g., static, dhcp, etc
-                            	**type**\:  :py:class:`IpAddressOriginEnum <ydk.models.openconfig.openconfig_if_ip.IpAddressOriginEnum>`
+                            	**type**\:   :py:class:`IpAddressOriginEnum <ydk.models.openconfig.openconfig_if_ip.IpAddressOriginEnum>`
                             
                             .. attribute:: prefix_length
                             
@@ -3007,7 +3081,7 @@ class Interfaces(object):
                             .. attribute:: status
                             
                             	[adapted from IETF IP model RFC 7277]  The status of an address.  Most of the states correspond to states from the IPv6 Stateless Address Autoconfiguration protocol
-                            	**type**\:  :py:class:`StatusEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.State.StatusEnum>`
+                            	**type**\:   :py:class:`StatusEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.State.StatusEnum>`
                             
                             
 
@@ -3160,7 +3234,7 @@ class Interfaces(object):
                             .. attribute:: vrrp_group
                             
                             	List of VRRP groups, keyed by virtual router id
-                            	**type**\: list of  :py:class:`VrrpGroup <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Vrrp.VrrpGroup>`
+                            	**type**\: list of    :py:class:`VrrpGroup <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Vrrp.VrrpGroup>`
                             
                             
 
@@ -3187,22 +3261,22 @@ class Interfaces(object):
                                 
                                 	**range:** 1..255
                                 
-                                	**refers to**\: :py:class:`virtual_router_id <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Vrrp.VrrpGroup.Config>`
+                                	**refers to**\:  :py:class:`virtual_router_id <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Vrrp.VrrpGroup.Config>`
                                 
                                 .. attribute:: config
                                 
                                 	Configuration data for the VRRP group
-                                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Vrrp.VrrpGroup.Config>`
+                                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Vrrp.VrrpGroup.Config>`
                                 
                                 .. attribute:: interface_tracking
                                 
                                 	Top\-level container for VRRP interface tracking
-                                	**type**\:  :py:class:`InterfaceTracking <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Vrrp.VrrpGroup.InterfaceTracking>`
+                                	**type**\:   :py:class:`InterfaceTracking <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Vrrp.VrrpGroup.InterfaceTracking>`
                                 
                                 .. attribute:: state
                                 
                                 	Operational state data for the VRRP group
-                                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Vrrp.VrrpGroup.State>`
+                                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Vrrp.VrrpGroup.State>`
                                 
                                 
 
@@ -3231,6 +3305,8 @@ class Interfaces(object):
                                     	Configure whether packets destined for virtual addresses are accepted even when the virtual address is not owned by the router interface
                                     	**type**\:  bool
                                     
+                                    	**default value**\: false
+                                    
                                     .. attribute:: advertisement_interval
                                     
                                     	Sets the interval between successive VRRP advertisements \-\- RFC 5798 defines this as a 12\-bit value expressed as 0.1 seconds, with default 100, i.e., 1 second.  Several implementation express this in units of seconds
@@ -3238,10 +3314,16 @@ class Interfaces(object):
                                     
                                     	**range:** 1..4095
                                     
+                                    	**units**\: centiseconds
+                                    
+                                    	**default value**\: 100
+                                    
                                     .. attribute:: preempt
                                     
                                     	When set to true, enables preemption by a higher priority backup router of a lower priority master router
                                     	**type**\:  bool
+                                    
+                                    	**default value**\: true
                                     
                                     .. attribute:: preempt_delay
                                     
@@ -3250,12 +3332,16 @@ class Interfaces(object):
                                     
                                     	**range:** 0..3600
                                     
+                                    	**default value**\: 0
+                                    
                                     .. attribute:: priority
                                     
                                     	Specifies the sending VRRP interface's priority for the virtual router.  Higher values equal higher priority
                                     	**type**\:  int
                                     
                                     	**range:** 1..254
+                                    
+                                    	**default value**\: 100
                                     
                                     .. attribute:: virtual_address
                                     
@@ -3375,12 +3461,18 @@ class Interfaces(object):
                                     	Configure whether packets destined for virtual addresses are accepted even when the virtual address is not owned by the router interface
                                     	**type**\:  bool
                                     
+                                    	**default value**\: false
+                                    
                                     .. attribute:: advertisement_interval
                                     
                                     	Sets the interval between successive VRRP advertisements \-\- RFC 5798 defines this as a 12\-bit value expressed as 0.1 seconds, with default 100, i.e., 1 second.  Several implementation express this in units of seconds
                                     	**type**\:  int
                                     
                                     	**range:** 1..4095
+                                    
+                                    	**units**\: centiseconds
+                                    
+                                    	**default value**\: 100
                                     
                                     .. attribute:: current_priority
                                     
@@ -3394,6 +3486,8 @@ class Interfaces(object):
                                     	When set to true, enables preemption by a higher priority backup router of a lower priority master router
                                     	**type**\:  bool
                                     
+                                    	**default value**\: true
+                                    
                                     .. attribute:: preempt_delay
                                     
                                     	Set the delay the higher priority router waits before preempting
@@ -3401,12 +3495,16 @@ class Interfaces(object):
                                     
                                     	**range:** 0..3600
                                     
+                                    	**default value**\: 0
+                                    
                                     .. attribute:: priority
                                     
                                     	Specifies the sending VRRP interface's priority for the virtual router.  Higher values equal higher priority
                                     	**type**\:  int
                                     
                                     	**range:** 1..254
+                                    
+                                    	**default value**\: 100
                                     
                                     .. attribute:: virtual_address
                                     
@@ -3528,12 +3626,12 @@ class Interfaces(object):
                                     .. attribute:: config
                                     
                                     	Configuration data for VRRP interface tracking
-                                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Vrrp.VrrpGroup.InterfaceTracking.Config>`
+                                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Vrrp.VrrpGroup.InterfaceTracking.Config>`
                                     
                                     .. attribute:: state
                                     
                                     	Operational state data for VRRP interface tracking
-                                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Vrrp.VrrpGroup.InterfaceTracking.State>`
+                                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Address.Vrrp.VrrpGroup.InterfaceTracking.State>`
                                     
                                     
 
@@ -3561,12 +3659,14 @@ class Interfaces(object):
                                         
                                         	**range:** 0..254
                                         
+                                        	**default value**\: 0
+                                        
                                         .. attribute:: track_interface
                                         
                                         	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
                                         	**type**\:  str
                                         
-                                        	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                                        	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                                         
                                         
 
@@ -3619,12 +3719,14 @@ class Interfaces(object):
                                         
                                         	**range:** 0..254
                                         
+                                        	**default value**\: 0
+                                        
                                         .. attribute:: track_interface
                                         
                                         	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
                                         	**type**\:  str
                                         
-                                        	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                                        	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                                         
                                         
 
@@ -3804,17 +3906,17 @@ class Interfaces(object):
                         
                         	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                         
-                        	**refers to**\: :py:class:`ip <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbor.Config>`
+                        	**refers to**\:  :py:class:`ip <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbor.Config>`
                         
                         .. attribute:: config
                         
                         	Configuration data for each IPv6 address on the interface
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbor.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbor.Config>`
                         
                         .. attribute:: state
                         
                         	State data for each IPv6 address on the interface
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbor.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbor.State>`
                         
                         
 
@@ -3908,7 +4010,7 @@ class Interfaces(object):
                             .. attribute:: is_router
                             
                             	[adapted from IETF IP model RFC 7277]  Indicates that the neighbor node acts as a router
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: link_layer_address
                             
@@ -3922,12 +4024,12 @@ class Interfaces(object):
                             .. attribute:: neighbor_state
                             
                             	[adapted from IETF IP model RFC 7277]  The Neighbor Unreachability Detection state of this entry
-                            	**type**\:  :py:class:`NeighborStateEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbor.State.NeighborStateEnum>`
+                            	**type**\:   :py:class:`NeighborStateEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Neighbor.State.NeighborStateEnum>`
                             
                             .. attribute:: origin
                             
                             	[adapted from IETF IP model RFC 7277]  The origin of this neighbor entry
-                            	**type**\:  :py:class:`NeighborOriginEnum <ydk.models.openconfig.openconfig_if_ip.NeighborOriginEnum>`
+                            	**type**\:   :py:class:`NeighborOriginEnum <ydk.models.openconfig.openconfig_if_ip.NeighborOriginEnum>`
                             
                             
 
@@ -4097,10 +4199,14 @@ class Interfaces(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**default value**\: 1
+                        
                         .. attribute:: enabled
                         
                         	[adapted from IETF IP model RFC 7277]  Controls whether IPv6 is enabled or disabled on this interface.  When IPv6 is enabled, this interface is connected to an IPv6 stack, and the interface can send and receive IPv6 packets
                         	**type**\:  bool
+                        
+                        	**default value**\: true
                         
                         .. attribute:: mtu
                         
@@ -4108,6 +4214,8 @@ class Interfaces(object):
                         	**type**\:  int
                         
                         	**range:** 1280..4294967295
+                        
+                        	**units**\: octets
                         
                         
 
@@ -4164,10 +4272,14 @@ class Interfaces(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**default value**\: 1
+                        
                         .. attribute:: enabled
                         
                         	[adapted from IETF IP model RFC 7277]  Controls whether IPv6 is enabled or disabled on this interface.  When IPv6 is enabled, this interface is connected to an IPv6 stack, and the interface can send and receive IPv6 packets
                         	**type**\:  bool
+                        
+                        	**default value**\: true
                         
                         .. attribute:: mtu
                         
@@ -4175,6 +4287,8 @@ class Interfaces(object):
                         	**type**\:  int
                         
                         	**range:** 1280..4294967295
+                        
+                        	**units**\: octets
                         
                         
 
@@ -4227,12 +4341,12 @@ class Interfaces(object):
                         .. attribute:: config
                         
                         	[adapted from IETF IP model RFC 7277]  Parameters to control the autoconfiguration of IPv6 addresses, as described in RFC 4862
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf.Config>`
                         
                         .. attribute:: state
                         
                         	Operational state data 
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Subinterfaces.Subinterface.Ipv6.Autoconf.State>`
                         
                         
 
@@ -4261,10 +4375,14 @@ class Interfaces(object):
                             	[adapted from IETF IP model RFC 7277]  If enabled, the host creates global addresses as described in RFC 4862
                             	**type**\:  bool
                             
+                            	**default value**\: true
+                            
                             .. attribute:: create_temporary_addresses
                             
                             	[adapted from IETF IP model RFC 7277]  If enabled, the host creates temporary addresses as described in RFC 4941
                             	**type**\:  bool
+                            
+                            	**default value**\: false
                             
                             .. attribute:: temporary_preferred_lifetime
                             
@@ -4273,12 +4391,20 @@ class Interfaces(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: seconds
+                            
+                            	**default value**\: 86400
+                            
                             .. attribute:: temporary_valid_lifetime
                             
                             	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is valid
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
+                            
+                            	**units**\: seconds
+                            
+                            	**default value**\: 604800
                             
                             
 
@@ -4337,10 +4463,14 @@ class Interfaces(object):
                             	[adapted from IETF IP model RFC 7277]  If enabled, the host creates global addresses as described in RFC 4862
                             	**type**\:  bool
                             
+                            	**default value**\: true
+                            
                             .. attribute:: create_temporary_addresses
                             
                             	[adapted from IETF IP model RFC 7277]  If enabled, the host creates temporary addresses as described in RFC 4941
                             	**type**\:  bool
+                            
+                            	**default value**\: false
                             
                             .. attribute:: temporary_preferred_lifetime
                             
@@ -4349,12 +4479,20 @@ class Interfaces(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: seconds
+                            
+                            	**default value**\: 86400
+                            
                             .. attribute:: temporary_valid_lifetime
                             
                             	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is valid
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
+                            
+                            	**units**\: seconds
+                            
+                            	**default value**\: 604800
                             
                             
 
@@ -4548,17 +4686,17 @@ class Interfaces(object):
             .. attribute:: config
             
             	Configuration data for ethernet interfaces
-            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Ethernet.Config>`
+            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Ethernet.Config>`
             
             .. attribute:: state
             
             	State variables for Ethernet interfaces
-            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Ethernet.State>`
+            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Ethernet.State>`
             
             .. attribute:: vlan
             
             	Enclosing container for VLAN interface\-specific data on Ethernet interfaces
-            	**type**\:  :py:class:`Vlan <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Ethernet.Vlan>`
+            	**type**\:   :py:class:`Vlan <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Ethernet.Vlan>`
             
             
 
@@ -4586,22 +4724,26 @@ class Interfaces(object):
                 	Specify the logical aggregate interface to which this interface belongs
                 	**type**\:  str
                 
-                	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                 
                 .. attribute:: auto_negotiate
                 
                 	Set to TRUE to request the interface to auto\-negotiate transmission parameters with its peer interface.  When set to FALSE, the transmission parameters are specified manually
                 	**type**\:  bool
                 
+                	**default value**\: true
+                
                 .. attribute:: duplex_mode
                 
                 	When auto\-negotiate is TRUE, this optionally sets the duplex mode that will be advertised to the peer.  If unspecified, the interface should negotiate the duplex mode directly (typically full\-duplex).  When auto\-negotiate is FALSE, this sets the duplex mode on the interface directly
-                	**type**\:  :py:class:`DuplexModeEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Ethernet.Config.DuplexModeEnum>`
+                	**type**\:   :py:class:`DuplexModeEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Ethernet.Config.DuplexModeEnum>`
                 
                 .. attribute:: enable_flow_control
                 
                 	Enable or disable flow control for this interface. Ethernet flow control is a mechanism by which a receiver may send PAUSE frames to a sender to stop transmission for a specified time.  This setting should override auto\-negotiated flow control settings.  If left unspecified, and auto\-negotiate is TRUE, flow control mode is negotiated with the peer interface
                 	**type**\:  bool
+                
+                	**default value**\: false
                 
                 .. attribute:: mac_address
                 
@@ -4613,7 +4755,7 @@ class Interfaces(object):
                 .. attribute:: port_speed
                 
                 	When auto\-negotiate is TRUE, this optionally sets the port\-speed mode that will be advertised to the peer for negotiation.  If unspecified, it is expected that the interface will select the highest speed available based on negotiation.  When auto\-negotiate is set to FALSE, sets the link speed to a fixed value \-\- supported values are defined by ethernet\-speed identities
-                	**type**\:  :py:class:`EthernetSpeedIdentity <ydk.models.openconfig.openconfig_if_ethernet.EthernetSpeedIdentity>`
+                	**type**\:   :py:class:`EthernetSpeedIdentity <ydk.models.openconfig.openconfig_if_ethernet.EthernetSpeedIdentity>`
                 
                 
 
@@ -4715,27 +4857,31 @@ class Interfaces(object):
                 	Specify the logical aggregate interface to which this interface belongs
                 	**type**\:  str
                 
-                	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                 
                 .. attribute:: auto_negotiate
                 
                 	Set to TRUE to request the interface to auto\-negotiate transmission parameters with its peer interface.  When set to FALSE, the transmission parameters are specified manually
                 	**type**\:  bool
                 
+                	**default value**\: true
+                
                 .. attribute:: counters
                 
                 	Ethernet interface counters
-                	**type**\:  :py:class:`Counters <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Ethernet.State.Counters>`
+                	**type**\:   :py:class:`Counters <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Ethernet.State.Counters>`
                 
                 .. attribute:: duplex_mode
                 
                 	When auto\-negotiate is TRUE, this optionally sets the duplex mode that will be advertised to the peer.  If unspecified, the interface should negotiate the duplex mode directly (typically full\-duplex).  When auto\-negotiate is FALSE, this sets the duplex mode on the interface directly
-                	**type**\:  :py:class:`DuplexModeEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Ethernet.State.DuplexModeEnum>`
+                	**type**\:   :py:class:`DuplexModeEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Ethernet.State.DuplexModeEnum>`
                 
                 .. attribute:: enable_flow_control
                 
                 	Enable or disable flow control for this interface. Ethernet flow control is a mechanism by which a receiver may send PAUSE frames to a sender to stop transmission for a specified time.  This setting should override auto\-negotiated flow control settings.  If left unspecified, and auto\-negotiate is TRUE, flow control mode is negotiated with the peer interface
                 	**type**\:  bool
+                
+                	**default value**\: false
                 
                 .. attribute:: hw_mac_address
                 
@@ -4754,7 +4900,7 @@ class Interfaces(object):
                 .. attribute:: port_speed
                 
                 	When auto\-negotiate is TRUE, this optionally sets the port\-speed mode that will be advertised to the peer for negotiation.  If unspecified, it is expected that the interface will select the highest speed available based on negotiation.  When auto\-negotiate is set to FALSE, sets the link speed to a fixed value \-\- supported values are defined by ethernet\-speed identities
-                	**type**\:  :py:class:`EthernetSpeedIdentity <ydk.models.openconfig.openconfig_if_ethernet.EthernetSpeedIdentity>`
+                	**type**\:   :py:class:`EthernetSpeedIdentity <ydk.models.openconfig.openconfig_if_ethernet.EthernetSpeedIdentity>`
                 
                 
 
@@ -5010,12 +5156,12 @@ class Interfaces(object):
                 .. attribute:: config
                 
                 	Configuration parameters for VLANs
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Ethernet.Vlan.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Ethernet.Vlan.Config>`
                 
                 .. attribute:: state
                 
                 	State variables for VLANs
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Ethernet.Vlan.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Ethernet.Vlan.State>`
                 
                 
 
@@ -5056,7 +5202,7 @@ class Interfaces(object):
                     .. attribute:: interface_mode
                     
                     	Set the interface to access or trunk mode for VLANs
-                    	**type**\:  :py:class:`VlanModeTypeEnum <ydk.models.openconfig.openconfig_vlan.VlanModeTypeEnum>`
+                    	**type**\:   :py:class:`VlanModeTypeEnum <ydk.models.openconfig.openconfig_vlan.VlanModeTypeEnum>`
                     
                     .. attribute:: native_vlan
                     
@@ -5188,7 +5334,7 @@ class Interfaces(object):
                     .. attribute:: interface_mode
                     
                     	Set the interface to access or trunk mode for VLANs
-                    	**type**\:  :py:class:`VlanModeTypeEnum <ydk.models.openconfig.openconfig_vlan.VlanModeTypeEnum>`
+                    	**type**\:   :py:class:`VlanModeTypeEnum <ydk.models.openconfig.openconfig_vlan.VlanModeTypeEnum>`
                     
                     .. attribute:: native_vlan
                     
@@ -5361,22 +5507,24 @@ class Interfaces(object):
             .. attribute:: config
             
             	Configuration variables for logical aggregate / LAG interfaces
-            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Config>`
+            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Config>`
             
             .. attribute:: lacp
             
             	Configuration for LACP protocol operation on the aggregate interface
-            	**type**\:  :py:class:`Lacp <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Lacp>`
+            	**type**\:   :py:class:`Lacp <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Lacp>`
+            
+            	**presence node**\: True
             
             .. attribute:: state
             
             	Operational state variables for logical aggregate / LAG interfaces
-            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.State>`
+            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.State>`
             
             .. attribute:: vlan
             
             	Enclosing container for VLAN interface\-specific data on Ethernet interfaces
-            	**type**\:  :py:class:`Vlan <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Vlan>`
+            	**type**\:   :py:class:`Vlan <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Vlan>`
             
             .. attribute:: _is_presence
             
@@ -5412,7 +5560,7 @@ class Interfaces(object):
                 .. attribute:: lag_type
                 
                 	Sets the type of LAG, i.e., how it is configured / maintained
-                	**type**\:  :py:class:`AggregationTypeEnum <ydk.models.openconfig.openconfig_if_aggregate.AggregationTypeEnum>`
+                	**type**\:   :py:class:`AggregationTypeEnum <ydk.models.openconfig.openconfig_if_aggregate.AggregationTypeEnum>`
                 
                 .. attribute:: min_links
                 
@@ -5469,14 +5617,14 @@ class Interfaces(object):
                 .. attribute:: lag_type
                 
                 	Sets the type of LAG, i.e., how it is configured / maintained
-                	**type**\:  :py:class:`AggregationTypeEnum <ydk.models.openconfig.openconfig_if_aggregate.AggregationTypeEnum>`
+                	**type**\:   :py:class:`AggregationTypeEnum <ydk.models.openconfig.openconfig_if_aggregate.AggregationTypeEnum>`
                 
                 .. attribute:: members
                 
                 	List of current member interfaces for the aggregate, expressed as references to existing interfaces
                 	**type**\:  list of str
                 
-                	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                 
                 .. attribute:: min_links
                 
@@ -5541,17 +5689,17 @@ class Interfaces(object):
                 .. attribute:: config
                 
                 	Configuration data for LACP
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Lacp.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Lacp.Config>`
                 
                 .. attribute:: members
                 
                 	Enclosing container for the list of members interfaces of the aggregate. This list is considered operational state only so is labeled config false and has no config container
-                	**type**\:  :py:class:`Members <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Lacp.Members>`
+                	**type**\:   :py:class:`Members <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Lacp.Members>`
                 
                 .. attribute:: state
                 
                 	Operational state data for LACP
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Lacp.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Lacp.State>`
                 
                 .. attribute:: _is_presence
                 
@@ -5585,12 +5733,16 @@ class Interfaces(object):
                     .. attribute:: interval
                     
                     	Set the period between LACP messages \-\- uses the lacp\-period\-type enumeration
-                    	**type**\:  :py:class:`LacpPeriodTypeEnum <ydk.models.openconfig.openconfig_if_aggregate.LacpPeriodTypeEnum>`
+                    	**type**\:   :py:class:`LacpPeriodTypeEnum <ydk.models.openconfig.openconfig_if_aggregate.LacpPeriodTypeEnum>`
+                    
+                    	**default value**\: SLOW
                     
                     .. attribute:: lacp_mode
                     
                     	ACTIVE is to initiate the transmission of LACP packets. PASSIVE is to wait for peer to initiate the transmission of LACP packets
-                    	**type**\:  :py:class:`LacpActivityTypeEnum <ydk.models.openconfig.openconfig_if_aggregate.LacpActivityTypeEnum>`
+                    	**type**\:   :py:class:`LacpActivityTypeEnum <ydk.models.openconfig.openconfig_if_aggregate.LacpActivityTypeEnum>`
+                    
+                    	**default value**\: ACTIVE
                     
                     .. attribute:: system_id_mac
                     
@@ -5661,12 +5813,16 @@ class Interfaces(object):
                     .. attribute:: interval
                     
                     	Set the period between LACP messages \-\- uses the lacp\-period\-type enumeration
-                    	**type**\:  :py:class:`LacpPeriodTypeEnum <ydk.models.openconfig.openconfig_if_aggregate.LacpPeriodTypeEnum>`
+                    	**type**\:   :py:class:`LacpPeriodTypeEnum <ydk.models.openconfig.openconfig_if_aggregate.LacpPeriodTypeEnum>`
+                    
+                    	**default value**\: SLOW
                     
                     .. attribute:: lacp_mode
                     
                     	ACTIVE is to initiate the transmission of LACP packets. PASSIVE is to wait for peer to initiate the transmission of LACP packets
-                    	**type**\:  :py:class:`LacpActivityTypeEnum <ydk.models.openconfig.openconfig_if_aggregate.LacpActivityTypeEnum>`
+                    	**type**\:   :py:class:`LacpActivityTypeEnum <ydk.models.openconfig.openconfig_if_aggregate.LacpActivityTypeEnum>`
+                    
+                    	**default value**\: ACTIVE
                     
                     .. attribute:: system_id_mac
                     
@@ -5739,7 +5895,7 @@ class Interfaces(object):
                     .. attribute:: member
                     
                     	List of member interfaces and their associated status for a LACP\-controlled aggregate interface.  Member list is not configurable here \-\- each interface indicates items its participation in the LAG
-                    	**type**\: list of  :py:class:`Member <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Lacp.Members.Member>`
+                    	**type**\: list of    :py:class:`Member <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Lacp.Members.Member>`
                     
                     
 
@@ -5767,12 +5923,12 @@ class Interfaces(object):
                         	Reference to aggregate member interface
                         	**type**\:  str
                         
-                        	**refers to**\: :py:class:`interface <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Lacp.Members.Member.State>`
+                        	**refers to**\:  :py:class:`interface <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Lacp.Members.Member.State>`
                         
                         .. attribute:: state
                         
                         	Operational state data for aggregate members
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Lacp.Members.Member.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Lacp.Members.Member.State>`
                         
                         
 
@@ -5795,7 +5951,7 @@ class Interfaces(object):
                             .. attribute:: activity
                             
                             	Indicates participant is active or passive
-                            	**type**\:  :py:class:`LacpActivityTypeEnum <ydk.models.openconfig.openconfig_if_aggregate.LacpActivityTypeEnum>`
+                            	**type**\:   :py:class:`LacpActivityTypeEnum <ydk.models.openconfig.openconfig_if_aggregate.LacpActivityTypeEnum>`
                             
                             .. attribute:: aggregatable
                             
@@ -5810,7 +5966,7 @@ class Interfaces(object):
                             .. attribute:: counters
                             
                             	LACP protocol counters
-                            	**type**\:  :py:class:`Counters <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Lacp.Members.Member.State.Counters>`
+                            	**type**\:   :py:class:`Counters <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Lacp.Members.Member.State.Counters>`
                             
                             .. attribute:: distributing
                             
@@ -5822,7 +5978,7 @@ class Interfaces(object):
                             	Interface member of the LACP aggregate
                             	**type**\:  str
                             
-                            	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                             
                             .. attribute:: oper_key
                             
@@ -5848,7 +6004,7 @@ class Interfaces(object):
                             .. attribute:: synchronization
                             
                             	Indicates whether the participant is in\-sync or out\-of\-sync
-                            	**type**\:  :py:class:`LacpSynchronizationTypeEnum <ydk.models.openconfig.openconfig_if_aggregate.LacpSynchronizationTypeEnum>`
+                            	**type**\:   :py:class:`LacpSynchronizationTypeEnum <ydk.models.openconfig.openconfig_if_aggregate.LacpSynchronizationTypeEnum>`
                             
                             .. attribute:: system_id
                             
@@ -5860,7 +6016,7 @@ class Interfaces(object):
                             .. attribute:: timeout
                             
                             	The timeout type (short or long) used by the participant
-                            	**type**\:  :py:class:`LacpTimeoutTypeEnum <ydk.models.openconfig.openconfig_if_aggregate.LacpTimeoutTypeEnum>`
+                            	**type**\:   :py:class:`LacpTimeoutTypeEnum <ydk.models.openconfig.openconfig_if_aggregate.LacpTimeoutTypeEnum>`
                             
                             
 
@@ -6140,12 +6296,12 @@ class Interfaces(object):
                 .. attribute:: config
                 
                 	Configuration parameters for VLANs
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Vlan.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Vlan.Config>`
                 
                 .. attribute:: state
                 
                 	State variables for VLANs
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Vlan.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.Aggregation.Vlan.State>`
                 
                 
 
@@ -6186,7 +6342,7 @@ class Interfaces(object):
                     .. attribute:: interface_mode
                     
                     	Set the interface to access or trunk mode for VLANs
-                    	**type**\:  :py:class:`VlanModeTypeEnum <ydk.models.openconfig.openconfig_vlan.VlanModeTypeEnum>`
+                    	**type**\:   :py:class:`VlanModeTypeEnum <ydk.models.openconfig.openconfig_vlan.VlanModeTypeEnum>`
                     
                     .. attribute:: native_vlan
                     
@@ -6318,7 +6474,7 @@ class Interfaces(object):
                     .. attribute:: interface_mode
                     
                     	Set the interface to access or trunk mode for VLANs
-                    	**type**\:  :py:class:`VlanModeTypeEnum <ydk.models.openconfig.openconfig_vlan.VlanModeTypeEnum>`
+                    	**type**\:   :py:class:`VlanModeTypeEnum <ydk.models.openconfig.openconfig_vlan.VlanModeTypeEnum>`
                     
                     .. attribute:: native_vlan
                     
@@ -6498,22 +6654,26 @@ class Interfaces(object):
             .. attribute:: config
             
             	Configuration data for routed vlan interfaces
-            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Config>`
+            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Config>`
             
             .. attribute:: ipv4
             
             	Parameters for the IPv4 address family
-            	**type**\:  :py:class:`Ipv4 <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4>`
+            	**type**\:   :py:class:`Ipv4 <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4>`
+            
+            	**presence node**\: True
             
             .. attribute:: ipv6
             
             	Parameters for the IPv6 address family
-            	**type**\:  :py:class:`Ipv6 <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6>`
+            	**type**\:   :py:class:`Ipv6 <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6>`
+            
+            	**presence node**\: True
             
             .. attribute:: state
             
             	Operational state data 
-            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.State>`
+            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.State>`
             
             
 
@@ -6649,22 +6809,22 @@ class Interfaces(object):
                 .. attribute:: address
                 
                 	The list of configured IPv4 addresses on the interface
-                	**type**\: list of  :py:class:`Address <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Address>`
+                	**type**\: list of    :py:class:`Address <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Address>`
                 
                 .. attribute:: config
                 
                 	Top\-level IPv4 configuration data for the interface
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Config>`
                 
                 .. attribute:: neighbor
                 
                 	A list of mappings from IPv4 addresses to link\-layer addresses.  Entries in this list are used as static entries in the ARP Cache
-                	**type**\: list of  :py:class:`Neighbor <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Neighbor>`
+                	**type**\: list of    :py:class:`Neighbor <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Neighbor>`
                 
                 .. attribute:: state
                 
                 	Top level IPv4 operational state data
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.State>`
                 
                 .. attribute:: _is_presence
                 
@@ -6706,22 +6866,22 @@ class Interfaces(object):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    	**refers to**\: :py:class:`ip <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Address.Config>`
+                    	**refers to**\:  :py:class:`ip <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Address.Config>`
                     
                     .. attribute:: config
                     
                     	Configuration data for each configured IPv4 address on the interface
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Address.Config>`
+                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Address.Config>`
                     
                     .. attribute:: state
                     
                     	Operational state data for each IPv4 address configured on the interface
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Address.State>`
+                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Address.State>`
                     
                     .. attribute:: vrrp
                     
                     	Enclosing container for VRRP groups handled by this IP interface
-                    	**type**\:  :py:class:`Vrrp <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp>`
+                    	**type**\:   :py:class:`Vrrp <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp>`
                     
                     
 
@@ -6815,7 +6975,7 @@ class Interfaces(object):
                         .. attribute:: origin
                         
                         	The origin of this address, e.g., statically configured, assigned by DHCP, etc.
-                        	**type**\:  :py:class:`IpAddressOriginEnum <ydk.models.openconfig.openconfig_if_ip.IpAddressOriginEnum>`
+                        	**type**\:   :py:class:`IpAddressOriginEnum <ydk.models.openconfig.openconfig_if_ip.IpAddressOriginEnum>`
                         
                         .. attribute:: prefix_length
                         
@@ -6876,7 +7036,7 @@ class Interfaces(object):
                         .. attribute:: vrrp_group
                         
                         	List of VRRP groups, keyed by virtual router id
-                        	**type**\: list of  :py:class:`VrrpGroup <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup>`
+                        	**type**\: list of    :py:class:`VrrpGroup <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup>`
                         
                         
 
@@ -6903,22 +7063,22 @@ class Interfaces(object):
                             
                             	**range:** 1..255
                             
-                            	**refers to**\: :py:class:`virtual_router_id <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup.Config>`
+                            	**refers to**\:  :py:class:`virtual_router_id <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup.Config>`
                             
                             .. attribute:: config
                             
                             	Configuration data for the VRRP group
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup.Config>`
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup.Config>`
                             
                             .. attribute:: interface_tracking
                             
                             	Top\-level container for VRRP interface tracking
-                            	**type**\:  :py:class:`InterfaceTracking <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup.InterfaceTracking>`
+                            	**type**\:   :py:class:`InterfaceTracking <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup.InterfaceTracking>`
                             
                             .. attribute:: state
                             
                             	Operational state data for the VRRP group
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup.State>`
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup.State>`
                             
                             
 
@@ -6947,6 +7107,8 @@ class Interfaces(object):
                                 	Configure whether packets destined for virtual addresses are accepted even when the virtual address is not owned by the router interface
                                 	**type**\:  bool
                                 
+                                	**default value**\: false
+                                
                                 .. attribute:: advertisement_interval
                                 
                                 	Sets the interval between successive VRRP advertisements \-\- RFC 5798 defines this as a 12\-bit value expressed as 0.1 seconds, with default 100, i.e., 1 second.  Several implementation express this in units of seconds
@@ -6954,10 +7116,16 @@ class Interfaces(object):
                                 
                                 	**range:** 1..4095
                                 
+                                	**units**\: centiseconds
+                                
+                                	**default value**\: 100
+                                
                                 .. attribute:: preempt
                                 
                                 	When set to true, enables preemption by a higher priority backup router of a lower priority master router
                                 	**type**\:  bool
+                                
+                                	**default value**\: true
                                 
                                 .. attribute:: preempt_delay
                                 
@@ -6966,12 +7134,16 @@ class Interfaces(object):
                                 
                                 	**range:** 0..3600
                                 
+                                	**default value**\: 0
+                                
                                 .. attribute:: priority
                                 
                                 	Specifies the sending VRRP interface's priority for the virtual router.  Higher values equal higher priority
                                 	**type**\:  int
                                 
                                 	**range:** 1..254
+                                
+                                	**default value**\: 100
                                 
                                 .. attribute:: virtual_address
                                 
@@ -7070,12 +7242,18 @@ class Interfaces(object):
                                 	Configure whether packets destined for virtual addresses are accepted even when the virtual address is not owned by the router interface
                                 	**type**\:  bool
                                 
+                                	**default value**\: false
+                                
                                 .. attribute:: advertisement_interval
                                 
                                 	Sets the interval between successive VRRP advertisements \-\- RFC 5798 defines this as a 12\-bit value expressed as 0.1 seconds, with default 100, i.e., 1 second.  Several implementation express this in units of seconds
                                 	**type**\:  int
                                 
                                 	**range:** 1..4095
+                                
+                                	**units**\: centiseconds
+                                
+                                	**default value**\: 100
                                 
                                 .. attribute:: current_priority
                                 
@@ -7089,6 +7267,8 @@ class Interfaces(object):
                                 	When set to true, enables preemption by a higher priority backup router of a lower priority master router
                                 	**type**\:  bool
                                 
+                                	**default value**\: true
+                                
                                 .. attribute:: preempt_delay
                                 
                                 	Set the delay the higher priority router waits before preempting
@@ -7096,12 +7276,16 @@ class Interfaces(object):
                                 
                                 	**range:** 0..3600
                                 
+                                	**default value**\: 0
+                                
                                 .. attribute:: priority
                                 
                                 	Specifies the sending VRRP interface's priority for the virtual router.  Higher values equal higher priority
                                 	**type**\:  int
                                 
                                 	**range:** 1..254
+                                
+                                	**default value**\: 100
                                 
                                 .. attribute:: virtual_address
                                 
@@ -7202,12 +7386,12 @@ class Interfaces(object):
                                 .. attribute:: config
                                 
                                 	Configuration data for VRRP interface tracking
-                                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup.InterfaceTracking.Config>`
+                                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup.InterfaceTracking.Config>`
                                 
                                 .. attribute:: state
                                 
                                 	Operational state data for VRRP interface tracking
-                                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup.InterfaceTracking.State>`
+                                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Address.Vrrp.VrrpGroup.InterfaceTracking.State>`
                                 
                                 
 
@@ -7235,12 +7419,14 @@ class Interfaces(object):
                                     
                                     	**range:** 0..254
                                     
+                                    	**default value**\: 0
+                                    
                                     .. attribute:: track_interface
                                     
                                     	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
                                     	**type**\:  str
                                     
-                                    	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                                     
                                     
 
@@ -7293,12 +7479,14 @@ class Interfaces(object):
                                     
                                     	**range:** 0..254
                                     
+                                    	**default value**\: 0
+                                    
                                     .. attribute:: track_interface
                                     
                                     	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
                                     	**type**\:  str
                                     
-                                    	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                                     
                                     
 
@@ -7478,17 +7666,17 @@ class Interfaces(object):
                     
                     	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                     
-                    	**refers to**\: :py:class:`ip <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Neighbor.Config>`
+                    	**refers to**\:  :py:class:`ip <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Neighbor.Config>`
                     
                     .. attribute:: config
                     
                     	Configuration data for each configured IPv4 address on the interface
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Neighbor.Config>`
+                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Neighbor.Config>`
                     
                     .. attribute:: state
                     
                     	Operational state data for each IPv4 address configured on the interface
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Neighbor.State>`
+                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv4.Neighbor.State>`
                     
                     
 
@@ -7591,7 +7779,7 @@ class Interfaces(object):
                         .. attribute:: origin
                         
                         	The origin of this neighbor entry, static or dynamic
-                        	**type**\:  :py:class:`NeighborOriginEnum <ydk.models.openconfig.openconfig_if_ip.NeighborOriginEnum>`
+                        	**type**\:   :py:class:`NeighborOriginEnum <ydk.models.openconfig.openconfig_if_ip.NeighborOriginEnum>`
                         
                         
 
@@ -7678,12 +7866,16 @@ class Interfaces(object):
                     	Controls whether IPv4 is enabled or disabled on this interface.  When IPv4 is enabled, this interface is connected to an IPv4 stack, and the interface can send and receive IPv4 packets
                     	**type**\:  bool
                     
+                    	**default value**\: true
+                    
                     .. attribute:: mtu
                     
                     	The size, in octets, of the largest IPv4 packet that the interface will send and receive.  The server may restrict the allowed values for this leaf, depending on the interface's type.  If this leaf is not configured, the operationally used MTU depends on the interface's type
                     	**type**\:  int
                     
                     	**range:** 68..65535
+                    
+                    	**units**\: octets
                     
                     
 
@@ -7734,12 +7926,16 @@ class Interfaces(object):
                     	Controls whether IPv4 is enabled or disabled on this interface.  When IPv4 is enabled, this interface is connected to an IPv4 stack, and the interface can send and receive IPv4 packets
                     	**type**\:  bool
                     
+                    	**default value**\: true
+                    
                     .. attribute:: mtu
                     
                     	The size, in octets, of the largest IPv4 packet that the interface will send and receive.  The server may restrict the allowed values for this leaf, depending on the interface's type.  If this leaf is not configured, the operationally used MTU depends on the interface's type
                     	**type**\:  int
                     
                     	**range:** 68..65535
+                    
+                    	**units**\: octets
                     
                     
 
@@ -7827,27 +8023,27 @@ class Interfaces(object):
                 .. attribute:: address
                 
                 	The list of configured IPv6 addresses on the interface
-                	**type**\: list of  :py:class:`Address <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address>`
+                	**type**\: list of    :py:class:`Address <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address>`
                 
                 .. attribute:: autoconf
                 
                 	Top\-level container for IPv6 autoconf
-                	**type**\:  :py:class:`Autoconf <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Autoconf>`
+                	**type**\:   :py:class:`Autoconf <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Autoconf>`
                 
                 .. attribute:: config
                 
                 	Top\-level config data for the IPv6 interface
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Config>`
                 
                 .. attribute:: neighbor
                 
                 	A list of mappings from IPv6 addresses to link\-layer addresses.  Entries in this list are used as static entries in the Neighbor Cache
-                	**type**\: list of  :py:class:`Neighbor <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Neighbor>`
+                	**type**\: list of    :py:class:`Neighbor <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Neighbor>`
                 
                 .. attribute:: state
                 
                 	Top\-level operational state data for the IPv6 interface
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.State>`
                 
                 .. attribute:: _is_presence
                 
@@ -7891,22 +8087,22 @@ class Interfaces(object):
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    	**refers to**\: :py:class:`ip <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address.Config>`
+                    	**refers to**\:  :py:class:`ip <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address.Config>`
                     
                     .. attribute:: config
                     
                     	Configuration data for each IPv6 address on the interface
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address.Config>`
+                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address.Config>`
                     
                     .. attribute:: state
                     
                     	State data for each IPv6 address on the interface
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address.State>`
+                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address.State>`
                     
                     .. attribute:: vrrp
                     
                     	Enclosing container for VRRP groups handled by this IP interface
-                    	**type**\:  :py:class:`Vrrp <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address.Vrrp>`
+                    	**type**\:   :py:class:`Vrrp <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address.Vrrp>`
                     
                     
 
@@ -8002,7 +8198,7 @@ class Interfaces(object):
                         .. attribute:: origin
                         
                         	[adapted from IETF IP model RFC 7277]  The origin of this address, e.g., static, dhcp, etc
-                        	**type**\:  :py:class:`IpAddressOriginEnum <ydk.models.openconfig.openconfig_if_ip.IpAddressOriginEnum>`
+                        	**type**\:   :py:class:`IpAddressOriginEnum <ydk.models.openconfig.openconfig_if_ip.IpAddressOriginEnum>`
                         
                         .. attribute:: prefix_length
                         
@@ -8016,7 +8212,7 @@ class Interfaces(object):
                         .. attribute:: status
                         
                         	[adapted from IETF IP model RFC 7277]  The status of an address.  Most of the states correspond to states from the IPv6 Stateless Address Autoconfiguration protocol
-                        	**type**\:  :py:class:`StatusEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address.State.StatusEnum>`
+                        	**type**\:   :py:class:`StatusEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address.State.StatusEnum>`
                         
                         
 
@@ -8169,7 +8365,7 @@ class Interfaces(object):
                         .. attribute:: vrrp_group
                         
                         	List of VRRP groups, keyed by virtual router id
-                        	**type**\: list of  :py:class:`VrrpGroup <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address.Vrrp.VrrpGroup>`
+                        	**type**\: list of    :py:class:`VrrpGroup <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address.Vrrp.VrrpGroup>`
                         
                         
 
@@ -8196,22 +8392,22 @@ class Interfaces(object):
                             
                             	**range:** 1..255
                             
-                            	**refers to**\: :py:class:`virtual_router_id <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address.Vrrp.VrrpGroup.Config>`
+                            	**refers to**\:  :py:class:`virtual_router_id <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address.Vrrp.VrrpGroup.Config>`
                             
                             .. attribute:: config
                             
                             	Configuration data for the VRRP group
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address.Vrrp.VrrpGroup.Config>`
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address.Vrrp.VrrpGroup.Config>`
                             
                             .. attribute:: interface_tracking
                             
                             	Top\-level container for VRRP interface tracking
-                            	**type**\:  :py:class:`InterfaceTracking <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address.Vrrp.VrrpGroup.InterfaceTracking>`
+                            	**type**\:   :py:class:`InterfaceTracking <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address.Vrrp.VrrpGroup.InterfaceTracking>`
                             
                             .. attribute:: state
                             
                             	Operational state data for the VRRP group
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address.Vrrp.VrrpGroup.State>`
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address.Vrrp.VrrpGroup.State>`
                             
                             
 
@@ -8240,6 +8436,8 @@ class Interfaces(object):
                                 	Configure whether packets destined for virtual addresses are accepted even when the virtual address is not owned by the router interface
                                 	**type**\:  bool
                                 
+                                	**default value**\: false
+                                
                                 .. attribute:: advertisement_interval
                                 
                                 	Sets the interval between successive VRRP advertisements \-\- RFC 5798 defines this as a 12\-bit value expressed as 0.1 seconds, with default 100, i.e., 1 second.  Several implementation express this in units of seconds
@@ -8247,10 +8445,16 @@ class Interfaces(object):
                                 
                                 	**range:** 1..4095
                                 
+                                	**units**\: centiseconds
+                                
+                                	**default value**\: 100
+                                
                                 .. attribute:: preempt
                                 
                                 	When set to true, enables preemption by a higher priority backup router of a lower priority master router
                                 	**type**\:  bool
+                                
+                                	**default value**\: true
                                 
                                 .. attribute:: preempt_delay
                                 
@@ -8259,12 +8463,16 @@ class Interfaces(object):
                                 
                                 	**range:** 0..3600
                                 
+                                	**default value**\: 0
+                                
                                 .. attribute:: priority
                                 
                                 	Specifies the sending VRRP interface's priority for the virtual router.  Higher values equal higher priority
                                 	**type**\:  int
                                 
                                 	**range:** 1..254
+                                
+                                	**default value**\: 100
                                 
                                 .. attribute:: virtual_address
                                 
@@ -8384,12 +8592,18 @@ class Interfaces(object):
                                 	Configure whether packets destined for virtual addresses are accepted even when the virtual address is not owned by the router interface
                                 	**type**\:  bool
                                 
+                                	**default value**\: false
+                                
                                 .. attribute:: advertisement_interval
                                 
                                 	Sets the interval between successive VRRP advertisements \-\- RFC 5798 defines this as a 12\-bit value expressed as 0.1 seconds, with default 100, i.e., 1 second.  Several implementation express this in units of seconds
                                 	**type**\:  int
                                 
                                 	**range:** 1..4095
+                                
+                                	**units**\: centiseconds
+                                
+                                	**default value**\: 100
                                 
                                 .. attribute:: current_priority
                                 
@@ -8403,6 +8617,8 @@ class Interfaces(object):
                                 	When set to true, enables preemption by a higher priority backup router of a lower priority master router
                                 	**type**\:  bool
                                 
+                                	**default value**\: true
+                                
                                 .. attribute:: preempt_delay
                                 
                                 	Set the delay the higher priority router waits before preempting
@@ -8410,12 +8626,16 @@ class Interfaces(object):
                                 
                                 	**range:** 0..3600
                                 
+                                	**default value**\: 0
+                                
                                 .. attribute:: priority
                                 
                                 	Specifies the sending VRRP interface's priority for the virtual router.  Higher values equal higher priority
                                 	**type**\:  int
                                 
                                 	**range:** 1..254
+                                
+                                	**default value**\: 100
                                 
                                 .. attribute:: virtual_address
                                 
@@ -8537,12 +8757,12 @@ class Interfaces(object):
                                 .. attribute:: config
                                 
                                 	Configuration data for VRRP interface tracking
-                                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address.Vrrp.VrrpGroup.InterfaceTracking.Config>`
+                                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address.Vrrp.VrrpGroup.InterfaceTracking.Config>`
                                 
                                 .. attribute:: state
                                 
                                 	Operational state data for VRRP interface tracking
-                                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address.Vrrp.VrrpGroup.InterfaceTracking.State>`
+                                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Address.Vrrp.VrrpGroup.InterfaceTracking.State>`
                                 
                                 
 
@@ -8570,12 +8790,14 @@ class Interfaces(object):
                                     
                                     	**range:** 0..254
                                     
+                                    	**default value**\: 0
+                                    
                                     .. attribute:: track_interface
                                     
                                     	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
                                     	**type**\:  str
                                     
-                                    	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                                     
                                     
 
@@ -8628,12 +8850,14 @@ class Interfaces(object):
                                     
                                     	**range:** 0..254
                                     
+                                    	**default value**\: 0
+                                    
                                     .. attribute:: track_interface
                                     
                                     	Sets an interface that should be tracked for up/down events to dynamically change the priority state of the VRRP group, and potentially change the mastership if the tracked interface going down lowers the priority sufficiently
                                     	**type**\:  str
                                     
-                                    	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                                     
                                     
 
@@ -8813,17 +9037,17 @@ class Interfaces(object):
                     
                     	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                     
-                    	**refers to**\: :py:class:`ip <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Neighbor.Config>`
+                    	**refers to**\:  :py:class:`ip <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Neighbor.Config>`
                     
                     .. attribute:: config
                     
                     	Configuration data for each IPv6 address on the interface
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Neighbor.Config>`
+                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Neighbor.Config>`
                     
                     .. attribute:: state
                     
                     	State data for each IPv6 address on the interface
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Neighbor.State>`
+                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Neighbor.State>`
                     
                     
 
@@ -8917,7 +9141,7 @@ class Interfaces(object):
                         .. attribute:: is_router
                         
                         	[adapted from IETF IP model RFC 7277]  Indicates that the neighbor node acts as a router
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: link_layer_address
                         
@@ -8931,12 +9155,12 @@ class Interfaces(object):
                         .. attribute:: neighbor_state
                         
                         	[adapted from IETF IP model RFC 7277]  The Neighbor Unreachability Detection state of this entry
-                        	**type**\:  :py:class:`NeighborStateEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Neighbor.State.NeighborStateEnum>`
+                        	**type**\:   :py:class:`NeighborStateEnum <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Neighbor.State.NeighborStateEnum>`
                         
                         .. attribute:: origin
                         
                         	[adapted from IETF IP model RFC 7277]  The origin of this neighbor entry
-                        	**type**\:  :py:class:`NeighborOriginEnum <ydk.models.openconfig.openconfig_if_ip.NeighborOriginEnum>`
+                        	**type**\:   :py:class:`NeighborOriginEnum <ydk.models.openconfig.openconfig_if_ip.NeighborOriginEnum>`
                         
                         
 
@@ -9106,10 +9330,14 @@ class Interfaces(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**default value**\: 1
+                    
                     .. attribute:: enabled
                     
                     	[adapted from IETF IP model RFC 7277]  Controls whether IPv6 is enabled or disabled on this interface.  When IPv6 is enabled, this interface is connected to an IPv6 stack, and the interface can send and receive IPv6 packets
                     	**type**\:  bool
+                    
+                    	**default value**\: true
                     
                     .. attribute:: mtu
                     
@@ -9117,6 +9345,8 @@ class Interfaces(object):
                     	**type**\:  int
                     
                     	**range:** 1280..4294967295
+                    
+                    	**units**\: octets
                     
                     
 
@@ -9173,10 +9403,14 @@ class Interfaces(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**default value**\: 1
+                    
                     .. attribute:: enabled
                     
                     	[adapted from IETF IP model RFC 7277]  Controls whether IPv6 is enabled or disabled on this interface.  When IPv6 is enabled, this interface is connected to an IPv6 stack, and the interface can send and receive IPv6 packets
                     	**type**\:  bool
+                    
+                    	**default value**\: true
                     
                     .. attribute:: mtu
                     
@@ -9184,6 +9418,8 @@ class Interfaces(object):
                     	**type**\:  int
                     
                     	**range:** 1280..4294967295
+                    
+                    	**units**\: octets
                     
                     
 
@@ -9236,12 +9472,12 @@ class Interfaces(object):
                     .. attribute:: config
                     
                     	[adapted from IETF IP model RFC 7277]  Parameters to control the autoconfiguration of IPv6 addresses, as described in RFC 4862
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Autoconf.Config>`
+                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Autoconf.Config>`
                     
                     .. attribute:: state
                     
                     	Operational state data 
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Autoconf.State>`
+                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface.RoutedVlan.Ipv6.Autoconf.State>`
                     
                     
 
@@ -9270,10 +9506,14 @@ class Interfaces(object):
                         	[adapted from IETF IP model RFC 7277]  If enabled, the host creates global addresses as described in RFC 4862
                         	**type**\:  bool
                         
+                        	**default value**\: true
+                        
                         .. attribute:: create_temporary_addresses
                         
                         	[adapted from IETF IP model RFC 7277]  If enabled, the host creates temporary addresses as described in RFC 4941
                         	**type**\:  bool
+                        
+                        	**default value**\: false
                         
                         .. attribute:: temporary_preferred_lifetime
                         
@@ -9282,12 +9522,20 @@ class Interfaces(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: seconds
+                        
+                        	**default value**\: 86400
+                        
                         .. attribute:: temporary_valid_lifetime
                         
                         	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is valid
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: seconds
+                        
+                        	**default value**\: 604800
                         
                         
 
@@ -9346,10 +9594,14 @@ class Interfaces(object):
                         	[adapted from IETF IP model RFC 7277]  If enabled, the host creates global addresses as described in RFC 4862
                         	**type**\:  bool
                         
+                        	**default value**\: true
+                        
                         .. attribute:: create_temporary_addresses
                         
                         	[adapted from IETF IP model RFC 7277]  If enabled, the host creates temporary addresses as described in RFC 4941
                         	**type**\:  bool
+                        
+                        	**default value**\: false
                         
                         .. attribute:: temporary_preferred_lifetime
                         
@@ -9358,12 +9610,20 @@ class Interfaces(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: seconds
+                        
+                        	**default value**\: 86400
+                        
                         .. attribute:: temporary_valid_lifetime
                         
                         	[adapted from IETF IP model RFC 7277]  The time period during which the temporary address is valid
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: seconds
+                        
+                        	**default value**\: 604800
                         
                         
 

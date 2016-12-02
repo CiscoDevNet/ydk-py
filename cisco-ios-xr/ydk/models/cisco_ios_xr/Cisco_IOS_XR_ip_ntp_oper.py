@@ -30,25 +30,25 @@ class ClockUpdateNodeEnum(Enum):
 
     Mode of Clock Update
 
-    .. data:: CLK_NEVER_UPDATED = 0
+    .. data:: clk_never_updated = 0
 
     	 clock is never updated
 
-    .. data:: CLK_UPDATED = 1
+    .. data:: clk_updated = 1
 
     	 clock is updated
 
-    .. data:: CLK_NO_UPDATE_INFO = 2
+    .. data:: clk_no_update_info = 2
 
     	 clock has no update info
 
     """
 
-    CLK_NEVER_UPDATED = 0
+    clk_never_updated = 0
 
-    CLK_UPDATED = 1
+    clk_updated = 1
 
-    CLK_NO_UPDATE_INFO = 2
+    clk_no_update_info = 2
 
 
     @staticmethod
@@ -63,31 +63,31 @@ class NtpLeapEnum(Enum):
 
     Type of leap
 
-    .. data:: NTP_LEAP_NO_WARNING = 0
+    .. data:: ntp_leap_no_warning = 0
 
     	Normal, no leap second warning
 
-    .. data:: NTP_LEAP_ADDSE_COND = 1
+    .. data:: ntp_leap_addse_cond = 1
 
     	Last minute of day has 61 seconds
 
-    .. data:: NTP_LEAP_DELSE_COND = 2
+    .. data:: ntp_leap_delse_cond = 2
 
     	Last minute of day has 59 seconds
 
-    .. data:: NTP_LEAP_NOT_IN_SYNC = 3
+    .. data:: ntp_leap_not_in_sync = 3
 
     	Overload, clock is free running
 
     """
 
-    NTP_LEAP_NO_WARNING = 0
+    ntp_leap_no_warning = 0
 
-    NTP_LEAP_ADDSE_COND = 1
+    ntp_leap_addse_cond = 1
 
-    NTP_LEAP_DELSE_COND = 2
+    ntp_leap_delse_cond = 2
 
-    NTP_LEAP_NOT_IN_SYNC = 3
+    ntp_leap_not_in_sync = 3
 
 
     @staticmethod
@@ -102,43 +102,43 @@ class NtpLoopFilterStateEnum(Enum):
 
     Loop filter state
 
-    .. data:: NTP_LOOP_FLT_N_SET = 0
+    .. data:: ntp_loop_flt_n_set = 0
 
     	 never set
 
-    .. data:: NTP_LOOP_FLT_F_SET = 1
+    .. data:: ntp_loop_flt_f_set = 1
 
     	 drift set from file
 
-    .. data:: NTP_LOOP_FLT_SPIK = 2
+    .. data:: ntp_loop_flt_spik = 2
 
     	 spike
 
-    .. data:: NTP_LOOP_FLT_FREQ = 3
+    .. data:: ntp_loop_flt_freq = 3
 
     	 drift being measured
 
-    .. data:: NTP_LOOP_FLT_SYNC = 4
+    .. data:: ntp_loop_flt_sync = 4
 
     	 normal controlled loop
 
-    .. data:: NTP_LOOP_FLT_UNKN = 5
+    .. data:: ntp_loop_flt_unkn = 5
 
     	 unknown
 
     """
 
-    NTP_LOOP_FLT_N_SET = 0
+    ntp_loop_flt_n_set = 0
 
-    NTP_LOOP_FLT_F_SET = 1
+    ntp_loop_flt_f_set = 1
 
-    NTP_LOOP_FLT_SPIK = 2
+    ntp_loop_flt_spik = 2
 
-    NTP_LOOP_FLT_FREQ = 3
+    ntp_loop_flt_freq = 3
 
-    NTP_LOOP_FLT_SYNC = 4
+    ntp_loop_flt_sync = 4
 
-    NTP_LOOP_FLT_UNKN = 5
+    ntp_loop_flt_unkn = 5
 
 
     @staticmethod
@@ -153,61 +153,61 @@ class NtpModeEnum(Enum):
 
     Type of mode
 
-    .. data:: NTP_MODE_UNSPEC = 0
+    .. data:: ntp_mode_unspec = 0
 
     	Unspecified probably old NTP version
 
-    .. data:: NTP_MODE_SYMETRIC_ACTIVE = 1
+    .. data:: ntp_mode_symetric_active = 1
 
     	Symmetric active
 
-    .. data:: NTP_MODE_SYMETRIC_PASSIVE = 2
+    .. data:: ntp_mode_symetric_passive = 2
 
     	Symmetric passive
 
-    .. data:: NTP_MODE_CLIENT = 3
+    .. data:: ntp_mode_client = 3
 
     	Client mode
 
-    .. data:: NTP_MODE_SERVER = 4
+    .. data:: ntp_mode_server = 4
 
     	Server mode
 
-    .. data:: NTP_MODE_XCAST_SERVER = 5
+    .. data:: ntp_mode_xcast_server = 5
 
     	Broadcast mode
 
-    .. data:: NTP_MODE_CONTROL = 6
+    .. data:: ntp_mode_control = 6
 
     	Control mode packet
 
-    .. data:: NTP_MODE_PRIVATE = 7
+    .. data:: ntp_mode_private = 7
 
     	Implementation defined function
 
-    .. data:: NTP_MODE_XCAST_CLIENT = 8
+    .. data:: ntp_mode_xcast_client = 8
 
     	A broadcast client mode
 
     """
 
-    NTP_MODE_UNSPEC = 0
+    ntp_mode_unspec = 0
 
-    NTP_MODE_SYMETRIC_ACTIVE = 1
+    ntp_mode_symetric_active = 1
 
-    NTP_MODE_SYMETRIC_PASSIVE = 2
+    ntp_mode_symetric_passive = 2
 
-    NTP_MODE_CLIENT = 3
+    ntp_mode_client = 3
 
-    NTP_MODE_SERVER = 4
+    ntp_mode_server = 4
 
-    NTP_MODE_XCAST_SERVER = 5
+    ntp_mode_xcast_server = 5
 
-    NTP_MODE_CONTROL = 6
+    ntp_mode_control = 6
 
-    NTP_MODE_PRIVATE = 7
+    ntp_mode_private = 7
 
-    NTP_MODE_XCAST_CLIENT = 8
+    ntp_mode_xcast_client = 8
 
 
     @staticmethod
@@ -222,55 +222,55 @@ class NtpPeerStatusEnum(Enum):
 
     Type of peer status
 
-    .. data:: NTP_CTL_PST_SEL_REJECT = 0
+    .. data:: ntp_ctl_pst_sel_reject = 0
 
     	   reject
 
-    .. data:: NTP_CTL_PST_SEL_SANE = 1
+    .. data:: ntp_ctl_pst_sel_sane = 1
 
     	 x falsetick
 
-    .. data:: NTP_CTL_PST_SEL_CORRECT = 2
+    .. data:: ntp_ctl_pst_sel_correct = 2
 
     	 . excess 
 
-    .. data:: NTP_CTL_PST_SEL_SELCAND = 3
+    .. data:: ntp_ctl_pst_sel_selcand = 3
 
     	 - outlyer
 
-    .. data:: NTP_CTL_PST_SEL_SYNC_CAND = 4
+    .. data:: ntp_ctl_pst_sel_sync_cand = 4
 
     	 + candidate
 
-    .. data:: NTP_CTL_PST_SEL_DISTSYS_PEER = 5
+    .. data:: ntp_ctl_pst_sel_distsys_peer = 5
 
     	 # selected
 
-    .. data:: NTP_CTL_PST_SEL_SYS_PEER = 6
+    .. data:: ntp_ctl_pst_sel_sys_peer = 6
 
     	 * sys peer
 
-    .. data:: NTP_CTL_PST_SEL_PPS = 7
+    .. data:: ntp_ctl_pst_sel_pps = 7
 
     	 o pps peer
 
     """
 
-    NTP_CTL_PST_SEL_REJECT = 0
+    ntp_ctl_pst_sel_reject = 0
 
-    NTP_CTL_PST_SEL_SANE = 1
+    ntp_ctl_pst_sel_sane = 1
 
-    NTP_CTL_PST_SEL_CORRECT = 2
+    ntp_ctl_pst_sel_correct = 2
 
-    NTP_CTL_PST_SEL_SELCAND = 3
+    ntp_ctl_pst_sel_selcand = 3
 
-    NTP_CTL_PST_SEL_SYNC_CAND = 4
+    ntp_ctl_pst_sel_sync_cand = 4
 
-    NTP_CTL_PST_SEL_DISTSYS_PEER = 5
+    ntp_ctl_pst_sel_distsys_peer = 5
 
-    NTP_CTL_PST_SEL_SYS_PEER = 6
+    ntp_ctl_pst_sel_sys_peer = 6
 
-    NTP_CTL_PST_SEL_PPS = 7
+    ntp_ctl_pst_sel_pps = 7
 
 
     @staticmethod
@@ -287,7 +287,7 @@ class Ntp(object):
     .. attribute:: nodes
     
     	Node\-specific NTP operational data
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes>`
     
     
 
@@ -308,7 +308,7 @@ class Ntp(object):
         .. attribute:: node
         
         	NTP operational data for a particular node
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node>`
         
         
 
@@ -338,17 +338,17 @@ class Ntp(object):
             .. attribute:: associations
             
             	NTP Associations information
-            	**type**\:  :py:class:`Associations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.Associations>`
+            	**type**\:   :py:class:`Associations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.Associations>`
             
             .. attribute:: associations_detail
             
             	NTP Associations Detail information
-            	**type**\:  :py:class:`AssociationsDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.AssociationsDetail>`
+            	**type**\:   :py:class:`AssociationsDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.AssociationsDetail>`
             
             .. attribute:: status
             
             	Status of NTP peer(s)
-            	**type**\:  :py:class:`Status <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.Status>`
+            	**type**\:   :py:class:`Status <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.Status>`
             
             
 
@@ -380,12 +380,12 @@ class Ntp(object):
                 .. attribute:: peer_detail_info
                 
                 	Peer info
-                	**type**\: list of  :py:class:`PeerDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo>`
+                	**type**\: list of    :py:class:`PeerDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo>`
                 
                 .. attribute:: sys_leap
                 
                 	Leap
-                	**type**\:  :py:class:`NtpLeapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.NtpLeapEnum>`
+                	**type**\:   :py:class:`NtpLeapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.NtpLeapEnum>`
                 
                 
 
@@ -410,7 +410,7 @@ class Ntp(object):
                     .. attribute:: filter_detail
                     
                     	Filter Details
-                    	**type**\: list of  :py:class:`FilterDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.FilterDetail>`
+                    	**type**\: list of    :py:class:`FilterDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.FilterDetail>`
                     
                     .. attribute:: filter_index
                     
@@ -432,22 +432,22 @@ class Ntp(object):
                     .. attribute:: leap
                     
                     	Leap
-                    	**type**\:  :py:class:`NtpLeapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.NtpLeapEnum>`
+                    	**type**\:   :py:class:`NtpLeapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.NtpLeapEnum>`
                     
                     .. attribute:: originate_time
                     
                     	Originate timestamp
-                    	**type**\:  :py:class:`OriginateTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.OriginateTime>`
+                    	**type**\:   :py:class:`OriginateTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.OriginateTime>`
                     
                     .. attribute:: peer_info_common
                     
                     	Common peer info
-                    	**type**\:  :py:class:`PeerInfoCommon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.PeerInfoCommon>`
+                    	**type**\:   :py:class:`PeerInfoCommon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.PeerInfoCommon>`
                     
                     .. attribute:: peer_mode
                     
                     	Peer's association mode
-                    	**type**\:  :py:class:`NtpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.NtpModeEnum>`
+                    	**type**\:   :py:class:`NtpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.NtpModeEnum>`
                     
                     .. attribute:: poll_interval
                     
@@ -466,12 +466,12 @@ class Ntp(object):
                     .. attribute:: receive_time
                     
                     	Receive timestamp
-                    	**type**\:  :py:class:`ReceiveTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.ReceiveTime>`
+                    	**type**\:   :py:class:`ReceiveTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.ReceiveTime>`
                     
                     .. attribute:: ref_time
                     
                     	Reference time
-                    	**type**\:  :py:class:`RefTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.RefTime>`
+                    	**type**\:   :py:class:`RefTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.RefTime>`
                     
                     .. attribute:: root_delay
                     
@@ -491,7 +491,7 @@ class Ntp(object):
                     .. attribute:: transmit_time
                     
                     	Transmit timestamp
-                    	**type**\:  :py:class:`TransmitTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.TransmitTime>`
+                    	**type**\:   :py:class:`TransmitTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.TransmitTime>`
                     
                     .. attribute:: version
                     
@@ -557,7 +557,7 @@ class Ntp(object):
                         .. attribute:: host_mode
                         
                         	Association mode with this peer
-                        	**type**\:  :py:class:`NtpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.NtpModeEnum>`
+                        	**type**\:   :py:class:`NtpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.NtpModeEnum>`
                         
                         .. attribute:: host_poll
                         
@@ -598,7 +598,7 @@ class Ntp(object):
                         .. attribute:: status
                         
                         	Peer status
-                        	**type**\:  :py:class:`NtpPeerStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.NtpPeerStatusEnum>`
+                        	**type**\:   :py:class:`NtpPeerStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.NtpPeerStatusEnum>`
                         
                         .. attribute:: stratum
                         
@@ -694,12 +694,12 @@ class Ntp(object):
                         .. attribute:: frac_secs
                         
                         	Fractional part in 64\-bit NTP timestamp
-                        	**type**\:  :py:class:`FracSecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs>`
+                        	**type**\:   :py:class:`FracSecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.RefTime.FracSecs>`
                         
                         .. attribute:: sec
                         
                         	Second part in 64\-bit NTP timestamp
-                        	**type**\:  :py:class:`Sec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.RefTime.Sec>`
+                        	**type**\:   :py:class:`Sec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.RefTime.Sec>`
                         
                         
 
@@ -844,12 +844,12 @@ class Ntp(object):
                         .. attribute:: frac_secs
                         
                         	Fractional part in 64\-bit NTP timestamp
-                        	**type**\:  :py:class:`FracSecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs>`
+                        	**type**\:   :py:class:`FracSecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.OriginateTime.FracSecs>`
                         
                         .. attribute:: sec
                         
                         	Second part in 64\-bit NTP timestamp
-                        	**type**\:  :py:class:`Sec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec>`
+                        	**type**\:   :py:class:`Sec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.OriginateTime.Sec>`
                         
                         
 
@@ -994,12 +994,12 @@ class Ntp(object):
                         .. attribute:: frac_secs
                         
                         	Fractional part in 64\-bit NTP timestamp
-                        	**type**\:  :py:class:`FracSecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs>`
+                        	**type**\:   :py:class:`FracSecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.ReceiveTime.FracSecs>`
                         
                         .. attribute:: sec
                         
                         	Second part in 64\-bit NTP timestamp
-                        	**type**\:  :py:class:`Sec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec>`
+                        	**type**\:   :py:class:`Sec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.ReceiveTime.Sec>`
                         
                         
 
@@ -1144,12 +1144,12 @@ class Ntp(object):
                         .. attribute:: frac_secs
                         
                         	Fractional part in 64\-bit NTP timestamp
-                        	**type**\:  :py:class:`FracSecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs>`
+                        	**type**\:   :py:class:`FracSecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.TransmitTime.FracSecs>`
                         
                         .. attribute:: sec
                         
                         	Second part in 64\-bit NTP timestamp
-                        	**type**\:  :py:class:`Sec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec>`
+                        	**type**\:   :py:class:`Sec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.AssociationsDetail.PeerDetailInfo.TransmitTime.Sec>`
                         
                         
 
@@ -1467,6 +1467,8 @@ class Ntp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: nanosecond
+                
                 .. attribute:: is_ntp_enabled
                 
                 	Is NTP enabled
@@ -1475,7 +1477,7 @@ class Ntp(object):
                 .. attribute:: is_updated
                 
                 	Is clock updated
-                	**type**\:  :py:class:`ClockUpdateNodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.ClockUpdateNodeEnum>`
+                	**type**\:   :py:class:`ClockUpdateNodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.ClockUpdateNodeEnum>`
                 
                 .. attribute:: last_update
                 
@@ -1487,7 +1489,7 @@ class Ntp(object):
                 .. attribute:: loop_filter_state
                 
                 	Loop Filter State
-                	**type**\:  :py:class:`NtpLoopFilterStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.NtpLoopFilterStateEnum>`
+                	**type**\:   :py:class:`NtpLoopFilterStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.NtpLoopFilterStateEnum>`
                 
                 .. attribute:: poll_interval
                 
@@ -1504,12 +1506,12 @@ class Ntp(object):
                 .. attribute:: sys_drift
                 
                 	System Drift
-                	**type**\:  :py:class:`SysDrift <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.Status.SysDrift>`
+                	**type**\:   :py:class:`SysDrift <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.Status.SysDrift>`
                 
                 .. attribute:: sys_leap
                 
                 	leap
-                	**type**\:  :py:class:`NtpLeapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.NtpLeapEnum>`
+                	**type**\:   :py:class:`NtpLeapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.NtpLeapEnum>`
                 
                 .. attribute:: sys_offset
                 
@@ -1533,7 +1535,7 @@ class Ntp(object):
                 .. attribute:: sys_ref_time
                 
                 	Reference time
-                	**type**\:  :py:class:`SysRefTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.Status.SysRefTime>`
+                	**type**\:   :py:class:`SysRefTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.Status.SysRefTime>`
                 
                 .. attribute:: sys_root_delay
                 
@@ -1588,12 +1590,12 @@ class Ntp(object):
                     .. attribute:: frac_secs
                     
                     	Fractional part in 64\-bit NTP timestamp
-                    	**type**\:  :py:class:`FracSecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.Status.SysRefTime.FracSecs>`
+                    	**type**\:   :py:class:`FracSecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.Status.SysRefTime.FracSecs>`
                     
                     .. attribute:: sec
                     
                     	Second part in 64\-bit NTP timestamp
-                    	**type**\:  :py:class:`Sec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.Status.SysRefTime.Sec>`
+                    	**type**\:   :py:class:`Sec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.Status.SysRefTime.Sec>`
                     
                     
 
@@ -1738,12 +1740,12 @@ class Ntp(object):
                     .. attribute:: frac_secs
                     
                     	Fractional part in 64\-bit NTP timestamp
-                    	**type**\:  :py:class:`FracSecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.Status.SysDrift.FracSecs>`
+                    	**type**\:   :py:class:`FracSecs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.Status.SysDrift.FracSecs>`
                     
                     .. attribute:: sec
                     
                     	Second part in 64\-bit NTP timestamp
-                    	**type**\:  :py:class:`Sec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.Status.SysDrift.Sec>`
+                    	**type**\:   :py:class:`Sec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.Status.SysDrift.Sec>`
                     
                     
 
@@ -1962,12 +1964,12 @@ class Ntp(object):
                 .. attribute:: peer_summary_info
                 
                 	Peer info
-                	**type**\: list of  :py:class:`PeerSummaryInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.Associations.PeerSummaryInfo>`
+                	**type**\: list of    :py:class:`PeerSummaryInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.Associations.PeerSummaryInfo>`
                 
                 .. attribute:: sys_leap
                 
                 	Leap
-                	**type**\:  :py:class:`NtpLeapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.NtpLeapEnum>`
+                	**type**\:   :py:class:`NtpLeapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.NtpLeapEnum>`
                 
                 
 
@@ -1992,7 +1994,7 @@ class Ntp(object):
                     .. attribute:: peer_info_common
                     
                     	Common peer info
-                    	**type**\:  :py:class:`PeerInfoCommon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.Associations.PeerSummaryInfo.PeerInfoCommon>`
+                    	**type**\:   :py:class:`PeerInfoCommon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.Ntp.Nodes.Node.Associations.PeerSummaryInfo.PeerInfoCommon>`
                     
                     .. attribute:: time_since
                     
@@ -2037,7 +2039,7 @@ class Ntp(object):
                         .. attribute:: host_mode
                         
                         	Association mode with this peer
-                        	**type**\:  :py:class:`NtpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.NtpModeEnum>`
+                        	**type**\:   :py:class:`NtpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.NtpModeEnum>`
                         
                         .. attribute:: host_poll
                         
@@ -2078,7 +2080,7 @@ class Ntp(object):
                         .. attribute:: status
                         
                         	Peer status
-                        	**type**\:  :py:class:`NtpPeerStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.NtpPeerStatusEnum>`
+                        	**type**\:   :py:class:`NtpPeerStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_oper.NtpPeerStatusEnum>`
                         
                         .. attribute:: stratum
                         

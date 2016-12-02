@@ -30,19 +30,19 @@ class SrmsMiFlagEnum(Enum):
 
     Srms mi flag
 
-    .. data:: DISABLE = 0
+    .. data:: disable = 0
 
     	Disable flag
 
-    .. data:: ENABLE = 1
+    .. data:: enable = 1
 
     	Enable flag
 
     """
 
-    DISABLE = 0
+    disable = 0
 
-    ENABLE = 1
+    enable = 1
 
 
     @staticmethod
@@ -59,17 +59,19 @@ class Sr(object):
     .. attribute:: enable
     
     	enable SR
-    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: global_block
     
     	Global Block Segment Routing
-    	**type**\:  :py:class:`GlobalBlock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.Sr.GlobalBlock>`
+    	**type**\:   :py:class:`GlobalBlock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.Sr.GlobalBlock>`
+    
+    	**presence node**\: True
     
     .. attribute:: mappings
     
     	Mapping Server
-    	**type**\:  :py:class:`Mappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.Sr.Mappings>`
+    	**type**\:   :py:class:`Mappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.Sr.Mappings>`
     
     
 
@@ -162,7 +164,7 @@ class Sr(object):
         .. attribute:: mapping
         
         	IP prefix to SID mapping
-        	**type**\: list of  :py:class:`Mapping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.Sr.Mappings.Mapping>`
+        	**type**\: list of    :py:class:`Mapping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.Sr.Mappings.Mapping>`
         
         
 
@@ -206,7 +208,7 @@ class Sr(object):
             .. attribute:: flag_attached
             
             	Enable/Disable Attached flag
-            	**type**\:  :py:class:`SrmsMiFlagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.SrmsMiFlagEnum>`
+            	**type**\:   :py:class:`SrmsMiFlagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_cfg.SrmsMiFlagEnum>`
             
             .. attribute:: sid_range
             

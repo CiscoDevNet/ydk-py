@@ -26,19 +26,19 @@ class BandwidthNotificationStateEnum(Enum):
 
     Bandwidth notification state
 
-    .. data:: OK = 1
+    .. data:: ok = 1
 
     	Link is not degraded
 
-    .. data:: DEGRADED = 2
+    .. data:: degraded = 2
 
     	Link is in degraded state
 
     """
 
-    OK = 1
+    ok = 1
 
-    DEGRADED = 2
+    degraded = 2
 
 
     @staticmethod
@@ -53,19 +53,19 @@ class CfmAisIntervalEnum(Enum):
 
     Cfm ais interval
 
-    .. data:: Y_1S = 4
+    .. data:: Y_1s = 4
 
     	1s
 
-    .. data:: Y_1M = 6
+    .. data:: Y_1m = 6
 
     	1m
 
     """
 
-    Y_1S = 4
+    Y_1s = 4
 
-    Y_1M = 6
+    Y_1m = 6
 
 
     @staticmethod
@@ -80,49 +80,49 @@ class CfmCcmIntervalEnum(Enum):
 
     Cfm ccm interval
 
-    .. data:: Y_3__DOT__3MS = 1
+    .. data:: Y_3__DOT__3ms = 1
 
     	3.3ms
 
-    .. data:: Y_10MS = 2
+    .. data:: Y_10ms = 2
 
     	10ms
 
-    .. data:: Y_100MS = 3
+    .. data:: Y_100ms = 3
 
     	100ms
 
-    .. data:: Y_1S = 4
+    .. data:: Y_1s = 4
 
     	1s
 
-    .. data:: Y_10S = 5
+    .. data:: Y_10s = 5
 
     	10s
 
-    .. data:: Y_1M = 6
+    .. data:: Y_1m = 6
 
     	1m
 
-    .. data:: Y_10M = 7
+    .. data:: Y_10m = 7
 
     	10m
 
     """
 
-    Y_3__DOT__3MS = 1
+    Y_3__DOT__3ms = 1
 
-    Y_10MS = 2
+    Y_10ms = 2
 
-    Y_100MS = 3
+    Y_100ms = 3
 
-    Y_1S = 4
+    Y_1s = 4
 
-    Y_10S = 5
+    Y_10s = 5
 
-    Y_1M = 6
+    Y_1m = 6
 
-    Y_10M = 7
+    Y_10m = 7
 
 
     @staticmethod
@@ -137,19 +137,19 @@ class CfmMepDirEnum(Enum):
 
     Cfm mep dir
 
-    .. data:: UP = 0
+    .. data:: up = 0
 
     	Up MEP
 
-    .. data:: DOWN = 1
+    .. data:: down = 1
 
     	Down MEP
 
     """
 
-    UP = 0
+    up = 0
 
-    DOWN = 1
+    down = 1
 
 
     @staticmethod

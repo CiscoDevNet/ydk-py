@@ -16,8 +16,8 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'AccountingModeEnum' : _MetaInfoEnum('AccountingModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg',
         {
-            'enable':'ENABLE',
-            'forward-only-enable':'FORWARD_ONLY_ENABLE',
+            'enable':'enable',
+            'forward-only-enable':'forward_only_enable',
         }, 'Cisco-IOS-XR-ipv4-mfwd-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-mfwd-cfg']),
     'Mfwd.DefaultContext.Ipv6.StaticRpfRules.StaticRpfRule' : {
         'meta_info' : _MetaInfoClass('Mfwd.DefaultContext.Ipv6.StaticRpfRules.StaticRpfRule',

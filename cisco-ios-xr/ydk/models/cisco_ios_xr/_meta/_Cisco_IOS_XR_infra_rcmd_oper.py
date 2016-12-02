@@ -16,189 +16,189 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'RcmdBagEnblDsblEnum' : _MetaInfoEnum('RcmdBagEnblDsblEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
-            'dsbl':'DSBL',
-            'enbl':'ENBL',
+            'dsbl':'dsbl',
+            'enbl':'enbl',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
     'RcmdBoolYesNoEnum' : _MetaInfoEnum('RcmdBoolYesNoEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
-            'no':'NO',
-            'yes':'YES',
+            'no':'no',
+            'yes':'yes',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
     'RcmdPriorityLevelEnum' : _MetaInfoEnum('RcmdPriorityLevelEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
-            'critical':'CRITICAL',
-            'high':'HIGH',
-            'medium':'MEDIUM',
-            'low':'LOW',
+            'critical':'critical',
+            'high':'high',
+            'medium':'medium',
+            'low':'low',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
     'RcmdSpfStateEnum' : _MetaInfoEnum('RcmdSpfStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
-            'complete':'COMPLETE',
-            'in-complete':'IN_COMPLETE',
-            'collecting':'COLLECTING',
-            'no-route-change':'NO_ROUTE_CHANGE',
+            'complete':'complete',
+            'in-complete':'in_complete',
+            'collecting':'collecting',
+            'no-route-change':'no_route_change',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
     'RcmdShowIpfrrLfaEnum' : _MetaInfoEnum('RcmdShowIpfrrLfaEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
-            'none':'NONE',
-            'local':'LOCAL',
-            'remote':'REMOTE',
+            'none':'none',
+            'local':'local',
+            'remote':'remote',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
     'RcmdShowPrcsStateEnum' : _MetaInfoEnum('RcmdShowPrcsStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
-            'success':'SUCCESS',
-            'cpu':'CPU',
-            'memory':'MEMORY',
+            'success':'success',
+            'cpu':'cpu',
+            'memory':'memory',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
     'RcmdShowCompIdEnum' : _MetaInfoEnum('RcmdShowCompIdEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
-            'ospf':'OSPF',
-            'isis':'ISIS',
-            'un-known':'UN_KNOWN',
+            'ospf':'ospf',
+            'isis':'isis',
+            'un-known':'un_known',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
     'RcmdShowLdpSessionStateEnum' : _MetaInfoEnum('RcmdShowLdpSessionStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
-            'gr-down':'GR_DOWN',
-            'gr-converging':'GR_CONVERGING',
-            'establishing':'ESTABLISHING',
-            'converging':'CONVERGING',
-            'converged':'CONVERGED',
-            'retrying':'RETRYING',
-            'total':'TOTAL',
+            'gr-down':'gr_down',
+            'gr-converging':'gr_converging',
+            'establishing':'establishing',
+            'converging':'converging',
+            'converged':'converged',
+            'retrying':'retrying',
+            'total':'total',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
     'RcmdProtocolIdEnum' : _MetaInfoEnum('RcmdProtocolIdEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
-            'ospf':'OSPF',
-            'isis':'ISIS',
-            'na':'NA',
+            'ospf':'ospf',
+            'isis':'isis',
+            'na':'na',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
     'RcmdShowLdpConvStateEnum' : _MetaInfoEnum('RcmdShowLdpConvStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
-            'not-full':'NOT_FULL',
-            'fully-covered':'FULLY_COVERED',
-            'coverage-above-threshold':'COVERAGE_ABOVE_THRESHOLD',
-            'coverage-below-threshold':'COVERAGE_BELOW_THRESHOLD',
-            'coverage-flapping':'COVERAGE_FLAPPING',
+            'not-full':'not_full',
+            'fully-covered':'fully_covered',
+            'coverage-above-threshold':'coverage_above_threshold',
+            'coverage-below-threshold':'coverage_below_threshold',
+            'coverage-flapping':'coverage_flapping',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
     'RcmdLinecardSpeedEnum' : _MetaInfoEnum('RcmdLinecardSpeedEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
-            'other':'OTHER',
-            'fastest':'FASTEST',
-            'slowest':'SLOWEST',
+            'other':'other',
+            'fastest':'fastest',
+            'slowest':'slowest',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
     'RcmdShowNodeEnum' : _MetaInfoEnum('RcmdShowNodeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
-            'unknown':'UNKNOWN',
-            'lc':'LC',
-            'rp':'RP',
+            'unknown':'unknown',
+            'lc':'lc',
+            'rp':'rp',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
     'RcmdShowLdpNeighbourStatusEnum' : _MetaInfoEnum('RcmdShowLdpNeighbourStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
-            'down':'DOWN',
-            'up':'UP',
+            'down':'down',
+            'up':'up',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
     'RcmdIsisSpfEnum' : _MetaInfoEnum('RcmdIsisSpfEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
-            'full':'FULL',
-            'incremental':'INCREMENTAL',
-            'next-hop':'NEXT_HOP',
-            'partial-route':'PARTIAL_ROUTE',
+            'full':'full',
+            'incremental':'incremental',
+            'next-hop':'next_hop',
+            'partial-route':'partial_route',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
     'RcmdShowRoutePathChangeEnum' : _MetaInfoEnum('RcmdShowRoutePathChangeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
-            'primary':'PRIMARY',
-            'backup':'BACKUP',
+            'primary':'primary',
+            'backup':'backup',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
     'RcmdIsisLvlEnum' : _MetaInfoEnum('RcmdIsisLvlEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
-            'l1':'L1',
-            'l2':'L2',
+            'l1':'l1',
+            'l2':'l2',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
     'RcmdChangeEnum' : _MetaInfoEnum('RcmdChangeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
-            'none':'NONE',
-            'add':'ADD',
-            'delete':'DELETE',
-            'modify':'MODIFY',
-            'no-change':'NO_CHANGE',
+            'none':'none',
+            'add':'add',
+            'delete':'delete',
+            'modify':'modify',
+            'no-change':'no_change',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
     'RcmdShowRouteEnum' : _MetaInfoEnum('RcmdShowRouteEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
-            'ospf':'OSPF',
-            'intra':'INTRA',
-            'inter':'INTER',
-            'ext-1':'EXT_1',
-            'ext-2':'EXT_2',
-            'nssa-1':'NSSA_1',
-            'nssa-2':'NSSA_2',
-            'isis':'ISIS',
-            'l1-summary':'L1_SUMMARY',
-            'l1':'L1',
-            'l2-summary':'L2_SUMMARY',
-            'l2':'L2',
-            'inter-area-summary':'INTER_AREA_SUMMARY',
-            'inter-area':'INTER_AREA',
-            'default-attached':'DEFAULT_ATTACHED',
+            'ospf':'ospf',
+            'intra':'intra',
+            'inter':'inter',
+            'ext-1':'ext_1',
+            'ext-2':'ext_2',
+            'nssa-1':'nssa_1',
+            'nssa-2':'nssa_2',
+            'isis':'isis',
+            'l1-summary':'l1_summary',
+            'l1':'l1',
+            'l2-summary':'l2_summary',
+            'l2':'l2',
+            'inter-area-summary':'inter_area_summary',
+            'inter-area':'inter_area',
+            'default-attached':'default_attached',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
     'RcmdLdpEventEnum' : _MetaInfoEnum('RcmdLdpEventEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
-            'neighbor':'NEIGHBOR',
-            'adjacency':'ADJACENCY',
+            'neighbor':'neighbor',
+            'adjacency':'adjacency',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
     'RcmdLsaEnum' : _MetaInfoEnum('RcmdLsaEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
-            'unknown':'UNKNOWN',
-            'router':'ROUTER',
-            'network':'NETWORK',
-            'summary':'SUMMARY',
-            'asbr':'ASBR',
-            'external':'EXTERNAL',
-            'multicast':'MULTICAST',
-            'nssa':'NSSA',
+            'unknown':'unknown',
+            'router':'router',
+            'network':'network',
+            'summary':'summary',
+            'asbr':'asbr',
+            'external':'external',
+            'multicast':'multicast',
+            'nssa':'nssa',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
     'RcmdShowMemEnum' : _MetaInfoEnum('RcmdShowMemEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
-            'standard':'STANDARD',
-            'chunk':'CHUNK',
-            'edm':'EDM',
-            'string':'STRING',
-            'static':'STATIC',
-            'unknown':'UNKNOWN',
+            'standard':'standard',
+            'chunk':'chunk',
+            'edm':'edm',
+            'string':'string',
+            'static':'static',
+            'unknown':'unknown',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
     'RcmdBagEnableDisableEnum' : _MetaInfoEnum('RcmdBagEnableDisableEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
-            'disable':'DISABLE',
-            'enable':'ENABLE',
+            'disable':'disable',
+            'enable':'enable',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
     'RcmdShowInstStateEnum' : _MetaInfoEnum('RcmdShowInstStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
-            'unknown':'UNKNOWN',
-            'active':'ACTIVE',
-            'in-active':'IN_ACTIVE',
-            'na':'NA',
+            'unknown':'unknown',
+            'active':'active',
+            'in-active':'in_active',
+            'na':'na',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
     'RcmdLsChangeEnum' : _MetaInfoEnum('RcmdLsChangeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
-            'new':'NEW',
-            'delete':'DELETE',
-            'modify':'MODIFY',
-            'noop':'NOOP',
+            'new':'new',
+            'delete':'delete',
+            'modify':'modify',
+            'noop':'noop',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
     'RcmdShowIntfEventEnum' : _MetaInfoEnum('RcmdShowIntfEventEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper',
         {
-            'create':'CREATE',
-            'delete':'DELETE',
-            'link-up':'LINK_UP',
-            'link-down':'LINK_DOWN',
-            'primary-address':'PRIMARY_ADDRESS',
-            'secondary-address':'SECONDARY_ADDRESS',
-            'ipv6-link-local-address':'IPV6_LINK_LOCAL_ADDRESS',
-            'ipv6-global-address':'IPV6_GLOBAL_ADDRESS',
-            'mtu':'MTU',
-            'band-width':'BAND_WIDTH',
-            'ldp-sync':'LDP_SYNC',
-            'forward-reference':'FORWARD_REFERENCE',
-            'ldp-no-sync':'LDP_NO_SYNC',
+            'create':'create',
+            'delete':'delete',
+            'link-up':'link_up',
+            'link-down':'link_down',
+            'primary-address':'primary_address',
+            'secondary-address':'secondary_address',
+            'ipv6-link-local-address':'ipv6_link_local_address',
+            'ipv6-global-address':'ipv6_global_address',
+            'mtu':'mtu',
+            'band-width':'band_width',
+            'ldp-sync':'ldp_sync',
+            'forward-reference':'forward_reference',
+            'ldp-no-sync':'ldp_no_sync',
         }, 'Cisco-IOS-XR-infra-rcmd-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-oper']),
     'Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.IpfrrStatistic' : {
         'meta_info' : _MetaInfoClass('Rcmd.Ospf.Instances.Instance.IpfrrEventSummaries.IpfrrEventSummary.IpfrrStatistic',
@@ -12903,8 +12903,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper'
         ),
     },
-    'Rcmd.Process.Isis.Process.InstanceName.Instance' : {
-        'meta_info' : _MetaInfoClass('Rcmd.Process.Isis.Process.InstanceName.Instance',
+    'Rcmd.Process.Isis.Process_.InstanceName.Instance' : {
+        'meta_info' : _MetaInfoClass('Rcmd.Process.Isis.Process_.InstanceName.Instance',
             False, 
             [
             _MetaInfoClassMember('arch-spf-run', ATTRIBUTE, 'int' , None, None, 
@@ -12992,8 +12992,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper'
         ),
     },
-    'Rcmd.Process.Isis.Process.InstanceName' : {
-        'meta_info' : _MetaInfoClass('Rcmd.Process.Isis.Process.InstanceName',
+    'Rcmd.Process.Isis.Process_.InstanceName' : {
+        'meta_info' : _MetaInfoClass('Rcmd.Process.Isis.Process_.InstanceName',
             False, 
             [
             _MetaInfoClassMember('arch-lsp-regeneration', ATTRIBUTE, 'int' , None, None, 
@@ -13008,7 +13008,7 @@ _meta_table = {
                 ''',
                 'arch_spf_event',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('instance', REFERENCE_LIST, 'Instance' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process.Isis.Process.InstanceName.Instance', 
+            _MetaInfoClassMember('instance', REFERENCE_LIST, 'Instance' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process.Isis.Process_.InstanceName.Instance', 
                 [], [], 
                 '''                Instance Information
                 ''',
@@ -13069,11 +13069,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper'
         ),
     },
-    'Rcmd.Process.Isis.Process' : {
-        'meta_info' : _MetaInfoClass('Rcmd.Process.Isis.Process',
+    'Rcmd.Process.Isis.Process_' : {
+        'meta_info' : _MetaInfoClass('Rcmd.Process.Isis.Process_',
             False, 
             [
-            _MetaInfoClassMember('instance-name', REFERENCE_LIST, 'InstanceName' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process.Isis.Process.InstanceName', 
+            _MetaInfoClassMember('instance-name', REFERENCE_LIST, 'InstanceName' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process.Isis.Process_.InstanceName', 
                 [], [], 
                 '''                Instance/VRF Name
                 ''',
@@ -13102,7 +13102,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Process.Isis',
             False, 
             [
-            _MetaInfoClassMember('process', REFERENCE_LIST, 'Process' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process.Isis.Process', 
+            _MetaInfoClassMember('process', REFERENCE_LIST, 'Process_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process.Isis.Process_', 
                 [], [], 
                 '''                Process Information
                 ''',
@@ -13115,8 +13115,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper'
         ),
     },
-    'Rcmd.Process.Ospf.Process.InstanceName.Instance' : {
-        'meta_info' : _MetaInfoClass('Rcmd.Process.Ospf.Process.InstanceName.Instance',
+    'Rcmd.Process.Ospf.Process_.InstanceName.Instance' : {
+        'meta_info' : _MetaInfoClass('Rcmd.Process.Ospf.Process_.InstanceName.Instance',
             False, 
             [
             _MetaInfoClassMember('arch-spf-run', ATTRIBUTE, 'int' , None, None, 
@@ -13204,8 +13204,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper'
         ),
     },
-    'Rcmd.Process.Ospf.Process.InstanceName' : {
-        'meta_info' : _MetaInfoClass('Rcmd.Process.Ospf.Process.InstanceName',
+    'Rcmd.Process.Ospf.Process_.InstanceName' : {
+        'meta_info' : _MetaInfoClass('Rcmd.Process.Ospf.Process_.InstanceName',
             False, 
             [
             _MetaInfoClassMember('arch-lsp-regeneration', ATTRIBUTE, 'int' , None, None, 
@@ -13220,7 +13220,7 @@ _meta_table = {
                 ''',
                 'arch_spf_event',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('instance', REFERENCE_LIST, 'Instance' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process.Ospf.Process.InstanceName.Instance', 
+            _MetaInfoClassMember('instance', REFERENCE_LIST, 'Instance' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process.Ospf.Process_.InstanceName.Instance', 
                 [], [], 
                 '''                Instance Information
                 ''',
@@ -13281,11 +13281,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper'
         ),
     },
-    'Rcmd.Process.Ospf.Process' : {
-        'meta_info' : _MetaInfoClass('Rcmd.Process.Ospf.Process',
+    'Rcmd.Process.Ospf.Process_' : {
+        'meta_info' : _MetaInfoClass('Rcmd.Process.Ospf.Process_',
             False, 
             [
-            _MetaInfoClassMember('instance-name', REFERENCE_LIST, 'InstanceName' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process.Ospf.Process.InstanceName', 
+            _MetaInfoClassMember('instance-name', REFERENCE_LIST, 'InstanceName' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process.Ospf.Process_.InstanceName', 
                 [], [], 
                 '''                Instance/VRF Name
                 ''',
@@ -13314,7 +13314,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Process.Ospf',
             False, 
             [
-            _MetaInfoClassMember('process', REFERENCE_LIST, 'Process' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process.Ospf.Process', 
+            _MetaInfoClassMember('process', REFERENCE_LIST, 'Process_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process.Ospf.Process_', 
                 [], [], 
                 '''                Process Information
                 ''',
@@ -13327,8 +13327,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper'
         ),
     },
-    'Rcmd.Process.Ldp.Process.InstanceName.Instance' : {
-        'meta_info' : _MetaInfoClass('Rcmd.Process.Ldp.Process.InstanceName.Instance',
+    'Rcmd.Process.Ldp.Process_.InstanceName.Instance' : {
+        'meta_info' : _MetaInfoClass('Rcmd.Process.Ldp.Process_.InstanceName.Instance',
             False, 
             [
             _MetaInfoClassMember('arch-spf-run', ATTRIBUTE, 'int' , None, None, 
@@ -13416,8 +13416,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper'
         ),
     },
-    'Rcmd.Process.Ldp.Process.InstanceName' : {
-        'meta_info' : _MetaInfoClass('Rcmd.Process.Ldp.Process.InstanceName',
+    'Rcmd.Process.Ldp.Process_.InstanceName' : {
+        'meta_info' : _MetaInfoClass('Rcmd.Process.Ldp.Process_.InstanceName',
             False, 
             [
             _MetaInfoClassMember('arch-lsp-regeneration', ATTRIBUTE, 'int' , None, None, 
@@ -13432,7 +13432,7 @@ _meta_table = {
                 ''',
                 'arch_spf_event',
                 'Cisco-IOS-XR-infra-rcmd-oper', False),
-            _MetaInfoClassMember('instance', REFERENCE_LIST, 'Instance' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process.Ldp.Process.InstanceName.Instance', 
+            _MetaInfoClassMember('instance', REFERENCE_LIST, 'Instance' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process.Ldp.Process_.InstanceName.Instance', 
                 [], [], 
                 '''                Instance Information
                 ''',
@@ -13493,11 +13493,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper'
         ),
     },
-    'Rcmd.Process.Ldp.Process' : {
-        'meta_info' : _MetaInfoClass('Rcmd.Process.Ldp.Process',
+    'Rcmd.Process.Ldp.Process_' : {
+        'meta_info' : _MetaInfoClass('Rcmd.Process.Ldp.Process_',
             False, 
             [
-            _MetaInfoClassMember('instance-name', REFERENCE_LIST, 'InstanceName' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process.Ldp.Process.InstanceName', 
+            _MetaInfoClassMember('instance-name', REFERENCE_LIST, 'InstanceName' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process.Ldp.Process_.InstanceName', 
                 [], [], 
                 '''                Instance/VRF Name
                 ''',
@@ -13526,7 +13526,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rcmd.Process.Ldp',
             False, 
             [
-            _MetaInfoClassMember('process', REFERENCE_LIST, 'Process' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process.Ldp.Process', 
+            _MetaInfoClassMember('process', REFERENCE_LIST, 'Process_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_oper', 'Rcmd.Process.Ldp.Process_', 
                 [], [], 
                 '''                Process Information
                 ''',
@@ -13925,15 +13925,15 @@ _meta_table['Rcmd.Ldp.RemoteLfaS']['meta_info'].parent =_meta_table['Rcmd.Ldp'][
 _meta_table['Rcmd.Ldp.RemoteLfaSummaries']['meta_info'].parent =_meta_table['Rcmd.Ldp']['meta_info']
 _meta_table['Rcmd.Intf.Events.Event']['meta_info'].parent =_meta_table['Rcmd.Intf.Events']['meta_info']
 _meta_table['Rcmd.Intf.Events']['meta_info'].parent =_meta_table['Rcmd.Intf']['meta_info']
-_meta_table['Rcmd.Process.Isis.Process.InstanceName.Instance']['meta_info'].parent =_meta_table['Rcmd.Process.Isis.Process.InstanceName']['meta_info']
-_meta_table['Rcmd.Process.Isis.Process.InstanceName']['meta_info'].parent =_meta_table['Rcmd.Process.Isis.Process']['meta_info']
-_meta_table['Rcmd.Process.Isis.Process']['meta_info'].parent =_meta_table['Rcmd.Process.Isis']['meta_info']
-_meta_table['Rcmd.Process.Ospf.Process.InstanceName.Instance']['meta_info'].parent =_meta_table['Rcmd.Process.Ospf.Process.InstanceName']['meta_info']
-_meta_table['Rcmd.Process.Ospf.Process.InstanceName']['meta_info'].parent =_meta_table['Rcmd.Process.Ospf.Process']['meta_info']
-_meta_table['Rcmd.Process.Ospf.Process']['meta_info'].parent =_meta_table['Rcmd.Process.Ospf']['meta_info']
-_meta_table['Rcmd.Process.Ldp.Process.InstanceName.Instance']['meta_info'].parent =_meta_table['Rcmd.Process.Ldp.Process.InstanceName']['meta_info']
-_meta_table['Rcmd.Process.Ldp.Process.InstanceName']['meta_info'].parent =_meta_table['Rcmd.Process.Ldp.Process']['meta_info']
-_meta_table['Rcmd.Process.Ldp.Process']['meta_info'].parent =_meta_table['Rcmd.Process.Ldp']['meta_info']
+_meta_table['Rcmd.Process.Isis.Process_.InstanceName.Instance']['meta_info'].parent =_meta_table['Rcmd.Process.Isis.Process_.InstanceName']['meta_info']
+_meta_table['Rcmd.Process.Isis.Process_.InstanceName']['meta_info'].parent =_meta_table['Rcmd.Process.Isis.Process_']['meta_info']
+_meta_table['Rcmd.Process.Isis.Process_']['meta_info'].parent =_meta_table['Rcmd.Process.Isis']['meta_info']
+_meta_table['Rcmd.Process.Ospf.Process_.InstanceName.Instance']['meta_info'].parent =_meta_table['Rcmd.Process.Ospf.Process_.InstanceName']['meta_info']
+_meta_table['Rcmd.Process.Ospf.Process_.InstanceName']['meta_info'].parent =_meta_table['Rcmd.Process.Ospf.Process_']['meta_info']
+_meta_table['Rcmd.Process.Ospf.Process_']['meta_info'].parent =_meta_table['Rcmd.Process.Ospf']['meta_info']
+_meta_table['Rcmd.Process.Ldp.Process_.InstanceName.Instance']['meta_info'].parent =_meta_table['Rcmd.Process.Ldp.Process_.InstanceName']['meta_info']
+_meta_table['Rcmd.Process.Ldp.Process_.InstanceName']['meta_info'].parent =_meta_table['Rcmd.Process.Ldp.Process_']['meta_info']
+_meta_table['Rcmd.Process.Ldp.Process_']['meta_info'].parent =_meta_table['Rcmd.Process.Ldp']['meta_info']
 _meta_table['Rcmd.Process.Isis']['meta_info'].parent =_meta_table['Rcmd.Process']['meta_info']
 _meta_table['Rcmd.Process.Ospf']['meta_info'].parent =_meta_table['Rcmd.Process']['meta_info']
 _meta_table['Rcmd.Process.Ldp']['meta_info'].parent =_meta_table['Rcmd.Process']['meta_info']

@@ -32,12 +32,12 @@ class Redundancy(object):
     .. attribute:: nodes
     
     	Location show information
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Nodes>`
     
     .. attribute:: summary
     
     	Redundancy Summary of Nodes
-    	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Summary>`
+    	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Summary>`
     
     
 
@@ -60,7 +60,7 @@ class Redundancy(object):
         .. attribute:: node
         
         	Redundancy Node Information
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Nodes.Node>`
         
         
 
@@ -105,7 +105,7 @@ class Redundancy(object):
             .. attribute:: redundancy
             
             	Row information
-            	**type**\:  :py:class:`Redundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Nodes.Node.Redundancy>`
+            	**type**\:   :py:class:`Redundancy_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Nodes.Node.Redundancy_>`
             
             .. attribute:: standby_reboot_reason
             
@@ -125,12 +125,12 @@ class Redundancy(object):
                 self.active_reboot_reason = None
                 self.err_log = None
                 self.log = None
-                self.redundancy = Redundancy.Nodes.Node.Redundancy()
+                self.redundancy = Redundancy.Nodes.Node.Redundancy_()
                 self.redundancy.parent = self
                 self.standby_reboot_reason = None
 
 
-            class Redundancy(object):
+            class Redundancy_(object):
                 """
                 Row information
                 
@@ -142,7 +142,7 @@ class Redundancy(object):
                 .. attribute:: groupinfo
                 
                 	groupinfo
-                	**type**\: list of  :py:class:`Groupinfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Nodes.Node.Redundancy.Groupinfo>`
+                	**type**\: list of    :py:class:`Groupinfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Nodes.Node.Redundancy_.Groupinfo>`
                 
                 .. attribute:: ha_state
                 
@@ -246,7 +246,7 @@ class Redundancy(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rmf_oper as meta
-                        return meta._meta_table['Redundancy.Nodes.Node.Redundancy.Groupinfo']['meta_info']
+                        return meta._meta_table['Redundancy.Nodes.Node.Redundancy_.Groupinfo']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -284,7 +284,7 @@ class Redundancy(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rmf_oper as meta
-                    return meta._meta_table['Redundancy.Nodes.Node.Redundancy']['meta_info']
+                    return meta._meta_table['Redundancy.Nodes.Node.Redundancy_']['meta_info']
 
             @property
             def _common_path(self):
@@ -362,7 +362,7 @@ class Redundancy(object):
         .. attribute:: red_pair
         
         	Redundancy Pair
-        	**type**\: list of  :py:class:`RedPair <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Summary.RedPair>`
+        	**type**\: list of    :py:class:`RedPair <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Summary.RedPair>`
         
         
 
@@ -391,7 +391,7 @@ class Redundancy(object):
             .. attribute:: groupinfo
             
             	groupinfo
-            	**type**\: list of  :py:class:`Groupinfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Summary.RedPair.Groupinfo>`
+            	**type**\: list of    :py:class:`Groupinfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper.Redundancy.Summary.RedPair.Groupinfo>`
             
             .. attribute:: ha_state
             

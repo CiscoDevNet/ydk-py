@@ -16,8 +16,8 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'ActionTypeEnum' : _MetaInfoEnum('ActionTypeEnum', 'ydk.models.ietf.ietf_netconf_acm',
         {
-            'permit':'PERMIT',
-            'deny':'DENY',
+            'permit':'permit',
+            'deny':'deny',
         }, 'ietf-netconf-acm', _yang_ns._namespaces['ietf-netconf-acm']),
     'Nacm.Groups.Group' : {
         'meta_info' : _MetaInfoClass('Nacm.Groups.Group',
@@ -91,7 +91,7 @@ _meta_table = {
                         ''',
                         'access_operations',
                         'ietf-netconf-acm', False),
-                    _MetaInfoClassMember('access-operations', REFERENCE_BITS, 'AccessOperationsType_Bits' , 'ydk.models.ietf.ietf_netconf_acm', 'AccessOperationsType_Bits', 
+                    _MetaInfoClassMember('access-operations', REFERENCE_BITS, 'AccessOperationsTypeBits' , 'ydk.models.ietf.ietf_netconf_acm', 'AccessOperationsTypeBits', 
                         [], [], 
                         '''                        Access operations associated with this rule.
                         

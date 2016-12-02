@@ -32,31 +32,31 @@ class InterfaceModeEnumEnum(Enum):
 
     Interface mode enum
 
-    .. data:: DEFAULT = 0
+    .. data:: default = 0
 
     	Default Interface Mode
 
-    .. data:: POINT_TO_POINT = 1
+    .. data:: point_to_point = 1
 
     	Point-to-Point Interface Mode
 
-    .. data:: MULTIPOINT = 2
+    .. data:: multipoint = 2
 
     	Multipoint Interface Mode
 
-    .. data:: L2_TRANSPORT = 3
+    .. data:: l2_transport = 3
 
     	L2 Transport Interface Mode
 
     """
 
-    DEFAULT = 0
+    default = 0
 
-    POINT_TO_POINT = 1
+    point_to_point = 1
 
-    MULTIPOINT = 2
+    multipoint = 2
 
-    L2_TRANSPORT = 3
+    l2_transport = 3
 
 
     @staticmethod
@@ -71,25 +71,25 @@ class LinkStatusEnumEnum(Enum):
 
     Link status enum
 
-    .. data:: DEFAULT = 0
+    .. data:: default = 0
 
     	Display link status messages for physical links
 
-    .. data:: DISABLE = 1
+    .. data:: disable = 1
 
     	Disable link status messages
 
-    .. data:: SOFTWARE_INTERFACES = 2
+    .. data:: software_interfaces = 2
 
     	Display link status messages for all interfaces
 
     """
 
-    DEFAULT = 0
+    default = 0
 
-    DISABLE = 1
+    disable = 1
 
-    SOFTWARE_INTERFACES = 2
+    software_interfaces = 2
 
 
     @staticmethod
@@ -104,13 +104,13 @@ class SecondaryAdminStateEnumEnum(Enum):
 
     Secondary admin state enum
 
-    .. data:: MAINTENANCE = 1
+    .. data:: maintenance = 1
 
     	Maintenance Mode
 
     """
 
-    MAINTENANCE = 1
+    maintenance = 1
 
 
     @staticmethod
@@ -127,7 +127,9 @@ class GlobalInterfaceConfiguration(object):
     .. attribute:: link_status
     
     	Enable or disable link\-status messages
-    	**type**\:  :py:class:`LinkStatusEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.LinkStatusEnumEnum>`
+    	**type**\:   :py:class:`LinkStatusEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.LinkStatusEnumEnum>`
+    
+    	**default value**\: default
     
     
 
@@ -169,7 +171,7 @@ class InterfaceConfigurations(object):
     .. attribute:: interface_configuration
     
     	The configuration for an interface
-    	**type**\: list of  :py:class:`InterfaceConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration>`
+    	**type**\: list of    :py:class:`InterfaceConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration>`
     
     
 
@@ -205,12 +207,12 @@ class InterfaceConfigurations(object):
         .. attribute:: afs
         
         	Per\-address\-family and topology configuration
-        	**type**\:  :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Afs>`
+        	**type**\:   :py:class:`Afs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Afs>`
         
         .. attribute:: atm
         
         	ATM Configuration
-        	**type**\:  :py:class:`Atm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm>`
+        	**type**\:   :py:class:`Atm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm>`
         
         .. attribute:: bandwidth
         
@@ -219,50 +221,47 @@ class InterfaceConfigurations(object):
         
         	**range:** 0..4294967295
         
+        	**units**\: kbit/s
+        
         .. attribute:: bfd
         
         	BFD over bundle members configuration
-        	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bfd>`
+        	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bfd>`
         
         .. attribute:: bundle
         
         	Generic per\-bundle configuration
-        	**type**\:  :py:class:`Bundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bundle>`
+        	**type**\:   :py:class:`Bundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bundle>`
         
         .. attribute:: bundle_member
         
         	Generic per\-member configuration
-        	**type**\:  :py:class:`BundleMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.BundleMember>`
+        	**type**\:   :py:class:`BundleMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.BundleMember>`
         
         .. attribute:: carrier_delay
         
         	Set the carrier transition delay on an interface in msecs
-        	**type**\:  :py:class:`CarrierDelay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CarrierDelay>`
+        	**type**\:   :py:class:`CarrierDelay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.CarrierDelay>`
         
         .. attribute:: cdp
         
         	Interface specific CDP configuration
-        	**type**\:  :py:class:`Cdp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Cdp>`
+        	**type**\:   :py:class:`Cdp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Cdp>`
         
         .. attribute:: client_port
         
         	Mxp optics for client ports
-        	**type**\:  :py:class:`ClientPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.ClientPort>`
-        
-        .. attribute:: control_subscriber
-        
-        	Interface control subscriber policy configuration
-        	**type**\:  :py:class:`ControlSubscriber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.ControlSubscriber>`
+        	**type**\:   :py:class:`ClientPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.ClientPort>`
         
         .. attribute:: dagrs
         
         	Direct\-Attached Gateway Redundancy configuration
-        	**type**\:  :py:class:`Dagrs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dagrs>`
+        	**type**\:   :py:class:`Dagrs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dagrs>`
         
         .. attribute:: dampening
         
         	Whether this interface's state changes are dampened or not
-        	**type**\:  :py:class:`Dampening <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dampening>`
+        	**type**\:   :py:class:`Dampening <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dampening>`
         
         .. attribute:: description
         
@@ -272,112 +271,111 @@ class InterfaceConfigurations(object):
         .. attribute:: dwdm
         
         	DWDM port controller configuration
-        	**type**\:  :py:class:`Dwdm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm>`
+        	**type**\:   :py:class:`Dwdm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm>`
         
         .. attribute:: encapsulation
         
         	The encapsulation on the interface
-        	**type**\:  :py:class:`Encapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Encapsulation>`
+        	**type**\:   :py:class:`Encapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Encapsulation>`
         
         .. attribute:: es_packet_filter
         
         	ES Packet Filtering configuration for the interface
-        	**type**\:  :py:class:`EsPacketFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EsPacketFilter>`
+        	**type**\:   :py:class:`EsPacketFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EsPacketFilter>`
         
         .. attribute:: ethernet
         
         	Ether specific interface configuration
-        	**type**\:  :py:class:`Ethernet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ethernet>`
+        	**type**\:   :py:class:`Ethernet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ethernet>`
         
         .. attribute:: ethernet_bng
         
         	Ethernet Infra BNG specific configuration
-        	**type**\:  :py:class:`EthernetBng <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetBng>`
-        
-        .. attribute:: ethernet_control
-        
-        	EthernetControl
-        	**type**\:  :py:class:`EthernetControl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetControl>`
+        	**type**\:   :py:class:`EthernetBng <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetBng>`
         
         .. attribute:: ethernet_features
         
         	Ethernet Features Configuration
-        	**type**\:  :py:class:`EthernetFeatures <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures>`
+        	**type**\:   :py:class:`EthernetFeatures <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures>`
         
         .. attribute:: ethernet_service
         
         	Ethernet service configuration
-        	**type**\:  :py:class:`EthernetService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetService>`
+        	**type**\:   :py:class:`EthernetService <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetService>`
         
         .. attribute:: interface_mode_non_physical
         
         	The mode in which an interface is running. The existence of this object causes the creation of the software subinterface
-        	**type**\:  :py:class:`InterfaceModeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceModeEnumEnum>`
+        	**type**\:   :py:class:`InterfaceModeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceModeEnumEnum>`
+        
+        	**default value**\: default
         
         .. attribute:: interface_virtual
         
         	The mode in which an interface is running. The existence of this object causes the creation of the software virtual/subinterface
-        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: ipv4_network
         
         	Interface IPv4 Network configuration data
-        	**type**\:  :py:class:`Ipv4Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network>`
+        	**type**\:   :py:class:`Ipv4Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network>`
         
         .. attribute:: ipv4_network_forwarding
         
         	Interface IPv4 Network configuration data also used for forwarding
-        	**type**\:  :py:class:`Ipv4NetworkForwarding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4NetworkForwarding>`
+        	**type**\:   :py:class:`Ipv4NetworkForwarding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4NetworkForwarding>`
         
         .. attribute:: ipv4_packet_filter
         
         	IPv4 Packet Filtering configuration for the interface
-        	**type**\:  :py:class:`Ipv4PacketFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4PacketFilter>`
+        	**type**\:   :py:class:`Ipv4PacketFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4PacketFilter>`
         
         .. attribute:: ipv4arp
         
         	Configure Address Resolution Protocol
-        	**type**\:  :py:class:`Ipv4Arp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Arp>`
+        	**type**\:   :py:class:`Ipv4Arp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Arp>`
         
         .. attribute:: ipv6_neighbor
         
         	IPv6 interface neighbor or neighbor discovery configuration
-        	**type**\:  :py:class:`Ipv6Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor>`
+        	**type**\:   :py:class:`Ipv6Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor>`
         
         .. attribute:: ipv6_network
         
         	Interface IPv6 Network configuration data
-        	**type**\:  :py:class:`Ipv6Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network>`
+        	**type**\:   :py:class:`Ipv6Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network>`
         
         .. attribute:: ipv6_packet_filter
         
         	IPv6 Packet Filtering configuration for the interface
-        	**type**\:  :py:class:`Ipv6PacketFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6PacketFilter>`
+        	**type**\:   :py:class:`Ipv6PacketFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6PacketFilter>`
         
         .. attribute:: l2_transport
         
         	Interface Layer 2 Transport service configuration data
-        	**type**\:  :py:class:`L2Transport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport>`
+        	**type**\:   :py:class:`L2Transport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport>`
         
         .. attribute:: lacp
         
         	Link Aggregation Control Protocol per\-interface configuration (for bundle or member)
-        	**type**\:  :py:class:`Lacp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Lacp>`
+        	**type**\:   :py:class:`Lacp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Lacp>`
         
         .. attribute:: link_status
         
         	Enable interface and line\-protocol state change alarms
-        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: lldp
         
         	Disable LLDP TX or RX
-        	**type**\:  :py:class:`Lldp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Lldp>`
+        	**type**\:   :py:class:`Lldp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Lldp>`
+        
+        	**presence node**\: True
         
         .. attribute:: mac_accounting
         
         	MAC Accounting Configuration
-        	**type**\:  :py:class:`MacAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MacAccounting>`
+        	**type**\:   :py:class:`MacAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MacAccounting>`
         
         .. attribute:: mac_addr
         
@@ -389,7 +387,7 @@ class InterfaceConfigurations(object):
         .. attribute:: macsec
         
         	MACSec service for an interface
-        	**type**\:  :py:class:`Macsec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Macsec>`
+        	**type**\:   :py:class:`Macsec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Macsec>`
         
         .. attribute:: maintenance_embargo
         
@@ -399,92 +397,102 @@ class InterfaceConfigurations(object):
         .. attribute:: mlacp
         
         	Multi\-chassis LACP configuration
-        	**type**\:  :py:class:`Mlacp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Mlacp>`
+        	**type**\:   :py:class:`Mlacp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Mlacp>`
         
         .. attribute:: mte_tunnel_attributes
         
         	MPLS P2MP tunnel attributes
-        	**type**\:  :py:class:`MteTunnelAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes>`
+        	**type**\:   :py:class:`MteTunnelAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes>`
         
         .. attribute:: mtus
         
         	The MTU configuration for the interface
-        	**type**\:  :py:class:`Mtus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Mtus>`
+        	**type**\:   :py:class:`Mtus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Mtus>`
         
         .. attribute:: net_flow
         
         	Interface netflow configuration
-        	**type**\:  :py:class:`NetFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow>`
+        	**type**\:   :py:class:`NetFlow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow>`
         
         .. attribute:: nv_satellite_access
         
         	nV Satellite Access Link Configuration
-        	**type**\:  :py:class:`NvSatelliteAccess <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess>`
+        	**type**\:   :py:class:`NvSatelliteAccess <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess>`
         
         .. attribute:: nv_satellite_fabric_link
         
         	nV Satellite Fabric Link Configuration
-        	**type**\:  :py:class:`NvSatelliteFabricLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink>`
+        	**type**\:   :py:class:`NvSatelliteFabricLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink>`
         
         .. attribute:: nv_satellite_fabric_network
         
         	Complex Network connection to one or more Satellites
-        	**type**\:  :py:class:`NvSatelliteFabricNetwork <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork>`
+        	**type**\:   :py:class:`NvSatelliteFabricNetwork <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork>`
+        
+        .. attribute:: nve
+        
+        	NVE operational data
+        	**type**\:   :py:class:`Nve <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Nve>`
         
         .. attribute:: optics
         
         	Optics controller configuration
-        	**type**\:  :py:class:`Optics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Optics>`
+        	**type**\:   :py:class:`Optics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Optics>`
         
         .. attribute:: otu
         
         	OTU port controller configuration
-        	**type**\:  :py:class:`Otu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu>`
+        	**type**\:   :py:class:`Otu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu>`
         
         .. attribute:: pbr
         
         	Interface PBR configuration
-        	**type**\:  :py:class:`Pbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Pbr>`
+        	**type**\:   :py:class:`Pbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Pbr>`
         
         .. attribute:: performance_management
         
         	Configure pm parameters
-        	**type**\:  :py:class:`PerformanceManagement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement>`
+        	**type**\:   :py:class:`PerformanceManagement <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement>`
         
         .. attribute:: pseudowire_ether
         
         	PW\-Ether attributes
-        	**type**\:  :py:class:`PseudowireEther <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PseudowireEther>`
+        	**type**\:   :py:class:`PseudowireEther <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PseudowireEther>`
         
         .. attribute:: pseudowire_iw
         
         	PW\-IW attributes
-        	**type**\:  :py:class:`PseudowireIw <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PseudowireIw>`
+        	**type**\:   :py:class:`PseudowireIw <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PseudowireIw>`
         
         .. attribute:: qos
         
         	Interface QOS configuration
-        	**type**\:  :py:class:`Qos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Qos>`
+        	**type**\:   :py:class:`Qos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Qos>`
         
         .. attribute:: secondary_admin_state
         
         	The secondary admin state of the interface
-        	**type**\:  :py:class:`SecondaryAdminStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.SecondaryAdminStateEnumEnum>`
+        	**type**\:   :py:class:`SecondaryAdminStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.SecondaryAdminStateEnumEnum>`
+        
+        .. attribute:: service_policies
+        
+        	Interface control subscriber policy configuration
+        	**type**\:   :py:class:`ServicePolicies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.ServicePolicies>`
         
         .. attribute:: shutdown
         
         	The existence of this configuration indicates the interface is shut down
-        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: span_monitor_sessions
         
         	Monitor Session container for this source interface
-        	**type**\:  :py:class:`SpanMonitorSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.SpanMonitorSessions>`
+        	**type**\:   :py:class:`SpanMonitorSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.SpanMonitorSessions>`
         
         .. attribute:: statistics
         
         	Per\-interface statistics configuration
-        	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Statistics>`
+        	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Statistics>`
         
         .. attribute:: track_name
         
@@ -496,27 +504,27 @@ class InterfaceConfigurations(object):
         .. attribute:: transport_profile_tunnel
         
         	MPLS\-TP tunnel attributes
-        	**type**\:  :py:class:`TransportProfileTunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel>`
+        	**type**\:   :py:class:`TransportProfileTunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel>`
         
         .. attribute:: tunnel_ip
         
         	IP over GRE encapsulation
-        	**type**\:  :py:class:`TunnelIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelIp>`
+        	**type**\:   :py:class:`TunnelIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelIp>`
         
         .. attribute:: tunnel_te_attributes
         
         	MPLS tunnel attributes
-        	**type**\:  :py:class:`TunnelTeAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes>`
+        	**type**\:   :py:class:`TunnelTeAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes>`
         
         .. attribute:: vlan_sub_configuration
         
         	IEEE 802.1Q VLAN subinterface configuration
-        	**type**\:  :py:class:`VlanSubConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.VlanSubConfiguration>`
+        	**type**\:   :py:class:`VlanSubConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.VlanSubConfiguration>`
         
         .. attribute:: vlan_trunk_configuration
         
         	IEEE 802.1Q VLAN trunk interface configuration
-        	**type**\:  :py:class:`VlanTrunkConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.VlanTrunkConfiguration>`
+        	**type**\:   :py:class:`VlanTrunkConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.VlanTrunkConfiguration>`
         
         .. attribute:: vrf
         
@@ -528,7 +536,7 @@ class InterfaceConfigurations(object):
         .. attribute:: wanphy
         
         	WANPHY port controller configuration
-        	**type**\:  :py:class:`Wanphy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Wanphy>`
+        	**type**\:   :py:class:`Wanphy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Wanphy>`
         
         
 
@@ -558,8 +566,6 @@ class InterfaceConfigurations(object):
             self.cdp.parent = self
             self.client_port = InterfaceConfigurations.InterfaceConfiguration.ClientPort()
             self.client_port.parent = self
-            self.control_subscriber = InterfaceConfigurations.InterfaceConfiguration.ControlSubscriber()
-            self.control_subscriber.parent = self
             self.dagrs = InterfaceConfigurations.InterfaceConfiguration.Dagrs()
             self.dagrs.parent = self
             self.dampening = InterfaceConfigurations.InterfaceConfiguration.Dampening()
@@ -575,8 +581,6 @@ class InterfaceConfigurations(object):
             self.ethernet.parent = self
             self.ethernet_bng = InterfaceConfigurations.InterfaceConfiguration.EthernetBng()
             self.ethernet_bng.parent = self
-            self.ethernet_control = InterfaceConfigurations.InterfaceConfiguration.EthernetControl()
-            self.ethernet_control.parent = self
             self.ethernet_features = InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures()
             self.ethernet_features.parent = self
             self.ethernet_service = InterfaceConfigurations.InterfaceConfiguration.EthernetService()
@@ -623,6 +627,8 @@ class InterfaceConfigurations(object):
             self.nv_satellite_fabric_link.parent = self
             self.nv_satellite_fabric_network = InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork()
             self.nv_satellite_fabric_network.parent = self
+            self.nve = InterfaceConfigurations.InterfaceConfiguration.Nve()
+            self.nve.parent = self
             self.optics = InterfaceConfigurations.InterfaceConfiguration.Optics()
             self.optics.parent = self
             self.otu = InterfaceConfigurations.InterfaceConfiguration.Otu()
@@ -638,6 +644,8 @@ class InterfaceConfigurations(object):
             self.qos = InterfaceConfigurations.InterfaceConfiguration.Qos()
             self.qos.parent = self
             self.secondary_admin_state = None
+            self.service_policies = InterfaceConfigurations.InterfaceConfiguration.ServicePolicies()
+            self.service_policies.parent = self
             self.shutdown = None
             self.span_monitor_sessions = InterfaceConfigurations.InterfaceConfiguration.SpanMonitorSessions()
             self.span_monitor_sessions.parent = self
@@ -667,7 +675,7 @@ class InterfaceConfigurations(object):
             .. attribute:: args
             
             	Dampening Arguments
-            	**type**\:  :py:class:`ArgsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dampening.ArgsEnum>`
+            	**type**\:   :py:class:`ArgsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dampening.ArgsEnum>`
             
             .. attribute:: half_life
             
@@ -675,6 +683,8 @@ class InterfaceConfigurations(object):
             	**type**\:  int
             
             	**range:** 1..45
+            
+            	**units**\: minute
             
             .. attribute:: restart_penalty
             
@@ -704,6 +714,8 @@ class InterfaceConfigurations(object):
             
             	**range:** 1..255
             
+            	**units**\: minute
+            
             
 
             """
@@ -726,33 +738,33 @@ class InterfaceConfigurations(object):
 
                 Dampening Arguments
 
-                .. data:: DEFAULT_VALUES = 0
+                .. data:: default_values = 0
 
                 	Default values
 
-                .. data:: SPECIFY_HALF_LIFE = 1
+                .. data:: specify_half_life = 1
 
                 	Half Life Specified
 
-                .. data:: SPECIFY_ALL = 4
+                .. data:: specify_all = 4
 
                 	All Arguments except Restart Penalty
 
                 	Specified
 
-                .. data:: SPECIFY_RP = 5
+                .. data:: specify_rp = 5
 
                 	All Arguments Specified
 
                 """
 
-                DEFAULT_VALUES = 0
+                default_values = 0
 
-                SPECIFY_HALF_LIFE = 1
+                specify_half_life = 1
 
-                SPECIFY_ALL = 4
+                specify_all = 4
 
-                SPECIFY_RP = 5
+                specify_rp = 5
 
 
                 @staticmethod
@@ -808,7 +820,7 @@ class InterfaceConfigurations(object):
             .. attribute:: mtu
             
             	The MTU for the interface
-            	**type**\: list of  :py:class:`Mtu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Mtus.Mtu>`
+            	**type**\: list of    :py:class:`Mtu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Mtus.Mtu>`
             
             
 
@@ -968,170 +980,6 @@ class InterfaceConfigurations(object):
                 return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.Encapsulation']['meta_info']
 
 
-        class EthernetControl(object):
-            """
-            EthernetControl
-            
-            .. attribute:: small_frame_padding
-            
-            	Enable small frame padding on an interface
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
-            
-            .. attribute:: transceiver
-            
-            	Transceiver
-            	**type**\:  :py:class:`Transceiver <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetControl.Transceiver>`
-            
-            .. attribute:: transport_mode
-            
-            	Set the transport mode on an interface
-            	**type**\:  :py:class:`EtherCtrlTransportModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_cfg.EtherCtrlTransportModeEnum>`
-            
-            
-
-            """
-
-            _prefix = 'asr9k-lc-ethctrl-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.small_frame_padding = None
-                self.transceiver = InterfaceConfigurations.InterfaceConfiguration.EthernetControl.Transceiver()
-                self.transceiver.parent = self
-                self.transport_mode = None
-
-
-            class Transceiver(object):
-                """
-                Transceiver
-                
-                .. attribute:: permit
-                
-                	Permit
-                	**type**\:  :py:class:`Permit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetControl.Transceiver.Permit>`
-                
-                
-
-                """
-
-                _prefix = 'asr9k-lc-ethctrl-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.permit = InterfaceConfigurations.InterfaceConfiguration.EthernetControl.Transceiver.Permit()
-                    self.permit.parent = self
-
-
-                class Permit(object):
-                    """
-                    Permit
-                    
-                    .. attribute:: pid
-                    
-                    	Permit pluggable PID (Product ID) all
-                    	**type**\:  :py:class:`PermitPluggablePidEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_cfg.PermitPluggablePidEnum>`
-                    
-                    .. attribute:: type
-                    
-                    	Permit pluggable type all
-                    	**type**\:  :py:class:`PermitPluggableEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_cfg.PermitPluggableEnum>`
-                    
-                    
-
-                    """
-
-                    _prefix = 'asr9k-lc-ethctrl-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.pid = None
-                        self.type = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-asr9k-lc-ethctrl-cfg:permit'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.pid is not None:
-                            return True
-
-                        if self.type is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.EthernetControl.Transceiver.Permit']['meta_info']
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-asr9k-lc-ethctrl-cfg:transceiver'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.permit is not None and self.permit._has_data():
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                    return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.EthernetControl.Transceiver']['meta_info']
-
-            @property
-            def _common_path(self):
-                if self.parent is None:
-                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                return self.parent._common_path +'/Cisco-IOS-XR-asr9k-lc-ethctrl-cfg:ethernet-control'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.small_frame_padding is not None:
-                    return True
-
-                if self.transceiver is not None and self.transceiver._has_data():
-                    return True
-
-                if self.transport_mode is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.EthernetControl']['meta_info']
-
-
         class PseudowireEther(object):
             """
             PW\-Ether attributes
@@ -1208,6 +1056,8 @@ class InterfaceConfigurations(object):
             
             	**range:** 1..64
             
+            	**units**\: byte
+            
             
 
             """
@@ -1256,42 +1106,42 @@ class InterfaceConfigurations(object):
             .. attribute:: atm_port_mode_parameters
             
             	ATM L2transport Port Mode Parameters Configuration
-            	**type**\:  :py:class:`AtmPortModeParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.AtmPortModeParameters>`
+            	**type**\:   :py:class:`AtmPortModeParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.AtmPortModeParameters>`
             
             .. attribute:: cac
             
             	Connection Attachment Circuit configuration
-            	**type**\:  :py:class:`Cac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac>`
+            	**type**\:   :py:class:`Cac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac>`
             
             .. attribute:: enabled
             
             	This object is only valid on physical interfaces and it controls whether that interface is a port mode Layer 2 attachment circuit (note that for subinterfaces, the Layer 2 property is specified when the subinterface is created).The object must be set before any other L2Transport configuration is supplied for the interface, and must be the last per\-interface configuration object to be removed
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: l2_ethernet_features
             
             	L2 Ethernet Features Configuration
-            	**type**\:  :py:class:`L2EthernetFeatures <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.L2EthernetFeatures>`
+            	**type**\:   :py:class:`L2EthernetFeatures <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.L2EthernetFeatures>`
             
             .. attribute:: l2_protocols
             
             	Interface specific Layer 2 protocol handling
-            	**type**\:  :py:class:`L2Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.L2Protocols>`
+            	**type**\:   :py:class:`L2Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.L2Protocols>`
             
             .. attribute:: pac
             
             	Port Attachment Circuit configuration
-            	**type**\:  :py:class:`Pac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac>`
+            	**type**\:   :py:class:`Pac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac>`
             
             .. attribute:: propagate_remote_status
             
             	Enable propagation of the remote attachment\-circuit link state to the localattachment\-circuit link state
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: span_monitor_sessions
             
             	Monitor Session container for this source interface
-            	**type**\:  :py:class:`SpanMonitorSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.SpanMonitorSessions>`
+            	**type**\:   :py:class:`SpanMonitorSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.SpanMonitorSessions>`
             
             
 
@@ -1326,7 +1176,9 @@ class InterfaceConfigurations(object):
                 .. attribute:: cell_packing
                 
                 	Configure cell\-packing parameters.  All parameters are mandatory
-                	**type**\:  :py:class:`CellPacking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.AtmPortModeParameters.CellPacking>`
+                	**type**\:   :py:class:`CellPacking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.AtmPortModeParameters.CellPacking>`
+                
+                	**presence node**\: True
                 
                 
 
@@ -1444,7 +1296,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: l2_protocol
                 
                 	Handling of a specific Layer 2 protocol
-                	**type**\: list of  :py:class:`L2Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.L2Protocols.L2Protocol>`
+                	**type**\: list of    :py:class:`L2Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.L2Protocols.L2Protocol>`
                 
                 
 
@@ -1467,12 +1319,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: l2_protocol_name  <key>
                     
                     	Protocol name
-                    	**type**\:  :py:class:`L2ProtocolNameEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.L2ProtocolNameEnum>`
+                    	**type**\:   :py:class:`L2ProtocolNameEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.L2ProtocolNameEnum>`
                     
                     .. attribute:: mode
                     
                     	How to handle the protocol's packets
-                    	**type**\:  :py:class:`L2ProtocolModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.L2ProtocolModeEnum>`
+                    	**type**\:   :py:class:`L2ProtocolModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.L2ProtocolModeEnum>`
                     
                     	**mandatory**\: True
                     
@@ -1562,12 +1414,14 @@ class InterfaceConfigurations(object):
                 .. attribute:: egress_filtering
                 
                 	Egress Ethernet filtering
-                	**type**\:  :py:class:`EgressFilteringEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EgressFilteringEnum>`
+                	**type**\:   :py:class:`EgressFilteringEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.EgressFilteringEnum>`
+                
+                	**default value**\: egress-filtering-type-default
                 
                 .. attribute:: source_bypass_egress_filtering
                 
                 	Mark all ingress packets to bypass any egress VLAN filter
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -1617,7 +1471,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: span_monitor_session
                 
                 	Configuration for a particular class of Monitor Session
-                	**type**\: list of  :py:class:`SpanMonitorSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.SpanMonitorSessions.SpanMonitorSession>`
+                	**type**\: list of    :py:class:`SpanMonitorSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.SpanMonitorSessions.SpanMonitorSession>`
                 
                 
 
@@ -1641,17 +1495,19 @@ class InterfaceConfigurations(object):
                     .. attribute:: session_class  <key>
                     
                     	Session Class
-                    	**type**\:  :py:class:`SpanSessionClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClassEnum>`
+                    	**type**\:   :py:class:`SpanSessionClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClassEnum>`
                     
                     .. attribute:: acl
                     
                     	Enable ACL matching for traffic mirroring
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: attachment
                     
                     	Attach the interface to a Monitor Session
-                    	**type**\:  :py:class:`Attachment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.SpanMonitorSessions.SpanMonitorSession.Attachment>`
+                    	**type**\:   :py:class:`Attachment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.SpanMonitorSessions.SpanMonitorSession.Attachment>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: mirror_first
                     
@@ -1660,10 +1516,12 @@ class InterfaceConfigurations(object):
                     
                     	**range:** 1..10000
                     
+                    	**units**\: byte
+                    
                     .. attribute:: mirror_interval
                     
                     	Specify the mirror interval
-                    	**type**\:  :py:class:`SpanMirrorIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanMirrorIntervalEnum>`
+                    	**type**\:   :py:class:`SpanMirrorIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanMirrorIntervalEnum>`
                     
                     
 
@@ -1688,12 +1546,12 @@ class InterfaceConfigurations(object):
                         .. attribute:: direction
                         
                         	Specify the direction of traffic to replicate (optional)
-                        	**type**\:  :py:class:`SpanTrafficDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanTrafficDirectionEnum>`
+                        	**type**\:   :py:class:`SpanTrafficDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanTrafficDirectionEnum>`
                         
                         .. attribute:: port_level_enable
                         
                         	Enable port level traffic mirroring
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: session_name
                         
@@ -1829,7 +1687,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: qos
                 
                 	Interface QOS configuration
-                	**type**\:  :py:class:`Qos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos>`
+                	**type**\:   :py:class:`Qos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos>`
                 
                 
 
@@ -1851,12 +1709,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: input
                     
                     	Ingress service policy
-                    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos.Input>`
+                    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos.Input>`
                     
                     .. attribute:: output
                     
                     	Egress service policy
-                    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos.Output>`
+                    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos.Output>`
                     
                     
 
@@ -1880,7 +1738,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: service_policy
                         
                         	Service policy details
-                        	**type**\: list of  :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos.Output.ServicePolicy>`
+                        	**type**\: list of    :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos.Output.ServicePolicy>`
                         
                         
 
@@ -1910,7 +1768,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: account_type
                             
                             	Turn off L2 or L3 accounting
-                            	**type**\:  :py:class:`QosPolicyAccountEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccountEnum>`
+                            	**type**\:   :py:class:`QosPolicyAccountEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccountEnum>`
                             
                             .. attribute:: l1_user_defined
                             
@@ -2036,7 +1894,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: service_policy
                         
                         	Service policy details
-                        	**type**\: list of  :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos.Input.ServicePolicy>`
+                        	**type**\: list of    :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos.Input.ServicePolicy>`
                         
                         
 
@@ -2066,7 +1924,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: account_type
                             
                             	Turn off L2 or L3 accounting
-                            	**type**\:  :py:class:`QosPolicyAccountEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccountEnum>`
+                            	**type**\:   :py:class:`QosPolicyAccountEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccountEnum>`
                             
                             .. attribute:: l1_user_defined
                             
@@ -2243,7 +2101,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: qos
                 
                 	Interface QOS configuration
-                	**type**\:  :py:class:`Qos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos>`
+                	**type**\:   :py:class:`Qos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos>`
                 
                 
 
@@ -2265,12 +2123,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: input
                     
                     	Ingress service policy
-                    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos.Input>`
+                    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos.Input>`
                     
                     .. attribute:: output
                     
                     	Egress service policy
-                    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos.Output>`
+                    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos.Output>`
                     
                     
 
@@ -2294,7 +2152,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: service_policy
                         
                         	Service policy details
-                        	**type**\: list of  :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos.Output.ServicePolicy>`
+                        	**type**\: list of    :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos.Output.ServicePolicy>`
                         
                         
 
@@ -2324,7 +2182,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: account_type
                             
                             	Turn off L2 or L3 accounting
-                            	**type**\:  :py:class:`QosPolicyAccountEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccountEnum>`
+                            	**type**\:   :py:class:`QosPolicyAccountEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccountEnum>`
                             
                             .. attribute:: l1_user_defined
                             
@@ -2450,7 +2308,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: service_policy
                         
                         	Service policy details
-                        	**type**\: list of  :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos.Input.ServicePolicy>`
+                        	**type**\: list of    :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos.Input.ServicePolicy>`
                         
                         
 
@@ -2480,7 +2338,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: account_type
                             
                             	Turn off L2 or L3 accounting
-                            	**type**\:  :py:class:`QosPolicyAccountEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccountEnum>`
+                            	**type**\:   :py:class:`QosPolicyAccountEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccountEnum>`
                             
                             .. attribute:: l1_user_defined
                             
@@ -2702,22 +2560,24 @@ class InterfaceConfigurations(object):
             .. attribute:: max_vpi_bits
             
             	Support 12\-bits VPI cell format
-            	**type**\:  :py:class:`AtmVpiBitsModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_cfg.AtmVpiBitsModeEnum>`
+            	**type**\:   :py:class:`AtmVpiBitsModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_cfg.AtmVpiBitsModeEnum>`
             
             .. attribute:: maximum_cell_packing_timers
             
             	Configure maximum cell\-packing timers.  All parameters are mandatory
-            	**type**\:  :py:class:`MaximumCellPackingTimers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.MaximumCellPackingTimers>`
+            	**type**\:   :py:class:`MaximumCellPackingTimers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.MaximumCellPackingTimers>`
+            
+            	**presence node**\: True
             
             .. attribute:: pvcs
             
             	PVC Configuration
-            	**type**\:  :py:class:`Pvcs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs>`
+            	**type**\:   :py:class:`Pvcs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs>`
             
             .. attribute:: pvps
             
             	PVP Configuration
-            	**type**\:  :py:class:`Pvps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps>`
+            	**type**\:   :py:class:`Pvps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps>`
             
             .. attribute:: vc_class
             
@@ -2729,7 +2589,7 @@ class InterfaceConfigurations(object):
             .. attribute:: vp_tunnels
             
             	VP tunnel configuration
-            	**type**\:  :py:class:`VpTunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.VpTunnels>`
+            	**type**\:   :py:class:`VpTunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.VpTunnels>`
             
             
 
@@ -2758,7 +2618,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: pvp
                 
                 	Configuration of particular PVP
-                	**type**\: list of  :py:class:`Pvp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps.Pvp>`
+                	**type**\: list of    :py:class:`Pvp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps.Pvp>`
                 
                 
 
@@ -2788,27 +2648,29 @@ class InterfaceConfigurations(object):
                     .. attribute:: cell_packing
                     
                     	Configure cell\-packing parameters.  All parameters are mandatory
-                    	**type**\:  :py:class:`CellPacking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps.Pvp.CellPacking>`
+                    	**type**\:   :py:class:`CellPacking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps.Pvp.CellPacking>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: enable
                     
                     	Create the PVP
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: oam_segment_endpoint
                     
                     	Enable L2VPN PVP OAM segment endpoint
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: shape
                     
                     	Configure traffic shaping parameters
-                    	**type**\:  :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps.Pvp.Shape>`
+                    	**type**\:   :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps.Pvp.Shape>`
                     
                     .. attribute:: test_mode
                     
                     	Configure the PVP test mode
-                    	**type**\:  :py:class:`AtmPvpTestModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_cfg.AtmPvpTestModeEnum>`
+                    	**type**\:   :py:class:`AtmPvpTestModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_cfg.AtmPvpTestModeEnum>`
                     
                     
 
@@ -2856,7 +2718,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: type
                         
                         	Traffic shaping type
-                        	**type**\:  :py:class:`AtmPvcShapingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_common_datatypes.AtmPvcShapingEnum>`
+                        	**type**\:   :py:class:`AtmPvcShapingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_common_datatypes.AtmPvcShapingEnum>`
                         
                         
 
@@ -3053,7 +2915,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: pvc
                 
                 	Configuration particular PVC
-                	**type**\: list of  :py:class:`Pvc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc>`
+                	**type**\: list of    :py:class:`Pvc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc>`
                 
                 
 
@@ -3076,7 +2938,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: pv_ctype  <key>
                     
                     	PVC type
-                    	**type**\:  :py:class:`AtmPvcDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_common_datatypes.AtmPvcDataEnum>`
+                    	**type**\:   :py:class:`AtmPvcDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_common_datatypes.AtmPvcDataEnum>`
                     
                     .. attribute:: vci  <key>
                     
@@ -3095,37 +2957,39 @@ class InterfaceConfigurations(object):
                     .. attribute:: cell_packing
                     
                     	Configure cell\-packing parameters.  All parameters are mandatory
-                    	**type**\:  :py:class:`CellPacking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc.CellPacking>`
+                    	**type**\:   :py:class:`CellPacking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc.CellPacking>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: enable
                     
                     	Create the PVC
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: encapsulation
                     
                     	Configure encapsulation
-                    	**type**\:  :py:class:`AtmPvcEncapsulationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_common_datatypes.AtmPvcEncapsulationEnum>`
+                    	**type**\:   :py:class:`AtmPvcEncapsulationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_common_datatypes.AtmPvcEncapsulationEnum>`
                     
                     .. attribute:: oam_emulation
                     
                     	L2VPN OAM emulation
-                    	**type**\:  :py:class:`OamEmulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc.OamEmulation>`
+                    	**type**\:   :py:class:`OamEmulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc.OamEmulation>`
                     
                     .. attribute:: oam_segment_endpoint
                     
                     	Enable L2VPN PVC OAM segment endpoint
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: shape
                     
                     	Configure traffic shaping parameters
-                    	**type**\:  :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc.Shape>`
+                    	**type**\:   :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs.Pvc.Shape>`
                     
                     .. attribute:: test_mode
                     
                     	Configure the PVC test mode
-                    	**type**\:  :py:class:`AtmPvcTestModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_cfg.AtmPvcTestModeEnum>`
+                    	**type**\:   :py:class:`AtmPvcTestModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_cfg.AtmPvcTestModeEnum>`
                     
                     .. attribute:: vc_class
                     
@@ -3186,7 +3050,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: type
                         
                         	Traffic shaping type
-                        	**type**\:  :py:class:`AtmPvcShapingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_common_datatypes.AtmPvcShapingEnum>`
+                        	**type**\:   :py:class:`AtmPvcShapingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_common_datatypes.AtmPvcShapingEnum>`
                         
                         
 
@@ -3250,7 +3114,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: enable
                         
                         	Enable OAM emulation
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -3544,7 +3408,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: vp_tunnel
                 
                 	Configure a VP tunnel on this interface
-                	**type**\: list of  :py:class:`VpTunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.VpTunnels.VpTunnel>`
+                	**type**\: list of    :py:class:`VpTunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.VpTunnels.VpTunnel>`
                 
                 
 
@@ -3574,22 +3438,22 @@ class InterfaceConfigurations(object):
                     .. attribute:: disable_f4oam
                     
                     	Disable F4 OAM configuration
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: enable
                     
                     	Create the VP Tunnel
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: enable_hierarchical_shaping
                     
                     	Enable Hierarchical Shaping configuration
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: shape
                     
                     	Configure Traffic shaping parameters
-                    	**type**\:  :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.VpTunnels.VpTunnel.Shape>`
+                    	**type**\:   :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Atm.VpTunnels.VpTunnel.Shape>`
                     
                     
 
@@ -3636,7 +3500,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: type
                         
                         	Traffic shaping type
-                        	**type**\:  :py:class:`AtmVpShapingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_common_datatypes.AtmVpShapingEnum>`
+                        	**type**\:   :py:class:`AtmVpShapingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_common_datatypes.AtmVpShapingEnum>`
                         
                         
 
@@ -3796,12 +3660,14 @@ class InterfaceConfigurations(object):
             .. attribute:: address_family
             
             	Configuration of BFDoBM for all address families
-            	**type**\:  :py:class:`AddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily>`
+            	**type**\:   :py:class:`AddressFamily <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily>`
             
             .. attribute:: mode
             
             	Configuration of BFDoBM mode [cisco\|ietf]
-            	**type**\:  :py:class:`BfdModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg.BfdModeEnum>`
+            	**type**\:   :py:class:`BfdModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg.BfdModeEnum>`
+            
+            	**default value**\: no-cfg
             
             
 
@@ -3825,12 +3691,12 @@ class InterfaceConfigurations(object):
                 .. attribute:: ipv4
                 
                 	Configuration of BFDoBM for IPv4 address family
-                	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily.Ipv4>`
+                	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily.Ipv4>`
                 
                 .. attribute:: ipv6
                 
                 	Configuration of BFDoBM for IPv6 address family
-                	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily.Ipv6>`
+                	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily.Ipv6>`
                 
                 
 
@@ -3867,7 +3733,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: ipv6_fast_detect
                     
                     	Configure to enable BFD over bundle members
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: ipv6_interval
                     
@@ -3879,7 +3745,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: ipv6_timers
                     
                     	Timers associated with BFDoBM
-                    	**type**\:  :py:class:`Ipv6Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily.Ipv6.Ipv6Timers>`
+                    	**type**\:   :py:class:`Ipv6Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily.Ipv6.Ipv6Timers>`
                     
                     
 
@@ -4014,12 +3880,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: echo
                     
                     	Container for Echo min\-multiplier
-                    	**type**\:  :py:class:`Echo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily.Ipv4.Echo>`
+                    	**type**\:   :py:class:`Echo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily.Ipv4.Echo>`
                     
                     .. attribute:: fast_detect
                     
                     	Configure to enable BFD over bundle members
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: interval
                     
@@ -4031,7 +3897,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: timers
                     
                     	Timers associated with BFDoBM
-                    	**type**\:  :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily.Ipv4.Timers>`
+                    	**type**\:   :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily.Ipv4.Timers>`
                     
                     
 
@@ -4257,7 +4123,7 @@ class InterfaceConfigurations(object):
             .. attribute:: bundle_load_balancing
             
             	Load\-balance configuration
-            	**type**\:  :py:class:`BundleLoadBalancing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bundle.BundleLoadBalancing>`
+            	**type**\:   :py:class:`BundleLoadBalancing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bundle.BundleLoadBalancing>`
             
             .. attribute:: lacp_delay
             
@@ -4269,17 +4135,17 @@ class InterfaceConfigurations(object):
             .. attribute:: maximum_active
             
             	Set a limit on the number of links that can be active
-            	**type**\:  :py:class:`MaximumActive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bundle.MaximumActive>`
+            	**type**\:   :py:class:`MaximumActive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bundle.MaximumActive>`
             
             .. attribute:: minimum_active
             
             	Minimum criteria for a bundle to be active
-            	**type**\:  :py:class:`MinimumActive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bundle.MinimumActive>`
+            	**type**\:   :py:class:`MinimumActive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bundle.MinimumActive>`
             
             .. attribute:: shutdown
             
             	Deactivate all member links (down to Standby state)
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: wait_while
             
@@ -4287,6 +4153,8 @@ class InterfaceConfigurations(object):
             	**type**\:  int
             
             	**range:** 0..2000
+            
+            	**default value**\: 2000
             
             
 
@@ -4315,7 +4183,9 @@ class InterfaceConfigurations(object):
                 .. attribute:: hash_function
                 
                 	Enable loadbalancing on this Bundle / EFP
-                	**type**\:  :py:class:`HashFunction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bundle.BundleLoadBalancing.HashFunction>`
+                	**type**\:   :py:class:`HashFunction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bundle.BundleLoadBalancing.HashFunction>`
+                
+                	**presence node**\: True
                 
                 .. attribute:: localize_links
                 
@@ -4344,7 +4214,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: hash_type
                     
                     	The specified hash function to use
-                    	**type**\:  :py:class:`BundleLoadBalanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg.BundleLoadBalanceEnum>`
+                    	**type**\:   :py:class:`BundleLoadBalanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg.BundleLoadBalanceEnum>`
                     
                     	**mandatory**\: True
                     
@@ -4445,12 +4315,18 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 1..4294967295
                 
+                	**units**\: kbit/s
+                
+                	**default value**\: 1
+                
                 .. attribute:: links
                 
                 	Number of active links needed to bring up a bundle
                 	**type**\:  int
                 
                 	**range:** 1..64
+                
+                	**default value**\: 1
                 
                 
 
@@ -4500,7 +4376,9 @@ class InterfaceConfigurations(object):
                 .. attribute:: links
                 
                 	Maximum number of active links in a bundle
-                	**type**\:  :py:class:`Links <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bundle.MaximumActive.Links>`
+                	**type**\:   :py:class:`Links <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Bundle.MaximumActive.Links>`
+                
+                	**presence node**\: True
                 
                 
 
@@ -4530,7 +4408,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: max_active_links_mode
                     
                     	Maximum active links mode
-                    	**type**\:  :py:class:`BundleMaximumActiveLinksModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg.BundleMaximumActiveLinksModeEnum>`
+                    	**type**\:   :py:class:`BundleMaximumActiveLinksModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg.BundleMaximumActiveLinksModeEnum>`
                     
                     .. attribute:: _is_presence
                     
@@ -4653,12 +4531,14 @@ class InterfaceConfigurations(object):
             .. attribute:: churn_logging
             
             	Log churn notifications on the specified system(s)
-            	**type**\:  :py:class:`ChurnLoggingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg.ChurnLoggingEnum>`
+            	**type**\:   :py:class:`ChurnLoggingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg.ChurnLoggingEnum>`
             
             .. attribute:: cisco_extensions
             
             	Enable bundle Cisco extensions
-            	**type**\:  :py:class:`CiscoExtensions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Lacp.CiscoExtensions>`
+            	**type**\:   :py:class:`CiscoExtensions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Lacp.CiscoExtensions>`
+            
+            	**presence node**\: True
             
             .. attribute:: collector_max_delay
             
@@ -4670,25 +4550,49 @@ class InterfaceConfigurations(object):
             .. attribute:: fast_switchover
             
             	Configure to enable the fast\-switchover mode
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: lacp_nonrevertive
             
             	Configure to enable lacp non\-revertive mode
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
-            .. attribute:: period_short
+            .. attribute:: mode
             
-            	LACP period to request from the partner (LACP standard short period, or rate in milliseconds for use with Cisco\-specific extensions). Default is LACP standard long period (30s)
+            	Lacp mode for the bundle
+            	**type**\:   :py:class:`BundleModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg.BundleModeEnum>`
+            
+            .. attribute:: period
+            
+            	Lacp period for the bundle
             	**type**\: one of the below types:
             
-            	**type**\:  :py:class:`PeriodShortEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg.PeriodShortEnumEnum>`
+            	**type**\:   :py:class:`BundlePeriodEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg.BundlePeriodEnum>`
             
             
             ----
             	**type**\:  int
             
             	**range:** 1..1000
+            
+            
+            ----
+            .. attribute:: period_short
+            
+            	LACP period to request from the partner (LACP standard short period, or rate in milliseconds for use with Cisco\-specific extensions). Default is LACP standard long period (30s)
+            	**type**\: one of the below types:
+            
+            	**type**\:   :py:class:`PeriodShortEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg.PeriodShortEnumEnum>`
+            
+            	**units**\: millisecond
+            
+            
+            ----
+            	**type**\:  int
+            
+            	**range:** 1..1000
+            
+            	**units**\: millisecond
             
             
             ----
@@ -4716,7 +4620,7 @@ class InterfaceConfigurations(object):
             .. attribute:: timeout
             
             	Set timeout values for LACP\-related timers
-            	**type**\:  :py:class:`Timeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Lacp.Timeout>`
+            	**type**\:   :py:class:`Timeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Lacp.Timeout>`
             
             
 
@@ -4732,6 +4636,8 @@ class InterfaceConfigurations(object):
                 self.collector_max_delay = None
                 self.fast_switchover = None
                 self.lacp_nonrevertive = None
+                self.mode = None
+                self.period = None
                 self.period_short = None
                 self.suppress_flaps = None
                 self.system_mac = None
@@ -4747,14 +4653,14 @@ class InterfaceConfigurations(object):
                 .. attribute:: cisco_ext
                 
                 	Cisco extensions
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 	**mandatory**\: True
                 
                 .. attribute:: cisco_ext_type
                 
                 	Specific Cisco extension to enable / disable
-                	**type**\:  :py:class:`BundleCiscoExtTypesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg.BundleCiscoExtTypesEnum>`
+                	**type**\:   :py:class:`BundleCiscoExtTypesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg.BundleCiscoExtTypesEnum>`
                 
                 .. attribute:: _is_presence
                 
@@ -4903,6 +4809,12 @@ class InterfaceConfigurations(object):
                 if self.lacp_nonrevertive is not None:
                     return True
 
+                if self.mode is not None:
+                    return True
+
+                if self.period is not None:
+                    return True
+
                 if self.period_short is not None:
                     return True
 
@@ -4933,7 +4845,7 @@ class InterfaceConfigurations(object):
             .. attribute:: id
             
             	Add the port to an aggregated interface
-            	**type**\:  :py:class:`Id <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.BundleMember.Id>`
+            	**type**\:   :py:class:`Id <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.BundleMember.Id>`
             
             .. attribute:: port_priority
             
@@ -4941,6 +4853,8 @@ class InterfaceConfigurations(object):
             	**type**\:  int
             
             	**range:** 1..65535
+            
+            	**default value**\: 32768
             
             
 
@@ -4970,7 +4884,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: port_activity
                 
                 	Port Activity
-                	**type**\:  :py:class:`BundlePortActivityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg.BundlePortActivityEnum>`
+                	**type**\:   :py:class:`BundlePortActivityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg.BundlePortActivityEnum>`
                 
                 
 
@@ -5053,7 +4967,9 @@ class InterfaceConfigurations(object):
             .. attribute:: maximize
             
             	Set parameters to maximize between the mLACP peers
-            	**type**\:  :py:class:`Maximize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Mlacp.Maximize>`
+            	**type**\:   :py:class:`Maximize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Mlacp.Maximize>`
+            
+            	**presence node**\: True
             
             .. attribute:: port_priority
             
@@ -5062,6 +4978,8 @@ class InterfaceConfigurations(object):
             
             	**range:** 1..65535
             
+            	**default value**\: 32768
+            
             .. attribute:: recovery_delay
             
             	Set the delay before the bundle becomes active after recovery from failure
@@ -5069,10 +4987,12 @@ class InterfaceConfigurations(object):
             
             	**range:** 0..65535
             
+            	**default value**\: 300
+            
             .. attribute:: switchover_type
             
             	Set the type of mLACP switchover to use for this bundle
-            	**type**\:  :py:class:`MlacpSwitchoverEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg.MlacpSwitchoverEnum>`
+            	**type**\:   :py:class:`MlacpSwitchoverEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg.MlacpSwitchoverEnum>`
             
             
 
@@ -5112,7 +5032,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: maximize_by
                 
                 	The paramenter which should be maximized
-                	**type**\:  :py:class:`MlacpMaximizeParameterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg.MlacpMaximizeParameterEnum>`
+                	**type**\:   :py:class:`MlacpMaximizeParameterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg.MlacpMaximizeParameterEnum>`
                 
                 	**mandatory**\: True
                 
@@ -5213,7 +5133,7 @@ class InterfaceConfigurations(object):
             .. attribute:: enable
             
             	Enable or disable CDP on an interface
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -5307,12 +5227,16 @@ class InterfaceConfigurations(object):
             .. attribute:: optics_dwdm_carrier
             
             	Configure optics DWDM Carrier
-            	**type**\:  :py:class:`OpticsDwdmCarrier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Optics.OpticsDwdmCarrier>`
+            	**type**\:   :py:class:`OpticsDwdmCarrier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Optics.OpticsDwdmCarrier>`
+            
+            	**presence node**\: True
             
             .. attribute:: optics_fec
             
             	Configure optics fec 
-            	**type**\:  :py:class:`OpticsFecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_cfg.OpticsFecEnum>`
+            	**type**\:   :py:class:`OpticsFecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_cfg.OpticsFecEnum>`
+            
+            	**default value**\: fec-none
             
             .. attribute:: optics_lbc_high_threshold
             
@@ -5324,12 +5248,14 @@ class InterfaceConfigurations(object):
             .. attribute:: optics_loopback
             
             	Configure optics loopback mode 
-            	**type**\:  :py:class:`OpticsLoopbackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_cfg.OpticsLoopbackEnum>`
+            	**type**\:   :py:class:`OpticsLoopbackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_cfg.OpticsLoopbackEnum>`
+            
+            	**default value**\: none
             
             .. attribute:: optics_network_srlgs
             
             	Configure Network srlgs
-            	**type**\:  :py:class:`OpticsNetworkSrlgs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Optics.OpticsNetworkSrlgs>`
+            	**type**\:   :py:class:`OpticsNetworkSrlgs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Optics.OpticsNetworkSrlgs>`
             
             .. attribute:: optics_osnr_low_threshold
             
@@ -5343,12 +5269,14 @@ class InterfaceConfigurations(object):
             	Select Performance Monitoring as Enable or Disable
             	**type**\:  bool
             
+            	**default value**\: true
+            
             .. attribute:: optics_transmit_power
             
             	Select power level (in units of 0.1dBm)
             	**type**\:  int
             
-            	**range:** \-190..15
+            	**range:** \-190..20
             
             .. attribute:: optics_transmit_shutdown
             
@@ -5358,12 +5286,12 @@ class InterfaceConfigurations(object):
             .. attribute:: rx_thresholds
             
             	Configure Rx threshold
-            	**type**\:  :py:class:`RxThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Optics.RxThresholds>`
+            	**type**\:   :py:class:`RxThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Optics.RxThresholds>`
             
             .. attribute:: tx_thresholds
             
             	Configure Tx threshold
-            	**type**\:  :py:class:`TxThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Optics.TxThresholds>`
+            	**type**\:   :py:class:`TxThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Optics.TxThresholds>`
             
             
 
@@ -5404,7 +5332,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: rx_threshold
                 
                 	Optics RX Low or high threshold configuration
-                	**type**\: list of  :py:class:`RxThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Optics.RxThresholds.RxThreshold>`
+                	**type**\: list of    :py:class:`RxThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Optics.RxThresholds.RxThreshold>`
                 
                 
 
@@ -5427,7 +5355,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: rx_threshold_type  <key>
                     
                     	Low or high rx threshold
-                    	**type**\:  :py:class:`ThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_cfg.ThresholdEnum>`
+                    	**type**\:   :py:class:`ThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_cfg.ThresholdEnum>`
                     
                     .. attribute:: rx_threshold
                     
@@ -5513,7 +5441,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: optics_network_srlg
                 
                 	Configure network srlg sets
-                	**type**\: list of  :py:class:`OpticsNetworkSrlg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Optics.OpticsNetworkSrlgs.OpticsNetworkSrlg>`
+                	**type**\: list of    :py:class:`OpticsNetworkSrlg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Optics.OpticsNetworkSrlgs.OpticsNetworkSrlg>`
                 
                 
 
@@ -5677,14 +5605,14 @@ class InterfaceConfigurations(object):
                 .. attribute:: grid_type
                 
                 	DWDM Channel Grid Type
-                	**type**\:  :py:class:`OpticsDwdmCarrierGridEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_cfg.OpticsDwdmCarrierGridEnum>`
+                	**type**\:   :py:class:`OpticsDwdmCarrierGridEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_cfg.OpticsDwdmCarrierGridEnum>`
                 
                 	**mandatory**\: True
                 
                 .. attribute:: param_type
                 
                 	DWDM Channel Parameter Type ITU\-Channel or Frequency or Wavelength
-                	**type**\:  :py:class:`OpticsDwdmCarrierParamEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_cfg.OpticsDwdmCarrierParamEnum>`
+                	**type**\:   :py:class:`OpticsDwdmCarrierParamEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_cfg.OpticsDwdmCarrierParamEnum>`
                 
                 	**mandatory**\: True
                 
@@ -5758,7 +5686,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: tx_threshold
                 
                 	Optics TX Low or high threshold configuration
-                	**type**\: list of  :py:class:`TxThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Optics.TxThresholds.TxThreshold>`
+                	**type**\: list of    :py:class:`TxThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Optics.TxThresholds.TxThreshold>`
                 
                 
 
@@ -5781,7 +5709,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: tx_threshold_type  <key>
                     
                     	Low or high tx threshold
-                    	**type**\:  :py:class:`ThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_cfg.ThresholdEnum>`
+                    	**type**\:   :py:class:`ThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_cfg.ThresholdEnum>`
                     
                     .. attribute:: tx_threshold
                     
@@ -5942,72 +5870,76 @@ class InterfaceConfigurations(object):
             .. attribute:: fec
             
             	Configure forward error correction
-            	**type**\:  :py:class:`OtuForwardErrorCorrectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_cfg.OtuForwardErrorCorrectionEnum>`
+            	**type**\:   :py:class:`OtuForwardErrorCorrectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_cfg.OtuForwardErrorCorrectionEnum>`
+            
+            	**default value**\: none
             
             .. attribute:: gcc
             
             	General Communication Channel configuration
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: loopback
             
             	Type of Loopback
-            	**type**\:  :py:class:`OtnLoopbackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_cfg.OtnLoopbackEnum>`
+            	**type**\:   :py:class:`OtnLoopbackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_cfg.OtnLoopbackEnum>`
             
             .. attribute:: network_srlgs
             
             	Configure Network srlgs
-            	**type**\:  :py:class:`NetworkSrlgs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.NetworkSrlgs>`
+            	**type**\:   :py:class:`NetworkSrlgs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.NetworkSrlgs>`
             
             .. attribute:: otn_expected_tti
             
             	Configure OTN Expected TTI value for Full ASCII/HEX
-            	**type**\:  :py:class:`OtnExpectedTti <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.OtnExpectedTti>`
+            	**type**\:   :py:class:`OtnExpectedTti <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.OtnExpectedTti>`
             
             .. attribute:: otn_expected_ttisapi
             
             	Configure OTN Expected TTI value for SAPI configs
-            	**type**\:  :py:class:`OtnExpectedTtisapi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.OtnExpectedTtisapi>`
+            	**type**\:   :py:class:`OtnExpectedTtisapi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.OtnExpectedTtisapi>`
             
             .. attribute:: otn_expected_ttitcmdapi
             
             	Configure OTN Expected TTI value for DAPI configs
-            	**type**\:  :py:class:`OtnExpectedTtitcmdapi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.OtnExpectedTtitcmdapi>`
+            	**type**\:   :py:class:`OtnExpectedTtitcmdapi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.OtnExpectedTtitcmdapi>`
             
             .. attribute:: otn_expected_ttitcmos
             
             	Configure OTN Expected TTI value for OS config
-            	**type**\:  :py:class:`OtnExpectedTtitcmos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.OtnExpectedTtitcmos>`
+            	**type**\:   :py:class:`OtnExpectedTtitcmos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.OtnExpectedTtitcmos>`
             
             .. attribute:: otn_send_tti
             
             	Configure OTN Send TTI value for Full ASCII/HEX
-            	**type**\:  :py:class:`OtnSendTti <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.OtnSendTti>`
+            	**type**\:   :py:class:`OtnSendTti <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.OtnSendTti>`
             
             .. attribute:: otn_send_ttisapi
             
             	Configure OTN Send TTI value for SAPI configs
-            	**type**\:  :py:class:`OtnSendTtisapi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.OtnSendTtisapi>`
+            	**type**\:   :py:class:`OtnSendTtisapi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.OtnSendTtisapi>`
             
             .. attribute:: otn_send_ttitcmdapi
             
             	Configure OTN Send TTI value for DAPI configs
-            	**type**\:  :py:class:`OtnSendTtitcmdapi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.OtnSendTtitcmdapi>`
+            	**type**\:   :py:class:`OtnSendTtitcmdapi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.OtnSendTtitcmdapi>`
             
             .. attribute:: otn_send_ttitcmos
             
             	Configure OTN Send TTI value for OS config
-            	**type**\:  :py:class:`OtnSendTtitcmos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.OtnSendTtitcmos>`
+            	**type**\:   :py:class:`OtnSendTtitcmos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.OtnSendTtitcmos>`
             
             .. attribute:: performance_monitoring
             
             	Configure performance monitoring
-            	**type**\:  :py:class:`OtnPerMonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_cfg.OtnPerMonEnum>`
+            	**type**\:   :py:class:`OtnPerMonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_cfg.OtnPerMonEnum>`
+            
+            	**default value**\: enable
             
             .. attribute:: proactive_protection
             
             	Configure Proactive Protection
-            	**type**\:  :py:class:`ProactiveProtection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.ProactiveProtection>`
+            	**type**\:   :py:class:`ProactiveProtection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.ProactiveProtection>`
             
             .. attribute:: sd
             
@@ -6019,7 +5951,9 @@ class InterfaceConfigurations(object):
             .. attribute:: secondary_admin_state
             
             	Configure secondary admin state 
-            	**type**\:  :py:class:`OtnSecAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_cfg.OtnSecAdminStateEnum>`
+            	**type**\:   :py:class:`OtnSecAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_cfg.OtnSecAdminStateEnum>`
+            
+            	**default value**\: normal
             
             .. attribute:: sf
             
@@ -6087,7 +6021,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: string_type
                 
                 	TTI string type (FULL ASCII or  DAPI ASCII or SAPI ASCII or hex format or OS ASCII or OS HEX)
-                	**type**\:  :py:class:`OtnSendTtiTypeOsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_cfg.OtnSendTtiTypeOsEnum>`
+                	**type**\:   :py:class:`OtnSendTtiTypeOsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_cfg.OtnSendTtiTypeOsEnum>`
                 
                 
 
@@ -6147,7 +6081,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: string_type
                 
                 	TTI string type (FULL ASCII or  DAPI ASCII or SAPI ASCII or hex format or OS ASCII or OS HEX)
-                	**type**\:  :py:class:`OtnSendTtiTypeDapiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_cfg.OtnSendTtiTypeDapiEnum>`
+                	**type**\:   :py:class:`OtnSendTtiTypeDapiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_cfg.OtnSendTtiTypeDapiEnum>`
                 
                 
 
@@ -6204,7 +6138,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: string_type
                 
                 	TTI string type (FULL ASCII or  DAPI ASCII or SAPI ASCII or hex format or OS ASCII or OS HEX)
-                	**type**\:  :py:class:`OtnExpTtiTypeSapiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_cfg.OtnExpTtiTypeSapiEnum>`
+                	**type**\:   :py:class:`OtnExpTtiTypeSapiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_cfg.OtnExpTtiTypeSapiEnum>`
                 
                 
 
@@ -6253,27 +6187,27 @@ class InterfaceConfigurations(object):
                 .. attribute:: revert_threshold
                 
                 	Proactive Protection Threshold
-                	**type**\:  :py:class:`RevertThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.ProactiveProtection.RevertThreshold>`
+                	**type**\:   :py:class:`RevertThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.ProactiveProtection.RevertThreshold>`
                 
                 .. attribute:: revert_window
                 
                 	Proactive Protection Window
-                	**type**\:  :py:class:`RevertWindow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.ProactiveProtection.RevertWindow>`
+                	**type**\:   :py:class:`RevertWindow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.ProactiveProtection.RevertWindow>`
                 
                 .. attribute:: status
                 
                 	Enable Proactive Protection
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: trigger_threshold
                 
                 	Proactive Protection Threshold
-                	**type**\:  :py:class:`TriggerThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.ProactiveProtection.TriggerThreshold>`
+                	**type**\:   :py:class:`TriggerThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.ProactiveProtection.TriggerThreshold>`
                 
                 .. attribute:: trigger_window
                 
                 	Proactive Protection Window
-                	**type**\:  :py:class:`TriggerWindow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.ProactiveProtection.TriggerWindow>`
+                	**type**\:   :py:class:`TriggerWindow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.ProactiveProtection.TriggerWindow>`
                 
                 
 
@@ -6309,7 +6243,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: enable
                     
                     	Proactive Protection supported
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: power
                     
@@ -6369,7 +6303,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: enable
                     
                     	Enable Proactive Protection
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: value
                     
@@ -6425,7 +6359,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: enable
                     
                     	Enable Proactive Protection
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: value
                     
@@ -6488,7 +6422,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: enable
                     
                     	Proactive Protection supported
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: power
                     
@@ -6584,7 +6518,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: network_srlg
                 
                 	Configure network srlg sets
-                	**type**\: list of  :py:class:`NetworkSrlg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.NetworkSrlgs.NetworkSrlg>`
+                	**type**\: list of    :py:class:`NetworkSrlg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Otu.NetworkSrlgs.NetworkSrlg>`
                 
                 
 
@@ -6762,7 +6696,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: string_type
                 
                 	TTI string type (FULL ASCII or  DAPI ASCII or SAPI ASCII or hex format or OS ASCII or OS HEX)
-                	**type**\:  :py:class:`OtnSendTtiTypeFullEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_cfg.OtnSendTtiTypeFullEnum>`
+                	**type**\:   :py:class:`OtnSendTtiTypeFullEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_cfg.OtnSendTtiTypeFullEnum>`
                 
                 
 
@@ -6823,7 +6757,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: string_type
                 
                 	TTI string type (FULL ASCII or  DAPI ASCII or SAPI ASCII or hex format or OS ASCII or OS HEX)
-                	**type**\:  :py:class:`OtnExpTtiTypeDapiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_cfg.OtnExpTtiTypeDapiEnum>`
+                	**type**\:   :py:class:`OtnExpTtiTypeDapiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_cfg.OtnExpTtiTypeDapiEnum>`
                 
                 
 
@@ -6879,7 +6813,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: string_type
                 
                 	TTI string type (FULL ASCII or  DAPI ASCII or SAPI ASCII or hex format or OS ASCII or OS HEX)
-                	**type**\:  :py:class:`OtnSendTtiTypeSapiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_cfg.OtnSendTtiTypeSapiEnum>`
+                	**type**\:   :py:class:`OtnSendTtiTypeSapiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_cfg.OtnSendTtiTypeSapiEnum>`
                 
                 
 
@@ -6942,7 +6876,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: string_type
                 
                 	TTI string type (FULL ASCII or  DAPI ASCII or SAPI ASCII or hex format or OS ASCII or OS HEX)
-                	**type**\:  :py:class:`OtnExpTtiTypeOsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_cfg.OtnExpTtiTypeOsEnum>`
+                	**type**\:   :py:class:`OtnExpTtiTypeOsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_cfg.OtnExpTtiTypeOsEnum>`
                 
                 
 
@@ -7010,7 +6944,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: string_type
                 
                 	TTI string type (FULL ASCII or  DAPI ASCII or SAPI ASCII or hex format or OS ASCII or OS HEX)
-                	**type**\:  :py:class:`OtnExpTtiTypeFullEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_cfg.OtnExpTtiTypeFullEnum>`
+                	**type**\:   :py:class:`OtnExpTtiTypeFullEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_cfg.OtnExpTtiTypeFullEnum>`
                 
                 
 
@@ -7135,7 +7069,9 @@ class InterfaceConfigurations(object):
             .. attribute:: psk_key_chain
             
             	MACSec MKA Configuration on Interface
-            	**type**\:  :py:class:`PskKeyChain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Macsec.PskKeyChain>`
+            	**type**\:   :py:class:`PskKeyChain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Macsec.PskKeyChain>`
+            
+            	**presence node**\: True
             
             
 
@@ -7246,57 +7182,57 @@ class InterfaceConfigurations(object):
             .. attribute:: auto_negotiation
             
             	Link auto\-negotiation
-            	**type**\:  :py:class:`EthernetAutoNegotiationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetAutoNegotiationEnum>`
+            	**type**\:   :py:class:`EthernetAutoNegotiationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetAutoNegotiationEnum>`
             
             .. attribute:: carrier_delay
             
             	Set the carrier transition delay on an interface in msecs
-            	**type**\:  :py:class:`CarrierDelay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ethernet.CarrierDelay>`
+            	**type**\:   :py:class:`CarrierDelay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ethernet.CarrierDelay>`
             
             .. attribute:: duplex
             
             	Configure duplex operational mode
-            	**type**\:  :py:class:`EthernetDuplexEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetDuplexEnum>`
+            	**type**\:   :py:class:`EthernetDuplexEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetDuplexEnum>`
             
             .. attribute:: flow_control
             
             	Configure flow\-control mode
-            	**type**\:  :py:class:`EthernetFlowCtrlEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetFlowCtrlEnum>`
+            	**type**\:   :py:class:`EthernetFlowCtrlEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetFlowCtrlEnum>`
             
             .. attribute:: forward_error_correction
             
             	Forward Error Correction
-            	**type**\:  :py:class:`EthernetFecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetFecEnum>`
+            	**type**\:   :py:class:`EthernetFecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetFecEnum>`
             
             .. attribute:: inter_packet_gap
             
             	Inter\-packet gap
-            	**type**\:  :py:class:`EthernetIpgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetIpgEnum>`
+            	**type**\:   :py:class:`EthernetIpgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetIpgEnum>`
             
             .. attribute:: loopback
             
             	Configure loopback mode
-            	**type**\:  :py:class:`EthernetLoopbackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetLoopbackEnum>`
+            	**type**\:   :py:class:`EthernetLoopbackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetLoopbackEnum>`
             
             .. attribute:: priority_flow_control
             
             	Configure priority flow\-control mode
-            	**type**\:  :py:class:`EthernetPfcEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetPfcEnum>`
+            	**type**\:   :py:class:`EthernetPfcEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetPfcEnum>`
             
             .. attribute:: signal_degrade_bit_error_rate
             
             	Signal Degrade Bit Error Rate handling options
-            	**type**\:  :py:class:`SignalDegradeBitErrorRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ethernet.SignalDegradeBitErrorRate>`
+            	**type**\:   :py:class:`SignalDegradeBitErrorRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ethernet.SignalDegradeBitErrorRate>`
             
             .. attribute:: signal_fail_bit_error_rate
             
             	Signal Fail Bit Error Rate handling options
-            	**type**\:  :py:class:`SignalFailBitErrorRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ethernet.SignalFailBitErrorRate>`
+            	**type**\:   :py:class:`SignalFailBitErrorRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ethernet.SignalFailBitErrorRate>`
             
             .. attribute:: speed
             
             	Set the ethernet speed on an interface
-            	**type**\:  :py:class:`EthernetSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetSpeedEnum>`
+            	**type**\:   :py:class:`EthernetSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_cfg.EthernetSpeedEnum>`
             
             
 
@@ -7330,7 +7266,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: signal_fail_report_disable
                 
                 	Disable generation of an alarm whenever the SF\-BER threshold is crossed for this interface
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: signal_fail_threshold
                 
@@ -7339,10 +7275,12 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 4..12
                 
+                	**default value**\: 4
+                
                 .. attribute:: signal_remote_fault
                 
                 	Signal a remote fault to the peer device whenever the link is taken down due to crossing the SF\-BER threshold
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -7395,7 +7333,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: signal_degrade_report
                 
                 	Generate an alarm whenever the SD\-BER threshold is crossed for this interface
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: signal_degrade_threshold
                 
@@ -7403,6 +7341,8 @@ class InterfaceConfigurations(object):
                 	**type**\:  int
                 
                 	**range:** 3..12
+                
+                	**default value**\: 6
                 
                 
 
@@ -7569,17 +7509,19 @@ class InterfaceConfigurations(object):
             .. attribute:: g709
             
             	Configure G709 parameters
-            	**type**\:  :py:class:`G709 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709>`
+            	**type**\:   :py:class:`G709 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709>`
             
             .. attribute:: laser
             
             	Configure laser off/on
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: loopback
             
             	Configure loopback mode 
-            	**type**\:  :py:class:`DwdmLoopbackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.DwdmLoopbackEnum>`
+            	**type**\:   :py:class:`DwdmLoopbackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.DwdmLoopbackEnum>`
+            
+            	**default value**\: none
             
             .. attribute:: network_connection_id
             
@@ -7598,7 +7540,7 @@ class InterfaceConfigurations(object):
             .. attribute:: network_srlgs
             
             	Configure Network srlgs
-            	**type**\:  :py:class:`NetworkSrlgs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.NetworkSrlgs>`
+            	**type**\:   :py:class:`NetworkSrlgs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.NetworkSrlgs>`
             
             .. attribute:: rx_threshold
             
@@ -7617,12 +7559,16 @@ class InterfaceConfigurations(object):
             .. attribute:: transport_admin_state
             
             	Configure transport admin state
-            	**type**\:  :py:class:`DwdmAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.DwdmAdminStateEnum>`
+            	**type**\:   :py:class:`DwdmAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.DwdmAdminStateEnum>`
+            
+            	**default value**\: out-of-service
             
             .. attribute:: wavelength
             
             	Configure transponder wavelength
-            	**type**\:  :py:class:`Wavelength <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.Wavelength>`
+            	**type**\:   :py:class:`Wavelength <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.Wavelength>`
+            
+            	**presence node**\: True
             
             
 
@@ -7655,7 +7601,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: network_srlg
                 
                 	Configure network srlg sets
-                	**type**\: list of  :py:class:`NetworkSrlg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.NetworkSrlgs.NetworkSrlg>`
+                	**type**\: list of    :py:class:`NetworkSrlg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.NetworkSrlgs.NetworkSrlg>`
                 
                 
 
@@ -7819,7 +7765,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: bdi_to_gais
                 
                 	Enable GAIS insertion
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: enable
                 
@@ -7829,32 +7775,36 @@ class InterfaceConfigurations(object):
                 .. attribute:: fec
                 
                 	Configure FEC mode
-                	**type**\:  :py:class:`Fec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Fec>`
+                	**type**\:   :py:class:`Fec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Fec>`
+                
+                	**presence node**\: True
                 
                 .. attribute:: framing
                 
                 	Over clocking mode for client signal bw compatibility
-                	**type**\:  :py:class:`FramingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.FramingEnum>`
+                	**type**\:   :py:class:`FramingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.FramingEnum>`
                 
                 .. attribute:: odu
                 
                 	Configure ODU parameters
-                	**type**\:  :py:class:`Odu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu>`
+                	**type**\:   :py:class:`Odu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu>`
                 
                 .. attribute:: otu
                 
                 	Configure OTU parameters
-                	**type**\:  :py:class:`Otu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu>`
+                	**type**\:   :py:class:`Otu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu>`
                 
                 .. attribute:: prbs
                 
                 	Configure PRBS mode and pattern
-                	**type**\:  :py:class:`Prbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Prbs>`
+                	**type**\:   :py:class:`Prbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Prbs>`
+                
+                	**presence node**\: True
                 
                 .. attribute:: proactive
                 
                 	Enable proactive protectioni Graceful or Default mode
-                	**type**\:  :py:class:`ProactiveEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.ProactiveEnum>`
+                	**type**\:   :py:class:`ProactiveEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.ProactiveEnum>`
                 
                 .. attribute:: proactive_logging_file
                 
@@ -7866,12 +7816,12 @@ class InterfaceConfigurations(object):
                 .. attribute:: tim_to_gais
                 
                 	Configure Trace Identifier Mismatch alarm consequence
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: tti_processing
                 
                 	Configure Trail Trace Identifier  processing
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -7904,22 +7854,22 @@ class InterfaceConfigurations(object):
                     .. attribute:: odu_expected_tti
                     
                     	Configure ODU Expected TTI value
-                    	**type**\:  :py:class:`OduExpectedTti <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduExpectedTti>`
+                    	**type**\:   :py:class:`OduExpectedTti <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduExpectedTti>`
                     
                     .. attribute:: odu_reports
                     
                     	Configure ODU alarm reporting
-                    	**type**\:  :py:class:`OduReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduReports>`
+                    	**type**\:   :py:class:`OduReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduReports>`
                     
                     .. attribute:: odu_thresholds
                     
                     	Configure ODU threshold value
-                    	**type**\:  :py:class:`OduThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduThresholds>`
+                    	**type**\:   :py:class:`OduThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduThresholds>`
                     
                     .. attribute:: odu_tx_tti
                     
                     	Configure ODU TTI value
-                    	**type**\:  :py:class:`OduTxTti <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduTxTti>`
+                    	**type**\:   :py:class:`OduTxTti <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduTxTti>`
                     
                     
 
@@ -7947,7 +7897,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: odu_report
                         
                         	none
-                        	**type**\: list of  :py:class:`OduReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduReports.OduReport>`
+                        	**type**\: list of    :py:class:`OduReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduReports.OduReport>`
                         
                         
 
@@ -7970,7 +7920,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: alarm  <key>
                             
                             	ODU alarm type
-                            	**type**\:  :py:class:`OduAlarmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.OduAlarmEnum>`
+                            	**type**\:   :py:class:`OduAlarmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.OduAlarmEnum>`
                             
                             
 
@@ -8043,7 +7993,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: odu_threshold
                         
                         	none
-                        	**type**\: list of  :py:class:`OduThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduThresholds.OduThreshold>`
+                        	**type**\: list of    :py:class:`OduThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduThresholds.OduThreshold>`
                         
                         
 
@@ -8066,7 +8016,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: threshold  <key>
                             
                             	ODU Threshold type
-                            	**type**\:  :py:class:`OduThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.OduThresholdEnum>`
+                            	**type**\:   :py:class:`OduThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.OduThresholdEnum>`
                             
                             .. attribute:: threshold_value
                             
@@ -8166,7 +8116,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: string_type
                         
                         	TTI string type (ascii or hex format)
-                        	**type**\:  :py:class:`ExpectedTtiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.ExpectedTtiEnum>`
+                        	**type**\:   :py:class:`ExpectedTtiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.ExpectedTtiEnum>`
                         
                         
 
@@ -8233,7 +8183,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: string_type
                         
                         	TTI string type (ascii or hex format)
-                        	**type**\:  :py:class:`TxTtiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.TxTtiEnum>`
+                        	**type**\:   :py:class:`TxTtiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.TxTtiEnum>`
                         
                         
 
@@ -8319,27 +8269,27 @@ class InterfaceConfigurations(object):
                     .. attribute:: frr
                     
                     	Configure FRR thresholds and Window for trigger and revert
-                    	**type**\:  :py:class:`Frr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr>`
+                    	**type**\:   :py:class:`Frr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr>`
                     
                     .. attribute:: otu_expected_tti
                     
                     	Configure OTU Expected TTI value
-                    	**type**\:  :py:class:`OtuExpectedTti <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuExpectedTti>`
+                    	**type**\:   :py:class:`OtuExpectedTti <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuExpectedTti>`
                     
                     .. attribute:: otu_reports
                     
                     	Configure OTU alarm reporting
-                    	**type**\:  :py:class:`OtuReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuReports>`
+                    	**type**\:   :py:class:`OtuReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuReports>`
                     
                     .. attribute:: otu_thresholds
                     
                     	Configure OTU threshold value
-                    	**type**\:  :py:class:`OtuThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuThresholds>`
+                    	**type**\:   :py:class:`OtuThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuThresholds>`
                     
                     .. attribute:: otu_tx_tti
                     
                     	Configure OTU TTI value
-                    	**type**\:  :py:class:`OtuTxTti <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuTxTti>`
+                    	**type**\:   :py:class:`OtuTxTti <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuTxTti>`
                     
                     
 
@@ -8383,7 +8333,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: string_type
                         
                         	TTI string type (ascii or hex format)
-                        	**type**\:  :py:class:`ExpectedTtiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.ExpectedTtiEnum>`
+                        	**type**\:   :py:class:`ExpectedTtiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.ExpectedTtiEnum>`
                         
                         
 
@@ -8436,7 +8386,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: otu_threshold
                         
                         	none
-                        	**type**\: list of  :py:class:`OtuThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuThresholds.OtuThreshold>`
+                        	**type**\: list of    :py:class:`OtuThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuThresholds.OtuThreshold>`
                         
                         
 
@@ -8459,7 +8409,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: threshold  <key>
                             
                             	OTU Threshold type
-                            	**type**\:  :py:class:`OtuThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.OtuThresholdEnum>`
+                            	**type**\:   :py:class:`OtuThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.OtuThresholdEnum>`
                             
                             .. attribute:: threshold_value
                             
@@ -8546,22 +8496,30 @@ class InterfaceConfigurations(object):
                         .. attribute:: revert_threshold
                         
                         	Configure proactive protection revert threshold
-                        	**type**\:  :py:class:`RevertThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr.RevertThreshold>`
+                        	**type**\:   :py:class:`RevertThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr.RevertThreshold>`
+                        
+                        	**presence node**\: True
                         
                         .. attribute:: revert_window
                         
                         	Configure FRR revert window
-                        	**type**\:  :py:class:`RevertWindow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr.RevertWindow>`
+                        	**type**\:   :py:class:`RevertWindow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr.RevertWindow>`
+                        
+                        	**presence node**\: True
                         
                         .. attribute:: trigger_threshold
                         
                         	Configure proactive protection trigger threshold
-                        	**type**\:  :py:class:`TriggerThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr.TriggerThreshold>`
+                        	**type**\:   :py:class:`TriggerThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr.TriggerThreshold>`
+                        
+                        	**presence node**\: True
                         
                         .. attribute:: trigger_window
                         
                         	Configure FRR trigger window
-                        	**type**\:  :py:class:`TriggerWindow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr.TriggerWindow>`
+                        	**type**\:   :py:class:`TriggerWindow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr.TriggerWindow>`
+                        
+                        	**presence node**\: True
                         
                         
 
@@ -8904,7 +8862,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: otu_report
                         
                         	none
-                        	**type**\: list of  :py:class:`OtuReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuReports.OtuReport>`
+                        	**type**\: list of    :py:class:`OtuReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuReports.OtuReport>`
                         
                         
 
@@ -8927,7 +8885,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: alarm  <key>
                             
                             	OTU alarm type
-                            	**type**\:  :py:class:`OtuAlarmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.OtuAlarmEnum>`
+                            	**type**\:   :py:class:`OtuAlarmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.OtuAlarmEnum>`
                             
                             
 
@@ -9014,7 +8972,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: string_type
                         
                         	TTI string type (ascii or hex format)
-                        	**type**\:  :py:class:`TxTtiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.TxTtiEnum>`
+                        	**type**\:   :py:class:`TxTtiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.TxTtiEnum>`
                         
                         
 
@@ -9103,14 +9061,14 @@ class InterfaceConfigurations(object):
                     .. attribute:: prbs_mode
                     
                     	Enable PRBS with mode
-                    	**type**\:  :py:class:`PrbsModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.PrbsModeEnum>`
+                    	**type**\:   :py:class:`PrbsModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.PrbsModeEnum>`
                     
                     	**mandatory**\: True
                     
                     .. attribute:: prbs_pattern
                     
                     	Enable prbs test with pattern
-                    	**type**\:  :py:class:`PrbsPatternEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.PrbsPatternEnum>`
+                    	**type**\:   :py:class:`PrbsPatternEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.PrbsPatternEnum>`
                     
                     	**mandatory**\: True
                     
@@ -9171,12 +9129,14 @@ class InterfaceConfigurations(object):
                     .. attribute:: efec_mode
                     
                     	Enhanced FECMode to use i.4, i.7, Other FECMode to use None
-                    	**type**\:  :py:class:`EfecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.EfecEnum>`
+                    	**type**\:   :py:class:`EfecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.EfecEnum>`
+                    
+                    	**default value**\: none
                     
                     .. attribute:: fec_mode
                     
                     	None, Standard, Enhanced, High\-Gain, Long\-Haul, Ci\-BCH
-                    	**type**\:  :py:class:`FecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.FecEnum>`
+                    	**type**\:   :py:class:`FecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.FecEnum>`
                     
                     	**mandatory**\: True
                     
@@ -9307,7 +9267,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: wave_channel_number
                 
                 	Wave Channel Number
-                	**type**\:  :py:class:`WaveChannelNumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.WaveChannelNumEnum>`
+                	**type**\:   :py:class:`WaveChannelNumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg.WaveChannelNumEnum>`
                 
                 	**mandatory**\: True
                 
@@ -9426,7 +9386,9 @@ class InterfaceConfigurations(object):
             .. attribute:: vlan_identifier
             
             	The VLAN tag stack associated with this sub\-interface
-            	**type**\:  :py:class:`VlanIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.VlanSubConfiguration.VlanIdentifier>`
+            	**type**\:   :py:class:`VlanIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.VlanSubConfiguration.VlanIdentifier>`
+            
+            	**presence node**\: True
             
             
 
@@ -9459,7 +9421,7 @@ class InterfaceConfigurations(object):
                 	Second VLAN tag value. The any value may only be used for Layer 2 subinterfaces
                 	**type**\: one of the below types:
                 
-                	**type**\:  :py:class:`VlanTagOrNullEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrNullEnum>`
+                	**type**\:   :py:class:`VlanTagOrNullEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrNullEnum>`
                 
                 
                 ----
@@ -9472,7 +9434,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: vlan_type
                 
                 	Whether this sub\-interface is dot1ad or dot1Q
-                	**type**\:  :py:class:`VlanEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanEnum>`
+                	**type**\:   :py:class:`VlanEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanEnum>`
                 
                 	**mandatory**\: True
                 
@@ -9561,17 +9523,23 @@ class InterfaceConfigurations(object):
             .. attribute:: encapsulation
             
             	The encapsulation of this Ethernet service
-            	**type**\:  :py:class:`Encapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetService.Encapsulation>`
+            	**type**\:   :py:class:`Encapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetService.Encapsulation>`
+            
+            	**presence node**\: True
             
             .. attribute:: local_traffic_default_encapsulation
             
             	The default encapsulation to be used for locally\-sourced packets
-            	**type**\:  :py:class:`LocalTrafficDefaultEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetService.LocalTrafficDefaultEncapsulation>`
+            	**type**\:   :py:class:`LocalTrafficDefaultEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetService.LocalTrafficDefaultEncapsulation>`
+            
+            	**presence node**\: True
             
             .. attribute:: rewrite
             
             	The rewrite operation for the Ethernet service
-            	**type**\:  :py:class:`Rewrite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetService.Rewrite>`
+            	**type**\:   :py:class:`Rewrite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetService.Rewrite>`
+            
+            	**presence node**\: True
             
             
 
@@ -9602,7 +9570,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: outer_tag_type
                 
                 	Type of outer tag
-                	**type**\:  :py:class:`VlanEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanEnum>`
+                	**type**\:   :py:class:`VlanEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanEnum>`
                 
                 	**mandatory**\: True
                 
@@ -9685,7 +9653,7 @@ class InterfaceConfigurations(object):
                 	Low value of first additional range for tag match
                 	**type**\: one of the below types:
                 
-                	**type**\:  :py:class:`VlanTagOrCvpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>`
+                	**type**\:   :py:class:`VlanTagOrCvpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>`
                 
                 
                 ----
@@ -9707,7 +9675,7 @@ class InterfaceConfigurations(object):
                 	Low value of second additional range for tag match
                 	**type**\: one of the below types:
                 
-                	**type**\:  :py:class:`VlanTagOrCvpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>`
+                	**type**\:   :py:class:`VlanTagOrCvpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>`
                 
                 
                 ----
@@ -9729,7 +9697,7 @@ class InterfaceConfigurations(object):
                 	Low value of third additional range for tag match
                 	**type**\: one of the below types:
                 
-                	**type**\:  :py:class:`VlanTagOrCvpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>`
+                	**type**\:   :py:class:`VlanTagOrCvpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>`
                 
                 
                 ----
@@ -9751,7 +9719,7 @@ class InterfaceConfigurations(object):
                 	Low value of forth additional range for tag match
                 	**type**\: one of the below types:
                 
-                	**type**\:  :py:class:`VlanTagOrCvpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>`
+                	**type**\:   :py:class:`VlanTagOrCvpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>`
                 
                 
                 ----
@@ -9773,7 +9741,7 @@ class InterfaceConfigurations(object):
                 	Low value of fifth additional range for tag match
                 	**type**\: one of the below types:
                 
-                	**type**\:  :py:class:`VlanTagOrCvpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>`
+                	**type**\:   :py:class:`VlanTagOrCvpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>`
                 
                 
                 ----
@@ -9795,7 +9763,7 @@ class InterfaceConfigurations(object):
                 	Low value of sixth additional range for tag match
                 	**type**\: one of the below types:
                 
-                	**type**\:  :py:class:`VlanTagOrCvpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>`
+                	**type**\:   :py:class:`VlanTagOrCvpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>`
                 
                 
                 ----
@@ -9817,7 +9785,7 @@ class InterfaceConfigurations(object):
                 	Low value of seventh additional range for tag match
                 	**type**\: one of the below types:
                 
-                	**type**\:  :py:class:`VlanTagOrCvpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>`
+                	**type**\:   :py:class:`VlanTagOrCvpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>`
                 
                 
                 ----
@@ -9839,7 +9807,7 @@ class InterfaceConfigurations(object):
                 	Low value of eighth additional range for tag match
                 	**type**\: one of the below types:
                 
-                	**type**\:  :py:class:`VlanTagOrCvpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>`
+                	**type**\:   :py:class:`VlanTagOrCvpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>`
                 
                 
                 ----
@@ -9852,7 +9820,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: exact
                 
                 	Only match packets with no more tags than explicitly matched
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: ingress_destination_mac
                 
@@ -9887,7 +9855,7 @@ class InterfaceConfigurations(object):
                 	Low value of first range for inner tag match
                 	**type**\: one of the below types:
                 
-                	**type**\:  :py:class:`VlanTagOrAnyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrAnyEnum>`
+                	**type**\:   :py:class:`VlanTagOrAnyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrAnyEnum>`
                 
                 
                 ----
@@ -9900,7 +9868,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: inner_tag_type
                 
                 	Type of tag for inner match (if present)
-                	**type**\:  :py:class:`MatchEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.MatchEnum>`
+                	**type**\:   :py:class:`MatchEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.MatchEnum>`
                 
                 .. attribute:: outer_class_of_service
                 
@@ -9914,7 +9882,7 @@ class InterfaceConfigurations(object):
                 	High value of first range for outer tag match
                 	**type**\: one of the below types:
                 
-                	**type**\:  :py:class:`VlanTagOrNativeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrNativeEnum>`
+                	**type**\:   :py:class:`VlanTagOrNativeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrNativeEnum>`
                 
                 
                 ----
@@ -9929,7 +9897,7 @@ class InterfaceConfigurations(object):
                 	Low value of first range for outer tag match
                 	**type**\: one of the below types:
                 
-                	**type**\:  :py:class:`VlanTagOrAnyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrAnyEnum>`
+                	**type**\:   :py:class:`VlanTagOrAnyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrAnyEnum>`
                 
                 
                 ----
@@ -9942,14 +9910,14 @@ class InterfaceConfigurations(object):
                 .. attribute:: outer_tag_type
                 
                 	Whether to match all unmatched packets, untagged packets or tagged packets, and if matching tagged packets, the outer tag type to match
-                	**type**\:  :py:class:`MatchEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.MatchEnum>`
+                	**type**\:   :py:class:`MatchEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.MatchEnum>`
                 
                 	**mandatory**\: True
                 
                 .. attribute:: payload_ethertype_match
                 
                 	Which payload ethertype values to match
-                	**type**\:  :py:class:`EthertypeMatchEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.EthertypeMatchEnum>`
+                	**type**\:   :py:class:`EthertypeMatchEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.EthertypeMatchEnum>`
                 
                 .. attribute:: _is_presence
                 
@@ -10112,7 +10080,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: inner_tag_type
                 
                 	Type of innermost tag to be pushed
-                	**type**\:  :py:class:`MatchEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.MatchEnum>`
+                	**type**\:   :py:class:`MatchEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.MatchEnum>`
                 
                 .. attribute:: inner_tag_value
                 
@@ -10124,7 +10092,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: outer_tag_type
                 
                 	Type of outermost tag to be pushed
-                	**type**\:  :py:class:`MatchEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.MatchEnum>`
+                	**type**\:   :py:class:`MatchEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.MatchEnum>`
                 
                 .. attribute:: outer_tag_value
                 
@@ -10136,7 +10104,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: rewrite_type
                 
                 	The type of rewrite to perform
-                	**type**\:  :py:class:`RewriteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.RewriteEnum>`
+                	**type**\:   :py:class:`RewriteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.RewriteEnum>`
                 
                 	**mandatory**\: True
                 
@@ -10239,7 +10207,9 @@ class InterfaceConfigurations(object):
             .. attribute:: ambiguous_encapsulation
             
             	L3 Ambiguous encapsulation
-            	**type**\:  :py:class:`AmbiguousEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetBng.AmbiguousEncapsulation>`
+            	**type**\:   :py:class:`AmbiguousEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetBng.AmbiguousEncapsulation>`
+            
+            	**presence node**\: True
             
             
 
@@ -10269,7 +10239,7 @@ class InterfaceConfigurations(object):
                 	Low value of first additional range for tag match
                 	**type**\: one of the below types:
                 
-                	**type**\:  :py:class:`VlanTagOrCvpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>`
+                	**type**\:   :py:class:`VlanTagOrCvpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>`
                 
                 
                 ----
@@ -10291,7 +10261,7 @@ class InterfaceConfigurations(object):
                 	Low value of second additional range for tag match
                 	**type**\: one of the below types:
                 
-                	**type**\:  :py:class:`VlanTagOrCvpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>`
+                	**type**\:   :py:class:`VlanTagOrCvpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>`
                 
                 
                 ----
@@ -10313,7 +10283,7 @@ class InterfaceConfigurations(object):
                 	Low value of third additional range for tag match
                 	**type**\: one of the below types:
                 
-                	**type**\:  :py:class:`VlanTagOrCvpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>`
+                	**type**\:   :py:class:`VlanTagOrCvpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>`
                 
                 
                 ----
@@ -10335,7 +10305,7 @@ class InterfaceConfigurations(object):
                 	Low value of forth additional range for tag match
                 	**type**\: one of the below types:
                 
-                	**type**\:  :py:class:`VlanTagOrCvpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>`
+                	**type**\:   :py:class:`VlanTagOrCvpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>`
                 
                 
                 ----
@@ -10357,7 +10327,7 @@ class InterfaceConfigurations(object):
                 	Low value of fifth additional range for tag match
                 	**type**\: one of the below types:
                 
-                	**type**\:  :py:class:`VlanTagOrCvpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>`
+                	**type**\:   :py:class:`VlanTagOrCvpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>`
                 
                 
                 ----
@@ -10379,7 +10349,7 @@ class InterfaceConfigurations(object):
                 	Low value of sixth additional range for tag match
                 	**type**\: one of the below types:
                 
-                	**type**\:  :py:class:`VlanTagOrCvpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>`
+                	**type**\:   :py:class:`VlanTagOrCvpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>`
                 
                 
                 ----
@@ -10401,7 +10371,7 @@ class InterfaceConfigurations(object):
                 	Low value of seventh additional range for tag match
                 	**type**\: one of the below types:
                 
-                	**type**\:  :py:class:`VlanTagOrCvpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>`
+                	**type**\:   :py:class:`VlanTagOrCvpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>`
                 
                 
                 ----
@@ -10423,7 +10393,7 @@ class InterfaceConfigurations(object):
                 	Low value of eighth additional range for tag match
                 	**type**\: one of the below types:
                 
-                	**type**\:  :py:class:`VlanTagOrCvpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>`
+                	**type**\:   :py:class:`VlanTagOrCvpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrCvpEnum>`
                 
                 
                 ----
@@ -10436,7 +10406,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: exact
                 
                 	Only match packets with no more tags than explicitly matched
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: ingress_destination_mac
                 
@@ -10471,7 +10441,7 @@ class InterfaceConfigurations(object):
                 	Low value of first range for inner tag match
                 	**type**\: one of the below types:
                 
-                	**type**\:  :py:class:`VlanTagOrAnyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrAnyEnum>`
+                	**type**\:   :py:class:`VlanTagOrAnyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrAnyEnum>`
                 
                 
                 ----
@@ -10484,7 +10454,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: inner_tag_type
                 
                 	Type of tag for inner match (if present)
-                	**type**\:  :py:class:`MatchEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.MatchEnum>`
+                	**type**\:   :py:class:`MatchEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.MatchEnum>`
                 
                 .. attribute:: outer_class_of_service
                 
@@ -10498,7 +10468,7 @@ class InterfaceConfigurations(object):
                 	High value of first range for outer tag match
                 	**type**\: one of the below types:
                 
-                	**type**\:  :py:class:`VlanTagOrNativeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrNativeEnum>`
+                	**type**\:   :py:class:`VlanTagOrNativeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrNativeEnum>`
                 
                 
                 ----
@@ -10513,7 +10483,7 @@ class InterfaceConfigurations(object):
                 	Low value of first range for outer tag match
                 	**type**\: one of the below types:
                 
-                	**type**\:  :py:class:`VlanTagOrAnyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrAnyEnum>`
+                	**type**\:   :py:class:`VlanTagOrAnyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrAnyEnum>`
                 
                 
                 ----
@@ -10526,14 +10496,14 @@ class InterfaceConfigurations(object):
                 .. attribute:: outer_tag_type
                 
                 	Whether to match all unmatched packets, untagged packets or tagged packets, and if matching tagged packets, the outer tag type to match
-                	**type**\:  :py:class:`MatchEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.MatchEnum>`
+                	**type**\:   :py:class:`MatchEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.MatchEnum>`
                 
                 	**mandatory**\: True
                 
                 .. attribute:: payload_ethertype_match
                 
                 	Which payload ethertype values to match
-                	**type**\:  :py:class:`EthertypeMatchEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.EthertypeMatchEnum>`
+                	**type**\:   :py:class:`EthertypeMatchEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.EthertypeMatchEnum>`
                 
                 .. attribute:: _is_presence
                 
@@ -10720,12 +10690,12 @@ class InterfaceConfigurations(object):
             .. attribute:: egress
             
             	Per MAC address accounting statistics
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: ingress
             
             	Per MAC address accounting statistics
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -10774,22 +10744,22 @@ class InterfaceConfigurations(object):
             .. attribute:: cfm
             
             	CFM interface configuration
-            	**type**\:  :py:class:`Cfm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm>`
+            	**type**\:   :py:class:`Cfm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm>`
             
             .. attribute:: ether_link_oam
             
             	Ethernet Link OAM Interface Configuration
-            	**type**\:  :py:class:`EtherLinkOam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam>`
+            	**type**\:   :py:class:`EtherLinkOam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam>`
             
             .. attribute:: ether_link_oam_enable
             
             	Enable Ethernet Link OAM on the interface
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: filtering
             
             	Ingress Ethernet frame filtering
-            	**type**\:  :py:class:`FilteringEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.FilteringEnum>`
+            	**type**\:   :py:class:`FilteringEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_cfg.FilteringEnum>`
             
             
 
@@ -10815,12 +10785,12 @@ class InterfaceConfigurations(object):
                 .. attribute:: ais_up
                 
                 	Interface specific AIS configuration
-                	**type**\:  :py:class:`AisUp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.AisUp>`
+                	**type**\:   :py:class:`AisUp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.AisUp>`
                 
                 .. attribute:: domains
                 
                 	Domain\-specific interface configuration
-                	**type**\:  :py:class:`Domains <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.Domains>`
+                	**type**\:   :py:class:`Domains <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.Domains>`
                 
                 
 
@@ -10844,7 +10814,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: domain
                     
                     	Configuration for a particular Maintenance Domain
-                    	**type**\: list of  :py:class:`Domain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.Domains.Domain>`
+                    	**type**\: list of    :py:class:`Domain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.Domains.Domain>`
                     
                     
 
@@ -10875,7 +10845,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: mep
                         
                         	MEP Configuration
-                        	**type**\:  :py:class:`Mep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.Domains.Domain.Mep>`
+                        	**type**\:   :py:class:`Mep <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.Domains.Domain.Mep>`
                         
                         
 
@@ -10905,17 +10875,21 @@ class InterfaceConfigurations(object):
                             .. attribute:: loss_measurement_counters
                             
                             	Loss\-measurement specific configuration
-                            	**type**\:  :py:class:`LossMeasurementCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.Domains.Domain.Mep.LossMeasurementCounters>`
+                            	**type**\:   :py:class:`LossMeasurementCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.Domains.Domain.Mep.LossMeasurementCounters>`
+                            
+                            	**presence node**\: True
                             
                             .. attribute:: mep_properties
                             
                             	Properties for this MEP
-                            	**type**\:  :py:class:`MepProperties <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.Domains.Domain.Mep.MepProperties>`
+                            	**type**\:   :py:class:`MepProperties <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.Domains.Domain.Mep.MepProperties>`
+                            
+                            	**presence node**\: True
                             
                             .. attribute:: sla_profile_target_mep_ids
                             
                             	SLA specific configuration
-                            	**type**\:  :py:class:`SlaProfileTargetMepIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.Domains.Domain.Mep.SlaProfileTargetMepIds>`
+                            	**type**\:   :py:class:`SlaProfileTargetMepIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.Domains.Domain.Mep.SlaProfileTargetMepIds>`
                             
                             
 
@@ -10940,12 +10914,12 @@ class InterfaceConfigurations(object):
                                 .. attribute:: sla_profile_target_mac_address
                                 
                                 	Configuration for a particular SLA operation
-                                	**type**\: list of  :py:class:`SlaProfileTargetMacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.Domains.Domain.Mep.SlaProfileTargetMepIds.SlaProfileTargetMacAddress>`
+                                	**type**\: list of    :py:class:`SlaProfileTargetMacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.Domains.Domain.Mep.SlaProfileTargetMepIds.SlaProfileTargetMacAddress>`
                                 
                                 .. attribute:: sla_profile_target_mep_id
                                 
                                 	Configuration for a particular SLA operation
-                                	**type**\: list of  :py:class:`SlaProfileTargetMepId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.Domains.Domain.Mep.SlaProfileTargetMepIds.SlaProfileTargetMepId>`
+                                	**type**\: list of    :py:class:`SlaProfileTargetMepId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.Domains.Domain.Mep.SlaProfileTargetMepIds.SlaProfileTargetMepId>`
                                 
                                 
 
@@ -11200,7 +11174,7 @@ class InterfaceConfigurations(object):
                                 .. attribute:: cfg_type
                                 
                                 	Aggregate, List, or Range
-                                	**type**\:  :py:class:`CfmLmCountersCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_cfg.CfmLmCountersCfgEnum>`
+                                	**type**\:   :py:class:`CfmLmCountersCfgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_cfg.CfmLmCountersCfgEnum>`
                                 
                                 	**mandatory**\: True
                                 
@@ -11433,7 +11407,9 @@ class InterfaceConfigurations(object):
                     .. attribute:: transmission
                     
                     	AIS transmission configuration
-                    	**type**\:  :py:class:`Transmission <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.AisUp.Transmission>`
+                    	**type**\:   :py:class:`Transmission <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.Cfm.AisUp.Transmission>`
+                    
+                    	**presence node**\: True
                     
                     
 
@@ -11454,7 +11430,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: ais_interval
                         
                         	AIS Interval
-                        	**type**\:  :py:class:`CfmAisIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_datatypes.CfmAisIntervalEnum>`
+                        	**type**\:   :py:class:`CfmAisIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_datatypes.CfmAisIntervalEnum>`
                         
                         .. attribute:: cos
                         
@@ -11571,17 +11547,17 @@ class InterfaceConfigurations(object):
                 .. attribute:: action
                 
                 	Configure action parameters
-                	**type**\:  :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.Action>`
+                	**type**\:   :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.Action>`
                 
                 .. attribute:: hello_interval
                 
                 	Possible Ethernet Link OAM hello intervals
-                	**type**\:  :py:class:`EtherLinkOamInterfaceHelloIntervalEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamInterfaceHelloIntervalEnumEnum>`
+                	**type**\:   :py:class:`EtherLinkOamInterfaceHelloIntervalEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamInterfaceHelloIntervalEnumEnum>`
                 
                 .. attribute:: link_monitor
                 
                 	Configure link monitor parameters
-                	**type**\:  :py:class:`LinkMonitor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.LinkMonitor>`
+                	**type**\:   :py:class:`LinkMonitor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.LinkMonitor>`
                 
                 .. attribute:: mib_retrieval
                 
@@ -11591,7 +11567,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: mode
                 
                 	Possible Ethernet Link OAM modes
-                	**type**\:  :py:class:`EtherLinkOamInterfaceModeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamInterfaceModeEnumEnum>`
+                	**type**\:   :py:class:`EtherLinkOamInterfaceModeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamInterfaceModeEnumEnum>`
                 
                 .. attribute:: profile_name
                 
@@ -11606,7 +11582,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: require_remote
                 
                 	Configure remote requirement parameters
-                	**type**\:  :py:class:`RequireRemote <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.RequireRemote>`
+                	**type**\:   :py:class:`RequireRemote <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.RequireRemote>`
                 
                 .. attribute:: timeout
                 
@@ -11651,17 +11627,17 @@ class InterfaceConfigurations(object):
                     .. attribute:: frame
                     
                     	Frame event configuration
-                    	**type**\:  :py:class:`Frame <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.LinkMonitor.Frame>`
+                    	**type**\:   :py:class:`Frame <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.LinkMonitor.Frame>`
                     
                     .. attribute:: frame_period
                     
                     	Frame\-period event configuration
-                    	**type**\:  :py:class:`FramePeriod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.LinkMonitor.FramePeriod>`
+                    	**type**\:   :py:class:`FramePeriod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.LinkMonitor.FramePeriod>`
                     
                     .. attribute:: frame_seconds
                     
                     	Frame\-seconds event configuration
-                    	**type**\:  :py:class:`FrameSeconds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.LinkMonitor.FrameSeconds>`
+                    	**type**\:   :py:class:`FrameSeconds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.LinkMonitor.FrameSeconds>`
                     
                     .. attribute:: monitoring
                     
@@ -11671,7 +11647,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: symbol_period
                     
                     	Symbol\-period event configuration
-                    	**type**\:  :py:class:`SymbolPeriod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.LinkMonitor.SymbolPeriod>`
+                    	**type**\:   :py:class:`SymbolPeriod <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.LinkMonitor.SymbolPeriod>`
                     
                     
 
@@ -11700,7 +11676,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: threshold
                         
                         	Threshold for frame\-period events
-                        	**type**\:  :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.LinkMonitor.FramePeriod.Threshold>`
+                        	**type**\:   :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.LinkMonitor.FramePeriod.Threshold>`
                         
                         .. attribute:: window
                         
@@ -11815,7 +11791,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: threshold
                         
                         	Threshold configuration for symbol\-period events
-                        	**type**\:  :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.LinkMonitor.SymbolPeriod.Threshold>`
+                        	**type**\:   :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.LinkMonitor.SymbolPeriod.Threshold>`
                         
                         .. attribute:: window
                         
@@ -11931,7 +11907,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: threshold
                         
                         	Threshold configuration for frame events
-                        	**type**\:  :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.LinkMonitor.Frame.Threshold>`
+                        	**type**\:   :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.LinkMonitor.Frame.Threshold>`
                         
                         .. attribute:: window
                         
@@ -12046,7 +12022,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: threshold
                         
                         	Threshold for frame\-seconds events
-                        	**type**\:  :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.LinkMonitor.FrameSeconds.Threshold>`
+                        	**type**\:   :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures.EtherLinkOam.LinkMonitor.FrameSeconds.Threshold>`
                         
                         .. attribute:: window
                         
@@ -12054,6 +12030,8 @@ class InterfaceConfigurations(object):
                         	**type**\:  int
                         
                         	**range:** 10000..900000
+                        
+                        	**units**\: second
                         
                         
 
@@ -12197,52 +12175,52 @@ class InterfaceConfigurations(object):
                     .. attribute:: capabilities_conflict
                     
                     	Action to perform when a capabilities conflict occurs
-                    	**type**\:  :py:class:`EtherLinkOamEventActionEnumEfdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfdEnum>`
+                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEfdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfdEnum>`
                     
                     .. attribute:: critical_event
                     
                     	Action to perform when a critical event occurs
-                    	**type**\:  :py:class:`EtherLinkOamEventActionEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEnum>`
+                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEnum>`
                     
                     .. attribute:: discovery_timeout
                     
                     	Action to perform when discovery timeout occurs
-                    	**type**\:  :py:class:`EtherLinkOamEventActionEnumEfdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfdEnum>`
+                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEfdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfdEnum>`
                     
                     .. attribute:: dying_gasp
                     
                     	Action to perform when a dying gasp occurs
-                    	**type**\:  :py:class:`EtherLinkOamEventActionEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEnum>`
+                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEnum>`
                     
                     .. attribute:: high_threshold
                     
                     	Action to perform when a high\-threshold event occurs
-                    	**type**\:  :py:class:`EtherLinkOamEventActionEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEnum>`
+                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEnum>`
                     
                     .. attribute:: link_fault
                     
                     	Action to perform when a link fault occurs
-                    	**type**\:  :py:class:`EtherLinkOamEventActionEnumEfdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfdEnum>`
+                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEfdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfdEnum>`
                     
                     .. attribute:: remote_loopback
                     
                     	Action to perform when remote loopback is entered or exited
-                    	**type**\:  :py:class:`EtherLinkOamEventActionPrimEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionPrimEnumEnum>`
+                    	**type**\:   :py:class:`EtherLinkOamEventActionPrimEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionPrimEnumEnum>`
                     
                     .. attribute:: session_down
                     
                     	Action to perform when a session comes down
-                    	**type**\:  :py:class:`EtherLinkOamEventActionEnumEfdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfdEnum>`
+                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEfdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfdEnum>`
                     
                     .. attribute:: session_up
                     
                     	Action to perform when a session comes up
-                    	**type**\:  :py:class:`EtherLinkOamEventActionPrimEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionPrimEnumEnum>`
+                    	**type**\:   :py:class:`EtherLinkOamEventActionPrimEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionPrimEnumEnum>`
                     
                     .. attribute:: wiring_conflict
                     
                     	Action to perform when a wiring conflict occurs
-                    	**type**\:  :py:class:`EtherLinkOamEventActionEnumEfdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfdEnum>`
+                    	**type**\:   :py:class:`EtherLinkOamEventActionEnumEfdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamEventActionEnumEfdEnum>`
                     
                     
 
@@ -12333,7 +12311,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: mode
                     
                     	Possible required peer modes
-                    	**type**\:  :py:class:`EtherLinkOamInterfaceRequireModeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamInterfaceRequireModeEnumEnum>`
+                    	**type**\:   :py:class:`EtherLinkOamInterfaceRequireModeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg.EtherLinkOamInterfaceRequireModeEnumEnum>`
                     
                     .. attribute:: remote_loopback
                     
@@ -12538,12 +12516,14 @@ class InterfaceConfigurations(object):
             .. attribute:: native_vlan_identifier
             
             	The Native VLAN identifier associated with this trunk interface
-            	**type**\:  :py:class:`NativeVlanIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.VlanTrunkConfiguration.NativeVlanIdentifier>`
+            	**type**\:   :py:class:`NativeVlanIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.VlanTrunkConfiguration.NativeVlanIdentifier>`
+            
+            	**presence node**\: True
             
             .. attribute:: tunneling_ethertype
             
             	The outer ethertype used in Q\-in\-Q frames. The default value is 0x8100
-            	**type**\:  :py:class:`TunnelingEthertypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.VlanTrunkConfiguration.TunnelingEthertypeEnum>`
+            	**type**\:   :py:class:`TunnelingEthertypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.VlanTrunkConfiguration.TunnelingEthertypeEnum>`
             
             
 
@@ -12565,19 +12545,19 @@ class InterfaceConfigurations(object):
 
                 default value is 0x8100
 
-                .. data:: Y_0X9100 = 37120
+                .. data:: Y_0x9100 = 37120
 
                 	0x9100
 
-                .. data:: Y_0X9200 = 37376
+                .. data:: Y_0x9200 = 37376
 
                 	0x9200
 
                 """
 
-                Y_0X9100 = 37120
+                Y_0x9100 = 37120
 
-                Y_0X9200 = 37376
+                Y_0x9200 = 37376
 
 
                 @staticmethod
@@ -12604,7 +12584,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: vlan_type
                 
                 	Whether this interface is dot1ad or dot1Q
-                	**type**\:  :py:class:`VlanEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanEnum>`
+                	**type**\:   :py:class:`VlanEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanEnum>`
                 
                 	**mandatory**\: True
                 
@@ -12728,17 +12708,17 @@ class InterfaceConfigurations(object):
             .. attribute:: ethernet_features
             
             	Ethernet Satellite configuration
-            	**type**\:  :py:class:`EthernetFeatures <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.EthernetFeatures>`
+            	**type**\:   :py:class:`EthernetFeatures <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.EthernetFeatures>`
             
             .. attribute:: redundancy
             
             	Redundancy submode
-            	**type**\:  :py:class:`Redundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Redundancy>`
+            	**type**\:   :py:class:`Redundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Redundancy>`
             
             .. attribute:: remote_ports
             
             	Remote Ports table
-            	**type**\:  :py:class:`RemotePorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.RemotePorts>`
+            	**type**\:   :py:class:`RemotePorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.RemotePorts>`
             
             .. attribute:: satellite
             
@@ -12830,7 +12810,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: remote_port
                 
                 	Remote Ports
-                	**type**\: list of  :py:class:`RemotePort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.RemotePorts.RemotePort>`
+                	**type**\: list of    :py:class:`RemotePort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.RemotePorts.RemotePort>`
                 
                 
 
@@ -12965,7 +12945,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: cfm
                 
                 	CFM Satellite configuration
-                	**type**\:  :py:class:`Cfm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.EthernetFeatures.Cfm>`
+                	**type**\:   :py:class:`Cfm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.EthernetFeatures.Cfm>`
                 
                 
 
@@ -12987,12 +12967,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: continuity_check_interval
                     
                     	Continuity\-Check Interval
-                    	**type**\:  :py:class:`CfmCcmIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_datatypes.CfmCcmIntervalEnum>`
+                    	**type**\:   :py:class:`CfmCcmIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_datatypes.CfmCcmIntervalEnum>`
                     
                     .. attribute:: enable
                     
                     	Enable CFM on Satellite
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: level
                     
@@ -13110,17 +13090,17 @@ class InterfaceConfigurations(object):
             .. attribute:: enable
             
             	Enable
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: redundancy
             
             	Redundancy submode
-            	**type**\:  :py:class:`Redundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Redundancy>`
+            	**type**\:   :py:class:`Redundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Redundancy>`
             
             .. attribute:: satellites
             
             	Connected Satellite table
-            	**type**\:  :py:class:`Satellites <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites>`
+            	**type**\:   :py:class:`Satellites <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites>`
             
             
 
@@ -13145,7 +13125,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: satellite
                 
                 	Connected Satellite
-                	**type**\: list of  :py:class:`Satellite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite>`
+                	**type**\: list of    :py:class:`Satellite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite>`
                 
                 
 
@@ -13175,12 +13155,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: enable
                     
                     	Enable
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: remote_ports
                     
                     	Remote Ports table
-                    	**type**\:  :py:class:`RemotePorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite.RemotePorts>`
+                    	**type**\:   :py:class:`RemotePorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite.RemotePorts>`
                     
                     
 
@@ -13204,7 +13184,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: remote_port
                         
                         	Remote Ports
-                        	**type**\: list of  :py:class:`RemotePort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite.RemotePorts.RemotePort>`
+                        	**type**\: list of    :py:class:`RemotePort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork.Satellites.Satellite.RemotePorts.RemotePort>`
                         
                         
 
@@ -13492,12 +13472,12 @@ class InterfaceConfigurations(object):
             .. attribute:: receive
             
             	Disable LLDP RX
-            	**type**\:  :py:class:`Receive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Lldp.Receive>`
+            	**type**\:   :py:class:`Receive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Lldp.Receive>`
             
             .. attribute:: transmit
             
             	Disable LLDP TX
-            	**type**\:  :py:class:`Transmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Lldp.Transmit>`
+            	**type**\:   :py:class:`Transmit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Lldp.Transmit>`
             
             .. attribute:: _is_presence
             
@@ -13531,6 +13511,8 @@ class InterfaceConfigurations(object):
                 
                 	disable LLDP TX
                 	**type**\:  bool
+                
+                	**default value**\: false
                 
                 
 
@@ -13576,6 +13558,8 @@ class InterfaceConfigurations(object):
                 
                 	disable LLDP RX
                 	**type**\:  bool
+                
+                	**default value**\: false
                 
                 
 
@@ -13653,7 +13637,7 @@ class InterfaceConfigurations(object):
             .. attribute:: span_monitor_session
             
             	Configuration for a particular class of Monitor Session
-            	**type**\: list of  :py:class:`SpanMonitorSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.SpanMonitorSessions.SpanMonitorSession>`
+            	**type**\: list of    :py:class:`SpanMonitorSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.SpanMonitorSessions.SpanMonitorSession>`
             
             
 
@@ -13677,17 +13661,19 @@ class InterfaceConfigurations(object):
                 .. attribute:: session_class  <key>
                 
                 	Session Class
-                	**type**\:  :py:class:`SpanSessionClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClassEnum>`
+                	**type**\:   :py:class:`SpanSessionClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClassEnum>`
                 
                 .. attribute:: acl
                 
                 	Enable ACL matching for traffic mirroring
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: attachment
                 
                 	Attach the interface to a Monitor Session
-                	**type**\:  :py:class:`Attachment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.SpanMonitorSessions.SpanMonitorSession.Attachment>`
+                	**type**\:   :py:class:`Attachment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.SpanMonitorSessions.SpanMonitorSession.Attachment>`
+                
+                	**presence node**\: True
                 
                 .. attribute:: mirror_first
                 
@@ -13696,10 +13682,12 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 1..10000
                 
+                	**units**\: byte
+                
                 .. attribute:: mirror_interval
                 
                 	Specify the mirror interval
-                	**type**\:  :py:class:`SpanMirrorIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanMirrorIntervalEnum>`
+                	**type**\:   :py:class:`SpanMirrorIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanMirrorIntervalEnum>`
                 
                 
 
@@ -13724,12 +13712,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: direction
                     
                     	Specify the direction of traffic to replicate (optional)
-                    	**type**\:  :py:class:`SpanTrafficDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanTrafficDirectionEnum>`
+                    	**type**\:   :py:class:`SpanTrafficDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg.SpanTrafficDirectionEnum>`
                     
                     .. attribute:: port_level_enable
                     
                     	Enable port level traffic mirroring
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: session_name
                     
@@ -13858,7 +13846,7 @@ class InterfaceConfigurations(object):
                 return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.SpanMonitorSessions']['meta_info']
 
 
-        class ControlSubscriber(object):
+        class ServicePolicies(object):
             """
             Interface control subscriber policy
             configuration
@@ -13866,9 +13854,7 @@ class InterfaceConfigurations(object):
             .. attribute:: service_policy
             
             	Service policy to be applied to access interface  for subscribers
-            	**type**\:  str
-            
-            	**range:** 0..63
+            	**type**\: list of    :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.ServicePolicies.ServicePolicy>`
             
             
 
@@ -13879,14 +13865,66 @@ class InterfaceConfigurations(object):
 
             def __init__(self):
                 self.parent = None
-                self.service_policy = None
+                self.service_policy = YList()
+                self.service_policy.parent = self
+                self.service_policy.name = 'service_policy'
+
+
+            class ServicePolicy(object):
+                """
+                Service policy to be applied to access
+                interface  for subscribers
+                
+                .. attribute:: service_policy_name  <key>
+                
+                	Name of policy\-map
+                	**type**\:  str
+                
+                	**range:** 0..63
+                
+                
+
+                """
+
+                _prefix = 'iedge4710-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.service_policy_name = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+                    if self.service_policy_name is None:
+                        raise YPYModelError('Key property service_policy_name is None')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-cfg:service-policy[Cisco-IOS-XR-iedge4710-cfg:service-policy-name = ' + str(self.service_policy_name) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.service_policy_name is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
+                    return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.ServicePolicies.ServicePolicy']['meta_info']
 
             @property
             def _common_path(self):
                 if self.parent is None:
                     raise YPYModelError('parent is not set . Cannot derive path.')
 
-                return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-cfg:control-subscriber'
+                return self.parent._common_path +'/Cisco-IOS-XR-iedge4710-cfg:service-policies'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
@@ -13896,14 +13934,16 @@ class InterfaceConfigurations(object):
                 if not self.is_config():
                     return False
                 if self.service_policy is not None:
-                    return True
+                    for child_ref in self.service_policy:
+                        if child_ref._has_data():
+                            return True
 
                 return False
 
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.ControlSubscriber']['meta_info']
+                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.ServicePolicies']['meta_info']
 
 
         class Afs(object):
@@ -13913,12 +13953,12 @@ class InterfaceConfigurations(object):
             .. attribute:: af
             
             	The presence of this object enables the givenaddress\-family and topology on the interface
-            	**type**\: list of  :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Afs.Af>`
+            	**type**\: list of    :py:class:`Af <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Afs.Af>`
             
             .. attribute:: af_topology_name
             
             	The presence of this object enables the givenaddress\-family and topology on the interface
-            	**type**\: list of  :py:class:`AfTopologyName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Afs.AfTopologyName>`
+            	**type**\: list of    :py:class:`AfTopologyName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Afs.AfTopologyName>`
             
             
 
@@ -13946,12 +13986,12 @@ class InterfaceConfigurations(object):
                 .. attribute:: af_name  <key>
                 
                 	Address\-family
-                	**type**\:  :py:class:`VrfAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.VrfAddressFamilyEnum>`
+                	**type**\:   :py:class:`VrfAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.VrfAddressFamilyEnum>`
                 
                 .. attribute:: saf_name  <key>
                 
                 	Sub\-address\-family
-                	**type**\:  :py:class:`VrfSubAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.VrfSubAddressFamilyEnum>`
+                	**type**\:   :py:class:`VrfSubAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.VrfSubAddressFamilyEnum>`
                 
                 
 
@@ -14006,12 +14046,12 @@ class InterfaceConfigurations(object):
                 .. attribute:: af_name  <key>
                 
                 	Address\-family
-                	**type**\:  :py:class:`VrfAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.VrfAddressFamilyEnum>`
+                	**type**\:   :py:class:`VrfAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.VrfAddressFamilyEnum>`
                 
                 .. attribute:: saf_name  <key>
                 
                 	Sub\-address\-family
-                	**type**\:  :py:class:`VrfSubAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.VrfSubAddressFamilyEnum>`
+                	**type**\:   :py:class:`VrfSubAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.VrfSubAddressFamilyEnum>`
                 
                 .. attribute:: topology_name  <key>
                 
@@ -14112,6 +14152,8 @@ class InterfaceConfigurations(object):
             
             	**range:** 0..600
             
+            	**default value**\: 300
+            
             
 
             """
@@ -14156,12 +14198,12 @@ class InterfaceConfigurations(object):
             .. attribute:: inbound
             
             	IPv6 Packet filter to be applied to inbound packets
-            	**type**\:  :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6PacketFilter.Inbound>`
+            	**type**\:   :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6PacketFilter.Inbound>`
             
             .. attribute:: outbound
             
             	IPv6 Packet filter to be applied to outbound packets
-            	**type**\:  :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6PacketFilter.Outbound>`
+            	**type**\:   :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6PacketFilter.Outbound>`
             
             
 
@@ -14207,7 +14249,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: interface_statistics
                 
                 	True if packets hitting the ACL should be counted in hardware per interface.The default is not to count them. NOTE\: InterfaceStatistics is allowed only if Name is specified
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: is_common_array
                 
@@ -14314,7 +14356,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: interface_statistics
                 
                 	True if packets hitting the ACL should be counted in hardware per interface.The default is not to count them
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: is_common_array
                 
@@ -14486,12 +14528,12 @@ class InterfaceConfigurations(object):
             .. attribute:: inbound
             
             	IPv4 Packet filter to be applied to inbound packets
-            	**type**\:  :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4PacketFilter.Inbound>`
+            	**type**\:   :py:class:`Inbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4PacketFilter.Inbound>`
             
             .. attribute:: outbound
             
             	IPv4 Packet filter to be applied to outbound packets
-            	**type**\:  :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4PacketFilter.Outbound>`
+            	**type**\:   :py:class:`Outbound <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4PacketFilter.Outbound>`
             
             
 
@@ -14537,12 +14579,12 @@ class InterfaceConfigurations(object):
                 .. attribute:: hardware_count
                 
                 	True if packets hitting the ACL should be counted in the hardware.  The default is not to count them
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: interface_statistics
                 
                 	True if packets hitting the ACL should be counted in hardware per interface.The default is not to count them
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: is_common_array
                 
@@ -14653,12 +14695,12 @@ class InterfaceConfigurations(object):
                 .. attribute:: hardware_count
                 
                 	True if packets hitting the ACL should be counted in the hardware.  The default is not to count them. NOTE\: HardwareCount is allowed only if Name is specified
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: interface_statistics
                 
                 	True if packets hitting the ACL should be counted in hardware per interface.The default is not to count them. NOTE\: InterfaceStatistics is allowed only if Name is specified
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: is_common_array
                 
@@ -14774,7 +14816,7 @@ class InterfaceConfigurations(object):
             .. attribute:: dagr
             
             	The DAGR entry being configured
-            	**type**\: list of  :py:class:`Dagr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dagrs.Dagr>`
+            	**type**\: list of    :py:class:`Dagr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dagrs.Dagr>`
             
             
 
@@ -14804,12 +14846,12 @@ class InterfaceConfigurations(object):
                 .. attribute:: enter
                 
                 	DAGR Group Enter item
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: sub
                 
                 	DAGR Submode configuration
-                	**type**\:  :py:class:`Sub <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dagrs.Dagr.Sub>`
+                	**type**\:   :py:class:`Sub <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dagrs.Dagr.Sub>`
                 
                 
 
@@ -14833,12 +14875,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: distance
                     
                     	Set Route Distance
-                    	**type**\:  :py:class:`Distance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dagrs.Dagr.Sub.Distance>`
+                    	**type**\:   :py:class:`Distance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dagrs.Dagr.Sub.Distance>`
                     
                     .. attribute:: metric
                     
                     	Set Route Metric
-                    	**type**\:  :py:class:`Metric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dagrs.Dagr.Sub.Metric>`
+                    	**type**\:   :py:class:`Metric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dagrs.Dagr.Sub.Metric>`
                     
                     .. attribute:: priority_timeout
                     
@@ -14847,10 +14889,12 @@ class InterfaceConfigurations(object):
                     
                     	**range:** 1..10000
                     
+                    	**default value**\: 20
+                    
                     .. attribute:: timers
                     
                     	Set Query Timers
-                    	**type**\:  :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dagrs.Dagr.Sub.Timers>`
+                    	**type**\:   :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Dagrs.Dagr.Sub.Timers>`
                     
                     
 
@@ -14881,12 +14925,16 @@ class InterfaceConfigurations(object):
                         
                         	**range:** 0..256
                         
+                        	**default value**\: 100
+                        
                         .. attribute:: metric_prio
                         
                         	Priority Route Metric
                         	**type**\:  int
                         
                         	**range:** 0..256
+                        
+                        	**default value**\: 90
                         
                         
 
@@ -14939,12 +14987,16 @@ class InterfaceConfigurations(object):
                         
                         	**range:** 1..10000
                         
+                        	**default value**\: 1
+                        
                         .. attribute:: sby_time
                         
                         	Standby Query Timeout
                         	**type**\:  int
                         
                         	**range:** 1..10000
+                        
+                        	**default value**\: 20
                         
                         
 
@@ -14997,12 +15049,16 @@ class InterfaceConfigurations(object):
                         
                         	**range:** 0..256
                         
+                        	**default value**\: 150
+                        
                         .. attribute:: dist_prio
                         
                         	Priority Route Distance
                         	**type**\:  int
                         
                         	**range:** 0..256
+                        
+                        	**default value**\: 5
                         
                         
 
@@ -15142,27 +15198,27 @@ class InterfaceConfigurations(object):
             .. attribute:: gratuitous_ignore
             
             	Ignore the receipt of Gratuitous ARP packets on the interface
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: learning_disable
             
             	Disable the dynamic learning of ARP entries on the interface
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: learning_local
             
             	Enable the dynamic learning of ARP entries(for local subnet) on the interface
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: local_proxy_arp
             
             	Local Proxy ARP configuration
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: proxy_arp
             
             	Proxy ARP configuration
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: purge_delay
             
@@ -15177,6 +15233,8 @@ class InterfaceConfigurations(object):
             	**type**\:  int
             
             	**range:** 30..2144448000
+            
+            	**units**\: second
             
             
 
@@ -15245,27 +15303,27 @@ class InterfaceConfigurations(object):
             .. attribute:: addresses
             
             	Set the IP address of an interface
-            	**type**\:  :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Addresses>`
+            	**type**\:   :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Addresses>`
             
             .. attribute:: bgp
             
             	Interface ipv4 bgp configuration
-            	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Bgp>`
+            	**type**\:   :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Bgp>`
             
             .. attribute:: bgp_pa
             
             	Interface ipv4 bgp configuration
-            	**type**\:  :py:class:`BgpPa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.BgpPa>`
+            	**type**\:   :py:class:`BgpPa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.BgpPa>`
             
             .. attribute:: helper_addresses
             
             	The set of IP destination addresses for UDP broadcasts
-            	**type**\:  :py:class:`HelperAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.HelperAddresses>`
+            	**type**\:   :py:class:`HelperAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.HelperAddresses>`
             
             .. attribute:: icmp_mask_reply
             
             	The flag for enabling sending of ICMP mask reply messages
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: mtu
             
@@ -15277,22 +15335,22 @@ class InterfaceConfigurations(object):
             .. attribute:: point_to_point
             
             	Enable point\-to\-point handling for this interface
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: tcp_mss_adjust_enable
             
             	Enable TCP MSS Adjust on an interface
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: ttl_propagate_disable
             
             	Disable TTL propagate on an interface
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: verify
             
             	Enable Verify handling for this interface
-            	**type**\:  :py:class:`Verify <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Verify>`
+            	**type**\:   :py:class:`Verify <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Verify>`
             
             
 
@@ -15327,12 +15385,12 @@ class InterfaceConfigurations(object):
                 .. attribute:: input
                 
                 	Input
-                	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.BgpPa.Input>`
+                	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.BgpPa.Input>`
                 
                 .. attribute:: output
                 
                 	Output
-                	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.BgpPa.Output>`
+                	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.BgpPa.Output>`
                 
                 
 
@@ -15491,17 +15549,17 @@ class InterfaceConfigurations(object):
                 .. attribute:: default_ping
                 
                 	Allow default route to match when checking source address
-                	**type**\:  :py:class:`Ipv4DefaultPingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_cfg.Ipv4DefaultPingEnum>`
+                	**type**\:   :py:class:`Ipv4DefaultPingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_cfg.Ipv4DefaultPingEnum>`
                 
                 .. attribute:: reachable
                 
                 	Source is reachable via any interface or interface on which packet was received
-                	**type**\:  :py:class:`Ipv4ReachableEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_cfg.Ipv4ReachableEnum>`
+                	**type**\:   :py:class:`Ipv4ReachableEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_cfg.Ipv4ReachableEnum>`
                 
                 .. attribute:: self_ping
                 
                 	Allow router to ping itself (opens vulnerability in verification)
-                	**type**\:  :py:class:`Ipv4SelfPingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_cfg.Ipv4SelfPingEnum>`
+                	**type**\:   :py:class:`Ipv4SelfPingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_cfg.Ipv4SelfPingEnum>`
                 
                 
 
@@ -15554,12 +15612,12 @@ class InterfaceConfigurations(object):
                 .. attribute:: flow_tag
                 
                 	Interface ipv4 bgp policy propagation flow tag configuration
-                	**type**\:  :py:class:`FlowTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Bgp.FlowTag>`
+                	**type**\:   :py:class:`FlowTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Bgp.FlowTag>`
                 
                 .. attribute:: qppb
                 
                 	Interface ipv4 bgp policy propagation configuration
-                	**type**\:  :py:class:`Qppb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Bgp.Qppb>`
+                	**type**\:   :py:class:`Qppb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Bgp.Qppb>`
                 
                 
 
@@ -15584,7 +15642,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: input
                     
                     	Input
-                    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Bgp.Qppb.Input>`
+                    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Bgp.Qppb.Input>`
                     
                     
 
@@ -15606,12 +15664,12 @@ class InterfaceConfigurations(object):
                         .. attribute:: destination
                         
                         	QPPB configuration on destination
-                        	**type**\:  :py:class:`Ipv4InterfaceQppbEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_cfg.Ipv4InterfaceQppbEnum>`
+                        	**type**\:   :py:class:`Ipv4InterfaceQppbEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_cfg.Ipv4InterfaceQppbEnum>`
                         
                         .. attribute:: source
                         
                         	QPPB configuration on source
-                        	**type**\:  :py:class:`Ipv4InterfaceQppbEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_cfg.Ipv4InterfaceQppbEnum>`
+                        	**type**\:   :py:class:`Ipv4InterfaceQppbEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_cfg.Ipv4InterfaceQppbEnum>`
                         
                         
 
@@ -15685,7 +15743,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: flow_tag_input
                     
                     	Input
-                    	**type**\:  :py:class:`FlowTagInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Bgp.FlowTag.FlowTagInput>`
+                    	**type**\:   :py:class:`FlowTagInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Bgp.FlowTag.FlowTagInput>`
                     
                     
 
@@ -15812,17 +15870,19 @@ class InterfaceConfigurations(object):
                 .. attribute:: dhcp
                 
                 	IPv4 address and Mask negotiated via DHCP
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: primary
                 
                 	IP address and Mask
-                	**type**\:  :py:class:`Primary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Addresses.Primary>`
+                	**type**\:   :py:class:`Primary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Addresses.Primary>`
+                
+                	**presence node**\: True
                 
                 .. attribute:: secondaries
                 
                 	Specify a secondary address
-                	**type**\:  :py:class:`Secondaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Addresses.Secondaries>`
+                	**type**\:   :py:class:`Secondaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Addresses.Secondaries>`
                 
                 .. attribute:: unnumbered
                 
@@ -15854,7 +15914,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: secondary
                     
                     	IP address and Mask
-                    	**type**\: list of  :py:class:`Secondary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Addresses.Secondaries.Secondary>`
+                    	**type**\: list of    :py:class:`Secondary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.Addresses.Secondaries.Secondary>`
                     
                     
 
@@ -16093,7 +16153,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: helper_address
                 
                 	An IP destination addresses for UDP broadcasts
-                	**type**\: list of  :py:class:`HelperAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.HelperAddresses.HelperAddress>`
+                	**type**\: list of    :py:class:`HelperAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv4Network.HelperAddresses.HelperAddress>`
                 
                 
 
@@ -16256,17 +16316,17 @@ class InterfaceConfigurations(object):
             .. attribute:: directed_broadcast
             
             	Enable forwarding of directed broadcast
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: redirects
             
             	Enable sending ICMP Redirect messages
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: unreachables
             
             	Disable sending ICMP unreachables
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -16319,27 +16379,29 @@ class InterfaceConfigurations(object):
             .. attribute:: addresses
             
             	Set the IPv6 address of an interface
-            	**type**\:  :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.Addresses>`
+            	**type**\:   :py:class:`Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.Addresses>`
             
             .. attribute:: bgp_flow_tag_policy_table
             
             	Interface ipv6 bgp policy propagation flowtag configuration
-            	**type**\:  :py:class:`BgpFlowTagPolicyTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.BgpFlowTagPolicyTable>`
+            	**type**\:   :py:class:`BgpFlowTagPolicyTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.BgpFlowTagPolicyTable>`
             
             .. attribute:: bgp_policy_accountings
             
             	IPv6 BGP Policy Accounting
-            	**type**\:  :py:class:`BgpPolicyAccountings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.BgpPolicyAccountings>`
+            	**type**\:   :py:class:`BgpPolicyAccountings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.BgpPolicyAccountings>`
             
             .. attribute:: bgp_qos_policy_propagation
             
             	Configure BGP QoS policy propagation
-            	**type**\:  :py:class:`BgpQosPolicyPropagation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.BgpQosPolicyPropagation>`
+            	**type**\:   :py:class:`BgpQosPolicyPropagation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.BgpQosPolicyPropagation>`
+            
+            	**presence node**\: True
             
             .. attribute:: mac_address_filters
             
             	IPv6 Mac\-Filter for a multicast address
-            	**type**\:  :py:class:`MacAddressFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.MacAddressFilters>`
+            	**type**\:   :py:class:`MacAddressFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.MacAddressFilters>`
             
             .. attribute:: mtu
             
@@ -16351,12 +16413,12 @@ class InterfaceConfigurations(object):
             .. attribute:: tcp_mss_adjust_enable
             
             	Enable TCP MSS adjust on an interface
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: ttl_propagate_disable
             
             	Disabled TTL propagate on an interface
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: unnumbered
             
@@ -16368,12 +16430,14 @@ class InterfaceConfigurations(object):
             .. attribute:: unreachables
             
             	Override Sending of ICMP Unreachable Messages
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: verify
             
             	IPv6 Verify Unicast Souce Reachable
-            	**type**\:  :py:class:`Verify <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.Verify>`
+            	**type**\:   :py:class:`Verify <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.Verify>`
+            
+            	**presence node**\: True
             
             
 
@@ -16408,14 +16472,14 @@ class InterfaceConfigurations(object):
                 .. attribute:: destination
                 
                 	QPPB configuration on destination
-                	**type**\:  :py:class:`Ipv6QppbEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_cfg.Ipv6QppbEnum>`
+                	**type**\:   :py:class:`Ipv6QppbEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_cfg.Ipv6QppbEnum>`
                 
                 	**mandatory**\: True
                 
                 .. attribute:: source
                 
                 	QPPB configuration on source
-                	**type**\:  :py:class:`Ipv6QppbEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_cfg.Ipv6QppbEnum>`
+                	**type**\:   :py:class:`Ipv6QppbEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_cfg.Ipv6QppbEnum>`
                 
                 	**mandatory**\: True
                 
@@ -16476,7 +16540,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: bgp_policy_accounting
                 
                 	Accounting input or output
-                	**type**\: list of  :py:class:`BgpPolicyAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.BgpPolicyAccountings.BgpPolicyAccounting>`
+                	**type**\: list of    :py:class:`BgpPolicyAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.BgpPolicyAccountings.BgpPolicyAccounting>`
                 
                 
 
@@ -16596,7 +16660,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: mac_address_filter
                 
                 	Allow IPv6 Mac\-Filter for a multicast address
-                	**type**\: list of  :py:class:`MacAddressFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.MacAddressFilters.MacAddressFilter>`
+                	**type**\: list of    :py:class:`MacAddressFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.MacAddressFilters.MacAddressFilter>`
                 
                 
 
@@ -16694,21 +16758,21 @@ class InterfaceConfigurations(object):
                 .. attribute:: default_ping
                 
                 	Allow Default Route
-                	**type**\:  :py:class:`Ipv6DefaultPingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_cfg.Ipv6DefaultPingEnum>`
+                	**type**\:   :py:class:`Ipv6DefaultPingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_cfg.Ipv6DefaultPingEnum>`
                 
                 	**mandatory**\: True
                 
                 .. attribute:: reachable
                 
                 	Source Reachable Interface
-                	**type**\:  :py:class:`Ipv6ReachableEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_cfg.Ipv6ReachableEnum>`
+                	**type**\:   :py:class:`Ipv6ReachableEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_cfg.Ipv6ReachableEnum>`
                 
                 	**mandatory**\: True
                 
                 .. attribute:: self_ping
                 
                 	Allow Self Ping
-                	**type**\:  :py:class:`Ipv6SelfPingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_cfg.Ipv6SelfPingEnum>`
+                	**type**\:   :py:class:`Ipv6SelfPingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_cfg.Ipv6SelfPingEnum>`
                 
                 	**mandatory**\: True
                 
@@ -16773,22 +16837,24 @@ class InterfaceConfigurations(object):
                 .. attribute:: auto_configuration
                 
                 	Auto IPv6 Interface Configuration
-                	**type**\:  :py:class:`AutoConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.Addresses.AutoConfiguration>`
+                	**type**\:   :py:class:`AutoConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.Addresses.AutoConfiguration>`
                 
                 .. attribute:: eui64_addresses
                 
                 	EUI\-64 IPv6 address Table
-                	**type**\:  :py:class:`Eui64Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.Addresses.Eui64Addresses>`
+                	**type**\:   :py:class:`Eui64Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.Addresses.Eui64Addresses>`
                 
                 .. attribute:: link_local_address
                 
                 	Link local IPv6 address
-                	**type**\:  :py:class:`LinkLocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.Addresses.LinkLocalAddress>`
+                	**type**\:   :py:class:`LinkLocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.Addresses.LinkLocalAddress>`
+                
+                	**presence node**\: True
                 
                 .. attribute:: regular_addresses
                 
                 	Regular IPv6 address Table
-                	**type**\:  :py:class:`RegularAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.Addresses.RegularAddresses>`
+                	**type**\:   :py:class:`RegularAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.Addresses.RegularAddresses>`
                 
                 
 
@@ -16844,6 +16910,8 @@ class InterfaceConfigurations(object):
                     
                     	IPv6 address zone
                     	**type**\:  str
+                    
+                    	**default value**\: 0
                     
                     .. attribute:: _is_presence
                     
@@ -16906,7 +16974,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: eui64_address
                     
                     	EUI\-64 IPv6 address
-                    	**type**\: list of  :py:class:`Eui64Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.Addresses.Eui64Addresses.Eui64Address>`
+                    	**type**\: list of    :py:class:`Eui64Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.Addresses.Eui64Addresses.Eui64Address>`
                     
                     
 
@@ -16963,6 +17031,8 @@ class InterfaceConfigurations(object):
                         
                         	IPv6 address zone
                         	**type**\:  str
+                        
+                        	**default value**\: 0
                         
                         
 
@@ -17047,7 +17117,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: regular_address
                     
                     	Regular IPv6 address
-                    	**type**\: list of  :py:class:`RegularAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.Addresses.RegularAddresses.RegularAddress>`
+                    	**type**\: list of    :py:class:`RegularAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.Addresses.RegularAddresses.RegularAddress>`
                     
                     
 
@@ -17104,6 +17174,8 @@ class InterfaceConfigurations(object):
                         
                         	IPv6 address zone
                         	**type**\:  str
+                        
+                        	**default value**\: 0
                         
                         
 
@@ -17188,7 +17260,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: enable
                     
                     	The flag to enable auto ipv6 interface configuration
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -17267,7 +17339,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: bgp_flow_tag_policy
                 
                 	Input
-                	**type**\:  :py:class:`BgpFlowTagPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.BgpFlowTagPolicyTable.BgpFlowTagPolicy>`
+                	**type**\:   :py:class:`BgpFlowTagPolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.BgpFlowTagPolicyTable.BgpFlowTagPolicy>`
                 
                 
 
@@ -17426,20 +17498,22 @@ class InterfaceConfigurations(object):
             
             	**range:** 0..128000
             
-            .. attribute:: duplicate_address_detection
+            .. attribute:: dad_attempts
             
-            	Duplicate Address Detection (DAD)
-            	**type**\:  :py:class:`DuplicateAddressDetection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.DuplicateAddressDetection>`
+            	Set IPv6 duplicate address detection transmits
+            	**type**\:  int
+            
+            	**range:** 0..600
             
             .. attribute:: ipv6_prefixes
             
             	Prefixes 
-            	**type**\:  :py:class:`Ipv6Prefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.Ipv6Prefixes>`
+            	**type**\:   :py:class:`Ipv6Prefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.Ipv6Prefixes>`
             
             .. attribute:: managed_config
             
             	Host to use stateful protocol for address configuration
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: ns_interval
             
@@ -17448,15 +17522,19 @@ class InterfaceConfigurations(object):
             
             	**range:** 1000..4294967295
             
+            	**units**\: millisecond
+            
             .. attribute:: other_config
             
             	Host to use stateful protocol for non\-address configuration
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: ra_interval
             
             	Set IPv6 Router Advertisement (RA) interval in seconds
-            	**type**\:  :py:class:`RaInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RaInterval>`
+            	**type**\:   :py:class:`RaInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RaInterval>`
+            
+            	**presence node**\: True
             
             .. attribute:: ra_lifetime
             
@@ -17465,35 +17543,37 @@ class InterfaceConfigurations(object):
             
             	**range:** 0..9000
             
+            	**units**\: second
+            
             .. attribute:: ra_suppress
             
             	Enable suppress IPv6 router advertisement
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: ra_unspecify_hoplimit
             
             	Unspecify IPv6 Router Advertisement (RA) hop\-limit
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: radns_searches
             
             	IPv6 Router Advertisement (RA) DNS Search List
-            	**type**\:  :py:class:`RadnsSearches <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RadnsSearches>`
+            	**type**\:   :py:class:`RadnsSearches <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RadnsSearches>`
             
             .. attribute:: radns_servers
             
             	IPv6 Router Advertisement (RA) DNS Servre
-            	**type**\:  :py:class:`RadnsServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RadnsServers>`
+            	**type**\:   :py:class:`RadnsServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RadnsServers>`
             
             .. attribute:: ramtu_suppress
             
             	Enable suppress MTU in IPv6 router advertisement
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: raspecific_route_s
             
             	IPv6 Router Advertisement (RA) Specific Route
-            	**type**\:  :py:class:`RaspecificRouteS <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RaspecificRouteS>`
+            	**type**\:   :py:class:`RaspecificRouteS <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RaspecificRouteS>`
             
             .. attribute:: reachable_time
             
@@ -17502,25 +17582,27 @@ class InterfaceConfigurations(object):
             
             	**range:** 0..3600000
             
+            	**units**\: millisecond
+            
             .. attribute:: redirect
             
             	Enable sending of ICMP Redirect messages
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: router_preference
             
             	RA Router Preference
-            	**type**\:  :py:class:`Ipv6NdRouterPrefEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6NdRouterPrefEnum>`
+            	**type**\:   :py:class:`Ipv6NdRouterPrefEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6NdRouterPrefEnum>`
             
             .. attribute:: srp_multicast_encapsulation
             
             	Set SRP multicast prefer encapsulation
-            	**type**\:  :py:class:`Ipv6SrpEncapsulationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6SrpEncapsulationEnum>`
+            	**type**\:   :py:class:`Ipv6SrpEncapsulationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6SrpEncapsulationEnum>`
             
             .. attribute:: srp_unicast_encapsulation
             
             	Set SRP unicast prefer encapsulation
-            	**type**\:  :py:class:`Ipv6SrpEncapsulationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6SrpEncapsulationEnum>`
+            	**type**\:   :py:class:`Ipv6SrpEncapsulationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6SrpEncapsulationEnum>`
             
             
 
@@ -17532,8 +17614,7 @@ class InterfaceConfigurations(object):
             def __init__(self):
                 self.parent = None
                 self.cache_limit = None
-                self.duplicate_address_detection = InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.DuplicateAddressDetection()
-                self.duplicate_address_detection.parent = self
+                self.dad_attempts = None
                 self.ipv6_prefixes = InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.Ipv6Prefixes()
                 self.ipv6_prefixes.parent = self
                 self.managed_config = None
@@ -17564,7 +17645,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: raspecific_route
                 
                 	IPv6 Router Advertisement (RA) Specific Route
-                	**type**\: list of  :py:class:`RaspecificRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RaspecificRouteS.RaspecificRoute>`
+                	**type**\: list of    :py:class:`RaspecificRoute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RaspecificRouteS.RaspecificRoute>`
                 
                 
 
@@ -17601,7 +17682,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: preference
                     
                     	Preference
-                    	**type**\:  :py:class:`Ipv6NdRouterPrefEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6NdRouterPrefEnum>`
+                    	**type**\:   :py:class:`Ipv6NdRouterPrefEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6NdRouterPrefEnum>`
                     
                     .. attribute:: prefix_length
                     
@@ -17686,53 +17767,6 @@ class InterfaceConfigurations(object):
                     return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RaspecificRouteS']['meta_info']
 
 
-            class DuplicateAddressDetection(object):
-                """
-                Duplicate Address Detection (DAD)
-                
-                .. attribute:: attempts
-                
-                	Set IPv6 duplicate address detection transmits
-                	**type**\:  int
-                
-                	**range:** 0..600
-                
-                
-
-                """
-
-                _prefix = 'ipv6-nd-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.attempts = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-ipv6-nd-cfg:duplicate-address-detection'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.attempts is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                    return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.DuplicateAddressDetection']['meta_info']
-
-
             class RadnsSearches(object):
                 """
                 IPv6 Router Advertisement (RA) DNS Search List
@@ -17740,7 +17774,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: radns_search
                 
                 	IPv6 Router Advertisement (RA) DNS Search List
-                	**type**\: list of  :py:class:`RadnsSearch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RadnsSearches.RadnsSearch>`
+                	**type**\: list of    :py:class:`RadnsSearch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RadnsSearches.RadnsSearch>`
                 
                 
 
@@ -17851,7 +17885,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: radns_server
                 
                 	IPv6 Router Advertisement (RA) DNS Servre
-                	**type**\: list of  :py:class:`RadnsServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RadnsServers.RadnsServer>`
+                	**type**\: list of    :py:class:`RadnsServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RadnsServers.RadnsServer>`
                 
                 
 
@@ -18033,7 +18067,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: ipv6_prefix
                 
                 	Configure prefix with paramemters
-                	**type**\: list of  :py:class:`Ipv6Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.Ipv6Prefixes.Ipv6Prefix>`
+                	**type**\: list of    :py:class:`Ipv6Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.Ipv6Prefixes.Ipv6Prefix>`
                 
                 
 
@@ -18084,7 +18118,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: expiry_month
                     
                     	Month to expire valid lifetime
-                    	**type**\:  :py:class:`Ipv6NdMonthEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6NdMonthEnum>`
+                    	**type**\:   :py:class:`Ipv6NdMonthEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6NdMonthEnum>`
                     
                     .. attribute:: expiry_year
                     
@@ -18132,7 +18166,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: pref_expiry_month
                     
                     	Month to expire preferred lifetime
-                    	**type**\:  :py:class:`Ipv6NdMonthEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6NdMonthEnum>`
+                    	**type**\:   :py:class:`Ipv6NdMonthEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg.Ipv6NdMonthEnum>`
                     
                     .. attribute:: pref_expiry_year
                     
@@ -18319,7 +18353,7 @@ class InterfaceConfigurations(object):
                 if self.cache_limit is not None:
                     return True
 
-                if self.duplicate_address_detection is not None and self.duplicate_address_detection._has_data():
+                if self.dad_attempts is not None:
                     return True
 
                 if self.ipv6_prefixes is not None and self.ipv6_prefixes._has_data():
@@ -18388,47 +18422,51 @@ class InterfaceConfigurations(object):
             .. attribute:: admin_mode
             
             	Performs admin operations on the optical tunnel interface
-            	**type**\:  :py:class:`AdminMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AdminMode>`
+            	**type**\:   :py:class:`AdminMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AdminMode>`
             
             .. attribute:: affinity_mask
             
             	Set the affinity flags and mask
-            	**type**\:  :py:class:`AffinityMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AffinityMask>`
+            	**type**\:   :py:class:`AffinityMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AffinityMask>`
+            
+            	**presence node**\: True
             
             .. attribute:: auto_bandwidth
             
             	Tunnel Interface Auto\-bandwidth configuration data
-            	**type**\:  :py:class:`AutoBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth>`
+            	**type**\:   :py:class:`AutoBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth>`
             
             .. attribute:: autoroute
             
             	Parameters for IGP routing over tunnel
-            	**type**\:  :py:class:`Autoroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute>`
+            	**type**\:   :py:class:`Autoroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute>`
             
             .. attribute:: backup_bandwidth
             
             	Tunnel backup bandwidth requirement
-            	**type**\:  :py:class:`BackupBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.BackupBandwidth>`
+            	**type**\:   :py:class:`BackupBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.BackupBandwidth>`
             
             .. attribute:: bandwidth
             
             	Tunnel bandwidth requirement
-            	**type**\:  :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Bandwidth>`
+            	**type**\:   :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Bandwidth>`
+            
+            	**presence node**\: True
             
             .. attribute:: bfd_over_lsp
             
             	BFD over TE LSP
-            	**type**\:  :py:class:`BfdOverLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.BfdOverLsp>`
+            	**type**\:   :py:class:`BfdOverLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.BfdOverLsp>`
             
             .. attribute:: bidirectional
             
             	Tunnel Interface Bidirectional configuration data
-            	**type**\:  :py:class:`Bidirectional <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Bidirectional>`
+            	**type**\:   :py:class:`Bidirectional <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Bidirectional>`
             
             .. attribute:: binding_segment_id_mpls
             
             	Allocate MPLS binding segment ID
-            	**type**\:  :py:class:`BindingSegmentIdMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.BindingSegmentIdMpls>`
+            	**type**\:   :py:class:`BindingSegmentIdMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.BindingSegmentIdMpls>`
             
             .. attribute:: destination
             
@@ -18440,7 +18478,9 @@ class InterfaceConfigurations(object):
             .. attribute:: fast_reroute
             
             	Specify MPLS tunnel can be fast\-rerouted
-            	**type**\:  :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.FastReroute>`
+            	**type**\:   :py:class:`FastReroute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.FastReroute>`
+            
+            	**presence node**\: True
             
             .. attribute:: forward_class
             
@@ -18452,7 +18492,7 @@ class InterfaceConfigurations(object):
             .. attribute:: forwarding_adjacency
             
             	Forwarding adjacency announcement to IGP
-            	**type**\:  :py:class:`ForwardingAdjacency <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.ForwardingAdjacency>`
+            	**type**\:   :py:class:`ForwardingAdjacency <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.ForwardingAdjacency>`
             
             .. attribute:: load_share
             
@@ -18461,45 +18501,52 @@ class InterfaceConfigurations(object):
             
             	**range:** 1..4294967295
             
+            .. attribute:: logging
+            
+            	Log tunnel LSP messages
+            	**type**\:   :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Logging>`
+            
             .. attribute:: new_style_affinity_affinity_types
             
             	Tunnel new style affinity attributes table
-            	**type**\:  :py:class:`NewStyleAffinityAffinityTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes>`
+            	**type**\:   :py:class:`NewStyleAffinityAffinityTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes>`
             
             .. attribute:: path_option_protects
             
             	Tunnel path protection state
-            	**type**\:  :py:class:`PathOptionProtects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathOptionProtects>`
+            	**type**\:   :py:class:`PathOptionProtects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathOptionProtects>`
             
             .. attribute:: path_protection
             
             	Specify MPLS tunnel to be path protected
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: path_selection_metric
             
             	Path selection metric to use in path calculation
-            	**type**\:  :py:class:`MplsTePathSelectionMetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetricEnum>`
+            	**type**\:   :py:class:`MplsTePathSelectionMetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetricEnum>`
             
             .. attribute:: pce
             
             	PCE config
-            	**type**\:  :py:class:`Pce <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Pce>`
+            	**type**\:   :py:class:`Pce <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Pce>`
             
             .. attribute:: policy_classes
             
             	Policy classes for PBTS
-            	**type**\:  :py:class:`PolicyClasses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PolicyClasses>`
+            	**type**\:   :py:class:`PolicyClasses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PolicyClasses>`
             
             .. attribute:: priority
             
             	Tunnel Setup and Hold Priorities
-            	**type**\:  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Priority>`
+            	**type**\:   :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Priority>`
+            
+            	**presence node**\: True
             
             .. attribute:: record_route
             
             	Record the route used by the tunnel
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: signalled_name
             
@@ -18511,17 +18558,17 @@ class InterfaceConfigurations(object):
             .. attribute:: soft_preemption
             
             	Enable the soft\-preemption feature on the tunnel
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: switching
             
             	Specify tunnel LSPs switching capability descriptor
-            	**type**\:  :py:class:`Switching <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Switching>`
+            	**type**\:   :py:class:`Switching <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Switching>`
             
             .. attribute:: tunnel_path_selection
             
             	Configure path selection properties
-            	**type**\:  :py:class:`TunnelPathSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.TunnelPathSelection>`
+            	**type**\:   :py:class:`TunnelPathSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.TunnelPathSelection>`
             
             
 
@@ -18554,6 +18601,8 @@ class InterfaceConfigurations(object):
                 self.forwarding_adjacency = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.ForwardingAdjacency()
                 self.forwarding_adjacency.parent = self
                 self.load_share = None
+                self.logging = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Logging()
+                self.logging.parent = self
                 self.new_style_affinity_affinity_types = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes()
                 self.new_style_affinity_affinity_types.parent = self
                 self.path_option_protects = InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathOptionProtects()
@@ -18588,22 +18637,22 @@ class InterfaceConfigurations(object):
                 .. attribute:: class_type
                 
                 	Backup bandwidth class type, relevant only if DSTEType is StandardDSTE
-                	**type**\:  :py:class:`MplsTeBackupBandwidthClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeBackupBandwidthClassEnum>`
+                	**type**\:   :py:class:`MplsTeBackupBandwidthClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeBackupBandwidthClassEnum>`
                 
                 .. attribute:: dste_type
                 
                 	DSTE\-standard flag
-                	**type**\:  :py:class:`MplsTeBandwidthDsteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDsteEnum>`
+                	**type**\:   :py:class:`MplsTeBandwidthDsteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDsteEnum>`
                 
                 .. attribute:: limit_type
                 
                 	Backup bandwidth limit type
-                	**type**\:  :py:class:`MplsTeBandwidthLimitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthLimitEnum>`
+                	**type**\:   :py:class:`MplsTeBandwidthLimitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthLimitEnum>`
                 
                 .. attribute:: pool_type
                 
                 	Backup bandwidth pool type, relevant only if DSTEType is PreStandardDSTE
-                	**type**\:  :py:class:`MplsTeBackupBandwidthPoolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeBackupBandwidthPoolEnum>`
+                	**type**\:   :py:class:`MplsTeBackupBandwidthPoolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeBackupBandwidthPoolEnum>`
                 
                 
 
@@ -18692,7 +18741,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: enable
                 
                 	Always set to true
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: encap_mode
                 
@@ -18704,7 +18753,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: fast_detect
                 
                 	Enable BFD Fast Detect On the tunnel
-                	**type**\:  :py:class:`MplsTebfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTebfdSessionEnum>`
+                	**type**\:   :py:class:`MplsTebfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTebfdSessionEnum>`
                 
                 .. attribute:: minimum_interval
                 
@@ -18723,7 +18772,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: periodic_ping_disable
                 
                 	Disable Periodic LSP Ping for BFD over LSP
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: periodic_ping_interval
                 
@@ -18822,7 +18871,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: segment_id_type
                 
                 	MPLS label value type
-                	**type**\:  :py:class:`BindingSegmentIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.BindingSegmentIdEnum>`
+                	**type**\:   :py:class:`BindingSegmentIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.BindingSegmentIdEnum>`
                 
                 
 
@@ -18871,7 +18920,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: enable
                 
                 	Enable forwarding adjacency
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: hold_time
                 
@@ -18883,7 +18932,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: include_ipv6
                 
                 	Specify that the tunnel should be an IPv6 forwarding adjacency also
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -18936,7 +18985,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: path_option_protect
                 
                 	Tunnel path protection
-                	**type**\: list of  :py:class:`PathOptionProtect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathOptionProtects.PathOptionProtect>`
+                	**type**\: list of    :py:class:`PathOptionProtect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathOptionProtects.PathOptionProtect>`
                 
                 
 
@@ -18959,12 +19008,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: protection  <key>
                     
                     	Protection type for this path
-                    	**type**\:  :py:class:`MplsTePathOptionProtectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionProtectionEnum>`
+                    	**type**\:   :py:class:`MplsTePathOptionProtectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionProtectionEnum>`
                     
                     .. attribute:: path_options
                     
                     	Tunnel path options
-                    	**type**\:  :py:class:`PathOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathOptionProtects.PathOptionProtect.PathOptions>`
+                    	**type**\:   :py:class:`PathOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathOptionProtects.PathOptionProtect.PathOptions>`
                     
                     
 
@@ -18987,7 +19036,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: path_option
                         
                         	A tunnel path option
-                        	**type**\: list of  :py:class:`PathOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathOptionProtects.PathOptionProtect.PathOptions.PathOption>`
+                        	**type**\: list of    :py:class:`PathOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathOptionProtects.PathOptionProtect.PathOptions.PathOption>`
                         
                         
 
@@ -19021,6 +19070,8 @@ class InterfaceConfigurations(object):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**default value**\: 0.0.0.0
+                            
                             .. attribute:: igp_area
                             
                             	IGP area ID in integer format
@@ -19028,12 +19079,16 @@ class InterfaceConfigurations(object):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**default value**\: 0
+                            
                             .. attribute:: igp_area_ip_address_id
                             
                             	IGP area ID in IP address format
                             	**type**\:  str
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            	**default value**\: 0.0.0.0
                             
                             .. attribute:: igp_instance
                             
@@ -19045,7 +19100,9 @@ class InterfaceConfigurations(object):
                             .. attribute:: igp_type
                             
                             	IGP type
-                            	**type**\:  :py:class:`MplsTeIgpProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeIgpProtocolEnum>`
+                            	**type**\:   :py:class:`MplsTeIgpProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeIgpProtocolEnum>`
+                            
+                            	**default value**\: none
                             
                             .. attribute:: interface
                             
@@ -19057,7 +19114,9 @@ class InterfaceConfigurations(object):
                             .. attribute:: lockdown
                             
                             	Lockdown properties
-                            	**type**\:  :py:class:`MplsTePathOptionPropertyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
+                            	**type**\:   :py:class:`MplsTePathOptionPropertyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
+                            
+                            	**default value**\: none
                             
                             .. attribute:: output_label
                             
@@ -19066,12 +19125,16 @@ class InterfaceConfigurations(object):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**default value**\: 0
+                            
                             .. attribute:: path_id
                             
                             	The ID of the IP explicit path associated with this option
                             	**type**\:  int
                             
                             	**range:** 1..65535
+                            
+                            	**default value**\: 1
                             
                             .. attribute:: path_name
                             
@@ -19090,17 +19153,21 @@ class InterfaceConfigurations(object):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**default value**\: 0
+                            
                             .. attribute:: path_type
                             
                             	The type of the path option
-                            	**type**\:  :py:class:`MplsTePathOptionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionEnum>`
+                            	**type**\:   :py:class:`MplsTePathOptionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionEnum>`
                             
                             	**mandatory**\: True
                             
                             .. attribute:: pce
                             
                             	PCE properties
-                            	**type**\:  :py:class:`MplsTePathOptionPropertyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
+                            	**type**\:   :py:class:`MplsTePathOptionPropertyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
+                            
+                            	**default value**\: none
                             
                             .. attribute:: pce_address
                             
@@ -19109,6 +19176,8 @@ class InterfaceConfigurations(object):
                             
                             	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
+                            	**default value**\: 0.0.0.0
+                            
                             .. attribute:: protected_by_preference_level
                             
                             	Preference level of the protecting explicit path. Leave unset in order to not use an explicit protecting path
@@ -19116,15 +19185,21 @@ class InterfaceConfigurations(object):
                             
                             	**range:** 1..1000
                             
+                            	**default value**\: 1
+                            
                             .. attribute:: segment_routing
                             
                             	SegmentRouting properties
-                            	**type**\:  :py:class:`MplsTePathOptionPropertyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
+                            	**type**\:   :py:class:`MplsTePathOptionPropertyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
+                            
+                            	**default value**\: none
                             
                             .. attribute:: verbatim
                             
                             	Verbatim properties
-                            	**type**\:  :py:class:`MplsTePathOptionPropertyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
+                            	**type**\:   :py:class:`MplsTePathOptionPropertyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
+                            
+                            	**default value**\: none
                             
                             
 
@@ -19325,17 +19400,19 @@ class InterfaceConfigurations(object):
                 .. attribute:: association_corouted_type
                 
                 	Association Corouted Type
-                	**type**\:  :py:class:`AssociationCoroutedType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Bidirectional.AssociationCoroutedType>`
+                	**type**\:   :py:class:`AssociationCoroutedType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Bidirectional.AssociationCoroutedType>`
                 
                 .. attribute:: association_parameters
                 
                 	Association ID, Source IP Address, and Global ID
-                	**type**\:  :py:class:`AssociationParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Bidirectional.AssociationParameters>`
+                	**type**\:   :py:class:`AssociationParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Bidirectional.AssociationParameters>`
+                
+                	**presence node**\: True
                 
                 .. attribute:: enabled
                 
                 	This object is only valid for tunnel interfaces and it controls whether that interface has bidirectional enabled on it or not
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -19359,17 +19436,17 @@ class InterfaceConfigurations(object):
                     .. attribute:: enable
                     
                     	Controls whether association type is co\-routed
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: fault_oam
                     
                     	Tunnel Fault OAM
-                    	**type**\:  :py:class:`FaultOam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Bidirectional.AssociationCoroutedType.FaultOam>`
+                    	**type**\:   :py:class:`FaultOam <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Bidirectional.AssociationCoroutedType.FaultOam>`
                     
                     .. attribute:: wrap_protection_enable
                     
                     	This object is only valid for bidirectional tunnel interfaces and it controls whether that interface has LSP Wrap protectionenabled on it or not
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -19393,7 +19470,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: enable
                         
                         	This object is only valid for bidirectional tunnel interfaces and it controls whether that interface has fault OAM enabled on it or not
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -19592,7 +19669,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: deactivate_tunnel
                 
                 	Performs signalling operation to deactivate optical tunnel
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -19638,12 +19715,16 @@ class InterfaceConfigurations(object):
                 .. attribute:: endpoint
                 
                 	Specify end point switching descriptor parameters
-                	**type**\:  :py:class:`Endpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Switching.Endpoint>`
+                	**type**\:   :py:class:`Endpoint <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Switching.Endpoint>`
+                
+                	**presence node**\: True
                 
                 .. attribute:: transit
                 
                 	Specify transit switching descriptor parameters
-                	**type**\:  :py:class:`Transit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Switching.Transit>`
+                	**type**\:   :py:class:`Transit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Switching.Transit>`
+                
+                	**presence node**\: True
                 
                 
 
@@ -19666,14 +19747,14 @@ class InterfaceConfigurations(object):
                     .. attribute:: capability
                     
                     	Switching capability
-                    	**type**\:  :py:class:`MplsTeSwitchingCapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeSwitchingCapEnum>`
+                    	**type**\:   :py:class:`MplsTeSwitchingCapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeSwitchingCapEnum>`
                     
                     	**mandatory**\: True
                     
                     .. attribute:: encoding
                     
                     	LSP encoding
-                    	**type**\:  :py:class:`MplsTeSwitchingEncodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeSwitchingEncodeEnum>`
+                    	**type**\:   :py:class:`MplsTeSwitchingEncodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeSwitchingEncodeEnum>`
                     
                     .. attribute:: _is_presence
                     
@@ -19733,14 +19814,14 @@ class InterfaceConfigurations(object):
                     .. attribute:: capability
                     
                     	Switching capability
-                    	**type**\:  :py:class:`MplsTeSwitchingCapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeSwitchingCapEnum>`
+                    	**type**\:   :py:class:`MplsTeSwitchingCapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeSwitchingCapEnum>`
                     
                     	**mandatory**\: True
                     
                     .. attribute:: encoding
                     
                     	LSP encoding
-                    	**type**\:  :py:class:`MplsTeSwitchingEncodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeSwitchingEncodeEnum>`
+                    	**type**\:   :py:class:`MplsTeSwitchingEncodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeSwitchingEncodeEnum>`
                     
                     .. attribute:: _is_presence
                     
@@ -19826,12 +19907,12 @@ class InterfaceConfigurations(object):
                 .. attribute:: delegation
                 
                 	Enable PCE Delegation
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: enable
                 
                 	Always set to true
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -19880,7 +19961,9 @@ class InterfaceConfigurations(object):
                 .. attribute:: invalidation
                 
                 	Path invalidation configuration for this specific tunnel
-                	**type**\:  :py:class:`Invalidation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.TunnelPathSelection.Invalidation>`
+                	**type**\:   :py:class:`Invalidation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.TunnelPathSelection.Invalidation>`
+                
+                	**presence node**\: True
                 
                 .. attribute:: path_selection_cost_limit
                 
@@ -19899,7 +19982,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: tiebreaker
                 
                 	CSPF tiebreaker to use in path calculation
-                	**type**\:  :py:class:`MplsTePathSelectionTiebreakerEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionTiebreakerEnum>`
+                	**type**\:   :py:class:`MplsTePathSelectionTiebreakerEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionTiebreakerEnum>`
                 
                 
 
@@ -19924,7 +20007,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: path_invalidation_action
                     
                     	Path Invalidation Action
-                    	**type**\:  :py:class:`PathInvalidationActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.PathInvalidationActionEnum>`
+                    	**type**\:   :py:class:`PathInvalidationActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.PathInvalidationActionEnum>`
                     
                     .. attribute:: path_invalidation_timeout
                     
@@ -20024,7 +20107,9 @@ class InterfaceConfigurations(object):
                 .. attribute:: adjustment_threshold
                 
                 	Set the bandwidth change threshold to trigger adjustment
-                	**type**\:  :py:class:`AdjustmentThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.AdjustmentThreshold>`
+                	**type**\:   :py:class:`AdjustmentThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.AdjustmentThreshold>`
+                
+                	**presence node**\: True
                 
                 .. attribute:: application_frequency
                 
@@ -20033,15 +20118,19 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 5..10080
                 
+                	**units**\: minute
+                
                 .. attribute:: bandwidth_limits
                 
                 	Set min/max bandwidth auto\-bw can apply on a tunnel
-                	**type**\:  :py:class:`BandwidthLimits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.BandwidthLimits>`
+                	**type**\:   :py:class:`BandwidthLimits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.BandwidthLimits>`
+                
+                	**presence node**\: True
                 
                 .. attribute:: collection_only
                 
                 	Enable bandwidth collection only, no auto\-bw adjustment
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: enabled
                 
@@ -20051,7 +20140,9 @@ class InterfaceConfigurations(object):
                 .. attribute:: overflow
                 
                 	Configuring the tunnel overflow detection
-                	**type**\:  :py:class:`Overflow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.Overflow>`
+                	**type**\:   :py:class:`Overflow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.Overflow>`
+                
+                	**presence node**\: True
                 
                 .. attribute:: overflow_enable
                 
@@ -20061,7 +20152,9 @@ class InterfaceConfigurations(object):
                 .. attribute:: underflow
                 
                 	Configuring the tunnel underflow detection
-                	**type**\:  :py:class:`Underflow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.Underflow>`
+                	**type**\:   :py:class:`Underflow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.Underflow>`
+                
+                	**presence node**\: True
                 
                 .. attribute:: underflow_enable
                 
@@ -20110,6 +20203,8 @@ class InterfaceConfigurations(object):
                     
                     	**mandatory**\: True
                     
+                    	**units**\: percentage
+                    
                     .. attribute:: underflow_threshold_value
                     
                     	Bandwidth change value to trigger an underflow (kbps)
@@ -20118,6 +20213,8 @@ class InterfaceConfigurations(object):
                     	**range:** 10..4294967295
                     
                     	**mandatory**\: True
+                    
+                    	**units**\: kbit/s
                     
                     .. attribute:: _is_presence
                     
@@ -20195,6 +20292,8 @@ class InterfaceConfigurations(object):
                     
                     	**mandatory**\: True
                     
+                    	**units**\: percentage
+                    
                     .. attribute:: overflow_threshold_value
                     
                     	Bandwidth change value to trigger an overflow (kbps)
@@ -20203,6 +20302,8 @@ class InterfaceConfigurations(object):
                     	**range:** 10..4294967295
                     
                     	**mandatory**\: True
+                    
+                    	**units**\: kbit/s
                     
                     .. attribute:: _is_presence
                     
@@ -20345,6 +20446,8 @@ class InterfaceConfigurations(object):
                     
                     	**mandatory**\: True
                     
+                    	**units**\: percentage
+                    
                     .. attribute:: adjustment_threshold_value
                     
                     	Bandwidth change value to trigger adjustment (kbps)
@@ -20353,6 +20456,8 @@ class InterfaceConfigurations(object):
                     	**range:** 10..4294967295
                     
                     	**mandatory**\: True
+                    
+                    	**units**\: kbit/s
                     
                     .. attribute:: _is_presence
                     
@@ -20596,6 +20701,141 @@ class InterfaceConfigurations(object):
                     return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AffinityMask']['meta_info']
 
 
+            class Logging(object):
+                """
+                Log tunnel LSP messages
+                
+                .. attribute:: all
+                
+                	Log all events for a tunnel
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: bandwidth_change_message
+                
+                	Log tunnel messages for bandwidth change
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: bfd_state_message
+                
+                	Enable BFD session state change alarm
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: insufficient_bw_message
+                
+                	Log tunnel messages for insufficient bandwidth
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: lsp_switch_over_change_message
+                
+                	Log tunnel messages for bandwidth change
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: pcalc_failure_message
+                
+                	Enable logging for path\-calculation failures
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: record_route_messsage
+                
+                	Log tunnel record\-route messages
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: reoptimize_attempts_message
+                
+                	Log tunnel reoptimization attempts messages
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: reoptimized_message
+                
+                	Log tunnel reoptimized messages
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: reroute_messsage
+                
+                	Log tunnel rereoute messages
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: state_message
+                
+                	Log tunnel state messages
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                
+
+                """
+
+                _prefix = 'mpls-te-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.all = None
+                    self.bandwidth_change_message = None
+                    self.bfd_state_message = None
+                    self.insufficient_bw_message = None
+                    self.lsp_switch_over_change_message = None
+                    self.pcalc_failure_message = None
+                    self.record_route_messsage = None
+                    self.reoptimize_attempts_message = None
+                    self.reoptimized_message = None
+                    self.reroute_messsage = None
+                    self.state_message = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-mpls-te-cfg:logging'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.all is not None:
+                        return True
+
+                    if self.bandwidth_change_message is not None:
+                        return True
+
+                    if self.bfd_state_message is not None:
+                        return True
+
+                    if self.insufficient_bw_message is not None:
+                        return True
+
+                    if self.lsp_switch_over_change_message is not None:
+                        return True
+
+                    if self.pcalc_failure_message is not None:
+                        return True
+
+                    if self.record_route_messsage is not None:
+                        return True
+
+                    if self.reoptimize_attempts_message is not None:
+                        return True
+
+                    if self.reoptimized_message is not None:
+                        return True
+
+                    if self.reroute_messsage is not None:
+                        return True
+
+                    if self.state_message is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
+                    return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Logging']['meta_info']
+
+
             class Bandwidth(object):
                 """
                 Tunnel bandwidth requirement
@@ -20609,9 +20849,11 @@ class InterfaceConfigurations(object):
                 
                 	**mandatory**\: True
                 
+                	**units**\: kbit/s
+                
                 .. attribute:: class_or_pool_type
                 
-                	Class type for the bandwith allocation
+                	Class type for the bandwidth allocation
                 	**type**\:  int
                 
                 	**range:** 0..1
@@ -20621,7 +20863,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: dste_type
                 
                 	DSTE\-standard flag
-                	**type**\:  :py:class:`MplsTeBandwidthDsteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDsteEnum>`
+                	**type**\:   :py:class:`MplsTeBandwidthDsteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDsteEnum>`
                 
                 	**mandatory**\: True
                 
@@ -20686,22 +20928,22 @@ class InterfaceConfigurations(object):
                 .. attribute:: autoroute_announce
                 
                 	Announce tunnel to IGP
-                	**type**\:  :py:class:`AutorouteAnnounce <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.AutorouteAnnounce>`
+                	**type**\:   :py:class:`AutorouteAnnounce <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.AutorouteAnnounce>`
                 
                 .. attribute:: destination
                 
                 	Deprecated\: do NOT use
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: destination_xr
                 
                 	Tunnel Autoroute Destination(s)
-                	**type**\:  :py:class:`DestinationXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.DestinationXr>`
+                	**type**\:   :py:class:`DestinationXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.DestinationXr>`
                 
                 .. attribute:: metric
                 
                 	Specify MPLS tunnel metric
-                	**type**\:  :py:class:`Metric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.Metric>`
+                	**type**\:   :py:class:`Metric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.Metric>`
                 
                 
 
@@ -20742,7 +20984,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: metric_type
                     
                     	Autoroute tunnel metric type
-                    	**type**\:  :py:class:`MplsTeAutorouteMetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeAutorouteMetricEnum>`
+                    	**type**\:   :py:class:`MplsTeAutorouteMetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeAutorouteMetricEnum>`
                     
                     .. attribute:: relative_metric
                     
@@ -20806,17 +21048,17 @@ class InterfaceConfigurations(object):
                     .. attribute:: enable
                     
                     	Enable autoroute announce
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: include_ipv6
                     
                     	Specify that the tunnel should be an IPv6 autoroute announce also
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: metric
                     
                     	Specify MPLS tunnel metric
-                    	**type**\:  :py:class:`Metric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.AutorouteAnnounce.Metric>`
+                    	**type**\:   :py:class:`Metric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.AutorouteAnnounce.Metric>`
                     
                     
 
@@ -20854,7 +21096,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: metric_type
                         
                         	Autoroute tunnel metric type
-                        	**type**\:  :py:class:`MplsTeAutorouteMetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeAutorouteMetricEnum>`
+                        	**type**\:   :py:class:`MplsTeAutorouteMetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeAutorouteMetricEnum>`
                         
                         .. attribute:: relative_metric
                         
@@ -20948,7 +21190,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: destination
                     
                     	Destination address to add in RIB
-                    	**type**\: list of  :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.DestinationXr.Destination>`
+                    	**type**\: list of    :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.DestinationXr.Destination>`
                     
                     
 
@@ -21130,57 +21372,57 @@ class InterfaceConfigurations(object):
                 .. attribute:: new_style_affinity_affinity_type
                 
                 	Tunnel new style affinity attribute
-                	**type**\: list of  :py:class:`NewStyleAffinityAffinityType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType>`
+                	**type**\: list of    :py:class:`NewStyleAffinityAffinityType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType>`
                 
                 .. attribute:: new_style_affinity_affinity_type_affinity1
                 
                 	Tunnel new style affinity attribute
-                	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1>`
+                	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1>`
                 
                 .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2
                 
                 	Tunnel new style affinity attribute
-                	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2>`
+                	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2>`
                 
                 .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3
                 
                 	Tunnel new style affinity attribute
-                	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3>`
+                	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3>`
                 
                 .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4
                 
                 	Tunnel new style affinity attribute
-                	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4>`
+                	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4>`
                 
                 .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5
                 
                 	Tunnel new style affinity attribute
-                	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5>`
+                	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5>`
                 
                 .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6
                 
                 	Tunnel new style affinity attribute
-                	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6>`
+                	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6>`
                 
                 .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7
                 
                 	Tunnel new style affinity attribute
-                	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7>`
+                	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7>`
                 
                 .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8
                 
                 	Tunnel new style affinity attribute
-                	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8>`
+                	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8>`
                 
                 .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9
                 
                 	Tunnel new style affinity attribute
-                	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9>`
+                	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9>`
                 
                 .. attribute:: new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10
                 
                 	Tunnel new style affinity attribute
-                	**type**\: list of  :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10>`
+                	**type**\: list of    :py:class:`NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10>`
                 
                 
 
@@ -21233,7 +21475,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: affinity_type  <key>
                     
                     	The type of the affinity entry
-                    	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                    	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
                     
                     
 
@@ -21287,7 +21529,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: affinity_type  <key>
                     
                     	The type of the affinity entry
-                    	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                    	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
                     
                     
 
@@ -21354,7 +21596,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: affinity_type  <key>
                     
                     	The type of the affinity entry
-                    	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                    	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
                     
                     
 
@@ -21434,7 +21676,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: affinity_type  <key>
                     
                     	The type of the affinity entry
-                    	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                    	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
                     
                     
 
@@ -21527,7 +21769,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: affinity_type  <key>
                     
                     	The type of the affinity entry
-                    	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                    	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
                     
                     
 
@@ -21633,7 +21875,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: affinity_type  <key>
                     
                     	The type of the affinity entry
-                    	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                    	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
                     
                     
 
@@ -21752,7 +21994,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: affinity_type  <key>
                     
                     	The type of the affinity entry
-                    	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                    	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
                     
                     
 
@@ -21884,7 +22126,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: affinity_type  <key>
                     
                     	The type of the affinity entry
-                    	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                    	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
                     
                     
 
@@ -22029,7 +22271,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: affinity_type  <key>
                     
                     	The type of the affinity entry
-                    	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                    	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
                     
                     
 
@@ -22187,7 +22429,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: affinity_type  <key>
                     
                     	The type of the affinity entry
-                    	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                    	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
                     
                     
 
@@ -22358,7 +22600,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: affinity_type  <key>
                     
                     	The type of the affinity entry
-                    	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                    	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
                     
                     
 
@@ -22661,6 +22903,9 @@ class InterfaceConfigurations(object):
                 if self.load_share is not None:
                     return True
 
+                if self.logging is not None and self.logging._has_data():
+                    return True
+
                 if self.new_style_affinity_affinity_types is not None and self.new_style_affinity_affinity_types._has_data():
                     return True
 
@@ -22712,22 +22957,22 @@ class InterfaceConfigurations(object):
             .. attribute:: bfd
             
             	Configure BFD parameters
-            	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.Bfd>`
+            	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.Bfd>`
             
             .. attribute:: destination
             
             	Node identifier and optional global identifier and tunnel identifier at destination
-            	**type**\:  :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.Destination>`
+            	**type**\:   :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.Destination>`
             
             .. attribute:: fault
             
             	Fault management
-            	**type**\:  :py:class:`Fault <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.Fault>`
+            	**type**\:   :py:class:`Fault <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.Fault>`
             
             .. attribute:: protect_lsp
             
             	Protect LSP
-            	**type**\:  :py:class:`ProtectLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.ProtectLsp>`
+            	**type**\:   :py:class:`ProtectLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.ProtectLsp>`
             
             .. attribute:: source
             
@@ -22739,7 +22984,7 @@ class InterfaceConfigurations(object):
             .. attribute:: working_lsp
             
             	Working LSP
-            	**type**\:  :py:class:`WorkingLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.WorkingLsp>`
+            	**type**\:   :py:class:`WorkingLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.WorkingLsp>`
             
             
 
@@ -22777,17 +23022,17 @@ class InterfaceConfigurations(object):
                 .. attribute:: enable
                 
                 	Configure BFD parameters
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: min_interval
                 
                 	Hello interval, either in milli\-seconds or in micro\-seconds
-                	**type**\:  :py:class:`MinInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.Bfd.MinInterval>`
+                	**type**\:   :py:class:`MinInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.Bfd.MinInterval>`
                 
                 .. attribute:: min_interval_standby
                 
                 	Hello interval for standby transport profile LSP, either in milli\-seconds or in micro\-seconds
-                	**type**\:  :py:class:`MinIntervalStandby <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.Bfd.MinIntervalStandby>`
+                	**type**\:   :py:class:`MinIntervalStandby <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.Bfd.MinIntervalStandby>`
                 
                 .. attribute:: multiplier_standby
                 
@@ -22983,7 +23228,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: lockout
                 
                 	Enable lockout of working LSP
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: lsp_id
                 
@@ -22992,10 +23237,14 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 0..65535
                 
+                	**default value**\: 0
+                
                 .. attribute:: out_label
                 
                 	Outgoing MPLS label of the working LSP
-                	**type**\:  :py:class:`OutLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.WorkingLsp.OutLabel>`
+                	**type**\:   :py:class:`OutLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.WorkingLsp.OutLabel>`
+                
+                	**presence node**\: True
                 
                 
 
@@ -23192,12 +23441,12 @@ class InterfaceConfigurations(object):
                 .. attribute:: enable
                 
                 	Enter transport profile tunnel fault configuration
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: protection_trigger
                 
                 	OAM events that trigger protection switching
-                	**type**\:  :py:class:`ProtectionTrigger <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.Fault.ProtectionTrigger>`
+                	**type**\:   :py:class:`ProtectionTrigger <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.Fault.ProtectionTrigger>`
                 
                 
 
@@ -23317,7 +23566,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: lockout
                 
                 	Enable lockout of protect LSP
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: lsp_id
                 
@@ -23326,10 +23575,14 @@ class InterfaceConfigurations(object):
                 
                 	**range:** 0..65535
                 
+                	**default value**\: 1
+                
                 .. attribute:: out_label
                 
                 	Outgoing MPLS label of the protect LSP
-                	**type**\:  :py:class:`OutLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.ProtectLsp.OutLabel>`
+                	**type**\:   :py:class:`OutLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.ProtectLsp.OutLabel>`
+                
+                	**presence node**\: True
                 
                 
 
@@ -23495,52 +23748,52 @@ class InterfaceConfigurations(object):
             .. attribute:: affinity_mask
             
             	P2MP tunnel affinity and mask
-            	**type**\:  :py:class:`AffinityMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.AffinityMask>`
+            	**type**\:   :py:class:`AffinityMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.AffinityMask>`
             
             .. attribute:: bandwidth
             
             	P2MP tunnel bandwidth requirement
-            	**type**\:  :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.Bandwidth>`
+            	**type**\:   :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.Bandwidth>`
             
             .. attribute:: destination_leafs
             
             	P2MP destination table
-            	**type**\:  :py:class:`DestinationLeafs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs>`
+            	**type**\:   :py:class:`DestinationLeafs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs>`
             
             .. attribute:: fast_reroute
             
             	Specify P2MP tunnel can be fast\-rerouted
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: impose_explicit_null
             
             	Impose an explicit null bellow the TE label
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: logging
             
             	Log tunnel LSP messages
-            	**type**\:  :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.Logging>`
+            	**type**\:   :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.Logging>`
             
             .. attribute:: new_style_affinities
             
             	P2MP tunnel new style affinity attributes table
-            	**type**\:  :py:class:`NewStyleAffinities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.NewStyleAffinities>`
+            	**type**\:   :py:class:`NewStyleAffinities <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.NewStyleAffinities>`
             
             .. attribute:: path_selection_metric
             
             	Path selection configuration for this specific tunnel
-            	**type**\:  :py:class:`MplsTePathSelectionMetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetricEnum>`
+            	**type**\:   :py:class:`MplsTePathSelectionMetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathSelectionMetricEnum>`
             
             .. attribute:: priority
             
             	P2MP tunnel setup and hold priorities
-            	**type**\:  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.Priority>`
+            	**type**\:   :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.Priority>`
             
             .. attribute:: record_route
             
             	Record route used by individual P2MP S2L(s)
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: signalled_name
             
@@ -23592,7 +23845,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: destination_leaf
                 
                 	P2MP destination leaf
-                	**type**\: list of  :py:class:`DestinationLeaf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf>`
+                	**type**\: list of    :py:class:`DestinationLeaf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf>`
                 
                 
 
@@ -23622,22 +23875,22 @@ class InterfaceConfigurations(object):
                     .. attribute:: destination
                     
                     	Always set to true
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: destination_disable
                     
                     	Disables P2MP destination
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: path_options
                     
                     	P2MP destination path\-options attributes table
-                    	**type**\:  :py:class:`PathOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf.PathOptions>`
+                    	**type**\:   :py:class:`PathOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf.PathOptions>`
                     
                     .. attribute:: s2l_logging
                     
                     	Log tunnel destination s2l messages
-                    	**type**\:  :py:class:`S2LLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf.S2LLogging>`
+                    	**type**\:   :py:class:`S2LLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf.S2LLogging>`
                     
                     
 
@@ -23664,22 +23917,22 @@ class InterfaceConfigurations(object):
                         .. attribute:: s2l_insufficient_bw_messsage
                         
                         	Log tunnel destination s2l insufficient BW messages
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: s2l_pcalc_failure_message
                         
                         	Enable logging for destination s2l path\-calculation failures
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: s2l_reroute_messsage
                         
                         	Log tunnel destination s2l rereoute messages
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: s2l_state_message
                         
                         	Log tunnel destination s2l state messages
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -23737,7 +23990,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: path_option
                         
                         	P2MP destination path option
-                        	**type**\: list of  :py:class:`PathOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf.PathOptions.PathOption>`
+                        	**type**\: list of    :py:class:`PathOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.DestinationLeafs.DestinationLeaf.PathOptions.PathOption>`
                         
                         
 
@@ -23767,7 +24020,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: lockdown
                             
                             	Path option properties
-                            	**type**\:  :py:class:`MplsTePathOptionPropertyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
+                            	**type**\:   :py:class:`MplsTePathOptionPropertyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
                             
                             .. attribute:: path_id
                             
@@ -23784,12 +24037,12 @@ class InterfaceConfigurations(object):
                             .. attribute:: path_type
                             
                             	The type of the path option
-                            	**type**\:  :py:class:`MplsTePathOptionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionEnum>`
+                            	**type**\:   :py:class:`MplsTePathOptionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionEnum>`
                             
                             .. attribute:: verbatim
                             
                             	Path option properties
-                            	**type**\:  :py:class:`MplsTePathOptionPropertyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
+                            	**type**\:   :py:class:`MplsTePathOptionPropertyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTePathOptionPropertyEnum>`
                             
                             
 
@@ -24004,7 +24257,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: new_style_affinity
                 
                 	Tunnel new style affinity attribute
-                	**type**\: list of  :py:class:`NewStyleAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.NewStyleAffinities.NewStyleAffinity>`
+                	**type**\: list of    :py:class:`NewStyleAffinity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.NewStyleAffinities.NewStyleAffinity>`
                 
                 
 
@@ -24097,7 +24350,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: affinity_type  <key>
                     
                     	The type of the affinity entry
-                    	**type**\:  :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
+                    	**type**\:   :py:class:`MplsTeTunnelAffinityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeTunnelAffinityEnum>`
                     
                     
 
@@ -24236,7 +24489,7 @@ class InterfaceConfigurations(object):
                 
                 .. attribute:: class_or_pool_type
                 
-                	Class type for the bandwith allocation
+                	Class type for the bandwidth allocation
                 	**type**\:  int
                 
                 	**range:** 0..1
@@ -24244,7 +24497,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: dste_type
                 
                 	DSTE\-standard flag
-                	**type**\:  :py:class:`MplsTeBandwidthDsteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDsteEnum>`
+                	**type**\:   :py:class:`MplsTeBandwidthDsteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTeBandwidthDsteEnum>`
                 
                 
 
@@ -24355,47 +24608,47 @@ class InterfaceConfigurations(object):
                 .. attribute:: all
                 
                 	Log all events for a tunnel
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: bandwidth_change_message
                 
                 	Log tunnel bandwidth change messages
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: insufficient_bw_message
                 
                 	Log tunnel messages for insufficient bandwidth
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: pcalc_failure_message
                 
                 	Enable logging for path\-calculation failures
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: reoptimize_attempts_message
                 
                 	Log tunnel reoptimization attempts messages
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: reoptimized_message
                 
                 	Log tunnel reoptimized messages
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: reroute_messsage
                 
                 	Log tunnel rereoute messages
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: state_message
                 
                 	Log tunnel state messages
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: sub_lsp_state_message
                 
                 	Log all tunnel sub\-LSP state messages
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -24529,12 +24782,12 @@ class InterfaceConfigurations(object):
             .. attribute:: channels
             
             	Client Port Lane
-            	**type**\:  :py:class:`Channels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.ClientPort.Channels>`
+            	**type**\:   :py:class:`Channels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.ClientPort.Channels>`
             
             .. attribute:: logical_channel_assignments
             
             	Client port logical channel assignment
-            	**type**\:  :py:class:`LogicalChannelAssignments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.ClientPort.LogicalChannelAssignments>`
+            	**type**\:   :py:class:`LogicalChannelAssignments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.ClientPort.LogicalChannelAssignments>`
             
             
 
@@ -24558,7 +24811,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: logical_channel_assignment
                 
                 	Logical channel assignment id
-                	**type**\: list of  :py:class:`LogicalChannelAssignment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.ClientPort.LogicalChannelAssignments.LogicalChannelAssignment>`
+                	**type**\: list of    :py:class:`LogicalChannelAssignment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.ClientPort.LogicalChannelAssignments.LogicalChannelAssignment>`
                 
                 
 
@@ -24689,7 +24942,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: channel
                 
                 	Lane
-                	**type**\: list of  :py:class:`Channel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.ClientPort.Channels.Channel>`
+                	**type**\: list of    :py:class:`Channel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.ClientPort.Channels.Channel>`
                 
                 
 
@@ -24825,7 +25078,7 @@ class InterfaceConfigurations(object):
             .. attribute:: service_policy
             
             	PBR service policy configuration
-            	**type**\:  :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Pbr.ServicePolicy>`
+            	**type**\:   :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Pbr.ServicePolicy>`
             
             .. attribute:: service_policy_in
             
@@ -24925,112 +25178,112 @@ class InterfaceConfigurations(object):
             .. attribute:: ethernet_hour24
             
             	Configure pm parameters of 24 hour interval
-            	**type**\:  :py:class:`EthernetHour24 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetHour24>`
+            	**type**\:   :py:class:`EthernetHour24 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetHour24>`
             
             .. attribute:: ethernet_minute15
             
             	set opr min threshold
-            	**type**\:  :py:class:`EthernetMinute15 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetMinute15>`
+            	**type**\:   :py:class:`EthernetMinute15 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetMinute15>`
             
             .. attribute:: ethernet_second30
             
             	Configure ethernet performance monitoring for 30 sec
-            	**type**\:  :py:class:`EthernetSecond30 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30>`
+            	**type**\:   :py:class:`EthernetSecond30 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30>`
             
             .. attribute:: ho_vc_hour24
             
             	set HO\_VC threshold
-            	**type**\:  :py:class:`HoVcHour24 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24>`
+            	**type**\:   :py:class:`HoVcHour24 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24>`
             
             .. attribute:: ho_vc_minute15
             
             	set HO\_VC threshold
-            	**type**\:  :py:class:`HoVcMinute15 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15>`
+            	**type**\:   :py:class:`HoVcMinute15 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15>`
             
             .. attribute:: hour24
             
             	Configure pm parameters of 24 hour interval
-            	**type**\:  :py:class:`Hour24 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24>`
+            	**type**\:   :py:class:`Hour24 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24>`
             
             .. attribute:: hour24_gfp
             
             	Configure pm parameters of gfp 24 hour interval
-            	**type**\:  :py:class:`Hour24Gfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp>`
+            	**type**\:   :py:class:`Hour24Gfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp>`
             
             .. attribute:: hour24_path
             
             	Configure pm parameters of pathmonitor 24 hour interval
-            	**type**\:  :py:class:`Hour24Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path>`
+            	**type**\:   :py:class:`Hour24Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path>`
             
             .. attribute:: hour24otn_tcms
             
             	Configure pm parameters of tcm's 24 hour interval
-            	**type**\:  :py:class:`Hour24OtnTcms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms>`
+            	**type**\:   :py:class:`Hour24OtnTcms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms>`
             
             .. attribute:: minute15
             
             	set opr min threshold
-            	**type**\:  :py:class:`Minute15 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15>`
+            	**type**\:   :py:class:`Minute15 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15>`
             
             .. attribute:: minute15_gfp
             
             	set opr min threshold
-            	**type**\:  :py:class:`Minute15Gfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp>`
+            	**type**\:   :py:class:`Minute15Gfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp>`
             
             .. attribute:: minute15_path
             
             	set opr min threshold
-            	**type**\:  :py:class:`Minute15Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path>`
+            	**type**\:   :py:class:`Minute15Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path>`
             
             .. attribute:: minute15otn_tcms
             
             	set opr min threshold
-            	**type**\:  :py:class:`Minute15OtnTcms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms>`
+            	**type**\:   :py:class:`Minute15OtnTcms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms>`
             
             .. attribute:: oc_hour24
             
             	set Oc threshold
-            	**type**\:  :py:class:`OcHour24 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcHour24>`
+            	**type**\:   :py:class:`OcHour24 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcHour24>`
             
             .. attribute:: oc_minute15
             
             	set OC threshold
-            	**type**\:  :py:class:`OcMinute15 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcMinute15>`
+            	**type**\:   :py:class:`OcMinute15 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcMinute15>`
             
             .. attribute:: second30
             
             	Configure optics performance monitoring for 30 sec
-            	**type**\:  :py:class:`Second30 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30>`
+            	**type**\:   :py:class:`Second30 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30>`
             
             .. attribute:: sonet_hour24
             
             	set Sonet threshold
-            	**type**\:  :py:class:`SonetHour24 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24>`
+            	**type**\:   :py:class:`SonetHour24 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24>`
             
             .. attribute:: sonet_minute15
             
             	set Sonet threshold
-            	**type**\:  :py:class:`SonetMinute15 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15>`
+            	**type**\:   :py:class:`SonetMinute15 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15>`
             
             .. attribute:: stm_hour24
             
             	set STM threshold
-            	**type**\:  :py:class:`StmHour24 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmHour24>`
+            	**type**\:   :py:class:`StmHour24 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmHour24>`
             
             .. attribute:: stm_minute15
             
             	set STM threshold
-            	**type**\:  :py:class:`StmMinute15 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmMinute15>`
+            	**type**\:   :py:class:`StmMinute15 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmMinute15>`
             
             .. attribute:: sts_hour24
             
             	set STS threshold
-            	**type**\:  :py:class:`StsHour24 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsHour24>`
+            	**type**\:   :py:class:`StsHour24 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsHour24>`
             
             .. attribute:: sts_minute15
             
             	set STS threshold
-            	**type**\:  :py:class:`StsMinute15 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsMinute15>`
+            	**type**\:   :py:class:`StsMinute15 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsMinute15>`
             
             
 
@@ -25094,7 +25347,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: stm_hour24_stm
                 
                 	Configure stm performance monitoring
-                	**type**\:  :py:class:`StmHour24Stm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmHour24.StmHour24Stm>`
+                	**type**\:   :py:class:`StmHour24Stm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmHour24.StmHour24Stm>`
                 
                 
 
@@ -25116,12 +25369,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: stm_hour24_stm_reports
                     
                     	set stm TCA reporting status
-                    	**type**\:  :py:class:`StmHour24StmReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmHour24.StmHour24Stm.StmHour24StmReports>`
+                    	**type**\:   :py:class:`StmHour24StmReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmHour24.StmHour24Stm.StmHour24StmReports>`
                     
                     .. attribute:: stm_hour24_stm_thresholds
                     
                     	Configure threshold on stm parameters
-                    	**type**\:  :py:class:`StmHour24StmThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmHour24.StmHour24Stm.StmHour24StmThresholds>`
+                    	**type**\:   :py:class:`StmHour24StmThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmHour24.StmHour24Stm.StmHour24StmThresholds>`
                     
                     
 
@@ -25145,7 +25398,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: stm_hour24_stm_report
                         
                         	none
-                        	**type**\: list of  :py:class:`StmHour24StmReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmHour24.StmHour24Stm.StmHour24StmReports.StmHour24StmReport>`
+                        	**type**\: list of    :py:class:`StmHour24StmReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmHour24.StmHour24Stm.StmHour24StmReports.StmHour24StmReport>`
                         
                         
 
@@ -25168,12 +25421,12 @@ class InterfaceConfigurations(object):
                             .. attribute:: stm_report  <key>
                             
                             	Stm Report Type
-                            	**type**\:  :py:class:`StmReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.StmReportEnum>`
+                            	**type**\:   :py:class:`StmReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.StmReportEnum>`
                             
                             .. attribute:: enable
                             
                             	Stm Report
-                            	**type**\:  :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
+                            	**type**\:   :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
                             
                             	**mandatory**\: True
                             
@@ -25252,7 +25505,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: stm_hour24_stm_threshold
                         
                         	none
-                        	**type**\: list of  :py:class:`StmHour24StmThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmHour24.StmHour24Stm.StmHour24StmThresholds.StmHour24StmThreshold>`
+                        	**type**\: list of    :py:class:`StmHour24StmThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmHour24.StmHour24Stm.StmHour24StmThresholds.StmHour24StmThreshold>`
                         
                         
 
@@ -25275,7 +25528,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: stm_threshold  <key>
                             
                             	Stm Threshold Type
-                            	**type**\:  :py:class:`StmThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.StmThresholdEnum>`
+                            	**type**\:   :py:class:`StmThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.StmThresholdEnum>`
                             
                             .. attribute:: stm_threshold_value
                             
@@ -25412,7 +25665,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: minute15_gfp
                 
                 	Configure gfp performance monitoring
-                	**type**\:  :py:class:`Minute15Gfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp>`
+                	**type**\:   :py:class:`Minute15Gfp_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp_>`
                 
                 
 
@@ -25423,23 +25676,23 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.minute15_gfp = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp()
+                    self.minute15_gfp = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp_()
                     self.minute15_gfp.parent = self
 
 
-                class Minute15Gfp(object):
+                class Minute15Gfp_(object):
                     """
                     Configure gfp performance monitoring
                     
                     .. attribute:: minute15_gfp_reports
                     
                     	set gfp TCA reporting status
-                    	**type**\:  :py:class:`Minute15GfpReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp.Minute15GfpReports>`
+                    	**type**\:   :py:class:`Minute15GfpReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp_.Minute15GfpReports>`
                     
                     .. attribute:: minute15_gfp_thresholds
                     
                     	Configure threshold on gfp parameters
-                    	**type**\:  :py:class:`Minute15GfpThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp.Minute15GfpThresholds>`
+                    	**type**\:   :py:class:`Minute15GfpThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp_.Minute15GfpThresholds>`
                     
                     
 
@@ -25450,9 +25703,9 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.minute15_gfp_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp.Minute15GfpReports()
+                        self.minute15_gfp_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp_.Minute15GfpReports()
                         self.minute15_gfp_reports.parent = self
-                        self.minute15_gfp_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp.Minute15GfpThresholds()
+                        self.minute15_gfp_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp_.Minute15GfpThresholds()
                         self.minute15_gfp_thresholds.parent = self
 
 
@@ -25463,7 +25716,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: minute15_gfp_report
                         
                         	none
-                        	**type**\: list of  :py:class:`Minute15GfpReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp.Minute15GfpReports.Minute15GfpReport>`
+                        	**type**\: list of    :py:class:`Minute15GfpReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp_.Minute15GfpReports.Minute15GfpReport>`
                         
                         
 
@@ -25486,7 +25739,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: gfp_report  <key>
                             
                             	Gfp Report Type
-                            	**type**\:  :py:class:`GfpReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.GfpReportEnum>`
+                            	**type**\:   :py:class:`GfpReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.GfpReportEnum>`
                             
                             
 
@@ -25523,7 +25776,7 @@ class InterfaceConfigurations(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp.Minute15GfpReports.Minute15GfpReport']['meta_info']
+                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp_.Minute15GfpReports.Minute15GfpReport']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -25549,7 +25802,7 @@ class InterfaceConfigurations(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp.Minute15GfpReports']['meta_info']
+                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp_.Minute15GfpReports']['meta_info']
 
 
                     class Minute15GfpThresholds(object):
@@ -25559,7 +25812,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: minute15_gfp_threshold
                         
                         	none
-                        	**type**\: list of  :py:class:`Minute15GfpThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp.Minute15GfpThresholds.Minute15GfpThreshold>`
+                        	**type**\: list of    :py:class:`Minute15GfpThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp_.Minute15GfpThresholds.Minute15GfpThreshold>`
                         
                         
 
@@ -25582,7 +25835,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: gfp_threshold  <key>
                             
                             	Gfp Threshold Type
-                            	**type**\:  :py:class:`GfpThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.GfpThresholdEnum>`
+                            	**type**\:   :py:class:`GfpThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.GfpThresholdEnum>`
                             
                             .. attribute:: gfp_threshold_value
                             
@@ -25632,7 +25885,7 @@ class InterfaceConfigurations(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp.Minute15GfpThresholds.Minute15GfpThreshold']['meta_info']
+                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp_.Minute15GfpThresholds.Minute15GfpThreshold']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -25658,7 +25911,7 @@ class InterfaceConfigurations(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp.Minute15GfpThresholds']['meta_info']
+                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp_.Minute15GfpThresholds']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -25685,7 +25938,7 @@ class InterfaceConfigurations(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp']['meta_info']
+                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Gfp.Minute15Gfp_']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -25719,12 +25972,12 @@ class InterfaceConfigurations(object):
                 .. attribute:: sonet_minute15_ocn
                 
                 	Configure ocn performance monitoring
-                	**type**\:  :py:class:`SonetMinute15Ocn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15.SonetMinute15Ocn>`
+                	**type**\:   :py:class:`SonetMinute15Ocn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15.SonetMinute15Ocn>`
                 
                 .. attribute:: sonet_minute15_path
                 
                 	Configure Path performance monitoring
-                	**type**\:  :py:class:`SonetMinute15Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15.SonetMinute15Path>`
+                	**type**\:   :py:class:`SonetMinute15Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15.SonetMinute15Path>`
                 
                 
 
@@ -25748,12 +26001,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: sonet_minute15_path_reports
                     
                     	set Path TCA reporting status
-                    	**type**\:  :py:class:`SonetMinute15PathReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15.SonetMinute15Path.SonetMinute15PathReports>`
+                    	**type**\:   :py:class:`SonetMinute15PathReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15.SonetMinute15Path.SonetMinute15PathReports>`
                     
                     .. attribute:: sonet_minute15_path_thresholds
                     
                     	Configure threshold on Path parameters
-                    	**type**\:  :py:class:`SonetMinute15PathThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15.SonetMinute15Path.SonetMinute15PathThresholds>`
+                    	**type**\:   :py:class:`SonetMinute15PathThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15.SonetMinute15Path.SonetMinute15PathThresholds>`
                     
                     
 
@@ -25777,7 +26030,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: sonet_minute15_path_report
                         
                         	none
-                        	**type**\: list of  :py:class:`SonetMinute15PathReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15.SonetMinute15Path.SonetMinute15PathReports.SonetMinute15PathReport>`
+                        	**type**\: list of    :py:class:`SonetMinute15PathReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15.SonetMinute15Path.SonetMinute15PathReports.SonetMinute15PathReport>`
                         
                         
 
@@ -25800,7 +26053,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: path_report  <key>
                             
                             	Path Report Type
-                            	**type**\:  :py:class:`PathReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.PathReportEnum>`
+                            	**type**\:   :py:class:`PathReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.PathReportEnum>`
                             
                             
 
@@ -25873,7 +26126,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: sonet_minute15_path_threshold
                         
                         	none
-                        	**type**\: list of  :py:class:`SonetMinute15PathThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15.SonetMinute15Path.SonetMinute15PathThresholds.SonetMinute15PathThreshold>`
+                        	**type**\: list of    :py:class:`SonetMinute15PathThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15.SonetMinute15Path.SonetMinute15PathThresholds.SonetMinute15PathThreshold>`
                         
                         
 
@@ -25896,7 +26149,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: path_threshold  <key>
                             
                             	Path Threshold Type
-                            	**type**\:  :py:class:`PathThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.PathThresholdEnum>`
+                            	**type**\:   :py:class:`PathThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.PathThresholdEnum>`
                             
                             .. attribute:: path_threshold_value
                             
@@ -26009,12 +26262,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: sonet_minute15_ocn_reports
                     
                     	set ocn TCA reporting status
-                    	**type**\:  :py:class:`SonetMinute15OcnReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15.SonetMinute15Ocn.SonetMinute15OcnReports>`
+                    	**type**\:   :py:class:`SonetMinute15OcnReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15.SonetMinute15Ocn.SonetMinute15OcnReports>`
                     
                     .. attribute:: sonet_minute15_ocn_thresholds
                     
                     	Configure threshold on ocn parameters
-                    	**type**\:  :py:class:`SonetMinute15OcnThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15.SonetMinute15Ocn.SonetMinute15OcnThresholds>`
+                    	**type**\:   :py:class:`SonetMinute15OcnThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15.SonetMinute15Ocn.SonetMinute15OcnThresholds>`
                     
                     
 
@@ -26038,7 +26291,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: sonet_minute15_ocn_report
                         
                         	none
-                        	**type**\: list of  :py:class:`SonetMinute15OcnReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15.SonetMinute15Ocn.SonetMinute15OcnReports.SonetMinute15OcnReport>`
+                        	**type**\: list of    :py:class:`SonetMinute15OcnReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15.SonetMinute15Ocn.SonetMinute15OcnReports.SonetMinute15OcnReport>`
                         
                         
 
@@ -26061,7 +26314,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: ocn_report  <key>
                             
                             	Ocn Report Type
-                            	**type**\:  :py:class:`OcnReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OcnReportEnum>`
+                            	**type**\:   :py:class:`OcnReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OcnReportEnum>`
                             
                             
 
@@ -26134,7 +26387,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: sonet_minute15_ocn_threshold
                         
                         	none
-                        	**type**\: list of  :py:class:`SonetMinute15OcnThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15.SonetMinute15Ocn.SonetMinute15OcnThresholds.SonetMinute15OcnThreshold>`
+                        	**type**\: list of    :py:class:`SonetMinute15OcnThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetMinute15.SonetMinute15Ocn.SonetMinute15OcnThresholds.SonetMinute15OcnThreshold>`
                         
                         
 
@@ -26157,7 +26410,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: ocn_threshold  <key>
                             
                             	Ocn Threshold Type
-                            	**type**\:  :py:class:`OcnThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OcnThresholdEnum>`
+                            	**type**\:   :py:class:`OcnThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OcnThresholdEnum>`
                             
                             .. attribute:: ocn_threshold_value
                             
@@ -26297,7 +26550,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: hour24_gfp
                 
                 	Configure gfp performance monitoring
-                	**type**\:  :py:class:`Hour24Gfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp>`
+                	**type**\:   :py:class:`Hour24Gfp_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp_>`
                 
                 
 
@@ -26308,23 +26561,23 @@ class InterfaceConfigurations(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.hour24_gfp = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp()
+                    self.hour24_gfp = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp_()
                     self.hour24_gfp.parent = self
 
 
-                class Hour24Gfp(object):
+                class Hour24Gfp_(object):
                     """
                     Configure gfp performance monitoring
                     
                     .. attribute:: hour24_gfp_reports
                     
                     	set gfp TCA reporting status
-                    	**type**\:  :py:class:`Hour24GfpReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp.Hour24GfpReports>`
+                    	**type**\:   :py:class:`Hour24GfpReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp_.Hour24GfpReports>`
                     
                     .. attribute:: hour24_gfp_thresholds
                     
                     	Configure threshold on gfp parameters
-                    	**type**\:  :py:class:`Hour24GfpThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp.Hour24GfpThresholds>`
+                    	**type**\:   :py:class:`Hour24GfpThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp_.Hour24GfpThresholds>`
                     
                     
 
@@ -26335,9 +26588,9 @@ class InterfaceConfigurations(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.hour24_gfp_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp.Hour24GfpReports()
+                        self.hour24_gfp_reports = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp_.Hour24GfpReports()
                         self.hour24_gfp_reports.parent = self
-                        self.hour24_gfp_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp.Hour24GfpThresholds()
+                        self.hour24_gfp_thresholds = InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp_.Hour24GfpThresholds()
                         self.hour24_gfp_thresholds.parent = self
 
 
@@ -26348,7 +26601,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: hour24_gfp_report
                         
                         	none
-                        	**type**\: list of  :py:class:`Hour24GfpReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp.Hour24GfpReports.Hour24GfpReport>`
+                        	**type**\: list of    :py:class:`Hour24GfpReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp_.Hour24GfpReports.Hour24GfpReport>`
                         
                         
 
@@ -26371,7 +26624,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: gfp_report  <key>
                             
                             	Gfp Report Type
-                            	**type**\:  :py:class:`GfpReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.GfpReportEnum>`
+                            	**type**\:   :py:class:`GfpReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.GfpReportEnum>`
                             
                             
 
@@ -26408,7 +26661,7 @@ class InterfaceConfigurations(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp.Hour24GfpReports.Hour24GfpReport']['meta_info']
+                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp_.Hour24GfpReports.Hour24GfpReport']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -26434,7 +26687,7 @@ class InterfaceConfigurations(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp.Hour24GfpReports']['meta_info']
+                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp_.Hour24GfpReports']['meta_info']
 
 
                     class Hour24GfpThresholds(object):
@@ -26444,7 +26697,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: hour24_gfp_threshold
                         
                         	none
-                        	**type**\: list of  :py:class:`Hour24GfpThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp.Hour24GfpThresholds.Hour24GfpThreshold>`
+                        	**type**\: list of    :py:class:`Hour24GfpThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp_.Hour24GfpThresholds.Hour24GfpThreshold>`
                         
                         
 
@@ -26467,7 +26720,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: gfp_threshold  <key>
                             
                             	Gfp Threshold Type
-                            	**type**\:  :py:class:`GfpThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.GfpThresholdEnum>`
+                            	**type**\:   :py:class:`GfpThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.GfpThresholdEnum>`
                             
                             .. attribute:: gfp_threshold_value
                             
@@ -26517,7 +26770,7 @@ class InterfaceConfigurations(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp.Hour24GfpThresholds.Hour24GfpThreshold']['meta_info']
+                                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp_.Hour24GfpThresholds.Hour24GfpThreshold']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -26543,7 +26796,7 @@ class InterfaceConfigurations(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp.Hour24GfpThresholds']['meta_info']
+                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp_.Hour24GfpThresholds']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -26570,7 +26823,7 @@ class InterfaceConfigurations(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
-                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp']['meta_info']
+                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Gfp.Hour24Gfp_']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -26604,7 +26857,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: hour24_ether
                 
                 	Configure ether performance monitoring
-                	**type**\:  :py:class:`Hour24Ether <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetHour24.Hour24Ether>`
+                	**type**\:   :py:class:`Hour24Ether <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetHour24.Hour24Ether>`
                 
                 
 
@@ -26626,12 +26879,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: hour24_ether_reports
                     
                     	set ether TCA reporting status
-                    	**type**\:  :py:class:`Hour24EtherReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetHour24.Hour24Ether.Hour24EtherReports>`
+                    	**type**\:   :py:class:`Hour24EtherReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetHour24.Hour24Ether.Hour24EtherReports>`
                     
                     .. attribute:: hour24_ether_thresholds
                     
                     	Configure threshold on ether parameters
-                    	**type**\:  :py:class:`Hour24EtherThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetHour24.Hour24Ether.Hour24EtherThresholds>`
+                    	**type**\:   :py:class:`Hour24EtherThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetHour24.Hour24Ether.Hour24EtherThresholds>`
                     
                     
 
@@ -26655,7 +26908,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: hour24_ether_threshold
                         
                         	none
-                        	**type**\: list of  :py:class:`Hour24EtherThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetHour24.Hour24Ether.Hour24EtherThresholds.Hour24EtherThreshold>`
+                        	**type**\: list of    :py:class:`Hour24EtherThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetHour24.Hour24Ether.Hour24EtherThresholds.Hour24EtherThreshold>`
                         
                         
 
@@ -26678,7 +26931,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: ether_threshold  <key>
                             
                             	Ether Threshold Type
-                            	**type**\:  :py:class:`EtherThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.EtherThresholdEnum>`
+                            	**type**\:   :py:class:`EtherThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.EtherThresholdEnum>`
                             
                             .. attribute:: ether_threshold_value
                             
@@ -26764,7 +27017,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: hour24_ether_report
                         
                         	none
-                        	**type**\: list of  :py:class:`Hour24EtherReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetHour24.Hour24Ether.Hour24EtherReports.Hour24EtherReport>`
+                        	**type**\: list of    :py:class:`Hour24EtherReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetHour24.Hour24Ether.Hour24EtherReports.Hour24EtherReport>`
                         
                         
 
@@ -26787,7 +27040,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: ether_report  <key>
                             
                             	Ether Report Type
-                            	**type**\:  :py:class:`EtherReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.EtherReportEnum>`
+                            	**type**\:   :py:class:`EtherReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.EtherReportEnum>`
                             
                             
 
@@ -26911,7 +27164,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: minute15otn_tcm
                 
                 	configure otn g709 tcm's performance monitoring
-                	**type**\: list of  :py:class:`Minute15OtnTcm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm>`
+                	**type**\: list of    :py:class:`Minute15OtnTcm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm>`
                 
                 
 
@@ -26942,12 +27195,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: min15_otn_tcm_threshes
                     
                     	Configure threshold on otn parameters
-                    	**type**\:  :py:class:`Min15OtnTcmThreshes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Min15OtnTcmThreshes>`
+                    	**type**\:   :py:class:`Min15OtnTcmThreshes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Min15OtnTcmThreshes>`
                     
                     .. attribute:: minute15otn_tcm_reports
                     
                     	set otn TCA reporting status
-                    	**type**\:  :py:class:`Minute15OtnTcmReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Minute15OtnTcmReports>`
+                    	**type**\:   :py:class:`Minute15OtnTcmReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Minute15OtnTcmReports>`
                     
                     
 
@@ -26972,7 +27225,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: min15_otn_tcm_thresh
                         
                         	none
-                        	**type**\: list of  :py:class:`Min15OtnTcmThresh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Min15OtnTcmThreshes.Min15OtnTcmThresh>`
+                        	**type**\: list of    :py:class:`Min15OtnTcmThresh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Min15OtnTcmThreshes.Min15OtnTcmThresh>`
                         
                         
 
@@ -26995,7 +27248,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: otn_threshold  <key>
                             
                             	Otn Threshold Type
-                            	**type**\:  :py:class:`OtnTcmThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OtnTcmThresholdEnum>`
+                            	**type**\:   :py:class:`OtnTcmThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OtnTcmThresholdEnum>`
                             
                             .. attribute:: otn_threshold_value
                             
@@ -27081,7 +27334,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: minute15otn_tcm_report
                         
                         	none
-                        	**type**\: list of  :py:class:`Minute15OtnTcmReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Minute15OtnTcmReports.Minute15OtnTcmReport>`
+                        	**type**\: list of    :py:class:`Minute15OtnTcmReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15OtnTcms.Minute15OtnTcm.Minute15OtnTcmReports.Minute15OtnTcmReport>`
                         
                         
 
@@ -27104,12 +27357,12 @@ class InterfaceConfigurations(object):
                             .. attribute:: otn_report  <key>
                             
                             	Otn Report Type
-                            	**type**\:  :py:class:`OtnTcmReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OtnTcmReportEnum>`
+                            	**type**\:   :py:class:`OtnTcmReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OtnTcmReportEnum>`
                             
                             .. attribute:: enable
                             
                             	Otn Report
-                            	**type**\:  :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
+                            	**type**\:   :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
                             
                             	**mandatory**\: True
                             
@@ -27246,7 +27499,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: oc_hour24_ocn
                 
                 	Configure ocn performance monitoring
-                	**type**\:  :py:class:`OcHour24Ocn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcHour24.OcHour24Ocn>`
+                	**type**\:   :py:class:`OcHour24Ocn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcHour24.OcHour24Ocn>`
                 
                 
 
@@ -27268,12 +27521,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: oc_hour24_ocn_reports
                     
                     	set ocn TCA reporting status
-                    	**type**\:  :py:class:`OcHour24OcnReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcHour24.OcHour24Ocn.OcHour24OcnReports>`
+                    	**type**\:   :py:class:`OcHour24OcnReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcHour24.OcHour24Ocn.OcHour24OcnReports>`
                     
                     .. attribute:: oc_hour24_ocn_thresholds
                     
                     	Configure threshold on ocn parameters
-                    	**type**\:  :py:class:`OcHour24OcnThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcHour24.OcHour24Ocn.OcHour24OcnThresholds>`
+                    	**type**\:   :py:class:`OcHour24OcnThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcHour24.OcHour24Ocn.OcHour24OcnThresholds>`
                     
                     
 
@@ -27297,7 +27550,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: oc_hour24_ocn_report
                         
                         	none
-                        	**type**\: list of  :py:class:`OcHour24OcnReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcHour24.OcHour24Ocn.OcHour24OcnReports.OcHour24OcnReport>`
+                        	**type**\: list of    :py:class:`OcHour24OcnReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcHour24.OcHour24Ocn.OcHour24OcnReports.OcHour24OcnReport>`
                         
                         
 
@@ -27320,12 +27573,12 @@ class InterfaceConfigurations(object):
                             .. attribute:: ocn_report  <key>
                             
                             	Ocn Report Type
-                            	**type**\:  :py:class:`OcnReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OcnReportEnum>`
+                            	**type**\:   :py:class:`OcnReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OcnReportEnum>`
                             
                             .. attribute:: enable
                             
                             	Ocn Report
-                            	**type**\:  :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
+                            	**type**\:   :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
                             
                             	**mandatory**\: True
                             
@@ -27404,7 +27657,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: oc_hour24_ocn_threshold
                         
                         	none
-                        	**type**\: list of  :py:class:`OcHour24OcnThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcHour24.OcHour24Ocn.OcHour24OcnThresholds.OcHour24OcnThreshold>`
+                        	**type**\: list of    :py:class:`OcHour24OcnThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcHour24.OcHour24Ocn.OcHour24OcnThresholds.OcHour24OcnThreshold>`
                         
                         
 
@@ -27427,7 +27680,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: ocn_threshold  <key>
                             
                             	Ocn Threshold Type
-                            	**type**\:  :py:class:`OcnThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OcnThresholdEnum>`
+                            	**type**\:   :py:class:`OcnThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OcnThresholdEnum>`
                             
                             .. attribute:: ocn_threshold_value
                             
@@ -27564,7 +27817,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: minute15_ether
                 
                 	Configure ether performance monitoring
-                	**type**\:  :py:class:`Minute15Ether <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetMinute15.Minute15Ether>`
+                	**type**\:   :py:class:`Minute15Ether <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetMinute15.Minute15Ether>`
                 
                 
 
@@ -27586,12 +27839,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: minute15_ether_reports
                     
                     	set ether TCA reporting status
-                    	**type**\:  :py:class:`Minute15EtherReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetMinute15.Minute15Ether.Minute15EtherReports>`
+                    	**type**\:   :py:class:`Minute15EtherReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetMinute15.Minute15Ether.Minute15EtherReports>`
                     
                     .. attribute:: minute15_ether_thresholds
                     
                     	Configure threshold on ether parameters
-                    	**type**\:  :py:class:`Minute15EtherThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetMinute15.Minute15Ether.Minute15EtherThresholds>`
+                    	**type**\:   :py:class:`Minute15EtherThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetMinute15.Minute15Ether.Minute15EtherThresholds>`
                     
                     
 
@@ -27615,7 +27868,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: minute15_ether_threshold
                         
                         	none
-                        	**type**\: list of  :py:class:`Minute15EtherThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetMinute15.Minute15Ether.Minute15EtherThresholds.Minute15EtherThreshold>`
+                        	**type**\: list of    :py:class:`Minute15EtherThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetMinute15.Minute15Ether.Minute15EtherThresholds.Minute15EtherThreshold>`
                         
                         
 
@@ -27638,7 +27891,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: ether_threshold  <key>
                             
                             	Ether Threshold Type
-                            	**type**\:  :py:class:`EtherThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.EtherThresholdEnum>`
+                            	**type**\:   :py:class:`EtherThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.EtherThresholdEnum>`
                             
                             .. attribute:: ether_threshold_value
                             
@@ -27724,7 +27977,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: minute15_ether_report
                         
                         	none
-                        	**type**\: list of  :py:class:`Minute15EtherReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetMinute15.Minute15Ether.Minute15EtherReports.Minute15EtherReport>`
+                        	**type**\: list of    :py:class:`Minute15EtherReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetMinute15.Minute15Ether.Minute15EtherReports.Minute15EtherReport>`
                         
                         
 
@@ -27747,7 +28000,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: ether_report  <key>
                             
                             	Ether Report Type
-                            	**type**\:  :py:class:`EtherReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.EtherReportEnum>`
+                            	**type**\:   :py:class:`EtherReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.EtherReportEnum>`
                             
                             
 
@@ -27871,7 +28124,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: ho_vc_hour24ho_vc
                 
                 	Configure ho\_vc performance monitoring
-                	**type**\:  :py:class:`HoVcHour24HoVc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc>`
+                	**type**\:   :py:class:`HoVcHour24HoVc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc>`
                 
                 
 
@@ -27893,12 +28146,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: ho_vc_hour24ho_vc_reports
                     
                     	set ho\_vc TCA reporting status
-                    	**type**\:  :py:class:`HoVcHour24HoVcReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcReports>`
+                    	**type**\:   :py:class:`HoVcHour24HoVcReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcReports>`
                     
                     .. attribute:: ho_vc_hour24ho_vc_thresholds
                     
                     	Configure threshold on ho\_vc parameters
-                    	**type**\:  :py:class:`HoVcHour24HoVcThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcThresholds>`
+                    	**type**\:   :py:class:`HoVcHour24HoVcThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcThresholds>`
                     
                     
 
@@ -27922,7 +28175,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: ho_vc_hour24ho_vc_report
                         
                         	none
-                        	**type**\: list of  :py:class:`HoVcHour24HoVcReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcReports.HoVcHour24HoVcReport>`
+                        	**type**\: list of    :py:class:`HoVcHour24HoVcReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcReports.HoVcHour24HoVcReport>`
                         
                         
 
@@ -27945,12 +28198,12 @@ class InterfaceConfigurations(object):
                             .. attribute:: ho_vc_report  <key>
                             
                             	ho\_vc Report Type
-                            	**type**\:  :py:class:`HoVcReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.HoVcReportEnum>`
+                            	**type**\:   :py:class:`HoVcReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.HoVcReportEnum>`
                             
                             .. attribute:: enable
                             
                             	ho\_vc Report
-                            	**type**\:  :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
+                            	**type**\:   :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
                             
                             	**mandatory**\: True
                             
@@ -28029,7 +28282,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: ho_vc_hour24ho_vc_threshold
                         
                         	none
-                        	**type**\: list of  :py:class:`HoVcHour24HoVcThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcThresholds.HoVcHour24HoVcThreshold>`
+                        	**type**\: list of    :py:class:`HoVcHour24HoVcThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcThresholds.HoVcHour24HoVcThreshold>`
                         
                         
 
@@ -28052,7 +28305,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: ho_vc_threshold  <key>
                             
                             	ho\_vc Threshold Type
-                            	**type**\:  :py:class:`HoVcThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.HoVcThresholdEnum>`
+                            	**type**\:   :py:class:`HoVcThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.HoVcThresholdEnum>`
                             
                             .. attribute:: ho_vc_threshold_value
                             
@@ -28190,17 +28443,17 @@ class InterfaceConfigurations(object):
                 .. attribute:: second30_optics
                 
                 	Configure optics performance monitoring
-                	**type**\:  :py:class:`Second30Optics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics>`
+                	**type**\:   :py:class:`Second30Optics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics>`
                 
                 .. attribute:: second30fec
                 
                 	Configure fec g709 performance monitoring
-                	**type**\:  :py:class:`Second30Fec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec>`
+                	**type**\:   :py:class:`Second30Fec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec>`
                 
                 .. attribute:: second30otn
                 
                 	configure otn g709 performance monitoring
-                	**type**\:  :py:class:`Second30Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn>`
+                	**type**\:   :py:class:`Second30Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn>`
                 
                 
 
@@ -28226,12 +28479,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: second30fec_reports
                     
                     	set fec TCA reporting status
-                    	**type**\:  :py:class:`Second30FecReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec.Second30FecReports>`
+                    	**type**\:   :py:class:`Second30FecReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec.Second30FecReports>`
                     
                     .. attribute:: second30fec_thresholds
                     
                     	Configure fec threshold
-                    	**type**\:  :py:class:`Second30FecThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec.Second30FecThresholds>`
+                    	**type**\:   :py:class:`Second30FecThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec.Second30FecThresholds>`
                     
                     
 
@@ -28255,7 +28508,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: second30fec_threshold
                         
                         	none
-                        	**type**\: list of  :py:class:`Second30FecThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec.Second30FecThresholds.Second30FecThreshold>`
+                        	**type**\: list of    :py:class:`Second30FecThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec.Second30FecThresholds.Second30FecThreshold>`
                         
                         
 
@@ -28278,7 +28531,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: fec_threshold  <key>
                             
                             	Fec Threshold Type
-                            	**type**\:  :py:class:`FecThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.FecThresholdEnum>`
+                            	**type**\:   :py:class:`FecThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.FecThresholdEnum>`
                             
                             .. attribute:: fec_threshold_value
                             
@@ -28364,7 +28617,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: second30fec_report
                         
                         	none
-                        	**type**\: list of  :py:class:`Second30FecReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec.Second30FecReports.Second30FecReport>`
+                        	**type**\: list of    :py:class:`Second30FecReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec.Second30FecReports.Second30FecReport>`
                         
                         
 
@@ -28387,12 +28640,12 @@ class InterfaceConfigurations(object):
                             .. attribute:: fec_report  <key>
                             
                             	Fec Report Type
-                            	**type**\:  :py:class:`FecReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.FecReportEnum>`
+                            	**type**\:   :py:class:`FecReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.FecReportEnum>`
                             
                             .. attribute:: enable
                             
                             	Fec Report
-                            	**type**\:  :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
+                            	**type**\:   :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
                             
                             	**mandatory**\: True
                             
@@ -28498,12 +28751,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: second30_optics_reports
                     
                     	set optics TCA reporting status
-                    	**type**\:  :py:class:`Second30OpticsReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics.Second30OpticsReports>`
+                    	**type**\:   :py:class:`Second30OpticsReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics.Second30OpticsReports>`
                     
                     .. attribute:: second30_optics_thresholds
                     
                     	Configure threshold on optics parameters
-                    	**type**\:  :py:class:`Second30OpticsThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics.Second30OpticsThresholds>`
+                    	**type**\:   :py:class:`Second30OpticsThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics.Second30OpticsThresholds>`
                     
                     
 
@@ -28527,7 +28780,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: second30_optics_report
                         
                         	none
-                        	**type**\: list of  :py:class:`Second30OpticsReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics.Second30OpticsReports.Second30OpticsReport>`
+                        	**type**\: list of    :py:class:`Second30OpticsReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics.Second30OpticsReports.Second30OpticsReport>`
                         
                         
 
@@ -28550,7 +28803,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: optics_report  <key>
                             
                             	Optics Report Type
-                            	**type**\:  :py:class:`OpticsReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OpticsReportEnum>`
+                            	**type**\:   :py:class:`OpticsReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OpticsReportEnum>`
                             
                             
 
@@ -28623,7 +28876,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: second30_optics_threshold
                         
                         	none
-                        	**type**\: list of  :py:class:`Second30OpticsThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics.Second30OpticsThresholds.Second30OpticsThreshold>`
+                        	**type**\: list of    :py:class:`Second30OpticsThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics.Second30OpticsThresholds.Second30OpticsThreshold>`
                         
                         
 
@@ -28646,7 +28899,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: optics_threshold  <key>
                             
                             	Optics Threshold Type
-                            	**type**\:  :py:class:`OpticsThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OpticsThresholdEnum>`
+                            	**type**\:   :py:class:`OpticsThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OpticsThresholdEnum>`
                             
                             .. attribute:: optics_threshold_value
                             
@@ -28759,12 +29012,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: second30_otn_threshes
                     
                     	Configure threshold on otn parameters
-                    	**type**\:  :py:class:`Second30OtnThreshes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn.Second30OtnThreshes>`
+                    	**type**\:   :py:class:`Second30OtnThreshes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn.Second30OtnThreshes>`
                     
                     .. attribute:: second30otn_reports
                     
                     	set otn TCA reporting status
-                    	**type**\:  :py:class:`Second30OtnReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn.Second30OtnReports>`
+                    	**type**\:   :py:class:`Second30OtnReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn.Second30OtnReports>`
                     
                     
 
@@ -28788,7 +29041,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: second30_otn_thresh
                         
                         	none
-                        	**type**\: list of  :py:class:`Second30OtnThresh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn.Second30OtnThreshes.Second30OtnThresh>`
+                        	**type**\: list of    :py:class:`Second30OtnThresh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn.Second30OtnThreshes.Second30OtnThresh>`
                         
                         
 
@@ -28811,7 +29064,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: otn_threshold  <key>
                             
                             	Otn Threshold Type
-                            	**type**\:  :py:class:`OtnThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OtnThresholdEnum>`
+                            	**type**\:   :py:class:`OtnThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OtnThresholdEnum>`
                             
                             .. attribute:: otn_threshold_value
                             
@@ -28897,7 +29150,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: second30otn_report
                         
                         	none
-                        	**type**\: list of  :py:class:`Second30OtnReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn.Second30OtnReports.Second30OtnReport>`
+                        	**type**\: list of    :py:class:`Second30OtnReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn.Second30OtnReports.Second30OtnReport>`
                         
                         
 
@@ -28920,12 +29173,12 @@ class InterfaceConfigurations(object):
                             .. attribute:: otn_report  <key>
                             
                             	Otn Report Type
-                            	**type**\:  :py:class:`OtnReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OtnReportEnum>`
+                            	**type**\:   :py:class:`OtnReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OtnReportEnum>`
                             
                             .. attribute:: enable
                             
                             	Otn Report
-                            	**type**\:  :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
+                            	**type**\:   :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
                             
                             	**mandatory**\: True
                             
@@ -29062,7 +29315,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: hour24otn_tcm
                 
                 	configure otn g709 tcm's performance monitoring
-                	**type**\: list of  :py:class:`Hour24OtnTcm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm>`
+                	**type**\: list of    :py:class:`Hour24OtnTcm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm>`
                 
                 
 
@@ -29093,12 +29346,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: hour24otn_tcm_reports
                     
                     	set otn TCA reporting status
-                    	**type**\:  :py:class:`Hour24OtnTcmReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmReports>`
+                    	**type**\:   :py:class:`Hour24OtnTcmReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmReports>`
                     
                     .. attribute:: hour24otn_tcm_thresholds
                     
                     	Configure threshold on otn parameters
-                    	**type**\:  :py:class:`Hour24OtnTcmThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmThresholds>`
+                    	**type**\:   :py:class:`Hour24OtnTcmThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmThresholds>`
                     
                     
 
@@ -29123,7 +29376,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: hour24otn_tcm_threshold
                         
                         	none
-                        	**type**\: list of  :py:class:`Hour24OtnTcmThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmThresholds.Hour24OtnTcmThreshold>`
+                        	**type**\: list of    :py:class:`Hour24OtnTcmThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmThresholds.Hour24OtnTcmThreshold>`
                         
                         
 
@@ -29146,7 +29399,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: otn_threshold  <key>
                             
                             	Otn Threshold Type
-                            	**type**\:  :py:class:`OtnTcmThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OtnTcmThresholdEnum>`
+                            	**type**\:   :py:class:`OtnTcmThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OtnTcmThresholdEnum>`
                             
                             .. attribute:: otn_threshold_value
                             
@@ -29232,7 +29485,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: hour24otn_tcm_report
                         
                         	none
-                        	**type**\: list of  :py:class:`Hour24OtnTcmReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmReports.Hour24OtnTcmReport>`
+                        	**type**\: list of    :py:class:`Hour24OtnTcmReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmReports.Hour24OtnTcmReport>`
                         
                         
 
@@ -29255,12 +29508,12 @@ class InterfaceConfigurations(object):
                             .. attribute:: otn_report  <key>
                             
                             	Otn Report Type
-                            	**type**\:  :py:class:`OtnTcmReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OtnTcmReportEnum>`
+                            	**type**\:   :py:class:`OtnTcmReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OtnTcmReportEnum>`
                             
                             .. attribute:: enable
                             
                             	Otn Report
-                            	**type**\:  :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
+                            	**type**\:   :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
                             
                             	**mandatory**\: True
                             
@@ -29397,7 +29650,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: sts_minute15_path
                 
                 	Configure Path performance monitoring
-                	**type**\:  :py:class:`StsMinute15Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsMinute15.StsMinute15Path>`
+                	**type**\:   :py:class:`StsMinute15Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsMinute15.StsMinute15Path>`
                 
                 
 
@@ -29419,12 +29672,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: sts_minute15_path_reports
                     
                     	set Path TCA reporting status
-                    	**type**\:  :py:class:`StsMinute15PathReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsMinute15.StsMinute15Path.StsMinute15PathReports>`
+                    	**type**\:   :py:class:`StsMinute15PathReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsMinute15.StsMinute15Path.StsMinute15PathReports>`
                     
                     .. attribute:: sts_minute15_path_thresholds
                     
                     	Configure threshold on Path parameters
-                    	**type**\:  :py:class:`StsMinute15PathThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsMinute15.StsMinute15Path.StsMinute15PathThresholds>`
+                    	**type**\:   :py:class:`StsMinute15PathThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsMinute15.StsMinute15Path.StsMinute15PathThresholds>`
                     
                     
 
@@ -29448,7 +29701,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: sts_minute15_path_report
                         
                         	none
-                        	**type**\: list of  :py:class:`StsMinute15PathReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsMinute15.StsMinute15Path.StsMinute15PathReports.StsMinute15PathReport>`
+                        	**type**\: list of    :py:class:`StsMinute15PathReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsMinute15.StsMinute15Path.StsMinute15PathReports.StsMinute15PathReport>`
                         
                         
 
@@ -29471,12 +29724,12 @@ class InterfaceConfigurations(object):
                             .. attribute:: path_report  <key>
                             
                             	Path Report Type
-                            	**type**\:  :py:class:`StsReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.StsReportEnum>`
+                            	**type**\:   :py:class:`StsReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.StsReportEnum>`
                             
                             .. attribute:: enable
                             
                             	Path Report
-                            	**type**\:  :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
+                            	**type**\:   :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
                             
                             	**mandatory**\: True
                             
@@ -29555,7 +29808,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: sts_minute15_path_threshold
                         
                         	none
-                        	**type**\: list of  :py:class:`StsMinute15PathThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsMinute15.StsMinute15Path.StsMinute15PathThresholds.StsMinute15PathThreshold>`
+                        	**type**\: list of    :py:class:`StsMinute15PathThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsMinute15.StsMinute15Path.StsMinute15PathThresholds.StsMinute15PathThreshold>`
                         
                         
 
@@ -29578,7 +29831,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: path_threshold  <key>
                             
                             	Path Threshold Type
-                            	**type**\:  :py:class:`StsThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.StsThresholdEnum>`
+                            	**type**\:   :py:class:`StsThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.StsThresholdEnum>`
                             
                             .. attribute:: path_threshold_value
                             
@@ -29715,17 +29968,17 @@ class InterfaceConfigurations(object):
                 .. attribute:: hour24_optics
                 
                 	Configure optics performance monitoring
-                	**type**\:  :py:class:`Hour24Optics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Optics>`
+                	**type**\:   :py:class:`Hour24Optics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Optics>`
                 
                 .. attribute:: hour24fec
                 
                 	Configure fec g709 performance monitoring
-                	**type**\:  :py:class:`Hour24Fec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec>`
+                	**type**\:   :py:class:`Hour24Fec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec>`
                 
                 .. attribute:: hour24otn
                 
                 	configure otn g709 performance monitoring
-                	**type**\:  :py:class:`Hour24Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn>`
+                	**type**\:   :py:class:`Hour24Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn>`
                 
                 
 
@@ -29751,12 +30004,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: hour24otn_reports
                     
                     	set otn TCA reporting status
-                    	**type**\:  :py:class:`Hour24OtnReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnReports>`
+                    	**type**\:   :py:class:`Hour24OtnReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnReports>`
                     
                     .. attribute:: hour24otn_thresholds
                     
                     	Configure threshold on otn parameters
-                    	**type**\:  :py:class:`Hour24OtnThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnThresholds>`
+                    	**type**\:   :py:class:`Hour24OtnThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnThresholds>`
                     
                     
 
@@ -29780,7 +30033,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: hour24otn_threshold
                         
                         	none
-                        	**type**\: list of  :py:class:`Hour24OtnThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnThresholds.Hour24OtnThreshold>`
+                        	**type**\: list of    :py:class:`Hour24OtnThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnThresholds.Hour24OtnThreshold>`
                         
                         
 
@@ -29803,7 +30056,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: otn_threshold  <key>
                             
                             	Otn Threshold Type
-                            	**type**\:  :py:class:`OtnThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OtnThresholdEnum>`
+                            	**type**\:   :py:class:`OtnThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OtnThresholdEnum>`
                             
                             .. attribute:: otn_threshold_value
                             
@@ -29889,7 +30142,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: hour24otn_report
                         
                         	none
-                        	**type**\: list of  :py:class:`Hour24OtnReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnReports.Hour24OtnReport>`
+                        	**type**\: list of    :py:class:`Hour24OtnReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Otn.Hour24OtnReports.Hour24OtnReport>`
                         
                         
 
@@ -29912,12 +30165,12 @@ class InterfaceConfigurations(object):
                             .. attribute:: otn_report  <key>
                             
                             	Otn Report Type
-                            	**type**\:  :py:class:`OtnReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OtnReportEnum>`
+                            	**type**\:   :py:class:`OtnReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OtnReportEnum>`
                             
                             .. attribute:: enable
                             
                             	Otn Report
-                            	**type**\:  :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
+                            	**type**\:   :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
                             
                             	**mandatory**\: True
                             
@@ -30023,12 +30276,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: hour24_optics_reports
                     
                     	set optics TCA reporting status
-                    	**type**\:  :py:class:`Hour24OpticsReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Optics.Hour24OpticsReports>`
+                    	**type**\:   :py:class:`Hour24OpticsReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Optics.Hour24OpticsReports>`
                     
                     .. attribute:: hour24_optics_thresholds
                     
                     	Configure threshold on optics parameters
-                    	**type**\:  :py:class:`Hour24OpticsThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Optics.Hour24OpticsThresholds>`
+                    	**type**\:   :py:class:`Hour24OpticsThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Optics.Hour24OpticsThresholds>`
                     
                     
 
@@ -30052,7 +30305,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: hour24_optics_threshold
                         
                         	none
-                        	**type**\: list of  :py:class:`Hour24OpticsThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Optics.Hour24OpticsThresholds.Hour24OpticsThreshold>`
+                        	**type**\: list of    :py:class:`Hour24OpticsThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Optics.Hour24OpticsThresholds.Hour24OpticsThreshold>`
                         
                         
 
@@ -30075,7 +30328,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: optics_threshold  <key>
                             
                             	Optics Threshold Type
-                            	**type**\:  :py:class:`OpticsThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OpticsThresholdEnum>`
+                            	**type**\:   :py:class:`OpticsThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OpticsThresholdEnum>`
                             
                             .. attribute:: dbm
                             
@@ -30083,6 +30336,8 @@ class InterfaceConfigurations(object):
                             	**type**\:  int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**default value**\: 0
                             
                             .. attribute:: optics_threshold_value
                             
@@ -30170,7 +30425,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: hour24_optics_report
                         
                         	none
-                        	**type**\: list of  :py:class:`Hour24OpticsReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Optics.Hour24OpticsReports.Hour24OpticsReport>`
+                        	**type**\: list of    :py:class:`Hour24OpticsReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Optics.Hour24OpticsReports.Hour24OpticsReport>`
                         
                         
 
@@ -30193,7 +30448,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: optics_report  <key>
                             
                             	Optics Report Type
-                            	**type**\:  :py:class:`OpticsReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OpticsReportEnum>`
+                            	**type**\:   :py:class:`OpticsReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OpticsReportEnum>`
                             
                             
 
@@ -30293,12 +30548,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: hour24fec_reports
                     
                     	set fec TCA reporting status
-                    	**type**\:  :py:class:`Hour24FecReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecReports>`
+                    	**type**\:   :py:class:`Hour24FecReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecReports>`
                     
                     .. attribute:: hour24fec_thresholds
                     
                     	Configure fec threshold
-                    	**type**\:  :py:class:`Hour24FecThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecThresholds>`
+                    	**type**\:   :py:class:`Hour24FecThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecThresholds>`
                     
                     
 
@@ -30322,7 +30577,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: hour24fec_threshold
                         
                         	none
-                        	**type**\: list of  :py:class:`Hour24FecThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecThresholds.Hour24FecThreshold>`
+                        	**type**\: list of    :py:class:`Hour24FecThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecThresholds.Hour24FecThreshold>`
                         
                         
 
@@ -30345,7 +30600,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: fec_threshold  <key>
                             
                             	Fec Threshold Type
-                            	**type**\:  :py:class:`FecThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.FecThresholdEnum>`
+                            	**type**\:   :py:class:`FecThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.FecThresholdEnum>`
                             
                             .. attribute:: fec_threshold_value
                             
@@ -30431,7 +30686,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: hour24fec_report
                         
                         	none
-                        	**type**\: list of  :py:class:`Hour24FecReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecReports.Hour24FecReport>`
+                        	**type**\: list of    :py:class:`Hour24FecReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24.Hour24Fec.Hour24FecReports.Hour24FecReport>`
                         
                         
 
@@ -30454,12 +30709,12 @@ class InterfaceConfigurations(object):
                             .. attribute:: fec_report  <key>
                             
                             	Fec Report type
-                            	**type**\:  :py:class:`FecReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.FecReportEnum>`
+                            	**type**\:   :py:class:`FecReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.FecReportEnum>`
                             
                             .. attribute:: enable
                             
                             	Fec Report
-                            	**type**\:  :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
+                            	**type**\:   :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
                             
                             	**mandatory**\: True
                             
@@ -30595,7 +30850,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: ho_vc_minute15ho_vc
                 
                 	Configure ho\_vc performance monitoring
-                	**type**\:  :py:class:`HoVcMinute15HoVc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc>`
+                	**type**\:   :py:class:`HoVcMinute15HoVc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc>`
                 
                 
 
@@ -30617,12 +30872,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: ho_vc_minute15ho_vc_reports
                     
                     	set ho\_vc TCA reporting status
-                    	**type**\:  :py:class:`HoVcMinute15HoVcReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcReports>`
+                    	**type**\:   :py:class:`HoVcMinute15HoVcReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcReports>`
                     
                     .. attribute:: ho_vc_minute15ho_vc_thresholds
                     
                     	Configure threshold on ho\_vc parameters
-                    	**type**\:  :py:class:`HoVcMinute15HoVcThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcThresholds>`
+                    	**type**\:   :py:class:`HoVcMinute15HoVcThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcThresholds>`
                     
                     
 
@@ -30646,7 +30901,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: ho_vc_minute15ho_vc_report
                         
                         	none
-                        	**type**\: list of  :py:class:`HoVcMinute15HoVcReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcReports.HoVcMinute15HoVcReport>`
+                        	**type**\: list of    :py:class:`HoVcMinute15HoVcReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcReports.HoVcMinute15HoVcReport>`
                         
                         
 
@@ -30669,12 +30924,12 @@ class InterfaceConfigurations(object):
                             .. attribute:: ho_vc_report  <key>
                             
                             	ho\_vc Report Type
-                            	**type**\:  :py:class:`HoVcReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.HoVcReportEnum>`
+                            	**type**\:   :py:class:`HoVcReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.HoVcReportEnum>`
                             
                             .. attribute:: enable
                             
                             	ho\_vc Report
-                            	**type**\:  :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
+                            	**type**\:   :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
                             
                             	**mandatory**\: True
                             
@@ -30753,7 +31008,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: ho_vc_minute15ho_vc_threshold
                         
                         	none
-                        	**type**\: list of  :py:class:`HoVcMinute15HoVcThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcThresholds.HoVcMinute15HoVcThreshold>`
+                        	**type**\: list of    :py:class:`HoVcMinute15HoVcThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcMinute15.HoVcMinute15HoVc.HoVcMinute15HoVcThresholds.HoVcMinute15HoVcThreshold>`
                         
                         
 
@@ -30776,7 +31031,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: ho_vc_threshold  <key>
                             
                             	ho\_vc Threshold Type
-                            	**type**\:  :py:class:`HoVcThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.HoVcThresholdEnum>`
+                            	**type**\:   :py:class:`HoVcThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.HoVcThresholdEnum>`
                             
                             .. attribute:: ho_vc_threshold_value
                             
@@ -30913,7 +31168,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: sts_hour24_path
                 
                 	Configure Path performance monitoring
-                	**type**\:  :py:class:`StsHour24Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsHour24.StsHour24Path>`
+                	**type**\:   :py:class:`StsHour24Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsHour24.StsHour24Path>`
                 
                 
 
@@ -30935,12 +31190,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: sts_hour24_path_reports
                     
                     	set Path TCA reporting status
-                    	**type**\:  :py:class:`StsHour24PathReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsHour24.StsHour24Path.StsHour24PathReports>`
+                    	**type**\:   :py:class:`StsHour24PathReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsHour24.StsHour24Path.StsHour24PathReports>`
                     
                     .. attribute:: sts_hour24_path_thresholds
                     
                     	Configure threshold on Path parameters
-                    	**type**\:  :py:class:`StsHour24PathThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsHour24.StsHour24Path.StsHour24PathThresholds>`
+                    	**type**\:   :py:class:`StsHour24PathThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsHour24.StsHour24Path.StsHour24PathThresholds>`
                     
                     
 
@@ -30964,7 +31219,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: sts_hour24_path_threshold
                         
                         	none
-                        	**type**\: list of  :py:class:`StsHour24PathThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsHour24.StsHour24Path.StsHour24PathThresholds.StsHour24PathThreshold>`
+                        	**type**\: list of    :py:class:`StsHour24PathThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsHour24.StsHour24Path.StsHour24PathThresholds.StsHour24PathThreshold>`
                         
                         
 
@@ -30987,7 +31242,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: path_threshold  <key>
                             
                             	Path Threshold Type
-                            	**type**\:  :py:class:`StsThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.StsThresholdEnum>`
+                            	**type**\:   :py:class:`StsThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.StsThresholdEnum>`
                             
                             .. attribute:: path_threshold_value
                             
@@ -31073,7 +31328,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: sts_hour24_path_report
                         
                         	none
-                        	**type**\: list of  :py:class:`StsHour24PathReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsHour24.StsHour24Path.StsHour24PathReports.StsHour24PathReport>`
+                        	**type**\: list of    :py:class:`StsHour24PathReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsHour24.StsHour24Path.StsHour24PathReports.StsHour24PathReport>`
                         
                         
 
@@ -31096,12 +31351,12 @@ class InterfaceConfigurations(object):
                             .. attribute:: path_report  <key>
                             
                             	Path Report Type
-                            	**type**\:  :py:class:`StsReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.StsReportEnum>`
+                            	**type**\:   :py:class:`StsReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.StsReportEnum>`
                             
                             .. attribute:: enable
                             
                             	Path Report
-                            	**type**\:  :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
+                            	**type**\:   :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
                             
                             	**mandatory**\: True
                             
@@ -31231,7 +31486,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: stm_minute15_stm
                 
                 	Configure stm performance monitoring
-                	**type**\:  :py:class:`StmMinute15Stm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmMinute15.StmMinute15Stm>`
+                	**type**\:   :py:class:`StmMinute15Stm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmMinute15.StmMinute15Stm>`
                 
                 
 
@@ -31253,12 +31508,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: stm_minute15_stm_reports
                     
                     	set stm TCA reporting status
-                    	**type**\:  :py:class:`StmMinute15StmReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmMinute15.StmMinute15Stm.StmMinute15StmReports>`
+                    	**type**\:   :py:class:`StmMinute15StmReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmMinute15.StmMinute15Stm.StmMinute15StmReports>`
                     
                     .. attribute:: stm_minute15_stm_thresholds
                     
                     	Configure threshold on stm parameters
-                    	**type**\:  :py:class:`StmMinute15StmThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmMinute15.StmMinute15Stm.StmMinute15StmThresholds>`
+                    	**type**\:   :py:class:`StmMinute15StmThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmMinute15.StmMinute15Stm.StmMinute15StmThresholds>`
                     
                     
 
@@ -31282,7 +31537,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: stm_minute15_stm_report
                         
                         	none
-                        	**type**\: list of  :py:class:`StmMinute15StmReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmMinute15.StmMinute15Stm.StmMinute15StmReports.StmMinute15StmReport>`
+                        	**type**\: list of    :py:class:`StmMinute15StmReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmMinute15.StmMinute15Stm.StmMinute15StmReports.StmMinute15StmReport>`
                         
                         
 
@@ -31305,12 +31560,12 @@ class InterfaceConfigurations(object):
                             .. attribute:: stm_report  <key>
                             
                             	Stm Report Type
-                            	**type**\:  :py:class:`StmReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.StmReportEnum>`
+                            	**type**\:   :py:class:`StmReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.StmReportEnum>`
                             
                             .. attribute:: enable
                             
                             	Stm Report
-                            	**type**\:  :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
+                            	**type**\:   :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
                             
                             	**mandatory**\: True
                             
@@ -31389,7 +31644,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: stm_minute15_stm_threshold
                         
                         	none
-                        	**type**\: list of  :py:class:`StmMinute15StmThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmMinute15.StmMinute15Stm.StmMinute15StmThresholds.StmMinute15StmThreshold>`
+                        	**type**\: list of    :py:class:`StmMinute15StmThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmMinute15.StmMinute15Stm.StmMinute15StmThresholds.StmMinute15StmThreshold>`
                         
                         
 
@@ -31412,7 +31667,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: stm_threshold  <key>
                             
                             	Stm Threshold Type
-                            	**type**\:  :py:class:`StmThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.StmThresholdEnum>`
+                            	**type**\:   :py:class:`StmThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.StmThresholdEnum>`
                             
                             .. attribute:: stm_threshold_value
                             
@@ -31549,12 +31804,12 @@ class InterfaceConfigurations(object):
                 .. attribute:: sonet_hour24_ocn
                 
                 	Configure ocn performance monitoring
-                	**type**\:  :py:class:`SonetHour24Ocn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Ocn>`
+                	**type**\:   :py:class:`SonetHour24Ocn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Ocn>`
                 
                 .. attribute:: sonet_hour24_path
                 
                 	Configure Path performance monitoring
-                	**type**\:  :py:class:`SonetHour24Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Path>`
+                	**type**\:   :py:class:`SonetHour24Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Path>`
                 
                 
 
@@ -31578,12 +31833,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: sonet_hour24_path_reports
                     
                     	set Path TCA reporting status
-                    	**type**\:  :py:class:`SonetHour24PathReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Path.SonetHour24PathReports>`
+                    	**type**\:   :py:class:`SonetHour24PathReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Path.SonetHour24PathReports>`
                     
                     .. attribute:: sonet_hour24_path_thresholds
                     
                     	Configure threshold on Path parameters
-                    	**type**\:  :py:class:`SonetHour24PathThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Path.SonetHour24PathThresholds>`
+                    	**type**\:   :py:class:`SonetHour24PathThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Path.SonetHour24PathThresholds>`
                     
                     
 
@@ -31607,7 +31862,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: sonet_hour24_path_threshold
                         
                         	none
-                        	**type**\: list of  :py:class:`SonetHour24PathThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Path.SonetHour24PathThresholds.SonetHour24PathThreshold>`
+                        	**type**\: list of    :py:class:`SonetHour24PathThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Path.SonetHour24PathThresholds.SonetHour24PathThreshold>`
                         
                         
 
@@ -31630,7 +31885,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: path_threshold  <key>
                             
                             	Path Threshold Type
-                            	**type**\:  :py:class:`PathThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.PathThresholdEnum>`
+                            	**type**\:   :py:class:`PathThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.PathThresholdEnum>`
                             
                             .. attribute:: path_threshold_value
                             
@@ -31716,7 +31971,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: sonet_hour24_path_report
                         
                         	none
-                        	**type**\: list of  :py:class:`SonetHour24PathReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Path.SonetHour24PathReports.SonetHour24PathReport>`
+                        	**type**\: list of    :py:class:`SonetHour24PathReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Path.SonetHour24PathReports.SonetHour24PathReport>`
                         
                         
 
@@ -31739,7 +31994,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: path_report  <key>
                             
                             	Path Report Type
-                            	**type**\:  :py:class:`PathReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.PathReportEnum>`
+                            	**type**\:   :py:class:`PathReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.PathReportEnum>`
                             
                             
 
@@ -31839,12 +32094,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: sonet_hour24_ocn_reports
                     
                     	set ocn TCA reporting status
-                    	**type**\:  :py:class:`SonetHour24OcnReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Ocn.SonetHour24OcnReports>`
+                    	**type**\:   :py:class:`SonetHour24OcnReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Ocn.SonetHour24OcnReports>`
                     
                     .. attribute:: sonet_hour24_ocn_thresholds
                     
                     	Configure threshold on ocn parameters
-                    	**type**\:  :py:class:`SonetHour24OcnThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Ocn.SonetHour24OcnThresholds>`
+                    	**type**\:   :py:class:`SonetHour24OcnThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Ocn.SonetHour24OcnThresholds>`
                     
                     
 
@@ -31868,7 +32123,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: sonet_hour24_ocn_threshold
                         
                         	none
-                        	**type**\: list of  :py:class:`SonetHour24OcnThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Ocn.SonetHour24OcnThresholds.SonetHour24OcnThreshold>`
+                        	**type**\: list of    :py:class:`SonetHour24OcnThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Ocn.SonetHour24OcnThresholds.SonetHour24OcnThreshold>`
                         
                         
 
@@ -31891,7 +32146,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: ocn_threshold  <key>
                             
                             	Ocn Threshold Type
-                            	**type**\:  :py:class:`OcnThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OcnThresholdEnum>`
+                            	**type**\:   :py:class:`OcnThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OcnThresholdEnum>`
                             
                             .. attribute:: ocn_threshold_value
                             
@@ -31977,7 +32232,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: sonet_hour24_ocn_report
                         
                         	none
-                        	**type**\: list of  :py:class:`SonetHour24OcnReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Ocn.SonetHour24OcnReports.SonetHour24OcnReport>`
+                        	**type**\: list of    :py:class:`SonetHour24OcnReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24.SonetHour24Ocn.SonetHour24OcnReports.SonetHour24OcnReport>`
                         
                         
 
@@ -32000,7 +32255,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: ocn_report  <key>
                             
                             	Ocn Report Type
-                            	**type**\:  :py:class:`OcnReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OcnReportEnum>`
+                            	**type**\:   :py:class:`OcnReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OcnReportEnum>`
                             
                             
 
@@ -32127,7 +32382,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: minute15otn_path
                 
                 	configure otn g709 performance monitoring
-                	**type**\:  :py:class:`Minute15OtnPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath>`
+                	**type**\:   :py:class:`Minute15OtnPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath>`
                 
                 
 
@@ -32149,12 +32404,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: min15_otn_path_threshes
                     
                     	Configure threshold on otn parameters
-                    	**type**\:  :py:class:`Min15OtnPathThreshes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Min15OtnPathThreshes>`
+                    	**type**\:   :py:class:`Min15OtnPathThreshes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Min15OtnPathThreshes>`
                     
                     .. attribute:: minute15otn_path_reports
                     
                     	set otn TCA reporting status
-                    	**type**\:  :py:class:`Minute15OtnPathReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Minute15OtnPathReports>`
+                    	**type**\:   :py:class:`Minute15OtnPathReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Minute15OtnPathReports>`
                     
                     
 
@@ -32178,7 +32433,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: minute15otn_path_report
                         
                         	none
-                        	**type**\: list of  :py:class:`Minute15OtnPathReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Minute15OtnPathReports.Minute15OtnPathReport>`
+                        	**type**\: list of    :py:class:`Minute15OtnPathReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Minute15OtnPathReports.Minute15OtnPathReport>`
                         
                         
 
@@ -32201,12 +32456,12 @@ class InterfaceConfigurations(object):
                             .. attribute:: otn_report  <key>
                             
                             	Otn Report Type
-                            	**type**\:  :py:class:`OtnReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OtnReportEnum>`
+                            	**type**\:   :py:class:`OtnReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OtnReportEnum>`
                             
                             .. attribute:: enable
                             
                             	Otn Report
-                            	**type**\:  :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
+                            	**type**\:   :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
                             
                             	**mandatory**\: True
                             
@@ -32285,7 +32540,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: min15_otn_path_thresh
                         
                         	none
-                        	**type**\: list of  :py:class:`Min15OtnPathThresh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Min15OtnPathThreshes.Min15OtnPathThresh>`
+                        	**type**\: list of    :py:class:`Min15OtnPathThresh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path.Minute15OtnPath.Min15OtnPathThreshes.Min15OtnPathThresh>`
                         
                         
 
@@ -32308,7 +32563,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: otn_threshold  <key>
                             
                             	Otn Threshold Type
-                            	**type**\:  :py:class:`OtnThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OtnThresholdEnum>`
+                            	**type**\:   :py:class:`OtnThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OtnThresholdEnum>`
                             
                             .. attribute:: otn_threshold_value
                             
@@ -32445,7 +32700,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: oc_minute15_ocn
                 
                 	Configure ocn performance monitoring
-                	**type**\:  :py:class:`OcMinute15Ocn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcMinute15.OcMinute15Ocn>`
+                	**type**\:   :py:class:`OcMinute15Ocn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcMinute15.OcMinute15Ocn>`
                 
                 
 
@@ -32467,12 +32722,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: oc_minute15_ocn_reports
                     
                     	set ocn TCA reporting status
-                    	**type**\:  :py:class:`OcMinute15OcnReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcMinute15.OcMinute15Ocn.OcMinute15OcnReports>`
+                    	**type**\:   :py:class:`OcMinute15OcnReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcMinute15.OcMinute15Ocn.OcMinute15OcnReports>`
                     
                     .. attribute:: oc_minute15_ocn_thresholds
                     
                     	Configure threshold on ocn parameters
-                    	**type**\:  :py:class:`OcMinute15OcnThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcMinute15.OcMinute15Ocn.OcMinute15OcnThresholds>`
+                    	**type**\:   :py:class:`OcMinute15OcnThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcMinute15.OcMinute15Ocn.OcMinute15OcnThresholds>`
                     
                     
 
@@ -32496,7 +32751,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: oc_minute15_ocn_report
                         
                         	none
-                        	**type**\: list of  :py:class:`OcMinute15OcnReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcMinute15.OcMinute15Ocn.OcMinute15OcnReports.OcMinute15OcnReport>`
+                        	**type**\: list of    :py:class:`OcMinute15OcnReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcMinute15.OcMinute15Ocn.OcMinute15OcnReports.OcMinute15OcnReport>`
                         
                         
 
@@ -32519,12 +32774,12 @@ class InterfaceConfigurations(object):
                             .. attribute:: ocn_report  <key>
                             
                             	Ocn Report Type
-                            	**type**\:  :py:class:`OcnReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OcnReportEnum>`
+                            	**type**\:   :py:class:`OcnReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OcnReportEnum>`
                             
                             .. attribute:: enable
                             
                             	Ocn Report
-                            	**type**\:  :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
+                            	**type**\:   :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
                             
                             	**mandatory**\: True
                             
@@ -32603,7 +32858,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: oc_minute15_ocn_threshold
                         
                         	none
-                        	**type**\: list of  :py:class:`OcMinute15OcnThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcMinute15.OcMinute15Ocn.OcMinute15OcnThresholds.OcMinute15OcnThreshold>`
+                        	**type**\: list of    :py:class:`OcMinute15OcnThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcMinute15.OcMinute15Ocn.OcMinute15OcnThresholds.OcMinute15OcnThreshold>`
                         
                         
 
@@ -32626,7 +32881,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: ocn_threshold  <key>
                             
                             	Ocn Threshold Type
-                            	**type**\:  :py:class:`OcnThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OcnThresholdEnum>`
+                            	**type**\:   :py:class:`OcnThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OcnThresholdEnum>`
                             
                             .. attribute:: ocn_threshold_value
                             
@@ -32764,7 +33019,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: second30_ether
                 
                 	Configure ether performance monitoring
-                	**type**\:  :py:class:`Second30Ether <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether>`
+                	**type**\:   :py:class:`Second30Ether <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether>`
                 
                 
 
@@ -32786,12 +33041,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: second30_ether_reports
                     
                     	set ether TCA reporting status
-                    	**type**\:  :py:class:`Second30EtherReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether.Second30EtherReports>`
+                    	**type**\:   :py:class:`Second30EtherReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether.Second30EtherReports>`
                     
                     .. attribute:: second30_ether_thresholds
                     
                     	Configure threshold on ether parameters
-                    	**type**\:  :py:class:`Second30EtherThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether.Second30EtherThresholds>`
+                    	**type**\:   :py:class:`Second30EtherThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether.Second30EtherThresholds>`
                     
                     
 
@@ -32815,7 +33070,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: second30_ether_threshold
                         
                         	none
-                        	**type**\: list of  :py:class:`Second30EtherThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether.Second30EtherThresholds.Second30EtherThreshold>`
+                        	**type**\: list of    :py:class:`Second30EtherThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether.Second30EtherThresholds.Second30EtherThreshold>`
                         
                         
 
@@ -32838,7 +33093,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: ether_threshold  <key>
                             
                             	Ether Threshold Type
-                            	**type**\:  :py:class:`EtherThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.EtherThresholdEnum>`
+                            	**type**\:   :py:class:`EtherThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.EtherThresholdEnum>`
                             
                             .. attribute:: ether_threshold_value
                             
@@ -32924,7 +33179,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: second30_ether_report
                         
                         	none
-                        	**type**\: list of  :py:class:`Second30EtherReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether.Second30EtherReports.Second30EtherReport>`
+                        	**type**\: list of    :py:class:`Second30EtherReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether.Second30EtherReports.Second30EtherReport>`
                         
                         
 
@@ -32947,7 +33202,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: ether_report  <key>
                             
                             	Ether Report Type
-                            	**type**\:  :py:class:`EtherReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.EtherReportEnum>`
+                            	**type**\:   :py:class:`EtherReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.EtherReportEnum>`
                             
                             
 
@@ -33072,7 +33327,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: hour24otn_path
                 
                 	configure otn g709 performance monitoring
-                	**type**\:  :py:class:`Hour24OtnPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath>`
+                	**type**\:   :py:class:`Hour24OtnPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath>`
                 
                 
 
@@ -33094,12 +33349,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: hour24otn_path_reports
                     
                     	set otn TCA reporting status
-                    	**type**\:  :py:class:`Hour24OtnPathReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathReports>`
+                    	**type**\:   :py:class:`Hour24OtnPathReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathReports>`
                     
                     .. attribute:: hour24otn_path_thresholds
                     
                     	Configure threshold on otn parameters
-                    	**type**\:  :py:class:`Hour24OtnPathThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathThresholds>`
+                    	**type**\:   :py:class:`Hour24OtnPathThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathThresholds>`
                     
                     
 
@@ -33123,7 +33378,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: hour24otn_path_report
                         
                         	none
-                        	**type**\: list of  :py:class:`Hour24OtnPathReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathReports.Hour24OtnPathReport>`
+                        	**type**\: list of    :py:class:`Hour24OtnPathReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathReports.Hour24OtnPathReport>`
                         
                         
 
@@ -33146,12 +33401,12 @@ class InterfaceConfigurations(object):
                             .. attribute:: otn_report  <key>
                             
                             	Otn Report Type
-                            	**type**\:  :py:class:`OtnReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OtnReportEnum>`
+                            	**type**\:   :py:class:`OtnReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OtnReportEnum>`
                             
                             .. attribute:: enable
                             
                             	Otn Report
-                            	**type**\:  :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
+                            	**type**\:   :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
                             
                             	**mandatory**\: True
                             
@@ -33230,7 +33485,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: hour24otn_path_threshold
                         
                         	none
-                        	**type**\: list of  :py:class:`Hour24OtnPathThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathThresholds.Hour24OtnPathThreshold>`
+                        	**type**\: list of    :py:class:`Hour24OtnPathThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathThresholds.Hour24OtnPathThreshold>`
                         
                         
 
@@ -33253,7 +33508,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: otn_threshold  <key>
                             
                             	Otn Threshold Type
-                            	**type**\:  :py:class:`OtnThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OtnThresholdEnum>`
+                            	**type**\:   :py:class:`OtnThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OtnThresholdEnum>`
                             
                             .. attribute:: otn_threshold_value
                             
@@ -33390,17 +33645,17 @@ class InterfaceConfigurations(object):
                 .. attribute:: minute15_optics
                 
                 	Configure optics performance monitoring
-                	**type**\:  :py:class:`Minute15Optics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Optics>`
+                	**type**\:   :py:class:`Minute15Optics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Optics>`
                 
                 .. attribute:: minute15fec
                 
                 	Configure fec g709 performance monitoring
-                	**type**\:  :py:class:`Minute15Fec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec>`
+                	**type**\:   :py:class:`Minute15Fec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec>`
                 
                 .. attribute:: minute15otn
                 
                 	configure otn g709 performance monitoring
-                	**type**\:  :py:class:`Minute15Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn>`
+                	**type**\:   :py:class:`Minute15Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn>`
                 
                 
 
@@ -33426,12 +33681,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: minute15_optics_reports
                     
                     	set optics TCA reporting status
-                    	**type**\:  :py:class:`Minute15OpticsReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Optics.Minute15OpticsReports>`
+                    	**type**\:   :py:class:`Minute15OpticsReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Optics.Minute15OpticsReports>`
                     
                     .. attribute:: minute15_optics_thresholds
                     
                     	Configure threshold on optics parameters
-                    	**type**\:  :py:class:`Minute15OpticsThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Optics.Minute15OpticsThresholds>`
+                    	**type**\:   :py:class:`Minute15OpticsThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Optics.Minute15OpticsThresholds>`
                     
                     
 
@@ -33455,7 +33710,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: minute15_optics_threshold
                         
                         	none
-                        	**type**\: list of  :py:class:`Minute15OpticsThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Optics.Minute15OpticsThresholds.Minute15OpticsThreshold>`
+                        	**type**\: list of    :py:class:`Minute15OpticsThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Optics.Minute15OpticsThresholds.Minute15OpticsThreshold>`
                         
                         
 
@@ -33478,7 +33733,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: optics_threshold  <key>
                             
                             	Optics Threshold Type
-                            	**type**\:  :py:class:`OpticsThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OpticsThresholdEnum>`
+                            	**type**\:   :py:class:`OpticsThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OpticsThresholdEnum>`
                             
                             .. attribute:: dbm
                             
@@ -33486,6 +33741,8 @@ class InterfaceConfigurations(object):
                             	**type**\:  int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**default value**\: 0
                             
                             .. attribute:: optics_threshold_value
                             
@@ -33573,7 +33830,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: minute15_optics_report
                         
                         	none
-                        	**type**\: list of  :py:class:`Minute15OpticsReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Optics.Minute15OpticsReports.Minute15OpticsReport>`
+                        	**type**\: list of    :py:class:`Minute15OpticsReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Optics.Minute15OpticsReports.Minute15OpticsReport>`
                         
                         
 
@@ -33596,7 +33853,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: optics_report  <key>
                             
                             	Optics Report Type
-                            	**type**\:  :py:class:`OpticsReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OpticsReportEnum>`
+                            	**type**\:   :py:class:`OpticsReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OpticsReportEnum>`
                             
                             
 
@@ -33696,12 +33953,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: minute15fec_reports
                     
                     	set fec TCA reporting status
-                    	**type**\:  :py:class:`Minute15FecReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecReports>`
+                    	**type**\:   :py:class:`Minute15FecReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecReports>`
                     
                     .. attribute:: minute15fec_thresholds
                     
                     	Configure fec threshold
-                    	**type**\:  :py:class:`Minute15FecThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecThresholds>`
+                    	**type**\:   :py:class:`Minute15FecThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecThresholds>`
                     
                     
 
@@ -33725,7 +33982,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: minute15fec_threshold
                         
                         	none
-                        	**type**\: list of  :py:class:`Minute15FecThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecThresholds.Minute15FecThreshold>`
+                        	**type**\: list of    :py:class:`Minute15FecThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecThresholds.Minute15FecThreshold>`
                         
                         
 
@@ -33748,7 +34005,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: fec_threshold  <key>
                             
                             	Fec Threshold Type
-                            	**type**\:  :py:class:`FecThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.FecThresholdEnum>`
+                            	**type**\:   :py:class:`FecThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.FecThresholdEnum>`
                             
                             .. attribute:: fec_threshold_value
                             
@@ -33834,7 +34091,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: minute15fec_report
                         
                         	none
-                        	**type**\: list of  :py:class:`Minute15FecReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecReports.Minute15FecReport>`
+                        	**type**\: list of    :py:class:`Minute15FecReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Fec.Minute15FecReports.Minute15FecReport>`
                         
                         
 
@@ -33857,12 +34114,12 @@ class InterfaceConfigurations(object):
                             .. attribute:: fec_report  <key>
                             
                             	Fec Report Type
-                            	**type**\:  :py:class:`FecReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.FecReportEnum>`
+                            	**type**\:   :py:class:`FecReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.FecReportEnum>`
                             
                             .. attribute:: enable
                             
                             	Fec Report
-                            	**type**\:  :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
+                            	**type**\:   :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
                             
                             	**mandatory**\: True
                             
@@ -33968,12 +34225,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: min15_otn_threshes
                     
                     	Configure threshold on otn parameters
-                    	**type**\:  :py:class:`Min15OtnThreshes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Min15OtnThreshes>`
+                    	**type**\:   :py:class:`Min15OtnThreshes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Min15OtnThreshes>`
                     
                     .. attribute:: minute15otn_reports
                     
                     	set otn TCA reporting status
-                    	**type**\:  :py:class:`Minute15OtnReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Minute15OtnReports>`
+                    	**type**\:   :py:class:`Minute15OtnReports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Minute15OtnReports>`
                     
                     
 
@@ -33997,7 +34254,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: min15_otn_thresh
                         
                         	none
-                        	**type**\: list of  :py:class:`Min15OtnThresh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Min15OtnThreshes.Min15OtnThresh>`
+                        	**type**\: list of    :py:class:`Min15OtnThresh <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Min15OtnThreshes.Min15OtnThresh>`
                         
                         
 
@@ -34020,7 +34277,7 @@ class InterfaceConfigurations(object):
                             .. attribute:: otn_threshold  <key>
                             
                             	Otn Threshold Type
-                            	**type**\:  :py:class:`OtnThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OtnThresholdEnum>`
+                            	**type**\:   :py:class:`OtnThresholdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OtnThresholdEnum>`
                             
                             .. attribute:: otn_threshold_value
                             
@@ -34106,7 +34363,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: minute15otn_report
                         
                         	none
-                        	**type**\: list of  :py:class:`Minute15OtnReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Minute15OtnReports.Minute15OtnReport>`
+                        	**type**\: list of    :py:class:`Minute15OtnReport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15.Minute15Otn.Minute15OtnReports.Minute15OtnReport>`
                         
                         
 
@@ -34129,12 +34386,12 @@ class InterfaceConfigurations(object):
                             .. attribute:: otn_report  <key>
                             
                             	Otn Report Type
-                            	**type**\:  :py:class:`OtnReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OtnReportEnum>`
+                            	**type**\:   :py:class:`OtnReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.OtnReportEnum>`
                             
                             .. attribute:: enable
                             
                             	Otn Report
-                            	**type**\:  :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
+                            	**type**\:   :py:class:`ReportEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg.ReportEnum>`
                             
                             	**mandatory**\: True
                             
@@ -34357,12 +34614,12 @@ class InterfaceConfigurations(object):
             .. attribute:: input
             
             	Ingress service policy
-            	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Qos.Input>`
+            	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Qos.Input>`
             
             .. attribute:: output
             
             	Egress service policy
-            	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Qos.Output>`
+            	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Qos.Output>`
             
             
 
@@ -34386,7 +34643,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: service_policy
                 
                 	Service policy details
-                	**type**\: list of  :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Qos.Output.ServicePolicy>`
+                	**type**\: list of    :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Qos.Output.ServicePolicy>`
                 
                 
 
@@ -34416,7 +34673,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: account_type
                     
                     	Turn off L2 or L3 accounting
-                    	**type**\:  :py:class:`QosPolicyAccountEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccountEnum>`
+                    	**type**\:   :py:class:`QosPolicyAccountEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccountEnum>`
                     
                     .. attribute:: l1_user_defined
                     
@@ -34542,7 +34799,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: service_policy
                 
                 	Service policy details
-                	**type**\: list of  :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Qos.Input.ServicePolicy>`
+                	**type**\: list of    :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Qos.Input.ServicePolicy>`
                 
                 
 
@@ -34572,7 +34829,7 @@ class InterfaceConfigurations(object):
                     .. attribute:: account_type
                     
                     	Turn off L2 or L3 accounting
-                    	**type**\:  :py:class:`QosPolicyAccountEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccountEnum>`
+                    	**type**\:   :py:class:`QosPolicyAccountEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg.QosPolicyAccountEnum>`
                     
                     .. attribute:: l1_user_defined
                     
@@ -34725,17 +34982,17 @@ class InterfaceConfigurations(object):
             .. attribute:: ipv4
             
             	Configure IPv4 netflow
-            	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv4>`
+            	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv4>`
             
             .. attribute:: ipv6
             
             	Configure IPv6 netflow
-            	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv6>`
+            	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv6>`
             
             .. attribute:: mpls
             
             	Configure MPLS netflow
-            	**type**\:  :py:class:`Mpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Mpls>`
+            	**type**\:   :py:class:`Mpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Mpls>`
             
             
 
@@ -34761,7 +35018,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: flow_monitor_map
                 
                 	Configure a flow monitor map
-                	**type**\:  :py:class:`FlowMonitorMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Mpls.FlowMonitorMap>`
+                	**type**\:   :py:class:`FlowMonitorMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Mpls.FlowMonitorMap>`
                 
                 
 
@@ -34783,12 +35040,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: egress
                     
                     	Configure egress monitoring direction
-                    	**type**\:  :py:class:`Egress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Mpls.FlowMonitorMap.Egress>`
+                    	**type**\:   :py:class:`Egress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Mpls.FlowMonitorMap.Egress>`
                     
                     .. attribute:: ingress
                     
                     	Configure ingress monitoring direction
-                    	**type**\:  :py:class:`Ingress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Mpls.FlowMonitorMap.Ingress>`
+                    	**type**\:   :py:class:`Ingress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Mpls.FlowMonitorMap.Ingress>`
                     
                     
 
@@ -34812,7 +35069,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: flow_monitor_name
                         
                         	Specify a sampler for a flow monitor
-                        	**type**\: list of  :py:class:`FlowMonitorName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Mpls.FlowMonitorMap.Ingress.FlowMonitorName>`
+                        	**type**\: list of    :py:class:`FlowMonitorName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Mpls.FlowMonitorMap.Ingress.FlowMonitorName>`
                         
                         
 
@@ -34921,7 +35178,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: flow_monitor_name
                         
                         	Specify a sampler for a flow monitor
-                        	**type**\: list of  :py:class:`FlowMonitorName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Mpls.FlowMonitorMap.Egress.FlowMonitorName>`
+                        	**type**\: list of    :py:class:`FlowMonitorName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Mpls.FlowMonitorMap.Egress.FlowMonitorName>`
                         
                         
 
@@ -35081,7 +35338,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: flow_monitor_map
                 
                 	Configure a flow monitor map
-                	**type**\:  :py:class:`FlowMonitorMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv6.FlowMonitorMap>`
+                	**type**\:   :py:class:`FlowMonitorMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv6.FlowMonitorMap>`
                 
                 
 
@@ -35103,12 +35360,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: egress
                     
                     	Configure egress monitoring direction
-                    	**type**\:  :py:class:`Egress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv6.FlowMonitorMap.Egress>`
+                    	**type**\:   :py:class:`Egress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv6.FlowMonitorMap.Egress>`
                     
                     .. attribute:: ingress
                     
                     	Configure ingress monitoring direction
-                    	**type**\:  :py:class:`Ingress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv6.FlowMonitorMap.Ingress>`
+                    	**type**\:   :py:class:`Ingress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv6.FlowMonitorMap.Ingress>`
                     
                     
 
@@ -35132,7 +35389,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: flow_monitor_name
                         
                         	Specify a sampler for a flow monitor
-                        	**type**\: list of  :py:class:`FlowMonitorName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv6.FlowMonitorMap.Ingress.FlowMonitorName>`
+                        	**type**\: list of    :py:class:`FlowMonitorName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv6.FlowMonitorMap.Ingress.FlowMonitorName>`
                         
                         
 
@@ -35241,7 +35498,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: flow_monitor_name
                         
                         	Specify a sampler for a flow monitor
-                        	**type**\: list of  :py:class:`FlowMonitorName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv6.FlowMonitorMap.Egress.FlowMonitorName>`
+                        	**type**\: list of    :py:class:`FlowMonitorName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv6.FlowMonitorMap.Egress.FlowMonitorName>`
                         
                         
 
@@ -35401,7 +35658,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: flow_monitor_map
                 
                 	Configure a flow monitor map
-                	**type**\:  :py:class:`FlowMonitorMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv4.FlowMonitorMap>`
+                	**type**\:   :py:class:`FlowMonitorMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv4.FlowMonitorMap>`
                 
                 
 
@@ -35423,12 +35680,12 @@ class InterfaceConfigurations(object):
                     .. attribute:: egress
                     
                     	Configure egress monitoring direction
-                    	**type**\:  :py:class:`Egress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv4.FlowMonitorMap.Egress>`
+                    	**type**\:   :py:class:`Egress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv4.FlowMonitorMap.Egress>`
                     
                     .. attribute:: ingress
                     
                     	Configure ingress monitoring direction
-                    	**type**\:  :py:class:`Ingress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv4.FlowMonitorMap.Ingress>`
+                    	**type**\:   :py:class:`Ingress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv4.FlowMonitorMap.Ingress>`
                     
                     
 
@@ -35452,7 +35709,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: flow_monitor_name
                         
                         	Specify a sampler for a flow monitor
-                        	**type**\: list of  :py:class:`FlowMonitorName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv4.FlowMonitorMap.Ingress.FlowMonitorName>`
+                        	**type**\: list of    :py:class:`FlowMonitorName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv4.FlowMonitorMap.Ingress.FlowMonitorName>`
                         
                         
 
@@ -35561,7 +35818,7 @@ class InterfaceConfigurations(object):
                         .. attribute:: flow_monitor_name
                         
                         	Specify a sampler for a flow monitor
-                        	**type**\: list of  :py:class:`FlowMonitorName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv4.FlowMonitorMap.Egress.FlowMonitorName>`
+                        	**type**\: list of    :py:class:`FlowMonitorName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv4.FlowMonitorMap.Egress.FlowMonitorName>`
                         
                         
 
@@ -35751,12 +36008,12 @@ class InterfaceConfigurations(object):
             .. attribute:: allow_key
             
             	Enable flag bit to allow packets with GRE key
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: destination
             
             	Configure destination of tunnel
-            	**type**\:  :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelIp.Destination>`
+            	**type**\:   :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelIp.Destination>`
             
             .. attribute:: disable
             
@@ -35768,22 +36025,22 @@ class InterfaceConfigurations(object):
             .. attribute:: keepalive
             
             	Enable keepalive packets on this tunnel
-            	**type**\:  :py:class:`Keepalive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelIp.Keepalive>`
+            	**type**\:   :py:class:`Keepalive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelIp.Keepalive>`
             
             .. attribute:: key
             
             	Configure the key value for packets sent over this tunnel
-            	**type**\:  :py:class:`Key <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelIp.Key>`
+            	**type**\:   :py:class:`Key <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelIp.Key>`
             
             .. attribute:: mode
             
             	Tunnel encapsulation method
-            	**type**\:  :py:class:`Mode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelIp.Mode>`
+            	**type**\:   :py:class:`Mode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelIp.Mode>`
             
             .. attribute:: source
             
             	Configure source of tunnel
-            	**type**\:  :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelIp.Source>`
+            	**type**\:   :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.TunnelIp.Source>`
             
             .. attribute:: tos
             
@@ -35839,7 +36096,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: decap
                 
                 	Always set to true
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: value
                 
@@ -35974,7 +36231,7 @@ class InterfaceConfigurations(object):
                 .. attribute:: entropy
                 
                 	Always set to true
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: value
                 
@@ -36104,6 +36361,13 @@ class InterfaceConfigurations(object):
                 	IPV6 address of the tunnel destination
                 	**type**\:  str
                 
+                .. attribute:: prefix_list_name
+                
+                	Prefix\-list to validate destination's resolving prefix
+                	**type**\:  str
+                
+                	**range:** 0..64
+                
                 .. attribute:: type
                 
                 	1 for IPv4 Address, 2 for IPv6 Address
@@ -36123,6 +36387,7 @@ class InterfaceConfigurations(object):
                     self.address = None
                     self.address_mask = None
                     self.ipv6_address = None
+                    self.prefix_list_name = None
                     self.type = None
 
                 @property
@@ -36146,6 +36411,9 @@ class InterfaceConfigurations(object):
                         return True
 
                     if self.ipv6_address is not None:
+                        return True
+
+                    if self.prefix_list_name is not None:
                         return True
 
                     if self.type is not None:
@@ -36210,6 +36478,554 @@ class InterfaceConfigurations(object):
                 return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelIp']['meta_info']
 
 
+        class Nve(object):
+            """
+            NVE operational data
+            
+            .. attribute:: anycast
+            
+            	Enable anycast mode for this NVE interface
+            	**type**\:   :py:class:`Anycast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Nve.Anycast>`
+            
+            .. attribute:: member_vnis
+            
+            	VNI configuration Table for this NVE
+            	**type**\:   :py:class:`MemberVnis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Nve.MemberVnis>`
+            
+            .. attribute:: overlay_encapsulation
+            
+            	The Overlay Encapsulation for this NVE
+            	**type**\:   :py:class:`OverlayEncapEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_nve_cfg.OverlayEncapEnumEnum>`
+            
+            	**default value**\: vx-lan-encapsulation
+            
+            .. attribute:: redundancy
+            
+            	Redundancy configuration for this NVE
+            	**type**\:   :py:class:`Redundancy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Nve.Redundancy>`
+            
+            .. attribute:: source_interface
+            
+            	Source Interface for this NVE
+            	**type**\:  str
+            
+            .. attribute:: vx_lan_udp_port
+            
+            	UDP port number in VxLAN encapsulation
+            	**type**\:   :py:class:`VxlanUdpPortEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_nve_cfg.VxlanUdpPortEnumEnum>`
+            
+            	**default value**\: ietf-udp-port
+            
+            
+
+            """
+
+            _prefix = 'tunnel-nve-cfg'
+            _revision = '2016-08-30'
+
+            def __init__(self):
+                self.parent = None
+                self.anycast = InterfaceConfigurations.InterfaceConfiguration.Nve.Anycast()
+                self.anycast.parent = self
+                self.member_vnis = InterfaceConfigurations.InterfaceConfiguration.Nve.MemberVnis()
+                self.member_vnis.parent = self
+                self.overlay_encapsulation = None
+                self.redundancy = InterfaceConfigurations.InterfaceConfiguration.Nve.Redundancy()
+                self.redundancy.parent = self
+                self.source_interface = None
+                self.vx_lan_udp_port = None
+
+
+            class Anycast(object):
+                """
+                Enable anycast mode for this NVE interface
+                
+                .. attribute:: source_interface
+                
+                	Name of the Anycast mode source interface
+                	**type**\:  str
+                
+                .. attribute:: sync_group
+                
+                	MCast group for syncing between Anycast gateways
+                	**type**\:  str
+                
+                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                
+                
+
+                """
+
+                _prefix = 'tunnel-nve-cfg'
+                _revision = '2016-08-30'
+
+                def __init__(self):
+                    self.parent = None
+                    self.source_interface = None
+                    self.sync_group = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-tunnel-nve-cfg:anycast'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.source_interface is not None:
+                        return True
+
+                    if self.sync_group is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
+                    return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.Nve.Anycast']['meta_info']
+
+
+            class Redundancy(object):
+                """
+                Redundancy configuration for this NVE
+                
+                .. attribute:: backbone_mpls
+                
+                	MPLS backbone
+                	**type**\:   :py:class:`BackboneMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Nve.Redundancy.BackboneMpls>`
+                
+                .. attribute:: backbone_vx_lan
+                
+                	VXLAN backbone
+                	**type**\:   :py:class:`BackboneVxLan <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Nve.Redundancy.BackboneVxLan>`
+                
+                .. attribute:: enable
+                
+                	Enable Redundancy
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                
+
+                """
+
+                _prefix = 'tunnel-nve-cfg'
+                _revision = '2016-08-30'
+
+                def __init__(self):
+                    self.parent = None
+                    self.backbone_mpls = InterfaceConfigurations.InterfaceConfiguration.Nve.Redundancy.BackboneMpls()
+                    self.backbone_mpls.parent = self
+                    self.backbone_vx_lan = InterfaceConfigurations.InterfaceConfiguration.Nve.Redundancy.BackboneVxLan()
+                    self.backbone_vx_lan.parent = self
+                    self.enable = None
+
+
+                class BackboneVxLan(object):
+                    """
+                    VXLAN backbone
+                    
+                    .. attribute:: backbone_vx_laniccp
+                    
+                    	VxLAN backbone ICCP group
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: enable
+                    
+                    	Enable Backbone VxLAN
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'tunnel-nve-cfg'
+                    _revision = '2016-08-30'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.backbone_vx_laniccp = None
+                        self.enable = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-tunnel-nve-cfg:backbone-vx-lan'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.backbone_vx_laniccp is not None:
+                            return True
+
+                        if self.enable is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
+                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.Nve.Redundancy.BackboneVxLan']['meta_info']
+
+
+                class BackboneMpls(object):
+                    """
+                    MPLS backbone
+                    
+                    .. attribute:: backbone_mplsiccp
+                    
+                    	MPLS backbone ICCP group
+                    	**type**\:  int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: enable
+                    
+                    	Enable Backbone MPLS
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'tunnel-nve-cfg'
+                    _revision = '2016-08-30'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.backbone_mplsiccp = None
+                        self.enable = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-tunnel-nve-cfg:backbone-mpls'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.backbone_mplsiccp is not None:
+                            return True
+
+                        if self.enable is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
+                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.Nve.Redundancy.BackboneMpls']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-tunnel-nve-cfg:redundancy'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.backbone_mpls is not None and self.backbone_mpls._has_data():
+                        return True
+
+                    if self.backbone_vx_lan is not None and self.backbone_vx_lan._has_data():
+                        return True
+
+                    if self.enable is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
+                    return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.Nve.Redundancy']['meta_info']
+
+
+            class MemberVnis(object):
+                """
+                VNI configuration Table for this NVE
+                
+                .. attribute:: member_vni
+                
+                	VNI member attributes
+                	**type**\: list of    :py:class:`MemberVni <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Nve.MemberVnis.MemberVni>`
+                
+                
+
+                """
+
+                _prefix = 'tunnel-nve-cfg'
+                _revision = '2016-08-30'
+
+                def __init__(self):
+                    self.parent = None
+                    self.member_vni = YList()
+                    self.member_vni.parent = self
+                    self.member_vni.name = 'member_vni'
+
+
+                class MemberVni(object):
+                    """
+                    VNI member attributes
+                    
+                    .. attribute:: vni_end  <key>
+                    
+                    	Range End
+                    	**type**\:  int
+                    
+                    	**range:** 1..16777215
+                    
+                    .. attribute:: vni_start  <key>
+                    
+                    	Single VNI or Range Start
+                    	**type**\:  int
+                    
+                    	**range:** 1..16777215
+                    
+                    .. attribute:: enable
+                    
+                    	Enable VNI
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: host_reachability
+                    
+                    	Control protocol for VxLAN tunnel endpoint reachability
+                    	**type**\:   :py:class:`HostReachProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_nve_cfg.HostReachProtocolEnum>`
+                    
+                    .. attribute:: multicast
+                    
+                    	Mulitcast core group range associated with the VxLAN segment(s)
+                    	**type**\:   :py:class:`Multicast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg.InterfaceConfigurations.InterfaceConfiguration.Nve.MemberVnis.MemberVni.Multicast>`
+                    
+                    	**presence node**\: True
+                    
+                    .. attribute:: vrf
+                    
+                    	VRF associated with the VxLAN segment
+                    	**type**\:  str
+                    
+                    
+
+                    """
+
+                    _prefix = 'tunnel-nve-cfg'
+                    _revision = '2016-08-30'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.vni_end = None
+                        self.vni_start = None
+                        self.enable = None
+                        self.host_reachability = None
+                        self.multicast = None
+                        self.vrf = None
+
+
+                    class Multicast(object):
+                        """
+                        Mulitcast core group range associated with
+                        the VxLAN segment(s)
+                        
+                        .. attribute:: multicast_group_max
+                        
+                        	IPV4 group address MAX
+                        	**type**\:  str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: multicast_group_min
+                        
+                        	IPV4 group address of the tunnel source
+                        	**type**\:  str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'tunnel-nve-cfg'
+                        _revision = '2016-08-30'
+
+                        def __init__(self):
+                            self.parent = None
+                            self._is_presence = True
+                            self.multicast_group_max = None
+                            self.multicast_group_min = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-tunnel-nve-cfg:multicast'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self._is_presence:
+                                return True
+                            if self.multicast_group_max is not None:
+                                return True
+
+                            if self.multicast_group_min is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
+                            return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.Nve.MemberVnis.MemberVni.Multicast']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        if self.vni_end is None:
+                            raise YPYModelError('Key property vni_end is None')
+                        if self.vni_start is None:
+                            raise YPYModelError('Key property vni_start is None')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-tunnel-nve-cfg:member-vni[Cisco-IOS-XR-tunnel-nve-cfg:vni-end = ' + str(self.vni_end) + '][Cisco-IOS-XR-tunnel-nve-cfg:vni-start = ' + str(self.vni_start) + ']'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.vni_end is not None:
+                            return True
+
+                        if self.vni_start is not None:
+                            return True
+
+                        if self.enable is not None:
+                            return True
+
+                        if self.host_reachability is not None:
+                            return True
+
+                        if self.multicast is not None and self.multicast._has_data():
+                            return True
+
+                        if self.vrf is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
+                        return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.Nve.MemberVnis.MemberVni']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-tunnel-nve-cfg:member-vnis'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.member_vni is not None:
+                        for child_ref in self.member_vni:
+                            if child_ref._has_data():
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
+                    return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.Nve.MemberVnis']['meta_info']
+
+            @property
+            def _common_path(self):
+                if self.parent is None:
+                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                return self.parent._common_path +'/Cisco-IOS-XR-tunnel-nve-cfg:nve'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.anycast is not None and self.anycast._has_data():
+                    return True
+
+                if self.member_vnis is not None and self.member_vnis._has_data():
+                    return True
+
+                if self.overlay_encapsulation is not None:
+                    return True
+
+                if self.redundancy is not None and self.redundancy._has_data():
+                    return True
+
+                if self.source_interface is not None:
+                    return True
+
+                if self.vx_lan_udp_port is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ifmgr_cfg as meta
+                return meta._meta_table['InterfaceConfigurations.InterfaceConfiguration.Nve']['meta_info']
+
+
         class Wanphy(object):
             """
             WANPHY port controller configuration
@@ -36217,72 +37033,72 @@ class InterfaceConfigurations(object):
             .. attribute:: lan_mode
             
             	Configure LAN Mode
-            	**type**\:  :py:class:`WanphyLanModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_cfg.WanphyLanModeEnum>`
+            	**type**\:   :py:class:`WanphyLanModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_cfg.WanphyLanModeEnum>`
             
             .. attribute:: report_line_ais
             
             	Configure Line Alarm Indication Signal reporting
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: report_lof
             
             	Configure Loss Of Frame reporting
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: report_lop
             
             	Configure Loss Of Pointer reporting
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: report_los
             
             	Configure Loss Of Signal reporting
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: report_path_ais
             
             	Configure Path Alarm Indication Signal reporting
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: report_path_fe_ais
             
             	Configure Path Far End Payload Label Mismatch reporting
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: report_path_fe_plm
             
             	Configure Path Far End Payload Label Mismatch reporting
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: report_path_lcd
             
             	Configure Path Loss Of Code\-Group Delineation reporting
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: report_path_plm
             
             	Configure Path Payload Label Mismatch reporting
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: report_path_rdi
             
             	Configure Path Remote Defect Indicator reporting
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: report_rdi
             
             	Configure Remote Defect Indicator reporting
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: report_sd_ber
             
             	Configure B2 BER in excess of SD threshold reporting
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: report_sf_ber
             
             	Configure B2 BER in excess of SF threshold reporting
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: threshold_sd_ber
             
@@ -36291,6 +37107,8 @@ class InterfaceConfigurations(object):
             
             	**range:** 3..9
             
+            	**default value**\: 6
+            
             .. attribute:: threshold_sf_ber
             
             	Bit error rate is 10 to the minus n, where n is threshold value
@@ -36298,10 +37116,12 @@ class InterfaceConfigurations(object):
             
             	**range:** 3..9
             
+            	**default value**\: 3
+            
             .. attribute:: wan_mode
             
             	Configure WAN Mode
-            	**type**\:  :py:class:`WanphyWanModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_cfg.WanphyWanModeEnum>`
+            	**type**\:   :py:class:`WanphyWanModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_cfg.WanphyWanModeEnum>`
             
             
 
@@ -36451,9 +37271,6 @@ class InterfaceConfigurations(object):
             if self.client_port is not None and self.client_port._has_data():
                 return True
 
-            if self.control_subscriber is not None and self.control_subscriber._has_data():
-                return True
-
             if self.dagrs is not None and self.dagrs._has_data():
                 return True
 
@@ -36476,9 +37293,6 @@ class InterfaceConfigurations(object):
                 return True
 
             if self.ethernet_bng is not None and self.ethernet_bng._has_data():
-                return True
-
-            if self.ethernet_control is not None and self.ethernet_control._has_data():
                 return True
 
             if self.ethernet_features is not None and self.ethernet_features._has_data():
@@ -36559,6 +37373,9 @@ class InterfaceConfigurations(object):
             if self.nv_satellite_fabric_network is not None and self.nv_satellite_fabric_network._has_data():
                 return True
 
+            if self.nve is not None and self.nve._has_data():
+                return True
+
             if self.optics is not None and self.optics._has_data():
                 return True
 
@@ -36581,6 +37398,9 @@ class InterfaceConfigurations(object):
                 return True
 
             if self.secondary_admin_state is not None:
+                return True
+
+            if self.service_policies is not None and self.service_policies._has_data():
                 return True
 
             if self.shutdown is not None:

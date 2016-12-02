@@ -16,60 +16,60 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'ImStateEnumEnum' : _MetaInfoEnum('ImStateEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper',
         {
-            'im-state-not-ready':'IM_STATE_NOT_READY',
-            'im-state-admin-down':'IM_STATE_ADMIN_DOWN',
-            'im-state-down':'IM_STATE_DOWN',
-            'im-state-up':'IM_STATE_UP',
-            'im-state-shutdown':'IM_STATE_SHUTDOWN',
-            'im-state-err-disable':'IM_STATE_ERR_DISABLE',
-            'im-state-down-immediate':'IM_STATE_DOWN_IMMEDIATE',
-            'im-state-down-immediate-admin':'IM_STATE_DOWN_IMMEDIATE_ADMIN',
-            'im-state-down-graceful':'IM_STATE_DOWN_GRACEFUL',
-            'im-state-begin-shutdown':'IM_STATE_BEGIN_SHUTDOWN',
-            'im-state-end-shutdown':'IM_STATE_END_SHUTDOWN',
-            'im-state-begin-error-disable':'IM_STATE_BEGIN_ERROR_DISABLE',
-            'im-state-end-error-disable':'IM_STATE_END_ERROR_DISABLE',
-            'im-state-begin-down-graceful':'IM_STATE_BEGIN_DOWN_GRACEFUL',
-            'im-state-reset':'IM_STATE_RESET',
-            'im-state-operational':'IM_STATE_OPERATIONAL',
-            'im-state-not-operational':'IM_STATE_NOT_OPERATIONAL',
-            'im-state-unknown':'IM_STATE_UNKNOWN',
-            'im-state-last':'IM_STATE_LAST',
+            'im-state-not-ready':'im_state_not_ready',
+            'im-state-admin-down':'im_state_admin_down',
+            'im-state-down':'im_state_down',
+            'im-state-up':'im_state_up',
+            'im-state-shutdown':'im_state_shutdown',
+            'im-state-err-disable':'im_state_err_disable',
+            'im-state-down-immediate':'im_state_down_immediate',
+            'im-state-down-immediate-admin':'im_state_down_immediate_admin',
+            'im-state-down-graceful':'im_state_down_graceful',
+            'im-state-begin-shutdown':'im_state_begin_shutdown',
+            'im-state-end-shutdown':'im_state_end_shutdown',
+            'im-state-begin-error-disable':'im_state_begin_error_disable',
+            'im-state-end-error-disable':'im_state_end_error_disable',
+            'im-state-begin-down-graceful':'im_state_begin_down_graceful',
+            'im-state-reset':'im_state_reset',
+            'im-state-operational':'im_state_operational',
+            'im-state-not-operational':'im_state_not_operational',
+            'im-state-unknown':'im_state_unknown',
+            'im-state-last':'im_state_last',
         }, 'Cisco-IOS-XR-Ethernet-SPAN-oper', _yang_ns._namespaces['Cisco-IOS-XR-Ethernet-SPAN-oper']),
     'DestinationClassEnum' : _MetaInfoEnum('DestinationClassEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper',
         {
-            'interface-class':'INTERFACE_CLASS',
-            'pseudowire-class':'PSEUDOWIRE_CLASS',
-            'next-hop-ipv4-class':'NEXT_HOP_IPV4_CLASS',
-            'next-hop-ipv6-class':'NEXT_HOP_IPV6_CLASS',
-            'invalid-class':'INVALID_CLASS',
+            'interface-class':'interface_class',
+            'pseudowire-class':'pseudowire_class',
+            'next-hop-ipv4-class':'next_hop_ipv4_class',
+            'next-hop-ipv6-class':'next_hop_ipv6_class',
+            'invalid-class':'invalid_class',
         }, 'Cisco-IOS-XR-Ethernet-SPAN-oper', _yang_ns._namespaces['Cisco-IOS-XR-Ethernet-SPAN-oper']),
     'TrafficDirectionEnum' : _MetaInfoEnum('TrafficDirectionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper',
         {
-            'invalid':'INVALID',
-            'rx-only':'RX_ONLY',
-            'tx-only':'TX_ONLY',
-            'both':'BOTH',
+            'invalid':'invalid',
+            'rx-only':'rx_only',
+            'tx-only':'tx_only',
+            'both':'both',
         }, 'Cisco-IOS-XR-Ethernet-SPAN-oper', _yang_ns._namespaces['Cisco-IOS-XR-Ethernet-SPAN-oper']),
     'SessionClassEnum' : _MetaInfoEnum('SessionClassEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper',
         {
-            'ethernet-class':'ETHERNET_CLASS',
-            'ipv4-class':'IPV4_CLASS',
-            'ipv6-class':'IPV6_CLASS',
-            'invalid-class':'INVALID_CLASS',
+            'ethernet-class':'ethernet_class',
+            'ipv4-class':'ipv4_class',
+            'ipv6-class':'ipv6_class',
+            'invalid-class':'invalid_class',
         }, 'Cisco-IOS-XR-Ethernet-SPAN-oper', _yang_ns._namespaces['Cisco-IOS-XR-Ethernet-SPAN-oper']),
     'MirrorIntervalEnum' : _MetaInfoEnum('MirrorIntervalEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper',
         {
-            'mirror-interval-all':'MIRROR_INTERVAL_ALL',
-            'mirror-interval512':'MIRROR_INTERVAL512',
-            'mirror-interval1k':'MIRROR_INTERVAL1K',
-            'mirror-interval2k':'MIRROR_INTERVAL2K',
-            'mirror-interval4k':'MIRROR_INTERVAL4K',
-            'mirror-interval8k':'MIRROR_INTERVAL8K',
-            'mirror-interval16k':'MIRROR_INTERVAL16K',
+            'mirror-interval-all':'mirror_interval_all',
+            'mirror-interval512':'mirror_interval512',
+            'mirror-interval1k':'mirror_interval1k',
+            'mirror-interval2k':'mirror_interval2k',
+            'mirror-interval4k':'mirror_interval4k',
+            'mirror-interval8k':'mirror_interval8k',
+            'mirror-interval16k':'mirror_interval16k',
         }, 'Cisco-IOS-XR-Ethernet-SPAN-oper', _yang_ns._namespaces['Cisco-IOS-XR-Ethernet-SPAN-oper']),
-    'SpanMonitorSession.Global.Statistics.Statistic' : {
-        'meta_info' : _MetaInfoClass('SpanMonitorSession.Global.Statistics.Statistic',
+    'SpanMonitorSession.Global_.Statistics.Statistic' : {
+        'meta_info' : _MetaInfoClass('SpanMonitorSession.Global_.Statistics.Statistic',
             False, 
             [
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
@@ -127,11 +127,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper'
         ),
     },
-    'SpanMonitorSession.Global.Statistics' : {
-        'meta_info' : _MetaInfoClass('SpanMonitorSession.Global.Statistics',
+    'SpanMonitorSession.Global_.Statistics' : {
+        'meta_info' : _MetaInfoClass('SpanMonitorSession.Global_.Statistics',
             False, 
             [
-            _MetaInfoClassMember('statistic', REFERENCE_LIST, 'Statistic' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global.Statistics.Statistic', 
+            _MetaInfoClassMember('statistic', REFERENCE_LIST, 'Statistic' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global_.Statistics.Statistic', 
                 [], [], 
                 '''                Statistics for a particular source interface
                 ''',
@@ -144,8 +144,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper'
         ),
     },
-    'SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.InterfaceData' : {
-        'meta_info' : _MetaInfoClass('SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.InterfaceData',
+    'SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.InterfaceData' : {
+        'meta_info' : _MetaInfoClass('SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.InterfaceData',
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
@@ -167,8 +167,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper'
         ),
     },
-    'SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.PseudowireData' : {
-        'meta_info' : _MetaInfoClass('SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.PseudowireData',
+    'SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.PseudowireData' : {
+        'meta_info' : _MetaInfoClass('SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.PseudowireData',
             False, 
             [
             _MetaInfoClassMember('pseudowire-is-up', ATTRIBUTE, 'bool' , None, None, 
@@ -190,8 +190,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper'
         ),
     },
-    'SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data' : {
-        'meta_info' : _MetaInfoClass('SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data',
+    'SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data' : {
+        'meta_info' : _MetaInfoClass('SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data',
             False, 
             [
             _MetaInfoClassMember('address-is-reachable', ATTRIBUTE, 'bool' , None, None, 
@@ -219,8 +219,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper'
         ),
     },
-    'SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.NextHopIpv6Data' : {
-        'meta_info' : _MetaInfoClass('SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.NextHopIpv6Data',
+    'SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv6Data' : {
+        'meta_info' : _MetaInfoClass('SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv6Data',
             False, 
             [
             _MetaInfoClassMember('address-is-reachable', ATTRIBUTE, 'bool' , None, None, 
@@ -248,8 +248,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper'
         ),
     },
-    'SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData' : {
-        'meta_info' : _MetaInfoClass('SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData',
+    'SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData' : {
+        'meta_info' : _MetaInfoClass('SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData',
             False, 
             [
             _MetaInfoClassMember('destination-class', REFERENCE_ENUM_CLASS, 'DestinationClassEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'DestinationClassEnum', 
@@ -258,7 +258,7 @@ _meta_table = {
                 ''',
                 'destination_class',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('interface-data', REFERENCE_CLASS, 'InterfaceData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.InterfaceData', 
+            _MetaInfoClassMember('interface-data', REFERENCE_CLASS, 'InterfaceData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.InterfaceData', 
                 [], [], 
                 '''                Interface data
                 ''',
@@ -270,19 +270,19 @@ _meta_table = {
                 ''',
                 'invalid_value',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('next-hop-ipv4-data', REFERENCE_CLASS, 'NextHopIpv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data', 
+            _MetaInfoClassMember('next-hop-ipv4-data', REFERENCE_CLASS, 'NextHopIpv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data', 
                 [], [], 
                 '''                Next-hop IPv4 data
                 ''',
                 'next_hop_ipv4_data',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('next-hop-ipv6-data', REFERENCE_CLASS, 'NextHopIpv6Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.NextHopIpv6Data', 
+            _MetaInfoClassMember('next-hop-ipv6-data', REFERENCE_CLASS, 'NextHopIpv6Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv6Data', 
                 [], [], 
                 '''                Next-hop IPv6 data
                 ''',
                 'next_hop_ipv6_data',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('pseudowire-data', REFERENCE_CLASS, 'PseudowireData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.PseudowireData', 
+            _MetaInfoClassMember('pseudowire-data', REFERENCE_CLASS, 'PseudowireData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.PseudowireData', 
                 [], [], 
                 '''                Pseudowire data
                 ''',
@@ -295,8 +295,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper'
         ),
     },
-    'SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId.Ipv4AddressAndVrf' : {
-        'meta_info' : _MetaInfoClass('SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId.Ipv4AddressAndVrf',
+    'SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId.Ipv4AddressAndVrf' : {
+        'meta_info' : _MetaInfoClass('SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId.Ipv4AddressAndVrf',
             False, 
             [
             _MetaInfoClassMember('ipv4-address', ATTRIBUTE, 'str' , None, None, 
@@ -318,8 +318,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper'
         ),
     },
-    'SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId.Ipv6AddressAndVrf' : {
-        'meta_info' : _MetaInfoClass('SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId.Ipv6AddressAndVrf',
+    'SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId.Ipv6AddressAndVrf' : {
+        'meta_info' : _MetaInfoClass('SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId.Ipv6AddressAndVrf',
             False, 
             [
             _MetaInfoClassMember('ipv6-address', ATTRIBUTE, 'str' , None, None, 
@@ -341,8 +341,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper'
         ),
     },
-    'SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId' : {
-        'meta_info' : _MetaInfoClass('SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId',
+    'SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId' : {
+        'meta_info' : _MetaInfoClass('SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId',
             False, 
             [
             _MetaInfoClassMember('destination-class', REFERENCE_ENUM_CLASS, 'DestinationClassEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'DestinationClassEnum', 
@@ -363,13 +363,13 @@ _meta_table = {
                 ''',
                 'invalid_value',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('ipv4-address-and-vrf', REFERENCE_CLASS, 'Ipv4AddressAndVrf' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId.Ipv4AddressAndVrf', 
+            _MetaInfoClassMember('ipv4-address-and-vrf', REFERENCE_CLASS, 'Ipv4AddressAndVrf' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId.Ipv4AddressAndVrf', 
                 [], [], 
                 '''                IPv4 address
                 ''',
                 'ipv4_address_and_vrf',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('ipv6-address-and-vrf', REFERENCE_CLASS, 'Ipv6AddressAndVrf' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId.Ipv6AddressAndVrf', 
+            _MetaInfoClassMember('ipv6-address-and-vrf', REFERENCE_CLASS, 'Ipv6AddressAndVrf' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId.Ipv6AddressAndVrf', 
                 [], [], 
                 '''                IPv6 address
                 ''',
@@ -388,8 +388,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper'
         ),
     },
-    'SpanMonitorSession.Global.GlobalSessions.GlobalSession' : {
-        'meta_info' : _MetaInfoClass('SpanMonitorSession.Global.GlobalSessions.GlobalSession',
+    'SpanMonitorSession.Global_.GlobalSessions.GlobalSession' : {
+        'meta_info' : _MetaInfoClass('SpanMonitorSession.Global_.GlobalSessions.GlobalSession',
             False, 
             [
             _MetaInfoClassMember('session', ATTRIBUTE, 'str' , None, None, 
@@ -398,7 +398,7 @@ _meta_table = {
                 ''',
                 'session',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', True),
-            _MetaInfoClassMember('destination-data', REFERENCE_CLASS, 'DestinationData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData', 
+            _MetaInfoClassMember('destination-data', REFERENCE_CLASS, 'DestinationData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData', 
                 [], [], 
                 '''                Destination data
                 ''',
@@ -410,7 +410,7 @@ _meta_table = {
                 ''',
                 'destination_error',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('destination-id', REFERENCE_CLASS, 'DestinationId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId', 
+            _MetaInfoClassMember('destination-id', REFERENCE_CLASS, 'DestinationId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId', 
                 [], [], 
                 '''                Destination ID
                 ''',
@@ -462,11 +462,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper'
         ),
     },
-    'SpanMonitorSession.Global.GlobalSessions' : {
-        'meta_info' : _MetaInfoClass('SpanMonitorSession.Global.GlobalSessions',
+    'SpanMonitorSession.Global_.GlobalSessions' : {
+        'meta_info' : _MetaInfoClass('SpanMonitorSession.Global_.GlobalSessions',
             False, 
             [
-            _MetaInfoClassMember('global-session', REFERENCE_LIST, 'GlobalSession' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global.GlobalSessions.GlobalSession', 
+            _MetaInfoClassMember('global-session', REFERENCE_LIST, 'GlobalSession' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global_.GlobalSessions.GlobalSession', 
                 [], [], 
                 '''                Information about a globally-configured
                 monitor session
@@ -480,17 +480,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper'
         ),
     },
-    'SpanMonitorSession.Global' : {
-        'meta_info' : _MetaInfoClass('SpanMonitorSession.Global',
+    'SpanMonitorSession.Global_' : {
+        'meta_info' : _MetaInfoClass('SpanMonitorSession.Global_',
             False, 
             [
-            _MetaInfoClassMember('global-sessions', REFERENCE_CLASS, 'GlobalSessions' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global.GlobalSessions', 
+            _MetaInfoClassMember('global-sessions', REFERENCE_CLASS, 'GlobalSessions' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global_.GlobalSessions', 
                 [], [], 
                 '''                Global Monitor Sessions table
                 ''',
                 'global_sessions',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
-            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global.Statistics', 
+            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global_.Statistics', 
                 [], [], 
                 '''                Table of statistics for source interfaces
                 ''',
@@ -1372,7 +1372,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('SpanMonitorSession',
             False, 
             [
-            _MetaInfoClassMember('global', REFERENCE_CLASS, 'Global' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global', 
+            _MetaInfoClassMember('global', REFERENCE_CLASS, 'Global_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global_', 
                 [], [], 
                 '''                Global operational data
                 ''',
@@ -1392,18 +1392,18 @@ _meta_table = {
         ),
     },
 }
-_meta_table['SpanMonitorSession.Global.Statistics.Statistic']['meta_info'].parent =_meta_table['SpanMonitorSession.Global.Statistics']['meta_info']
-_meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.InterfaceData']['meta_info'].parent =_meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData']['meta_info']
-_meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.PseudowireData']['meta_info'].parent =_meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData']['meta_info']
-_meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data']['meta_info'].parent =_meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData']['meta_info']
-_meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.NextHopIpv6Data']['meta_info'].parent =_meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData']['meta_info']
-_meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId.Ipv4AddressAndVrf']['meta_info'].parent =_meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId']['meta_info']
-_meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId.Ipv6AddressAndVrf']['meta_info'].parent =_meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId']['meta_info']
-_meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData']['meta_info'].parent =_meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession']['meta_info']
-_meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId']['meta_info'].parent =_meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession']['meta_info']
-_meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession']['meta_info'].parent =_meta_table['SpanMonitorSession.Global.GlobalSessions']['meta_info']
-_meta_table['SpanMonitorSession.Global.Statistics']['meta_info'].parent =_meta_table['SpanMonitorSession.Global']['meta_info']
-_meta_table['SpanMonitorSession.Global.GlobalSessions']['meta_info'].parent =_meta_table['SpanMonitorSession.Global']['meta_info']
+_meta_table['SpanMonitorSession.Global_.Statistics.Statistic']['meta_info'].parent =_meta_table['SpanMonitorSession.Global_.Statistics']['meta_info']
+_meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.InterfaceData']['meta_info'].parent =_meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData']['meta_info']
+_meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.PseudowireData']['meta_info'].parent =_meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData']['meta_info']
+_meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data']['meta_info'].parent =_meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData']['meta_info']
+_meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv6Data']['meta_info'].parent =_meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData']['meta_info']
+_meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId.Ipv4AddressAndVrf']['meta_info'].parent =_meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId']['meta_info']
+_meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId.Ipv6AddressAndVrf']['meta_info'].parent =_meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId']['meta_info']
+_meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData']['meta_info'].parent =_meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession']['meta_info']
+_meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId']['meta_info'].parent =_meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession']['meta_info']
+_meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession']['meta_info'].parent =_meta_table['SpanMonitorSession.Global_.GlobalSessions']['meta_info']
+_meta_table['SpanMonitorSession.Global_.Statistics']['meta_info'].parent =_meta_table['SpanMonitorSession.Global_']['meta_info']
+_meta_table['SpanMonitorSession.Global_.GlobalSessions']['meta_info'].parent =_meta_table['SpanMonitorSession.Global_']['meta_info']
 _meta_table['SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv4AddressAndVrf']['meta_info'].parent =_meta_table['SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId']['meta_info']
 _meta_table['SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv6AddressAndVrf']['meta_info'].parent =_meta_table['SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId']['meta_info']
 _meta_table['SpanMonitorSession.Nodes.Node.Attachments.Attachment.TrafficParameters']['meta_info'].parent =_meta_table['SpanMonitorSession.Nodes.Node.Attachments.Attachment']['meta_info']
@@ -1427,5 +1427,5 @@ _meta_table['SpanMonitorSession.Nodes.Node.Attachments']['meta_info'].parent =_m
 _meta_table['SpanMonitorSession.Nodes.Node.HardwareSessions']['meta_info'].parent =_meta_table['SpanMonitorSession.Nodes.Node']['meta_info']
 _meta_table['SpanMonitorSession.Nodes.Node.Interfaces']['meta_info'].parent =_meta_table['SpanMonitorSession.Nodes.Node']['meta_info']
 _meta_table['SpanMonitorSession.Nodes.Node']['meta_info'].parent =_meta_table['SpanMonitorSession.Nodes']['meta_info']
-_meta_table['SpanMonitorSession.Global']['meta_info'].parent =_meta_table['SpanMonitorSession']['meta_info']
+_meta_table['SpanMonitorSession.Global_']['meta_info'].parent =_meta_table['SpanMonitorSession']['meta_info']
 _meta_table['SpanMonitorSession.Nodes']['meta_info'].parent =_meta_table['SpanMonitorSession']['meta_info']

@@ -16,8 +16,8 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'AclUsageAppIdEnumEnum' : _MetaInfoEnum('AclUsageAppIdEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_datatypes',
         {
-            'pfilter':'PFILTER',
-            'bgp':'BGP',
-            'ospf':'OSPF',
+            'pfilter':'pfilter',
+            'bgp':'bgp',
+            'ospf':'ospf',
         }, 'Cisco-IOS-XR-es-acl-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-es-acl-datatypes']),
 }

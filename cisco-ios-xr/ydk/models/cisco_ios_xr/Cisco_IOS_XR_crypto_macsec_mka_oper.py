@@ -32,7 +32,7 @@ class Macsec(object):
     .. attribute:: mka
     
     	MKA Data
-    	**type**\:  :py:class:`Mka <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka>`
+    	**type**\:   :py:class:`Mka <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka>`
     
     
 
@@ -53,7 +53,7 @@ class Macsec(object):
         .. attribute:: interfaces
         
         	MKA Data
-        	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces>`
+        	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces>`
         
         
 
@@ -75,7 +75,7 @@ class Macsec(object):
             .. attribute:: interface
             
             	MKA Data for the Interface
-            	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface>`
+            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface>`
             
             
 
@@ -105,7 +105,7 @@ class Macsec(object):
                 .. attribute:: session
                 
                 	MKA Session Data
-                	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session>`
+                	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session>`
                 
                 
 
@@ -128,17 +128,17 @@ class Macsec(object):
                     .. attribute:: ca
                     
                     	CA List for a Session
-                    	**type**\: list of  :py:class:`Ca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Ca>`
+                    	**type**\: list of    :py:class:`Ca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Ca>`
                     
                     .. attribute:: session_summary
                     
                     	Session summary
-                    	**type**\:  :py:class:`SessionSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.SessionSummary>`
+                    	**type**\:   :py:class:`SessionSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.SessionSummary>`
                     
                     .. attribute:: vp
                     
                     	Virtual Pointer Info
-                    	**type**\:  :py:class:`Vp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Vp>`
+                    	**type**\:   :py:class:`Vp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Vp>`
                     
                     
 
@@ -201,11 +201,11 @@ class Macsec(object):
                         .. attribute:: inner_tag
                         
                         	VLAN Inner TAG
-                        	**type**\:  :py:class:`InnerTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.SessionSummary.InnerTag>`
+                        	**type**\:   :py:class:`InnerTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.SessionSummary.InnerTag>`
                         
                         .. attribute:: interface_name
                         
-                        	Interface on which macsec is                     configured
+                        	macsec configured interface
                         	**type**\:  str
                         
                         .. attribute:: key_chain
@@ -226,7 +226,7 @@ class Macsec(object):
                         .. attribute:: outer_tag
                         
                         	VLAN Outer TAG
-                        	**type**\:  :py:class:`OuterTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.SessionSummary.OuterTag>`
+                        	**type**\:   :py:class:`OuterTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.SessionSummary.OuterTag>`
                         
                         .. attribute:: policy
                         
@@ -725,7 +725,7 @@ class Macsec(object):
                         .. attribute:: dormant_peer
                         
                         	Dormant Peer List
-                        	**type**\: list of  :py:class:`DormantPeer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Ca.DormantPeer>`
+                        	**type**\: list of    :py:class:`DormantPeer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Ca.DormantPeer>`
                         
                         .. attribute:: first_ca
                         
@@ -740,7 +740,7 @@ class Macsec(object):
                         .. attribute:: live_peer
                         
                         	Live Peer List
-                        	**type**\: list of  :py:class:`LivePeer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Ca.LivePeer>`
+                        	**type**\: list of    :py:class:`LivePeer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Ca.LivePeer>`
                         
                         .. attribute:: my_mi
                         
@@ -776,7 +776,7 @@ class Macsec(object):
                         .. attribute:: potential_peer
                         
                         	Potential Peer List
-                        	**type**\: list of  :py:class:`PotentialPeer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Ca.PotentialPeer>`
+                        	**type**\: list of    :py:class:`PotentialPeer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper.Macsec.Mka.Interfaces.Interface.Session.Ca.PotentialPeer>`
                         
                         .. attribute:: status
                         

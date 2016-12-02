@@ -38,11 +38,11 @@ class WithDefaultsModeEnum(Enum):
 
     Possible modes to report default data.
 
-    .. data:: REPORT_ALL = 0
+    .. data:: report_all = 0
 
     	All default data is reported.
 
-    .. data:: REPORT_ALL_TAGGED = 1
+    .. data:: report_all_tagged = 1
 
     	All default data is reported.
 
@@ -52,11 +52,11 @@ class WithDefaultsModeEnum(Enum):
 
     	set to 'true' or '1'.
 
-    .. data:: TRIM = 2
+    .. data:: trim = 2
 
     	Values are not reported if they contain the default.
 
-    .. data:: EXPLICIT = 3
+    .. data:: explicit = 3
 
     	Report values that contain the definition of
 
@@ -64,13 +64,13 @@ class WithDefaultsModeEnum(Enum):
 
     """
 
-    REPORT_ALL = 0
+    report_all = 0
 
-    REPORT_ALL_TAGGED = 1
+    report_all_tagged = 1
 
-    TRIM = 2
+    trim = 2
 
-    EXPLICIT = 3
+    explicit = 3
 
 
     @staticmethod

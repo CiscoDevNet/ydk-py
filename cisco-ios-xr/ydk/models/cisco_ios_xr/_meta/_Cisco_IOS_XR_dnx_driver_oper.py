@@ -16,133 +16,133 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'SliceStateEnum' : _MetaInfoEnum('SliceStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper',
         {
-            'slice-oper-unset':'SLICE_OPER_UNSET',
-            'slice-oper-down':'SLICE_OPER_DOWN',
-            'slice-oper-up':'SLICE_OPER_UP',
-            'slice-oper-na':'SLICE_OPER_NA',
+            'slice-oper-unset':'slice_oper_unset',
+            'slice-oper-down':'slice_oper_down',
+            'slice-oper-up':'slice_oper_up',
+            'slice-oper-na':'slice_oper_na',
         }, 'Cisco-IOS-XR-dnx-driver-oper', _yang_ns._namespaces['Cisco-IOS-XR-dnx-driver-oper']),
     'AsicAccessStateEnum' : _MetaInfoEnum('AsicAccessStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper',
         {
-            'asic-state-unset':'ASIC_STATE_UNSET',
-            'asic-state-none':'ASIC_STATE_NONE',
-            'asic-state-device-off-line':'ASIC_STATE_DEVICE_OFF_LINE',
-            'asic-state-device-created':'ASIC_STATE_DEVICE_CREATED',
-            'asic-state-device-online':'ASIC_STATE_DEVICE_ONLINE',
-            'asic-state-warmboot':'ASIC_STATE_WARMBOOT',
-            'asic-state-de-init-start':'ASIC_STATE_DE_INIT_START',
-            'asic-state-intr-de-init':'ASIC_STATE_INTR_DE_INIT',
-            'asic-state-bcm-detach':'ASIC_STATE_BCM_DETACH',
-            'asic-state-soc-de-init':'ASIC_STATE_SOC_DE_INIT',
-            'asic-state-de-init-done':'ASIC_STATE_DE_INIT_DONE',
-            'asic-state-soc-init':'ASIC_STATE_SOC_INIT',
-            'asic-state-bcm-init':'ASIC_STATE_BCM_INIT',
-            'asic-state-intr-init':'ASIC_STATE_INTR_INIT',
-            'asic-state-soc-init-start':'ASIC_STATE_SOC_INIT_START',
-            'asic-state-bcm-init-start':'ASIC_STATE_BCM_INIT_START',
-            'asic-state-intr-init-start':'ASIC_STATE_INTR_INIT_START',
-            'asic-state-hard-reset':'ASIC_STATE_HARD_RESET',
-            'asic-state-normal':'ASIC_STATE_NORMAL',
-            'asic-state-exception':'ASIC_STATE_EXCEPTION',
-            'asic-state-hp-attached':'ASIC_STATE_HP_ATTACHED',
-            'asic-state-quiesce':'ASIC_STATE_QUIESCE',
-            'asic-state-issu-started':'ASIC_STATE_ISSU_STARTED',
-            'asic-state-issu-started-nn':'ASIC_STATE_ISSU_STARTED_NN',
-            'asic-state-issu-abort':'ASIC_STATE_ISSU_ABORT',
-            'asic-state-max':'ASIC_STATE_MAX',
+            'asic-state-unset':'asic_state_unset',
+            'asic-state-none':'asic_state_none',
+            'asic-state-device-off-line':'asic_state_device_off_line',
+            'asic-state-device-created':'asic_state_device_created',
+            'asic-state-device-online':'asic_state_device_online',
+            'asic-state-warmboot':'asic_state_warmboot',
+            'asic-state-de-init-start':'asic_state_de_init_start',
+            'asic-state-intr-de-init':'asic_state_intr_de_init',
+            'asic-state-bcm-detach':'asic_state_bcm_detach',
+            'asic-state-soc-de-init':'asic_state_soc_de_init',
+            'asic-state-de-init-done':'asic_state_de_init_done',
+            'asic-state-soc-init':'asic_state_soc_init',
+            'asic-state-bcm-init':'asic_state_bcm_init',
+            'asic-state-intr-init':'asic_state_intr_init',
+            'asic-state-soc-init-start':'asic_state_soc_init_start',
+            'asic-state-bcm-init-start':'asic_state_bcm_init_start',
+            'asic-state-intr-init-start':'asic_state_intr_init_start',
+            'asic-state-hard-reset':'asic_state_hard_reset',
+            'asic-state-normal':'asic_state_normal',
+            'asic-state-exception':'asic_state_exception',
+            'asic-state-hp-attached':'asic_state_hp_attached',
+            'asic-state-quiesce':'asic_state_quiesce',
+            'asic-state-issu-started':'asic_state_issu_started',
+            'asic-state-issu-started-nn':'asic_state_issu_started_nn',
+            'asic-state-issu-abort':'asic_state_issu_abort',
+            'asic-state-max':'asic_state_max',
         }, 'Cisco-IOS-XR-dnx-driver-oper', _yang_ns._namespaces['Cisco-IOS-XR-dnx-driver-oper']),
     'LinkErrorStateEnum' : _MetaInfoEnum('LinkErrorStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper',
         {
-            'link-error-unset':'LINK_ERROR_UNSET',
-            'link-error-none':'LINK_ERROR_NONE',
-            'link-error-shut':'LINK_ERROR_SHUT',
-            'link-error-max':'LINK_ERROR_MAX',
+            'link-error-unset':'link_error_unset',
+            'link-error-none':'link_error_none',
+            'link-error-shut':'link_error_shut',
+            'link-error-max':'link_error_max',
         }, 'Cisco-IOS-XR-dnx-driver-oper', _yang_ns._namespaces['Cisco-IOS-XR-dnx-driver-oper']),
     'FcModeEnum' : _MetaInfoEnum('FcModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper',
         {
-            'fc-mode-unset':'FC_MODE_UNSET',
-            'fc-mode-unavail':'FC_MODE_UNAVAIL',
-            'fc-mode-inband':'FC_MODE_INBAND',
-            'fc-mode-oob':'FC_MODE_OOB',
+            'fc-mode-unset':'fc_mode_unset',
+            'fc-mode-unavail':'fc_mode_unavail',
+            'fc-mode-inband':'fc_mode_inband',
+            'fc-mode-oob':'fc_mode_oob',
         }, 'Cisco-IOS-XR-dnx-driver-oper', _yang_ns._namespaces['Cisco-IOS-XR-dnx-driver-oper']),
     'AsicEnum' : _MetaInfoEnum('AsicEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper',
         {
-            'asic-unset':'ASIC_UNSET',
-            'asic-unavail':'ASIC_UNAVAIL',
-            'asic-fia':'ASIC_FIA',
-            'asic-s123':'ASIC_S123',
-            'asic-s13':'ASIC_S13',
-            'asic-s2':'ASIC_S2',
-            'asic-b2b':'ASIC_B2B',
-            'asic-unknown':'ASIC_UNKNOWN',
+            'asic-unset':'asic_unset',
+            'asic-unavail':'asic_unavail',
+            'asic-fia':'asic_fia',
+            'asic-s123':'asic_s123',
+            'asic-s13':'asic_s13',
+            'asic-s2':'asic_s2',
+            'asic-b2b':'asic_b2b',
+            'asic-unknown':'asic_unknown',
         }, 'Cisco-IOS-XR-dnx-driver-oper', _yang_ns._namespaces['Cisco-IOS-XR-dnx-driver-oper']),
     'AsicOperStateEnum' : _MetaInfoEnum('AsicOperStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper',
         {
-            'asic-oper-unset':'ASIC_OPER_UNSET',
-            'asic-oper-unknown':'ASIC_OPER_UNKNOWN',
-            'asic-oper-up':'ASIC_OPER_UP',
-            'asic-oper-down':'ASIC_OPER_DOWN',
-            'asic-card-down':'ASIC_CARD_DOWN',
+            'asic-oper-unset':'asic_oper_unset',
+            'asic-oper-unknown':'asic_oper_unknown',
+            'asic-oper-up':'asic_oper_up',
+            'asic-oper-down':'asic_oper_down',
+            'asic-card-down':'asic_card_down',
         }, 'Cisco-IOS-XR-dnx-driver-oper', _yang_ns._namespaces['Cisco-IOS-XR-dnx-driver-oper']),
     'LinkEnum' : _MetaInfoEnum('LinkEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper',
         {
-            'link-type-unset':'LINK_TYPE_UNSET',
-            'link-type-unavail':'LINK_TYPE_UNAVAIL',
-            'link-type-tx':'LINK_TYPE_TX',
-            'link-type-rx':'LINK_TYPE_RX',
+            'link-type-unset':'link_type_unset',
+            'link-type-unavail':'link_type_unavail',
+            'link-type-tx':'link_type_tx',
+            'link-type-rx':'link_type_rx',
         }, 'Cisco-IOS-XR-dnx-driver-oper', _yang_ns._namespaces['Cisco-IOS-XR-dnx-driver-oper']),
     'OperStateEnum' : _MetaInfoEnum('OperStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper',
         {
-            'oper-unset':'OPER_UNSET',
-            'oper-unknown':'OPER_UNKNOWN',
-            'oper-up':'OPER_UP',
-            'oper-down':'OPER_DOWN',
-            'card-down':'CARD_DOWN',
+            'oper-unset':'oper_unset',
+            'oper-unknown':'oper_unknown',
+            'oper-up':'oper_up',
+            'oper-down':'oper_down',
+            'card-down':'card_down',
         }, 'Cisco-IOS-XR-dnx-driver-oper', _yang_ns._namespaces['Cisco-IOS-XR-dnx-driver-oper']),
     'AsicInitMethodEnum' : _MetaInfoEnum('AsicInitMethodEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper',
         {
-            'asic-init-method-unset':'ASIC_INIT_METHOD_UNSET',
-            'asic-init-method-no-reset':'ASIC_INIT_METHOD_NO_RESET',
-            'asic-init-method-pon-reset':'ASIC_INIT_METHOD_PON_RESET',
-            'asic-init-method-pon-reset-on-intr':'ASIC_INIT_METHOD_PON_RESET_ON_INTR',
-            'asic-init-method-hard-reset':'ASIC_INIT_METHOD_HARD_RESET',
-            'asic-init-method-warmboot':'ASIC_INIT_METHOD_WARMBOOT',
-            'asic-init-method-issu-wb':'ASIC_INIT_METHOD_ISSU_WB',
-            'asic-init-method-pci-shutdown':'ASIC_INIT_METHOD_PCI_SHUTDOWN',
-            'asic-init-method-quiesce':'ASIC_INIT_METHOD_QUIESCE',
-            'asic-init-method-issu-started':'ASIC_INIT_METHOD_ISSU_STARTED',
-            'asic-init-method-issu-rollback':'ASIC_INIT_METHOD_ISSU_ROLLBACK',
-            'asic-init-method-issu-abort':'ASIC_INIT_METHOD_ISSU_ABORT',
-            'asic-init-method-slice-cleanup':'ASIC_INIT_METHOD_SLICE_CLEANUP',
-            'asic-init-method-lc-remove':'ASIC_INIT_METHOD_LC_REMOVE',
-            'asic-init-method-node-down':'ASIC_INIT_METHOD_NODE_DOWN',
-            'asic-init-method-intr':'ASIC_INIT_METHOD_INTR',
-            'asic-init-method-board-reload':'ASIC_INIT_METHOD_BOARD_RELOAD',
-            'asic-init-method-max':'ASIC_INIT_METHOD_MAX',
+            'asic-init-method-unset':'asic_init_method_unset',
+            'asic-init-method-no-reset':'asic_init_method_no_reset',
+            'asic-init-method-pon-reset':'asic_init_method_pon_reset',
+            'asic-init-method-pon-reset-on-intr':'asic_init_method_pon_reset_on_intr',
+            'asic-init-method-hard-reset':'asic_init_method_hard_reset',
+            'asic-init-method-warmboot':'asic_init_method_warmboot',
+            'asic-init-method-issu-wb':'asic_init_method_issu_wb',
+            'asic-init-method-pci-shutdown':'asic_init_method_pci_shutdown',
+            'asic-init-method-quiesce':'asic_init_method_quiesce',
+            'asic-init-method-issu-started':'asic_init_method_issu_started',
+            'asic-init-method-issu-rollback':'asic_init_method_issu_rollback',
+            'asic-init-method-issu-abort':'asic_init_method_issu_abort',
+            'asic-init-method-slice-cleanup':'asic_init_method_slice_cleanup',
+            'asic-init-method-lc-remove':'asic_init_method_lc_remove',
+            'asic-init-method-node-down':'asic_init_method_node_down',
+            'asic-init-method-intr':'asic_init_method_intr',
+            'asic-init-method-board-reload':'asic_init_method_board_reload',
+            'asic-init-method-max':'asic_init_method_max',
         }, 'Cisco-IOS-XR-dnx-driver-oper', _yang_ns._namespaces['Cisco-IOS-XR-dnx-driver-oper']),
     'AdminStateEnum' : _MetaInfoEnum('AdminStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper',
         {
-            'admin-unset':'ADMIN_UNSET',
-            'admin-up':'ADMIN_UP',
-            'admin-down':'ADMIN_DOWN',
+            'admin-unset':'admin_unset',
+            'admin-up':'admin_up',
+            'admin-down':'admin_down',
         }, 'Cisco-IOS-XR-dnx-driver-oper', _yang_ns._namespaces['Cisco-IOS-XR-dnx-driver-oper']),
     'LinkStageEnum' : _MetaInfoEnum('LinkStageEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper',
         {
-            'link-stage-unset':'LINK_STAGE_UNSET',
-            'link-stage-unused':'LINK_STAGE_UNUSED',
-            'link-stage-fia':'LINK_STAGE_FIA',
-            'link-stage-s1':'LINK_STAGE_S1',
-            'link-stage-s2':'LINK_STAGE_S2',
-            'link-stage-s3':'LINK_STAGE_S3',
-            'link-stage-unknown':'LINK_STAGE_UNKNOWN',
+            'link-stage-unset':'link_stage_unset',
+            'link-stage-unused':'link_stage_unused',
+            'link-stage-fia':'link_stage_fia',
+            'link-stage-s1':'link_stage_s1',
+            'link-stage-s2':'link_stage_s2',
+            'link-stage-s3':'link_stage_s3',
+            'link-stage-unknown':'link_stage_unknown',
         }, 'Cisco-IOS-XR-dnx-driver-oper', _yang_ns._namespaces['Cisco-IOS-XR-dnx-driver-oper']),
     'RackEnum' : _MetaInfoEnum('RackEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper',
         {
-            'rack-type-unset':'RACK_TYPE_UNSET',
-            'rack-type-lcc':'RACK_TYPE_LCC',
-            'rack-type-fcc':'RACK_TYPE_FCC',
+            'rack-type-unset':'rack_type_unset',
+            'rack-type-lcc':'rack_type_lcc',
+            'rack-type-fcc':'rack_type_fcc',
         }, 'Cisco-IOS-XR-dnx-driver-oper', _yang_ns._namespaces['Cisco-IOS-XR-dnx-driver-oper']),
-    'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink.AsicId' : {
-        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink.AsicId',
+    'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink.AsicId' : {
+        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink.AsicId',
             False, 
             [
             _MetaInfoClassMember('asic-instance', ATTRIBUTE, 'int' , None, None, 
@@ -182,11 +182,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper'
         ),
     },
-    'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink' : {
-        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink',
+    'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink' : {
+        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink',
             False, 
             [
-            _MetaInfoClassMember('asic-id', REFERENCE_CLASS, 'AsicId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink.AsicId', 
+            _MetaInfoClassMember('asic-id', REFERENCE_CLASS, 'AsicId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink.AsicId', 
                 [], [], 
                 '''                asic id
                 ''',
@@ -223,8 +223,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper'
         ),
     },
-    'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLink.AsicId' : {
-        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLink.AsicId',
+    'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink.AsicId' : {
+        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink.AsicId',
             False, 
             [
             _MetaInfoClassMember('asic-instance', ATTRIBUTE, 'int' , None, None, 
@@ -264,11 +264,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper'
         ),
     },
-    'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLink' : {
-        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLink',
+    'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink' : {
+        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink',
             False, 
             [
-            _MetaInfoClassMember('asic-id', REFERENCE_CLASS, 'AsicId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLink.AsicId', 
+            _MetaInfoClassMember('asic-id', REFERENCE_CLASS, 'AsicId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink.AsicId', 
                 [], [], 
                 '''                asic id
                 ''',
@@ -305,8 +305,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper'
         ),
     },
-    'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLinkInHw.AsicId' : {
-        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLinkInHw.AsicId',
+    'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw.AsicId' : {
+        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw.AsicId',
             False, 
             [
             _MetaInfoClassMember('asic-instance', ATTRIBUTE, 'int' , None, None, 
@@ -346,11 +346,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper'
         ),
     },
-    'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLinkInHw' : {
-        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLinkInHw',
+    'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw' : {
+        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw',
             False, 
             [
-            _MetaInfoClassMember('asic-id', REFERENCE_CLASS, 'AsicId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLinkInHw.AsicId', 
+            _MetaInfoClassMember('asic-id', REFERENCE_CLASS, 'AsicId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw.AsicId', 
                 [], [], 
                 '''                asic id
                 ''',
@@ -387,8 +387,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper'
         ),
     },
-    'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.History.Hist' : {
-        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.History.Hist',
+    'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History.Hist' : {
+        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History.Hist',
             False, 
             [
             _MetaInfoClassMember('admin-state', REFERENCE_ENUM_CLASS, 'AdminStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'AdminStateEnum', 
@@ -428,11 +428,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper'
         ),
     },
-    'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.History' : {
-        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.History',
+    'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History' : {
+        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History',
             False, 
             [
-            _MetaInfoClassMember('hist', REFERENCE_LIST, 'Hist' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.History.Hist', 
+            _MetaInfoClassMember('hist', REFERENCE_LIST, 'Hist' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History.Hist', 
                 [], [], 
                 '''                hist
                 ''',
@@ -457,8 +457,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper'
         ),
     },
-    'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink' : {
-        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink',
+    'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_' : {
+        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_',
             False, 
             [
             _MetaInfoClassMember('link', ATTRIBUTE, 'int' , None, None, 
@@ -479,13 +479,13 @@ _meta_table = {
                 ''',
                 'error_state',
                 'Cisco-IOS-XR-dnx-driver-oper', False),
-            _MetaInfoClassMember('far-end-link', REFERENCE_CLASS, 'FarEndLink' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLink', 
+            _MetaInfoClassMember('far-end-link', REFERENCE_CLASS, 'FarEndLink' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink', 
                 [], [], 
                 '''                far end link
                 ''',
                 'far_end_link',
                 'Cisco-IOS-XR-dnx-driver-oper', False),
-            _MetaInfoClassMember('far-end-link-in-hw', REFERENCE_CLASS, 'FarEndLinkInHw' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLinkInHw', 
+            _MetaInfoClassMember('far-end-link-in-hw', REFERENCE_CLASS, 'FarEndLinkInHw' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw', 
                 [], [], 
                 '''                far end link in hw
                 ''',
@@ -503,7 +503,7 @@ _meta_table = {
                 ''',
                 'flap_cnt',
                 'Cisco-IOS-XR-dnx-driver-oper', False),
-            _MetaInfoClassMember('history', REFERENCE_CLASS, 'History' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.History', 
+            _MetaInfoClassMember('history', REFERENCE_CLASS, 'History' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History', 
                 [], [], 
                 '''                history
                 ''',
@@ -545,7 +545,7 @@ _meta_table = {
                 ''',
                 'stage',
                 'Cisco-IOS-XR-dnx-driver-oper', False),
-            _MetaInfoClassMember('this-link', REFERENCE_CLASS, 'ThisLink' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink', 
+            _MetaInfoClassMember('this-link', REFERENCE_CLASS, 'ThisLink' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink', 
                 [], [], 
                 '''                this link
                 ''',
@@ -568,7 +568,7 @@ _meta_table = {
                 ''',
                 'end_number',
                 'Cisco-IOS-XR-dnx-driver-oper', False),
-            _MetaInfoClassMember('rx-link', REFERENCE_LIST, 'RxLink' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink', 
+            _MetaInfoClassMember('rx-link', REFERENCE_LIST, 'RxLink_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_', 
                 [], [], 
                 '''                Single link information
                 ''',
@@ -1365,8 +1365,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper'
         ),
     },
-    'Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink.AsicId' : {
-        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink.AsicId',
+    'Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink.AsicId' : {
+        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink.AsicId',
             False, 
             [
             _MetaInfoClassMember('asic-instance', ATTRIBUTE, 'int' , None, None, 
@@ -1406,11 +1406,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper'
         ),
     },
-    'Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink' : {
-        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink',
+    'Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink' : {
+        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink',
             False, 
             [
-            _MetaInfoClassMember('asic-id', REFERENCE_CLASS, 'AsicId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink.AsicId', 
+            _MetaInfoClassMember('asic-id', REFERENCE_CLASS, 'AsicId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink.AsicId', 
                 [], [], 
                 '''                asic id
                 ''',
@@ -1447,8 +1447,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper'
         ),
     },
-    'Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink.AsicId' : {
-        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink.AsicId',
+    'Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink.AsicId' : {
+        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink.AsicId',
             False, 
             [
             _MetaInfoClassMember('asic-instance', ATTRIBUTE, 'int' , None, None, 
@@ -1488,11 +1488,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper'
         ),
     },
-    'Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink' : {
-        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink',
+    'Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink' : {
+        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink',
             False, 
             [
-            _MetaInfoClassMember('asic-id', REFERENCE_CLASS, 'AsicId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink.AsicId', 
+            _MetaInfoClassMember('asic-id', REFERENCE_CLASS, 'AsicId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink.AsicId', 
                 [], [], 
                 '''                asic id
                 ''',
@@ -1529,8 +1529,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper'
         ),
     },
-    'Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.Stats' : {
-        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.Stats',
+    'Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.Stats' : {
+        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.Stats',
             False, 
             [
             _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
@@ -1546,8 +1546,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper'
         ),
     },
-    'Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.History.Hist' : {
-        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.History.Hist',
+    'Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History.Hist' : {
+        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History.Hist',
             False, 
             [
             _MetaInfoClassMember('admin-state', REFERENCE_ENUM_CLASS, 'AdminStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'AdminStateEnum', 
@@ -1587,11 +1587,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper'
         ),
     },
-    'Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.History' : {
-        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.History',
+    'Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History' : {
+        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History',
             False, 
             [
-            _MetaInfoClassMember('hist', REFERENCE_LIST, 'Hist' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.History.Hist', 
+            _MetaInfoClassMember('hist', REFERENCE_LIST, 'Hist' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History.Hist', 
                 [], [], 
                 '''                hist
                 ''',
@@ -1616,8 +1616,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper'
         ),
     },
-    'Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink' : {
-        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink',
+    'Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_' : {
+        'meta_info' : _MetaInfoClass('Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_',
             False, 
             [
             _MetaInfoClassMember('link', ATTRIBUTE, 'int' , None, None, 
@@ -1650,13 +1650,13 @@ _meta_table = {
                 ''',
                 'error_state',
                 'Cisco-IOS-XR-dnx-driver-oper', False),
-            _MetaInfoClassMember('far-end-link', REFERENCE_CLASS, 'FarEndLink' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink', 
+            _MetaInfoClassMember('far-end-link', REFERENCE_CLASS, 'FarEndLink' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink', 
                 [], [], 
                 '''                far end link
                 ''',
                 'far_end_link',
                 'Cisco-IOS-XR-dnx-driver-oper', False),
-            _MetaInfoClassMember('history', REFERENCE_CLASS, 'History' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.History', 
+            _MetaInfoClassMember('history', REFERENCE_CLASS, 'History' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History', 
                 [], [], 
                 '''                history
                 ''',
@@ -1704,13 +1704,13 @@ _meta_table = {
                 ''',
                 'stage',
                 'Cisco-IOS-XR-dnx-driver-oper', False),
-            _MetaInfoClassMember('stats', REFERENCE_CLASS, 'Stats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.Stats', 
+            _MetaInfoClassMember('stats', REFERENCE_CLASS, 'Stats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.Stats', 
                 [], [], 
                 '''                stats
                 ''',
                 'stats',
                 'Cisco-IOS-XR-dnx-driver-oper', False),
-            _MetaInfoClassMember('this-link', REFERENCE_CLASS, 'ThisLink' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink', 
+            _MetaInfoClassMember('this-link', REFERENCE_CLASS, 'ThisLink' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink', 
                 [], [], 
                 '''                this link
                 ''',
@@ -1739,7 +1739,7 @@ _meta_table = {
                 ''',
                 'start_number',
                 'Cisco-IOS-XR-dnx-driver-oper', False),
-            _MetaInfoClassMember('tx-link', REFERENCE_LIST, 'TxLink' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink', 
+            _MetaInfoClassMember('tx-link', REFERENCE_LIST, 'TxLink_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_', 
                 [], [], 
                 '''                Single link information
                 ''',
@@ -3703,15 +3703,15 @@ _meta_table = {
         ),
     },
 }
-_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink.AsicId']['meta_info'].parent =_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink']['meta_info']
-_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLink.AsicId']['meta_info'].parent =_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLink']['meta_info']
-_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLinkInHw.AsicId']['meta_info'].parent =_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLinkInHw']['meta_info']
-_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.History.Hist']['meta_info'].parent =_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.History']['meta_info']
-_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.ThisLink']['meta_info'].parent =_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink']['meta_info']
-_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLink']['meta_info'].parent =_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink']['meta_info']
-_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.FarEndLinkInHw']['meta_info'].parent =_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink']['meta_info']
-_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink.History']['meta_info'].parent =_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink']['meta_info']
-_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink']['meta_info'].parent =_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink']['meta_info']
+_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink.AsicId']['meta_info'].parent =_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink']['meta_info']
+_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink.AsicId']['meta_info'].parent =_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink']['meta_info']
+_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw.AsicId']['meta_info'].parent =_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw']['meta_info']
+_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History.Hist']['meta_info'].parent =_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History']['meta_info']
+_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink']['meta_info'].parent =_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_']['meta_info']
+_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink']['meta_info'].parent =_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_']['meta_info']
+_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw']['meta_info'].parent =_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_']['meta_info']
+_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History']['meta_info'].parent =_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_']['meta_info']
+_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_']['meta_info'].parent =_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink']['meta_info']
 _meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink']['meta_info'].parent =_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks']['meta_info']
 _meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks']['meta_info'].parent =_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance']['meta_info']
 _meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance']['meta_info'].parent =_meta_table['Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances']['meta_info']
@@ -3725,14 +3725,14 @@ _meta_table['Fia.Nodes.Node.DriverInformation.DeviceInfo']['meta_info'].parent =
 _meta_table['Fia.Nodes.Node.DriverInformation.CardInfo']['meta_info'].parent =_meta_table['Fia.Nodes.Node.DriverInformation']['meta_info']
 _meta_table['Fia.Nodes.Node.ClearStatistics.AsicInstances.AsicInstance']['meta_info'].parent =_meta_table['Fia.Nodes.Node.ClearStatistics.AsicInstances']['meta_info']
 _meta_table['Fia.Nodes.Node.ClearStatistics.AsicInstances']['meta_info'].parent =_meta_table['Fia.Nodes.Node.ClearStatistics']['meta_info']
-_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink.AsicId']['meta_info'].parent =_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink']['meta_info']
-_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink.AsicId']['meta_info'].parent =_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink']['meta_info']
-_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.History.Hist']['meta_info'].parent =_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.History']['meta_info']
-_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.ThisLink']['meta_info'].parent =_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink']['meta_info']
-_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.FarEndLink']['meta_info'].parent =_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink']['meta_info']
-_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.Stats']['meta_info'].parent =_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink']['meta_info']
-_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink.History']['meta_info'].parent =_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink']['meta_info']
-_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink']['meta_info'].parent =_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink']['meta_info']
+_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink.AsicId']['meta_info'].parent =_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink']['meta_info']
+_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink.AsicId']['meta_info'].parent =_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink']['meta_info']
+_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History.Hist']['meta_info'].parent =_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History']['meta_info']
+_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink']['meta_info'].parent =_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_']['meta_info']
+_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink']['meta_info'].parent =_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_']['meta_info']
+_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.Stats']['meta_info'].parent =_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_']['meta_info']
+_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History']['meta_info'].parent =_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_']['meta_info']
+_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_']['meta_info'].parent =_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink']['meta_info']
 _meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink']['meta_info'].parent =_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks']['meta_info']
 _meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks']['meta_info'].parent =_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance']['meta_info']
 _meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance']['meta_info'].parent =_meta_table['Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances']['meta_info']

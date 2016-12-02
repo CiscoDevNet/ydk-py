@@ -31,25 +31,25 @@ class LogicalProtocolEnum(Enum):
 
     Logical protocol
 
-    .. data:: PROTO_TYPE_UNKNOWN = 0
+    .. data:: proto_type_unknown = 0
 
     	Unknown protocol framing
 
-    .. data:: PROTO_TYPE_ETHERNET = 1
+    .. data:: proto_type_ethernet = 1
 
     	Ethernet protocol framing
 
-    .. data:: PROTO_TYPE_OTN = 2
+    .. data:: proto_type_otn = 2
 
     	OTN protocol framing
 
     """
 
-    PROTO_TYPE_UNKNOWN = 0
+    proto_type_unknown = 0
 
-    PROTO_TYPE_ETHERNET = 1
+    proto_type_ethernet = 1
 
-    PROTO_TYPE_OTN = 2
+    proto_type_otn = 2
 
 
     @staticmethod
@@ -64,147 +64,147 @@ class TribProtocolEnum(Enum):
 
     Trib protocol
 
-    .. data:: TRIB_PROTO_TYPE_UNKNOWN = 0
+    .. data:: trib_proto_type_unknown = 0
 
     	Unknown protocol
 
-    .. data:: TRIB_PROTO_TYPE1GE = 1
+    .. data:: trib_proto_type1ge = 1
 
     	1G Ethernet protocol
 
-    .. data:: TRIB_PROTO_TYPE_OC48 = 2
+    .. data:: trib_proto_type_oc48 = 2
 
     	OC48 protocol
 
-    .. data:: TRIB_PROTO_TYPE_STM16 = 3
+    .. data:: trib_proto_type_stm16 = 3
 
     	STM 16 protocol
 
-    .. data:: TRIB_PROTO_TYPE10GELAN = 4
+    .. data:: trib_proto_type10gelan = 4
 
     	10G Ethernet LAN protocol
 
-    .. data:: TRIB_PROTO_TYPE10GEWAN = 5
+    .. data:: trib_proto_type10gewan = 5
 
     	10G Ethernet WAN protocol
 
-    .. data:: TRIB_PROTO_TYPE_OC192 = 6
+    .. data:: trib_proto_type_oc192 = 6
 
     	OC 192 (9.6GB) port protocol
 
-    .. data:: TRIB_PROTO_TYPE_STM64 = 7
+    .. data:: trib_proto_type_stm64 = 7
 
     	STM 64 protocol
 
-    .. data:: TRIB_PROTO_TYPE_OTU2 = 8
+    .. data:: trib_proto_type_otu2 = 8
 
     	OTU 2 protocol
 
-    .. data:: TRIB_PROTO_TYPE_OTU2E = 9
+    .. data:: trib_proto_type_otu2e = 9
 
     	OTU 2e protocol
 
-    .. data:: TRIB_PROTO_TYPE_OTU1E = 10
+    .. data:: trib_proto_type_otu1e = 10
 
     	OTU 1e protocol
 
-    .. data:: TRIB_PROTO_TYPE_ODU2 = 11
+    .. data:: trib_proto_type_odu2 = 11
 
     	ODU 2 protocol
 
-    .. data:: TRIB_PROTO_TYPE_ODU2E = 12
+    .. data:: trib_proto_type_odu2e = 12
 
     	ODU 2e protocol
 
-    .. data:: TRIB_PROTO_TYPE40GE = 13
+    .. data:: trib_proto_type40ge = 13
 
     	40G Ethernet port protocol
 
-    .. data:: TRIB_PROTO_TYPE_OC768 = 14
+    .. data:: trib_proto_type_oc768 = 14
 
     	OC 768 protocol
 
-    .. data:: TRIB_PROTO_TYPE_STM256 = 15
+    .. data:: trib_proto_type_stm256 = 15
 
     	STM 256 protocol
 
-    .. data:: TRIB_PROTO_TYPE_OTU3 = 16
+    .. data:: trib_proto_type_otu3 = 16
 
     	OTU 3 protocol
 
-    .. data:: TRIB_PROTO_TYPE_ODU3 = 17
+    .. data:: trib_proto_type_odu3 = 17
 
     	ODU 3 protocol
 
-    .. data:: TRIB_PROTO_TYPE100GE = 18
+    .. data:: trib_proto_type100ge = 18
 
     	100G Ethernet protocol
 
-    .. data:: TRIB_PROTO_TYPE100G_MLG = 19
+    .. data:: trib_proto_type100g_mlg = 19
 
     	100G MLG protocol
 
-    .. data:: TRIB_PROTO_TYPE_OTU4 = 20
+    .. data:: trib_proto_type_otu4 = 20
 
     	OTU4 signal protocol (112G) for transporting
 
     	100GE signal
 
-    .. data:: TRIB_PROTO_TYPE_OTU_CN = 21
+    .. data:: trib_proto_type_otu_cn = 21
 
     	OTU Cn protocol
 
-    .. data:: TRIB_PROTO_TYPE_ODU4 = 22
+    .. data:: trib_proto_type_odu4 = 22
 
     	ODU 4 protocol
 
     """
 
-    TRIB_PROTO_TYPE_UNKNOWN = 0
+    trib_proto_type_unknown = 0
 
-    TRIB_PROTO_TYPE1GE = 1
+    trib_proto_type1ge = 1
 
-    TRIB_PROTO_TYPE_OC48 = 2
+    trib_proto_type_oc48 = 2
 
-    TRIB_PROTO_TYPE_STM16 = 3
+    trib_proto_type_stm16 = 3
 
-    TRIB_PROTO_TYPE10GELAN = 4
+    trib_proto_type10gelan = 4
 
-    TRIB_PROTO_TYPE10GEWAN = 5
+    trib_proto_type10gewan = 5
 
-    TRIB_PROTO_TYPE_OC192 = 6
+    trib_proto_type_oc192 = 6
 
-    TRIB_PROTO_TYPE_STM64 = 7
+    trib_proto_type_stm64 = 7
 
-    TRIB_PROTO_TYPE_OTU2 = 8
+    trib_proto_type_otu2 = 8
 
-    TRIB_PROTO_TYPE_OTU2E = 9
+    trib_proto_type_otu2e = 9
 
-    TRIB_PROTO_TYPE_OTU1E = 10
+    trib_proto_type_otu1e = 10
 
-    TRIB_PROTO_TYPE_ODU2 = 11
+    trib_proto_type_odu2 = 11
 
-    TRIB_PROTO_TYPE_ODU2E = 12
+    trib_proto_type_odu2e = 12
 
-    TRIB_PROTO_TYPE40GE = 13
+    trib_proto_type40ge = 13
 
-    TRIB_PROTO_TYPE_OC768 = 14
+    trib_proto_type_oc768 = 14
 
-    TRIB_PROTO_TYPE_STM256 = 15
+    trib_proto_type_stm256 = 15
 
-    TRIB_PROTO_TYPE_OTU3 = 16
+    trib_proto_type_otu3 = 16
 
-    TRIB_PROTO_TYPE_ODU3 = 17
+    trib_proto_type_odu3 = 17
 
-    TRIB_PROTO_TYPE100GE = 18
+    trib_proto_type100ge = 18
 
-    TRIB_PROTO_TYPE100G_MLG = 19
+    trib_proto_type100g_mlg = 19
 
-    TRIB_PROTO_TYPE_OTU4 = 20
+    trib_proto_type_otu4 = 20
 
-    TRIB_PROTO_TYPE_OTU_CN = 21
+    trib_proto_type_otu_cn = 21
 
-    TRIB_PROTO_TYPE_ODU4 = 22
+    trib_proto_type_odu4 = 22
 
 
     @staticmethod
@@ -219,43 +219,43 @@ class TribRateClassEnum(Enum):
 
     Trib rate class
 
-    .. data:: TRIB_RATE1G = 0
+    .. data:: trib_rate1g = 0
 
     	1G tributary signal rate
 
-    .. data:: TRIB_RATE25G = 1
+    .. data:: trib_rate25g = 1
 
     	2.5G tributary signal rate
 
-    .. data:: TRIB_RATE10G = 2
+    .. data:: trib_rate10g = 2
 
     	10G tributary signal rate
 
-    .. data:: TRIB_RATE40G = 3
+    .. data:: trib_rate40g = 3
 
     	40G tributary signal rate
 
-    .. data:: TRIB_RATE100G = 4
+    .. data:: trib_rate100g = 4
 
     	100G tributary signal rate
 
-    .. data:: TRIB_RATE_UNKNOWN = 5
+    .. data:: trib_rate_unknown = 5
 
     	Unknown tributary signal rate
 
     """
 
-    TRIB_RATE1G = 0
+    trib_rate1g = 0
 
-    TRIB_RATE25G = 1
+    trib_rate25g = 1
 
-    TRIB_RATE10G = 2
+    trib_rate10g = 2
 
-    TRIB_RATE40G = 3
+    trib_rate40g = 3
 
-    TRIB_RATE100G = 4
+    trib_rate100g = 4
 
-    TRIB_RATE_UNKNOWN = 5
+    trib_rate_unknown = 5
 
 
     @staticmethod
@@ -272,17 +272,17 @@ class OpticalInterface(object):
     .. attribute:: operational_modes
     
     	The Operational Mode Table
-    	**type**\:  :py:class:`OperationalModes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_oper.OpticalInterface.OperationalModes>`
+    	**type**\:   :py:class:`OperationalModes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_oper.OpticalInterface.OperationalModes>`
     
     .. attribute:: optical_client_interfaces
     
     	The operational attributes table for Client Port
-    	**type**\:  :py:class:`OpticalClientInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_oper.OpticalInterface.OpticalClientInterfaces>`
+    	**type**\:   :py:class:`OpticalClientInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_oper.OpticalInterface.OpticalClientInterfaces>`
     
     .. attribute:: optical_logical_interfaces
     
     	The operational attributes for a particular interface
-    	**type**\:  :py:class:`OpticalLogicalInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_oper.OpticalInterface.OpticalLogicalInterfaces>`
+    	**type**\:   :py:class:`OpticalLogicalInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_oper.OpticalInterface.OpticalLogicalInterfaces>`
     
     
 
@@ -307,7 +307,7 @@ class OpticalInterface(object):
         .. attribute:: optical_client_interface
         
         	The operational attributes for Client Port
-        	**type**\: list of  :py:class:`OpticalClientInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_oper.OpticalInterface.OpticalClientInterfaces.OpticalClientInterface>`
+        	**type**\: list of    :py:class:`OpticalClientInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_oper.OpticalInterface.OpticalClientInterfaces.OpticalClientInterface>`
         
         
 
@@ -337,7 +337,7 @@ class OpticalInterface(object):
             .. attribute:: optical_client_logical_channel_assignments
             
             	The operational attributes for a Underline Ether Interface
-            	**type**\:  :py:class:`OpticalClientLogicalChannelAssignments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_oper.OpticalInterface.OpticalClientInterfaces.OpticalClientInterface.OpticalClientLogicalChannelAssignments>`
+            	**type**\:   :py:class:`OpticalClientLogicalChannelAssignments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_oper.OpticalInterface.OpticalClientInterfaces.OpticalClientInterface.OpticalClientLogicalChannelAssignments>`
             
             
 
@@ -361,7 +361,7 @@ class OpticalInterface(object):
                 .. attribute:: optical_client_logical_channel_assignment
                 
                 	The operational attributes for a Underline Ether Interface
-                	**type**\: list of  :py:class:`OpticalClientLogicalChannelAssignment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_oper.OpticalInterface.OpticalClientInterfaces.OpticalClientInterface.OpticalClientLogicalChannelAssignments.OpticalClientLogicalChannelAssignment>`
+                	**type**\: list of    :py:class:`OpticalClientLogicalChannelAssignment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_oper.OpticalInterface.OpticalClientInterfaces.OpticalClientInterface.OpticalClientLogicalChannelAssignments.OpticalClientLogicalChannelAssignment>`
                 
                 
 
@@ -553,7 +553,7 @@ class OpticalInterface(object):
         .. attribute:: operational_mode
         
         	Mode supported on Device
-        	**type**\: list of  :py:class:`OperationalMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_oper.OpticalInterface.OperationalModes.OperationalMode>`
+        	**type**\: list of    :py:class:`OperationalMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_oper.OpticalInterface.OperationalModes.OperationalMode>`
         
         
 
@@ -583,7 +583,7 @@ class OpticalInterface(object):
             .. attribute:: operational_mode_attributes
             
             	The operational attributes for mxp driver fec\-mode
-            	**type**\:  :py:class:`OperationalModeAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_oper.OpticalInterface.OperationalModes.OperationalMode.OperationalModeAttributes>`
+            	**type**\:   :py:class:`OperationalModeAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_oper.OpticalInterface.OperationalModes.OperationalMode.OperationalModeAttributes>`
             
             
 
@@ -717,7 +717,7 @@ class OpticalInterface(object):
         .. attribute:: optical_logical_interface
         
         	The operational attributes for a particular interface
-        	**type**\: list of  :py:class:`OpticalLogicalInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_oper.OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface>`
+        	**type**\: list of    :py:class:`OpticalLogicalInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_oper.OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface>`
         
         
 
@@ -748,12 +748,12 @@ class OpticalInterface(object):
             .. attribute:: optical_logical_interface_attr
             
             	The operational attributes for a particular interface
-            	**type**\:  :py:class:`OpticalLogicalInterfaceAttr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_oper.OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface.OpticalLogicalInterfaceAttr>`
+            	**type**\:   :py:class:`OpticalLogicalInterfaceAttr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_oper.OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface.OpticalLogicalInterfaceAttr>`
             
             .. attribute:: optical_logical_interface_logical_channel_assignments
             
             	The operational attributes for a particular interface
-            	**type**\:  :py:class:`OpticalLogicalInterfaceLogicalChannelAssignments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_oper.OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface.OpticalLogicalInterfaceLogicalChannelAssignments>`
+            	**type**\:   :py:class:`OpticalLogicalInterfaceLogicalChannelAssignments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_oper.OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface.OpticalLogicalInterfaceLogicalChannelAssignments>`
             
             
 
@@ -779,17 +779,17 @@ class OpticalInterface(object):
                 .. attribute:: protocol_type
                 
                 	ProtocolType
-                	**type**\:  :py:class:`LogicalProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_oper.LogicalProtocolEnum>`
+                	**type**\:   :py:class:`LogicalProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_oper.LogicalProtocolEnum>`
                 
                 .. attribute:: trib_protocol
                 
                 	TribProtocol
-                	**type**\:  :py:class:`TribProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_oper.TribProtocolEnum>`
+                	**type**\:   :py:class:`TribProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_oper.TribProtocolEnum>`
                 
                 .. attribute:: trib_rate_class
                 
                 	TribRateClass
-                	**type**\:  :py:class:`TribRateClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_oper.TribRateClassEnum>`
+                	**type**\:   :py:class:`TribRateClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_oper.TribRateClassEnum>`
                 
                 
 
@@ -843,7 +843,7 @@ class OpticalInterface(object):
                 .. attribute:: optical_logical_interface_logical_channel_assignment
                 
                 	The operational attributes for a particular interface
-                	**type**\: list of  :py:class:`OpticalLogicalInterfaceLogicalChannelAssignment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_oper.OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface.OpticalLogicalInterfaceLogicalChannelAssignments.OpticalLogicalInterfaceLogicalChannelAssignment>`
+                	**type**\: list of    :py:class:`OpticalLogicalInterfaceLogicalChannelAssignment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_oper.OpticalInterface.OpticalLogicalInterfaces.OpticalLogicalInterface.OpticalLogicalInterfaceLogicalChannelAssignments.OpticalLogicalInterfaceLogicalChannelAssignment>`
                 
                 
 

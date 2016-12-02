@@ -794,6 +794,202 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg'
         ),
     },
+    'DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Input' : {
+        'meta_info' : _MetaInfoClass('DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Input',
+            False, 
+            [
+            _MetaInfoClassMember('account-stats', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE for account stats enabled for
+                service-policy applied on dynamic template.
+                Note: account stats not supported for
+                subscriber type 'ppp' and 'ipsubscriber'.
+                ''',
+                'account_stats',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('merge', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE for merge enabled for service-policy
+                applied on dynamic template.
+                ''',
+                'merge',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('merge-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Merge ID value
+                ''',
+                'merge_id',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of policy-map
+                ''',
+                'policy_name',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('spi-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of the SPI
+                ''',
+                'spi_name',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            ],
+            'Cisco-IOS-XR-qos-ma-bng-cfg',
+            'input',
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-bng-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg'
+        ),
+    },
+    'DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Output' : {
+        'meta_info' : _MetaInfoClass('DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Output',
+            False, 
+            [
+            _MetaInfoClassMember('account-stats', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE for account stats enabled for
+                service-policy applied on dynamic template.
+                Note: account stats not supported for
+                subscriber type 'ppp' and 'ipsubscriber'.
+                ''',
+                'account_stats',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('merge', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE for merge enabled for service-policy
+                applied on dynamic template.
+                ''',
+                'merge',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('merge-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Merge ID value
+                ''',
+                'merge_id',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of policy-map
+                ''',
+                'policy_name',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('spi-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of the SPI
+                ''',
+                'spi_name',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            ],
+            'Cisco-IOS-XR-qos-ma-bng-cfg',
+            'output',
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-bng-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg'
+        ),
+    },
+    'DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy' : {
+        'meta_info' : _MetaInfoClass('DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy',
+            False, 
+            [
+            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Input', 
+                [], [], 
+                '''                Subscriber ingress policy
+                ''',
+                'input',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('output', REFERENCE_CLASS, 'Output' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Output', 
+                [], [], 
+                '''                Subscriber egress policy
+                ''',
+                'output',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            ],
+            'Cisco-IOS-XR-qos-ma-bng-cfg',
+            'service-policy',
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-bng-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg'
+        ),
+    },
+    'DynamicTemplate.Ppps.Ppp.Qos.Account' : {
+        'meta_info' : _MetaInfoClass('DynamicTemplate.Ppps.Ppp.Qos.Account',
+            False, 
+            [
+            _MetaInfoClassMember('aal', REFERENCE_ENUM_CLASS, 'Qosl2DataLinkEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg', 'Qosl2DataLinkEnum', 
+                [], [], 
+                '''                ATM adaptation layer AAL
+                ''',
+                'aal',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('atm-cell-tax', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                ATM cell tax to L2 overhead
+                ''',
+                'atm_cell_tax',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'Qosl2EncapEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg', 'Qosl2EncapEnum', 
+                [], [], 
+                '''                Specify encapsulation type
+                ''',
+                'encapsulation',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('user-defined', ATTRIBUTE, 'int' , None, None, 
+                [('-63', '63')], [], 
+                '''                Numeric L2 overhead offset
+                ''',
+                'user_defined',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            ],
+            'Cisco-IOS-XR-qos-ma-bng-cfg',
+            'account',
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-bng-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg'
+        ),
+    },
+    'DynamicTemplate.Ppps.Ppp.Qos.Output' : {
+        'meta_info' : _MetaInfoClass('DynamicTemplate.Ppps.Ppp.Qos.Output',
+            False, 
+            [
+            _MetaInfoClassMember('minimum-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('1', '4294967295')], [], 
+                '''                Minimum bandwidth value for the subscriber (in
+                kbps)
+                ''',
+                'minimum_bandwidth',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            ],
+            'Cisco-IOS-XR-qos-ma-bng-cfg',
+            'output',
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-bng-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg'
+        ),
+    },
+    'DynamicTemplate.Ppps.Ppp.Qos' : {
+        'meta_info' : _MetaInfoClass('DynamicTemplate.Ppps.Ppp.Qos',
+            False, 
+            [
+            _MetaInfoClassMember('account', REFERENCE_CLASS, 'Account' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.Qos.Account', 
+                [], [], 
+                '''                QoS L2 overhead accounting
+                ''',
+                'account',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('output', REFERENCE_CLASS, 'Output' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.Qos.Output', 
+                [], [], 
+                '''                QoS to be applied in egress direction
+                ''',
+                'output',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('service-policy', REFERENCE_CLASS, 'ServicePolicy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy', 
+                [], [], 
+                '''                Service policy to be applied in ingress/egress
+                direction
+                ''',
+                'service_policy',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            ],
+            'Cisco-IOS-XR-qos-ma-bng-cfg',
+            'qos',
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-bng-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg'
+        ),
+    },
     'DynamicTemplate.Ppps.Ppp' : {
         'meta_info' : _MetaInfoClass('DynamicTemplate.Ppps.Ppp',
             False, 
@@ -854,6 +1050,12 @@ _meta_table = {
                 ''',
                 'pbr',
                 'Cisco-IOS-XR-pbr-subscriber-cfg', False),
+            _MetaInfoClassMember('qos', REFERENCE_CLASS, 'Qos' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.Qos', 
+                [], [], 
+                '''                QoS dynamically applied configuration template
+                ''',
+                'qos',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
             _MetaInfoClassMember('span-monitor-sessions', REFERENCE_CLASS, 'SpanMonitorSessions' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.Ppps.Ppp.SpanMonitorSessions', 
                 [], [], 
                 '''                Monitor Session container for this template
@@ -1570,6 +1772,202 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg'
         ),
     },
+    'DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Input' : {
+        'meta_info' : _MetaInfoClass('DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Input',
+            False, 
+            [
+            _MetaInfoClassMember('account-stats', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE for account stats enabled for
+                service-policy applied on dynamic template.
+                Note: account stats not supported for
+                subscriber type 'ppp' and 'ipsubscriber'.
+                ''',
+                'account_stats',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('merge', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE for merge enabled for service-policy
+                applied on dynamic template.
+                ''',
+                'merge',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('merge-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Merge ID value
+                ''',
+                'merge_id',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of policy-map
+                ''',
+                'policy_name',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('spi-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of the SPI
+                ''',
+                'spi_name',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            ],
+            'Cisco-IOS-XR-qos-ma-bng-cfg',
+            'input',
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-bng-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg'
+        ),
+    },
+    'DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Output' : {
+        'meta_info' : _MetaInfoClass('DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Output',
+            False, 
+            [
+            _MetaInfoClassMember('account-stats', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE for account stats enabled for
+                service-policy applied on dynamic template.
+                Note: account stats not supported for
+                subscriber type 'ppp' and 'ipsubscriber'.
+                ''',
+                'account_stats',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('merge', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE for merge enabled for service-policy
+                applied on dynamic template.
+                ''',
+                'merge',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('merge-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Merge ID value
+                ''',
+                'merge_id',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of policy-map
+                ''',
+                'policy_name',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('spi-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of the SPI
+                ''',
+                'spi_name',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            ],
+            'Cisco-IOS-XR-qos-ma-bng-cfg',
+            'output',
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-bng-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg'
+        ),
+    },
+    'DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy' : {
+        'meta_info' : _MetaInfoClass('DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy',
+            False, 
+            [
+            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Input', 
+                [], [], 
+                '''                Subscriber ingress policy
+                ''',
+                'input',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('output', REFERENCE_CLASS, 'Output' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Output', 
+                [], [], 
+                '''                Subscriber egress policy
+                ''',
+                'output',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            ],
+            'Cisco-IOS-XR-qos-ma-bng-cfg',
+            'service-policy',
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-bng-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg'
+        ),
+    },
+    'DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Account' : {
+        'meta_info' : _MetaInfoClass('DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Account',
+            False, 
+            [
+            _MetaInfoClassMember('aal', REFERENCE_ENUM_CLASS, 'Qosl2DataLinkEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg', 'Qosl2DataLinkEnum', 
+                [], [], 
+                '''                ATM adaptation layer AAL
+                ''',
+                'aal',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('atm-cell-tax', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                ATM cell tax to L2 overhead
+                ''',
+                'atm_cell_tax',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'Qosl2EncapEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg', 'Qosl2EncapEnum', 
+                [], [], 
+                '''                Specify encapsulation type
+                ''',
+                'encapsulation',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('user-defined', ATTRIBUTE, 'int' , None, None, 
+                [('-63', '63')], [], 
+                '''                Numeric L2 overhead offset
+                ''',
+                'user_defined',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            ],
+            'Cisco-IOS-XR-qos-ma-bng-cfg',
+            'account',
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-bng-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg'
+        ),
+    },
+    'DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Output' : {
+        'meta_info' : _MetaInfoClass('DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Output',
+            False, 
+            [
+            _MetaInfoClassMember('minimum-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('1', '4294967295')], [], 
+                '''                Minimum bandwidth value for the subscriber (in
+                kbps)
+                ''',
+                'minimum_bandwidth',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            ],
+            'Cisco-IOS-XR-qos-ma-bng-cfg',
+            'output',
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-bng-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg'
+        ),
+    },
+    'DynamicTemplate.IpSubscribers.IpSubscriber.Qos' : {
+        'meta_info' : _MetaInfoClass('DynamicTemplate.IpSubscribers.IpSubscriber.Qos',
+            False, 
+            [
+            _MetaInfoClassMember('account', REFERENCE_CLASS, 'Account' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Account', 
+                [], [], 
+                '''                QoS L2 overhead accounting
+                ''',
+                'account',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('output', REFERENCE_CLASS, 'Output' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Output', 
+                [], [], 
+                '''                QoS to be applied in egress direction
+                ''',
+                'output',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('service-policy', REFERENCE_CLASS, 'ServicePolicy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy', 
+                [], [], 
+                '''                Service policy to be applied in ingress/egress
+                direction
+                ''',
+                'service_policy',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            ],
+            'Cisco-IOS-XR-qos-ma-bng-cfg',
+            'qos',
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-bng-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg'
+        ),
+    },
     'DynamicTemplate.IpSubscribers.IpSubscriber' : {
         'meta_info' : _MetaInfoClass('DynamicTemplate.IpSubscribers.IpSubscriber',
             False, 
@@ -1624,6 +2022,12 @@ _meta_table = {
                 ''',
                 'pbr',
                 'Cisco-IOS-XR-pbr-subscriber-cfg', False),
+            _MetaInfoClassMember('qos', REFERENCE_CLASS, 'Qos' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.Qos', 
+                [], [], 
+                '''                QoS dynamically applied configuration template
+                ''',
+                'qos',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
             _MetaInfoClassMember('span-monitor-sessions', REFERENCE_CLASS, 'SpanMonitorSessions' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions', 
                 [], [], 
                 '''                Monitor Session container for this template
@@ -2270,6 +2674,202 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg'
         ),
     },
+    'DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Input' : {
+        'meta_info' : _MetaInfoClass('DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Input',
+            False, 
+            [
+            _MetaInfoClassMember('account-stats', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE for account stats enabled for
+                service-policy applied on dynamic template.
+                Note: account stats not supported for
+                subscriber type 'ppp' and 'ipsubscriber'.
+                ''',
+                'account_stats',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('merge', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE for merge enabled for service-policy
+                applied on dynamic template.
+                ''',
+                'merge',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('merge-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Merge ID value
+                ''',
+                'merge_id',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of policy-map
+                ''',
+                'policy_name',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('spi-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of the SPI
+                ''',
+                'spi_name',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            ],
+            'Cisco-IOS-XR-qos-ma-bng-cfg',
+            'input',
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-bng-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg'
+        ),
+    },
+    'DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Output' : {
+        'meta_info' : _MetaInfoClass('DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Output',
+            False, 
+            [
+            _MetaInfoClassMember('account-stats', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE for account stats enabled for
+                service-policy applied on dynamic template.
+                Note: account stats not supported for
+                subscriber type 'ppp' and 'ipsubscriber'.
+                ''',
+                'account_stats',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('merge', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE for merge enabled for service-policy
+                applied on dynamic template.
+                ''',
+                'merge',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('merge-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Merge ID value
+                ''',
+                'merge_id',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of policy-map
+                ''',
+                'policy_name',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('spi-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of the SPI
+                ''',
+                'spi_name',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            ],
+            'Cisco-IOS-XR-qos-ma-bng-cfg',
+            'output',
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-bng-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg'
+        ),
+    },
+    'DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy' : {
+        'meta_info' : _MetaInfoClass('DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy',
+            False, 
+            [
+            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Input', 
+                [], [], 
+                '''                Subscriber ingress policy
+                ''',
+                'input',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('output', REFERENCE_CLASS, 'Output' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Output', 
+                [], [], 
+                '''                Subscriber egress policy
+                ''',
+                'output',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            ],
+            'Cisco-IOS-XR-qos-ma-bng-cfg',
+            'service-policy',
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-bng-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg'
+        ),
+    },
+    'DynamicTemplate.SubscriberServices.SubscriberService.Qos.Account' : {
+        'meta_info' : _MetaInfoClass('DynamicTemplate.SubscriberServices.SubscriberService.Qos.Account',
+            False, 
+            [
+            _MetaInfoClassMember('aal', REFERENCE_ENUM_CLASS, 'Qosl2DataLinkEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg', 'Qosl2DataLinkEnum', 
+                [], [], 
+                '''                ATM adaptation layer AAL
+                ''',
+                'aal',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('atm-cell-tax', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                ATM cell tax to L2 overhead
+                ''',
+                'atm_cell_tax',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('encapsulation', REFERENCE_ENUM_CLASS, 'Qosl2EncapEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg', 'Qosl2EncapEnum', 
+                [], [], 
+                '''                Specify encapsulation type
+                ''',
+                'encapsulation',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('user-defined', ATTRIBUTE, 'int' , None, None, 
+                [('-63', '63')], [], 
+                '''                Numeric L2 overhead offset
+                ''',
+                'user_defined',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            ],
+            'Cisco-IOS-XR-qos-ma-bng-cfg',
+            'account',
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-bng-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg'
+        ),
+    },
+    'DynamicTemplate.SubscriberServices.SubscriberService.Qos.Output' : {
+        'meta_info' : _MetaInfoClass('DynamicTemplate.SubscriberServices.SubscriberService.Qos.Output',
+            False, 
+            [
+            _MetaInfoClassMember('minimum-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('1', '4294967295')], [], 
+                '''                Minimum bandwidth value for the subscriber (in
+                kbps)
+                ''',
+                'minimum_bandwidth',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            ],
+            'Cisco-IOS-XR-qos-ma-bng-cfg',
+            'output',
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-bng-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg'
+        ),
+    },
+    'DynamicTemplate.SubscriberServices.SubscriberService.Qos' : {
+        'meta_info' : _MetaInfoClass('DynamicTemplate.SubscriberServices.SubscriberService.Qos',
+            False, 
+            [
+            _MetaInfoClassMember('account', REFERENCE_CLASS, 'Account' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.SubscriberServices.SubscriberService.Qos.Account', 
+                [], [], 
+                '''                QoS L2 overhead accounting
+                ''',
+                'account',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('output', REFERENCE_CLASS, 'Output' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.SubscriberServices.SubscriberService.Qos.Output', 
+                [], [], 
+                '''                QoS to be applied in egress direction
+                ''',
+                'output',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            _MetaInfoClassMember('service-policy', REFERENCE_CLASS, 'ServicePolicy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy', 
+                [], [], 
+                '''                Service policy to be applied in ingress/egress
+                direction
+                ''',
+                'service_policy',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
+            ],
+            'Cisco-IOS-XR-qos-ma-bng-cfg',
+            'qos',
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-bng-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg'
+        ),
+    },
     'DynamicTemplate.SubscriberServices.SubscriberService' : {
         'meta_info' : _MetaInfoClass('DynamicTemplate.SubscriberServices.SubscriberService',
             False, 
@@ -2318,6 +2918,12 @@ _meta_table = {
                 ''',
                 'pbr',
                 'Cisco-IOS-XR-pbr-subscriber-cfg', False),
+            _MetaInfoClassMember('qos', REFERENCE_CLASS, 'Qos' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.SubscriberServices.SubscriberService.Qos', 
+                [], [], 
+                '''                QoS dynamically applied configuration template
+                ''',
+                'qos',
+                'Cisco-IOS-XR-qos-ma-bng-cfg', False),
             _MetaInfoClassMember('span-monitor-sessions', REFERENCE_CLASS, 'SpanMonitorSessions' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_infra_tmplmgr_cfg', 'DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions', 
                 [], [], 
                 '''                Monitor Session container for this template
@@ -2399,6 +3005,11 @@ _meta_table['DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.DuplicateAddressDetection']['
 _meta_table['DynamicTemplate.Ppps.Ppp.Ipv6Neighbor.RaInitial']['meta_info'].parent =_meta_table['DynamicTemplate.Ppps.Ppp.Ipv6Neighbor']['meta_info']
 _meta_table['DynamicTemplate.Ppps.Ppp.Dhcpv6.DelegatedPrefix']['meta_info'].parent =_meta_table['DynamicTemplate.Ppps.Ppp.Dhcpv6']['meta_info']
 _meta_table['DynamicTemplate.Ppps.Ppp.Pbr.ServicePolicy']['meta_info'].parent =_meta_table['DynamicTemplate.Ppps.Ppp.Pbr']['meta_info']
+_meta_table['DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Input']['meta_info'].parent =_meta_table['DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy']['meta_info']
+_meta_table['DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy.Output']['meta_info'].parent =_meta_table['DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy']['meta_info']
+_meta_table['DynamicTemplate.Ppps.Ppp.Qos.ServicePolicy']['meta_info'].parent =_meta_table['DynamicTemplate.Ppps.Ppp.Qos']['meta_info']
+_meta_table['DynamicTemplate.Ppps.Ppp.Qos.Account']['meta_info'].parent =_meta_table['DynamicTemplate.Ppps.Ppp.Qos']['meta_info']
+_meta_table['DynamicTemplate.Ppps.Ppp.Qos.Output']['meta_info'].parent =_meta_table['DynamicTemplate.Ppps.Ppp.Qos']['meta_info']
 _meta_table['DynamicTemplate.Ppps.Ppp.SpanMonitorSessions']['meta_info'].parent =_meta_table['DynamicTemplate.Ppps.Ppp']['meta_info']
 _meta_table['DynamicTemplate.Ppps.Ppp.Ipv4PacketFilter']['meta_info'].parent =_meta_table['DynamicTemplate.Ppps.Ppp']['meta_info']
 _meta_table['DynamicTemplate.Ppps.Ppp.Ipv6PacketFilter']['meta_info'].parent =_meta_table['DynamicTemplate.Ppps.Ppp']['meta_info']
@@ -2408,6 +3019,7 @@ _meta_table['DynamicTemplate.Ppps.Ppp.Ipv6Network']['meta_info'].parent =_meta_t
 _meta_table['DynamicTemplate.Ppps.Ppp.Ipv6Neighbor']['meta_info'].parent =_meta_table['DynamicTemplate.Ppps.Ppp']['meta_info']
 _meta_table['DynamicTemplate.Ppps.Ppp.Dhcpv6']['meta_info'].parent =_meta_table['DynamicTemplate.Ppps.Ppp']['meta_info']
 _meta_table['DynamicTemplate.Ppps.Ppp.Pbr']['meta_info'].parent =_meta_table['DynamicTemplate.Ppps.Ppp']['meta_info']
+_meta_table['DynamicTemplate.Ppps.Ppp.Qos']['meta_info'].parent =_meta_table['DynamicTemplate.Ppps.Ppp']['meta_info']
 _meta_table['DynamicTemplate.Ppps.Ppp']['meta_info'].parent =_meta_table['DynamicTemplate.Ppps']['meta_info']
 _meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession.Attachment']['meta_info'].parent =_meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession']['meta_info']
 _meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions.SpanMonitorSession']['meta_info'].parent =_meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions']['meta_info']
@@ -2422,6 +3034,11 @@ _meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.DuplicateAd
 _meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor.RaInitial']['meta_info'].parent =_meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor']['meta_info']
 _meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6.DelegatedPrefix']['meta_info'].parent =_meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6']['meta_info']
 _meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Pbr.ServicePolicy']['meta_info'].parent =_meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Pbr']['meta_info']
+_meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Input']['meta_info'].parent =_meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy']['meta_info']
+_meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy.Output']['meta_info'].parent =_meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy']['meta_info']
+_meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Qos.ServicePolicy']['meta_info'].parent =_meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Qos']['meta_info']
+_meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Account']['meta_info'].parent =_meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Qos']['meta_info']
+_meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Qos.Output']['meta_info'].parent =_meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Qos']['meta_info']
 _meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.SpanMonitorSessions']['meta_info'].parent =_meta_table['DynamicTemplate.IpSubscribers.IpSubscriber']['meta_info']
 _meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv4PacketFilter']['meta_info'].parent =_meta_table['DynamicTemplate.IpSubscribers.IpSubscriber']['meta_info']
 _meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6PacketFilter']['meta_info'].parent =_meta_table['DynamicTemplate.IpSubscribers.IpSubscriber']['meta_info']
@@ -2430,6 +3047,7 @@ _meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Network']['meta_info
 _meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Ipv6Neighbor']['meta_info'].parent =_meta_table['DynamicTemplate.IpSubscribers.IpSubscriber']['meta_info']
 _meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Dhcpv6']['meta_info'].parent =_meta_table['DynamicTemplate.IpSubscribers.IpSubscriber']['meta_info']
 _meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Pbr']['meta_info'].parent =_meta_table['DynamicTemplate.IpSubscribers.IpSubscriber']['meta_info']
+_meta_table['DynamicTemplate.IpSubscribers.IpSubscriber.Qos']['meta_info'].parent =_meta_table['DynamicTemplate.IpSubscribers.IpSubscriber']['meta_info']
 _meta_table['DynamicTemplate.IpSubscribers.IpSubscriber']['meta_info'].parent =_meta_table['DynamicTemplate.IpSubscribers']['meta_info']
 _meta_table['DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession.Attachment']['meta_info'].parent =_meta_table['DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession']['meta_info']
 _meta_table['DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions.SpanMonitorSession']['meta_info'].parent =_meta_table['DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions']['meta_info']
@@ -2443,6 +3061,11 @@ _meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.F
 _meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.DuplicateAddressDetection']['meta_info'].parent =_meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor']['meta_info']
 _meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor.RaInitial']['meta_info'].parent =_meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor']['meta_info']
 _meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Pbr.ServicePolicy']['meta_info'].parent =_meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Pbr']['meta_info']
+_meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Input']['meta_info'].parent =_meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy']['meta_info']
+_meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy.Output']['meta_info'].parent =_meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy']['meta_info']
+_meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Qos.ServicePolicy']['meta_info'].parent =_meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Qos']['meta_info']
+_meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Qos.Account']['meta_info'].parent =_meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Qos']['meta_info']
+_meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Qos.Output']['meta_info'].parent =_meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Qos']['meta_info']
 _meta_table['DynamicTemplate.SubscriberServices.SubscriberService.SpanMonitorSessions']['meta_info'].parent =_meta_table['DynamicTemplate.SubscriberServices.SubscriberService']['meta_info']
 _meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv4PacketFilter']['meta_info'].parent =_meta_table['DynamicTemplate.SubscriberServices.SubscriberService']['meta_info']
 _meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv6PacketFilter']['meta_info'].parent =_meta_table['DynamicTemplate.SubscriberServices.SubscriberService']['meta_info']
@@ -2450,6 +3073,7 @@ _meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv4Network'][
 _meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Network']['meta_info'].parent =_meta_table['DynamicTemplate.SubscriberServices.SubscriberService']['meta_info']
 _meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Ipv6Neighbor']['meta_info'].parent =_meta_table['DynamicTemplate.SubscriberServices.SubscriberService']['meta_info']
 _meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Pbr']['meta_info'].parent =_meta_table['DynamicTemplate.SubscriberServices.SubscriberService']['meta_info']
+_meta_table['DynamicTemplate.SubscriberServices.SubscriberService.Qos']['meta_info'].parent =_meta_table['DynamicTemplate.SubscriberServices.SubscriberService']['meta_info']
 _meta_table['DynamicTemplate.SubscriberServices.SubscriberService']['meta_info'].parent =_meta_table['DynamicTemplate.SubscriberServices']['meta_info']
 _meta_table['DynamicTemplate.Ppps']['meta_info'].parent =_meta_table['DynamicTemplate']['meta_info']
 _meta_table['DynamicTemplate.IpSubscribers']['meta_info'].parent =_meta_table['DynamicTemplate']['meta_info']

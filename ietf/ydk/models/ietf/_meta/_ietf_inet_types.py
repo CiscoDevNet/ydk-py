@@ -16,8 +16,8 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'IpVersionEnum' : _MetaInfoEnum('IpVersionEnum', 'ydk.models.ietf.ietf_inet_types',
         {
-            'unknown':'UNKNOWN',
-            'ipv4':'IPV4',
-            'ipv6':'IPV6',
+            'unknown':'unknown',
+            'ipv4':'ipv4',
+            'ipv6':'ipv6',
         }, 'ietf-inet-types', _yang_ns._namespaces['ietf-inet-types']),
 }

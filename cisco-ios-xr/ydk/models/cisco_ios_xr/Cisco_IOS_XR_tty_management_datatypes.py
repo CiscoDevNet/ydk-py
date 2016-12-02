@@ -26,25 +26,25 @@ class TtyEscapeCharEnum(Enum):
 
     Tty escape char
 
-    .. data:: BREAK = 257
+    .. data:: break_ = 257
 
     	Cause escape on BREAK
 
-    .. data:: DEFAULT = 30
+    .. data:: default = 30
 
     	Use default escape character
 
-    .. data:: NONE = 256
+    .. data:: none = 256
 
     	Disable escape entirely
 
     """
 
-    BREAK = 257
+    break_ = 257
 
-    DEFAULT = 30
+    default = 30
 
-    NONE = 256
+    none = 256
 
 
     @staticmethod
@@ -59,25 +59,25 @@ class TtyPagerEnum(Enum):
 
     Tty pager
 
-    .. data:: MORE = 1
+    .. data:: more = 1
 
     	More paging Utility
 
-    .. data:: LESS = 2
+    .. data:: less = 2
 
     	Less paging Utility
 
-    .. data:: NONE = 3
+    .. data:: none = 3
 
     	No Paging Utility
 
     """
 
-    MORE = 1
+    more = 1
 
-    LESS = 2
+    less = 2
 
-    NONE = 3
+    none = 3
 
 
     @staticmethod
@@ -92,19 +92,19 @@ class TtySessionTimeoutDirectionEnum(Enum):
 
     Tty session timeout direction
 
-    .. data:: IN = 1
+    .. data:: in_ = 1
 
     	Input traffic
 
-    .. data:: IN_OUT = 3
+    .. data:: in_out = 3
 
     	In & Output traffic
 
     """
 
-    IN = 1
+    in_ = 1
 
-    IN_OUT = 3
+    in_out = 3
 
 
     @staticmethod
@@ -119,25 +119,25 @@ class TtyTransportProtocolEnum(Enum):
 
     Tty transport protocol
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	No protocols
 
-    .. data:: TELNET = 1
+    .. data:: telnet = 1
 
     	TCP/IP Telnet protocol
 
-    .. data:: SSH = 3
+    .. data:: ssh = 3
 
     	Unix ssh protocol
 
     """
 
-    NONE = 0
+    none = 0
 
-    TELNET = 1
+    telnet = 1
 
-    SSH = 3
+    ssh = 3
 
 
     @staticmethod
@@ -152,25 +152,25 @@ class TtyTransportProtocolSelectEnum(Enum):
 
     Tty transport protocol select
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	No protocols
 
-    .. data:: ALL = 1
+    .. data:: all = 1
 
     	All protocols
 
-    .. data:: SOME = 2
+    .. data:: some = 2
 
     	Some Protocol
 
     """
 
-    NONE = 0
+    none = 0
 
-    ALL = 1
+    all = 1
 
-    SOME = 2
+    some = 2
 
 
     @staticmethod

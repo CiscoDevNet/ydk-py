@@ -32,12 +32,12 @@ class Ipv6Virtual(object):
     .. attribute:: use_as_source_address
     
     	Enable use as default source address on sourced packets
-    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: vrfs
     
     	VRFs for the virtual IPv6 addresses
-    	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_smiap_cfg.Ipv6Virtual.Vrfs>`
+    	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_smiap_cfg.Ipv6Virtual.Vrfs>`
     
     
 
@@ -59,7 +59,7 @@ class Ipv6Virtual(object):
         .. attribute:: vrf
         
         	A VRF for a virtual IPv6 address.  Specify 'default' for VRF default
-        	**type**\: list of  :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_smiap_cfg.Ipv6Virtual.Vrfs.Vrf>`
+        	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_smiap_cfg.Ipv6Virtual.Vrfs.Vrf>`
         
         
 
@@ -90,7 +90,9 @@ class Ipv6Virtual(object):
             .. attribute:: address
             
             	IPv6 address and mask
-            	**type**\:  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_smiap_cfg.Ipv6Virtual.Vrfs.Vrf.Address>`
+            	**type**\:   :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_smiap_cfg.Ipv6Virtual.Vrfs.Vrf.Address>`
+            
+            	**presence node**\: True
             
             
 

@@ -32,7 +32,7 @@ class AsicErrorStats(object):
     .. attribute:: nodes
     
     	Table of Nodes
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_asic_errors_oper.AsicErrorStats.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_asic_errors_oper.AsicErrorStats.Nodes>`
     
     
 
@@ -53,7 +53,7 @@ class AsicErrorStats(object):
         .. attribute:: node
         
         	Information about a particular node
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_asic_errors_oper.AsicErrorStats.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_asic_errors_oper.AsicErrorStats.Nodes.Node>`
         
         
 
@@ -83,7 +83,7 @@ class AsicErrorStats(object):
             .. attribute:: counts
             
             	Table of all Asic Types information on a node
-            	**type**\:  :py:class:`Counts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_asic_errors_oper.AsicErrorStats.Nodes.Node.Counts>`
+            	**type**\:   :py:class:`Counts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_asic_errors_oper.AsicErrorStats.Nodes.Node.Counts>`
             
             
 
@@ -106,7 +106,7 @@ class AsicErrorStats(object):
                 .. attribute:: count
                 
                 	Summary Asic error counts for a Asic Type
-                	**type**\: list of  :py:class:`Count <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_asic_errors_oper.AsicErrorStats.Nodes.Node.Counts.Count>`
+                	**type**\: list of    :py:class:`Count <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_asic_errors_oper.AsicErrorStats.Nodes.Node.Counts.Count>`
                 
                 
 
@@ -136,7 +136,7 @@ class AsicErrorStats(object):
                     .. attribute:: sum_data
                     
                     	sum data
-                    	**type**\: list of  :py:class:`SumData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_asic_errors_oper.AsicErrorStats.Nodes.Node.Counts.Count.SumData>`
+                    	**type**\: list of    :py:class:`SumData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_asic_errors_oper.AsicErrorStats.Nodes.Node.Counts.Count.SumData>`
                     
                     
 

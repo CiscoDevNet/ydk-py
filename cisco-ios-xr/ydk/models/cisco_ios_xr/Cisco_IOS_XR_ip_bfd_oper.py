@@ -30,25 +30,25 @@ class BfdAfIdEnum(Enum):
 
     Bfd af id
 
-    .. data:: BFD_AF_ID_NONE = 0
+    .. data:: bfd_af_id_none = 0
 
     	No Address
 
-    .. data:: BFD_AF_ID_IPV4 = 2
+    .. data:: bfd_af_id_ipv4 = 2
 
     	IPv4 AFI
 
-    .. data:: BFD_AF_ID_IPV6 = 10
+    .. data:: bfd_af_id_ipv6 = 10
 
     	IPv6 AFI
 
     """
 
-    BFD_AF_ID_NONE = 0
+    bfd_af_id_none = 0
 
-    BFD_AF_ID_IPV4 = 2
+    bfd_af_id_ipv4 = 2
 
-    BFD_AF_ID_IPV6 = 10
+    bfd_af_id_ipv6 = 10
 
 
     @staticmethod
@@ -63,19 +63,19 @@ class BfdApiFecEnum(Enum):
 
     Bfd api fec
 
-    .. data:: BFD_API_FEC_TYPE_NONE = 0
+    .. data:: bfd_api_fec_type_none = 0
 
     	bfd api fec type none
 
-    .. data:: BFD_API_FEC_TYPE_P2P_TE = 1
+    .. data:: bfd_api_fec_type_p2p_te = 1
 
     	bfd api fec type p2p te
 
     """
 
-    BFD_API_FEC_TYPE_NONE = 0
+    bfd_api_fec_type_none = 0
 
-    BFD_API_FEC_TYPE_P2P_TE = 1
+    bfd_api_fec_type_p2p_te = 1
 
 
     @staticmethod
@@ -90,25 +90,25 @@ class BfdMgmtPktDisplayEnum(Enum):
 
     BFD session type
 
-    .. data:: BFD_MGMT_PKT_DISPLAY_TYPE_NONE = 0
+    .. data:: bfd_mgmt_pkt_display_type_none = 0
 
     	None
 
-    .. data:: BFD_MGMT_PKT_DISPLAY_TYPE_BOB_MBR = 1
+    .. data:: bfd_mgmt_pkt_display_type_bob_mbr = 1
 
     	Display Type Bundle RTR Member
 
-    .. data:: BFD_MGMT_PKT_DISPLAY_TYPE_MAX = 2
+    .. data:: bfd_mgmt_pkt_display_type_max = 2
 
     	Display Type Enum Max Value
 
     """
 
-    BFD_MGMT_PKT_DISPLAY_TYPE_NONE = 0
+    bfd_mgmt_pkt_display_type_none = 0
 
-    BFD_MGMT_PKT_DISPLAY_TYPE_BOB_MBR = 1
+    bfd_mgmt_pkt_display_type_bob_mbr = 1
 
-    BFD_MGMT_PKT_DISPLAY_TYPE_MAX = 2
+    bfd_mgmt_pkt_display_type_max = 2
 
 
     @staticmethod
@@ -123,67 +123,67 @@ class BfdMgmtSessionDiagEnum(Enum):
 
     BFD session diagnostic
 
-    .. data:: BFD_MGMT_SESSION_DIAG_NONE = 0
+    .. data:: bfd_mgmt_session_diag_none = 0
 
     	No diagnostic
 
-    .. data:: BFD_MGMT_SESSION_DIAG_CONTROL_DETECT_EXPIRED = 1
+    .. data:: bfd_mgmt_session_diag_control_detect_expired = 1
 
     	Control Detection Time Expired
 
-    .. data:: BFD_MGMT_SESSION_DIAG_ECHO_FUNCTION_FAILED = 2
+    .. data:: bfd_mgmt_session_diag_echo_function_failed = 2
 
     	Echo Function Failed
 
-    .. data:: BFD_MGMT_SESSION_DIAG_NB_OR_SIGNALED_DOWN = 3
+    .. data:: bfd_mgmt_session_diag_nb_or_signaled_down = 3
 
     	Neighbor Signaled Session Down
 
-    .. data:: BFD_MGMT_SESSION_DIAG_FWDING_PLANE_RESET = 4
+    .. data:: bfd_mgmt_session_diag_fwding_plane_reset = 4
 
     	Forwarding Plane Reset
 
-    .. data:: BFD_MGMT_SESSION_DIAG_PATH_DOWN = 5
+    .. data:: bfd_mgmt_session_diag_path_down = 5
 
     	Path Down
 
-    .. data:: BFD_MGMT_SESSION_DIAG_CONC_PATH_DOWN = 6
+    .. data:: bfd_mgmt_session_diag_conc_path_down = 6
 
     	Concatenated Path Down
 
-    .. data:: BFD_MGMT_SESSION_DIAG_ADMIN_DOWN = 7
+    .. data:: bfd_mgmt_session_diag_admin_down = 7
 
     	Administratively Down
 
-    .. data:: BFD_MGMT_SESSION_DIAG_REV_CONC_PATH_DOWN = 8
+    .. data:: bfd_mgmt_session_diag_rev_conc_path_down = 8
 
     	Reverse Concatenated Path Down
 
-    .. data:: BFD_MGMT_SESSION_DIAG_NUM = 10
+    .. data:: bfd_mgmt_session_diag_num = 10
 
     	Unknown diagnostic state
 
     """
 
-    BFD_MGMT_SESSION_DIAG_NONE = 0
+    bfd_mgmt_session_diag_none = 0
 
-    BFD_MGMT_SESSION_DIAG_CONTROL_DETECT_EXPIRED = 1
+    bfd_mgmt_session_diag_control_detect_expired = 1
 
-    BFD_MGMT_SESSION_DIAG_ECHO_FUNCTION_FAILED = 2
+    bfd_mgmt_session_diag_echo_function_failed = 2
 
-    BFD_MGMT_SESSION_DIAG_NB_OR_SIGNALED_DOWN = 3
+    bfd_mgmt_session_diag_nb_or_signaled_down = 3
 
-    BFD_MGMT_SESSION_DIAG_FWDING_PLANE_RESET = 4
+    bfd_mgmt_session_diag_fwding_plane_reset = 4
 
-    BFD_MGMT_SESSION_DIAG_PATH_DOWN = 5
+    bfd_mgmt_session_diag_path_down = 5
 
-    BFD_MGMT_SESSION_DIAG_CONC_PATH_DOWN = 6
+    bfd_mgmt_session_diag_conc_path_down = 6
 
-    BFD_MGMT_SESSION_DIAG_ADMIN_DOWN = 7
+    bfd_mgmt_session_diag_admin_down = 7
 
-    BFD_MGMT_SESSION_DIAG_REV_CONC_PATH_DOWN = 8
+    bfd_mgmt_session_diag_rev_conc_path_down = 8
 
-    BFD_MGMT_SESSION_DIAG_NUM = 10
+    bfd_mgmt_session_diag_num = 10
 
 
     @staticmethod
@@ -198,43 +198,43 @@ class BfdMgmtSessionStateEnum(Enum):
 
     BFD session states
 
-    .. data:: BFD_MGMT_SESSION_STATE_ADMIN_DOWN = 0
+    .. data:: bfd_mgmt_session_state_admin_down = 0
 
     	Session in Administratively Shutdown State
 
-    .. data:: BFD_MGMT_SESSION_STATE_DOWN = 1
+    .. data:: bfd_mgmt_session_state_down = 1
 
     	Session in Down State
 
-    .. data:: BFD_MGMT_SESSION_STATE_INIT = 2
+    .. data:: bfd_mgmt_session_state_init = 2
 
     	Session in Initializing State
 
-    .. data:: BFD_MGMT_SESSION_STATE_UP = 3
+    .. data:: bfd_mgmt_session_state_up = 3
 
     	Session in Up State
 
-    .. data:: BFD_MGMT_SESSION_STATE_FAILING = 4
+    .. data:: bfd_mgmt_session_state_failing = 4
 
     	Session in Failing State
 
-    .. data:: BFD_MGMT_SESSION_STATE_UNKNOWN = 6
+    .. data:: bfd_mgmt_session_state_unknown = 6
 
     	Session in Unknown State
 
     """
 
-    BFD_MGMT_SESSION_STATE_ADMIN_DOWN = 0
+    bfd_mgmt_session_state_admin_down = 0
 
-    BFD_MGMT_SESSION_STATE_DOWN = 1
+    bfd_mgmt_session_state_down = 1
 
-    BFD_MGMT_SESSION_STATE_INIT = 2
+    bfd_mgmt_session_state_init = 2
 
-    BFD_MGMT_SESSION_STATE_UP = 3
+    bfd_mgmt_session_state_up = 3
 
-    BFD_MGMT_SESSION_STATE_FAILING = 4
+    bfd_mgmt_session_state_failing = 4
 
-    BFD_MGMT_SESSION_STATE_UNKNOWN = 6
+    bfd_mgmt_session_state_unknown = 6
 
 
     @staticmethod
@@ -249,43 +249,43 @@ class BfdMpDownloadStateEnum(Enum):
 
     Bfd mp download state
 
-    .. data:: BFD_MP_DOWNLOAD_NONE = 0
+    .. data:: bfd_mp_download_none = 0
 
     	bfd mp download none
 
-    .. data:: BFD_MP_DOWNLOAD_NO_LC = 1
+    .. data:: bfd_mp_download_no_lc = 1
 
     	bfd mp download no lc
 
-    .. data:: BFD_MP_DOWNLOAD_DOWNLOADED = 2
+    .. data:: bfd_mp_download_downloaded = 2
 
     	bfd mp download downloaded
 
-    .. data:: BFD_MP_DOWNLOAD_ACK = 3
+    .. data:: bfd_mp_download_ack = 3
 
     	bfd mp download ack
 
-    .. data:: BFD_MP_DOWNLOAD_NACK = 4
+    .. data:: bfd_mp_download_nack = 4
 
     	bfd mp download nack
 
-    .. data:: BFD_MP_DOWNLOAD_DELETE = 5
+    .. data:: bfd_mp_download_delete = 5
 
     	bfd mp download delete
 
     """
 
-    BFD_MP_DOWNLOAD_NONE = 0
+    bfd_mp_download_none = 0
 
-    BFD_MP_DOWNLOAD_NO_LC = 1
+    bfd_mp_download_no_lc = 1
 
-    BFD_MP_DOWNLOAD_DOWNLOADED = 2
+    bfd_mp_download_downloaded = 2
 
-    BFD_MP_DOWNLOAD_ACK = 3
+    bfd_mp_download_ack = 3
 
-    BFD_MP_DOWNLOAD_NACK = 4
+    bfd_mp_download_nack = 4
 
-    BFD_MP_DOWNLOAD_DELETE = 5
+    bfd_mp_download_delete = 5
 
 
     @staticmethod
@@ -300,61 +300,61 @@ class BfdSessionEnum(Enum):
 
     BFD session type
 
-    .. data:: UNDEFINED = 0
+    .. data:: undefined = 0
 
     	Session type is undefined
 
-    .. data:: BUNDLE_MEMBER = 1
+    .. data:: bundle_member = 1
 
     	Session type is bundle member
 
-    .. data:: BUNDLE_INTERFACE = 2
+    .. data:: bundle_interface = 2
 
     	Session type is bundle interface
 
-    .. data:: STATE_INHERITING = 3
+    .. data:: state_inheriting = 3
 
     	Session type is state inheriting
 
-    .. data:: BUNDLE_VLAN = 4
+    .. data:: bundle_vlan = 4
 
     	Session type is bundle vlan
 
-    .. data:: MPLS_TP = 5
+    .. data:: mpls_tp = 5
 
     	Session type is MPLS-TP
 
-    .. data:: GRE = 6
+    .. data:: gre = 6
 
     	Session type is GRE tunnel
 
-    .. data:: PSEUDOWIRE_HEADEND = 7
+    .. data:: pseudowire_headend = 7
 
     	Session type is PW-HE
 
-    .. data:: IP_SINGLE_HOP = 8
+    .. data:: ip_single_hop = 8
 
     	Session type is IP single hop
 
     """
 
-    UNDEFINED = 0
+    undefined = 0
 
-    BUNDLE_MEMBER = 1
+    bundle_member = 1
 
-    BUNDLE_INTERFACE = 2
+    bundle_interface = 2
 
-    STATE_INHERITING = 3
+    state_inheriting = 3
 
-    BUNDLE_VLAN = 4
+    bundle_vlan = 4
 
-    MPLS_TP = 5
+    mpls_tp = 5
 
-    GRE = 6
+    gre = 6
 
-    PSEUDOWIRE_HEADEND = 7
+    pseudowire_headend = 7
 
-    IP_SINGLE_HOP = 8
+    ip_single_hop = 8
 
 
     @staticmethod
@@ -369,67 +369,67 @@ class MplsLibCEnum(Enum):
 
     Mpls lib c
 
-    .. data:: MPLS_LIB_C_TYPE_NULL = 0
+    .. data:: mpls_lib_c_type_null = 0
 
     	NULL Ctype
 
-    .. data:: MPLS_LIB_C_TYPE_IPV4 = 1
+    .. data:: mpls_lib_c_type_ipv4 = 1
 
     	IPv4 UDP
 
-    .. data:: MPLS_LIB_C_TYPE_IPV4_P2P_TUNNEL = 7
+    .. data:: mpls_lib_c_type_ipv4_p2p_tunnel = 7
 
     	IPv4 point-to-point TE tunnel
 
-    .. data:: MPLS_LIB_C_TYPE_IPV6_P2P_TUNNEL = 8
+    .. data:: mpls_lib_c_type_ipv6_p2p_tunnel = 8
 
     	IPv6 point-to-point TE tunnel
 
-    .. data:: MPLS_LIB_C_TYPE_IPV4_UNI = 9
+    .. data:: mpls_lib_c_type_ipv4_uni = 9
 
     	IPv4 unicast
 
-    .. data:: MPLS_LIB_C_TYPE_IPV4_P2MP_TUNNEL = 13
+    .. data:: mpls_lib_c_type_ipv4_p2mp_tunnel = 13
 
     	IPv4 point-to-point TE tunnel
 
-    .. data:: MPLS_LIB_C_TYPE_IPV6_P2MP_TUNNEL = 14
+    .. data:: mpls_lib_c_type_ipv6_p2mp_tunnel = 14
 
     	IPv6 point-to-point TE tunnel
 
-    .. data:: MPLS_LIB_C_TYPE_IPV4_TP_TUNNEL = 15
+    .. data:: mpls_lib_c_type_ipv4_tp_tunnel = 15
 
     	IPv4 transport protocol tunnel
 
-    .. data:: MPLS_LIB_C_TYPE_IPV6_TP_TUNNEL = 16
+    .. data:: mpls_lib_c_type_ipv6_tp_tunnel = 16
 
     	IPv6 transport protocol tunnel
 
-    .. data:: MPLS_LIB_C_TYPE_P2P_BINDING_LABEL = 17
+    .. data:: mpls_lib_c_type_p2p_binding_label = 17
 
     	P2P transport tunnel binding label
 
     """
 
-    MPLS_LIB_C_TYPE_NULL = 0
+    mpls_lib_c_type_null = 0
 
-    MPLS_LIB_C_TYPE_IPV4 = 1
+    mpls_lib_c_type_ipv4 = 1
 
-    MPLS_LIB_C_TYPE_IPV4_P2P_TUNNEL = 7
+    mpls_lib_c_type_ipv4_p2p_tunnel = 7
 
-    MPLS_LIB_C_TYPE_IPV6_P2P_TUNNEL = 8
+    mpls_lib_c_type_ipv6_p2p_tunnel = 8
 
-    MPLS_LIB_C_TYPE_IPV4_UNI = 9
+    mpls_lib_c_type_ipv4_uni = 9
 
-    MPLS_LIB_C_TYPE_IPV4_P2MP_TUNNEL = 13
+    mpls_lib_c_type_ipv4_p2mp_tunnel = 13
 
-    MPLS_LIB_C_TYPE_IPV6_P2MP_TUNNEL = 14
+    mpls_lib_c_type_ipv6_p2mp_tunnel = 14
 
-    MPLS_LIB_C_TYPE_IPV4_TP_TUNNEL = 15
+    mpls_lib_c_type_ipv4_tp_tunnel = 15
 
-    MPLS_LIB_C_TYPE_IPV6_TP_TUNNEL = 16
+    mpls_lib_c_type_ipv6_tp_tunnel = 16
 
-    MPLS_LIB_C_TYPE_P2P_BINDING_LABEL = 17
+    mpls_lib_c_type_p2p_binding_label = 17
 
 
     @staticmethod
@@ -447,272 +447,272 @@ class Bfd(object):
     .. attribute:: client_briefs
     
     	Table of Brief information about BFD clients
-    	**type**\:  :py:class:`ClientBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.ClientBriefs>`
+    	**type**\:   :py:class:`ClientBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.ClientBriefs>`
     
     .. attribute:: client_details
     
     	Table of detailed information about BFD clients
-    	**type**\:  :py:class:`ClientDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.ClientDetails>`
+    	**type**\:   :py:class:`ClientDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.ClientDetails>`
     
     .. attribute:: counters
     
     	Counters
-    	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Counters>`
+    	**type**\:   :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Counters>`
     
     .. attribute:: generic_summaries
     
     	Generic summary information about BFD location
-    	**type**\:  :py:class:`GenericSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.GenericSummaries>`
+    	**type**\:   :py:class:`GenericSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.GenericSummaries>`
     
     .. attribute:: ipv4_multi_hop_counters
     
     	IPv4 multiple hop Counters
-    	**type**\:  :py:class:`Ipv4MultiHopCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopCounters>`
+    	**type**\:   :py:class:`Ipv4MultiHopCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopCounters>`
     
     .. attribute:: ipv4_multi_hop_multi_paths
     
     	IPv4 multi\-hop multipath
-    	**type**\:  :py:class:`Ipv4MultiHopMultiPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopMultiPaths>`
+    	**type**\:   :py:class:`Ipv4MultiHopMultiPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopMultiPaths>`
     
     .. attribute:: ipv4_multi_hop_node_location_summaries
     
     	Table of summary information about BFD IPv4 multihop sessions per location
-    	**type**\:  :py:class:`Ipv4MultiHopNodeLocationSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopNodeLocationSummaries>`
+    	**type**\:   :py:class:`Ipv4MultiHopNodeLocationSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopNodeLocationSummaries>`
     
     .. attribute:: ipv4_multi_hop_session_briefs
     
     	Table of brief information about all IPv4 multihop BFD sessions in the System
-    	**type**\:  :py:class:`Ipv4MultiHopSessionBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionBriefs>`
+    	**type**\:   :py:class:`Ipv4MultiHopSessionBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionBriefs>`
     
     .. attribute:: ipv4_multi_hop_session_details
     
     	Table of detailed information about all IPv4 multihop BFD sessions in the System 
-    	**type**\:  :py:class:`Ipv4MultiHopSessionDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails>`
+    	**type**\:   :py:class:`Ipv4MultiHopSessionDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails>`
     
     .. attribute:: ipv4_multi_hop_summary
     
     	Summary information of BFD IPv4 multihop sessions
-    	**type**\:  :py:class:`Ipv4MultiHopSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSummary>`
+    	**type**\:   :py:class:`Ipv4MultiHopSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSummary>`
     
     .. attribute:: ipv4_single_hop_counters
     
     	IPv4 single hop Counters
-    	**type**\:  :py:class:`Ipv4SingleHopCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopCounters>`
+    	**type**\:   :py:class:`Ipv4SingleHopCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopCounters>`
     
     .. attribute:: ipv4_single_hop_location_summaries
     
     	Table of summary information about IPv4 singlehop BFD sessions for location
-    	**type**\:  :py:class:`Ipv4SingleHopLocationSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopLocationSummaries>`
+    	**type**\:   :py:class:`Ipv4SingleHopLocationSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopLocationSummaries>`
     
     .. attribute:: ipv4_single_hop_multi_paths
     
     	IPv4 single hop multipath
-    	**type**\:  :py:class:`Ipv4SingleHopMultiPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopMultiPaths>`
+    	**type**\:   :py:class:`Ipv4SingleHopMultiPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopMultiPaths>`
     
     .. attribute:: ipv4_single_hop_node_location_summaries
     
     	Table of summary information about BFD IPv4 singlehop sessions per location
-    	**type**\:  :py:class:`Ipv4SingleHopNodeLocationSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopNodeLocationSummaries>`
+    	**type**\:   :py:class:`Ipv4SingleHopNodeLocationSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopNodeLocationSummaries>`
     
     .. attribute:: ipv4_single_hop_session_briefs
     
     	Table of brief information about all IPv4 singlehop BFD sessions in the System
-    	**type**\:  :py:class:`Ipv4SingleHopSessionBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionBriefs>`
+    	**type**\:   :py:class:`Ipv4SingleHopSessionBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionBriefs>`
     
     .. attribute:: ipv4_single_hop_session_details
     
     	Table of detailed information about all IPv4 singlehop BFD sessions in the System 
-    	**type**\:  :py:class:`Ipv4SingleHopSessionDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails>`
+    	**type**\:   :py:class:`Ipv4SingleHopSessionDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails>`
     
     .. attribute:: ipv4_single_hop_summary
     
     	Summary information of BFD IPv4 singlehop sessions
-    	**type**\:  :py:class:`Ipv4SingleHopSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSummary>`
+    	**type**\:   :py:class:`Ipv4SingleHopSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSummary>`
     
     .. attribute:: ipv4bf_do_mplste_head_counters
     
     	IPv4 BFD over MPLS\-TE Counters
-    	**type**\:  :py:class:`Ipv4BfDoMplsteHeadCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadCounters>`
+    	**type**\:   :py:class:`Ipv4BfDoMplsteHeadCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadCounters>`
     
     .. attribute:: ipv4bf_do_mplste_head_multi_paths
     
     	IPv4 BFD over MPLS\-TE Head multipath
-    	**type**\:  :py:class:`Ipv4BfDoMplsteHeadMultiPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadMultiPaths>`
+    	**type**\:   :py:class:`Ipv4BfDoMplsteHeadMultiPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadMultiPaths>`
     
     .. attribute:: ipv4bf_do_mplste_head_session_briefs
     
     	Table of brief information about all IPv4 BFD over MPLS\-TE Head sessions in the System
-    	**type**\:  :py:class:`Ipv4BfDoMplsteHeadSessionBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionBriefs>`
+    	**type**\:   :py:class:`Ipv4BfDoMplsteHeadSessionBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionBriefs>`
     
     .. attribute:: ipv4bf_do_mplste_head_session_details
     
     	Table of detailed information about all IPv4 BFD over MPLS\-TE Head sessions in the System
-    	**type**\:  :py:class:`Ipv4BfDoMplsteHeadSessionDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails>`
+    	**type**\:   :py:class:`Ipv4BfDoMplsteHeadSessionDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails>`
     
     .. attribute:: ipv4bf_do_mplste_head_summary
     
     	Summary information of IPv4 BFD over MPLS\-TE Head
-    	**type**\:  :py:class:`Ipv4BfDoMplsteHeadSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSummary>`
+    	**type**\:   :py:class:`Ipv4BfDoMplsteHeadSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSummary>`
     
     .. attribute:: ipv4bf_do_mplste_tail_counters
     
     	IPv4 BFD over MPLS\-TE Counters
-    	**type**\:  :py:class:`Ipv4BfDoMplsteTailCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailCounters>`
+    	**type**\:   :py:class:`Ipv4BfDoMplsteTailCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailCounters>`
     
     .. attribute:: ipv4bf_do_mplste_tail_multi_paths
     
     	IPv4 BFD over MPLS\-TE Tail multipath
-    	**type**\:  :py:class:`Ipv4BfDoMplsteTailMultiPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailMultiPaths>`
+    	**type**\:   :py:class:`Ipv4BfDoMplsteTailMultiPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailMultiPaths>`
     
     .. attribute:: ipv4bf_do_mplste_tail_session_briefs
     
     	Table of brief information about all IPv4 BFD over MPLS\-TE Tail sessions in the System
-    	**type**\:  :py:class:`Ipv4BfDoMplsteTailSessionBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionBriefs>`
+    	**type**\:   :py:class:`Ipv4BfDoMplsteTailSessionBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionBriefs>`
     
     .. attribute:: ipv4bf_do_mplste_tail_session_details
     
     	Table of detailed information about all IPv4 BFD over MPLS\-TE Tail sessions in the System
-    	**type**\:  :py:class:`Ipv4BfDoMplsteTailSessionDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails>`
+    	**type**\:   :py:class:`Ipv4BfDoMplsteTailSessionDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails>`
     
     .. attribute:: ipv4bf_do_mplste_tail_summary
     
     	Summary information of IPv4 BFD over MPLS\-TE Tail
-    	**type**\:  :py:class:`Ipv4BfDoMplsteTailSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSummary>`
+    	**type**\:   :py:class:`Ipv4BfDoMplsteTailSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSummary>`
     
     .. attribute:: ipv4bfd_mplste_head_summary_nodes
     
     	Table of summary about IPv4 TE head BFD sessions for location
-    	**type**\:  :py:class:`Ipv4BfdMplsteHeadSummaryNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfdMplsteHeadSummaryNodes>`
+    	**type**\:   :py:class:`Ipv4BfdMplsteHeadSummaryNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfdMplsteHeadSummaryNodes>`
     
     .. attribute:: ipv4bfd_mplste_tail_node_summaries
     
     	Table of summary about IPv4 TE tail BFD sessions for location
-    	**type**\:  :py:class:`Ipv4BfdMplsteTailNodeSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfdMplsteTailNodeSummaries>`
+    	**type**\:   :py:class:`Ipv4BfdMplsteTailNodeSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfdMplsteTailNodeSummaries>`
     
     .. attribute:: ipv6_multi_hop_counters
     
     	IPv6 multiple hop Counters
-    	**type**\:  :py:class:`Ipv6MultiHopCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopCounters>`
+    	**type**\:   :py:class:`Ipv6MultiHopCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopCounters>`
     
     .. attribute:: ipv6_multi_hop_multi_paths
     
     	IPv6 multi hop multipath
-    	**type**\:  :py:class:`Ipv6MultiHopMultiPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopMultiPaths>`
+    	**type**\:   :py:class:`Ipv6MultiHopMultiPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopMultiPaths>`
     
     .. attribute:: ipv6_multi_hop_node_location_summaries
     
     	Table of summary information about BFD IPv6 multihop sessions per location
-    	**type**\:  :py:class:`Ipv6MultiHopNodeLocationSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopNodeLocationSummaries>`
+    	**type**\:   :py:class:`Ipv6MultiHopNodeLocationSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopNodeLocationSummaries>`
     
     .. attribute:: ipv6_multi_hop_session_briefs
     
     	Table of brief information about all IPv6 multihop BFD sessions in the System
-    	**type**\:  :py:class:`Ipv6MultiHopSessionBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionBriefs>`
+    	**type**\:   :py:class:`Ipv6MultiHopSessionBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionBriefs>`
     
     .. attribute:: ipv6_multi_hop_session_details
     
     	Table of detailed information about all IPv6 multihop BFD sessions in the System 
-    	**type**\:  :py:class:`Ipv6MultiHopSessionDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails>`
+    	**type**\:   :py:class:`Ipv6MultiHopSessionDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails>`
     
     .. attribute:: ipv6_multi_hop_summary
     
     	Summary information of BFD IPv6 multihop sessions
-    	**type**\:  :py:class:`Ipv6MultiHopSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSummary>`
+    	**type**\:   :py:class:`Ipv6MultiHopSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSummary>`
     
     .. attribute:: ipv6_single_hop_counters
     
     	IPv6 single hop Counters
-    	**type**\:  :py:class:`Ipv6SingleHopCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopCounters>`
+    	**type**\:   :py:class:`Ipv6SingleHopCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopCounters>`
     
     .. attribute:: ipv6_single_hop_location_summaries
     
     	Table of summary information about BFD IPv6 singlehop sessions per location
-    	**type**\:  :py:class:`Ipv6SingleHopLocationSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopLocationSummaries>`
+    	**type**\:   :py:class:`Ipv6SingleHopLocationSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopLocationSummaries>`
     
     .. attribute:: ipv6_single_hop_multi_paths
     
     	IPv6 single hop multipath
-    	**type**\:  :py:class:`Ipv6SingleHopMultiPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopMultiPaths>`
+    	**type**\:   :py:class:`Ipv6SingleHopMultiPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopMultiPaths>`
     
     .. attribute:: ipv6_single_hop_node_location_summaries
     
     	Table of summary information about BFD IPv6 singlehop sessions per location
-    	**type**\:  :py:class:`Ipv6SingleHopNodeLocationSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopNodeLocationSummaries>`
+    	**type**\:   :py:class:`Ipv6SingleHopNodeLocationSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopNodeLocationSummaries>`
     
     .. attribute:: ipv6_single_hop_session_briefs
     
     	Table of brief information about all IPv6 singlehop BFD sessions in the System
-    	**type**\:  :py:class:`Ipv6SingleHopSessionBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionBriefs>`
+    	**type**\:   :py:class:`Ipv6SingleHopSessionBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionBriefs>`
     
     .. attribute:: ipv6_single_hop_session_details
     
     	Table of detailed information about all IPv6 singlehop BFD sessions in the System 
-    	**type**\:  :py:class:`Ipv6SingleHopSessionDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails>`
+    	**type**\:   :py:class:`Ipv6SingleHopSessionDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails>`
     
     .. attribute:: ipv6_single_hop_summary
     
     	Summary information of BFD IPv6 singlehop sessions
-    	**type**\:  :py:class:`Ipv6SingleHopSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSummary>`
+    	**type**\:   :py:class:`Ipv6SingleHopSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSummary>`
     
     .. attribute:: label_counters
     
     	Label Counters
-    	**type**\:  :py:class:`LabelCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelCounters>`
+    	**type**\:   :py:class:`LabelCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelCounters>`
     
     .. attribute:: label_multi_paths
     
     	Label multipath
-    	**type**\:  :py:class:`LabelMultiPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelMultiPaths>`
+    	**type**\:   :py:class:`LabelMultiPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelMultiPaths>`
     
     .. attribute:: label_session_briefs
     
     	Table of brief information about all Label BFD sessions in the System
-    	**type**\:  :py:class:`LabelSessionBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionBriefs>`
+    	**type**\:   :py:class:`LabelSessionBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionBriefs>`
     
     .. attribute:: label_session_details
     
     	Table of detailed information about all Label BFD sessions in the System 
-    	**type**\:  :py:class:`LabelSessionDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails>`
+    	**type**\:   :py:class:`LabelSessionDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails>`
     
     .. attribute:: label_summary
     
     	Summary information of Label BFD
-    	**type**\:  :py:class:`LabelSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSummary>`
+    	**type**\:   :py:class:`LabelSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSummary>`
     
     .. attribute:: label_summary_nodes
     
     	Table of summary about Label BFD sessions for location
-    	**type**\:  :py:class:`LabelSummaryNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSummaryNodes>`
+    	**type**\:   :py:class:`LabelSummaryNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSummaryNodes>`
     
     .. attribute:: relation_briefs
     
     	Table of brief information about all BFD relations in the System
-    	**type**\:  :py:class:`RelationBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationBriefs>`
+    	**type**\:   :py:class:`RelationBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationBriefs>`
     
     .. attribute:: relation_details
     
     	Table of detail information about all BFD relations in the System
-    	**type**\:  :py:class:`RelationDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationDetails>`
+    	**type**\:   :py:class:`RelationDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationDetails>`
     
     .. attribute:: session_briefs
     
     	Table of brief information about singlehop IPv4 BFD sessions in the System
-    	**type**\:  :py:class:`SessionBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionBriefs>`
+    	**type**\:   :py:class:`SessionBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionBriefs>`
     
     .. attribute:: session_details
     
     	Table of detailed information about IPv4 singlehop BFD sessions in the System 
-    	**type**\:  :py:class:`SessionDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails>`
+    	**type**\:   :py:class:`SessionDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails>`
     
     .. attribute:: session_mibs
     
     	BFD session MIB database
-    	**type**\:  :py:class:`SessionMibs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionMibs>`
+    	**type**\:   :py:class:`SessionMibs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionMibs>`
     
     .. attribute:: summary
     
     	Summary information of BFD IPv4 singlehop sessions
-    	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Summary>`
+    	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Summary>`
     
     
 
@@ -840,7 +840,7 @@ class Bfd(object):
         .. attribute:: label_session_brief
         
         	Brief information for a single Label BFD session
-        	**type**\: list of  :py:class:`LabelSessionBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionBriefs.LabelSessionBrief>`
+        	**type**\: list of    :py:class:`LabelSessionBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionBriefs.LabelSessionBrief>`
         
         
 
@@ -904,17 +904,17 @@ class Bfd(object):
             .. attribute:: session_type
             
             	Session type
-            	**type**\:  :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
+            	**type**\:   :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
             
             .. attribute:: state
             
             	State
-            	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+            	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
             
             .. attribute:: status_brief_information
             
             	Brief Status Information
-            	**type**\:  :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionBriefs.LabelSessionBrief.StatusBriefInformation>`
+            	**type**\:   :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionBriefs.LabelSessionBrief.StatusBriefInformation>`
             
             
 
@@ -944,12 +944,12 @@ class Bfd(object):
                 .. attribute:: async_interval_multiplier
                 
                 	Async Interval and Detect Multiplier Information
-                	**type**\:  :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionBriefs.LabelSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier>`
+                	**type**\:   :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionBriefs.LabelSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier>`
                 
                 .. attribute:: echo_interval_multiplier
                 
                 	Echo Interval and Detect Multiplier Information
-                	**type**\:  :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionBriefs.LabelSessionBrief.StatusBriefInformation.EchoIntervalMultiplier>`
+                	**type**\:   :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionBriefs.LabelSessionBrief.StatusBriefInformation.EchoIntervalMultiplier>`
                 
                 
 
@@ -984,6 +984,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: negotiated_local_transmit_interval
                     
                     	Negotiated local transmit interval in micro\-seconds
@@ -991,12 +993,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: negotiated_remote_transmit_interval
                     
                     	Negotiated remote transmit interval in micro\-seconds
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: microsecond
                     
                     
 
@@ -1062,12 +1068,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: negotiated_transmit_interval
                     
                     	Negotiated transmit interval in micro\-seconds
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: microsecond
                     
                     
 
@@ -1214,7 +1224,7 @@ class Bfd(object):
         .. attribute:: session_state
         
         	Statistics of states for sessions
-        	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSummary.SessionState>`
+        	**type**\:   :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSummary.SessionState>`
         
         
 
@@ -1336,7 +1346,7 @@ class Bfd(object):
         .. attribute:: ipv6_single_hop_packet_counters
         
         	Table of IPv6 single hop Packet counters
-        	**type**\:  :py:class:`Ipv6SingleHopPacketCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopCounters.Ipv6SingleHopPacketCounters>`
+        	**type**\:   :py:class:`Ipv6SingleHopPacketCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopCounters.Ipv6SingleHopPacketCounters>`
         
         
 
@@ -1358,7 +1368,7 @@ class Bfd(object):
             .. attribute:: ipv6_single_hop_packet_counter
             
             	Interface IPv6 single hop Packet counters
-            	**type**\: list of  :py:class:`Ipv6SingleHopPacketCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopCounters.Ipv6SingleHopPacketCounters.Ipv6SingleHopPacketCounter>`
+            	**type**\: list of    :py:class:`Ipv6SingleHopPacketCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopCounters.Ipv6SingleHopPacketCounters.Ipv6SingleHopPacketCounter>`
             
             
 
@@ -1388,7 +1398,7 @@ class Bfd(object):
                 .. attribute:: display_type
                 
                 	Packet Display Type
-                	**type**\:  :py:class:`BfdMgmtPktDisplayEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtPktDisplayEnum>`
+                	**type**\:   :py:class:`BfdMgmtPktDisplayEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtPktDisplayEnum>`
                 
                 .. attribute:: echo_receive_count
                 
@@ -1527,7 +1537,7 @@ class Bfd(object):
         .. attribute:: packet_counters
         
         	Table of Packet counters
-        	**type**\:  :py:class:`PacketCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Counters.PacketCounters>`
+        	**type**\:   :py:class:`PacketCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Counters.PacketCounters>`
         
         
 
@@ -1549,7 +1559,7 @@ class Bfd(object):
             .. attribute:: packet_counter
             
             	Interface Packet counters
-            	**type**\: list of  :py:class:`PacketCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Counters.PacketCounters.PacketCounter>`
+            	**type**\: list of    :py:class:`PacketCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Counters.PacketCounters.PacketCounter>`
             
             
 
@@ -1579,7 +1589,7 @@ class Bfd(object):
                 .. attribute:: display_type
                 
                 	Packet Display Type
-                	**type**\:  :py:class:`BfdMgmtPktDisplayEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtPktDisplayEnum>`
+                	**type**\:   :py:class:`BfdMgmtPktDisplayEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtPktDisplayEnum>`
                 
                 .. attribute:: echo_receive_count
                 
@@ -1718,7 +1728,7 @@ class Bfd(object):
         .. attribute:: client_detail
         
         	Detailed information of client
-        	**type**\: list of  :py:class:`ClientDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.ClientDetails.ClientDetail>`
+        	**type**\: list of    :py:class:`ClientDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.ClientDetails.ClientDetail>`
         
         
 
@@ -1748,12 +1758,12 @@ class Bfd(object):
             .. attribute:: brief
             
             	Brief client information
-            	**type**\:  :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.ClientDetails.ClientDetail.Brief>`
+            	**type**\:   :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.ClientDetails.ClientDetail.Brief>`
             
             .. attribute:: flags
             
             	The BFD Client Flags
-            	**type**\:  :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.ClientDetails.ClientDetail.Flags>`
+            	**type**\:   :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.ClientDetails.ClientDetail.Flags>`
             
             .. attribute:: recreate_time
             
@@ -1761,6 +1771,8 @@ class Bfd(object):
             	**type**\:  int
             
             	**range:** 0..4294967295
+            
+            	**units**\: second
             
             
 
@@ -1971,7 +1983,7 @@ class Bfd(object):
         .. attribute:: session_state
         
         	Statistics of states for sessions
-        	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSummary.SessionState>`
+        	**type**\:   :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSummary.SessionState>`
         
         
 
@@ -2094,7 +2106,7 @@ class Bfd(object):
         .. attribute:: session_state
         
         	Statistics of states for sessions
-        	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSummary.SessionState>`
+        	**type**\:   :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSummary.SessionState>`
         
         
 
@@ -2216,7 +2228,7 @@ class Bfd(object):
         .. attribute:: label_multi_path
         
         	Label multipath table
-        	**type**\: list of  :py:class:`LabelMultiPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelMultiPaths.LabelMultiPath>`
+        	**type**\: list of    :py:class:`LabelMultiPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelMultiPaths.LabelMultiPath>`
         
         
 
@@ -2293,7 +2305,7 @@ class Bfd(object):
             .. attribute:: state
             
             	State
-            	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+            	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
             
             
 
@@ -2393,7 +2405,7 @@ class Bfd(object):
         .. attribute:: ipv4_multi_hop_session_detail
         
         	Detailed information for a single IPv4 multihop BFD session
-        	**type**\: list of  :py:class:`Ipv4MultiHopSessionDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail>`
+        	**type**\: list of    :py:class:`Ipv4MultiHopSessionDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail>`
         
         
 
@@ -2417,7 +2429,7 @@ class Bfd(object):
             .. attribute:: association_information
             
             	Association session information
-            	**type**\: list of  :py:class:`AssociationInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation>`
+            	**type**\: list of    :py:class:`AssociationInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation>`
             
             .. attribute:: destination_address
             
@@ -2446,17 +2458,17 @@ class Bfd(object):
             .. attribute:: lsp_ping_info
             
             	LSP Ping Info
-            	**type**\:  :py:class:`LspPingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo>`
+            	**type**\:   :py:class:`LspPingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo>`
             
             .. attribute:: mp_download_state
             
             	MP Dowload State
-            	**type**\:  :py:class:`MpDownloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.MpDownloadState>`
+            	**type**\:   :py:class:`MpDownloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.MpDownloadState>`
             
             .. attribute:: owner_information
             
             	Client applications owning the session
-            	**type**\: list of  :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.OwnerInformation>`
+            	**type**\: list of    :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.OwnerInformation>`
             
             .. attribute:: source_address
             
@@ -2478,7 +2490,7 @@ class Bfd(object):
             .. attribute:: status_information
             
             	Session status information
-            	**type**\:  :py:class:`StatusInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation>`
+            	**type**\:   :py:class:`StatusInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation>`
             
             .. attribute:: vrf_name
             
@@ -2521,12 +2533,12 @@ class Bfd(object):
                 .. attribute:: async_receive_statistics
                 
                 	Statistics of Interval between Async Packets Received (in milli\-seconds)
-                	**type**\:  :py:class:`AsyncReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.AsyncReceiveStatistics>`
+                	**type**\:   :py:class:`AsyncReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.AsyncReceiveStatistics>`
                 
                 .. attribute:: async_transmit_statistics
                 
                 	Statistics of Interval between Async Packets Transmitted (in milli\-seconds)
-                	**type**\:  :py:class:`AsyncTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.AsyncTransmitStatistics>`
+                	**type**\:   :py:class:`AsyncTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.AsyncTransmitStatistics>`
                 
                 .. attribute:: desired_minimum_echo_transmit_interval
                 
@@ -2535,15 +2547,17 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: echo_received_statistics
                 
                 	Statistics of Interval between Echo Packets Received (in milli\-seconds)
-                	**type**\:  :py:class:`EchoReceivedStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.EchoReceivedStatistics>`
+                	**type**\:   :py:class:`EchoReceivedStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.EchoReceivedStatistics>`
                 
                 .. attribute:: echo_transmit_statistics
                 
                 	Statistics of Interval between Echo Packets Transmitted (in milli\-seconds)
-                	**type**\:  :py:class:`EchoTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.EchoTransmitStatistics>`
+                	**type**\:   :py:class:`EchoTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.EchoTransmitStatistics>`
                 
                 .. attribute:: internal_label
                 
@@ -2555,7 +2569,7 @@ class Bfd(object):
                 .. attribute:: last_state_change
                 
                 	Time since last state change
-                	**type**\:  :py:class:`LastStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.LastStateChange>`
+                	**type**\:   :py:class:`LastStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.LastStateChange>`
                 
                 .. attribute:: latency_average
                 
@@ -2564,6 +2578,8 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: microsecond
+                
                 .. attribute:: latency_maximum
                 
                 	Maximum value of Latency (in micro\-seconds)
@@ -2571,12 +2587,16 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: microsecond
+                
                 .. attribute:: latency_minimum
                 
                 	Minimum value of Latency (in micro\-seconds)
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: microsecond
                 
                 .. attribute:: latency_number
                 
@@ -2602,7 +2622,7 @@ class Bfd(object):
                 .. attribute:: receive_packet
                 
                 	Receive Packet
-                	**type**\:  :py:class:`ReceivePacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.ReceivePacket>`
+                	**type**\:   :py:class:`ReceivePacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.ReceivePacket>`
                 
                 .. attribute:: remote_discriminator
                 
@@ -2618,6 +2638,8 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: session_subtype
                 
                 	Session subtype
@@ -2626,22 +2648,22 @@ class Bfd(object):
                 .. attribute:: sessiontype
                 
                 	Session type
-                	**type**\:  :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
+                	**type**\:   :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
                 
                 .. attribute:: source_address
                 
                 	Source address
-                	**type**\:  :py:class:`SourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.SourceAddress>`
+                	**type**\:   :py:class:`SourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.SourceAddress>`
                 
                 .. attribute:: state
                 
                 	State
-                	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+                	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
                 
                 .. attribute:: status_brief_information
                 
                 	Brief Status Information
-                	**type**\:  :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.StatusBriefInformation>`
+                	**type**\:   :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.StatusBriefInformation>`
                 
                 .. attribute:: to_up_state_count
                 
@@ -2653,7 +2675,7 @@ class Bfd(object):
                 .. attribute:: transmit_packet
                 
                 	Transmit Packet
-                	**type**\:  :py:class:`TransmitPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.TransmitPacket>`
+                	**type**\:   :py:class:`TransmitPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.TransmitPacket>`
                 
                 
 
@@ -2705,7 +2727,7 @@ class Bfd(object):
                     .. attribute:: afi
                     
                     	AFI
-                    	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                    	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                     
                     .. attribute:: dummy
                     
@@ -2785,12 +2807,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: day
+                    
                     .. attribute:: hours
                     
                     	Number of hours since last session state transition
                     	**type**\:  int
                     
                     	**range:** 0..255
+                    
+                    	**units**\: hour
                     
                     .. attribute:: minutes
                     
@@ -2799,12 +2825,16 @@ class Bfd(object):
                     
                     	**range:** 0..255
                     
+                    	**units**\: minute
+                    
                     .. attribute:: seconds
                     
                     	Number of seconds since last session state transition
                     	**type**\:  int
                     
                     	**range:** 0..255
+                    
+                    	**units**\: second
                     
                     
 
@@ -2884,6 +2914,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: detection_multiplier
                     
                     	Detection Multiplier
@@ -2894,7 +2926,7 @@ class Bfd(object):
                     .. attribute:: diagnostic
                     
                     	Diagnostic
-                    	**type**\:  :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
+                    	**type**\:   :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
                     
                     .. attribute:: final
                     
@@ -2938,6 +2970,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: required_minimum_receive_interval
                     
                     	Required receive interval in micro\-seconds
@@ -2945,10 +2979,12 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: state
                     
                     	State (v1)
-                    	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+                    	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
                     
                     .. attribute:: version
                     
@@ -3090,6 +3126,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: detection_multiplier
                     
                     	Detection Multiplier
@@ -3100,7 +3138,7 @@ class Bfd(object):
                     .. attribute:: diagnostic
                     
                     	Diagnostic
-                    	**type**\:  :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
+                    	**type**\:   :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
                     
                     .. attribute:: final
                     
@@ -3144,6 +3182,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: required_minimum_receive_interval
                     
                     	Required receive interval in micro\-seconds
@@ -3151,10 +3191,12 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: state
                     
                     	State (v1)
-                    	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+                    	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
                     
                     .. attribute:: version
                     
@@ -3271,12 +3313,12 @@ class Bfd(object):
                     .. attribute:: async_interval_multiplier
                     
                     	Async Interval and Detect Multiplier Information
-                    	**type**\:  :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier>`
+                    	**type**\:   :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier>`
                     
                     .. attribute:: echo_interval_multiplier
                     
                     	Echo Interval and Detect Multiplier Information
-                    	**type**\:  :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier>`
+                    	**type**\:   :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier>`
                     
                     
 
@@ -3311,6 +3353,8 @@ class Bfd(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: microsecond
+                        
                         .. attribute:: negotiated_local_transmit_interval
                         
                         	Negotiated local transmit interval in micro\-seconds
@@ -3318,12 +3362,16 @@ class Bfd(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: microsecond
+                        
                         .. attribute:: negotiated_remote_transmit_interval
                         
                         	Negotiated remote transmit interval in micro\-seconds
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: microsecond
                         
                         
 
@@ -3389,12 +3437,16 @@ class Bfd(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: microsecond
+                        
                         .. attribute:: negotiated_transmit_interval
                         
                         	Negotiated transmit interval in micro\-seconds
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: microsecond
                         
                         
 
@@ -3475,12 +3527,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: last
                     
                     	Time since last Transmit/Receive (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: maximum
                     
@@ -3489,12 +3545,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: number
                     
@@ -3565,12 +3625,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: last
                     
                     	Time since last Transmit/Receive (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: maximum
                     
@@ -3579,12 +3643,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: number
                     
@@ -3655,12 +3723,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: last
                     
                     	Time since last Transmit/Receive (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: maximum
                     
@@ -3669,12 +3741,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: number
                     
@@ -3745,12 +3821,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: last
                     
                     	Time since last Transmit/Receive (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: maximum
                     
@@ -3759,12 +3839,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: number
                     
@@ -3918,12 +4002,12 @@ class Bfd(object):
                 .. attribute:: change_time
                 
                 	Change time
-                	**type**\:  :py:class:`ChangeTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.MpDownloadState.ChangeTime>`
+                	**type**\:   :py:class:`ChangeTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.MpDownloadState.ChangeTime>`
                 
                 .. attribute:: mp_download_state
                 
                 	MP Download State
-                	**type**\:  :py:class:`BfdMpDownloadStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMpDownloadStateEnum>`
+                	**type**\:   :py:class:`BfdMpDownloadStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMpDownloadStateEnum>`
                 
                 
 
@@ -3950,12 +4034,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	seconds
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: second
                     
                     
 
@@ -4060,7 +4148,7 @@ class Bfd(object):
                 .. attribute:: lsp_ping_rx_last_time
                 
                 	LSP Ping last received time
-                	**type**\:  :py:class:`LspPingRxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingRxLastTime>`
+                	**type**\:   :py:class:`LspPingRxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingRxLastTime>`
                 
                 .. attribute:: lsp_ping_tx_count
                 
@@ -4084,7 +4172,7 @@ class Bfd(object):
                 .. attribute:: lsp_ping_tx_last_error_time
                 
                 	LSP Ping last error time
-                	**type**\:  :py:class:`LspPingTxLastErrorTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime>`
+                	**type**\:   :py:class:`LspPingTxLastErrorTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime>`
                 
                 .. attribute:: lsp_ping_tx_last_rc
                 
@@ -4094,7 +4182,7 @@ class Bfd(object):
                 .. attribute:: lsp_ping_tx_last_time
                 
                 	LSP Ping last sent time
-                	**type**\:  :py:class:`LspPingTxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingTxLastTime>`
+                	**type**\:   :py:class:`LspPingTxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingTxLastTime>`
                 
                 
 
@@ -4133,12 +4221,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	seconds
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: second
                     
                     
 
@@ -4189,12 +4281,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	seconds
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: second
                     
                     
 
@@ -4245,12 +4341,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	seconds
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: second
                     
                     
 
@@ -4363,6 +4463,8 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: detection_multiplier
                 
                 	Client specified detection multiplier to compute detection time
@@ -4376,6 +4478,8 @@ class Bfd(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: microsecond
                 
                 .. attribute:: name
                 
@@ -4448,17 +4552,17 @@ class Bfd(object):
                 .. attribute:: owner_information
                 
                 	Client applications owning the session
-                	**type**\: list of  :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.OwnerInformation>`
+                	**type**\: list of    :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.OwnerInformation>`
                 
                 .. attribute:: session_key
                 
                 	Session Key
-                	**type**\:  :py:class:`SessionKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey>`
+                	**type**\:   :py:class:`SessionKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey>`
                 
                 .. attribute:: sessiontype
                 
                 	Session type
-                	**type**\:  :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
+                	**type**\:   :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
                 
                 
 
@@ -4485,7 +4589,7 @@ class Bfd(object):
                     .. attribute:: bfdfec
                     
                     	Union of FECs
-                    	**type**\:  :py:class:`Bfdfec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey.Bfdfec>`
+                    	**type**\:   :py:class:`Bfdfec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey.Bfdfec>`
                     
                     .. attribute:: incoming_label
                     
@@ -4504,12 +4608,12 @@ class Bfd(object):
                     .. attribute:: ip_destination_address
                     
                     	IPv4/v6 dest address
-                    	**type**\:  :py:class:`IpDestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey.IpDestinationAddress>`
+                    	**type**\:   :py:class:`IpDestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey.IpDestinationAddress>`
                     
                     .. attribute:: ip_source_address
                     
                     	IPv4/v6 source address
-                    	**type**\:  :py:class:`IpSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey.IpSourceAddress>`
+                    	**type**\:   :py:class:`IpSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey.IpSourceAddress>`
                     
                     .. attribute:: sbfd_enabled
                     
@@ -4535,7 +4639,7 @@ class Bfd(object):
                     .. attribute:: target_address
                     
                     	sbfd target address
-                    	**type**\:  :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey.TargetAddress>`
+                    	**type**\:   :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey.TargetAddress>`
                     
                     .. attribute:: vrf_name
                     
@@ -4576,7 +4680,7 @@ class Bfd(object):
                         .. attribute:: afi
                         
                         	AFI
-                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                         
                         .. attribute:: dummy
                         
@@ -4652,7 +4756,7 @@ class Bfd(object):
                         .. attribute:: afi
                         
                         	AFI
-                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                         
                         .. attribute:: dummy
                         
@@ -4728,17 +4832,17 @@ class Bfd(object):
                         .. attribute:: bfdfe_ctype
                         
                         	BFDFECType
-                        	**type**\:  :py:class:`BfdApiFecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdApiFecEnum>`
+                        	**type**\:   :py:class:`BfdApiFecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdApiFecEnum>`
                         
                         .. attribute:: dummy
                         
                         	dummy
-                        	**type**\:  :py:class:`Dummy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey.Bfdfec.Dummy>`
+                        	**type**\:   :py:class:`Dummy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey.Bfdfec.Dummy>`
                         
                         .. attribute:: te_s2l_fec
                         
                         	te s2l fec
-                        	**type**\:  :py:class:`TeS2LFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey.Bfdfec.TeS2LFec>`
+                        	**type**\:   :py:class:`TeS2LFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey.Bfdfec.TeS2LFec>`
                         
                         
 
@@ -4808,7 +4912,7 @@ class Bfd(object):
                             .. attribute:: s2l_fec_ctype
                             
                             	Session identifier (ctype)
-                            	**type**\:  :py:class:`MplsLibCEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.MplsLibCEnum>`
+                            	**type**\:   :py:class:`MplsLibCEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.MplsLibCEnum>`
                             
                             .. attribute:: s2l_fec_dest
                             
@@ -4976,7 +5080,7 @@ class Bfd(object):
                         .. attribute:: afi
                         
                         	AFI
-                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                         
                         .. attribute:: dummy
                         
@@ -5112,6 +5216,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: detection_multiplier
                     
                     	Client specified detection multiplier to compute detection time
@@ -5125,6 +5231,8 @@ class Bfd(object):
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: microsecond
                     
                     .. attribute:: name
                     
@@ -5298,7 +5406,7 @@ class Bfd(object):
         .. attribute:: ipv4_single_hop_session_detail
         
         	Detailed information for a single IPv4 singlehop BFD session
-        	**type**\: list of  :py:class:`Ipv4SingleHopSessionDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail>`
+        	**type**\: list of    :py:class:`Ipv4SingleHopSessionDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail>`
         
         
 
@@ -5322,7 +5430,7 @@ class Bfd(object):
             .. attribute:: association_information
             
             	Association session information
-            	**type**\: list of  :py:class:`AssociationInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation>`
+            	**type**\: list of    :py:class:`AssociationInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation>`
             
             .. attribute:: destination_address
             
@@ -5348,22 +5456,22 @@ class Bfd(object):
             .. attribute:: lsp_ping_info
             
             	LSP Ping Info
-            	**type**\:  :py:class:`LspPingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo>`
+            	**type**\:   :py:class:`LspPingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo>`
             
             .. attribute:: mp_download_state
             
             	MP Dowload State
-            	**type**\:  :py:class:`MpDownloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.MpDownloadState>`
+            	**type**\:   :py:class:`MpDownloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.MpDownloadState>`
             
             .. attribute:: owner_information
             
             	Client applications owning the session
-            	**type**\: list of  :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.OwnerInformation>`
+            	**type**\: list of    :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.OwnerInformation>`
             
             .. attribute:: status_information
             
             	Session status information
-            	**type**\:  :py:class:`StatusInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation>`
+            	**type**\:   :py:class:`StatusInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation>`
             
             
 
@@ -5398,12 +5506,12 @@ class Bfd(object):
                 .. attribute:: async_receive_statistics
                 
                 	Statistics of Interval between Async Packets Received (in milli\-seconds)
-                	**type**\:  :py:class:`AsyncReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.AsyncReceiveStatistics>`
+                	**type**\:   :py:class:`AsyncReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.AsyncReceiveStatistics>`
                 
                 .. attribute:: async_transmit_statistics
                 
                 	Statistics of Interval between Async Packets Transmitted (in milli\-seconds)
-                	**type**\:  :py:class:`AsyncTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.AsyncTransmitStatistics>`
+                	**type**\:   :py:class:`AsyncTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.AsyncTransmitStatistics>`
                 
                 .. attribute:: desired_minimum_echo_transmit_interval
                 
@@ -5412,15 +5520,17 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: echo_received_statistics
                 
                 	Statistics of Interval between Echo Packets Received (in milli\-seconds)
-                	**type**\:  :py:class:`EchoReceivedStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.EchoReceivedStatistics>`
+                	**type**\:   :py:class:`EchoReceivedStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.EchoReceivedStatistics>`
                 
                 .. attribute:: echo_transmit_statistics
                 
                 	Statistics of Interval between Echo Packets Transmitted (in milli\-seconds)
-                	**type**\:  :py:class:`EchoTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.EchoTransmitStatistics>`
+                	**type**\:   :py:class:`EchoTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.EchoTransmitStatistics>`
                 
                 .. attribute:: internal_label
                 
@@ -5432,7 +5542,7 @@ class Bfd(object):
                 .. attribute:: last_state_change
                 
                 	Time since last state change
-                	**type**\:  :py:class:`LastStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.LastStateChange>`
+                	**type**\:   :py:class:`LastStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.LastStateChange>`
                 
                 .. attribute:: latency_average
                 
@@ -5441,6 +5551,8 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: microsecond
+                
                 .. attribute:: latency_maximum
                 
                 	Maximum value of Latency (in micro\-seconds)
@@ -5448,12 +5560,16 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: microsecond
+                
                 .. attribute:: latency_minimum
                 
                 	Minimum value of Latency (in micro\-seconds)
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: microsecond
                 
                 .. attribute:: latency_number
                 
@@ -5479,7 +5595,7 @@ class Bfd(object):
                 .. attribute:: receive_packet
                 
                 	Receive Packet
-                	**type**\:  :py:class:`ReceivePacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.ReceivePacket>`
+                	**type**\:   :py:class:`ReceivePacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.ReceivePacket>`
                 
                 .. attribute:: remote_discriminator
                 
@@ -5495,6 +5611,8 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: session_subtype
                 
                 	Session subtype
@@ -5503,22 +5621,22 @@ class Bfd(object):
                 .. attribute:: sessiontype
                 
                 	Session type
-                	**type**\:  :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
+                	**type**\:   :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
                 
                 .. attribute:: source_address
                 
                 	Source address
-                	**type**\:  :py:class:`SourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.SourceAddress>`
+                	**type**\:   :py:class:`SourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.SourceAddress>`
                 
                 .. attribute:: state
                 
                 	State
-                	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+                	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
                 
                 .. attribute:: status_brief_information
                 
                 	Brief Status Information
-                	**type**\:  :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.StatusBriefInformation>`
+                	**type**\:   :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.StatusBriefInformation>`
                 
                 .. attribute:: to_up_state_count
                 
@@ -5530,7 +5648,7 @@ class Bfd(object):
                 .. attribute:: transmit_packet
                 
                 	Transmit Packet
-                	**type**\:  :py:class:`TransmitPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.TransmitPacket>`
+                	**type**\:   :py:class:`TransmitPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.TransmitPacket>`
                 
                 
 
@@ -5582,7 +5700,7 @@ class Bfd(object):
                     .. attribute:: afi
                     
                     	AFI
-                    	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                    	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                     
                     .. attribute:: dummy
                     
@@ -5662,12 +5780,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: day
+                    
                     .. attribute:: hours
                     
                     	Number of hours since last session state transition
                     	**type**\:  int
                     
                     	**range:** 0..255
+                    
+                    	**units**\: hour
                     
                     .. attribute:: minutes
                     
@@ -5676,12 +5798,16 @@ class Bfd(object):
                     
                     	**range:** 0..255
                     
+                    	**units**\: minute
+                    
                     .. attribute:: seconds
                     
                     	Number of seconds since last session state transition
                     	**type**\:  int
                     
                     	**range:** 0..255
+                    
+                    	**units**\: second
                     
                     
 
@@ -5761,6 +5887,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: detection_multiplier
                     
                     	Detection Multiplier
@@ -5771,7 +5899,7 @@ class Bfd(object):
                     .. attribute:: diagnostic
                     
                     	Diagnostic
-                    	**type**\:  :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
+                    	**type**\:   :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
                     
                     .. attribute:: final
                     
@@ -5815,6 +5943,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: required_minimum_receive_interval
                     
                     	Required receive interval in micro\-seconds
@@ -5822,10 +5952,12 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: state
                     
                     	State (v1)
-                    	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+                    	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
                     
                     .. attribute:: version
                     
@@ -5967,6 +6099,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: detection_multiplier
                     
                     	Detection Multiplier
@@ -5977,7 +6111,7 @@ class Bfd(object):
                     .. attribute:: diagnostic
                     
                     	Diagnostic
-                    	**type**\:  :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
+                    	**type**\:   :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
                     
                     .. attribute:: final
                     
@@ -6021,6 +6155,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: required_minimum_receive_interval
                     
                     	Required receive interval in micro\-seconds
@@ -6028,10 +6164,12 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: state
                     
                     	State (v1)
-                    	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+                    	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
                     
                     .. attribute:: version
                     
@@ -6148,12 +6286,12 @@ class Bfd(object):
                     .. attribute:: async_interval_multiplier
                     
                     	Async Interval and Detect Multiplier Information
-                    	**type**\:  :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier>`
+                    	**type**\:   :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier>`
                     
                     .. attribute:: echo_interval_multiplier
                     
                     	Echo Interval and Detect Multiplier Information
-                    	**type**\:  :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier>`
+                    	**type**\:   :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier>`
                     
                     
 
@@ -6188,6 +6326,8 @@ class Bfd(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: microsecond
+                        
                         .. attribute:: negotiated_local_transmit_interval
                         
                         	Negotiated local transmit interval in micro\-seconds
@@ -6195,12 +6335,16 @@ class Bfd(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: microsecond
+                        
                         .. attribute:: negotiated_remote_transmit_interval
                         
                         	Negotiated remote transmit interval in micro\-seconds
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: microsecond
                         
                         
 
@@ -6266,12 +6410,16 @@ class Bfd(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: microsecond
+                        
                         .. attribute:: negotiated_transmit_interval
                         
                         	Negotiated transmit interval in micro\-seconds
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: microsecond
                         
                         
 
@@ -6352,12 +6500,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: last
                     
                     	Time since last Transmit/Receive (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: maximum
                     
@@ -6366,12 +6518,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: number
                     
@@ -6442,12 +6598,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: last
                     
                     	Time since last Transmit/Receive (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: maximum
                     
@@ -6456,12 +6616,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: number
                     
@@ -6532,12 +6696,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: last
                     
                     	Time since last Transmit/Receive (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: maximum
                     
@@ -6546,12 +6714,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: number
                     
@@ -6622,12 +6794,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: last
                     
                     	Time since last Transmit/Receive (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: maximum
                     
@@ -6636,12 +6812,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: number
                     
@@ -6795,12 +6975,12 @@ class Bfd(object):
                 .. attribute:: change_time
                 
                 	Change time
-                	**type**\:  :py:class:`ChangeTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.MpDownloadState.ChangeTime>`
+                	**type**\:   :py:class:`ChangeTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.MpDownloadState.ChangeTime>`
                 
                 .. attribute:: mp_download_state
                 
                 	MP Download State
-                	**type**\:  :py:class:`BfdMpDownloadStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMpDownloadStateEnum>`
+                	**type**\:   :py:class:`BfdMpDownloadStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMpDownloadStateEnum>`
                 
                 
 
@@ -6827,12 +7007,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	seconds
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: second
                     
                     
 
@@ -6937,7 +7121,7 @@ class Bfd(object):
                 .. attribute:: lsp_ping_rx_last_time
                 
                 	LSP Ping last received time
-                	**type**\:  :py:class:`LspPingRxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingRxLastTime>`
+                	**type**\:   :py:class:`LspPingRxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingRxLastTime>`
                 
                 .. attribute:: lsp_ping_tx_count
                 
@@ -6961,7 +7145,7 @@ class Bfd(object):
                 .. attribute:: lsp_ping_tx_last_error_time
                 
                 	LSP Ping last error time
-                	**type**\:  :py:class:`LspPingTxLastErrorTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime>`
+                	**type**\:   :py:class:`LspPingTxLastErrorTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime>`
                 
                 .. attribute:: lsp_ping_tx_last_rc
                 
@@ -6971,7 +7155,7 @@ class Bfd(object):
                 .. attribute:: lsp_ping_tx_last_time
                 
                 	LSP Ping last sent time
-                	**type**\:  :py:class:`LspPingTxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingTxLastTime>`
+                	**type**\:   :py:class:`LspPingTxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingTxLastTime>`
                 
                 
 
@@ -7010,12 +7194,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	seconds
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: second
                     
                     
 
@@ -7066,12 +7254,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	seconds
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: second
                     
                     
 
@@ -7122,12 +7314,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	seconds
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: second
                     
                     
 
@@ -7240,6 +7436,8 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: detection_multiplier
                 
                 	Client specified detection multiplier to compute detection time
@@ -7253,6 +7451,8 @@ class Bfd(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: microsecond
                 
                 .. attribute:: name
                 
@@ -7325,17 +7525,17 @@ class Bfd(object):
                 .. attribute:: owner_information
                 
                 	Client applications owning the session
-                	**type**\: list of  :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.OwnerInformation>`
+                	**type**\: list of    :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.OwnerInformation>`
                 
                 .. attribute:: session_key
                 
                 	Session Key
-                	**type**\:  :py:class:`SessionKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey>`
+                	**type**\:   :py:class:`SessionKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey>`
                 
                 .. attribute:: sessiontype
                 
                 	Session type
-                	**type**\:  :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
+                	**type**\:   :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
                 
                 
 
@@ -7362,7 +7562,7 @@ class Bfd(object):
                     .. attribute:: bfdfec
                     
                     	Union of FECs
-                    	**type**\:  :py:class:`Bfdfec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey.Bfdfec>`
+                    	**type**\:   :py:class:`Bfdfec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey.Bfdfec>`
                     
                     .. attribute:: incoming_label
                     
@@ -7381,12 +7581,12 @@ class Bfd(object):
                     .. attribute:: ip_destination_address
                     
                     	IPv4/v6 dest address
-                    	**type**\:  :py:class:`IpDestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey.IpDestinationAddress>`
+                    	**type**\:   :py:class:`IpDestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey.IpDestinationAddress>`
                     
                     .. attribute:: ip_source_address
                     
                     	IPv4/v6 source address
-                    	**type**\:  :py:class:`IpSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey.IpSourceAddress>`
+                    	**type**\:   :py:class:`IpSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey.IpSourceAddress>`
                     
                     .. attribute:: sbfd_enabled
                     
@@ -7412,7 +7612,7 @@ class Bfd(object):
                     .. attribute:: target_address
                     
                     	sbfd target address
-                    	**type**\:  :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey.TargetAddress>`
+                    	**type**\:   :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey.TargetAddress>`
                     
                     .. attribute:: vrf_name
                     
@@ -7453,7 +7653,7 @@ class Bfd(object):
                         .. attribute:: afi
                         
                         	AFI
-                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                         
                         .. attribute:: dummy
                         
@@ -7529,7 +7729,7 @@ class Bfd(object):
                         .. attribute:: afi
                         
                         	AFI
-                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                         
                         .. attribute:: dummy
                         
@@ -7605,17 +7805,17 @@ class Bfd(object):
                         .. attribute:: bfdfe_ctype
                         
                         	BFDFECType
-                        	**type**\:  :py:class:`BfdApiFecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdApiFecEnum>`
+                        	**type**\:   :py:class:`BfdApiFecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdApiFecEnum>`
                         
                         .. attribute:: dummy
                         
                         	dummy
-                        	**type**\:  :py:class:`Dummy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey.Bfdfec.Dummy>`
+                        	**type**\:   :py:class:`Dummy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey.Bfdfec.Dummy>`
                         
                         .. attribute:: te_s2l_fec
                         
                         	te s2l fec
-                        	**type**\:  :py:class:`TeS2LFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey.Bfdfec.TeS2LFec>`
+                        	**type**\:   :py:class:`TeS2LFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey.Bfdfec.TeS2LFec>`
                         
                         
 
@@ -7685,7 +7885,7 @@ class Bfd(object):
                             .. attribute:: s2l_fec_ctype
                             
                             	Session identifier (ctype)
-                            	**type**\:  :py:class:`MplsLibCEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.MplsLibCEnum>`
+                            	**type**\:   :py:class:`MplsLibCEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.MplsLibCEnum>`
                             
                             .. attribute:: s2l_fec_dest
                             
@@ -7853,7 +8053,7 @@ class Bfd(object):
                         .. attribute:: afi
                         
                         	AFI
-                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                         
                         .. attribute:: dummy
                         
@@ -7989,6 +8189,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: detection_multiplier
                     
                     	Client specified detection multiplier to compute detection time
@@ -8002,6 +8204,8 @@ class Bfd(object):
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: microsecond
                     
                     .. attribute:: name
                     
@@ -8172,7 +8376,7 @@ class Bfd(object):
         .. attribute:: ipv4_multi_hop_session_brief
         
         	Brief information for a single IPv4 multihop BFD session
-        	**type**\: list of  :py:class:`Ipv4MultiHopSessionBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief>`
+        	**type**\: list of    :py:class:`Ipv4MultiHopSessionBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief>`
         
         
 
@@ -8229,7 +8433,7 @@ class Bfd(object):
             .. attribute:: session_type
             
             	Session type
-            	**type**\:  :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
+            	**type**\:   :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
             
             .. attribute:: source_address
             
@@ -8241,12 +8445,12 @@ class Bfd(object):
             .. attribute:: state
             
             	State
-            	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+            	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
             
             .. attribute:: status_brief_information
             
             	Brief Status Information
-            	**type**\:  :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief.StatusBriefInformation>`
+            	**type**\:   :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief.StatusBriefInformation>`
             
             .. attribute:: vrf_name
             
@@ -8284,12 +8488,12 @@ class Bfd(object):
                 .. attribute:: async_interval_multiplier
                 
                 	Async Interval and Detect Multiplier Information
-                	**type**\:  :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier>`
+                	**type**\:   :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier>`
                 
                 .. attribute:: echo_interval_multiplier
                 
                 	Echo Interval and Detect Multiplier Information
-                	**type**\:  :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier>`
+                	**type**\:   :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier>`
                 
                 
 
@@ -8324,6 +8528,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: negotiated_local_transmit_interval
                     
                     	Negotiated local transmit interval in micro\-seconds
@@ -8331,12 +8537,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: negotiated_remote_transmit_interval
                     
                     	Negotiated remote transmit interval in micro\-seconds
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: microsecond
                     
                     
 
@@ -8402,12 +8612,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: negotiated_transmit_interval
                     
                     	Negotiated transmit interval in micro\-seconds
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: microsecond
                     
                     
 
@@ -8556,7 +8770,7 @@ class Bfd(object):
         .. attribute:: generic_summary
         
         	Generic summary information for bfd location table
-        	**type**\: list of  :py:class:`GenericSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.GenericSummaries.GenericSummary>`
+        	**type**\: list of    :py:class:`GenericSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.GenericSummaries.GenericSummary>`
         
         
 
@@ -8739,7 +8953,7 @@ class Bfd(object):
         .. attribute:: ipv6_single_hop_multi_path
         
         	IPv6 single hop multipath table
-        	**type**\: list of  :py:class:`Ipv6SingleHopMultiPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopMultiPaths.Ipv6SingleHopMultiPath>`
+        	**type**\: list of    :py:class:`Ipv6SingleHopMultiPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopMultiPaths.Ipv6SingleHopMultiPath>`
         
         
 
@@ -8826,7 +9040,7 @@ class Bfd(object):
             .. attribute:: state
             
             	State
-            	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+            	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
             
             
 
@@ -8926,7 +9140,7 @@ class Bfd(object):
         .. attribute:: ipv4_single_hop_node_location_summary
         
         	Summary information for BFD IPv4 singlehop sessions for location
-        	**type**\: list of  :py:class:`Ipv4SingleHopNodeLocationSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopNodeLocationSummaries.Ipv4SingleHopNodeLocationSummary>`
+        	**type**\: list of    :py:class:`Ipv4SingleHopNodeLocationSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopNodeLocationSummaries.Ipv4SingleHopNodeLocationSummary>`
         
         
 
@@ -8957,7 +9171,7 @@ class Bfd(object):
             .. attribute:: session_state
             
             	Statistics of states for sessions
-            	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopNodeLocationSummaries.Ipv4SingleHopNodeLocationSummary.SessionState>`
+            	**type**\:   :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopNodeLocationSummaries.Ipv4SingleHopNodeLocationSummary.SessionState>`
             
             
 
@@ -9133,7 +9347,7 @@ class Bfd(object):
         .. attribute:: session_state
         
         	Statistics of states for sessions
-        	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSummary.SessionState>`
+        	**type**\:   :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSummary.SessionState>`
         
         
 
@@ -9256,7 +9470,7 @@ class Bfd(object):
         .. attribute:: ipv4bf_do_mplste_head_session_brief
         
         	Brief information for a single IPv4 BFD over MPLS\-TE Head session
-        	**type**\: list of  :py:class:`Ipv4BfDoMplsteHeadSessionBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionBriefs.Ipv4BfDoMplsteHeadSessionBrief>`
+        	**type**\: list of    :py:class:`Ipv4BfDoMplsteHeadSessionBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionBriefs.Ipv4BfDoMplsteHeadSessionBrief>`
         
         
 
@@ -9390,17 +9604,17 @@ class Bfd(object):
             .. attribute:: session_type
             
             	Session type
-            	**type**\:  :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
+            	**type**\:   :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
             
             .. attribute:: state
             
             	State
-            	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+            	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
             
             .. attribute:: status_brief_information
             
             	Brief Status Information
-            	**type**\:  :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionBriefs.Ipv4BfDoMplsteHeadSessionBrief.StatusBriefInformation>`
+            	**type**\:   :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionBriefs.Ipv4BfDoMplsteHeadSessionBrief.StatusBriefInformation>`
             
             .. attribute:: vrf_name
             
@@ -9448,12 +9662,12 @@ class Bfd(object):
                 .. attribute:: async_interval_multiplier
                 
                 	Async Interval and Detect Multiplier Information
-                	**type**\:  :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionBriefs.Ipv4BfDoMplsteHeadSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier>`
+                	**type**\:   :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionBriefs.Ipv4BfDoMplsteHeadSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier>`
                 
                 .. attribute:: echo_interval_multiplier
                 
                 	Echo Interval and Detect Multiplier Information
-                	**type**\:  :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionBriefs.Ipv4BfDoMplsteHeadSessionBrief.StatusBriefInformation.EchoIntervalMultiplier>`
+                	**type**\:   :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionBriefs.Ipv4BfDoMplsteHeadSessionBrief.StatusBriefInformation.EchoIntervalMultiplier>`
                 
                 
 
@@ -9488,6 +9702,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: negotiated_local_transmit_interval
                     
                     	Negotiated local transmit interval in micro\-seconds
@@ -9495,12 +9711,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: negotiated_remote_transmit_interval
                     
                     	Negotiated remote transmit interval in micro\-seconds
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: microsecond
                     
                     
 
@@ -9566,12 +9786,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: negotiated_transmit_interval
                     
                     	Negotiated transmit interval in micro\-seconds
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: microsecond
                     
                     
 
@@ -9751,7 +9975,7 @@ class Bfd(object):
         .. attribute:: ipv4bf_do_mplste_tail_session_detail
         
         	Detailed information for a single IPv4 BFD over MPLS\-TE Tail session
-        	**type**\: list of  :py:class:`Ipv4BfDoMplsteTailSessionDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail>`
+        	**type**\: list of    :py:class:`Ipv4BfDoMplsteTailSessionDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail>`
         
         
 
@@ -9775,7 +9999,7 @@ class Bfd(object):
             .. attribute:: association_information
             
             	Association session information
-            	**type**\: list of  :py:class:`AssociationInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation>`
+            	**type**\: list of    :py:class:`AssociationInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation>`
             
             .. attribute:: fe_ctype
             
@@ -9864,22 +10088,22 @@ class Bfd(object):
             .. attribute:: lsp_ping_info
             
             	LSP Ping Info
-            	**type**\:  :py:class:`LspPingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.LspPingInfo>`
+            	**type**\:   :py:class:`LspPingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.LspPingInfo>`
             
             .. attribute:: mp_download_state
             
             	MP Dowload State
-            	**type**\:  :py:class:`MpDownloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.MpDownloadState>`
+            	**type**\:   :py:class:`MpDownloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.MpDownloadState>`
             
             .. attribute:: owner_information
             
             	Client applications owning the session
-            	**type**\: list of  :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.OwnerInformation>`
+            	**type**\: list of    :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.OwnerInformation>`
             
             .. attribute:: status_information
             
             	Session status information
-            	**type**\:  :py:class:`StatusInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.StatusInformation>`
+            	**type**\:   :py:class:`StatusInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.StatusInformation>`
             
             .. attribute:: vrf_name
             
@@ -9931,12 +10155,12 @@ class Bfd(object):
                 .. attribute:: async_receive_statistics
                 
                 	Statistics of Interval between Async Packets Received (in milli\-seconds)
-                	**type**\:  :py:class:`AsyncReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.StatusInformation.AsyncReceiveStatistics>`
+                	**type**\:   :py:class:`AsyncReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.StatusInformation.AsyncReceiveStatistics>`
                 
                 .. attribute:: async_transmit_statistics
                 
                 	Statistics of Interval between Async Packets Transmitted (in milli\-seconds)
-                	**type**\:  :py:class:`AsyncTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.StatusInformation.AsyncTransmitStatistics>`
+                	**type**\:   :py:class:`AsyncTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.StatusInformation.AsyncTransmitStatistics>`
                 
                 .. attribute:: desired_minimum_echo_transmit_interval
                 
@@ -9945,15 +10169,17 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: echo_received_statistics
                 
                 	Statistics of Interval between Echo Packets Received (in milli\-seconds)
-                	**type**\:  :py:class:`EchoReceivedStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.StatusInformation.EchoReceivedStatistics>`
+                	**type**\:   :py:class:`EchoReceivedStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.StatusInformation.EchoReceivedStatistics>`
                 
                 .. attribute:: echo_transmit_statistics
                 
                 	Statistics of Interval between Echo Packets Transmitted (in milli\-seconds)
-                	**type**\:  :py:class:`EchoTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.StatusInformation.EchoTransmitStatistics>`
+                	**type**\:   :py:class:`EchoTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.StatusInformation.EchoTransmitStatistics>`
                 
                 .. attribute:: internal_label
                 
@@ -9965,7 +10191,7 @@ class Bfd(object):
                 .. attribute:: last_state_change
                 
                 	Time since last state change
-                	**type**\:  :py:class:`LastStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.StatusInformation.LastStateChange>`
+                	**type**\:   :py:class:`LastStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.StatusInformation.LastStateChange>`
                 
                 .. attribute:: latency_average
                 
@@ -9974,6 +10200,8 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: microsecond
+                
                 .. attribute:: latency_maximum
                 
                 	Maximum value of Latency (in micro\-seconds)
@@ -9981,12 +10209,16 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: microsecond
+                
                 .. attribute:: latency_minimum
                 
                 	Minimum value of Latency (in micro\-seconds)
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: microsecond
                 
                 .. attribute:: latency_number
                 
@@ -10012,7 +10244,7 @@ class Bfd(object):
                 .. attribute:: receive_packet
                 
                 	Receive Packet
-                	**type**\:  :py:class:`ReceivePacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.StatusInformation.ReceivePacket>`
+                	**type**\:   :py:class:`ReceivePacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.StatusInformation.ReceivePacket>`
                 
                 .. attribute:: remote_discriminator
                 
@@ -10028,6 +10260,8 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: session_subtype
                 
                 	Session subtype
@@ -10036,22 +10270,22 @@ class Bfd(object):
                 .. attribute:: sessiontype
                 
                 	Session type
-                	**type**\:  :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
+                	**type**\:   :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
                 
                 .. attribute:: source_address
                 
                 	Source address
-                	**type**\:  :py:class:`SourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.StatusInformation.SourceAddress>`
+                	**type**\:   :py:class:`SourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.StatusInformation.SourceAddress>`
                 
                 .. attribute:: state
                 
                 	State
-                	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+                	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
                 
                 .. attribute:: status_brief_information
                 
                 	Brief Status Information
-                	**type**\:  :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.StatusInformation.StatusBriefInformation>`
+                	**type**\:   :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.StatusInformation.StatusBriefInformation>`
                 
                 .. attribute:: to_up_state_count
                 
@@ -10063,7 +10297,7 @@ class Bfd(object):
                 .. attribute:: transmit_packet
                 
                 	Transmit Packet
-                	**type**\:  :py:class:`TransmitPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.StatusInformation.TransmitPacket>`
+                	**type**\:   :py:class:`TransmitPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.StatusInformation.TransmitPacket>`
                 
                 
 
@@ -10115,7 +10349,7 @@ class Bfd(object):
                     .. attribute:: afi
                     
                     	AFI
-                    	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                    	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                     
                     .. attribute:: dummy
                     
@@ -10195,12 +10429,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: day
+                    
                     .. attribute:: hours
                     
                     	Number of hours since last session state transition
                     	**type**\:  int
                     
                     	**range:** 0..255
+                    
+                    	**units**\: hour
                     
                     .. attribute:: minutes
                     
@@ -10209,12 +10447,16 @@ class Bfd(object):
                     
                     	**range:** 0..255
                     
+                    	**units**\: minute
+                    
                     .. attribute:: seconds
                     
                     	Number of seconds since last session state transition
                     	**type**\:  int
                     
                     	**range:** 0..255
+                    
+                    	**units**\: second
                     
                     
 
@@ -10294,6 +10536,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: detection_multiplier
                     
                     	Detection Multiplier
@@ -10304,7 +10548,7 @@ class Bfd(object):
                     .. attribute:: diagnostic
                     
                     	Diagnostic
-                    	**type**\:  :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
+                    	**type**\:   :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
                     
                     .. attribute:: final
                     
@@ -10348,6 +10592,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: required_minimum_receive_interval
                     
                     	Required receive interval in micro\-seconds
@@ -10355,10 +10601,12 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: state
                     
                     	State (v1)
-                    	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+                    	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
                     
                     .. attribute:: version
                     
@@ -10500,6 +10748,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: detection_multiplier
                     
                     	Detection Multiplier
@@ -10510,7 +10760,7 @@ class Bfd(object):
                     .. attribute:: diagnostic
                     
                     	Diagnostic
-                    	**type**\:  :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
+                    	**type**\:   :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
                     
                     .. attribute:: final
                     
@@ -10554,6 +10804,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: required_minimum_receive_interval
                     
                     	Required receive interval in micro\-seconds
@@ -10561,10 +10813,12 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: state
                     
                     	State (v1)
-                    	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+                    	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
                     
                     .. attribute:: version
                     
@@ -10681,12 +10935,12 @@ class Bfd(object):
                     .. attribute:: async_interval_multiplier
                     
                     	Async Interval and Detect Multiplier Information
-                    	**type**\:  :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier>`
+                    	**type**\:   :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier>`
                     
                     .. attribute:: echo_interval_multiplier
                     
                     	Echo Interval and Detect Multiplier Information
-                    	**type**\:  :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier>`
+                    	**type**\:   :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier>`
                     
                     
 
@@ -10721,6 +10975,8 @@ class Bfd(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: microsecond
+                        
                         .. attribute:: negotiated_local_transmit_interval
                         
                         	Negotiated local transmit interval in micro\-seconds
@@ -10728,12 +10984,16 @@ class Bfd(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: microsecond
+                        
                         .. attribute:: negotiated_remote_transmit_interval
                         
                         	Negotiated remote transmit interval in micro\-seconds
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: microsecond
                         
                         
 
@@ -10799,12 +11059,16 @@ class Bfd(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: microsecond
+                        
                         .. attribute:: negotiated_transmit_interval
                         
                         	Negotiated transmit interval in micro\-seconds
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: microsecond
                         
                         
 
@@ -10885,12 +11149,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: last
                     
                     	Time since last Transmit/Receive (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: maximum
                     
@@ -10899,12 +11167,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: number
                     
@@ -10975,12 +11247,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: last
                     
                     	Time since last Transmit/Receive (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: maximum
                     
@@ -10989,12 +11265,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: number
                     
@@ -11065,12 +11345,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: last
                     
                     	Time since last Transmit/Receive (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: maximum
                     
@@ -11079,12 +11363,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: number
                     
@@ -11155,12 +11443,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: last
                     
                     	Time since last Transmit/Receive (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: maximum
                     
@@ -11169,12 +11461,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: number
                     
@@ -11328,12 +11624,12 @@ class Bfd(object):
                 .. attribute:: change_time
                 
                 	Change time
-                	**type**\:  :py:class:`ChangeTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.MpDownloadState.ChangeTime>`
+                	**type**\:   :py:class:`ChangeTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.MpDownloadState.ChangeTime>`
                 
                 .. attribute:: mp_download_state
                 
                 	MP Download State
-                	**type**\:  :py:class:`BfdMpDownloadStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMpDownloadStateEnum>`
+                	**type**\:   :py:class:`BfdMpDownloadStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMpDownloadStateEnum>`
                 
                 
 
@@ -11360,12 +11656,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	seconds
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: second
                     
                     
 
@@ -11470,7 +11770,7 @@ class Bfd(object):
                 .. attribute:: lsp_ping_rx_last_time
                 
                 	LSP Ping last received time
-                	**type**\:  :py:class:`LspPingRxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.LspPingInfo.LspPingRxLastTime>`
+                	**type**\:   :py:class:`LspPingRxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.LspPingInfo.LspPingRxLastTime>`
                 
                 .. attribute:: lsp_ping_tx_count
                 
@@ -11494,7 +11794,7 @@ class Bfd(object):
                 .. attribute:: lsp_ping_tx_last_error_time
                 
                 	LSP Ping last error time
-                	**type**\:  :py:class:`LspPingTxLastErrorTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.LspPingInfo.LspPingTxLastErrorTime>`
+                	**type**\:   :py:class:`LspPingTxLastErrorTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.LspPingInfo.LspPingTxLastErrorTime>`
                 
                 .. attribute:: lsp_ping_tx_last_rc
                 
@@ -11504,7 +11804,7 @@ class Bfd(object):
                 .. attribute:: lsp_ping_tx_last_time
                 
                 	LSP Ping last sent time
-                	**type**\:  :py:class:`LspPingTxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.LspPingInfo.LspPingTxLastTime>`
+                	**type**\:   :py:class:`LspPingTxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.LspPingInfo.LspPingTxLastTime>`
                 
                 
 
@@ -11543,12 +11843,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	seconds
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: second
                     
                     
 
@@ -11599,12 +11903,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	seconds
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: second
                     
                     
 
@@ -11655,12 +11963,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	seconds
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: second
                     
                     
 
@@ -11773,6 +12085,8 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: detection_multiplier
                 
                 	Client specified detection multiplier to compute detection time
@@ -11786,6 +12100,8 @@ class Bfd(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: microsecond
                 
                 .. attribute:: name
                 
@@ -11858,17 +12174,17 @@ class Bfd(object):
                 .. attribute:: owner_information
                 
                 	Client applications owning the session
-                	**type**\: list of  :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.OwnerInformation>`
+                	**type**\: list of    :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.OwnerInformation>`
                 
                 .. attribute:: session_key
                 
                 	Session Key
-                	**type**\:  :py:class:`SessionKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey>`
+                	**type**\:   :py:class:`SessionKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey>`
                 
                 .. attribute:: sessiontype
                 
                 	Session type
-                	**type**\:  :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
+                	**type**\:   :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
                 
                 
 
@@ -11895,7 +12211,7 @@ class Bfd(object):
                     .. attribute:: bfdfec
                     
                     	Union of FECs
-                    	**type**\:  :py:class:`Bfdfec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey.Bfdfec>`
+                    	**type**\:   :py:class:`Bfdfec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey.Bfdfec>`
                     
                     .. attribute:: incoming_label
                     
@@ -11914,12 +12230,12 @@ class Bfd(object):
                     .. attribute:: ip_destination_address
                     
                     	IPv4/v6 dest address
-                    	**type**\:  :py:class:`IpDestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey.IpDestinationAddress>`
+                    	**type**\:   :py:class:`IpDestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey.IpDestinationAddress>`
                     
                     .. attribute:: ip_source_address
                     
                     	IPv4/v6 source address
-                    	**type**\:  :py:class:`IpSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey.IpSourceAddress>`
+                    	**type**\:   :py:class:`IpSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey.IpSourceAddress>`
                     
                     .. attribute:: sbfd_enabled
                     
@@ -11945,7 +12261,7 @@ class Bfd(object):
                     .. attribute:: target_address
                     
                     	sbfd target address
-                    	**type**\:  :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey.TargetAddress>`
+                    	**type**\:   :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey.TargetAddress>`
                     
                     .. attribute:: vrf_name
                     
@@ -11986,7 +12302,7 @@ class Bfd(object):
                         .. attribute:: afi
                         
                         	AFI
-                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                         
                         .. attribute:: dummy
                         
@@ -12062,7 +12378,7 @@ class Bfd(object):
                         .. attribute:: afi
                         
                         	AFI
-                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                         
                         .. attribute:: dummy
                         
@@ -12138,17 +12454,17 @@ class Bfd(object):
                         .. attribute:: bfdfe_ctype
                         
                         	BFDFECType
-                        	**type**\:  :py:class:`BfdApiFecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdApiFecEnum>`
+                        	**type**\:   :py:class:`BfdApiFecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdApiFecEnum>`
                         
                         .. attribute:: dummy
                         
                         	dummy
-                        	**type**\:  :py:class:`Dummy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey.Bfdfec.Dummy>`
+                        	**type**\:   :py:class:`Dummy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey.Bfdfec.Dummy>`
                         
                         .. attribute:: te_s2l_fec
                         
                         	te s2l fec
-                        	**type**\:  :py:class:`TeS2LFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey.Bfdfec.TeS2LFec>`
+                        	**type**\:   :py:class:`TeS2LFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey.Bfdfec.TeS2LFec>`
                         
                         
 
@@ -12218,7 +12534,7 @@ class Bfd(object):
                             .. attribute:: s2l_fec_ctype
                             
                             	Session identifier (ctype)
-                            	**type**\:  :py:class:`MplsLibCEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.MplsLibCEnum>`
+                            	**type**\:   :py:class:`MplsLibCEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.MplsLibCEnum>`
                             
                             .. attribute:: s2l_fec_dest
                             
@@ -12386,7 +12702,7 @@ class Bfd(object):
                         .. attribute:: afi
                         
                         	AFI
-                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                         
                         .. attribute:: dummy
                         
@@ -12522,6 +12838,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: detection_multiplier
                     
                     	Client specified detection multiplier to compute detection time
@@ -12535,6 +12853,8 @@ class Bfd(object):
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: microsecond
                     
                     .. attribute:: name
                     
@@ -12735,7 +13055,7 @@ class Bfd(object):
         .. attribute:: ipv4_multi_hop_node_location_summary
         
         	Summary information for BFD IPv4 multihop sessions for location
-        	**type**\: list of  :py:class:`Ipv4MultiHopNodeLocationSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopNodeLocationSummaries.Ipv4MultiHopNodeLocationSummary>`
+        	**type**\: list of    :py:class:`Ipv4MultiHopNodeLocationSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopNodeLocationSummaries.Ipv4MultiHopNodeLocationSummary>`
         
         
 
@@ -12766,7 +13086,7 @@ class Bfd(object):
             .. attribute:: session_state
             
             	Statistics of states for sessions
-            	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopNodeLocationSummaries.Ipv4MultiHopNodeLocationSummary.SessionState>`
+            	**type**\:   :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopNodeLocationSummaries.Ipv4MultiHopNodeLocationSummary.SessionState>`
             
             
 
@@ -12943,7 +13263,7 @@ class Bfd(object):
         .. attribute:: ipv4bf_do_mplste_tail_session_brief
         
         	Brief information for a single IPv4 BFD over MPLS\-TE session
-        	**type**\: list of  :py:class:`Ipv4BfDoMplsteTailSessionBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionBriefs.Ipv4BfDoMplsteTailSessionBrief>`
+        	**type**\: list of    :py:class:`Ipv4BfDoMplsteTailSessionBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionBriefs.Ipv4BfDoMplsteTailSessionBrief>`
         
         
 
@@ -13070,17 +13390,17 @@ class Bfd(object):
             .. attribute:: session_type
             
             	Session type
-            	**type**\:  :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
+            	**type**\:   :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
             
             .. attribute:: state
             
             	State
-            	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+            	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
             
             .. attribute:: status_brief_information
             
             	Brief Status Information
-            	**type**\:  :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionBriefs.Ipv4BfDoMplsteTailSessionBrief.StatusBriefInformation>`
+            	**type**\:   :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionBriefs.Ipv4BfDoMplsteTailSessionBrief.StatusBriefInformation>`
             
             .. attribute:: vrf_name
             
@@ -13127,12 +13447,12 @@ class Bfd(object):
                 .. attribute:: async_interval_multiplier
                 
                 	Async Interval and Detect Multiplier Information
-                	**type**\:  :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionBriefs.Ipv4BfDoMplsteTailSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier>`
+                	**type**\:   :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionBriefs.Ipv4BfDoMplsteTailSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier>`
                 
                 .. attribute:: echo_interval_multiplier
                 
                 	Echo Interval and Detect Multiplier Information
-                	**type**\:  :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionBriefs.Ipv4BfDoMplsteTailSessionBrief.StatusBriefInformation.EchoIntervalMultiplier>`
+                	**type**\:   :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailSessionBriefs.Ipv4BfDoMplsteTailSessionBrief.StatusBriefInformation.EchoIntervalMultiplier>`
                 
                 
 
@@ -13167,6 +13487,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: negotiated_local_transmit_interval
                     
                     	Negotiated local transmit interval in micro\-seconds
@@ -13174,12 +13496,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: negotiated_remote_transmit_interval
                     
                     	Negotiated remote transmit interval in micro\-seconds
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: microsecond
                     
                     
 
@@ -13245,12 +13571,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: negotiated_transmit_interval
                     
                     	Negotiated transmit interval in micro\-seconds
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: microsecond
                     
                     
 
@@ -13427,7 +13757,7 @@ class Bfd(object):
         .. attribute:: ipv6_multi_hop_node_location_summary
         
         	Summary information for BFD IPv6 multihop sessions for location
-        	**type**\: list of  :py:class:`Ipv6MultiHopNodeLocationSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopNodeLocationSummaries.Ipv6MultiHopNodeLocationSummary>`
+        	**type**\: list of    :py:class:`Ipv6MultiHopNodeLocationSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopNodeLocationSummaries.Ipv6MultiHopNodeLocationSummary>`
         
         
 
@@ -13458,7 +13788,7 @@ class Bfd(object):
             .. attribute:: session_state
             
             	Statistics of states for sessions
-            	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopNodeLocationSummaries.Ipv6MultiHopNodeLocationSummary.SessionState>`
+            	**type**\:   :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopNodeLocationSummaries.Ipv6MultiHopNodeLocationSummary.SessionState>`
             
             
 
@@ -13635,7 +13965,7 @@ class Bfd(object):
         .. attribute:: session_state
         
         	Statistics of states for sessions
-        	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSummary.SessionState>`
+        	**type**\:   :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopSummary.SessionState>`
         
         
 
@@ -13757,7 +14087,7 @@ class Bfd(object):
         .. attribute:: ipv4_single_hop_packet_counters
         
         	Table of IPv4 single hop Packet counters
-        	**type**\:  :py:class:`Ipv4SingleHopPacketCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopCounters.Ipv4SingleHopPacketCounters>`
+        	**type**\:   :py:class:`Ipv4SingleHopPacketCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopCounters.Ipv4SingleHopPacketCounters>`
         
         
 
@@ -13779,7 +14109,7 @@ class Bfd(object):
             .. attribute:: ipv4_single_hop_packet_counter
             
             	Interface IPv4 single hop Packet counters
-            	**type**\: list of  :py:class:`Ipv4SingleHopPacketCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopCounters.Ipv4SingleHopPacketCounters.Ipv4SingleHopPacketCounter>`
+            	**type**\: list of    :py:class:`Ipv4SingleHopPacketCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopCounters.Ipv4SingleHopPacketCounters.Ipv4SingleHopPacketCounter>`
             
             
 
@@ -13809,7 +14139,7 @@ class Bfd(object):
                 .. attribute:: display_type
                 
                 	Packet Display Type
-                	**type**\:  :py:class:`BfdMgmtPktDisplayEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtPktDisplayEnum>`
+                	**type**\:   :py:class:`BfdMgmtPktDisplayEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtPktDisplayEnum>`
                 
                 .. attribute:: echo_receive_count
                 
@@ -13949,7 +14279,7 @@ class Bfd(object):
         .. attribute:: ipv6_multi_hop_session_detail
         
         	Detailed information for a single IPv6 multihop BFD session
-        	**type**\: list of  :py:class:`Ipv6MultiHopSessionDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail>`
+        	**type**\: list of    :py:class:`Ipv6MultiHopSessionDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail>`
         
         
 
@@ -13973,7 +14303,7 @@ class Bfd(object):
             .. attribute:: association_information
             
             	Association session information
-            	**type**\: list of  :py:class:`AssociationInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation>`
+            	**type**\: list of    :py:class:`AssociationInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation>`
             
             .. attribute:: destination_address
             
@@ -14002,17 +14332,17 @@ class Bfd(object):
             .. attribute:: lsp_ping_info
             
             	LSP Ping Info
-            	**type**\:  :py:class:`LspPingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo>`
+            	**type**\:   :py:class:`LspPingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo>`
             
             .. attribute:: mp_download_state
             
             	MP Dowload State
-            	**type**\:  :py:class:`MpDownloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.MpDownloadState>`
+            	**type**\:   :py:class:`MpDownloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.MpDownloadState>`
             
             .. attribute:: owner_information
             
             	Client applications owning the session
-            	**type**\: list of  :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.OwnerInformation>`
+            	**type**\: list of    :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.OwnerInformation>`
             
             .. attribute:: source_address
             
@@ -14034,7 +14364,7 @@ class Bfd(object):
             .. attribute:: status_information
             
             	Session status information
-            	**type**\:  :py:class:`StatusInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation>`
+            	**type**\:   :py:class:`StatusInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation>`
             
             .. attribute:: vrf_name
             
@@ -14077,12 +14407,12 @@ class Bfd(object):
                 .. attribute:: async_receive_statistics
                 
                 	Statistics of Interval between Async Packets Received (in milli\-seconds)
-                	**type**\:  :py:class:`AsyncReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.AsyncReceiveStatistics>`
+                	**type**\:   :py:class:`AsyncReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.AsyncReceiveStatistics>`
                 
                 .. attribute:: async_transmit_statistics
                 
                 	Statistics of Interval between Async Packets Transmitted (in milli\-seconds)
-                	**type**\:  :py:class:`AsyncTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.AsyncTransmitStatistics>`
+                	**type**\:   :py:class:`AsyncTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.AsyncTransmitStatistics>`
                 
                 .. attribute:: desired_minimum_echo_transmit_interval
                 
@@ -14091,15 +14421,17 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: echo_received_statistics
                 
                 	Statistics of Interval between Echo Packets Received (in milli\-seconds)
-                	**type**\:  :py:class:`EchoReceivedStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.EchoReceivedStatistics>`
+                	**type**\:   :py:class:`EchoReceivedStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.EchoReceivedStatistics>`
                 
                 .. attribute:: echo_transmit_statistics
                 
                 	Statistics of Interval between Echo Packets Transmitted (in milli\-seconds)
-                	**type**\:  :py:class:`EchoTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.EchoTransmitStatistics>`
+                	**type**\:   :py:class:`EchoTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.EchoTransmitStatistics>`
                 
                 .. attribute:: internal_label
                 
@@ -14111,7 +14443,7 @@ class Bfd(object):
                 .. attribute:: last_state_change
                 
                 	Time since last state change
-                	**type**\:  :py:class:`LastStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.LastStateChange>`
+                	**type**\:   :py:class:`LastStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.LastStateChange>`
                 
                 .. attribute:: latency_average
                 
@@ -14120,6 +14452,8 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: microsecond
+                
                 .. attribute:: latency_maximum
                 
                 	Maximum value of Latency (in micro\-seconds)
@@ -14127,12 +14461,16 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: microsecond
+                
                 .. attribute:: latency_minimum
                 
                 	Minimum value of Latency (in micro\-seconds)
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: microsecond
                 
                 .. attribute:: latency_number
                 
@@ -14158,7 +14496,7 @@ class Bfd(object):
                 .. attribute:: receive_packet
                 
                 	Receive Packet
-                	**type**\:  :py:class:`ReceivePacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.ReceivePacket>`
+                	**type**\:   :py:class:`ReceivePacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.ReceivePacket>`
                 
                 .. attribute:: remote_discriminator
                 
@@ -14174,6 +14512,8 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: session_subtype
                 
                 	Session subtype
@@ -14182,22 +14522,22 @@ class Bfd(object):
                 .. attribute:: sessiontype
                 
                 	Session type
-                	**type**\:  :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
+                	**type**\:   :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
                 
                 .. attribute:: source_address
                 
                 	Source address
-                	**type**\:  :py:class:`SourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.SourceAddress>`
+                	**type**\:   :py:class:`SourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.SourceAddress>`
                 
                 .. attribute:: state
                 
                 	State
-                	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+                	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
                 
                 .. attribute:: status_brief_information
                 
                 	Brief Status Information
-                	**type**\:  :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.StatusBriefInformation>`
+                	**type**\:   :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.StatusBriefInformation>`
                 
                 .. attribute:: to_up_state_count
                 
@@ -14209,7 +14549,7 @@ class Bfd(object):
                 .. attribute:: transmit_packet
                 
                 	Transmit Packet
-                	**type**\:  :py:class:`TransmitPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.TransmitPacket>`
+                	**type**\:   :py:class:`TransmitPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.TransmitPacket>`
                 
                 
 
@@ -14261,7 +14601,7 @@ class Bfd(object):
                     .. attribute:: afi
                     
                     	AFI
-                    	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                    	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                     
                     .. attribute:: dummy
                     
@@ -14341,12 +14681,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: day
+                    
                     .. attribute:: hours
                     
                     	Number of hours since last session state transition
                     	**type**\:  int
                     
                     	**range:** 0..255
+                    
+                    	**units**\: hour
                     
                     .. attribute:: minutes
                     
@@ -14355,12 +14699,16 @@ class Bfd(object):
                     
                     	**range:** 0..255
                     
+                    	**units**\: minute
+                    
                     .. attribute:: seconds
                     
                     	Number of seconds since last session state transition
                     	**type**\:  int
                     
                     	**range:** 0..255
+                    
+                    	**units**\: second
                     
                     
 
@@ -14440,6 +14788,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: detection_multiplier
                     
                     	Detection Multiplier
@@ -14450,7 +14800,7 @@ class Bfd(object):
                     .. attribute:: diagnostic
                     
                     	Diagnostic
-                    	**type**\:  :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
+                    	**type**\:   :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
                     
                     .. attribute:: final
                     
@@ -14494,6 +14844,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: required_minimum_receive_interval
                     
                     	Required receive interval in micro\-seconds
@@ -14501,10 +14853,12 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: state
                     
                     	State (v1)
-                    	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+                    	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
                     
                     .. attribute:: version
                     
@@ -14646,6 +15000,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: detection_multiplier
                     
                     	Detection Multiplier
@@ -14656,7 +15012,7 @@ class Bfd(object):
                     .. attribute:: diagnostic
                     
                     	Diagnostic
-                    	**type**\:  :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
+                    	**type**\:   :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
                     
                     .. attribute:: final
                     
@@ -14700,6 +15056,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: required_minimum_receive_interval
                     
                     	Required receive interval in micro\-seconds
@@ -14707,10 +15065,12 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: state
                     
                     	State (v1)
-                    	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+                    	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
                     
                     .. attribute:: version
                     
@@ -14827,12 +15187,12 @@ class Bfd(object):
                     .. attribute:: async_interval_multiplier
                     
                     	Async Interval and Detect Multiplier Information
-                    	**type**\:  :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier>`
+                    	**type**\:   :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier>`
                     
                     .. attribute:: echo_interval_multiplier
                     
                     	Echo Interval and Detect Multiplier Information
-                    	**type**\:  :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier>`
+                    	**type**\:   :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier>`
                     
                     
 
@@ -14867,6 +15227,8 @@ class Bfd(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: microsecond
+                        
                         .. attribute:: negotiated_local_transmit_interval
                         
                         	Negotiated local transmit interval in micro\-seconds
@@ -14874,12 +15236,16 @@ class Bfd(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: microsecond
+                        
                         .. attribute:: negotiated_remote_transmit_interval
                         
                         	Negotiated remote transmit interval in micro\-seconds
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: microsecond
                         
                         
 
@@ -14945,12 +15311,16 @@ class Bfd(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: microsecond
+                        
                         .. attribute:: negotiated_transmit_interval
                         
                         	Negotiated transmit interval in micro\-seconds
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: microsecond
                         
                         
 
@@ -15031,12 +15401,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: last
                     
                     	Time since last Transmit/Receive (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: maximum
                     
@@ -15045,12 +15419,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: number
                     
@@ -15121,12 +15499,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: last
                     
                     	Time since last Transmit/Receive (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: maximum
                     
@@ -15135,12 +15517,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: number
                     
@@ -15211,12 +15597,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: last
                     
                     	Time since last Transmit/Receive (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: maximum
                     
@@ -15225,12 +15615,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: number
                     
@@ -15301,12 +15695,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: last
                     
                     	Time since last Transmit/Receive (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: maximum
                     
@@ -15315,12 +15713,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: number
                     
@@ -15474,12 +15876,12 @@ class Bfd(object):
                 .. attribute:: change_time
                 
                 	Change time
-                	**type**\:  :py:class:`ChangeTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.MpDownloadState.ChangeTime>`
+                	**type**\:   :py:class:`ChangeTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.MpDownloadState.ChangeTime>`
                 
                 .. attribute:: mp_download_state
                 
                 	MP Download State
-                	**type**\:  :py:class:`BfdMpDownloadStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMpDownloadStateEnum>`
+                	**type**\:   :py:class:`BfdMpDownloadStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMpDownloadStateEnum>`
                 
                 
 
@@ -15506,12 +15908,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	seconds
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: second
                     
                     
 
@@ -15616,7 +16022,7 @@ class Bfd(object):
                 .. attribute:: lsp_ping_rx_last_time
                 
                 	LSP Ping last received time
-                	**type**\:  :py:class:`LspPingRxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingRxLastTime>`
+                	**type**\:   :py:class:`LspPingRxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingRxLastTime>`
                 
                 .. attribute:: lsp_ping_tx_count
                 
@@ -15640,7 +16046,7 @@ class Bfd(object):
                 .. attribute:: lsp_ping_tx_last_error_time
                 
                 	LSP Ping last error time
-                	**type**\:  :py:class:`LspPingTxLastErrorTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime>`
+                	**type**\:   :py:class:`LspPingTxLastErrorTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime>`
                 
                 .. attribute:: lsp_ping_tx_last_rc
                 
@@ -15650,7 +16056,7 @@ class Bfd(object):
                 .. attribute:: lsp_ping_tx_last_time
                 
                 	LSP Ping last sent time
-                	**type**\:  :py:class:`LspPingTxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingTxLastTime>`
+                	**type**\:   :py:class:`LspPingTxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingTxLastTime>`
                 
                 
 
@@ -15689,12 +16095,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	seconds
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: second
                     
                     
 
@@ -15745,12 +16155,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	seconds
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: second
                     
                     
 
@@ -15801,12 +16215,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	seconds
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: second
                     
                     
 
@@ -15919,6 +16337,8 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: detection_multiplier
                 
                 	Client specified detection multiplier to compute detection time
@@ -15932,6 +16352,8 @@ class Bfd(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: microsecond
                 
                 .. attribute:: name
                 
@@ -16004,17 +16426,17 @@ class Bfd(object):
                 .. attribute:: owner_information
                 
                 	Client applications owning the session
-                	**type**\: list of  :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.OwnerInformation>`
+                	**type**\: list of    :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.OwnerInformation>`
                 
                 .. attribute:: session_key
                 
                 	Session Key
-                	**type**\:  :py:class:`SessionKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey>`
+                	**type**\:   :py:class:`SessionKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey>`
                 
                 .. attribute:: sessiontype
                 
                 	Session type
-                	**type**\:  :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
+                	**type**\:   :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
                 
                 
 
@@ -16041,7 +16463,7 @@ class Bfd(object):
                     .. attribute:: bfdfec
                     
                     	Union of FECs
-                    	**type**\:  :py:class:`Bfdfec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey.Bfdfec>`
+                    	**type**\:   :py:class:`Bfdfec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey.Bfdfec>`
                     
                     .. attribute:: incoming_label
                     
@@ -16060,12 +16482,12 @@ class Bfd(object):
                     .. attribute:: ip_destination_address
                     
                     	IPv4/v6 dest address
-                    	**type**\:  :py:class:`IpDestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey.IpDestinationAddress>`
+                    	**type**\:   :py:class:`IpDestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey.IpDestinationAddress>`
                     
                     .. attribute:: ip_source_address
                     
                     	IPv4/v6 source address
-                    	**type**\:  :py:class:`IpSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey.IpSourceAddress>`
+                    	**type**\:   :py:class:`IpSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey.IpSourceAddress>`
                     
                     .. attribute:: sbfd_enabled
                     
@@ -16091,7 +16513,7 @@ class Bfd(object):
                     .. attribute:: target_address
                     
                     	sbfd target address
-                    	**type**\:  :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey.TargetAddress>`
+                    	**type**\:   :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey.TargetAddress>`
                     
                     .. attribute:: vrf_name
                     
@@ -16132,7 +16554,7 @@ class Bfd(object):
                         .. attribute:: afi
                         
                         	AFI
-                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                         
                         .. attribute:: dummy
                         
@@ -16208,7 +16630,7 @@ class Bfd(object):
                         .. attribute:: afi
                         
                         	AFI
-                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                         
                         .. attribute:: dummy
                         
@@ -16284,17 +16706,17 @@ class Bfd(object):
                         .. attribute:: bfdfe_ctype
                         
                         	BFDFECType
-                        	**type**\:  :py:class:`BfdApiFecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdApiFecEnum>`
+                        	**type**\:   :py:class:`BfdApiFecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdApiFecEnum>`
                         
                         .. attribute:: dummy
                         
                         	dummy
-                        	**type**\:  :py:class:`Dummy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey.Bfdfec.Dummy>`
+                        	**type**\:   :py:class:`Dummy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey.Bfdfec.Dummy>`
                         
                         .. attribute:: te_s2l_fec
                         
                         	te s2l fec
-                        	**type**\:  :py:class:`TeS2LFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey.Bfdfec.TeS2LFec>`
+                        	**type**\:   :py:class:`TeS2LFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey.Bfdfec.TeS2LFec>`
                         
                         
 
@@ -16364,7 +16786,7 @@ class Bfd(object):
                             .. attribute:: s2l_fec_ctype
                             
                             	Session identifier (ctype)
-                            	**type**\:  :py:class:`MplsLibCEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.MplsLibCEnum>`
+                            	**type**\:   :py:class:`MplsLibCEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.MplsLibCEnum>`
                             
                             .. attribute:: s2l_fec_dest
                             
@@ -16532,7 +16954,7 @@ class Bfd(object):
                         .. attribute:: afi
                         
                         	AFI
-                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                         
                         .. attribute:: dummy
                         
@@ -16668,6 +17090,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: detection_multiplier
                     
                     	Client specified detection multiplier to compute detection time
@@ -16681,6 +17105,8 @@ class Bfd(object):
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: microsecond
                     
                     .. attribute:: name
                     
@@ -16853,7 +17279,7 @@ class Bfd(object):
         .. attribute:: ipv6_multi_hop_multi_path
         
         	IPv6 multihop multipath table
-        	**type**\: list of  :py:class:`Ipv6MultiHopMultiPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopMultiPaths.Ipv6MultiHopMultiPath>`
+        	**type**\: list of    :py:class:`Ipv6MultiHopMultiPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopMultiPaths.Ipv6MultiHopMultiPath>`
         
         
 
@@ -16950,7 +17376,7 @@ class Bfd(object):
             .. attribute:: state
             
             	State
-            	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+            	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
             
             .. attribute:: vrf_name
             
@@ -17060,7 +17486,7 @@ class Bfd(object):
         .. attribute:: ipv4bf_do_mplste_head_packet_counters
         
         	Table of IPv4 BFD over MPLS\-TE Packet counters
-        	**type**\:  :py:class:`Ipv4BfDoMplsteHeadPacketCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadCounters.Ipv4BfDoMplsteHeadPacketCounters>`
+        	**type**\:   :py:class:`Ipv4BfDoMplsteHeadPacketCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadCounters.Ipv4BfDoMplsteHeadPacketCounters>`
         
         
 
@@ -17082,7 +17508,7 @@ class Bfd(object):
             .. attribute:: ipv4bf_do_mplste_head_packet_counter
             
             	Interface  IPv4 BFD over MPLS\-TE Packet counters
-            	**type**\: list of  :py:class:`Ipv4BfDoMplsteHeadPacketCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadCounters.Ipv4BfDoMplsteHeadPacketCounters.Ipv4BfDoMplsteHeadPacketCounter>`
+            	**type**\: list of    :py:class:`Ipv4BfDoMplsteHeadPacketCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadCounters.Ipv4BfDoMplsteHeadPacketCounters.Ipv4BfDoMplsteHeadPacketCounter>`
             
             
 
@@ -17106,7 +17532,7 @@ class Bfd(object):
                 .. attribute:: display_type
                 
                 	Packet Display Type
-                	**type**\:  :py:class:`BfdMgmtPktDisplayEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtPktDisplayEnum>`
+                	**type**\:   :py:class:`BfdMgmtPktDisplayEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtPktDisplayEnum>`
                 
                 .. attribute:: echo_receive_count
                 
@@ -17261,7 +17687,7 @@ class Bfd(object):
         .. attribute:: session_mib
         
         	Brief information for BFD session MIB
-        	**type**\: list of  :py:class:`SessionMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionMibs.SessionMib>`
+        	**type**\: list of    :py:class:`SessionMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionMibs.SessionMib>`
         
         
 
@@ -17298,7 +17724,7 @@ class Bfd(object):
             .. attribute:: dest_address
             
             	Session Destination address
-            	**type**\:  :py:class:`DestAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionMibs.SessionMib.DestAddress>`
+            	**type**\:   :py:class:`DestAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionMibs.SessionMib.DestAddress>`
             
             .. attribute:: detection_multiplier
             
@@ -17324,7 +17750,7 @@ class Bfd(object):
             .. attribute:: last_down_diag
             
             	Last Session Down Diag
-            	**type**\:  :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
+            	**type**\:   :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
             
             .. attribute:: last_down_time_nsec
             
@@ -17333,12 +17759,16 @@ class Bfd(object):
             
             	**range:** 0..4294967295
             
+            	**units**\: nanosecond
+            
             .. attribute:: last_down_time_sec
             
             	Last Session Down Time (seconds)
             	**type**\:  int
             
             	**range:** 0..18446744073709551615
+            
+            	**units**\: second
             
             .. attribute:: last_time_cached
             
@@ -17354,12 +17784,16 @@ class Bfd(object):
             
             	**range:** 0..4294967295
             
+            	**units**\: nanosecond
+            
             .. attribute:: last_up_time_sec
             
             	Last Session Up Time (seconds)
             	**type**\:  int
             
             	**range:** 0..18446744073709551615
+            
+            	**units**\: second
             
             .. attribute:: local_discriminator
             
@@ -17472,7 +17906,7 @@ class Bfd(object):
                 .. attribute:: afi
                 
                 	AFI
-                	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                 
                 .. attribute:: dummy
                 
@@ -17662,7 +18096,7 @@ class Bfd(object):
         .. attribute:: session_state
         
         	Statistics of states for sessions
-        	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSummary.SessionState>`
+        	**type**\:   :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSummary.SessionState>`
         
         
 
@@ -17785,7 +18219,7 @@ class Bfd(object):
         .. attribute:: label_summary_node
         
         	Summary of Label BFD 
-        	**type**\: list of  :py:class:`LabelSummaryNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSummaryNodes.LabelSummaryNode>`
+        	**type**\: list of    :py:class:`LabelSummaryNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSummaryNodes.LabelSummaryNode>`
         
         
 
@@ -17815,7 +18249,7 @@ class Bfd(object):
             .. attribute:: session_state
             
             	Statistics of states for sessions
-            	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSummaryNodes.LabelSummaryNode.SessionState>`
+            	**type**\:   :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSummaryNodes.LabelSummaryNode.SessionState>`
             
             
 
@@ -17992,7 +18426,7 @@ class Bfd(object):
         .. attribute:: ipv6_multi_hop_session_brief
         
         	Brief information for a single IPv6 multihop BFD session
-        	**type**\: list of  :py:class:`Ipv6MultiHopSessionBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief>`
+        	**type**\: list of    :py:class:`Ipv6MultiHopSessionBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief>`
         
         
 
@@ -18059,7 +18493,7 @@ class Bfd(object):
             .. attribute:: session_type
             
             	Session type
-            	**type**\:  :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
+            	**type**\:   :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
             
             .. attribute:: source_address
             
@@ -18081,12 +18515,12 @@ class Bfd(object):
             .. attribute:: state
             
             	State
-            	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+            	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
             
             .. attribute:: status_brief_information
             
             	Brief Status Information
-            	**type**\:  :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief.StatusBriefInformation>`
+            	**type**\:   :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief.StatusBriefInformation>`
             
             .. attribute:: vrf_name
             
@@ -18124,12 +18558,12 @@ class Bfd(object):
                 .. attribute:: async_interval_multiplier
                 
                 	Async Interval and Detect Multiplier Information
-                	**type**\:  :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier>`
+                	**type**\:   :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier>`
                 
                 .. attribute:: echo_interval_multiplier
                 
                 	Echo Interval and Detect Multiplier Information
-                	**type**\:  :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier>`
+                	**type**\:   :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier>`
                 
                 
 
@@ -18164,6 +18598,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: negotiated_local_transmit_interval
                     
                     	Negotiated local transmit interval in micro\-seconds
@@ -18171,12 +18607,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: negotiated_remote_transmit_interval
                     
                     	Negotiated remote transmit interval in micro\-seconds
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: microsecond
                     
                     
 
@@ -18242,12 +18682,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: negotiated_transmit_interval
                     
                     	Negotiated transmit interval in micro\-seconds
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: microsecond
                     
                     
 
@@ -18397,7 +18841,7 @@ class Bfd(object):
         .. attribute:: session_brief
         
         	Brief information for a single IPv4 singlehop BFD session
-        	**type**\: list of  :py:class:`SessionBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionBriefs.SessionBrief>`
+        	**type**\: list of    :py:class:`SessionBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionBriefs.SessionBrief>`
         
         
 
@@ -18461,17 +18905,17 @@ class Bfd(object):
             .. attribute:: session_type
             
             	Session type
-            	**type**\:  :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
+            	**type**\:   :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
             
             .. attribute:: state
             
             	State
-            	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+            	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
             
             .. attribute:: status_brief_information
             
             	Brief Status Information
-            	**type**\:  :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionBriefs.SessionBrief.StatusBriefInformation>`
+            	**type**\:   :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionBriefs.SessionBrief.StatusBriefInformation>`
             
             
 
@@ -18501,12 +18945,12 @@ class Bfd(object):
                 .. attribute:: async_interval_multiplier
                 
                 	Async Interval and Detect Multiplier Information
-                	**type**\:  :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionBriefs.SessionBrief.StatusBriefInformation.AsyncIntervalMultiplier>`
+                	**type**\:   :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionBriefs.SessionBrief.StatusBriefInformation.AsyncIntervalMultiplier>`
                 
                 .. attribute:: echo_interval_multiplier
                 
                 	Echo Interval and Detect Multiplier Information
-                	**type**\:  :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionBriefs.SessionBrief.StatusBriefInformation.EchoIntervalMultiplier>`
+                	**type**\:   :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionBriefs.SessionBrief.StatusBriefInformation.EchoIntervalMultiplier>`
                 
                 
 
@@ -18541,6 +18985,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: negotiated_local_transmit_interval
                     
                     	Negotiated local transmit interval in micro\-seconds
@@ -18548,12 +18994,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: negotiated_remote_transmit_interval
                     
                     	Negotiated remote transmit interval in micro\-seconds
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: microsecond
                     
                     
 
@@ -18619,12 +19069,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: negotiated_transmit_interval
                     
                     	Negotiated transmit interval in micro\-seconds
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: microsecond
                     
                     
 
@@ -18771,7 +19225,7 @@ class Bfd(object):
         .. attribute:: ipv6_single_hop_node_location_summary
         
         	Summary information for BFD IPv6 singlehop sessions for location
-        	**type**\: list of  :py:class:`Ipv6SingleHopNodeLocationSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopNodeLocationSummaries.Ipv6SingleHopNodeLocationSummary>`
+        	**type**\: list of    :py:class:`Ipv6SingleHopNodeLocationSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopNodeLocationSummaries.Ipv6SingleHopNodeLocationSummary>`
         
         
 
@@ -18802,7 +19256,7 @@ class Bfd(object):
             .. attribute:: session_state
             
             	Statistics of states for sessions
-            	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopNodeLocationSummaries.Ipv6SingleHopNodeLocationSummary.SessionState>`
+            	**type**\:   :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopNodeLocationSummaries.Ipv6SingleHopNodeLocationSummary.SessionState>`
             
             
 
@@ -18979,7 +19433,7 @@ class Bfd(object):
         .. attribute:: session_state
         
         	Statistics of states for sessions
-        	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Summary.SessionState>`
+        	**type**\:   :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Summary.SessionState>`
         
         
 
@@ -19102,7 +19556,7 @@ class Bfd(object):
         .. attribute:: ipv4bfd_mplste_tail_node_summary
         
         	Summary of IPv4 BFD over MPLS\-TE tail
-        	**type**\: list of  :py:class:`Ipv4BfdMplsteTailNodeSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfdMplsteTailNodeSummaries.Ipv4BfdMplsteTailNodeSummary>`
+        	**type**\: list of    :py:class:`Ipv4BfdMplsteTailNodeSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfdMplsteTailNodeSummaries.Ipv4BfdMplsteTailNodeSummary>`
         
         
 
@@ -19132,7 +19586,7 @@ class Bfd(object):
             .. attribute:: session_state
             
             	Statistics of states for sessions
-            	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfdMplsteTailNodeSummaries.Ipv4BfdMplsteTailNodeSummary.SessionState>`
+            	**type**\:   :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfdMplsteTailNodeSummaries.Ipv4BfdMplsteTailNodeSummary.SessionState>`
             
             
 
@@ -19309,7 +19763,7 @@ class Bfd(object):
         .. attribute:: ipv4_single_hop_location_summary
         
         	Summary information for BFD IPv4 singlehop sessions for location
-        	**type**\: list of  :py:class:`Ipv4SingleHopLocationSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopLocationSummaries.Ipv4SingleHopLocationSummary>`
+        	**type**\: list of    :py:class:`Ipv4SingleHopLocationSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopLocationSummaries.Ipv4SingleHopLocationSummary>`
         
         
 
@@ -19340,7 +19794,7 @@ class Bfd(object):
             .. attribute:: session_state
             
             	Statistics of states for sessions
-            	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopLocationSummaries.Ipv4SingleHopLocationSummary.SessionState>`
+            	**type**\:   :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopLocationSummaries.Ipv4SingleHopLocationSummary.SessionState>`
             
             
 
@@ -19517,7 +19971,7 @@ class Bfd(object):
         .. attribute:: ipv4bfd_mplste_head_summary_node
         
         	Summary of IPv4 BFD over MPLS\-TE head
-        	**type**\: list of  :py:class:`Ipv4BfdMplsteHeadSummaryNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfdMplsteHeadSummaryNodes.Ipv4BfdMplsteHeadSummaryNode>`
+        	**type**\: list of    :py:class:`Ipv4BfdMplsteHeadSummaryNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfdMplsteHeadSummaryNodes.Ipv4BfdMplsteHeadSummaryNode>`
         
         
 
@@ -19547,7 +20001,7 @@ class Bfd(object):
             .. attribute:: session_state
             
             	Statistics of states for sessions
-            	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfdMplsteHeadSummaryNodes.Ipv4BfdMplsteHeadSummaryNode.SessionState>`
+            	**type**\:   :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfdMplsteHeadSummaryNodes.Ipv4BfdMplsteHeadSummaryNode.SessionState>`
             
             
 
@@ -19724,7 +20178,7 @@ class Bfd(object):
         .. attribute:: label_session_detail
         
         	Detailed information for a single BFD session
-        	**type**\: list of  :py:class:`LabelSessionDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail>`
+        	**type**\: list of    :py:class:`LabelSessionDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail>`
         
         
 
@@ -19747,7 +20201,7 @@ class Bfd(object):
             .. attribute:: association_information
             
             	Association session information
-            	**type**\: list of  :py:class:`AssociationInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation>`
+            	**type**\: list of    :py:class:`AssociationInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation>`
             
             .. attribute:: incoming_label
             
@@ -19773,22 +20227,22 @@ class Bfd(object):
             .. attribute:: lsp_ping_info
             
             	LSP Ping Info
-            	**type**\:  :py:class:`LspPingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo>`
+            	**type**\:   :py:class:`LspPingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo>`
             
             .. attribute:: mp_download_state
             
             	MP Dowload State
-            	**type**\:  :py:class:`MpDownloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.MpDownloadState>`
+            	**type**\:   :py:class:`MpDownloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.MpDownloadState>`
             
             .. attribute:: owner_information
             
             	Client applications owning the session
-            	**type**\: list of  :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.OwnerInformation>`
+            	**type**\: list of    :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.OwnerInformation>`
             
             .. attribute:: status_information
             
             	Session status information
-            	**type**\:  :py:class:`StatusInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation>`
+            	**type**\:   :py:class:`StatusInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation>`
             
             
 
@@ -19823,12 +20277,12 @@ class Bfd(object):
                 .. attribute:: async_receive_statistics
                 
                 	Statistics of Interval between Async Packets Received (in milli\-seconds)
-                	**type**\:  :py:class:`AsyncReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.AsyncReceiveStatistics>`
+                	**type**\:   :py:class:`AsyncReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.AsyncReceiveStatistics>`
                 
                 .. attribute:: async_transmit_statistics
                 
                 	Statistics of Interval between Async Packets Transmitted (in milli\-seconds)
-                	**type**\:  :py:class:`AsyncTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.AsyncTransmitStatistics>`
+                	**type**\:   :py:class:`AsyncTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.AsyncTransmitStatistics>`
                 
                 .. attribute:: desired_minimum_echo_transmit_interval
                 
@@ -19837,15 +20291,17 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: echo_received_statistics
                 
                 	Statistics of Interval between Echo Packets Received (in milli\-seconds)
-                	**type**\:  :py:class:`EchoReceivedStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.EchoReceivedStatistics>`
+                	**type**\:   :py:class:`EchoReceivedStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.EchoReceivedStatistics>`
                 
                 .. attribute:: echo_transmit_statistics
                 
                 	Statistics of Interval between Echo Packets Transmitted (in milli\-seconds)
-                	**type**\:  :py:class:`EchoTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.EchoTransmitStatistics>`
+                	**type**\:   :py:class:`EchoTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.EchoTransmitStatistics>`
                 
                 .. attribute:: internal_label
                 
@@ -19857,7 +20313,7 @@ class Bfd(object):
                 .. attribute:: last_state_change
                 
                 	Time since last state change
-                	**type**\:  :py:class:`LastStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.LastStateChange>`
+                	**type**\:   :py:class:`LastStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.LastStateChange>`
                 
                 .. attribute:: latency_average
                 
@@ -19866,6 +20322,8 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: microsecond
+                
                 .. attribute:: latency_maximum
                 
                 	Maximum value of Latency (in micro\-seconds)
@@ -19873,12 +20331,16 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: microsecond
+                
                 .. attribute:: latency_minimum
                 
                 	Minimum value of Latency (in micro\-seconds)
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: microsecond
                 
                 .. attribute:: latency_number
                 
@@ -19904,7 +20366,7 @@ class Bfd(object):
                 .. attribute:: receive_packet
                 
                 	Receive Packet
-                	**type**\:  :py:class:`ReceivePacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.ReceivePacket>`
+                	**type**\:   :py:class:`ReceivePacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.ReceivePacket>`
                 
                 .. attribute:: remote_discriminator
                 
@@ -19920,6 +20382,8 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: session_subtype
                 
                 	Session subtype
@@ -19928,22 +20392,22 @@ class Bfd(object):
                 .. attribute:: sessiontype
                 
                 	Session type
-                	**type**\:  :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
+                	**type**\:   :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
                 
                 .. attribute:: source_address
                 
                 	Source address
-                	**type**\:  :py:class:`SourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.SourceAddress>`
+                	**type**\:   :py:class:`SourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.SourceAddress>`
                 
                 .. attribute:: state
                 
                 	State
-                	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+                	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
                 
                 .. attribute:: status_brief_information
                 
                 	Brief Status Information
-                	**type**\:  :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.StatusBriefInformation>`
+                	**type**\:   :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.StatusBriefInformation>`
                 
                 .. attribute:: to_up_state_count
                 
@@ -19955,7 +20419,7 @@ class Bfd(object):
                 .. attribute:: transmit_packet
                 
                 	Transmit Packet
-                	**type**\:  :py:class:`TransmitPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.TransmitPacket>`
+                	**type**\:   :py:class:`TransmitPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.TransmitPacket>`
                 
                 
 
@@ -20007,7 +20471,7 @@ class Bfd(object):
                     .. attribute:: afi
                     
                     	AFI
-                    	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                    	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                     
                     .. attribute:: dummy
                     
@@ -20087,12 +20551,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: day
+                    
                     .. attribute:: hours
                     
                     	Number of hours since last session state transition
                     	**type**\:  int
                     
                     	**range:** 0..255
+                    
+                    	**units**\: hour
                     
                     .. attribute:: minutes
                     
@@ -20101,12 +20569,16 @@ class Bfd(object):
                     
                     	**range:** 0..255
                     
+                    	**units**\: minute
+                    
                     .. attribute:: seconds
                     
                     	Number of seconds since last session state transition
                     	**type**\:  int
                     
                     	**range:** 0..255
+                    
+                    	**units**\: second
                     
                     
 
@@ -20186,6 +20658,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: detection_multiplier
                     
                     	Detection Multiplier
@@ -20196,7 +20670,7 @@ class Bfd(object):
                     .. attribute:: diagnostic
                     
                     	Diagnostic
-                    	**type**\:  :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
+                    	**type**\:   :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
                     
                     .. attribute:: final
                     
@@ -20240,6 +20714,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: required_minimum_receive_interval
                     
                     	Required receive interval in micro\-seconds
@@ -20247,10 +20723,12 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: state
                     
                     	State (v1)
-                    	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+                    	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
                     
                     .. attribute:: version
                     
@@ -20392,6 +20870,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: detection_multiplier
                     
                     	Detection Multiplier
@@ -20402,7 +20882,7 @@ class Bfd(object):
                     .. attribute:: diagnostic
                     
                     	Diagnostic
-                    	**type**\:  :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
+                    	**type**\:   :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
                     
                     .. attribute:: final
                     
@@ -20446,6 +20926,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: required_minimum_receive_interval
                     
                     	Required receive interval in micro\-seconds
@@ -20453,10 +20935,12 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: state
                     
                     	State (v1)
-                    	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+                    	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
                     
                     .. attribute:: version
                     
@@ -20573,12 +21057,12 @@ class Bfd(object):
                     .. attribute:: async_interval_multiplier
                     
                     	Async Interval and Detect Multiplier Information
-                    	**type**\:  :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier>`
+                    	**type**\:   :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier>`
                     
                     .. attribute:: echo_interval_multiplier
                     
                     	Echo Interval and Detect Multiplier Information
-                    	**type**\:  :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier>`
+                    	**type**\:   :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier>`
                     
                     
 
@@ -20613,6 +21097,8 @@ class Bfd(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: microsecond
+                        
                         .. attribute:: negotiated_local_transmit_interval
                         
                         	Negotiated local transmit interval in micro\-seconds
@@ -20620,12 +21106,16 @@ class Bfd(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: microsecond
+                        
                         .. attribute:: negotiated_remote_transmit_interval
                         
                         	Negotiated remote transmit interval in micro\-seconds
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: microsecond
                         
                         
 
@@ -20691,12 +21181,16 @@ class Bfd(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: microsecond
+                        
                         .. attribute:: negotiated_transmit_interval
                         
                         	Negotiated transmit interval in micro\-seconds
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: microsecond
                         
                         
 
@@ -20777,12 +21271,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: last
                     
                     	Time since last Transmit/Receive (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: maximum
                     
@@ -20791,12 +21289,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: number
                     
@@ -20867,12 +21369,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: last
                     
                     	Time since last Transmit/Receive (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: maximum
                     
@@ -20881,12 +21387,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: number
                     
@@ -20957,12 +21467,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: last
                     
                     	Time since last Transmit/Receive (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: maximum
                     
@@ -20971,12 +21485,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: number
                     
@@ -21047,12 +21565,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: last
                     
                     	Time since last Transmit/Receive (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: maximum
                     
@@ -21061,12 +21583,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: number
                     
@@ -21220,12 +21746,12 @@ class Bfd(object):
                 .. attribute:: change_time
                 
                 	Change time
-                	**type**\:  :py:class:`ChangeTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.MpDownloadState.ChangeTime>`
+                	**type**\:   :py:class:`ChangeTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.MpDownloadState.ChangeTime>`
                 
                 .. attribute:: mp_download_state
                 
                 	MP Download State
-                	**type**\:  :py:class:`BfdMpDownloadStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMpDownloadStateEnum>`
+                	**type**\:   :py:class:`BfdMpDownloadStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMpDownloadStateEnum>`
                 
                 
 
@@ -21252,12 +21778,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	seconds
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: second
                     
                     
 
@@ -21362,7 +21892,7 @@ class Bfd(object):
                 .. attribute:: lsp_ping_rx_last_time
                 
                 	LSP Ping last received time
-                	**type**\:  :py:class:`LspPingRxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingRxLastTime>`
+                	**type**\:   :py:class:`LspPingRxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingRxLastTime>`
                 
                 .. attribute:: lsp_ping_tx_count
                 
@@ -21386,7 +21916,7 @@ class Bfd(object):
                 .. attribute:: lsp_ping_tx_last_error_time
                 
                 	LSP Ping last error time
-                	**type**\:  :py:class:`LspPingTxLastErrorTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingTxLastErrorTime>`
+                	**type**\:   :py:class:`LspPingTxLastErrorTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingTxLastErrorTime>`
                 
                 .. attribute:: lsp_ping_tx_last_rc
                 
@@ -21396,7 +21926,7 @@ class Bfd(object):
                 .. attribute:: lsp_ping_tx_last_time
                 
                 	LSP Ping last sent time
-                	**type**\:  :py:class:`LspPingTxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingTxLastTime>`
+                	**type**\:   :py:class:`LspPingTxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingTxLastTime>`
                 
                 
 
@@ -21435,12 +21965,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	seconds
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: second
                     
                     
 
@@ -21491,12 +22025,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	seconds
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: second
                     
                     
 
@@ -21547,12 +22085,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	seconds
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: second
                     
                     
 
@@ -21665,6 +22207,8 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: detection_multiplier
                 
                 	Client specified detection multiplier to compute detection time
@@ -21678,6 +22222,8 @@ class Bfd(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: microsecond
                 
                 .. attribute:: name
                 
@@ -21750,17 +22296,17 @@ class Bfd(object):
                 .. attribute:: owner_information
                 
                 	Client applications owning the session
-                	**type**\: list of  :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.OwnerInformation>`
+                	**type**\: list of    :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.OwnerInformation>`
                 
                 .. attribute:: session_key
                 
                 	Session Key
-                	**type**\:  :py:class:`SessionKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey>`
+                	**type**\:   :py:class:`SessionKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey>`
                 
                 .. attribute:: sessiontype
                 
                 	Session type
-                	**type**\:  :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
+                	**type**\:   :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
                 
                 
 
@@ -21787,7 +22333,7 @@ class Bfd(object):
                     .. attribute:: bfdfec
                     
                     	Union of FECs
-                    	**type**\:  :py:class:`Bfdfec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey.Bfdfec>`
+                    	**type**\:   :py:class:`Bfdfec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey.Bfdfec>`
                     
                     .. attribute:: incoming_label
                     
@@ -21806,12 +22352,12 @@ class Bfd(object):
                     .. attribute:: ip_destination_address
                     
                     	IPv4/v6 dest address
-                    	**type**\:  :py:class:`IpDestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey.IpDestinationAddress>`
+                    	**type**\:   :py:class:`IpDestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey.IpDestinationAddress>`
                     
                     .. attribute:: ip_source_address
                     
                     	IPv4/v6 source address
-                    	**type**\:  :py:class:`IpSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey.IpSourceAddress>`
+                    	**type**\:   :py:class:`IpSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey.IpSourceAddress>`
                     
                     .. attribute:: sbfd_enabled
                     
@@ -21837,7 +22383,7 @@ class Bfd(object):
                     .. attribute:: target_address
                     
                     	sbfd target address
-                    	**type**\:  :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey.TargetAddress>`
+                    	**type**\:   :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey.TargetAddress>`
                     
                     .. attribute:: vrf_name
                     
@@ -21878,7 +22424,7 @@ class Bfd(object):
                         .. attribute:: afi
                         
                         	AFI
-                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                         
                         .. attribute:: dummy
                         
@@ -21954,7 +22500,7 @@ class Bfd(object):
                         .. attribute:: afi
                         
                         	AFI
-                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                         
                         .. attribute:: dummy
                         
@@ -22030,17 +22576,17 @@ class Bfd(object):
                         .. attribute:: bfdfe_ctype
                         
                         	BFDFECType
-                        	**type**\:  :py:class:`BfdApiFecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdApiFecEnum>`
+                        	**type**\:   :py:class:`BfdApiFecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdApiFecEnum>`
                         
                         .. attribute:: dummy
                         
                         	dummy
-                        	**type**\:  :py:class:`Dummy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey.Bfdfec.Dummy>`
+                        	**type**\:   :py:class:`Dummy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey.Bfdfec.Dummy>`
                         
                         .. attribute:: te_s2l_fec
                         
                         	te s2l fec
-                        	**type**\:  :py:class:`TeS2LFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey.Bfdfec.TeS2LFec>`
+                        	**type**\:   :py:class:`TeS2LFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey.Bfdfec.TeS2LFec>`
                         
                         
 
@@ -22110,7 +22656,7 @@ class Bfd(object):
                             .. attribute:: s2l_fec_ctype
                             
                             	Session identifier (ctype)
-                            	**type**\:  :py:class:`MplsLibCEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.MplsLibCEnum>`
+                            	**type**\:   :py:class:`MplsLibCEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.MplsLibCEnum>`
                             
                             .. attribute:: s2l_fec_dest
                             
@@ -22278,7 +22824,7 @@ class Bfd(object):
                         .. attribute:: afi
                         
                         	AFI
-                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                         
                         .. attribute:: dummy
                         
@@ -22414,6 +22960,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: detection_multiplier
                     
                     	Client specified detection multiplier to compute detection time
@@ -22427,6 +22975,8 @@ class Bfd(object):
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: microsecond
                     
                     .. attribute:: name
                     
@@ -22597,7 +23147,7 @@ class Bfd(object):
         .. attribute:: ipv6_single_hop_session_detail
         
         	Detailed information for a single IPv6 singlehop BFD session
-        	**type**\: list of  :py:class:`Ipv6SingleHopSessionDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail>`
+        	**type**\: list of    :py:class:`Ipv6SingleHopSessionDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail>`
         
         
 
@@ -22621,7 +23171,7 @@ class Bfd(object):
             .. attribute:: association_information
             
             	Association session information
-            	**type**\: list of  :py:class:`AssociationInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation>`
+            	**type**\: list of    :py:class:`AssociationInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation>`
             
             .. attribute:: destination_address
             
@@ -22657,22 +23207,22 @@ class Bfd(object):
             .. attribute:: lsp_ping_info
             
             	LSP Ping Info
-            	**type**\:  :py:class:`LspPingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo>`
+            	**type**\:   :py:class:`LspPingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo>`
             
             .. attribute:: mp_download_state
             
             	MP Dowload State
-            	**type**\:  :py:class:`MpDownloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.MpDownloadState>`
+            	**type**\:   :py:class:`MpDownloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.MpDownloadState>`
             
             .. attribute:: owner_information
             
             	Client applications owning the session
-            	**type**\: list of  :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.OwnerInformation>`
+            	**type**\: list of    :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.OwnerInformation>`
             
             .. attribute:: status_information
             
             	Session status information
-            	**type**\:  :py:class:`StatusInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation>`
+            	**type**\:   :py:class:`StatusInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation>`
             
             
 
@@ -22707,12 +23257,12 @@ class Bfd(object):
                 .. attribute:: async_receive_statistics
                 
                 	Statistics of Interval between Async Packets Received (in milli\-seconds)
-                	**type**\:  :py:class:`AsyncReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.AsyncReceiveStatistics>`
+                	**type**\:   :py:class:`AsyncReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.AsyncReceiveStatistics>`
                 
                 .. attribute:: async_transmit_statistics
                 
                 	Statistics of Interval between Async Packets Transmitted (in milli\-seconds)
-                	**type**\:  :py:class:`AsyncTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.AsyncTransmitStatistics>`
+                	**type**\:   :py:class:`AsyncTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.AsyncTransmitStatistics>`
                 
                 .. attribute:: desired_minimum_echo_transmit_interval
                 
@@ -22721,15 +23271,17 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: echo_received_statistics
                 
                 	Statistics of Interval between Echo Packets Received (in milli\-seconds)
-                	**type**\:  :py:class:`EchoReceivedStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.EchoReceivedStatistics>`
+                	**type**\:   :py:class:`EchoReceivedStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.EchoReceivedStatistics>`
                 
                 .. attribute:: echo_transmit_statistics
                 
                 	Statistics of Interval between Echo Packets Transmitted (in milli\-seconds)
-                	**type**\:  :py:class:`EchoTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.EchoTransmitStatistics>`
+                	**type**\:   :py:class:`EchoTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.EchoTransmitStatistics>`
                 
                 .. attribute:: internal_label
                 
@@ -22741,7 +23293,7 @@ class Bfd(object):
                 .. attribute:: last_state_change
                 
                 	Time since last state change
-                	**type**\:  :py:class:`LastStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.LastStateChange>`
+                	**type**\:   :py:class:`LastStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.LastStateChange>`
                 
                 .. attribute:: latency_average
                 
@@ -22750,6 +23302,8 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: microsecond
+                
                 .. attribute:: latency_maximum
                 
                 	Maximum value of Latency (in micro\-seconds)
@@ -22757,12 +23311,16 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: microsecond
+                
                 .. attribute:: latency_minimum
                 
                 	Minimum value of Latency (in micro\-seconds)
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: microsecond
                 
                 .. attribute:: latency_number
                 
@@ -22788,7 +23346,7 @@ class Bfd(object):
                 .. attribute:: receive_packet
                 
                 	Receive Packet
-                	**type**\:  :py:class:`ReceivePacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.ReceivePacket>`
+                	**type**\:   :py:class:`ReceivePacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.ReceivePacket>`
                 
                 .. attribute:: remote_discriminator
                 
@@ -22804,6 +23362,8 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: session_subtype
                 
                 	Session subtype
@@ -22812,22 +23372,22 @@ class Bfd(object):
                 .. attribute:: sessiontype
                 
                 	Session type
-                	**type**\:  :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
+                	**type**\:   :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
                 
                 .. attribute:: source_address
                 
                 	Source address
-                	**type**\:  :py:class:`SourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.SourceAddress>`
+                	**type**\:   :py:class:`SourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.SourceAddress>`
                 
                 .. attribute:: state
                 
                 	State
-                	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+                	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
                 
                 .. attribute:: status_brief_information
                 
                 	Brief Status Information
-                	**type**\:  :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.StatusBriefInformation>`
+                	**type**\:   :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.StatusBriefInformation>`
                 
                 .. attribute:: to_up_state_count
                 
@@ -22839,7 +23399,7 @@ class Bfd(object):
                 .. attribute:: transmit_packet
                 
                 	Transmit Packet
-                	**type**\:  :py:class:`TransmitPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.TransmitPacket>`
+                	**type**\:   :py:class:`TransmitPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.TransmitPacket>`
                 
                 
 
@@ -22891,7 +23451,7 @@ class Bfd(object):
                     .. attribute:: afi
                     
                     	AFI
-                    	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                    	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                     
                     .. attribute:: dummy
                     
@@ -22971,12 +23531,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: day
+                    
                     .. attribute:: hours
                     
                     	Number of hours since last session state transition
                     	**type**\:  int
                     
                     	**range:** 0..255
+                    
+                    	**units**\: hour
                     
                     .. attribute:: minutes
                     
@@ -22985,12 +23549,16 @@ class Bfd(object):
                     
                     	**range:** 0..255
                     
+                    	**units**\: minute
+                    
                     .. attribute:: seconds
                     
                     	Number of seconds since last session state transition
                     	**type**\:  int
                     
                     	**range:** 0..255
+                    
+                    	**units**\: second
                     
                     
 
@@ -23070,6 +23638,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: detection_multiplier
                     
                     	Detection Multiplier
@@ -23080,7 +23650,7 @@ class Bfd(object):
                     .. attribute:: diagnostic
                     
                     	Diagnostic
-                    	**type**\:  :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
+                    	**type**\:   :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
                     
                     .. attribute:: final
                     
@@ -23124,6 +23694,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: required_minimum_receive_interval
                     
                     	Required receive interval in micro\-seconds
@@ -23131,10 +23703,12 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: state
                     
                     	State (v1)
-                    	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+                    	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
                     
                     .. attribute:: version
                     
@@ -23276,6 +23850,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: detection_multiplier
                     
                     	Detection Multiplier
@@ -23286,7 +23862,7 @@ class Bfd(object):
                     .. attribute:: diagnostic
                     
                     	Diagnostic
-                    	**type**\:  :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
+                    	**type**\:   :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
                     
                     .. attribute:: final
                     
@@ -23330,6 +23906,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: required_minimum_receive_interval
                     
                     	Required receive interval in micro\-seconds
@@ -23337,10 +23915,12 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: state
                     
                     	State (v1)
-                    	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+                    	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
                     
                     .. attribute:: version
                     
@@ -23457,12 +24037,12 @@ class Bfd(object):
                     .. attribute:: async_interval_multiplier
                     
                     	Async Interval and Detect Multiplier Information
-                    	**type**\:  :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier>`
+                    	**type**\:   :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier>`
                     
                     .. attribute:: echo_interval_multiplier
                     
                     	Echo Interval and Detect Multiplier Information
-                    	**type**\:  :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier>`
+                    	**type**\:   :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier>`
                     
                     
 
@@ -23497,6 +24077,8 @@ class Bfd(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: microsecond
+                        
                         .. attribute:: negotiated_local_transmit_interval
                         
                         	Negotiated local transmit interval in micro\-seconds
@@ -23504,12 +24086,16 @@ class Bfd(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: microsecond
+                        
                         .. attribute:: negotiated_remote_transmit_interval
                         
                         	Negotiated remote transmit interval in micro\-seconds
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: microsecond
                         
                         
 
@@ -23575,12 +24161,16 @@ class Bfd(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: microsecond
+                        
                         .. attribute:: negotiated_transmit_interval
                         
                         	Negotiated transmit interval in micro\-seconds
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: microsecond
                         
                         
 
@@ -23661,12 +24251,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: last
                     
                     	Time since last Transmit/Receive (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: maximum
                     
@@ -23675,12 +24269,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: number
                     
@@ -23751,12 +24349,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: last
                     
                     	Time since last Transmit/Receive (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: maximum
                     
@@ -23765,12 +24367,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: number
                     
@@ -23841,12 +24447,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: last
                     
                     	Time since last Transmit/Receive (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: maximum
                     
@@ -23855,12 +24465,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: number
                     
@@ -23931,12 +24545,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: last
                     
                     	Time since last Transmit/Receive (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: maximum
                     
@@ -23945,12 +24563,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: number
                     
@@ -24104,12 +24726,12 @@ class Bfd(object):
                 .. attribute:: change_time
                 
                 	Change time
-                	**type**\:  :py:class:`ChangeTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.MpDownloadState.ChangeTime>`
+                	**type**\:   :py:class:`ChangeTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.MpDownloadState.ChangeTime>`
                 
                 .. attribute:: mp_download_state
                 
                 	MP Download State
-                	**type**\:  :py:class:`BfdMpDownloadStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMpDownloadStateEnum>`
+                	**type**\:   :py:class:`BfdMpDownloadStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMpDownloadStateEnum>`
                 
                 
 
@@ -24136,12 +24758,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	seconds
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: second
                     
                     
 
@@ -24246,7 +24872,7 @@ class Bfd(object):
                 .. attribute:: lsp_ping_rx_last_time
                 
                 	LSP Ping last received time
-                	**type**\:  :py:class:`LspPingRxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingRxLastTime>`
+                	**type**\:   :py:class:`LspPingRxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingRxLastTime>`
                 
                 .. attribute:: lsp_ping_tx_count
                 
@@ -24270,7 +24896,7 @@ class Bfd(object):
                 .. attribute:: lsp_ping_tx_last_error_time
                 
                 	LSP Ping last error time
-                	**type**\:  :py:class:`LspPingTxLastErrorTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime>`
+                	**type**\:   :py:class:`LspPingTxLastErrorTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime>`
                 
                 .. attribute:: lsp_ping_tx_last_rc
                 
@@ -24280,7 +24906,7 @@ class Bfd(object):
                 .. attribute:: lsp_ping_tx_last_time
                 
                 	LSP Ping last sent time
-                	**type**\:  :py:class:`LspPingTxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingTxLastTime>`
+                	**type**\:   :py:class:`LspPingTxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingTxLastTime>`
                 
                 
 
@@ -24319,12 +24945,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	seconds
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: second
                     
                     
 
@@ -24375,12 +25005,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	seconds
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: second
                     
                     
 
@@ -24431,12 +25065,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	seconds
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: second
                     
                     
 
@@ -24549,6 +25187,8 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: detection_multiplier
                 
                 	Client specified detection multiplier to compute detection time
@@ -24562,6 +25202,8 @@ class Bfd(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: microsecond
                 
                 .. attribute:: name
                 
@@ -24634,17 +25276,17 @@ class Bfd(object):
                 .. attribute:: owner_information
                 
                 	Client applications owning the session
-                	**type**\: list of  :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.OwnerInformation>`
+                	**type**\: list of    :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.OwnerInformation>`
                 
                 .. attribute:: session_key
                 
                 	Session Key
-                	**type**\:  :py:class:`SessionKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey>`
+                	**type**\:   :py:class:`SessionKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey>`
                 
                 .. attribute:: sessiontype
                 
                 	Session type
-                	**type**\:  :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
+                	**type**\:   :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
                 
                 
 
@@ -24671,7 +25313,7 @@ class Bfd(object):
                     .. attribute:: bfdfec
                     
                     	Union of FECs
-                    	**type**\:  :py:class:`Bfdfec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey.Bfdfec>`
+                    	**type**\:   :py:class:`Bfdfec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey.Bfdfec>`
                     
                     .. attribute:: incoming_label
                     
@@ -24690,12 +25332,12 @@ class Bfd(object):
                     .. attribute:: ip_destination_address
                     
                     	IPv4/v6 dest address
-                    	**type**\:  :py:class:`IpDestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey.IpDestinationAddress>`
+                    	**type**\:   :py:class:`IpDestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey.IpDestinationAddress>`
                     
                     .. attribute:: ip_source_address
                     
                     	IPv4/v6 source address
-                    	**type**\:  :py:class:`IpSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey.IpSourceAddress>`
+                    	**type**\:   :py:class:`IpSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey.IpSourceAddress>`
                     
                     .. attribute:: sbfd_enabled
                     
@@ -24721,7 +25363,7 @@ class Bfd(object):
                     .. attribute:: target_address
                     
                     	sbfd target address
-                    	**type**\:  :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey.TargetAddress>`
+                    	**type**\:   :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey.TargetAddress>`
                     
                     .. attribute:: vrf_name
                     
@@ -24762,7 +25404,7 @@ class Bfd(object):
                         .. attribute:: afi
                         
                         	AFI
-                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                         
                         .. attribute:: dummy
                         
@@ -24838,7 +25480,7 @@ class Bfd(object):
                         .. attribute:: afi
                         
                         	AFI
-                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                         
                         .. attribute:: dummy
                         
@@ -24914,17 +25556,17 @@ class Bfd(object):
                         .. attribute:: bfdfe_ctype
                         
                         	BFDFECType
-                        	**type**\:  :py:class:`BfdApiFecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdApiFecEnum>`
+                        	**type**\:   :py:class:`BfdApiFecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdApiFecEnum>`
                         
                         .. attribute:: dummy
                         
                         	dummy
-                        	**type**\:  :py:class:`Dummy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey.Bfdfec.Dummy>`
+                        	**type**\:   :py:class:`Dummy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey.Bfdfec.Dummy>`
                         
                         .. attribute:: te_s2l_fec
                         
                         	te s2l fec
-                        	**type**\:  :py:class:`TeS2LFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey.Bfdfec.TeS2LFec>`
+                        	**type**\:   :py:class:`TeS2LFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey.Bfdfec.TeS2LFec>`
                         
                         
 
@@ -24994,7 +25636,7 @@ class Bfd(object):
                             .. attribute:: s2l_fec_ctype
                             
                             	Session identifier (ctype)
-                            	**type**\:  :py:class:`MplsLibCEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.MplsLibCEnum>`
+                            	**type**\:   :py:class:`MplsLibCEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.MplsLibCEnum>`
                             
                             .. attribute:: s2l_fec_dest
                             
@@ -25162,7 +25804,7 @@ class Bfd(object):
                         .. attribute:: afi
                         
                         	AFI
-                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                         
                         .. attribute:: dummy
                         
@@ -25298,6 +25940,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: detection_multiplier
                     
                     	Client specified detection multiplier to compute detection time
@@ -25311,6 +25955,8 @@ class Bfd(object):
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: microsecond
                     
                     .. attribute:: name
                     
@@ -25480,7 +26126,7 @@ class Bfd(object):
         .. attribute:: ipv4_multi_hop_packet_counters
         
         	Table of IPv4 multiple hop Packet counters
-        	**type**\:  :py:class:`Ipv4MultiHopPacketCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopCounters.Ipv4MultiHopPacketCounters>`
+        	**type**\:   :py:class:`Ipv4MultiHopPacketCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopCounters.Ipv4MultiHopPacketCounters>`
         
         
 
@@ -25502,7 +26148,7 @@ class Bfd(object):
             .. attribute:: ipv4_multi_hop_packet_counter
             
             	IPv4 multiple hop Packet counters
-            	**type**\: list of  :py:class:`Ipv4MultiHopPacketCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopCounters.Ipv4MultiHopPacketCounters.Ipv4MultiHopPacketCounter>`
+            	**type**\: list of    :py:class:`Ipv4MultiHopPacketCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopCounters.Ipv4MultiHopPacketCounters.Ipv4MultiHopPacketCounter>`
             
             
 
@@ -25542,7 +26188,7 @@ class Bfd(object):
                 .. attribute:: display_type
                 
                 	Packet Display Type
-                	**type**\:  :py:class:`BfdMgmtPktDisplayEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtPktDisplayEnum>`
+                	**type**\:   :py:class:`BfdMgmtPktDisplayEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtPktDisplayEnum>`
                 
                 .. attribute:: echo_receive_count
                 
@@ -25723,7 +26369,7 @@ class Bfd(object):
         .. attribute:: session_detail
         
         	Detailed information for a single IPv4 singlehop BFD session
-        	**type**\: list of  :py:class:`SessionDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail>`
+        	**type**\: list of    :py:class:`SessionDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail>`
         
         
 
@@ -25747,7 +26393,7 @@ class Bfd(object):
             .. attribute:: association_information
             
             	Association session information
-            	**type**\: list of  :py:class:`AssociationInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.AssociationInformation>`
+            	**type**\: list of    :py:class:`AssociationInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.AssociationInformation>`
             
             .. attribute:: destination_address
             
@@ -25773,22 +26419,22 @@ class Bfd(object):
             .. attribute:: lsp_ping_info
             
             	LSP Ping Info
-            	**type**\:  :py:class:`LspPingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.LspPingInfo>`
+            	**type**\:   :py:class:`LspPingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.LspPingInfo>`
             
             .. attribute:: mp_download_state
             
             	MP Dowload State
-            	**type**\:  :py:class:`MpDownloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.MpDownloadState>`
+            	**type**\:   :py:class:`MpDownloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.MpDownloadState>`
             
             .. attribute:: owner_information
             
             	Client applications owning the session
-            	**type**\: list of  :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.OwnerInformation>`
+            	**type**\: list of    :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.OwnerInformation>`
             
             .. attribute:: status_information
             
             	Session status information
-            	**type**\:  :py:class:`StatusInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation>`
+            	**type**\:   :py:class:`StatusInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation>`
             
             
 
@@ -25823,12 +26469,12 @@ class Bfd(object):
                 .. attribute:: async_receive_statistics
                 
                 	Statistics of Interval between Async Packets Received (in milli\-seconds)
-                	**type**\:  :py:class:`AsyncReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation.AsyncReceiveStatistics>`
+                	**type**\:   :py:class:`AsyncReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation.AsyncReceiveStatistics>`
                 
                 .. attribute:: async_transmit_statistics
                 
                 	Statistics of Interval between Async Packets Transmitted (in milli\-seconds)
-                	**type**\:  :py:class:`AsyncTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation.AsyncTransmitStatistics>`
+                	**type**\:   :py:class:`AsyncTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation.AsyncTransmitStatistics>`
                 
                 .. attribute:: desired_minimum_echo_transmit_interval
                 
@@ -25837,15 +26483,17 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: echo_received_statistics
                 
                 	Statistics of Interval between Echo Packets Received (in milli\-seconds)
-                	**type**\:  :py:class:`EchoReceivedStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation.EchoReceivedStatistics>`
+                	**type**\:   :py:class:`EchoReceivedStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation.EchoReceivedStatistics>`
                 
                 .. attribute:: echo_transmit_statistics
                 
                 	Statistics of Interval between Echo Packets Transmitted (in milli\-seconds)
-                	**type**\:  :py:class:`EchoTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation.EchoTransmitStatistics>`
+                	**type**\:   :py:class:`EchoTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation.EchoTransmitStatistics>`
                 
                 .. attribute:: internal_label
                 
@@ -25857,7 +26505,7 @@ class Bfd(object):
                 .. attribute:: last_state_change
                 
                 	Time since last state change
-                	**type**\:  :py:class:`LastStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation.LastStateChange>`
+                	**type**\:   :py:class:`LastStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation.LastStateChange>`
                 
                 .. attribute:: latency_average
                 
@@ -25866,6 +26514,8 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: microsecond
+                
                 .. attribute:: latency_maximum
                 
                 	Maximum value of Latency (in micro\-seconds)
@@ -25873,12 +26523,16 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: microsecond
+                
                 .. attribute:: latency_minimum
                 
                 	Minimum value of Latency (in micro\-seconds)
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: microsecond
                 
                 .. attribute:: latency_number
                 
@@ -25904,7 +26558,7 @@ class Bfd(object):
                 .. attribute:: receive_packet
                 
                 	Receive Packet
-                	**type**\:  :py:class:`ReceivePacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation.ReceivePacket>`
+                	**type**\:   :py:class:`ReceivePacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation.ReceivePacket>`
                 
                 .. attribute:: remote_discriminator
                 
@@ -25920,6 +26574,8 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: session_subtype
                 
                 	Session subtype
@@ -25928,22 +26584,22 @@ class Bfd(object):
                 .. attribute:: sessiontype
                 
                 	Session type
-                	**type**\:  :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
+                	**type**\:   :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
                 
                 .. attribute:: source_address
                 
                 	Source address
-                	**type**\:  :py:class:`SourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation.SourceAddress>`
+                	**type**\:   :py:class:`SourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation.SourceAddress>`
                 
                 .. attribute:: state
                 
                 	State
-                	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+                	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
                 
                 .. attribute:: status_brief_information
                 
                 	Brief Status Information
-                	**type**\:  :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation.StatusBriefInformation>`
+                	**type**\:   :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation.StatusBriefInformation>`
                 
                 .. attribute:: to_up_state_count
                 
@@ -25955,7 +26611,7 @@ class Bfd(object):
                 .. attribute:: transmit_packet
                 
                 	Transmit Packet
-                	**type**\:  :py:class:`TransmitPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation.TransmitPacket>`
+                	**type**\:   :py:class:`TransmitPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation.TransmitPacket>`
                 
                 
 
@@ -26007,7 +26663,7 @@ class Bfd(object):
                     .. attribute:: afi
                     
                     	AFI
-                    	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                    	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                     
                     .. attribute:: dummy
                     
@@ -26087,12 +26743,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: day
+                    
                     .. attribute:: hours
                     
                     	Number of hours since last session state transition
                     	**type**\:  int
                     
                     	**range:** 0..255
+                    
+                    	**units**\: hour
                     
                     .. attribute:: minutes
                     
@@ -26101,12 +26761,16 @@ class Bfd(object):
                     
                     	**range:** 0..255
                     
+                    	**units**\: minute
+                    
                     .. attribute:: seconds
                     
                     	Number of seconds since last session state transition
                     	**type**\:  int
                     
                     	**range:** 0..255
+                    
+                    	**units**\: second
                     
                     
 
@@ -26186,6 +26850,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: detection_multiplier
                     
                     	Detection Multiplier
@@ -26196,7 +26862,7 @@ class Bfd(object):
                     .. attribute:: diagnostic
                     
                     	Diagnostic
-                    	**type**\:  :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
+                    	**type**\:   :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
                     
                     .. attribute:: final
                     
@@ -26240,6 +26906,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: required_minimum_receive_interval
                     
                     	Required receive interval in micro\-seconds
@@ -26247,10 +26915,12 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: state
                     
                     	State (v1)
-                    	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+                    	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
                     
                     .. attribute:: version
                     
@@ -26392,6 +27062,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: detection_multiplier
                     
                     	Detection Multiplier
@@ -26402,7 +27074,7 @@ class Bfd(object):
                     .. attribute:: diagnostic
                     
                     	Diagnostic
-                    	**type**\:  :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
+                    	**type**\:   :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
                     
                     .. attribute:: final
                     
@@ -26446,6 +27118,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: required_minimum_receive_interval
                     
                     	Required receive interval in micro\-seconds
@@ -26453,10 +27127,12 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: state
                     
                     	State (v1)
-                    	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+                    	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
                     
                     .. attribute:: version
                     
@@ -26573,12 +27249,12 @@ class Bfd(object):
                     .. attribute:: async_interval_multiplier
                     
                     	Async Interval and Detect Multiplier Information
-                    	**type**\:  :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier>`
+                    	**type**\:   :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier>`
                     
                     .. attribute:: echo_interval_multiplier
                     
                     	Echo Interval and Detect Multiplier Information
-                    	**type**\:  :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier>`
+                    	**type**\:   :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier>`
                     
                     
 
@@ -26613,6 +27289,8 @@ class Bfd(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: microsecond
+                        
                         .. attribute:: negotiated_local_transmit_interval
                         
                         	Negotiated local transmit interval in micro\-seconds
@@ -26620,12 +27298,16 @@ class Bfd(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: microsecond
+                        
                         .. attribute:: negotiated_remote_transmit_interval
                         
                         	Negotiated remote transmit interval in micro\-seconds
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: microsecond
                         
                         
 
@@ -26691,12 +27373,16 @@ class Bfd(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: microsecond
+                        
                         .. attribute:: negotiated_transmit_interval
                         
                         	Negotiated transmit interval in micro\-seconds
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: microsecond
                         
                         
 
@@ -26777,12 +27463,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: last
                     
                     	Time since last Transmit/Receive (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: maximum
                     
@@ -26791,12 +27481,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: number
                     
@@ -26867,12 +27561,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: last
                     
                     	Time since last Transmit/Receive (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: maximum
                     
@@ -26881,12 +27579,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: number
                     
@@ -26957,12 +27659,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: last
                     
                     	Time since last Transmit/Receive (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: maximum
                     
@@ -26971,12 +27677,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: number
                     
@@ -27047,12 +27757,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: last
                     
                     	Time since last Transmit/Receive (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: maximum
                     
@@ -27061,12 +27775,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: number
                     
@@ -27220,12 +27938,12 @@ class Bfd(object):
                 .. attribute:: change_time
                 
                 	Change time
-                	**type**\:  :py:class:`ChangeTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.MpDownloadState.ChangeTime>`
+                	**type**\:   :py:class:`ChangeTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.MpDownloadState.ChangeTime>`
                 
                 .. attribute:: mp_download_state
                 
                 	MP Download State
-                	**type**\:  :py:class:`BfdMpDownloadStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMpDownloadStateEnum>`
+                	**type**\:   :py:class:`BfdMpDownloadStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMpDownloadStateEnum>`
                 
                 
 
@@ -27252,12 +27970,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	seconds
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: second
                     
                     
 
@@ -27362,7 +28084,7 @@ class Bfd(object):
                 .. attribute:: lsp_ping_rx_last_time
                 
                 	LSP Ping last received time
-                	**type**\:  :py:class:`LspPingRxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingRxLastTime>`
+                	**type**\:   :py:class:`LspPingRxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingRxLastTime>`
                 
                 .. attribute:: lsp_ping_tx_count
                 
@@ -27386,7 +28108,7 @@ class Bfd(object):
                 .. attribute:: lsp_ping_tx_last_error_time
                 
                 	LSP Ping last error time
-                	**type**\:  :py:class:`LspPingTxLastErrorTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingTxLastErrorTime>`
+                	**type**\:   :py:class:`LspPingTxLastErrorTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingTxLastErrorTime>`
                 
                 .. attribute:: lsp_ping_tx_last_rc
                 
@@ -27396,7 +28118,7 @@ class Bfd(object):
                 .. attribute:: lsp_ping_tx_last_time
                 
                 	LSP Ping last sent time
-                	**type**\:  :py:class:`LspPingTxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingTxLastTime>`
+                	**type**\:   :py:class:`LspPingTxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingTxLastTime>`
                 
                 
 
@@ -27435,12 +28157,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	seconds
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: second
                     
                     
 
@@ -27491,12 +28217,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	seconds
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: second
                     
                     
 
@@ -27547,12 +28277,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	seconds
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: second
                     
                     
 
@@ -27665,6 +28399,8 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: detection_multiplier
                 
                 	Client specified detection multiplier to compute detection time
@@ -27678,6 +28414,8 @@ class Bfd(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: microsecond
                 
                 .. attribute:: name
                 
@@ -27750,17 +28488,17 @@ class Bfd(object):
                 .. attribute:: owner_information
                 
                 	Client applications owning the session
-                	**type**\: list of  :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.AssociationInformation.OwnerInformation>`
+                	**type**\: list of    :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.AssociationInformation.OwnerInformation>`
                 
                 .. attribute:: session_key
                 
                 	Session Key
-                	**type**\:  :py:class:`SessionKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey>`
+                	**type**\:   :py:class:`SessionKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey>`
                 
                 .. attribute:: sessiontype
                 
                 	Session type
-                	**type**\:  :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
+                	**type**\:   :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
                 
                 
 
@@ -27787,7 +28525,7 @@ class Bfd(object):
                     .. attribute:: bfdfec
                     
                     	Union of FECs
-                    	**type**\:  :py:class:`Bfdfec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey.Bfdfec>`
+                    	**type**\:   :py:class:`Bfdfec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey.Bfdfec>`
                     
                     .. attribute:: incoming_label
                     
@@ -27806,12 +28544,12 @@ class Bfd(object):
                     .. attribute:: ip_destination_address
                     
                     	IPv4/v6 dest address
-                    	**type**\:  :py:class:`IpDestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey.IpDestinationAddress>`
+                    	**type**\:   :py:class:`IpDestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey.IpDestinationAddress>`
                     
                     .. attribute:: ip_source_address
                     
                     	IPv4/v6 source address
-                    	**type**\:  :py:class:`IpSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey.IpSourceAddress>`
+                    	**type**\:   :py:class:`IpSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey.IpSourceAddress>`
                     
                     .. attribute:: sbfd_enabled
                     
@@ -27837,7 +28575,7 @@ class Bfd(object):
                     .. attribute:: target_address
                     
                     	sbfd target address
-                    	**type**\:  :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey.TargetAddress>`
+                    	**type**\:   :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey.TargetAddress>`
                     
                     .. attribute:: vrf_name
                     
@@ -27878,7 +28616,7 @@ class Bfd(object):
                         .. attribute:: afi
                         
                         	AFI
-                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                         
                         .. attribute:: dummy
                         
@@ -27954,7 +28692,7 @@ class Bfd(object):
                         .. attribute:: afi
                         
                         	AFI
-                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                         
                         .. attribute:: dummy
                         
@@ -28030,17 +28768,17 @@ class Bfd(object):
                         .. attribute:: bfdfe_ctype
                         
                         	BFDFECType
-                        	**type**\:  :py:class:`BfdApiFecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdApiFecEnum>`
+                        	**type**\:   :py:class:`BfdApiFecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdApiFecEnum>`
                         
                         .. attribute:: dummy
                         
                         	dummy
-                        	**type**\:  :py:class:`Dummy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey.Bfdfec.Dummy>`
+                        	**type**\:   :py:class:`Dummy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey.Bfdfec.Dummy>`
                         
                         .. attribute:: te_s2l_fec
                         
                         	te s2l fec
-                        	**type**\:  :py:class:`TeS2LFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey.Bfdfec.TeS2LFec>`
+                        	**type**\:   :py:class:`TeS2LFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey.Bfdfec.TeS2LFec>`
                         
                         
 
@@ -28110,7 +28848,7 @@ class Bfd(object):
                             .. attribute:: s2l_fec_ctype
                             
                             	Session identifier (ctype)
-                            	**type**\:  :py:class:`MplsLibCEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.MplsLibCEnum>`
+                            	**type**\:   :py:class:`MplsLibCEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.MplsLibCEnum>`
                             
                             .. attribute:: s2l_fec_dest
                             
@@ -28278,7 +29016,7 @@ class Bfd(object):
                         .. attribute:: afi
                         
                         	AFI
-                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                         
                         .. attribute:: dummy
                         
@@ -28414,6 +29152,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: detection_multiplier
                     
                     	Client specified detection multiplier to compute detection time
@@ -28427,6 +29167,8 @@ class Bfd(object):
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: microsecond
                     
                     .. attribute:: name
                     
@@ -28596,7 +29338,7 @@ class Bfd(object):
         .. attribute:: ipv4_single_hop_multi_path
         
         	IPv4 single hop multipath table
-        	**type**\: list of  :py:class:`Ipv4SingleHopMultiPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopMultiPaths.Ipv4SingleHopMultiPath>`
+        	**type**\: list of    :py:class:`Ipv4SingleHopMultiPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopMultiPaths.Ipv4SingleHopMultiPath>`
         
         
 
@@ -28673,7 +29415,7 @@ class Bfd(object):
             .. attribute:: state
             
             	State
-            	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+            	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
             
             
 
@@ -28773,7 +29515,7 @@ class Bfd(object):
         .. attribute:: ipv4_single_hop_session_brief
         
         	Brief information for a single IPv4 singlehop BFD session
-        	**type**\: list of  :py:class:`Ipv4SingleHopSessionBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief>`
+        	**type**\: list of    :py:class:`Ipv4SingleHopSessionBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief>`
         
         
 
@@ -28837,17 +29579,17 @@ class Bfd(object):
             .. attribute:: session_type
             
             	Session type
-            	**type**\:  :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
+            	**type**\:   :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
             
             .. attribute:: state
             
             	State
-            	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+            	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
             
             .. attribute:: status_brief_information
             
             	Brief Status Information
-            	**type**\:  :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation>`
+            	**type**\:   :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation>`
             
             
 
@@ -28877,12 +29619,12 @@ class Bfd(object):
                 .. attribute:: async_interval_multiplier
                 
                 	Async Interval and Detect Multiplier Information
-                	**type**\:  :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier>`
+                	**type**\:   :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier>`
                 
                 .. attribute:: echo_interval_multiplier
                 
                 	Echo Interval and Detect Multiplier Information
-                	**type**\:  :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier>`
+                	**type**\:   :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier>`
                 
                 
 
@@ -28917,6 +29659,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: negotiated_local_transmit_interval
                     
                     	Negotiated local transmit interval in micro\-seconds
@@ -28924,12 +29668,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: negotiated_remote_transmit_interval
                     
                     	Negotiated remote transmit interval in micro\-seconds
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: microsecond
                     
                     
 
@@ -28995,12 +29743,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: negotiated_transmit_interval
                     
                     	Negotiated transmit interval in micro\-seconds
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: microsecond
                     
                     
 
@@ -29146,7 +29898,7 @@ class Bfd(object):
         .. attribute:: ipv6_multi_hop_packet_counters
         
         	Table of IPv6 multiple hop Packet counters
-        	**type**\:  :py:class:`Ipv6MultiHopPacketCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopCounters.Ipv6MultiHopPacketCounters>`
+        	**type**\:   :py:class:`Ipv6MultiHopPacketCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopCounters.Ipv6MultiHopPacketCounters>`
         
         
 
@@ -29168,7 +29920,7 @@ class Bfd(object):
             .. attribute:: ipv6_multi_hop_packet_counter
             
             	IPv4 multiple hop Packet counters
-            	**type**\: list of  :py:class:`Ipv6MultiHopPacketCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopCounters.Ipv6MultiHopPacketCounters.Ipv6MultiHopPacketCounter>`
+            	**type**\: list of    :py:class:`Ipv6MultiHopPacketCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6MultiHopCounters.Ipv6MultiHopPacketCounters.Ipv6MultiHopPacketCounter>`
             
             
 
@@ -29208,7 +29960,7 @@ class Bfd(object):
                 .. attribute:: display_type
                 
                 	Packet Display Type
-                	**type**\:  :py:class:`BfdMgmtPktDisplayEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtPktDisplayEnum>`
+                	**type**\:   :py:class:`BfdMgmtPktDisplayEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtPktDisplayEnum>`
                 
                 .. attribute:: echo_receive_count
                 
@@ -29389,7 +30141,7 @@ class Bfd(object):
         .. attribute:: ipv6_single_hop_location_summary
         
         	Summary information for BFD IPv6 singlehop sessions for location
-        	**type**\: list of  :py:class:`Ipv6SingleHopLocationSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopLocationSummaries.Ipv6SingleHopLocationSummary>`
+        	**type**\: list of    :py:class:`Ipv6SingleHopLocationSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopLocationSummaries.Ipv6SingleHopLocationSummary>`
         
         
 
@@ -29420,7 +30172,7 @@ class Bfd(object):
             .. attribute:: session_state
             
             	Statistics of states for sessions
-            	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopLocationSummaries.Ipv6SingleHopLocationSummary.SessionState>`
+            	**type**\:   :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopLocationSummaries.Ipv6SingleHopLocationSummary.SessionState>`
             
             
 
@@ -29596,7 +30348,7 @@ class Bfd(object):
         .. attribute:: label_packet_counters
         
         	Table of Label Packet counters
-        	**type**\:  :py:class:`LabelPacketCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelCounters.LabelPacketCounters>`
+        	**type**\:   :py:class:`LabelPacketCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelCounters.LabelPacketCounters>`
         
         
 
@@ -29618,7 +30370,7 @@ class Bfd(object):
             .. attribute:: label_packet_counter
             
             	Interface Label Packet counters
-            	**type**\: list of  :py:class:`LabelPacketCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelCounters.LabelPacketCounters.LabelPacketCounter>`
+            	**type**\: list of    :py:class:`LabelPacketCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.LabelCounters.LabelPacketCounters.LabelPacketCounter>`
             
             
 
@@ -29641,7 +30393,7 @@ class Bfd(object):
                 .. attribute:: display_type
                 
                 	Packet Display Type
-                	**type**\:  :py:class:`BfdMgmtPktDisplayEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtPktDisplayEnum>`
+                	**type**\:   :py:class:`BfdMgmtPktDisplayEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtPktDisplayEnum>`
                 
                 .. attribute:: echo_receive_count
                 
@@ -29797,7 +30549,7 @@ class Bfd(object):
         .. attribute:: ipv4bf_do_mplste_head_session_detail
         
         	Detailed information for a single IPv4 BFD over MPLS\-TE head session
-        	**type**\: list of  :py:class:`Ipv4BfDoMplsteHeadSessionDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail>`
+        	**type**\: list of    :py:class:`Ipv4BfDoMplsteHeadSessionDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail>`
         
         
 
@@ -29821,7 +30573,7 @@ class Bfd(object):
             .. attribute:: association_information
             
             	Association session information
-            	**type**\: list of  :py:class:`AssociationInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation>`
+            	**type**\: list of    :py:class:`AssociationInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation>`
             
             .. attribute:: fe_ctype
             
@@ -29917,22 +30669,22 @@ class Bfd(object):
             .. attribute:: lsp_ping_info
             
             	LSP Ping Info
-            	**type**\:  :py:class:`LspPingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.LspPingInfo>`
+            	**type**\:   :py:class:`LspPingInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.LspPingInfo>`
             
             .. attribute:: mp_download_state
             
             	MP Dowload State
-            	**type**\:  :py:class:`MpDownloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.MpDownloadState>`
+            	**type**\:   :py:class:`MpDownloadState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.MpDownloadState>`
             
             .. attribute:: owner_information
             
             	Client applications owning the session
-            	**type**\: list of  :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.OwnerInformation>`
+            	**type**\: list of    :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.OwnerInformation>`
             
             .. attribute:: status_information
             
             	Session status information
-            	**type**\:  :py:class:`StatusInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.StatusInformation>`
+            	**type**\:   :py:class:`StatusInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.StatusInformation>`
             
             .. attribute:: vrf_name
             
@@ -29985,12 +30737,12 @@ class Bfd(object):
                 .. attribute:: async_receive_statistics
                 
                 	Statistics of Interval between Async Packets Received (in milli\-seconds)
-                	**type**\:  :py:class:`AsyncReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.StatusInformation.AsyncReceiveStatistics>`
+                	**type**\:   :py:class:`AsyncReceiveStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.StatusInformation.AsyncReceiveStatistics>`
                 
                 .. attribute:: async_transmit_statistics
                 
                 	Statistics of Interval between Async Packets Transmitted (in milli\-seconds)
-                	**type**\:  :py:class:`AsyncTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.StatusInformation.AsyncTransmitStatistics>`
+                	**type**\:   :py:class:`AsyncTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.StatusInformation.AsyncTransmitStatistics>`
                 
                 .. attribute:: desired_minimum_echo_transmit_interval
                 
@@ -29999,15 +30751,17 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: echo_received_statistics
                 
                 	Statistics of Interval between Echo Packets Received (in milli\-seconds)
-                	**type**\:  :py:class:`EchoReceivedStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.StatusInformation.EchoReceivedStatistics>`
+                	**type**\:   :py:class:`EchoReceivedStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.StatusInformation.EchoReceivedStatistics>`
                 
                 .. attribute:: echo_transmit_statistics
                 
                 	Statistics of Interval between Echo Packets Transmitted (in milli\-seconds)
-                	**type**\:  :py:class:`EchoTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.StatusInformation.EchoTransmitStatistics>`
+                	**type**\:   :py:class:`EchoTransmitStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.StatusInformation.EchoTransmitStatistics>`
                 
                 .. attribute:: internal_label
                 
@@ -30019,7 +30773,7 @@ class Bfd(object):
                 .. attribute:: last_state_change
                 
                 	Time since last state change
-                	**type**\:  :py:class:`LastStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.StatusInformation.LastStateChange>`
+                	**type**\:   :py:class:`LastStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.StatusInformation.LastStateChange>`
                 
                 .. attribute:: latency_average
                 
@@ -30028,6 +30782,8 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: microsecond
+                
                 .. attribute:: latency_maximum
                 
                 	Maximum value of Latency (in micro\-seconds)
@@ -30035,12 +30791,16 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: microsecond
+                
                 .. attribute:: latency_minimum
                 
                 	Minimum value of Latency (in micro\-seconds)
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: microsecond
                 
                 .. attribute:: latency_number
                 
@@ -30066,7 +30826,7 @@ class Bfd(object):
                 .. attribute:: receive_packet
                 
                 	Receive Packet
-                	**type**\:  :py:class:`ReceivePacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.StatusInformation.ReceivePacket>`
+                	**type**\:   :py:class:`ReceivePacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.StatusInformation.ReceivePacket>`
                 
                 .. attribute:: remote_discriminator
                 
@@ -30082,6 +30842,8 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: session_subtype
                 
                 	Session subtype
@@ -30090,22 +30852,22 @@ class Bfd(object):
                 .. attribute:: sessiontype
                 
                 	Session type
-                	**type**\:  :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
+                	**type**\:   :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
                 
                 .. attribute:: source_address
                 
                 	Source address
-                	**type**\:  :py:class:`SourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.StatusInformation.SourceAddress>`
+                	**type**\:   :py:class:`SourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.StatusInformation.SourceAddress>`
                 
                 .. attribute:: state
                 
                 	State
-                	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+                	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
                 
                 .. attribute:: status_brief_information
                 
                 	Brief Status Information
-                	**type**\:  :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.StatusInformation.StatusBriefInformation>`
+                	**type**\:   :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.StatusInformation.StatusBriefInformation>`
                 
                 .. attribute:: to_up_state_count
                 
@@ -30117,7 +30879,7 @@ class Bfd(object):
                 .. attribute:: transmit_packet
                 
                 	Transmit Packet
-                	**type**\:  :py:class:`TransmitPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.StatusInformation.TransmitPacket>`
+                	**type**\:   :py:class:`TransmitPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.StatusInformation.TransmitPacket>`
                 
                 
 
@@ -30169,7 +30931,7 @@ class Bfd(object):
                     .. attribute:: afi
                     
                     	AFI
-                    	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                    	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                     
                     .. attribute:: dummy
                     
@@ -30249,12 +31011,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: day
+                    
                     .. attribute:: hours
                     
                     	Number of hours since last session state transition
                     	**type**\:  int
                     
                     	**range:** 0..255
+                    
+                    	**units**\: hour
                     
                     .. attribute:: minutes
                     
@@ -30263,12 +31029,16 @@ class Bfd(object):
                     
                     	**range:** 0..255
                     
+                    	**units**\: minute
+                    
                     .. attribute:: seconds
                     
                     	Number of seconds since last session state transition
                     	**type**\:  int
                     
                     	**range:** 0..255
+                    
+                    	**units**\: second
                     
                     
 
@@ -30348,6 +31118,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: detection_multiplier
                     
                     	Detection Multiplier
@@ -30358,7 +31130,7 @@ class Bfd(object):
                     .. attribute:: diagnostic
                     
                     	Diagnostic
-                    	**type**\:  :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
+                    	**type**\:   :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
                     
                     .. attribute:: final
                     
@@ -30402,6 +31174,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: required_minimum_receive_interval
                     
                     	Required receive interval in micro\-seconds
@@ -30409,10 +31183,12 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: state
                     
                     	State (v1)
-                    	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+                    	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
                     
                     .. attribute:: version
                     
@@ -30554,6 +31330,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: detection_multiplier
                     
                     	Detection Multiplier
@@ -30564,7 +31342,7 @@ class Bfd(object):
                     .. attribute:: diagnostic
                     
                     	Diagnostic
-                    	**type**\:  :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
+                    	**type**\:   :py:class:`BfdMgmtSessionDiagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionDiagEnum>`
                     
                     .. attribute:: final
                     
@@ -30608,6 +31386,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: required_minimum_receive_interval
                     
                     	Required receive interval in micro\-seconds
@@ -30615,10 +31395,12 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: state
                     
                     	State (v1)
-                    	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+                    	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
                     
                     .. attribute:: version
                     
@@ -30735,12 +31517,12 @@ class Bfd(object):
                     .. attribute:: async_interval_multiplier
                     
                     	Async Interval and Detect Multiplier Information
-                    	**type**\:  :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier>`
+                    	**type**\:   :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier>`
                     
                     .. attribute:: echo_interval_multiplier
                     
                     	Echo Interval and Detect Multiplier Information
-                    	**type**\:  :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier>`
+                    	**type**\:   :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier>`
                     
                     
 
@@ -30775,6 +31557,8 @@ class Bfd(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: microsecond
+                        
                         .. attribute:: negotiated_local_transmit_interval
                         
                         	Negotiated local transmit interval in micro\-seconds
@@ -30782,12 +31566,16 @@ class Bfd(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: microsecond
+                        
                         .. attribute:: negotiated_remote_transmit_interval
                         
                         	Negotiated remote transmit interval in micro\-seconds
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: microsecond
                         
                         
 
@@ -30853,12 +31641,16 @@ class Bfd(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: microsecond
+                        
                         .. attribute:: negotiated_transmit_interval
                         
                         	Negotiated transmit interval in micro\-seconds
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: microsecond
                         
                         
 
@@ -30939,12 +31731,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: last
                     
                     	Time since last Transmit/Receive (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: maximum
                     
@@ -30953,12 +31749,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: number
                     
@@ -31029,12 +31829,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: last
                     
                     	Time since last Transmit/Receive (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: maximum
                     
@@ -31043,12 +31847,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: number
                     
@@ -31119,12 +31927,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: last
                     
                     	Time since last Transmit/Receive (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: maximum
                     
@@ -31133,12 +31945,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: number
                     
@@ -31209,12 +32025,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: last
                     
                     	Time since last Transmit/Receive (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: maximum
                     
@@ -31223,12 +32043,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: minimum
                     
                     	Minimum of Transmit/Receive Interval (in milli\-seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: millisecond
                     
                     .. attribute:: number
                     
@@ -31382,12 +32206,12 @@ class Bfd(object):
                 .. attribute:: change_time
                 
                 	Change time
-                	**type**\:  :py:class:`ChangeTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.MpDownloadState.ChangeTime>`
+                	**type**\:   :py:class:`ChangeTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.MpDownloadState.ChangeTime>`
                 
                 .. attribute:: mp_download_state
                 
                 	MP Download State
-                	**type**\:  :py:class:`BfdMpDownloadStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMpDownloadStateEnum>`
+                	**type**\:   :py:class:`BfdMpDownloadStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMpDownloadStateEnum>`
                 
                 
 
@@ -31414,12 +32238,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	seconds
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: second
                     
                     
 
@@ -31524,7 +32352,7 @@ class Bfd(object):
                 .. attribute:: lsp_ping_rx_last_time
                 
                 	LSP Ping last received time
-                	**type**\:  :py:class:`LspPingRxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.LspPingInfo.LspPingRxLastTime>`
+                	**type**\:   :py:class:`LspPingRxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.LspPingInfo.LspPingRxLastTime>`
                 
                 .. attribute:: lsp_ping_tx_count
                 
@@ -31548,7 +32376,7 @@ class Bfd(object):
                 .. attribute:: lsp_ping_tx_last_error_time
                 
                 	LSP Ping last error time
-                	**type**\:  :py:class:`LspPingTxLastErrorTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.LspPingInfo.LspPingTxLastErrorTime>`
+                	**type**\:   :py:class:`LspPingTxLastErrorTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.LspPingInfo.LspPingTxLastErrorTime>`
                 
                 .. attribute:: lsp_ping_tx_last_rc
                 
@@ -31558,7 +32386,7 @@ class Bfd(object):
                 .. attribute:: lsp_ping_tx_last_time
                 
                 	LSP Ping last sent time
-                	**type**\:  :py:class:`LspPingTxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.LspPingInfo.LspPingTxLastTime>`
+                	**type**\:   :py:class:`LspPingTxLastTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.LspPingInfo.LspPingTxLastTime>`
                 
                 
 
@@ -31597,12 +32425,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	seconds
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: second
                     
                     
 
@@ -31653,12 +32485,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	seconds
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: second
                     
                     
 
@@ -31709,12 +32545,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	seconds
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: second
                     
                     
 
@@ -31827,6 +32667,8 @@ class Bfd(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: detection_multiplier
                 
                 	Client specified detection multiplier to compute detection time
@@ -31840,6 +32682,8 @@ class Bfd(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: microsecond
                 
                 .. attribute:: name
                 
@@ -31912,17 +32756,17 @@ class Bfd(object):
                 .. attribute:: owner_information
                 
                 	Client applications owning the session
-                	**type**\: list of  :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.OwnerInformation>`
+                	**type**\: list of    :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.OwnerInformation>`
                 
                 .. attribute:: session_key
                 
                 	Session Key
-                	**type**\:  :py:class:`SessionKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey>`
+                	**type**\:   :py:class:`SessionKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey>`
                 
                 .. attribute:: sessiontype
                 
                 	Session type
-                	**type**\:  :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
+                	**type**\:   :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
                 
                 
 
@@ -31949,7 +32793,7 @@ class Bfd(object):
                     .. attribute:: bfdfec
                     
                     	Union of FECs
-                    	**type**\:  :py:class:`Bfdfec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey.Bfdfec>`
+                    	**type**\:   :py:class:`Bfdfec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey.Bfdfec>`
                     
                     .. attribute:: incoming_label
                     
@@ -31968,12 +32812,12 @@ class Bfd(object):
                     .. attribute:: ip_destination_address
                     
                     	IPv4/v6 dest address
-                    	**type**\:  :py:class:`IpDestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey.IpDestinationAddress>`
+                    	**type**\:   :py:class:`IpDestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey.IpDestinationAddress>`
                     
                     .. attribute:: ip_source_address
                     
                     	IPv4/v6 source address
-                    	**type**\:  :py:class:`IpSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey.IpSourceAddress>`
+                    	**type**\:   :py:class:`IpSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey.IpSourceAddress>`
                     
                     .. attribute:: sbfd_enabled
                     
@@ -31999,7 +32843,7 @@ class Bfd(object):
                     .. attribute:: target_address
                     
                     	sbfd target address
-                    	**type**\:  :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey.TargetAddress>`
+                    	**type**\:   :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey.TargetAddress>`
                     
                     .. attribute:: vrf_name
                     
@@ -32040,7 +32884,7 @@ class Bfd(object):
                         .. attribute:: afi
                         
                         	AFI
-                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                         
                         .. attribute:: dummy
                         
@@ -32116,7 +32960,7 @@ class Bfd(object):
                         .. attribute:: afi
                         
                         	AFI
-                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                         
                         .. attribute:: dummy
                         
@@ -32192,17 +33036,17 @@ class Bfd(object):
                         .. attribute:: bfdfe_ctype
                         
                         	BFDFECType
-                        	**type**\:  :py:class:`BfdApiFecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdApiFecEnum>`
+                        	**type**\:   :py:class:`BfdApiFecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdApiFecEnum>`
                         
                         .. attribute:: dummy
                         
                         	dummy
-                        	**type**\:  :py:class:`Dummy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey.Bfdfec.Dummy>`
+                        	**type**\:   :py:class:`Dummy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey.Bfdfec.Dummy>`
                         
                         .. attribute:: te_s2l_fec
                         
                         	te s2l fec
-                        	**type**\:  :py:class:`TeS2LFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey.Bfdfec.TeS2LFec>`
+                        	**type**\:   :py:class:`TeS2LFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey.Bfdfec.TeS2LFec>`
                         
                         
 
@@ -32272,7 +33116,7 @@ class Bfd(object):
                             .. attribute:: s2l_fec_ctype
                             
                             	Session identifier (ctype)
-                            	**type**\:  :py:class:`MplsLibCEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.MplsLibCEnum>`
+                            	**type**\:   :py:class:`MplsLibCEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.MplsLibCEnum>`
                             
                             .. attribute:: s2l_fec_dest
                             
@@ -32440,7 +33284,7 @@ class Bfd(object):
                         .. attribute:: afi
                         
                         	AFI
-                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                         
                         .. attribute:: dummy
                         
@@ -32576,6 +33420,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: detection_multiplier
                     
                     	Client specified detection multiplier to compute detection time
@@ -32589,6 +33435,8 @@ class Bfd(object):
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: microsecond
                     
                     .. attribute:: name
                     
@@ -32792,7 +33640,7 @@ class Bfd(object):
         .. attribute:: relation_brief
         
         	Brief information for relation of a single BFD session
-        	**type**\: list of  :py:class:`RelationBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationBriefs.RelationBrief>`
+        	**type**\: list of    :py:class:`RelationBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationBriefs.RelationBrief>`
         
         
 
@@ -32840,12 +33688,12 @@ class Bfd(object):
             .. attribute:: link_information
             
             	Brief Member Link Information
-            	**type**\: list of  :py:class:`LinkInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationBriefs.RelationBrief.LinkInformation>`
+            	**type**\: list of    :py:class:`LinkInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationBriefs.RelationBrief.LinkInformation>`
             
             .. attribute:: state
             
             	State
-            	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+            	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
             
             
 
@@ -32878,7 +33726,7 @@ class Bfd(object):
                 .. attribute:: state
                 
                 	State
-                	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+                	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
                 
                 
 
@@ -32982,7 +33830,7 @@ class Bfd(object):
         .. attribute:: client_brief
         
         	Brief information of client
-        	**type**\: list of  :py:class:`ClientBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.ClientBriefs.ClientBrief>`
+        	**type**\: list of    :py:class:`ClientBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.ClientBriefs.ClientBrief>`
         
         
 
@@ -33109,7 +33957,7 @@ class Bfd(object):
         .. attribute:: ipv4bf_do_mplste_head_multi_path
         
         	Label multipath table
-        	**type**\: list of  :py:class:`Ipv4BfDoMplsteHeadMultiPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadMultiPaths.Ipv4BfDoMplsteHeadMultiPath>`
+        	**type**\: list of    :py:class:`Ipv4BfDoMplsteHeadMultiPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadMultiPaths.Ipv4BfDoMplsteHeadMultiPath>`
         
         
 
@@ -33256,7 +34104,7 @@ class Bfd(object):
             .. attribute:: state
             
             	State
-            	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+            	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
             
             .. attribute:: vrf_name
             
@@ -33407,7 +34255,7 @@ class Bfd(object):
         .. attribute:: relation_detail
         
         	Detail information for relation of a single BFD session
-        	**type**\: list of  :py:class:`RelationDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationDetails.RelationDetail>`
+        	**type**\: list of    :py:class:`RelationDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationDetails.RelationDetail>`
         
         
 
@@ -33431,7 +34279,7 @@ class Bfd(object):
             .. attribute:: association_information
             
             	Association session information
-            	**type**\: list of  :py:class:`AssociationInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationDetails.RelationDetail.AssociationInformation>`
+            	**type**\: list of    :py:class:`AssociationInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationDetails.RelationDetail.AssociationInformation>`
             
             .. attribute:: destination_address
             
@@ -33460,7 +34308,7 @@ class Bfd(object):
             .. attribute:: link_information
             
             	Detail Member Link Information
-            	**type**\: list of  :py:class:`LinkInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationDetails.RelationDetail.LinkInformation>`
+            	**type**\: list of    :py:class:`LinkInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationDetails.RelationDetail.LinkInformation>`
             
             .. attribute:: local_discriminator
             
@@ -33472,7 +34320,7 @@ class Bfd(object):
             .. attribute:: state
             
             	State
-            	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+            	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
             
             
 
@@ -33516,7 +34364,7 @@ class Bfd(object):
                 .. attribute:: state
                 
                 	State
-                	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+                	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
                 
                 
 
@@ -33574,17 +34422,17 @@ class Bfd(object):
                 .. attribute:: owner_information
                 
                 	Client applications owning the session
-                	**type**\: list of  :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationDetails.RelationDetail.AssociationInformation.OwnerInformation>`
+                	**type**\: list of    :py:class:`OwnerInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationDetails.RelationDetail.AssociationInformation.OwnerInformation>`
                 
                 .. attribute:: session_key
                 
                 	Session Key
-                	**type**\:  :py:class:`SessionKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey>`
+                	**type**\:   :py:class:`SessionKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey>`
                 
                 .. attribute:: sessiontype
                 
                 	Session type
-                	**type**\:  :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
+                	**type**\:   :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
                 
                 
 
@@ -33611,7 +34459,7 @@ class Bfd(object):
                     .. attribute:: bfdfec
                     
                     	Union of FECs
-                    	**type**\:  :py:class:`Bfdfec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey.Bfdfec>`
+                    	**type**\:   :py:class:`Bfdfec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey.Bfdfec>`
                     
                     .. attribute:: incoming_label
                     
@@ -33630,12 +34478,12 @@ class Bfd(object):
                     .. attribute:: ip_destination_address
                     
                     	IPv4/v6 dest address
-                    	**type**\:  :py:class:`IpDestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey.IpDestinationAddress>`
+                    	**type**\:   :py:class:`IpDestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey.IpDestinationAddress>`
                     
                     .. attribute:: ip_source_address
                     
                     	IPv4/v6 source address
-                    	**type**\:  :py:class:`IpSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey.IpSourceAddress>`
+                    	**type**\:   :py:class:`IpSourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey.IpSourceAddress>`
                     
                     .. attribute:: sbfd_enabled
                     
@@ -33661,7 +34509,7 @@ class Bfd(object):
                     .. attribute:: target_address
                     
                     	sbfd target address
-                    	**type**\:  :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey.TargetAddress>`
+                    	**type**\:   :py:class:`TargetAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey.TargetAddress>`
                     
                     .. attribute:: vrf_name
                     
@@ -33702,7 +34550,7 @@ class Bfd(object):
                         .. attribute:: afi
                         
                         	AFI
-                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                         
                         .. attribute:: dummy
                         
@@ -33778,7 +34626,7 @@ class Bfd(object):
                         .. attribute:: afi
                         
                         	AFI
-                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                         
                         .. attribute:: dummy
                         
@@ -33854,17 +34702,17 @@ class Bfd(object):
                         .. attribute:: bfdfe_ctype
                         
                         	BFDFECType
-                        	**type**\:  :py:class:`BfdApiFecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdApiFecEnum>`
+                        	**type**\:   :py:class:`BfdApiFecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdApiFecEnum>`
                         
                         .. attribute:: dummy
                         
                         	dummy
-                        	**type**\:  :py:class:`Dummy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey.Bfdfec.Dummy>`
+                        	**type**\:   :py:class:`Dummy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey.Bfdfec.Dummy>`
                         
                         .. attribute:: te_s2l_fec
                         
                         	te s2l fec
-                        	**type**\:  :py:class:`TeS2LFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey.Bfdfec.TeS2LFec>`
+                        	**type**\:   :py:class:`TeS2LFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey.Bfdfec.TeS2LFec>`
                         
                         
 
@@ -33934,7 +34782,7 @@ class Bfd(object):
                             .. attribute:: s2l_fec_ctype
                             
                             	Session identifier (ctype)
-                            	**type**\:  :py:class:`MplsLibCEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.MplsLibCEnum>`
+                            	**type**\:   :py:class:`MplsLibCEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.MplsLibCEnum>`
                             
                             .. attribute:: s2l_fec_dest
                             
@@ -34102,7 +34950,7 @@ class Bfd(object):
                         .. attribute:: afi
                         
                         	AFI
-                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
+                        	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdAfIdEnum>`
                         
                         .. attribute:: dummy
                         
@@ -34238,6 +35086,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: detection_multiplier
                     
                     	Client specified detection multiplier to compute detection time
@@ -34251,6 +35101,8 @@ class Bfd(object):
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: microsecond
                     
                     .. attribute:: name
                     
@@ -34414,7 +35266,7 @@ class Bfd(object):
         .. attribute:: ipv4bf_do_mplste_tail_packet_counters
         
         	Table of IPv4 BFD over MPLS\-TE Packet counters
-        	**type**\:  :py:class:`Ipv4BfDoMplsteTailPacketCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailCounters.Ipv4BfDoMplsteTailPacketCounters>`
+        	**type**\:   :py:class:`Ipv4BfDoMplsteTailPacketCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailCounters.Ipv4BfDoMplsteTailPacketCounters>`
         
         
 
@@ -34436,7 +35288,7 @@ class Bfd(object):
             .. attribute:: ipv4bf_do_mplste_tail_packet_counter
             
             	Interface  IPv4 BFD over MPLS\-TE Packet counters
-            	**type**\: list of  :py:class:`Ipv4BfDoMplsteTailPacketCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailCounters.Ipv4BfDoMplsteTailPacketCounters.Ipv4BfDoMplsteTailPacketCounter>`
+            	**type**\: list of    :py:class:`Ipv4BfDoMplsteTailPacketCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailCounters.Ipv4BfDoMplsteTailPacketCounters.Ipv4BfDoMplsteTailPacketCounter>`
             
             
 
@@ -34460,7 +35312,7 @@ class Bfd(object):
                 .. attribute:: display_type
                 
                 	Packet Display Type
-                	**type**\:  :py:class:`BfdMgmtPktDisplayEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtPktDisplayEnum>`
+                	**type**\:   :py:class:`BfdMgmtPktDisplayEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtPktDisplayEnum>`
                 
                 .. attribute:: echo_receive_count
                 
@@ -34737,7 +35589,7 @@ class Bfd(object):
         .. attribute:: ipv6_single_hop_session_brief
         
         	Brief information for a single IPv6 singlehop BFD session
-        	**type**\: list of  :py:class:`Ipv6SingleHopSessionBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief>`
+        	**type**\: list of    :py:class:`Ipv6SingleHopSessionBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief>`
         
         
 
@@ -34811,17 +35663,17 @@ class Bfd(object):
             .. attribute:: session_type
             
             	Session type
-            	**type**\:  :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
+            	**type**\:   :py:class:`BfdSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdSessionEnum>`
             
             .. attribute:: state
             
             	State
-            	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+            	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
             
             .. attribute:: status_brief_information
             
             	Brief Status Information
-            	**type**\:  :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief.StatusBriefInformation>`
+            	**type**\:   :py:class:`StatusBriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief.StatusBriefInformation>`
             
             
 
@@ -34851,12 +35703,12 @@ class Bfd(object):
                 .. attribute:: async_interval_multiplier
                 
                 	Async Interval and Detect Multiplier Information
-                	**type**\:  :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier>`
+                	**type**\:   :py:class:`AsyncIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier>`
                 
                 .. attribute:: echo_interval_multiplier
                 
                 	Echo Interval and Detect Multiplier Information
-                	**type**\:  :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier>`
+                	**type**\:   :py:class:`EchoIntervalMultiplier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier>`
                 
                 
 
@@ -34891,6 +35743,8 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: negotiated_local_transmit_interval
                     
                     	Negotiated local transmit interval in micro\-seconds
@@ -34898,12 +35752,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: negotiated_remote_transmit_interval
                     
                     	Negotiated remote transmit interval in micro\-seconds
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: microsecond
                     
                     
 
@@ -34969,12 +35827,16 @@ class Bfd(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: microsecond
+                    
                     .. attribute:: negotiated_transmit_interval
                     
                     	Negotiated transmit interval in micro\-seconds
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: microsecond
                     
                     
 
@@ -35120,7 +35982,7 @@ class Bfd(object):
         .. attribute:: ipv4bf_do_mplste_tail_multi_path
         
         	Label multipath table
-        	**type**\: list of  :py:class:`Ipv4BfDoMplsteTailMultiPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailMultiPaths.Ipv4BfDoMplsteTailMultiPath>`
+        	**type**\: list of    :py:class:`Ipv4BfDoMplsteTailMultiPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteTailMultiPaths.Ipv4BfDoMplsteTailMultiPath>`
         
         
 
@@ -35260,7 +36122,7 @@ class Bfd(object):
             .. attribute:: state
             
             	State
-            	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+            	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
             
             .. attribute:: vrf_name
             
@@ -35406,7 +36268,7 @@ class Bfd(object):
         .. attribute:: ipv4_multi_hop_multi_path
         
         	IPv4 multi hop multipath table
-        	**type**\: list of  :py:class:`Ipv4MultiHopMultiPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopMultiPaths.Ipv4MultiHopMultiPath>`
+        	**type**\: list of    :py:class:`Ipv4MultiHopMultiPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4MultiHopMultiPaths.Ipv4MultiHopMultiPath>`
         
         
 
@@ -35503,7 +36365,7 @@ class Bfd(object):
             .. attribute:: state
             
             	State
-            	**type**\:  :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
+            	**type**\:   :py:class:`BfdMgmtSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.BfdMgmtSessionStateEnum>`
             
             .. attribute:: vrf_name
             
@@ -35614,7 +36476,7 @@ class Bfd(object):
         .. attribute:: session_state
         
         	Statistics of states for sessions
-        	**type**\:  :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSummary.SessionState>`
+        	**type**\:   :py:class:`SessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Ipv4BfDoMplsteHeadSummary.SessionState>`
         
         
 

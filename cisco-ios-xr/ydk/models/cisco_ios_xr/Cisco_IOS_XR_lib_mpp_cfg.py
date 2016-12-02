@@ -32,7 +32,7 @@ class ControlPlane(object):
     .. attribute:: management_plane_protection
     
     	Configure management plane protection
-    	**type**\:  :py:class:`ManagementPlaneProtection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection>`
+    	**type**\:   :py:class:`ManagementPlaneProtection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection>`
     
     
 
@@ -53,12 +53,12 @@ class ControlPlane(object):
         .. attribute:: inband
         
         	Inband Configuration
-        	**type**\:  :py:class:`Inband <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband>`
+        	**type**\:   :py:class:`Inband <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband>`
         
         .. attribute:: outband
         
         	Outband Configuration
-        	**type**\:  :py:class:`Outband <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband>`
+        	**type**\:   :py:class:`Outband <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband>`
         
         
 
@@ -82,7 +82,7 @@ class ControlPlane(object):
             .. attribute:: interface_selection
             
             	Configure interfaces
-            	**type**\:  :py:class:`InterfaceSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection>`
+            	**type**\:   :py:class:`InterfaceSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection>`
             
             .. attribute:: outband_vrf
             
@@ -110,12 +110,12 @@ class ControlPlane(object):
                 .. attribute:: all_interfaces
                 
                 	Configure all Inband interfaces
-                	**type**\:  :py:class:`AllInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces>`
+                	**type**\:   :py:class:`AllInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces>`
                 
                 .. attribute:: interfaces
                 
                 	Configure a specific interface
-                	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces>`
+                	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces>`
                 
                 
 
@@ -139,7 +139,7 @@ class ControlPlane(object):
                     .. attribute:: interface
                     
                     	Specific interface
-                    	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface>`
+                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface>`
                     
                     
 
@@ -169,42 +169,42 @@ class ControlPlane(object):
                         .. attribute:: all_protocols
                         
                         	Configure all protocols on this interface
-                        	**type**\:  :py:class:`AllProtocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols>`
+                        	**type**\:   :py:class:`AllProtocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols>`
                         
                         .. attribute:: http_protocol
                         
                         	Configure HTTP on this interface
-                        	**type**\:  :py:class:`HttpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol>`
+                        	**type**\:   :py:class:`HttpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol>`
                         
                         .. attribute:: netconf_protocol
                         
                         	Configure NETCONF protocol and peer addresses
-                        	**type**\:  :py:class:`NetconfProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol>`
+                        	**type**\:   :py:class:`NetconfProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol>`
                         
                         .. attribute:: snmp_protocol
                         
                         	Configure SNMP for this interface
-                        	**type**\:  :py:class:`SnmpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol>`
+                        	**type**\:   :py:class:`SnmpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol>`
                         
                         .. attribute:: ssh_protocol
                         
                         	Configure SSH protocol and peer addresses
-                        	**type**\:  :py:class:`SshProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol>`
+                        	**type**\:   :py:class:`SshProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol>`
                         
                         .. attribute:: telnet_protocol
                         
                         	Configure Telnet for this interface
-                        	**type**\:  :py:class:`TelnetProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol>`
+                        	**type**\:   :py:class:`TelnetProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol>`
                         
                         .. attribute:: tftp_protocol
                         
                         	Configure TFTP on this interface
-                        	**type**\:  :py:class:`TftpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol>`
+                        	**type**\:   :py:class:`TftpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol>`
                         
                         .. attribute:: xr_xml
                         
                         	Configure XML and peer addresses
-                        	**type**\:  :py:class:`XrXml <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml>`
+                        	**type**\:   :py:class:`XrXml <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml>`
                         
                         
 
@@ -241,7 +241,7 @@ class ControlPlane(object):
                             .. attribute:: peer_class
                             
                             	Configure peer addresses
-                            	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass>`
+                            	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass>`
                             
                             
 
@@ -263,17 +263,17 @@ class ControlPlane(object):
                                 .. attribute:: peer_all
                                 
                                 	Only takes 'True'
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: peer_v4
                                 
                                 	Configure v4 peer addresses
-                                	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4>`
+                                	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4>`
                                 
                                 .. attribute:: peer_v6
                                 
                                 	Configure v6 peer addresses
-                                	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6>`
+                                	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6>`
                                 
                                 
 
@@ -298,12 +298,12 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                     
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers>`
+                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers>`
                                     
                                     
 
@@ -327,7 +327,7 @@ class ControlPlane(object):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers.Peer>`
                                         
                                         
 
@@ -435,7 +435,7 @@ class ControlPlane(object):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -570,12 +570,12 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                     
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers>`
+                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers>`
                                     
                                     
 
@@ -599,7 +599,7 @@ class ControlPlane(object):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers.Peer>`
                                         
                                         
 
@@ -707,7 +707,7 @@ class ControlPlane(object):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -896,7 +896,7 @@ class ControlPlane(object):
                             .. attribute:: peer_class
                             
                             	Configure peer addresses
-                            	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass>`
+                            	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass>`
                             
                             
 
@@ -918,17 +918,17 @@ class ControlPlane(object):
                                 .. attribute:: peer_all
                                 
                                 	Only takes 'True'
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: peer_v4
                                 
                                 	Configure v4 peer addresses
-                                	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4>`
+                                	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4>`
                                 
                                 .. attribute:: peer_v6
                                 
                                 	Configure v6 peer addresses
-                                	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6>`
+                                	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6>`
                                 
                                 
 
@@ -953,12 +953,12 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                     
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers>`
+                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers>`
                                     
                                     
 
@@ -982,7 +982,7 @@ class ControlPlane(object):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers.Peer>`
                                         
                                         
 
@@ -1090,7 +1090,7 @@ class ControlPlane(object):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -1225,12 +1225,12 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                     
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers>`
+                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers>`
                                     
                                     
 
@@ -1254,7 +1254,7 @@ class ControlPlane(object):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers.Peer>`
                                         
                                         
 
@@ -1362,7 +1362,7 @@ class ControlPlane(object):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -1551,7 +1551,7 @@ class ControlPlane(object):
                             .. attribute:: peer_class
                             
                             	Configure peer addresses
-                            	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass>`
+                            	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass>`
                             
                             
 
@@ -1573,17 +1573,17 @@ class ControlPlane(object):
                                 .. attribute:: peer_all
                                 
                                 	Only takes 'True'
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: peer_v4
                                 
                                 	Configure v4 peer addresses
-                                	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4>`
+                                	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4>`
                                 
                                 .. attribute:: peer_v6
                                 
                                 	Configure v6 peer addresses
-                                	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6>`
+                                	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6>`
                                 
                                 
 
@@ -1608,12 +1608,12 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                     
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers>`
+                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers>`
                                     
                                     
 
@@ -1637,7 +1637,7 @@ class ControlPlane(object):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers.Peer>`
                                         
                                         
 
@@ -1745,7 +1745,7 @@ class ControlPlane(object):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -1880,12 +1880,12 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                     
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers>`
+                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers>`
                                     
                                     
 
@@ -1909,7 +1909,7 @@ class ControlPlane(object):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers.Peer>`
                                         
                                         
 
@@ -2017,7 +2017,7 @@ class ControlPlane(object):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -2206,7 +2206,7 @@ class ControlPlane(object):
                             .. attribute:: peer_class
                             
                             	Configure peer addresses
-                            	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass>`
+                            	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass>`
                             
                             
 
@@ -2228,17 +2228,17 @@ class ControlPlane(object):
                                 .. attribute:: peer_all
                                 
                                 	Only takes 'True'
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: peer_v4
                                 
                                 	Configure v4 peer addresses
-                                	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4>`
+                                	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4>`
                                 
                                 .. attribute:: peer_v6
                                 
                                 	Configure v6 peer addresses
-                                	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6>`
+                                	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6>`
                                 
                                 
 
@@ -2263,12 +2263,12 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes>`
+                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes>`
                                     
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers>`
+                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers>`
                                     
                                     
 
@@ -2292,7 +2292,7 @@ class ControlPlane(object):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers.Peer>`
+                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers.Peer>`
                                         
                                         
 
@@ -2400,7 +2400,7 @@ class ControlPlane(object):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -2535,12 +2535,12 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes>`
+                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes>`
                                     
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers>`
+                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers>`
                                     
                                     
 
@@ -2564,7 +2564,7 @@ class ControlPlane(object):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers.Peer>`
+                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers.Peer>`
                                         
                                         
 
@@ -2672,7 +2672,7 @@ class ControlPlane(object):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -2861,7 +2861,7 @@ class ControlPlane(object):
                             .. attribute:: peer_class
                             
                             	Configure peer addresses
-                            	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass>`
+                            	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass>`
                             
                             
 
@@ -2883,17 +2883,17 @@ class ControlPlane(object):
                                 .. attribute:: peer_all
                                 
                                 	Only takes 'True'
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: peer_v4
                                 
                                 	Configure v4 peer addresses
-                                	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4>`
+                                	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4>`
                                 
                                 .. attribute:: peer_v6
                                 
                                 	Configure v6 peer addresses
-                                	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6>`
+                                	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6>`
                                 
                                 
 
@@ -2918,12 +2918,12 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                     
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers>`
+                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers>`
                                     
                                     
 
@@ -2947,7 +2947,7 @@ class ControlPlane(object):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers.Peer>`
                                         
                                         
 
@@ -3055,7 +3055,7 @@ class ControlPlane(object):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -3190,12 +3190,12 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                     
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers>`
+                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers>`
                                     
                                     
 
@@ -3219,7 +3219,7 @@ class ControlPlane(object):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers.Peer>`
                                         
                                         
 
@@ -3327,7 +3327,7 @@ class ControlPlane(object):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -3516,7 +3516,7 @@ class ControlPlane(object):
                             .. attribute:: peer_class
                             
                             	Configure peer addresses
-                            	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass>`
+                            	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass>`
                             
                             
 
@@ -3538,17 +3538,17 @@ class ControlPlane(object):
                                 .. attribute:: peer_all
                                 
                                 	Only takes 'True'
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: peer_v4
                                 
                                 	Configure v4 peer addresses
-                                	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4>`
+                                	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4>`
                                 
                                 .. attribute:: peer_v6
                                 
                                 	Configure v6 peer addresses
-                                	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6>`
+                                	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6>`
                                 
                                 
 
@@ -3573,12 +3573,12 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                     
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers>`
+                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers>`
                                     
                                     
 
@@ -3602,7 +3602,7 @@ class ControlPlane(object):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers.Peer>`
                                         
                                         
 
@@ -3710,7 +3710,7 @@ class ControlPlane(object):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -3845,12 +3845,12 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                     
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers>`
+                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers>`
                                     
                                     
 
@@ -3874,7 +3874,7 @@ class ControlPlane(object):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers.Peer>`
                                         
                                         
 
@@ -3982,7 +3982,7 @@ class ControlPlane(object):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -4171,7 +4171,7 @@ class ControlPlane(object):
                             .. attribute:: peer_class
                             
                             	Configure peer addresses
-                            	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass>`
+                            	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass>`
                             
                             
 
@@ -4193,17 +4193,17 @@ class ControlPlane(object):
                                 .. attribute:: peer_all
                                 
                                 	Only takes 'True'
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: peer_v4
                                 
                                 	Configure v4 peer addresses
-                                	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4>`
+                                	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4>`
                                 
                                 .. attribute:: peer_v6
                                 
                                 	Configure v6 peer addresses
-                                	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6>`
+                                	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6>`
                                 
                                 
 
@@ -4228,12 +4228,12 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                     
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers>`
+                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers>`
                                     
                                     
 
@@ -4257,7 +4257,7 @@ class ControlPlane(object):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers.Peer>`
                                         
                                         
 
@@ -4365,7 +4365,7 @@ class ControlPlane(object):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -4500,12 +4500,12 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                     
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers>`
+                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers>`
                                     
                                     
 
@@ -4529,7 +4529,7 @@ class ControlPlane(object):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers.Peer>`
                                         
                                         
 
@@ -4637,7 +4637,7 @@ class ControlPlane(object):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -4826,7 +4826,7 @@ class ControlPlane(object):
                             .. attribute:: peer_class
                             
                             	Configure peer addresses
-                            	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass>`
+                            	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass>`
                             
                             
 
@@ -4848,17 +4848,17 @@ class ControlPlane(object):
                                 .. attribute:: peer_all
                                 
                                 	Only takes 'True'
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: peer_v4
                                 
                                 	Configure v4 peer addresses
-                                	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4>`
+                                	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4>`
                                 
                                 .. attribute:: peer_v6
                                 
                                 	Configure v6 peer addresses
-                                	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6>`
+                                	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6>`
                                 
                                 
 
@@ -4883,12 +4883,12 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes>`
+                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes>`
                                     
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers>`
+                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers>`
                                     
                                     
 
@@ -4912,7 +4912,7 @@ class ControlPlane(object):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers.Peer>`
+                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers.Peer>`
                                         
                                         
 
@@ -5020,7 +5020,7 @@ class ControlPlane(object):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -5155,12 +5155,12 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes>`
+                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes>`
                                     
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers>`
+                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers>`
                                     
                                     
 
@@ -5184,7 +5184,7 @@ class ControlPlane(object):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers.Peer>`
+                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers.Peer>`
                                         
                                         
 
@@ -5292,7 +5292,7 @@ class ControlPlane(object):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -5553,42 +5553,42 @@ class ControlPlane(object):
                     .. attribute:: all_protocols
                     
                     	Configure all protocols on this interface
-                    	**type**\:  :py:class:`AllProtocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols>`
+                    	**type**\:   :py:class:`AllProtocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols>`
                     
                     .. attribute:: http_protocol
                     
                     	Configure HTTP on this interface
-                    	**type**\:  :py:class:`HttpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol>`
+                    	**type**\:   :py:class:`HttpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol>`
                     
                     .. attribute:: netconf_protocol
                     
                     	Configure NETCONF protocol and peer addresses
-                    	**type**\:  :py:class:`NetconfProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol>`
+                    	**type**\:   :py:class:`NetconfProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol>`
                     
                     .. attribute:: snmp_protocol
                     
                     	Configure SNMP for this interface
-                    	**type**\:  :py:class:`SnmpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol>`
+                    	**type**\:   :py:class:`SnmpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol>`
                     
                     .. attribute:: ssh_protocol
                     
                     	Configure SSH protocol and peer addresses
-                    	**type**\:  :py:class:`SshProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol>`
+                    	**type**\:   :py:class:`SshProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol>`
                     
                     .. attribute:: telnet_protocol
                     
                     	Configure Telnet for this interface
-                    	**type**\:  :py:class:`TelnetProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol>`
+                    	**type**\:   :py:class:`TelnetProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol>`
                     
                     .. attribute:: tftp_protocol
                     
                     	Configure TFTP on this interface
-                    	**type**\:  :py:class:`TftpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol>`
+                    	**type**\:   :py:class:`TftpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol>`
                     
                     .. attribute:: xr_xml
                     
                     	Configure XML and peer addresses
-                    	**type**\:  :py:class:`XrXml <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml>`
+                    	**type**\:   :py:class:`XrXml <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml>`
                     
                     
 
@@ -5624,7 +5624,7 @@ class ControlPlane(object):
                         .. attribute:: peer_class
                         
                         	Configure peer addresses
-                        	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass>`
+                        	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass>`
                         
                         
 
@@ -5646,17 +5646,17 @@ class ControlPlane(object):
                             .. attribute:: peer_all
                             
                             	Only takes 'True'
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: peer_v4
                             
                             	Configure v4 peer addresses
-                            	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4>`
+                            	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4>`
                             
                             .. attribute:: peer_v6
                             
                             	Configure v6 peer addresses
-                            	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6>`
+                            	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6>`
                             
                             
 
@@ -5681,12 +5681,12 @@ class ControlPlane(object):
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                 
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers>`
+                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers>`
                                 
                                 
 
@@ -5710,7 +5710,7 @@ class ControlPlane(object):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers.Peer>`
                                     
                                     
 
@@ -5814,7 +5814,7 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -5943,12 +5943,12 @@ class ControlPlane(object):
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                 
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers>`
+                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers>`
                                 
                                 
 
@@ -5972,7 +5972,7 @@ class ControlPlane(object):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers.Peer>`
                                     
                                     
 
@@ -6076,7 +6076,7 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -6255,7 +6255,7 @@ class ControlPlane(object):
                         .. attribute:: peer_class
                         
                         	Configure peer addresses
-                        	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass>`
+                        	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass>`
                         
                         
 
@@ -6277,17 +6277,17 @@ class ControlPlane(object):
                             .. attribute:: peer_all
                             
                             	Only takes 'True'
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: peer_v4
                             
                             	Configure v4 peer addresses
-                            	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4>`
+                            	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4>`
                             
                             .. attribute:: peer_v6
                             
                             	Configure v6 peer addresses
-                            	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6>`
+                            	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6>`
                             
                             
 
@@ -6312,12 +6312,12 @@ class ControlPlane(object):
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                 
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers>`
+                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers>`
                                 
                                 
 
@@ -6341,7 +6341,7 @@ class ControlPlane(object):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers.Peer>`
                                     
                                     
 
@@ -6445,7 +6445,7 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -6574,12 +6574,12 @@ class ControlPlane(object):
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                 
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers>`
+                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers>`
                                 
                                 
 
@@ -6603,7 +6603,7 @@ class ControlPlane(object):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers.Peer>`
                                     
                                     
 
@@ -6707,7 +6707,7 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -6886,7 +6886,7 @@ class ControlPlane(object):
                         .. attribute:: peer_class
                         
                         	Configure peer addresses
-                        	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass>`
+                        	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass>`
                         
                         
 
@@ -6908,17 +6908,17 @@ class ControlPlane(object):
                             .. attribute:: peer_all
                             
                             	Only takes 'True'
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: peer_v4
                             
                             	Configure v4 peer addresses
-                            	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4>`
+                            	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4>`
                             
                             .. attribute:: peer_v6
                             
                             	Configure v6 peer addresses
-                            	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6>`
+                            	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6>`
                             
                             
 
@@ -6943,12 +6943,12 @@ class ControlPlane(object):
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                 
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers>`
+                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers>`
                                 
                                 
 
@@ -6972,7 +6972,7 @@ class ControlPlane(object):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers.Peer>`
                                     
                                     
 
@@ -7076,7 +7076,7 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -7205,12 +7205,12 @@ class ControlPlane(object):
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                 
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers>`
+                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers>`
                                 
                                 
 
@@ -7234,7 +7234,7 @@ class ControlPlane(object):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers.Peer>`
                                     
                                     
 
@@ -7338,7 +7338,7 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -7517,7 +7517,7 @@ class ControlPlane(object):
                         .. attribute:: peer_class
                         
                         	Configure peer addresses
-                        	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass>`
+                        	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass>`
                         
                         
 
@@ -7539,17 +7539,17 @@ class ControlPlane(object):
                             .. attribute:: peer_all
                             
                             	Only takes 'True'
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: peer_v4
                             
                             	Configure v4 peer addresses
-                            	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4>`
+                            	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4>`
                             
                             .. attribute:: peer_v6
                             
                             	Configure v6 peer addresses
-                            	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6>`
+                            	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6>`
                             
                             
 
@@ -7574,12 +7574,12 @@ class ControlPlane(object):
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes>`
+                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes>`
                                 
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers>`
+                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers>`
                                 
                                 
 
@@ -7603,7 +7603,7 @@ class ControlPlane(object):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers.Peer>`
+                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers.Peer>`
                                     
                                     
 
@@ -7707,7 +7707,7 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -7836,12 +7836,12 @@ class ControlPlane(object):
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes>`
+                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes>`
                                 
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers>`
+                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers>`
                                 
                                 
 
@@ -7865,7 +7865,7 @@ class ControlPlane(object):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers.Peer>`
+                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers.Peer>`
                                     
                                     
 
@@ -7969,7 +7969,7 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -8148,7 +8148,7 @@ class ControlPlane(object):
                         .. attribute:: peer_class
                         
                         	Configure peer addresses
-                        	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass>`
+                        	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass>`
                         
                         
 
@@ -8170,17 +8170,17 @@ class ControlPlane(object):
                             .. attribute:: peer_all
                             
                             	Only takes 'True'
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: peer_v4
                             
                             	Configure v4 peer addresses
-                            	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4>`
+                            	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4>`
                             
                             .. attribute:: peer_v6
                             
                             	Configure v6 peer addresses
-                            	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6>`
+                            	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6>`
                             
                             
 
@@ -8205,12 +8205,12 @@ class ControlPlane(object):
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                 
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers>`
+                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers>`
                                 
                                 
 
@@ -8234,7 +8234,7 @@ class ControlPlane(object):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers.Peer>`
                                     
                                     
 
@@ -8338,7 +8338,7 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -8467,12 +8467,12 @@ class ControlPlane(object):
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                 
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers>`
+                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers>`
                                 
                                 
 
@@ -8496,7 +8496,7 @@ class ControlPlane(object):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers.Peer>`
                                     
                                     
 
@@ -8600,7 +8600,7 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -8779,7 +8779,7 @@ class ControlPlane(object):
                         .. attribute:: peer_class
                         
                         	Configure peer addresses
-                        	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass>`
+                        	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass>`
                         
                         
 
@@ -8801,17 +8801,17 @@ class ControlPlane(object):
                             .. attribute:: peer_all
                             
                             	Only takes 'True'
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: peer_v4
                             
                             	Configure v4 peer addresses
-                            	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4>`
+                            	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4>`
                             
                             .. attribute:: peer_v6
                             
                             	Configure v6 peer addresses
-                            	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6>`
+                            	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6>`
                             
                             
 
@@ -8836,12 +8836,12 @@ class ControlPlane(object):
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                 
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers>`
+                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers>`
                                 
                                 
 
@@ -8865,7 +8865,7 @@ class ControlPlane(object):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers.Peer>`
                                     
                                     
 
@@ -8969,7 +8969,7 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -9098,12 +9098,12 @@ class ControlPlane(object):
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                 
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers>`
+                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers>`
                                 
                                 
 
@@ -9127,7 +9127,7 @@ class ControlPlane(object):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers.Peer>`
                                     
                                     
 
@@ -9231,7 +9231,7 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -9410,7 +9410,7 @@ class ControlPlane(object):
                         .. attribute:: peer_class
                         
                         	Configure peer addresses
-                        	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass>`
+                        	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass>`
                         
                         
 
@@ -9432,17 +9432,17 @@ class ControlPlane(object):
                             .. attribute:: peer_all
                             
                             	Only takes 'True'
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: peer_v4
                             
                             	Configure v4 peer addresses
-                            	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4>`
+                            	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4>`
                             
                             .. attribute:: peer_v6
                             
                             	Configure v6 peer addresses
-                            	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6>`
+                            	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6>`
                             
                             
 
@@ -9467,12 +9467,12 @@ class ControlPlane(object):
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                 
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers>`
+                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers>`
                                 
                                 
 
@@ -9496,7 +9496,7 @@ class ControlPlane(object):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers.Peer>`
                                     
                                     
 
@@ -9600,7 +9600,7 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -9729,12 +9729,12 @@ class ControlPlane(object):
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                 
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers>`
+                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers>`
                                 
                                 
 
@@ -9758,7 +9758,7 @@ class ControlPlane(object):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers.Peer>`
                                     
                                     
 
@@ -9862,7 +9862,7 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -10041,7 +10041,7 @@ class ControlPlane(object):
                         .. attribute:: peer_class
                         
                         	Configure peer addresses
-                        	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass>`
+                        	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass>`
                         
                         
 
@@ -10063,17 +10063,17 @@ class ControlPlane(object):
                             .. attribute:: peer_all
                             
                             	Only takes 'True'
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: peer_v4
                             
                             	Configure v4 peer addresses
-                            	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4>`
+                            	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4>`
                             
                             .. attribute:: peer_v6
                             
                             	Configure v6 peer addresses
-                            	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6>`
+                            	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6>`
                             
                             
 
@@ -10098,12 +10098,12 @@ class ControlPlane(object):
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes>`
+                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes>`
                                 
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers>`
+                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers>`
                                 
                                 
 
@@ -10127,7 +10127,7 @@ class ControlPlane(object):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers.Peer>`
+                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers.Peer>`
                                     
                                     
 
@@ -10231,7 +10231,7 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -10360,12 +10360,12 @@ class ControlPlane(object):
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes>`
+                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes>`
                                 
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers>`
+                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers>`
                                 
                                 
 
@@ -10389,7 +10389,7 @@ class ControlPlane(object):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers.Peer>`
+                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers.Peer>`
                                     
                                     
 
@@ -10493,7 +10493,7 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -10765,7 +10765,7 @@ class ControlPlane(object):
             .. attribute:: interface_selection
             
             	Configure interfaces
-            	**type**\:  :py:class:`InterfaceSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection>`
+            	**type**\:   :py:class:`InterfaceSelection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection>`
             
             
 
@@ -10787,12 +10787,12 @@ class ControlPlane(object):
                 .. attribute:: all_interfaces
                 
                 	Configure all Inband interfaces
-                	**type**\:  :py:class:`AllInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces>`
+                	**type**\:   :py:class:`AllInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces>`
                 
                 .. attribute:: interfaces
                 
                 	Configure a specific interface
-                	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces>`
+                	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces>`
                 
                 
 
@@ -10816,7 +10816,7 @@ class ControlPlane(object):
                     .. attribute:: interface
                     
                     	Specific interface
-                    	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface>`
+                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface>`
                     
                     
 
@@ -10846,42 +10846,42 @@ class ControlPlane(object):
                         .. attribute:: all_protocols
                         
                         	Configure all protocols on this interface
-                        	**type**\:  :py:class:`AllProtocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols>`
+                        	**type**\:   :py:class:`AllProtocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols>`
                         
                         .. attribute:: http_protocol
                         
                         	Configure HTTP on this interface
-                        	**type**\:  :py:class:`HttpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol>`
+                        	**type**\:   :py:class:`HttpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol>`
                         
                         .. attribute:: netconf_protocol
                         
                         	Configure NETCONF protocol and peer addresses
-                        	**type**\:  :py:class:`NetconfProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol>`
+                        	**type**\:   :py:class:`NetconfProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol>`
                         
                         .. attribute:: snmp_protocol
                         
                         	Configure SNMP for this interface
-                        	**type**\:  :py:class:`SnmpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol>`
+                        	**type**\:   :py:class:`SnmpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol>`
                         
                         .. attribute:: ssh_protocol
                         
                         	Configure SSH protocol and peer addresses
-                        	**type**\:  :py:class:`SshProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol>`
+                        	**type**\:   :py:class:`SshProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol>`
                         
                         .. attribute:: telnet_protocol
                         
                         	Configure Telnet for this interface
-                        	**type**\:  :py:class:`TelnetProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol>`
+                        	**type**\:   :py:class:`TelnetProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol>`
                         
                         .. attribute:: tftp_protocol
                         
                         	Configure TFTP on this interface
-                        	**type**\:  :py:class:`TftpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol>`
+                        	**type**\:   :py:class:`TftpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol>`
                         
                         .. attribute:: xr_xml
                         
                         	Configure XML and peer addresses
-                        	**type**\:  :py:class:`XrXml <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml>`
+                        	**type**\:   :py:class:`XrXml <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml>`
                         
                         
 
@@ -10918,7 +10918,7 @@ class ControlPlane(object):
                             .. attribute:: peer_class
                             
                             	Configure peer addresses
-                            	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass>`
+                            	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass>`
                             
                             
 
@@ -10940,17 +10940,17 @@ class ControlPlane(object):
                                 .. attribute:: peer_all
                                 
                                 	Only takes 'True'
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: peer_v4
                                 
                                 	Configure v4 peer addresses
-                                	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4>`
+                                	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4>`
                                 
                                 .. attribute:: peer_v6
                                 
                                 	Configure v6 peer addresses
-                                	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6>`
+                                	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6>`
                                 
                                 
 
@@ -10975,12 +10975,12 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                     
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers>`
+                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers>`
                                     
                                     
 
@@ -11004,7 +11004,7 @@ class ControlPlane(object):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers.Peer>`
                                         
                                         
 
@@ -11112,7 +11112,7 @@ class ControlPlane(object):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -11247,12 +11247,12 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                     
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers>`
+                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers>`
                                     
                                     
 
@@ -11276,7 +11276,7 @@ class ControlPlane(object):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers.Peer>`
                                         
                                         
 
@@ -11384,7 +11384,7 @@ class ControlPlane(object):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -11573,7 +11573,7 @@ class ControlPlane(object):
                             .. attribute:: peer_class
                             
                             	Configure peer addresses
-                            	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass>`
+                            	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass>`
                             
                             
 
@@ -11595,17 +11595,17 @@ class ControlPlane(object):
                                 .. attribute:: peer_all
                                 
                                 	Only takes 'True'
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: peer_v4
                                 
                                 	Configure v4 peer addresses
-                                	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4>`
+                                	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4>`
                                 
                                 .. attribute:: peer_v6
                                 
                                 	Configure v6 peer addresses
-                                	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6>`
+                                	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6>`
                                 
                                 
 
@@ -11630,12 +11630,12 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                     
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers>`
+                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers>`
                                     
                                     
 
@@ -11659,7 +11659,7 @@ class ControlPlane(object):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers.Peer>`
                                         
                                         
 
@@ -11767,7 +11767,7 @@ class ControlPlane(object):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -11902,12 +11902,12 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                     
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers>`
+                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers>`
                                     
                                     
 
@@ -11931,7 +11931,7 @@ class ControlPlane(object):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers.Peer>`
                                         
                                         
 
@@ -12039,7 +12039,7 @@ class ControlPlane(object):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -12228,7 +12228,7 @@ class ControlPlane(object):
                             .. attribute:: peer_class
                             
                             	Configure peer addresses
-                            	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass>`
+                            	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass>`
                             
                             
 
@@ -12250,17 +12250,17 @@ class ControlPlane(object):
                                 .. attribute:: peer_all
                                 
                                 	Only takes 'True'
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: peer_v4
                                 
                                 	Configure v4 peer addresses
-                                	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4>`
+                                	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4>`
                                 
                                 .. attribute:: peer_v6
                                 
                                 	Configure v6 peer addresses
-                                	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6>`
+                                	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6>`
                                 
                                 
 
@@ -12285,12 +12285,12 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                     
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers>`
+                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers>`
                                     
                                     
 
@@ -12314,7 +12314,7 @@ class ControlPlane(object):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers.Peer>`
                                         
                                         
 
@@ -12422,7 +12422,7 @@ class ControlPlane(object):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -12557,12 +12557,12 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                     
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers>`
+                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers>`
                                     
                                     
 
@@ -12586,7 +12586,7 @@ class ControlPlane(object):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers.Peer>`
                                         
                                         
 
@@ -12694,7 +12694,7 @@ class ControlPlane(object):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -12883,7 +12883,7 @@ class ControlPlane(object):
                             .. attribute:: peer_class
                             
                             	Configure peer addresses
-                            	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass>`
+                            	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass>`
                             
                             
 
@@ -12905,17 +12905,17 @@ class ControlPlane(object):
                                 .. attribute:: peer_all
                                 
                                 	Only takes 'True'
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: peer_v4
                                 
                                 	Configure v4 peer addresses
-                                	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4>`
+                                	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4>`
                                 
                                 .. attribute:: peer_v6
                                 
                                 	Configure v6 peer addresses
-                                	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6>`
+                                	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6>`
                                 
                                 
 
@@ -12940,12 +12940,12 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes>`
+                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes>`
                                     
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers>`
+                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers>`
                                     
                                     
 
@@ -12969,7 +12969,7 @@ class ControlPlane(object):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers.Peer>`
+                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers.Peer>`
                                         
                                         
 
@@ -13077,7 +13077,7 @@ class ControlPlane(object):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -13212,12 +13212,12 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes>`
+                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes>`
                                     
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers>`
+                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers>`
                                     
                                     
 
@@ -13241,7 +13241,7 @@ class ControlPlane(object):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers.Peer>`
+                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers.Peer>`
                                         
                                         
 
@@ -13349,7 +13349,7 @@ class ControlPlane(object):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -13538,7 +13538,7 @@ class ControlPlane(object):
                             .. attribute:: peer_class
                             
                             	Configure peer addresses
-                            	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass>`
+                            	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass>`
                             
                             
 
@@ -13560,17 +13560,17 @@ class ControlPlane(object):
                                 .. attribute:: peer_all
                                 
                                 	Only takes 'True'
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: peer_v4
                                 
                                 	Configure v4 peer addresses
-                                	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4>`
+                                	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4>`
                                 
                                 .. attribute:: peer_v6
                                 
                                 	Configure v6 peer addresses
-                                	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6>`
+                                	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6>`
                                 
                                 
 
@@ -13595,12 +13595,12 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                     
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers>`
+                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers>`
                                     
                                     
 
@@ -13624,7 +13624,7 @@ class ControlPlane(object):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers.Peer>`
                                         
                                         
 
@@ -13732,7 +13732,7 @@ class ControlPlane(object):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -13867,12 +13867,12 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                     
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers>`
+                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers>`
                                     
                                     
 
@@ -13896,7 +13896,7 @@ class ControlPlane(object):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers.Peer>`
                                         
                                         
 
@@ -14004,7 +14004,7 @@ class ControlPlane(object):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -14193,7 +14193,7 @@ class ControlPlane(object):
                             .. attribute:: peer_class
                             
                             	Configure peer addresses
-                            	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass>`
+                            	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass>`
                             
                             
 
@@ -14215,17 +14215,17 @@ class ControlPlane(object):
                                 .. attribute:: peer_all
                                 
                                 	Only takes 'True'
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: peer_v4
                                 
                                 	Configure v4 peer addresses
-                                	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4>`
+                                	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4>`
                                 
                                 .. attribute:: peer_v6
                                 
                                 	Configure v6 peer addresses
-                                	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6>`
+                                	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6>`
                                 
                                 
 
@@ -14250,12 +14250,12 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                     
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers>`
+                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers>`
                                     
                                     
 
@@ -14279,7 +14279,7 @@ class ControlPlane(object):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers.Peer>`
                                         
                                         
 
@@ -14387,7 +14387,7 @@ class ControlPlane(object):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -14522,12 +14522,12 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                     
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers>`
+                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers>`
                                     
                                     
 
@@ -14551,7 +14551,7 @@ class ControlPlane(object):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers.Peer>`
                                         
                                         
 
@@ -14659,7 +14659,7 @@ class ControlPlane(object):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -14848,7 +14848,7 @@ class ControlPlane(object):
                             .. attribute:: peer_class
                             
                             	Configure peer addresses
-                            	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass>`
+                            	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass>`
                             
                             
 
@@ -14870,17 +14870,17 @@ class ControlPlane(object):
                                 .. attribute:: peer_all
                                 
                                 	Only takes 'True'
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: peer_v4
                                 
                                 	Configure v4 peer addresses
-                                	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4>`
+                                	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4>`
                                 
                                 .. attribute:: peer_v6
                                 
                                 	Configure v6 peer addresses
-                                	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6>`
+                                	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6>`
                                 
                                 
 
@@ -14905,12 +14905,12 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                     
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers>`
+                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers>`
                                     
                                     
 
@@ -14934,7 +14934,7 @@ class ControlPlane(object):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers.Peer>`
                                         
                                         
 
@@ -15042,7 +15042,7 @@ class ControlPlane(object):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -15177,12 +15177,12 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                     
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers>`
+                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers>`
                                     
                                     
 
@@ -15206,7 +15206,7 @@ class ControlPlane(object):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers.Peer>`
                                         
                                         
 
@@ -15314,7 +15314,7 @@ class ControlPlane(object):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -15503,7 +15503,7 @@ class ControlPlane(object):
                             .. attribute:: peer_class
                             
                             	Configure peer addresses
-                            	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass>`
+                            	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass>`
                             
                             
 
@@ -15525,17 +15525,17 @@ class ControlPlane(object):
                                 .. attribute:: peer_all
                                 
                                 	Only takes 'True'
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 .. attribute:: peer_v4
                                 
                                 	Configure v4 peer addresses
-                                	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4>`
+                                	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4>`
                                 
                                 .. attribute:: peer_v6
                                 
                                 	Configure v6 peer addresses
-                                	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6>`
+                                	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6>`
                                 
                                 
 
@@ -15560,12 +15560,12 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes>`
+                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes>`
                                     
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers>`
+                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers>`
                                     
                                     
 
@@ -15589,7 +15589,7 @@ class ControlPlane(object):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers.Peer>`
+                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers.Peer>`
                                         
                                         
 
@@ -15697,7 +15697,7 @@ class ControlPlane(object):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -15832,12 +15832,12 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefixes
                                     
                                     	Configure peer addresses with prefix
-                                    	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes>`
+                                    	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes>`
                                     
                                     .. attribute:: peers
                                     
                                     	Configure peer addresses
-                                    	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers>`
+                                    	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers>`
                                     
                                     
 
@@ -15861,7 +15861,7 @@ class ControlPlane(object):
                                         .. attribute:: peer
                                         
                                         	Configure peer on the interface
-                                        	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers.Peer>`
+                                        	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers.Peer>`
                                         
                                         
 
@@ -15969,7 +15969,7 @@ class ControlPlane(object):
                                         .. attribute:: peer_prefix
                                         
                                         	Peer address (with prefix)
-                                        	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                        	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                         
                                         
 
@@ -16230,42 +16230,42 @@ class ControlPlane(object):
                     .. attribute:: all_protocols
                     
                     	Configure all protocols on this interface
-                    	**type**\:  :py:class:`AllProtocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols>`
+                    	**type**\:   :py:class:`AllProtocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols>`
                     
                     .. attribute:: http_protocol
                     
                     	Configure HTTP on this interface
-                    	**type**\:  :py:class:`HttpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol>`
+                    	**type**\:   :py:class:`HttpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol>`
                     
                     .. attribute:: netconf_protocol
                     
                     	Configure NETCONF protocol and peer addresses
-                    	**type**\:  :py:class:`NetconfProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol>`
+                    	**type**\:   :py:class:`NetconfProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol>`
                     
                     .. attribute:: snmp_protocol
                     
                     	Configure SNMP for this interface
-                    	**type**\:  :py:class:`SnmpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol>`
+                    	**type**\:   :py:class:`SnmpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol>`
                     
                     .. attribute:: ssh_protocol
                     
                     	Configure SSH protocol and peer addresses
-                    	**type**\:  :py:class:`SshProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol>`
+                    	**type**\:   :py:class:`SshProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol>`
                     
                     .. attribute:: telnet_protocol
                     
                     	Configure Telnet for this interface
-                    	**type**\:  :py:class:`TelnetProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol>`
+                    	**type**\:   :py:class:`TelnetProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol>`
                     
                     .. attribute:: tftp_protocol
                     
                     	Configure TFTP on this interface
-                    	**type**\:  :py:class:`TftpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol>`
+                    	**type**\:   :py:class:`TftpProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol>`
                     
                     .. attribute:: xr_xml
                     
                     	Configure XML and peer addresses
-                    	**type**\:  :py:class:`XrXml <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml>`
+                    	**type**\:   :py:class:`XrXml <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml>`
                     
                     
 
@@ -16301,7 +16301,7 @@ class ControlPlane(object):
                         .. attribute:: peer_class
                         
                         	Configure peer addresses
-                        	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass>`
+                        	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass>`
                         
                         
 
@@ -16323,17 +16323,17 @@ class ControlPlane(object):
                             .. attribute:: peer_all
                             
                             	Only takes 'True'
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: peer_v4
                             
                             	Configure v4 peer addresses
-                            	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4>`
+                            	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4>`
                             
                             .. attribute:: peer_v6
                             
                             	Configure v6 peer addresses
-                            	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6>`
+                            	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6>`
                             
                             
 
@@ -16358,12 +16358,12 @@ class ControlPlane(object):
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                 
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers>`
+                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers>`
                                 
                                 
 
@@ -16387,7 +16387,7 @@ class ControlPlane(object):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers.Peer>`
                                     
                                     
 
@@ -16491,7 +16491,7 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -16620,12 +16620,12 @@ class ControlPlane(object):
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                 
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers>`
+                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers>`
                                 
                                 
 
@@ -16649,7 +16649,7 @@ class ControlPlane(object):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers.Peer>`
                                     
                                     
 
@@ -16753,7 +16753,7 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -16932,7 +16932,7 @@ class ControlPlane(object):
                         .. attribute:: peer_class
                         
                         	Configure peer addresses
-                        	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass>`
+                        	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass>`
                         
                         
 
@@ -16954,17 +16954,17 @@ class ControlPlane(object):
                             .. attribute:: peer_all
                             
                             	Only takes 'True'
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: peer_v4
                             
                             	Configure v4 peer addresses
-                            	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4>`
+                            	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4>`
                             
                             .. attribute:: peer_v6
                             
                             	Configure v6 peer addresses
-                            	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6>`
+                            	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6>`
                             
                             
 
@@ -16989,12 +16989,12 @@ class ControlPlane(object):
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                 
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers>`
+                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers>`
                                 
                                 
 
@@ -17018,7 +17018,7 @@ class ControlPlane(object):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers.Peer>`
                                     
                                     
 
@@ -17122,7 +17122,7 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -17251,12 +17251,12 @@ class ControlPlane(object):
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                 
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers>`
+                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers>`
                                 
                                 
 
@@ -17280,7 +17280,7 @@ class ControlPlane(object):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers.Peer>`
                                     
                                     
 
@@ -17384,7 +17384,7 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -17563,7 +17563,7 @@ class ControlPlane(object):
                         .. attribute:: peer_class
                         
                         	Configure peer addresses
-                        	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass>`
+                        	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass>`
                         
                         
 
@@ -17585,17 +17585,17 @@ class ControlPlane(object):
                             .. attribute:: peer_all
                             
                             	Only takes 'True'
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: peer_v4
                             
                             	Configure v4 peer addresses
-                            	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4>`
+                            	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4>`
                             
                             .. attribute:: peer_v6
                             
                             	Configure v6 peer addresses
-                            	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6>`
+                            	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6>`
                             
                             
 
@@ -17620,12 +17620,12 @@ class ControlPlane(object):
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                 
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers>`
+                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers>`
                                 
                                 
 
@@ -17649,7 +17649,7 @@ class ControlPlane(object):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers.Peer>`
                                     
                                     
 
@@ -17753,7 +17753,7 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -17882,12 +17882,12 @@ class ControlPlane(object):
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                 
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers>`
+                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers>`
                                 
                                 
 
@@ -17911,7 +17911,7 @@ class ControlPlane(object):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers.Peer>`
                                     
                                     
 
@@ -18015,7 +18015,7 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -18194,7 +18194,7 @@ class ControlPlane(object):
                         .. attribute:: peer_class
                         
                         	Configure peer addresses
-                        	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass>`
+                        	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass>`
                         
                         
 
@@ -18216,17 +18216,17 @@ class ControlPlane(object):
                             .. attribute:: peer_all
                             
                             	Only takes 'True'
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: peer_v4
                             
                             	Configure v4 peer addresses
-                            	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4>`
+                            	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4>`
                             
                             .. attribute:: peer_v6
                             
                             	Configure v6 peer addresses
-                            	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6>`
+                            	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6>`
                             
                             
 
@@ -18251,12 +18251,12 @@ class ControlPlane(object):
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes>`
+                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes>`
                                 
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers>`
+                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers>`
                                 
                                 
 
@@ -18280,7 +18280,7 @@ class ControlPlane(object):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers.Peer>`
+                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers.Peer>`
                                     
                                     
 
@@ -18384,7 +18384,7 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -18513,12 +18513,12 @@ class ControlPlane(object):
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes>`
+                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes>`
                                 
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers>`
+                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers>`
                                 
                                 
 
@@ -18542,7 +18542,7 @@ class ControlPlane(object):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers.Peer>`
+                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers.Peer>`
                                     
                                     
 
@@ -18646,7 +18646,7 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -18825,7 +18825,7 @@ class ControlPlane(object):
                         .. attribute:: peer_class
                         
                         	Configure peer addresses
-                        	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass>`
+                        	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass>`
                         
                         
 
@@ -18847,17 +18847,17 @@ class ControlPlane(object):
                             .. attribute:: peer_all
                             
                             	Only takes 'True'
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: peer_v4
                             
                             	Configure v4 peer addresses
-                            	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4>`
+                            	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4>`
                             
                             .. attribute:: peer_v6
                             
                             	Configure v6 peer addresses
-                            	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6>`
+                            	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6>`
                             
                             
 
@@ -18882,12 +18882,12 @@ class ControlPlane(object):
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                 
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers>`
+                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers>`
                                 
                                 
 
@@ -18911,7 +18911,7 @@ class ControlPlane(object):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers.Peer>`
                                     
                                     
 
@@ -19015,7 +19015,7 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -19144,12 +19144,12 @@ class ControlPlane(object):
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                 
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers>`
+                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers>`
                                 
                                 
 
@@ -19173,7 +19173,7 @@ class ControlPlane(object):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers.Peer>`
                                     
                                     
 
@@ -19277,7 +19277,7 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -19456,7 +19456,7 @@ class ControlPlane(object):
                         .. attribute:: peer_class
                         
                         	Configure peer addresses
-                        	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass>`
+                        	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass>`
                         
                         
 
@@ -19478,17 +19478,17 @@ class ControlPlane(object):
                             .. attribute:: peer_all
                             
                             	Only takes 'True'
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: peer_v4
                             
                             	Configure v4 peer addresses
-                            	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4>`
+                            	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4>`
                             
                             .. attribute:: peer_v6
                             
                             	Configure v6 peer addresses
-                            	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6>`
+                            	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6>`
                             
                             
 
@@ -19513,12 +19513,12 @@ class ControlPlane(object):
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                 
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers>`
+                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers>`
                                 
                                 
 
@@ -19542,7 +19542,7 @@ class ControlPlane(object):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers.Peer>`
                                     
                                     
 
@@ -19646,7 +19646,7 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -19775,12 +19775,12 @@ class ControlPlane(object):
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                 
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers>`
+                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers>`
                                 
                                 
 
@@ -19804,7 +19804,7 @@ class ControlPlane(object):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers.Peer>`
                                     
                                     
 
@@ -19908,7 +19908,7 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -20087,7 +20087,7 @@ class ControlPlane(object):
                         .. attribute:: peer_class
                         
                         	Configure peer addresses
-                        	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass>`
+                        	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass>`
                         
                         
 
@@ -20109,17 +20109,17 @@ class ControlPlane(object):
                             .. attribute:: peer_all
                             
                             	Only takes 'True'
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: peer_v4
                             
                             	Configure v4 peer addresses
-                            	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4>`
+                            	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4>`
                             
                             .. attribute:: peer_v6
                             
                             	Configure v6 peer addresses
-                            	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6>`
+                            	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6>`
                             
                             
 
@@ -20144,12 +20144,12 @@ class ControlPlane(object):
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes>`
+                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes>`
                                 
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers>`
+                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers>`
                                 
                                 
 
@@ -20173,7 +20173,7 @@ class ControlPlane(object):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers.Peer>`
+                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers.Peer>`
                                     
                                     
 
@@ -20277,7 +20277,7 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -20406,12 +20406,12 @@ class ControlPlane(object):
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes>`
+                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes>`
                                 
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers>`
+                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers>`
                                 
                                 
 
@@ -20435,7 +20435,7 @@ class ControlPlane(object):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers.Peer>`
+                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers.Peer>`
                                     
                                     
 
@@ -20539,7 +20539,7 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -20718,7 +20718,7 @@ class ControlPlane(object):
                         .. attribute:: peer_class
                         
                         	Configure peer addresses
-                        	**type**\:  :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass>`
+                        	**type**\:   :py:class:`PeerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass>`
                         
                         
 
@@ -20740,17 +20740,17 @@ class ControlPlane(object):
                             .. attribute:: peer_all
                             
                             	Only takes 'True'
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: peer_v4
                             
                             	Configure v4 peer addresses
-                            	**type**\:  :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4>`
+                            	**type**\:   :py:class:`PeerV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4>`
                             
                             .. attribute:: peer_v6
                             
                             	Configure v6 peer addresses
-                            	**type**\:  :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6>`
+                            	**type**\:   :py:class:`PeerV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6>`
                             
                             
 
@@ -20775,12 +20775,12 @@ class ControlPlane(object):
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes>`
+                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes>`
                                 
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers>`
+                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers>`
                                 
                                 
 
@@ -20804,7 +20804,7 @@ class ControlPlane(object):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers.Peer>`
+                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers.Peer>`
                                     
                                     
 
@@ -20908,7 +20908,7 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix>`
                                     
                                     
 
@@ -21037,12 +21037,12 @@ class ControlPlane(object):
                                 .. attribute:: peer_prefixes
                                 
                                 	Configure peer addresses with prefix
-                                	**type**\:  :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes>`
+                                	**type**\:   :py:class:`PeerPrefixes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes>`
                                 
                                 .. attribute:: peers
                                 
                                 	Configure peer addresses
-                                	**type**\:  :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers>`
+                                	**type**\:   :py:class:`Peers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers>`
                                 
                                 
 
@@ -21066,7 +21066,7 @@ class ControlPlane(object):
                                     .. attribute:: peer
                                     
                                     	Configure peer on the interface
-                                    	**type**\: list of  :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers.Peer>`
+                                    	**type**\: list of    :py:class:`Peer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers.Peer>`
                                     
                                     
 
@@ -21170,7 +21170,7 @@ class ControlPlane(object):
                                     .. attribute:: peer_prefix
                                     
                                     	Peer address (with prefix)
-                                    	**type**\: list of  :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
+                                    	**type**\: list of    :py:class:`PeerPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_cfg.ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix>`
                                     
                                     
 

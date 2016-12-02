@@ -30,25 +30,25 @@ class LineStateEnum(Enum):
 
     Line state
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	Line not connected
 
-    .. data:: REGISTERED = 1
+    .. data:: registered = 1
 
     	Line registered
 
-    .. data:: IN_USE = 2
+    .. data:: in_use = 2
 
     	Line active and in use
 
     """
 
-    NONE = 0
+    none = 0
 
-    REGISTERED = 1
+    registered = 1
 
-    IN_USE = 2
+    in_use = 2
 
 
     @staticmethod
@@ -63,37 +63,37 @@ class SessionOperationEnum(Enum):
 
     Session operation
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	No sessions on the line
 
-    .. data:: SETUP = 1
+    .. data:: setup = 1
 
     	Session getting set up
 
-    .. data:: SHELL = 2
+    .. data:: shell = 2
 
     	Session active with a shell
 
-    .. data:: TRANSITIONING = 3
+    .. data:: transitioning = 3
 
     	Session in transitioning phase
 
-    .. data:: PACKET = 4
+    .. data:: packet = 4
 
     	Session ready to receive packets
 
     """
 
-    NONE = 0
+    none = 0
 
-    SETUP = 1
+    setup = 1
 
-    SHELL = 2
+    shell = 2
 
-    TRANSITIONING = 3
+    transitioning = 3
 
-    PACKET = 4
+    packet = 4
 
 
     @staticmethod
@@ -110,17 +110,17 @@ class Tty(object):
     .. attribute:: auxiliary_nodes
     
     	List of Nodes attached with an auxiliary line
-    	**type**\:  :py:class:`AuxiliaryNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes>`
+    	**type**\:   :py:class:`AuxiliaryNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes>`
     
     .. attribute:: console_nodes
     
     	List of Nodes for console
-    	**type**\:  :py:class:`ConsoleNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes>`
+    	**type**\:   :py:class:`ConsoleNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes>`
     
     .. attribute:: vty_lines
     
     	List of VTY lines
-    	**type**\:  :py:class:`VtyLines <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines>`
+    	**type**\:   :py:class:`VtyLines <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines>`
     
     
 
@@ -145,7 +145,7 @@ class Tty(object):
         .. attribute:: console_node
         
         	Console line configuration on a node
-        	**type**\: list of  :py:class:`ConsoleNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode>`
+        	**type**\: list of    :py:class:`ConsoleNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode>`
         
         
 
@@ -175,7 +175,7 @@ class Tty(object):
             .. attribute:: console_line
             
             	Console line
-            	**type**\:  :py:class:`ConsoleLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine>`
+            	**type**\:   :py:class:`ConsoleLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine>`
             
             
 
@@ -198,17 +198,17 @@ class Tty(object):
                 .. attribute:: configuration
                 
                 	Configuration information of the line
-                	**type**\:  :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration>`
+                	**type**\:   :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration>`
                 
                 .. attribute:: console_statistics
                 
                 	Statistics of the console line
-                	**type**\:  :py:class:`ConsoleStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics>`
+                	**type**\:   :py:class:`ConsoleStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics>`
                 
                 .. attribute:: state
                 
                 	Line state information
-                	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State>`
+                	**type**\:   :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State>`
                 
                 
 
@@ -234,22 +234,22 @@ class Tty(object):
                     .. attribute:: aaa
                     
                     	AAA related statistics
-                    	**type**\:  :py:class:`Aaa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Aaa>`
+                    	**type**\:   :py:class:`Aaa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Aaa>`
                     
                     .. attribute:: exec_
                     
                     	Exec related statistics
-                    	**type**\:  :py:class:`Exec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec>`
+                    	**type**\:   :py:class:`Exec_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec_>`
                     
                     .. attribute:: general_statistics
                     
                     	General statistics of line
-                    	**type**\:  :py:class:`GeneralStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.GeneralStatistics>`
+                    	**type**\:   :py:class:`GeneralStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.GeneralStatistics>`
                     
                     .. attribute:: rs232
                     
                     	RS232 statistics of console line
-                    	**type**\:  :py:class:`Rs232 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Rs232>`
+                    	**type**\:   :py:class:`Rs232 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Rs232>`
                     
                     
 
@@ -262,7 +262,7 @@ class Tty(object):
                         self.parent = None
                         self.aaa = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Aaa()
                         self.aaa.parent = self
-                        self.exec_ = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec()
+                        self.exec_ = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec_()
                         self.exec_.parent = self
                         self.general_statistics = Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.GeneralStatistics()
                         self.general_statistics.parent = self
@@ -281,12 +281,16 @@ class Tty(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: bit/s
+                        
                         .. attribute:: data_bits
                         
                         	Number of databits
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: bit
                         
                         .. attribute:: exec_disabled
                         
@@ -334,6 +338,8 @@ class Tty(object):
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: bit
                         
                         
 
@@ -550,7 +556,7 @@ class Tty(object):
                             return meta._meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.GeneralStatistics']['meta_info']
 
 
-                    class Exec(object):
+                    class Exec_(object):
                         """
                         Exec related statistics
                         
@@ -592,7 +598,7 @@ class Tty(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                            return meta._meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec']['meta_info']
+                            return meta._meta_table['Tty.ConsoleNodes.ConsoleNode.ConsoleLine.ConsoleStatistics.Exec_']['meta_info']
 
 
                     class Aaa(object):
@@ -680,12 +686,12 @@ class Tty(object):
                     .. attribute:: general
                     
                     	General information
-                    	**type**\:  :py:class:`General <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.General>`
+                    	**type**\:   :py:class:`General <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.General>`
                     
                     .. attribute:: template
                     
                     	Information related to template applied to the line
-                    	**type**\:  :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.Template>`
+                    	**type**\:   :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.State.Template>`
                     
                     
 
@@ -755,12 +761,12 @@ class Tty(object):
                         .. attribute:: general_state
                         
                         	State of the line
-                        	**type**\:  :py:class:`LineStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.LineStateEnum>`
+                        	**type**\:   :py:class:`LineStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.LineStateEnum>`
                         
                         .. attribute:: operation
                         
                         	application running of on the tty line
-                        	**type**\:  :py:class:`SessionOperationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.SessionOperationEnum>`
+                        	**type**\:   :py:class:`SessionOperationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.SessionOperationEnum>`
                         
                         
 
@@ -836,7 +842,7 @@ class Tty(object):
                     .. attribute:: connection_configuration
                     
                     	Conection configuration information
-                    	**type**\:  :py:class:`ConnectionConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration>`
+                    	**type**\:   :py:class:`ConnectionConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration>`
                     
                     
 
@@ -868,7 +874,7 @@ class Tty(object):
                         .. attribute:: transport_input
                         
                         	Protocols to use when connecting to the terminal server
-                        	**type**\:  :py:class:`TransportInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration.TransportInput>`
+                        	**type**\:   :py:class:`TransportInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.ConsoleNodes.ConsoleNode.ConsoleLine.Configuration.ConnectionConfiguration.TransportInput>`
                         
                         
 
@@ -900,17 +906,19 @@ class Tty(object):
                             .. attribute:: protocol1
                             
                             	Transport protocol1
-                            	**type**\:  :py:class:`TtyTransportProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
+                            	**type**\:   :py:class:`TtyTransportProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
                             
                             .. attribute:: protocol2
                             
                             	Transport protocol2
-                            	**type**\:  :py:class:`TtyTransportProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
+                            	**type**\:   :py:class:`TtyTransportProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
                             
                             .. attribute:: select
                             
                             	Choose transport protocols
-                            	**type**\:  :py:class:`TtyTransportProtocolSelectEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelectEnum>`
+                            	**type**\:   :py:class:`TtyTransportProtocolSelectEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelectEnum>`
+                            
+                            	**default value**\: all
                             
                             
 
@@ -1102,7 +1110,7 @@ class Tty(object):
         .. attribute:: vty_line
         
         	VTY Line
-        	**type**\: list of  :py:class:`VtyLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine>`
+        	**type**\: list of    :py:class:`VtyLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine>`
         
         
 
@@ -1132,22 +1140,22 @@ class Tty(object):
             .. attribute:: configuration
             
             	Configuration information of the line
-            	**type**\:  :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Configuration>`
+            	**type**\:   :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Configuration>`
             
             .. attribute:: sessions
             
             	Outgoing sessions
-            	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Sessions>`
+            	**type**\:   :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Sessions>`
             
             .. attribute:: state
             
             	Line state information
-            	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.State>`
+            	**type**\:   :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.State>`
             
             .. attribute:: vty_statistics
             
             	Statistics of the VTY line
-            	**type**\:  :py:class:`VtyStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics>`
+            	**type**\:   :py:class:`VtyStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics>`
             
             
 
@@ -1176,22 +1184,22 @@ class Tty(object):
                 .. attribute:: aaa
                 
                 	AAA related statistics
-                	**type**\:  :py:class:`Aaa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics.Aaa>`
+                	**type**\:   :py:class:`Aaa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics.Aaa>`
                 
                 .. attribute:: connection
                 
                 	Connection related statistics
-                	**type**\:  :py:class:`Connection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics.Connection>`
+                	**type**\:   :py:class:`Connection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics.Connection>`
                 
                 .. attribute:: exec_
                 
                 	Exec related statistics
-                	**type**\:  :py:class:`Exec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics.Exec>`
+                	**type**\:   :py:class:`Exec_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics.Exec_>`
                 
                 .. attribute:: general_statistics
                 
                 	General statistics of line
-                	**type**\:  :py:class:`GeneralStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics.GeneralStatistics>`
+                	**type**\:   :py:class:`GeneralStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.VtyStatistics.GeneralStatistics>`
                 
                 
 
@@ -1206,7 +1214,7 @@ class Tty(object):
                     self.aaa.parent = self
                     self.connection = Tty.VtyLines.VtyLine.VtyStatistics.Connection()
                     self.connection.parent = self
-                    self.exec_ = Tty.VtyLines.VtyLine.VtyStatistics.Exec()
+                    self.exec_ = Tty.VtyLines.VtyLine.VtyStatistics.Exec_()
                     self.exec_.parent = self
                     self.general_statistics = Tty.VtyLines.VtyLine.VtyStatistics.GeneralStatistics()
                     self.general_statistics.parent = self
@@ -1428,7 +1436,7 @@ class Tty(object):
                         return meta._meta_table['Tty.VtyLines.VtyLine.VtyStatistics.GeneralStatistics']['meta_info']
 
 
-                class Exec(object):
+                class Exec_(object):
                     """
                     Exec related statistics
                     
@@ -1470,7 +1478,7 @@ class Tty(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                        return meta._meta_table['Tty.VtyLines.VtyLine.VtyStatistics.Exec']['meta_info']
+                        return meta._meta_table['Tty.VtyLines.VtyLine.VtyStatistics.Exec_']['meta_info']
 
 
                 class Aaa(object):
@@ -1558,12 +1566,12 @@ class Tty(object):
                 .. attribute:: general
                 
                 	General information
-                	**type**\:  :py:class:`General <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.State.General>`
+                	**type**\:   :py:class:`General <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.State.General>`
                 
                 .. attribute:: template
                 
                 	Information related to template applied to the line
-                	**type**\:  :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.State.Template>`
+                	**type**\:   :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.State.Template>`
                 
                 
 
@@ -1633,12 +1641,12 @@ class Tty(object):
                     .. attribute:: general_state
                     
                     	State of the line
-                    	**type**\:  :py:class:`LineStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.LineStateEnum>`
+                    	**type**\:   :py:class:`LineStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.LineStateEnum>`
                     
                     .. attribute:: operation
                     
                     	application running of on the tty line
-                    	**type**\:  :py:class:`SessionOperationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.SessionOperationEnum>`
+                    	**type**\:   :py:class:`SessionOperationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.SessionOperationEnum>`
                     
                     
 
@@ -1714,7 +1722,7 @@ class Tty(object):
                 .. attribute:: connection_configuration
                 
                 	Conection configuration information
-                	**type**\:  :py:class:`ConnectionConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration>`
+                	**type**\:   :py:class:`ConnectionConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration>`
                 
                 
 
@@ -1746,7 +1754,7 @@ class Tty(object):
                     .. attribute:: transport_input
                     
                     	Protocols to use when connecting to the terminal server
-                    	**type**\:  :py:class:`TransportInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration.TransportInput>`
+                    	**type**\:   :py:class:`TransportInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Configuration.ConnectionConfiguration.TransportInput>`
                     
                     
 
@@ -1778,17 +1786,19 @@ class Tty(object):
                         .. attribute:: protocol1
                         
                         	Transport protocol1
-                        	**type**\:  :py:class:`TtyTransportProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
+                        	**type**\:   :py:class:`TtyTransportProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
                         
                         .. attribute:: protocol2
                         
                         	Transport protocol2
-                        	**type**\:  :py:class:`TtyTransportProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
+                        	**type**\:   :py:class:`TtyTransportProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
                         
                         .. attribute:: select
                         
                         	Choose transport protocols
-                        	**type**\:  :py:class:`TtyTransportProtocolSelectEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelectEnum>`
+                        	**type**\:   :py:class:`TtyTransportProtocolSelectEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelectEnum>`
+                        
+                        	**default value**\: all
                         
                         
 
@@ -1899,7 +1909,7 @@ class Tty(object):
                 .. attribute:: outgoing_connection
                 
                 	List of outgoing sessions
-                	**type**\: list of  :py:class:`OutgoingConnection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Sessions.OutgoingConnection>`
+                	**type**\: list of    :py:class:`OutgoingConnection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Sessions.OutgoingConnection>`
                 
                 
 
@@ -1929,7 +1939,7 @@ class Tty(object):
                     .. attribute:: host_address
                     
                     	Host address
-                    	**type**\:  :py:class:`HostAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Sessions.OutgoingConnection.HostAddress>`
+                    	**type**\:   :py:class:`HostAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.VtyLines.VtyLine.Sessions.OutgoingConnection.HostAddress>`
                     
                     .. attribute:: host_name
                     
@@ -1943,6 +1953,8 @@ class Tty(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: second
+                    
                     .. attribute:: is_last_active_session
                     
                     	True indicates last active session
@@ -1951,7 +1963,7 @@ class Tty(object):
                     .. attribute:: transport_protocol
                     
                     	Session transport protocol
-                    	**type**\:  :py:class:`TransportServiceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_oper.TransportServiceEnum>`
+                    	**type**\:   :py:class:`TransportServiceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_oper.TransportServiceEnum>`
                     
                     
 
@@ -1978,7 +1990,7 @@ class Tty(object):
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\:  :py:class:`HostAfIdBaseIdentity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_oper.HostAfIdBaseIdentity>`
+                        	**type**\:   :py:class:`HostAfIdBaseIdentity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_oper.HostAfIdBaseIdentity>`
                         
                         .. attribute:: ipv4_address
                         
@@ -2170,7 +2182,7 @@ class Tty(object):
         .. attribute:: auxiliary_node
         
         	Line configuration on a node
-        	**type**\: list of  :py:class:`AuxiliaryNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode>`
+        	**type**\: list of    :py:class:`AuxiliaryNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode>`
         
         
 
@@ -2200,7 +2212,7 @@ class Tty(object):
             .. attribute:: auxiliary_line
             
             	Auxiliary line
-            	**type**\:  :py:class:`AuxiliaryLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine>`
+            	**type**\:   :py:class:`AuxiliaryLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine>`
             
             
 
@@ -2223,17 +2235,17 @@ class Tty(object):
                 .. attribute:: auxiliary_statistics
                 
                 	Statistics of the auxiliary line
-                	**type**\:  :py:class:`AuxiliaryStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics>`
+                	**type**\:   :py:class:`AuxiliaryStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics>`
                 
                 .. attribute:: configuration
                 
                 	Configuration information of the line
-                	**type**\:  :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration>`
+                	**type**\:   :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration>`
                 
                 .. attribute:: state
                 
                 	Line state information
-                	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State>`
+                	**type**\:   :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State>`
                 
                 
 
@@ -2259,22 +2271,22 @@ class Tty(object):
                     .. attribute:: aaa
                     
                     	AAA related statistics
-                    	**type**\:  :py:class:`Aaa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Aaa>`
+                    	**type**\:   :py:class:`Aaa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Aaa>`
                     
                     .. attribute:: exec_
                     
                     	Exec related statistics
-                    	**type**\:  :py:class:`Exec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec>`
+                    	**type**\:   :py:class:`Exec_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec_>`
                     
                     .. attribute:: general_statistics
                     
                     	General statistics of line
-                    	**type**\:  :py:class:`GeneralStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.GeneralStatistics>`
+                    	**type**\:   :py:class:`GeneralStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.GeneralStatistics>`
                     
                     .. attribute:: rs232
                     
                     	RS232 statistics of console line
-                    	**type**\:  :py:class:`Rs232 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Rs232>`
+                    	**type**\:   :py:class:`Rs232 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Rs232>`
                     
                     
 
@@ -2287,7 +2299,7 @@ class Tty(object):
                         self.parent = None
                         self.aaa = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Aaa()
                         self.aaa.parent = self
-                        self.exec_ = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec()
+                        self.exec_ = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec_()
                         self.exec_.parent = self
                         self.general_statistics = Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.GeneralStatistics()
                         self.general_statistics.parent = self
@@ -2306,12 +2318,16 @@ class Tty(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: bit/s
+                        
                         .. attribute:: data_bits
                         
                         	Number of databits
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: bit
                         
                         .. attribute:: exec_disabled
                         
@@ -2359,6 +2375,8 @@ class Tty(object):
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: bit
                         
                         
 
@@ -2575,7 +2593,7 @@ class Tty(object):
                             return meta._meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.GeneralStatistics']['meta_info']
 
 
-                    class Exec(object):
+                    class Exec_(object):
                         """
                         Exec related statistics
                         
@@ -2617,7 +2635,7 @@ class Tty(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_oper as meta
-                            return meta._meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec']['meta_info']
+                            return meta._meta_table['Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.AuxiliaryStatistics.Exec_']['meta_info']
 
 
                     class Aaa(object):
@@ -2705,12 +2723,12 @@ class Tty(object):
                     .. attribute:: general
                     
                     	General information
-                    	**type**\:  :py:class:`General <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.General>`
+                    	**type**\:   :py:class:`General <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.General>`
                     
                     .. attribute:: template
                     
                     	Information related to template applied to the line
-                    	**type**\:  :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.Template>`
+                    	**type**\:   :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.State.Template>`
                     
                     
 
@@ -2780,12 +2798,12 @@ class Tty(object):
                         .. attribute:: general_state
                         
                         	State of the line
-                        	**type**\:  :py:class:`LineStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.LineStateEnum>`
+                        	**type**\:   :py:class:`LineStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.LineStateEnum>`
                         
                         .. attribute:: operation
                         
                         	application running of on the tty line
-                        	**type**\:  :py:class:`SessionOperationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.SessionOperationEnum>`
+                        	**type**\:   :py:class:`SessionOperationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.SessionOperationEnum>`
                         
                         
 
@@ -2861,7 +2879,7 @@ class Tty(object):
                     .. attribute:: connection_configuration
                     
                     	Conection configuration information
-                    	**type**\:  :py:class:`ConnectionConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration>`
+                    	**type**\:   :py:class:`ConnectionConfiguration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration>`
                     
                     
 
@@ -2893,7 +2911,7 @@ class Tty(object):
                         .. attribute:: transport_input
                         
                         	Protocols to use when connecting to the terminal server
-                        	**type**\:  :py:class:`TransportInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration.TransportInput>`
+                        	**type**\:   :py:class:`TransportInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_oper.Tty.AuxiliaryNodes.AuxiliaryNode.AuxiliaryLine.Configuration.ConnectionConfiguration.TransportInput>`
                         
                         
 
@@ -2925,17 +2943,19 @@ class Tty(object):
                             .. attribute:: protocol1
                             
                             	Transport protocol1
-                            	**type**\:  :py:class:`TtyTransportProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
+                            	**type**\:   :py:class:`TtyTransportProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
                             
                             .. attribute:: protocol2
                             
                             	Transport protocol2
-                            	**type**\:  :py:class:`TtyTransportProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
+                            	**type**\:   :py:class:`TtyTransportProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
                             
                             .. attribute:: select
                             
                             	Choose transport protocols
-                            	**type**\:  :py:class:`TtyTransportProtocolSelectEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelectEnum>`
+                            	**type**\:   :py:class:`TtyTransportProtocolSelectEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelectEnum>`
+                            
+                            	**default value**\: all
                             
                             
 

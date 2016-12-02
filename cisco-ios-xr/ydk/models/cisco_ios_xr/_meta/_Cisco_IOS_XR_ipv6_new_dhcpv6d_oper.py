@@ -16,26 +16,26 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'BagDhcpv6DIaIdEnum' : _MetaInfoEnum('BagDhcpv6DIaIdEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper',
         {
-            'iana':'IANA',
-            'iapd':'IAPD',
-            'iata':'IATA',
+            'iana':'iana',
+            'iapd':'iapd',
+            'iata':'iata',
         }, 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper']),
     'BagDhcpv6DFsmStateEnum' : _MetaInfoEnum('BagDhcpv6DFsmStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper',
         {
-            'server-initializing':'SERVER_INITIALIZING',
-            'server-waiting-dpm':'SERVER_WAITING_DPM',
-            'server-waiting-daps':'SERVER_WAITING_DAPS',
-            'server-waiting-client':'SERVER_WAITING_CLIENT',
-            'server-waiting-subscriber':'SERVER_WAITING_SUBSCRIBER',
-            'server-waiting-rib':'SERVER_WAITING_RIB',
-            'server-bound-client':'SERVER_BOUND_CLIENT',
-            'proxy-initializing':'PROXY_INITIALIZING',
-            'proxy-waiting-dpm':'PROXY_WAITING_DPM',
-            'proxy-waiting-daps':'PROXY_WAITING_DAPS',
-            'proxy-waiting-client-server':'PROXY_WAITING_CLIENT_SERVER',
-            'proxy-waiting-subscriber':'PROXY_WAITING_SUBSCRIBER',
-            'proxy-waiting-rib':'PROXY_WAITING_RIB',
-            'proxy-bound-client':'PROXY_BOUND_CLIENT',
+            'server-initializing':'server_initializing',
+            'server-waiting-dpm':'server_waiting_dpm',
+            'server-waiting-daps':'server_waiting_daps',
+            'server-waiting-client':'server_waiting_client',
+            'server-waiting-subscriber':'server_waiting_subscriber',
+            'server-waiting-rib':'server_waiting_rib',
+            'server-bound-client':'server_bound_client',
+            'proxy-initializing':'proxy_initializing',
+            'proxy-waiting-dpm':'proxy_waiting_dpm',
+            'proxy-waiting-daps':'proxy_waiting_daps',
+            'proxy-waiting-client-server':'proxy_waiting_client_server',
+            'proxy-waiting-subscriber':'proxy_waiting_subscriber',
+            'proxy-waiting-rib':'proxy_waiting_rib',
+            'proxy-bound-client':'proxy_bound_client',
         }, 'Cisco-IOS-XR-ipv6-new-dhcpv6d-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-oper']),
     'Dhcpv6.Database' : {
         'meta_info' : _MetaInfoClass('Dhcpv6.Database',
@@ -1068,8 +1068,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat.Statistics' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat.Statistics',
+    'Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat.Statistics_' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat.Statistics_',
             False, 
             [
             _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
@@ -1101,7 +1101,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat',
             False, 
             [
-            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat.Statistics', 
+            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat.Statistics_', 
                 [], [], 
                 '''                Proxy statistics
                 ''',
@@ -3020,8 +3020,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat.Statistics' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat.Statistics',
+    'Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat.Statistics_' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat.Statistics_',
             False, 
             [
             _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
@@ -3053,7 +3053,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat',
             False, 
             [
-            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat.Statistics', 
+            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat.Statistics_', 
                 [], [], 
                 '''                Server statistics
                 ''',
@@ -3281,8 +3281,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper'
         ),
     },
-    'Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat.Statistics' : {
-        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat.Statistics',
+    'Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat.Statistics_' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat.Statistics_',
             False, 
             [
             _MetaInfoClassMember('dropped-packets', ATTRIBUTE, 'int' , None, None, 
@@ -3314,7 +3314,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat',
             False, 
             [
-            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat.Statistics', 
+            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat.Statistics_', 
                 [], [], 
                 '''                Relay statistics
                 ''',
@@ -4270,7 +4270,7 @@ _meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences']
 _meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles.Profile']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Profiles']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat.Statistics']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat.Statistics_']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6DProxyStat']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Statistics']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses.BagDhcpv6DAddrAttrb']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo.Addresses']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6DIaIdPdInfo']['meta_info']
@@ -4320,7 +4320,7 @@ _meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos.ThrottleInf
 _meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Profiles.Profile']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Profiles']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat.Statistics']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat.Statistics_']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6DServerStat']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.Statistics']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.BindingOptions.MacBindOptions.MacBindOption']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.BindingOptions.MacBindOptions']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.BindingOptions.DuidBindOptions.DuidBindOption']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server.BindingOptions.DuidBindOptions']['meta_info']
@@ -4331,7 +4331,7 @@ _meta_table['Dhcpv6.Nodes.Node.Server.Vrfs']['meta_info'].parent =_meta_table['D
 _meta_table['Dhcpv6.Nodes.Node.Server.Profiles']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.Statistics']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Server.BindingOptions']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Server']['meta_info']
-_meta_table['Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat.Statistics']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat']['meta_info']
+_meta_table['Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat.Statistics_']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6DRelayStat']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Statistics']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Relay.Binding.Clients.Client']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Binding.Clients']['meta_info']
 _meta_table['Dhcpv6.Nodes.Node.Relay.Binding.Summary']['meta_info'].parent =_meta_table['Dhcpv6.Nodes.Node.Relay.Binding']['meta_info']

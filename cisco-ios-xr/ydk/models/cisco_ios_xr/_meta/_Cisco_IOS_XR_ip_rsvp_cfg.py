@@ -16,25 +16,25 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'RsvpBwCfgEnum' : _MetaInfoEnum('RsvpBwCfgEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg',
         {
-            'absolute':'ABSOLUTE',
-            'percentage':'PERCENTAGE',
+            'absolute':'absolute',
+            'percentage':'percentage',
         }, 'Cisco-IOS-XR-ip-rsvp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-cfg']),
     'RsvpBc0Enum' : _MetaInfoEnum('RsvpBc0Enum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg',
         {
-            'bc0':'BC0',
-            'global-pool':'GLOBAL_POOL',
-            'not-specified':'NOT_SPECIFIED',
+            'bc0':'bc0',
+            'global-pool':'global_pool',
+            'not-specified':'not_specified',
         }, 'Cisco-IOS-XR-ip-rsvp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-cfg']),
     'RsvpBc1Enum' : _MetaInfoEnum('RsvpBc1Enum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg',
         {
-            'bc1':'BC1',
-            'sub-pool':'SUB_POOL',
+            'bc1':'bc1',
+            'sub-pool':'sub_pool',
         }, 'Cisco-IOS-XR-ip-rsvp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-cfg']),
     'RsvpRdmEnum' : _MetaInfoEnum('RsvpRdmEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg',
         {
-            'rdm':'RDM',
-            'not-specified':'NOT_SPECIFIED',
-            'use-default-bandwidth':'USE_DEFAULT_BANDWIDTH',
+            'rdm':'rdm',
+            'not-specified':'not_specified',
+            'use-default-bandwidth':'use_default_bandwidth',
         }, 'Cisco-IOS-XR-ip-rsvp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-cfg']),
     'Rsvp.Neighbors.Neighbor.Authentication' : {
         'meta_info' : _MetaInfoClass('Rsvp.Neighbors.Neighbor.Authentication',

@@ -16,6 +16,6 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'Ipv6ReachableViaEnum' : _MetaInfoEnum('Ipv6ReachableViaEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_subscriber_cfg',
         {
-            'received':'RECEIVED',
+            'received':'received',
         }, 'Cisco-IOS-XR-ipv6-ma-subscriber-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ma-subscriber-cfg']),
 }

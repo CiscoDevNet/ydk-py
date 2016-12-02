@@ -16,11 +16,11 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'PimMultipathEnum' : _MetaInfoEnum('PimMultipathEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg',
         {
-            'enable':'ENABLE',
-            'interface-hash':'INTERFACE_HASH',
-            'source-hash':'SOURCE_HASH',
-            'source-next-hop-hash':'SOURCE_NEXT_HOP_HASH',
-            'source-group-hash':'SOURCE_GROUP_HASH',
+            'enable':'enable',
+            'interface-hash':'interface_hash',
+            'source-hash':'source_hash',
+            'source-next-hop-hash':'source_next_hop_hash',
+            'source-group-hash':'source_group_hash',
         }, 'Cisco-IOS-XR-ipv4-pim-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-pim-cfg']),
     'Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress' : {
         'meta_info' : _MetaInfoClass('Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress',

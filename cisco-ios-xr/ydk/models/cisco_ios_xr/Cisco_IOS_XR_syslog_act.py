@@ -32,7 +32,7 @@ class LogmsgRpc(object):
     .. attribute:: input
     
     	
-    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syslog_act.LogmsgRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_syslog_act.LogmsgRpc.Input>`
     
     
 
@@ -62,7 +62,7 @@ class LogmsgRpc(object):
         .. attribute:: severity
         
         	Set serverity level
-        	**type**\:  :py:class:`SeverityEnum <ydk.models.ietf.ietf_syslog_types.SeverityEnum>`
+        	**type**\:   :py:class:`SeverityEnum <ydk.models.ietf.ietf_syslog_types.SeverityEnum>`
         
         	**mandatory**\: True
         

@@ -31,663 +31,663 @@ class LptsFlowEnum(Enum):
 
     Lpts flow
 
-    .. data:: CONFIG_DEFAULT = 0
+    .. data:: config_default = 0
 
     	Invalid flow type used for fallback
 
     	configuration
 
-    .. data:: L2TPV2_FRAGMENT = 1
+    .. data:: l2tpv2_fragment = 1
 
     	L2TPv2 Fragments
 
-    .. data:: FRAGMENT = 2
+    .. data:: fragment = 2
 
     	Fragments
 
-    .. data:: OSPF_MULTICAST_KNOWN = 3
+    .. data:: ospf_multicast_known = 3
 
     	OSPF multicast packets on configured interfaces
 
-    .. data:: OSPF_MULTICAST_DEFAULT = 4
+    .. data:: ospf_multicast_default = 4
 
     	OSPF multicast packets on unconfigured (or
 
     	newly-configured) interfaces
 
-    .. data:: OSPF_UNICAST_KNOWN = 5
+    .. data:: ospf_unicast_known = 5
 
     	OSPF unicast packets
 
-    .. data:: OSPF_UNICAST_DEFAULT = 6
+    .. data:: ospf_unicast_default = 6
 
     	OSPF unicast packets
 
-    .. data:: ISIS_KNOWN = 7
+    .. data:: isis_known = 7
 
     	IS-IS packets on configured interfaces
 
-    .. data:: ISIS_DEFAULT = 8
+    .. data:: isis_default = 8
 
     	IS-IS packets on unconfigured (or
 
     	newly-configured) interfaces
 
-    .. data:: BFD_KNOWN = 9
+    .. data:: bfd_known = 9
 
     	BFD packets on configured interfaces
 
-    .. data:: BFD_DEFAULT = 10
+    .. data:: bfd_default = 10
 
     	BFD packets on unconfigured (or
 
     	newly-configured) interfaces
 
-    .. data:: BFD_MULTIPATH_KNOWN = 11
+    .. data:: bfd_multipath_known = 11
 
     	BFD multipath packets on configured interfaces
 
-    .. data:: BFD_MULTIPATH0 = 12
+    .. data:: bfd_multipath0 = 12
 
     	BFD multipath packets on multiple configured
 
     	interfaces
 
-    .. data:: BFD_BLB_KNOWN = 13
+    .. data:: bfd_blb_known = 13
 
     	BFD packets over Logical Bundle on configured
 
     	interfaces
 
-    .. data:: BFD_BLB0 = 14
+    .. data:: bfd_blb0 = 14
 
     	BFD packets over Logical Bundle 0
 
-    .. data:: BFD_SP0 = 15
+    .. data:: bfd_sp0 = 15
 
     	BFD packets over Single Path 0
 
-    .. data:: BGP_KNOWN = 16
+    .. data:: bgp_known = 16
 
     	Packets from established BGP peering sessions
 
-    .. data:: BGP_CONFIG_PEER = 17
+    .. data:: bgp_config_peer = 17
 
     	Packets from a configured BGP peer (SYNs or
 
     	newly-established sessions)
 
-    .. data:: BGP_DEFAULT = 18
+    .. data:: bgp_default = 18
 
     	Packets from unconfigured, newly-configured, or
 
     	wild-card BGP peer
 
-    .. data:: PIM_MULTICAST_DEFAULT = 19
+    .. data:: pim_multicast_default = 19
 
     	PIM multicast packets on configured interfaces
 
-    .. data:: PIM_MULTICAST_KNOWN = 20
+    .. data:: pim_multicast_known = 20
 
     	PIM multicast packets on unconfigured (or
 
     	newly-configured) interfaces
 
-    .. data:: PIM_UNICAST = 21
+    .. data:: pim_unicast = 21
 
     	PIM unicast packets
 
-    .. data:: IGMP = 22
+    .. data:: igmp = 22
 
     	IGMP packets
 
-    .. data:: ICMP_LOCAL = 23
+    .. data:: icmp_local = 23
 
     	ICMP or ICMPv6 packets with local interest
 
-    .. data:: ICMP_APP = 24
+    .. data:: icmp_app = 24
 
     	ICMP or ICMPv6 packets of interest to
 
     	applications
 
-    .. data:: ICMP_CONTROL = 25
+    .. data:: icmp_control = 25
 
     	ICMP or ICMPv6 packets that are used for
 
     	control/signalling purpose
 
-    .. data:: ICMP_DEFAULT = 26
+    .. data:: icmp_default = 26
 
     	Other ICMP or ICMPv6 packets (may be of recent
 
     	interest to applications)
 
-    .. data:: ICMP_APP_DEFAULT = 27
+    .. data:: icmp_app_default = 27
 
     	ICMP or ICMPv6 echo reply packets (when
 
     	specific entry not present)
 
-    .. data:: LDP_TCP_KNOWN = 28
+    .. data:: ldp_tcp_known = 28
 
     	Packets from an established LDP TCP peering
 
     	session
 
-    .. data:: LDP_TCP_CONFIG_PEER = 29
+    .. data:: ldp_tcp_config_peer = 29
 
     	Packets from a configured LDP TCP peer (SYNs or
 
     	newly-established sessions)
 
-    .. data:: LDP_TCP_DEFAULT = 30
+    .. data:: ldp_tcp_default = 30
 
     	Packets from an unconfigured, newly-configured
 
     	or wild-card LDP TCP peer
 
-    .. data:: LDP_UDP = 31
+    .. data:: ldp_udp = 31
 
     	Unicast LDP UDP packets
 
-    .. data:: ALL_ROUTERS = 32
+    .. data:: all_routers = 32
 
     	Packets sent to the all-routers multicast
 
     	address (includes LDP UDP multicast)
 
-    .. data:: LMP_TCP_KNOWN = 33
+    .. data:: lmp_tcp_known = 33
 
     	Packets from an established LMP TCP peering
 
     	session
 
-    .. data:: LMP_TCP_CONFIG_PEER = 34
+    .. data:: lmp_tcp_config_peer = 34
 
     	Packets from a configured LMP TCP peer (SYNs or
 
     	newly-established sessions)
 
-    .. data:: LMP_TCP_DEFAULT = 35
+    .. data:: lmp_tcp_default = 35
 
     	Packets from an unconfigured, newly-configured
 
     	or wild-card LMP TCP peer
 
-    .. data:: LMP_UDP = 36
+    .. data:: lmp_udp = 36
 
     	Unicast LMP UDP packets
 
-    .. data:: RSVP_UDP = 37
+    .. data:: rsvp_udp = 37
 
     	RSVP-over-UDP packets
 
-    .. data:: RSVP_DEFAULT = 38
+    .. data:: rsvp_default = 38
 
     	RSVP (IP protocol 46) packets
 
-    .. data:: RSVP_KNOWN = 39
+    .. data:: rsvp_known = 39
 
     	RSVP (IP protocol 46) packets
 
-    .. data:: IKE = 40
+    .. data:: ike = 40
 
     	IKE packets
 
-    .. data:: IPSEC_KNOWN = 41
+    .. data:: ipsec_known = 41
 
     	AH or ESP packets with known SPIs
 
-    .. data:: IPSEC_DEFAULT = 42
+    .. data:: ipsec_default = 42
 
     	AH or ESP packets with unknown or
 
     	newly-configured SPIs
 
-    .. data:: IPSEC_FRAGMENT = 43
+    .. data:: ipsec_fragment = 43
 
     	AH or ESP fragmented packets
 
-    .. data:: MSDP_KNOWN = 44
+    .. data:: msdp_known = 44
 
     	Packets from an established MSDP session
 
-    .. data:: MSDP_CONFIG_PEER = 45
+    .. data:: msdp_config_peer = 45
 
     	Packets from a configured MSDP peer
 
-    .. data:: MSDP_DEFAULT = 46
+    .. data:: msdp_default = 46
 
     	Packets from an uncofigured, newly-configured
 
     	or wild-card MSDP peer
 
-    .. data:: SNMP = 47
+    .. data:: snmp = 47
 
     	SNMP packets
 
-    .. data:: SSH_KNOWN = 48
+    .. data:: ssh_known = 48
 
     	Packets from an established SSH session
 
-    .. data:: SSH_DEFAULT = 49
+    .. data:: ssh_default = 49
 
     	Packets from a new or newly-established SSH
 
     	session
 
-    .. data:: HTTP_KNOWN = 50
+    .. data:: http_known = 50
 
     	Packets from an established HTTP session
 
-    .. data:: HTTP_DEFAULT = 51
+    .. data:: http_default = 51
 
     	Packets from a new or newly-established HTTP
 
     	session
 
-    .. data:: SHTTP_KNOWN = 52
+    .. data:: shttp_known = 52
 
     	Packets from an established SHTTP session
 
-    .. data:: SHTTP_DEFAULT = 53
+    .. data:: shttp_default = 53
 
     	Packets from a new or newly-established SSHTP
 
     	session
 
-    .. data:: TELNET_KNOWN = 54
+    .. data:: telnet_known = 54
 
     	Packets from an established TELNET session
 
-    .. data:: TELNET_DEFAULT = 55
+    .. data:: telnet_default = 55
 
     	Packets from a new or newly-established TELNET
 
     	session
 
-    .. data:: CSS_KNOWN = 56
+    .. data:: css_known = 56
 
     	Packets from an established CSS session
 
-    .. data:: CSS_DEFAULT = 57
+    .. data:: css_default = 57
 
     	Packets from a new or newly-established CSS
 
     	session
 
-    .. data:: RSH_KNOWN = 58
+    .. data:: rsh_known = 58
 
     	Packets from an established rsh session
 
-    .. data:: RSH_DEFAULT = 59
+    .. data:: rsh_default = 59
 
     	Packets from a new or newly-established rsh
 
     	session
 
-    .. data:: UDP_KNOWN = 60
+    .. data:: udp_known = 60
 
     	Packets for established UDP sessions
 
-    .. data:: UDP_LISTEN = 61
+    .. data:: udp_listen = 61
 
     	Packets for configured UDP services
 
-    .. data:: UDP_CONFIG_PEER = 62
+    .. data:: udp_config_peer = 62
 
     	Packets for configured UDP-based protocol
 
     	sessions
 
-    .. data:: UDP_DEFAULT = 63
+    .. data:: udp_default = 63
 
     	Packets for unconfigured or newly-configured
 
     	UDP services
 
-    .. data:: TCP_KNOWN = 64
+    .. data:: tcp_known = 64
 
     	Packets for established TCP sessions
 
-    .. data:: TCP_LISTEN = 65
+    .. data:: tcp_listen = 65
 
     	Packets for configured TCP services
 
-    .. data:: TCP_CONFIG_PEER = 66
+    .. data:: tcp_config_peer = 66
 
     	Packets for configured TCP peers
 
-    .. data:: TCP_DEFAULT = 67
+    .. data:: tcp_default = 67
 
     	Packets for unconfigured or newly-configured
 
     	TCP services
 
-    .. data:: MULTICAST_KNOWN = 68
+    .. data:: multicast_known = 68
 
     	Packets for configured multicast groups
 
-    .. data:: MULTICAST_DEFAULT = 69
+    .. data:: multicast_default = 69
 
     	Packets for unconfigured or newly-configured
 
     	multicast groups
 
-    .. data:: RAW_LISTEN = 70
+    .. data:: raw_listen = 70
 
     	Packets for configured IP protocols
 
-    .. data:: RAW_DEFAULT = 71
+    .. data:: raw_default = 71
 
     	Packets for unconfigured or newly-configured
 
     	IPv4 or IPv6 protocols
 
-    .. data:: IPSLA = 72
+    .. data:: ipsla = 72
 
     	IP SLA packets destined to squid Q #4 for
 
     	timestamping by squid driver
 
-    .. data:: EIGRP = 73
+    .. data:: eigrp = 73
 
     	EIGRP packets.
 
-    .. data:: RIP = 74
+    .. data:: rip = 74
 
     	RIP packets.
 
-    .. data:: L2TPV3 = 75
+    .. data:: l2tpv3 = 75
 
     	L2TPv3 packets.
 
-    .. data:: PCEP_TCP_DEFAULT = 76
+    .. data:: pcep_tcp_default = 76
 
     	PCEP packets.
 
-    .. data:: GRE = 77
+    .. data:: gre = 77
 
     	GRE packets.
 
-    .. data:: VRRP = 78
+    .. data:: vrrp = 78
 
     	VRRP Packets.
 
-    .. data:: HSRP = 79
+    .. data:: hsrp = 79
 
     	HSRP Packets.
 
-    .. data:: MPLS_PING = 80
+    .. data:: mpls_ping = 80
 
     	MPLS ping packet coming or arriving from 3503
 
     	port
 
-    .. data:: L2TPV2_DEFAULT = 81
+    .. data:: l2tpv2_default = 81
 
     	L2TPv2 default packets.
 
-    .. data:: L2TPV2_KNOWN = 82
+    .. data:: l2tpv2_known = 82
 
     	L2TPv2 known packets.
 
-    .. data:: DNS = 83
+    .. data:: dns = 83
 
     	DNS packets.
 
-    .. data:: RADIUS = 84
+    .. data:: radius = 84
 
     	RADIUS packets.
 
-    .. data:: TACACS = 85
+    .. data:: tacacs = 85
 
     	TACACS packets.
 
-    .. data:: NTP_DEFAULT = 86
+    .. data:: ntp_default = 86
 
     	NTP packets received at 123 port number any
 
     	address.
 
-    .. data:: NTP_KNOWN = 87
+    .. data:: ntp_known = 87
 
     	NTP packets received at 123 port number known
 
     	address.
 
-    .. data:: MOBILE_IPV6 = 88
+    .. data:: mobile_ipv6 = 88
 
     	Mobile IPV6 packets.
 
-    .. data:: AMT = 89
+    .. data:: amt = 89
 
     	AMT packets received at UDP port number 2268.
 
-    .. data:: SDAC_TCP = 90
+    .. data:: sdac_tcp = 90
 
     	SDAC TCP packets.
 
-    .. data:: RADIUS_COA = 91
+    .. data:: radius_coa = 91
 
     	RADIUS Change of Authorization packets.
 
-    .. data:: REL_UDP = 92
+    .. data:: rel_udp = 92
 
     	REL UDP packets.
 
-    .. data:: DHCP4 = 93
+    .. data:: dhcp4 = 93
 
     	DHCP IPV4 packets.
 
-    .. data:: DHCP6 = 94
+    .. data:: dhcp6 = 94
 
     	DHCP IPV6 packets.
 
-    .. data:: ONEPK = 95
+    .. data:: onepk = 95
 
     	ONEPK packets.
 
-    .. data:: EXR = 96
+    .. data:: exr = 96
 
     	EXR packets.
 
     """
 
-    CONFIG_DEFAULT = 0
+    config_default = 0
 
-    L2TPV2_FRAGMENT = 1
+    l2tpv2_fragment = 1
 
-    FRAGMENT = 2
+    fragment = 2
 
-    OSPF_MULTICAST_KNOWN = 3
+    ospf_multicast_known = 3
 
-    OSPF_MULTICAST_DEFAULT = 4
+    ospf_multicast_default = 4
 
-    OSPF_UNICAST_KNOWN = 5
+    ospf_unicast_known = 5
 
-    OSPF_UNICAST_DEFAULT = 6
+    ospf_unicast_default = 6
 
-    ISIS_KNOWN = 7
+    isis_known = 7
 
-    ISIS_DEFAULT = 8
+    isis_default = 8
 
-    BFD_KNOWN = 9
+    bfd_known = 9
 
-    BFD_DEFAULT = 10
+    bfd_default = 10
 
-    BFD_MULTIPATH_KNOWN = 11
+    bfd_multipath_known = 11
 
-    BFD_MULTIPATH0 = 12
+    bfd_multipath0 = 12
 
-    BFD_BLB_KNOWN = 13
+    bfd_blb_known = 13
 
-    BFD_BLB0 = 14
+    bfd_blb0 = 14
 
-    BFD_SP0 = 15
+    bfd_sp0 = 15
 
-    BGP_KNOWN = 16
+    bgp_known = 16
 
-    BGP_CONFIG_PEER = 17
+    bgp_config_peer = 17
 
-    BGP_DEFAULT = 18
+    bgp_default = 18
 
-    PIM_MULTICAST_DEFAULT = 19
+    pim_multicast_default = 19
 
-    PIM_MULTICAST_KNOWN = 20
+    pim_multicast_known = 20
 
-    PIM_UNICAST = 21
+    pim_unicast = 21
 
-    IGMP = 22
+    igmp = 22
 
-    ICMP_LOCAL = 23
+    icmp_local = 23
 
-    ICMP_APP = 24
+    icmp_app = 24
 
-    ICMP_CONTROL = 25
+    icmp_control = 25
 
-    ICMP_DEFAULT = 26
+    icmp_default = 26
 
-    ICMP_APP_DEFAULT = 27
+    icmp_app_default = 27
 
-    LDP_TCP_KNOWN = 28
+    ldp_tcp_known = 28
 
-    LDP_TCP_CONFIG_PEER = 29
+    ldp_tcp_config_peer = 29
 
-    LDP_TCP_DEFAULT = 30
+    ldp_tcp_default = 30
 
-    LDP_UDP = 31
+    ldp_udp = 31
 
-    ALL_ROUTERS = 32
+    all_routers = 32
 
-    LMP_TCP_KNOWN = 33
+    lmp_tcp_known = 33
 
-    LMP_TCP_CONFIG_PEER = 34
+    lmp_tcp_config_peer = 34
 
-    LMP_TCP_DEFAULT = 35
+    lmp_tcp_default = 35
 
-    LMP_UDP = 36
+    lmp_udp = 36
 
-    RSVP_UDP = 37
+    rsvp_udp = 37
 
-    RSVP_DEFAULT = 38
+    rsvp_default = 38
 
-    RSVP_KNOWN = 39
+    rsvp_known = 39
 
-    IKE = 40
+    ike = 40
 
-    IPSEC_KNOWN = 41
+    ipsec_known = 41
 
-    IPSEC_DEFAULT = 42
+    ipsec_default = 42
 
-    IPSEC_FRAGMENT = 43
+    ipsec_fragment = 43
 
-    MSDP_KNOWN = 44
+    msdp_known = 44
 
-    MSDP_CONFIG_PEER = 45
+    msdp_config_peer = 45
 
-    MSDP_DEFAULT = 46
+    msdp_default = 46
 
-    SNMP = 47
+    snmp = 47
 
-    SSH_KNOWN = 48
+    ssh_known = 48
 
-    SSH_DEFAULT = 49
+    ssh_default = 49
 
-    HTTP_KNOWN = 50
+    http_known = 50
 
-    HTTP_DEFAULT = 51
+    http_default = 51
 
-    SHTTP_KNOWN = 52
+    shttp_known = 52
 
-    SHTTP_DEFAULT = 53
+    shttp_default = 53
 
-    TELNET_KNOWN = 54
+    telnet_known = 54
 
-    TELNET_DEFAULT = 55
+    telnet_default = 55
 
-    CSS_KNOWN = 56
+    css_known = 56
 
-    CSS_DEFAULT = 57
+    css_default = 57
 
-    RSH_KNOWN = 58
+    rsh_known = 58
 
-    RSH_DEFAULT = 59
+    rsh_default = 59
 
-    UDP_KNOWN = 60
+    udp_known = 60
 
-    UDP_LISTEN = 61
+    udp_listen = 61
 
-    UDP_CONFIG_PEER = 62
+    udp_config_peer = 62
 
-    UDP_DEFAULT = 63
+    udp_default = 63
 
-    TCP_KNOWN = 64
+    tcp_known = 64
 
-    TCP_LISTEN = 65
+    tcp_listen = 65
 
-    TCP_CONFIG_PEER = 66
+    tcp_config_peer = 66
 
-    TCP_DEFAULT = 67
+    tcp_default = 67
 
-    MULTICAST_KNOWN = 68
+    multicast_known = 68
 
-    MULTICAST_DEFAULT = 69
+    multicast_default = 69
 
-    RAW_LISTEN = 70
+    raw_listen = 70
 
-    RAW_DEFAULT = 71
+    raw_default = 71
 
-    IPSLA = 72
+    ipsla = 72
 
-    EIGRP = 73
+    eigrp = 73
 
-    RIP = 74
+    rip = 74
 
-    L2TPV3 = 75
+    l2tpv3 = 75
 
-    PCEP_TCP_DEFAULT = 76
+    pcep_tcp_default = 76
 
-    GRE = 77
+    gre = 77
 
-    VRRP = 78
+    vrrp = 78
 
-    HSRP = 79
+    hsrp = 79
 
-    MPLS_PING = 80
+    mpls_ping = 80
 
-    L2TPV2_DEFAULT = 81
+    l2tpv2_default = 81
 
-    L2TPV2_KNOWN = 82
+    l2tpv2_known = 82
 
-    DNS = 83
+    dns = 83
 
-    RADIUS = 84
+    radius = 84
 
-    TACACS = 85
+    tacacs = 85
 
-    NTP_DEFAULT = 86
+    ntp_default = 86
 
-    NTP_KNOWN = 87
+    ntp_known = 87
 
-    MOBILE_IPV6 = 88
+    mobile_ipv6 = 88
 
-    AMT = 89
+    amt = 89
 
-    SDAC_TCP = 90
+    sdac_tcp = 90
 
-    RADIUS_COA = 91
+    radius_coa = 91
 
-    REL_UDP = 92
+    rel_udp = 92
 
-    DHCP4 = 93
+    dhcp4 = 93
 
-    DHCP6 = 94
+    dhcp6 = 94
 
-    ONEPK = 95
+    onepk = 95
 
-    EXR = 96
+    exr = 96
 
 
     @staticmethod
@@ -702,57 +702,57 @@ class LptsPreIFibPrecedenceNumberEnum(Enum):
 
     Lpts pre i fib precedence number
 
-    .. data:: CRITICAL = 5
+    .. data:: critical = 5
 
     	Match packets with critical precedence
 
-    .. data:: FLASH = 3
+    .. data:: flash = 3
 
     	Match packets with flash precedence
 
-    .. data:: FLASH_OVERRIDE = 4
+    .. data:: flash_override = 4
 
     	Match packets with flash override precedence
 
-    .. data:: IMMEDIATE = 2
+    .. data:: immediate = 2
 
     	Match packets with immediate precedence
 
-    .. data:: INTERNET = 6
+    .. data:: internet = 6
 
     	Match packets with internetwork control
 
     	precedence
 
-    .. data:: NETWORK = 7
+    .. data:: network = 7
 
     	Match packets with network control precedence
 
-    .. data:: PRIORITY = 1
+    .. data:: priority = 1
 
     	Match packets with priority precedence
 
-    .. data:: ROUTINE = 0
+    .. data:: routine = 0
 
     	Match packets with routine precedence
 
     """
 
-    CRITICAL = 5
+    critical = 5
 
-    FLASH = 3
+    flash = 3
 
-    FLASH_OVERRIDE = 4
+    flash_override = 4
 
-    IMMEDIATE = 2
+    immediate = 2
 
-    INTERNET = 6
+    internet = 6
 
-    NETWORK = 7
+    network = 7
 
-    PRIORITY = 1
+    priority = 1
 
-    ROUTINE = 0
+    routine = 0
 
 
     @staticmethod

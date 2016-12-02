@@ -80,12 +80,12 @@ class System(object):
     .. attribute:: authentication
     
     	The authentication configuration subtree
-    	**type**\:  :py:class:`Authentication <ydk.models.ietf.ietf_system.System.Authentication>`
+    	**type**\:   :py:class:`Authentication <ydk.models.ietf.ietf_system.System.Authentication>`
     
     .. attribute:: clock
     
     	Configuration of the system date and time properties
-    	**type**\:  :py:class:`Clock <ydk.models.ietf.ietf_system.System.Clock>`
+    	**type**\:   :py:class:`Clock <ydk.models.ietf.ietf_system.System.Clock>`
     
     .. attribute:: contact
     
@@ -95,7 +95,7 @@ class System(object):
     .. attribute:: dns_resolver
     
     	Configuration of the DNS resolver
-    	**type**\:  :py:class:`DnsResolver <ydk.models.ietf.ietf_system.System.DnsResolver>`
+    	**type**\:   :py:class:`DnsResolver <ydk.models.ietf.ietf_system.System.DnsResolver>`
     
     .. attribute:: hostname
     
@@ -112,12 +112,14 @@ class System(object):
     .. attribute:: ntp
     
     	Configuration of the NTP client
-    	**type**\:  :py:class:`Ntp <ydk.models.ietf.ietf_system.System.Ntp>`
+    	**type**\:   :py:class:`Ntp <ydk.models.ietf.ietf_system.System.Ntp>`
+    
+    	**presence node**\: True
     
     .. attribute:: radius
     
     	Configuration of the RADIUS client
-    	**type**\:  :py:class:`Radius <ydk.models.ietf.ietf_system.System.Radius>`
+    	**type**\:   :py:class:`Radius <ydk.models.ietf.ietf_system.System.Radius>`
     
     
 
@@ -156,6 +158,8 @@ class System(object):
         	**type**\:  int
         
         	**range:** \-1500..1500
+        
+        	**units**\: minutes
         
         
 
@@ -204,10 +208,12 @@ class System(object):
         	Indicates that the system should attempt to synchronize the system clock with an NTP server from the 'ntp/server' list
         	**type**\:  bool
         
+        	**default value**\: true
+        
         .. attribute:: server
         
         	List of NTP servers to use for system clock synchronization.  If '/system/ntp/enabled' is 'true', then the system will attempt to contact and utilize the specified NTP servers
-        	**type**\: list of  :py:class:`Server <ydk.models.ietf.ietf_system.System.Ntp.Server>`
+        	**type**\: list of    :py:class:`Server <ydk.models.ietf.ietf_system.System.Ntp.Server>`
         
         .. attribute:: _is_presence
         
@@ -247,22 +253,28 @@ class System(object):
             .. attribute:: association_type
             
             	The desired association type for this NTP server
-            	**type**\:  :py:class:`AssociationTypeEnum <ydk.models.ietf.ietf_system.System.Ntp.Server.AssociationTypeEnum>`
+            	**type**\:   :py:class:`AssociationTypeEnum <ydk.models.ietf.ietf_system.System.Ntp.Server.AssociationTypeEnum>`
+            
+            	**default value**\: server
             
             .. attribute:: iburst
             
             	Indicates whether this server should enable burst synchronization or not
             	**type**\:  bool
             
+            	**default value**\: false
+            
             .. attribute:: prefer
             
             	Indicates whether this server should be preferred or not
             	**type**\:  bool
             
+            	**default value**\: false
+            
             .. attribute:: udp
             
             	Contains UDP\-specific configuration parameters for NTP
-            	**type**\:  :py:class:`Udp <ydk.models.ietf.ietf_system.System.Ntp.Server.Udp>`
+            	**type**\:   :py:class:`Udp <ydk.models.ietf.ietf_system.System.Ntp.Server.Udp>`
             
             
 
@@ -286,7 +298,7 @@ class System(object):
 
                 The desired association type for this NTP server.
 
-                .. data:: SERVER = 0
+                .. data:: server = 0
 
                 	Use client association mode.  This device
 
@@ -294,7 +306,7 @@ class System(object):
 
                 	configured NTP server.
 
-                .. data:: PEER = 1
+                .. data:: peer = 1
 
                 	Use symmetric active association mode.
 
@@ -302,7 +314,7 @@ class System(object):
 
                 	to the configured NTP server.
 
-                .. data:: POOL = 2
+                .. data:: pool = 2
 
                 	Use client association mode with one or
 
@@ -316,11 +328,11 @@ class System(object):
 
                 """
 
-                SERVER = 0
+                server = 0
 
-                PEER = 1
+                peer = 1
 
-                POOL = 2
+                pool = 2
 
 
                 @staticmethod
@@ -372,6 +384,8 @@ class System(object):
                 	**type**\:  int
                 
                 	**range:** 0..65535
+                
+                	**default value**\: 123
                 
                 
 
@@ -485,7 +499,7 @@ class System(object):
         .. attribute:: options
         
         	Resolver options.  The set of available options has been limited to those that are generally available across different resolver implementations and generally useful
-        	**type**\:  :py:class:`Options <ydk.models.ietf.ietf_system.System.DnsResolver.Options>`
+        	**type**\:   :py:class:`Options <ydk.models.ietf.ietf_system.System.DnsResolver.Options>`
         
         .. attribute:: search
         
@@ -497,7 +511,7 @@ class System(object):
         .. attribute:: server
         
         	List of the DNS servers that the resolver should query. When the resolver is invoked by a calling application, it sends the query to the first name server in this list.  If no response has been received within 'timeout' seconds, the resolver continues with the next server in the list. If no response is received from any server, the resolver continues with the first server again.  When the resolver has traversed the list 'attempts' times without receiving any response, it gives up and returns an error to the calling application. Implementations MAY limit the number of entries in this list
-        	**type**\: list of  :py:class:`Server <ydk.models.ietf.ietf_system.System.DnsResolver.Server>`
+        	**type**\: list of    :py:class:`Server <ydk.models.ietf.ietf_system.System.DnsResolver.Server>`
         
         
 
@@ -541,7 +555,7 @@ class System(object):
             .. attribute:: udp_and_tcp
             
             	Contains UDP\- and TCP\-specific configuration parameters for DNS
-            	**type**\:  :py:class:`UdpAndTcp <ydk.models.ietf.ietf_system.System.DnsResolver.Server.UdpAndTcp>`
+            	**type**\:   :py:class:`UdpAndTcp <ydk.models.ietf.ietf_system.System.DnsResolver.Server.UdpAndTcp>`
             
             
 
@@ -589,6 +603,8 @@ class System(object):
                 	**type**\:  int
                 
                 	**range:** 0..65535
+                
+                	**default value**\: 53
                 
                 
 
@@ -670,12 +686,18 @@ class System(object):
             
             	**range:** 1..255
             
+            	**default value**\: 2
+            
             .. attribute:: timeout
             
             	The amount of time the resolver will wait for a response from each remote name server before retrying the query via a different name server
             	**type**\:  int
             
             	**range:** 1..255
+            
+            	**units**\: seconds
+            
+            	**default value**\: 5
             
             
 
@@ -754,12 +776,12 @@ class System(object):
         .. attribute:: options
         
         	RADIUS client options
-        	**type**\:  :py:class:`Options <ydk.models.ietf.ietf_system.System.Radius.Options>`
+        	**type**\:   :py:class:`Options <ydk.models.ietf.ietf_system.System.Radius.Options>`
         
         .. attribute:: server
         
         	List of RADIUS servers used by the device. When the RADIUS client is invoked by a calling application, it sends the query to the first server in this list.  If no response has been received within 'timeout' seconds, the client continues with the next server in the list.  If no response is received from any server, the client continues with the first server again. When the client has traversed the list 'attempts' times without receiving any response, it gives up and returns an error to the calling application
-        	**type**\: list of  :py:class:`Server <ydk.models.ietf.ietf_system.System.Radius.Server>`
+        	**type**\: list of    :py:class:`Server <ydk.models.ietf.ietf_system.System.Radius.Server>`
         
         
 
@@ -798,12 +820,14 @@ class System(object):
             .. attribute:: authentication_type
             
             	The authentication type requested from the RADIUS server
-            	**type**\:  :py:class:`RadiusAuthenticationTypeIdentity <ydk.models.ietf.ietf_system.RadiusAuthenticationTypeIdentity>`
+            	**type**\:   :py:class:`RadiusAuthenticationTypeIdentity <ydk.models.ietf.ietf_system.RadiusAuthenticationTypeIdentity>`
+            
+            	**default value**\: radius-pap
             
             .. attribute:: udp
             
             	Contains UDP\-specific configuration parameters for RADIUS
-            	**type**\:  :py:class:`Udp <ydk.models.ietf.ietf_system.System.Radius.Server.Udp>`
+            	**type**\:   :py:class:`Udp <ydk.models.ietf.ietf_system.System.Radius.Server.Udp>`
             
             
 
@@ -862,6 +886,8 @@ class System(object):
                 	**type**\:  int
                 
                 	**range:** 0..65535
+                
+                	**default value**\: 1812
                 
                 .. attribute:: shared_secret
                 
@@ -955,12 +981,18 @@ class System(object):
             
             	**range:** 1..255
             
+            	**default value**\: 2
+            
             .. attribute:: timeout
             
             	The number of seconds the device will wait for a response from each RADIUS server before trying with a different server
             	**type**\:  int
             
             	**range:** 1..255
+            
+            	**units**\: seconds
+            
+            	**default value**\: 5
             
             
 
@@ -1034,12 +1066,13 @@ class System(object):
         .. attribute:: user
         
         	The list of local users configured on this device
-        	**type**\: list of  :py:class:`User <ydk.models.ietf.ietf_system.System.Authentication.User>`
+        	**type**\: list of    :py:class:`User <ydk.models.ietf.ietf_system.System.Authentication.User>`
         
         .. attribute:: user_authentication_order
         
         	When the device authenticates a user with a password, it tries the authentication methods in this leaf\-list in order.  If authentication with one method fails, the next method is used.  If no method succeeds, the user is denied access. An empty user\-authentication\-order leaf\-list still allows authentication of users using mechanisms that do not involve a password. If the 'radius\-authentication' feature is advertised by the NETCONF server, the 'radius' identity can be added to this list. If the 'local\-users' feature is advertised by the NETCONF server, the 'local\-users' identity can be added to this list
-        	**type**\:  list of :py:class:`AuthenticationMethodIdentity <ydk.models.ietf.ietf_system.AuthenticationMethodIdentity>`
+        	**type**\:  
+        		list of  
         
         
 
@@ -1070,7 +1103,7 @@ class System(object):
             .. attribute:: authorized_key
             
             	A list of public SSH keys for this user.  These keys are allowed for SSH authentication, as described in RFC 4253
-            	**type**\: list of  :py:class:`AuthorizedKey <ydk.models.ietf.ietf_system.System.Authentication.User.AuthorizedKey>`
+            	**type**\: list of    :py:class:`AuthorizedKey <ydk.models.ietf.ietf_system.System.Authentication.User.AuthorizedKey>`
             
             .. attribute:: password
             
@@ -1277,12 +1310,12 @@ class SystemState(object):
     .. attribute:: clock
     
     	Monitoring of the system date and time properties
-    	**type**\:  :py:class:`Clock <ydk.models.ietf.ietf_system.SystemState.Clock>`
+    	**type**\:   :py:class:`Clock <ydk.models.ietf.ietf_system.SystemState.Clock>`
     
     .. attribute:: platform
     
     	Contains vendor\-specific information for identifying the system platform and operating system
-    	**type**\:  :py:class:`Platform <ydk.models.ietf.ietf_system.SystemState.Platform>`
+    	**type**\:   :py:class:`Platform <ydk.models.ietf.ietf_system.SystemState.Platform>`
     
     
 
@@ -1462,7 +1495,7 @@ class SetCurrentDatetimeRpc(object):
     .. attribute:: input
     
     	
-    	**type**\:  :py:class:`Input <ydk.models.ietf.ietf_system.SetCurrentDatetimeRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_system.SetCurrentDatetimeRpc.Input>`
     
     
 

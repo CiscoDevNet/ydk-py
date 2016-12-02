@@ -32,25 +32,25 @@ class EfpPayloadEtypeEnum(Enum):
 
     Payload ethertype match
 
-    .. data:: PAYLOAD_ETHERTYPE_ANY = 0
+    .. data:: payload_ethertype_any = 0
 
     	Any
 
-    .. data:: PAYLOAD_ETHERTYPE_IP = 1
+    .. data:: payload_ethertype_ip = 1
 
     	IP
 
-    .. data:: PAYLOAD_ETHERTYPE_PPPOE = 2
+    .. data:: payload_ethertype_pppoe = 2
 
     	PPPoE
 
     """
 
-    PAYLOAD_ETHERTYPE_ANY = 0
+    payload_ethertype_any = 0
 
-    PAYLOAD_ETHERTYPE_IP = 1
+    payload_ethertype_ip = 1
 
-    PAYLOAD_ETHERTYPE_PPPOE = 2
+    payload_ethertype_pppoe = 2
 
 
     @staticmethod
@@ -65,25 +65,25 @@ class EfpTagEtypeEnum(Enum):
 
     Tag ethertype
 
-    .. data:: UNTAGGED = 0
+    .. data:: untagged = 0
 
     	Untagged
 
-    .. data:: DOT1Q = 33024
+    .. data:: dot1q = 33024
 
     	Dot1Q
 
-    .. data:: DOT1AD = 34984
+    .. data:: dot1ad = 34984
 
     	Dot1ad
 
     """
 
-    UNTAGGED = 0
+    untagged = 0
 
-    DOT1Q = 33024
+    dot1q = 33024
 
-    DOT1AD = 34984
+    dot1ad = 34984
 
 
     @staticmethod
@@ -98,61 +98,61 @@ class EfpTagPriorityEnum(Enum):
 
     Priority
 
-    .. data:: PRIORITY0 = 0
+    .. data:: priority0 = 0
 
     	Priority 0
 
-    .. data:: PRIORITY1 = 1
+    .. data:: priority1 = 1
 
     	Priority 1
 
-    .. data:: PRIORITY2 = 2
+    .. data:: priority2 = 2
 
     	Priority 2
 
-    .. data:: PRIORITY3 = 3
+    .. data:: priority3 = 3
 
     	Priority 3
 
-    .. data:: PRIORITY4 = 4
+    .. data:: priority4 = 4
 
     	Priority 4
 
-    .. data:: PRIORITY5 = 5
+    .. data:: priority5 = 5
 
     	Priority 5
 
-    .. data:: PRIORITY6 = 6
+    .. data:: priority6 = 6
 
     	Priority 6
 
-    .. data:: PRIORITY7 = 7
+    .. data:: priority7 = 7
 
     	Priority 7
 
-    .. data:: PRIORITY_ANY = 8
+    .. data:: priority_any = 8
 
     	Any priority
 
     """
 
-    PRIORITY0 = 0
+    priority0 = 0
 
-    PRIORITY1 = 1
+    priority1 = 1
 
-    PRIORITY2 = 2
+    priority2 = 2
 
-    PRIORITY3 = 3
+    priority3 = 3
 
-    PRIORITY4 = 4
+    priority4 = 4
 
-    PRIORITY5 = 5
+    priority5 = 5
 
-    PRIORITY6 = 6
+    priority6 = 6
 
-    PRIORITY7 = 7
+    priority7 = 7
 
-    PRIORITY_ANY = 8
+    priority_any = 8
 
 
     @staticmethod
@@ -167,19 +167,19 @@ class EthCapsUcastMacModeEnum(Enum):
 
     Eth caps ucast mac mode
 
-    .. data:: RESERVED = 0
+    .. data:: reserved = 0
 
     	Reserved
 
-    .. data:: PERMIT = 1
+    .. data:: permit = 1
 
     	Permit
 
     """
 
-    RESERVED = 0
+    reserved = 0
 
-    PERMIT = 1
+    permit = 1
 
 
     @staticmethod
@@ -194,33 +194,33 @@ class EthFilteringEnum(Enum):
 
     Ethernet frame filtering
 
-    .. data:: NO_FILTERING = 0
+    .. data:: no_filtering = 0
 
     	No IEEE 802.1Q/802.1ad/MAC relay multicast MAC
 
     	address filtering
 
-    .. data:: DOT1Q_FILTERING = 1
+    .. data:: dot1q_filtering = 1
 
     	IEEE 802.1q C-VLAN filtering
 
-    .. data:: DOT1AD_FILTERING = 2
+    .. data:: dot1ad_filtering = 2
 
     	IEEE 802.1ad S-VLAN filtering
 
-    .. data:: TWO_PORT_MAC_RELAY_FILTERING = 3
+    .. data:: two_port_mac_relay_filtering = 3
 
     	IEEE 802.1aj 2-Port MAC relay filtering
 
     """
 
-    NO_FILTERING = 0
+    no_filtering = 0
 
-    DOT1Q_FILTERING = 1
+    dot1q_filtering = 1
 
-    DOT1AD_FILTERING = 2
+    dot1ad_filtering = 2
 
-    TWO_PORT_MAC_RELAY_FILTERING = 3
+    two_port_mac_relay_filtering = 3
 
 
     @staticmethod
@@ -235,121 +235,121 @@ class ImStateEnumEnum(Enum):
 
     Im state enum
 
-    .. data:: IM_STATE_NOT_READY = 0
+    .. data:: im_state_not_ready = 0
 
     	im state not ready
 
-    .. data:: IM_STATE_ADMIN_DOWN = 1
+    .. data:: im_state_admin_down = 1
 
     	im state admin down
 
-    .. data:: IM_STATE_DOWN = 2
+    .. data:: im_state_down = 2
 
     	im state down
 
-    .. data:: IM_STATE_UP = 3
+    .. data:: im_state_up = 3
 
     	im state up
 
-    .. data:: IM_STATE_SHUTDOWN = 4
+    .. data:: im_state_shutdown = 4
 
     	im state shutdown
 
-    .. data:: IM_STATE_ERR_DISABLE = 5
+    .. data:: im_state_err_disable = 5
 
     	im state err disable
 
-    .. data:: IM_STATE_DOWN_IMMEDIATE = 6
+    .. data:: im_state_down_immediate = 6
 
     	im state down immediate
 
-    .. data:: IM_STATE_DOWN_IMMEDIATE_ADMIN = 7
+    .. data:: im_state_down_immediate_admin = 7
 
     	im state down immediate admin
 
-    .. data:: IM_STATE_DOWN_GRACEFUL = 8
+    .. data:: im_state_down_graceful = 8
 
     	im state down graceful
 
-    .. data:: IM_STATE_BEGIN_SHUTDOWN = 9
+    .. data:: im_state_begin_shutdown = 9
 
     	im state begin shutdown
 
-    .. data:: IM_STATE_END_SHUTDOWN = 10
+    .. data:: im_state_end_shutdown = 10
 
     	im state end shutdown
 
-    .. data:: IM_STATE_BEGIN_ERROR_DISABLE = 11
+    .. data:: im_state_begin_error_disable = 11
 
     	im state begin error disable
 
-    .. data:: IM_STATE_END_ERROR_DISABLE = 12
+    .. data:: im_state_end_error_disable = 12
 
     	im state end error disable
 
-    .. data:: IM_STATE_BEGIN_DOWN_GRACEFUL = 13
+    .. data:: im_state_begin_down_graceful = 13
 
     	im state begin down graceful
 
-    .. data:: IM_STATE_RESET = 14
+    .. data:: im_state_reset = 14
 
     	im state reset
 
-    .. data:: IM_STATE_OPERATIONAL = 15
+    .. data:: im_state_operational = 15
 
     	im state operational
 
-    .. data:: IM_STATE_NOT_OPERATIONAL = 16
+    .. data:: im_state_not_operational = 16
 
     	im state not operational
 
-    .. data:: IM_STATE_UNKNOWN = 17
+    .. data:: im_state_unknown = 17
 
     	im state unknown
 
-    .. data:: IM_STATE_LAST = 18
+    .. data:: im_state_last = 18
 
     	im state last
 
     """
 
-    IM_STATE_NOT_READY = 0
+    im_state_not_ready = 0
 
-    IM_STATE_ADMIN_DOWN = 1
+    im_state_admin_down = 1
 
-    IM_STATE_DOWN = 2
+    im_state_down = 2
 
-    IM_STATE_UP = 3
+    im_state_up = 3
 
-    IM_STATE_SHUTDOWN = 4
+    im_state_shutdown = 4
 
-    IM_STATE_ERR_DISABLE = 5
+    im_state_err_disable = 5
 
-    IM_STATE_DOWN_IMMEDIATE = 6
+    im_state_down_immediate = 6
 
-    IM_STATE_DOWN_IMMEDIATE_ADMIN = 7
+    im_state_down_immediate_admin = 7
 
-    IM_STATE_DOWN_GRACEFUL = 8
+    im_state_down_graceful = 8
 
-    IM_STATE_BEGIN_SHUTDOWN = 9
+    im_state_begin_shutdown = 9
 
-    IM_STATE_END_SHUTDOWN = 10
+    im_state_end_shutdown = 10
 
-    IM_STATE_BEGIN_ERROR_DISABLE = 11
+    im_state_begin_error_disable = 11
 
-    IM_STATE_END_ERROR_DISABLE = 12
+    im_state_end_error_disable = 12
 
-    IM_STATE_BEGIN_DOWN_GRACEFUL = 13
+    im_state_begin_down_graceful = 13
 
-    IM_STATE_RESET = 14
+    im_state_reset = 14
 
-    IM_STATE_OPERATIONAL = 15
+    im_state_operational = 15
 
-    IM_STATE_NOT_OPERATIONAL = 16
+    im_state_not_operational = 16
 
-    IM_STATE_UNKNOWN = 17
+    im_state_unknown = 17
 
-    IM_STATE_LAST = 18
+    im_state_last = 18
 
 
     @staticmethod
@@ -364,67 +364,67 @@ class VlanEncapsEnum(Enum):
 
     VLAN encapsulation
 
-    .. data:: NO_ENCAPSULATION = 0
+    .. data:: no_encapsulation = 0
 
     	No encapsulation
 
-    .. data:: DOT1Q = 1
+    .. data:: dot1q = 1
 
     	IEEE 802.1Q encapsulation
 
-    .. data:: QINQ = 2
+    .. data:: qinq = 2
 
     	Double 802.1Q encapsulation
 
-    .. data:: QIN_ANY = 3
+    .. data:: qin_any = 3
 
     	Double 802.1Q wildcarded encapsulation
 
-    .. data:: DOT1Q_NATIVE = 4
+    .. data:: dot1q_native = 4
 
     	IEEE 802.1Q native VLAN encapsulation
 
-    .. data:: DOT1AD = 5
+    .. data:: dot1ad = 5
 
     	IEEE 802.1ad encapsulation
 
-    .. data:: DOT1AD_NATIVE = 6
+    .. data:: dot1ad_native = 6
 
     	IEEE 802.1ad native VLAN encapsulation
 
-    .. data:: SERVICE_INSTANCE = 7
+    .. data:: service_instance = 7
 
     	Ethernet Service Instance
 
-    .. data:: DOT1AD_DOT1Q = 8
+    .. data:: dot1ad_dot1q = 8
 
     	IEEE 802.1ad 802.1Q encapsulation
 
-    .. data:: DOT1AD_ANY = 9
+    .. data:: dot1ad_any = 9
 
     	IEEE 802.1ad wildcard 802.1Q encapsulation
 
     """
 
-    NO_ENCAPSULATION = 0
+    no_encapsulation = 0
 
-    DOT1Q = 1
+    dot1q = 1
 
-    QINQ = 2
+    qinq = 2
 
-    QIN_ANY = 3
+    qin_any = 3
 
-    DOT1Q_NATIVE = 4
+    dot1q_native = 4
 
-    DOT1AD = 5
+    dot1ad = 5
 
-    DOT1AD_NATIVE = 6
+    dot1ad_native = 6
 
-    SERVICE_INSTANCE = 7
+    service_instance = 7
 
-    DOT1AD_DOT1Q = 8
+    dot1ad_dot1q = 8
 
-    DOT1AD_ANY = 9
+    dot1ad_any = 9
 
 
     @staticmethod
@@ -439,25 +439,25 @@ class VlanQinqOuterEtypeEnum(Enum):
 
     QinQ Outer Tag Ethertype
 
-    .. data:: ETHER_TYPE8100 = 33024
+    .. data:: ether_type8100 = 33024
 
     	Dot1Q (0x8100)
 
-    .. data:: ETHER_TYPE9100 = 37120
+    .. data:: ether_type9100 = 37120
 
     	0x9100
 
-    .. data:: ETHER_TYPE9200 = 37376
+    .. data:: ether_type9200 = 37376
 
     	0x9200
 
     """
 
-    ETHER_TYPE8100 = 33024
+    ether_type8100 = 33024
 
-    ETHER_TYPE9100 = 37120
+    ether_type9100 = 37120
 
-    ETHER_TYPE9200 = 37376
+    ether_type9200 = 37376
 
 
     @staticmethod
@@ -472,19 +472,19 @@ class VlanServiceEnum(Enum):
 
     Layer 2 vs. Layer 3 Terminated Service
 
-    .. data:: VLAN_SERVICE_L2 = 1
+    .. data:: vlan_service_l2 = 1
 
     	Layer 2 Transport Service
 
-    .. data:: VLAN_SERVICE_L3 = 2
+    .. data:: vlan_service_l3 = 2
 
     	Layer 3 Terminated Service
 
     """
 
-    VLAN_SERVICE_L2 = 1
+    vlan_service_l2 = 1
 
-    VLAN_SERVICE_L3 = 2
+    vlan_service_l3 = 2
 
 
     @staticmethod
@@ -501,7 +501,7 @@ class MacAccounting(object):
     .. attribute:: interfaces
     
     	MAC accounting interface table in MIB lexicographic order
-    	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.MacAccounting.Interfaces>`
+    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.MacAccounting.Interfaces>`
     
     
 
@@ -523,7 +523,7 @@ class MacAccounting(object):
         .. attribute:: interface
         
         	Operational data and statistics for an interface configured with MAC accounting enabled
-        	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.MacAccounting.Interfaces.Interface>`
+        	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.MacAccounting.Interfaces.Interface>`
         
         
 
@@ -555,17 +555,17 @@ class MacAccounting(object):
             .. attribute:: egress_statistic
             
             	Egress MAC accounting statistics
-            	**type**\: list of  :py:class:`EgressStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.MacAccounting.Interfaces.Interface.EgressStatistic>`
+            	**type**\: list of    :py:class:`EgressStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.MacAccounting.Interfaces.Interface.EgressStatistic>`
             
             .. attribute:: ingress_statistic
             
             	Ingress MAC accounting statistics
-            	**type**\: list of  :py:class:`IngressStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.MacAccounting.Interfaces.Interface.IngressStatistic>`
+            	**type**\: list of    :py:class:`IngressStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.MacAccounting.Interfaces.Interface.IngressStatistic>`
             
             .. attribute:: state
             
             	MAC accounting state for the interface
-            	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.MacAccounting.Interfaces.Interface.State>`
+            	**type**\:   :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.MacAccounting.Interfaces.Interface.State>`
             
             
 
@@ -685,6 +685,8 @@ class MacAccounting(object):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**units**\: byte
+                
                 .. attribute:: mac_address
                 
                 	48bit MAC address
@@ -753,6 +755,8 @@ class MacAccounting(object):
                 	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**units**\: byte
                 
                 .. attribute:: mac_address
                 
@@ -902,7 +906,7 @@ class Vlan(object):
     .. attribute:: nodes
     
     	Per node VLAN operational data
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes>`
     
     
 
@@ -923,7 +927,7 @@ class Vlan(object):
         .. attribute:: node
         
         	The VLAN operational data for a particular node
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node>`
         
         
 
@@ -953,17 +957,17 @@ class Vlan(object):
             .. attribute:: interfaces
             
             	VLAN interface table (specific to this node)
-            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces>`
+            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces>`
             
             .. attribute:: tag_allocations
             
             	VLAN tag allocation table (specific to this node)
-            	**type**\:  :py:class:`TagAllocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations>`
+            	**type**\:   :py:class:`TagAllocations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations>`
             
             .. attribute:: trunks
             
             	VLAN trunk table (specific to this node)
-            	**type**\:  :py:class:`Trunks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks>`
+            	**type**\:   :py:class:`Trunks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks>`
             
             
 
@@ -990,7 +994,7 @@ class Vlan(object):
                 .. attribute:: trunk
                 
                 	Operational data for trunk interfaces configured with VLANs
-                	**type**\: list of  :py:class:`Trunk <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk>`
+                	**type**\: list of    :py:class:`Trunk <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk>`
                 
                 
 
@@ -1035,17 +1039,17 @@ class Vlan(object):
                     .. attribute:: layer2_sub_interfaces
                     
                     	Layer 2 Transport Subinterfaces
-                    	**type**\:  :py:class:`Layer2SubInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces>`
+                    	**type**\:   :py:class:`Layer2SubInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces>`
                     
                     .. attribute:: layer3_sub_interfaces
                     
                     	Layer 3 Terminated Subinterfaces
-                    	**type**\:  :py:class:`Layer3SubInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces>`
+                    	**type**\:   :py:class:`Layer3SubInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces>`
                     
                     .. attribute:: mac_filtering
                     
                     	IEEE 802.1Q/802.1ad multicast MAC address filtering
-                    	**type**\:  :py:class:`EthFilteringEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthFilteringEnum>`
+                    	**type**\:   :py:class:`EthFilteringEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthFilteringEnum>`
                     
                     .. attribute:: mtu
                     
@@ -1057,12 +1061,12 @@ class Vlan(object):
                     .. attribute:: qinq_outer_ether_type
                     
                     	QinQ Outer Tag Ether Type
-                    	**type**\:  :py:class:`VlanQinqOuterEtypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.VlanQinqOuterEtypeEnum>`
+                    	**type**\:   :py:class:`VlanQinqOuterEtypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.VlanQinqOuterEtypeEnum>`
                     
                     .. attribute:: state
                     
                     	Interface state
-                    	**type**\:  :py:class:`ImStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.ImStateEnumEnum>`
+                    	**type**\:   :py:class:`ImStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.ImStateEnumEnum>`
                     
                     .. attribute:: untagged_interface
                     
@@ -1122,7 +1126,7 @@ class Vlan(object):
                         .. attribute:: state_counters
                         
                         	Numbers of subinterfaces up, down or administratively shut down
-                        	**type**\:  :py:class:`StateCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces.StateCounters>`
+                        	**type**\:   :py:class:`StateCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces.StateCounters>`
                         
                         .. attribute:: total_count
                         
@@ -1293,7 +1297,7 @@ class Vlan(object):
                         .. attribute:: state_counters
                         
                         	Numbers of subinterfaces up, down or administratively shut down
-                        	**type**\:  :py:class:`StateCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces.StateCounters>`
+                        	**type**\:   :py:class:`StateCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces.StateCounters>`
                         
                         .. attribute:: total_count
                         
@@ -1522,7 +1526,7 @@ class Vlan(object):
                 .. attribute:: interface
                 
                 	Operational data for a sub\-interface configured with VLANs
-                	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface>`
+                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface>`
                 
                 
 
@@ -1553,7 +1557,7 @@ class Vlan(object):
                     .. attribute:: encapsulation_details
                     
                     	Encapsulation type and tag stack
-                    	**type**\:  :py:class:`EncapsulationDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails>`
+                    	**type**\:   :py:class:`EncapsulationDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails>`
                     
                     .. attribute:: interface_xr
                     
@@ -1579,12 +1583,12 @@ class Vlan(object):
                     .. attribute:: service
                     
                     	Service type
-                    	**type**\:  :py:class:`VlanServiceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.VlanServiceEnum>`
+                    	**type**\:   :py:class:`VlanServiceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.VlanServiceEnum>`
                     
                     .. attribute:: state
                     
                     	Interface state
-                    	**type**\:  :py:class:`ImStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.ImStateEnumEnum>`
+                    	**type**\:   :py:class:`ImStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.ImStateEnumEnum>`
                     
                     .. attribute:: switched_mtu
                     
@@ -1620,7 +1624,7 @@ class Vlan(object):
                         .. attribute:: dot1ad_dot1q_stack
                         
                         	802.1ad 802.1Q stack value
-                        	**type**\:  :py:class:`Dot1AdDot1QStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1AdDot1QStack>`
+                        	**type**\:   :py:class:`Dot1AdDot1QStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1AdDot1QStack>`
                         
                         .. attribute:: dot1ad_native_tag
                         
@@ -1660,12 +1664,12 @@ class Vlan(object):
                         .. attribute:: service_instance_details
                         
                         	Service Instance encapsulation
-                        	**type**\:  :py:class:`ServiceInstanceDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails>`
+                        	**type**\:   :py:class:`ServiceInstanceDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails>`
                         
                         .. attribute:: stack
                         
                         	Stack value
-                        	**type**\:  :py:class:`Stack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Stack>`
+                        	**type**\:   :py:class:`Stack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Stack>`
                         
                         .. attribute:: tag
                         
@@ -1677,7 +1681,7 @@ class Vlan(object):
                         .. attribute:: vlan_encapsulation
                         
                         	VLANEncapsulation
-                        	**type**\:  :py:class:`VlanEncapsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.VlanEncapsEnum>`
+                        	**type**\:   :py:class:`VlanEncapsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.VlanEncapsEnum>`
                         
                         
 
@@ -1790,17 +1794,17 @@ class Vlan(object):
                             .. attribute:: local_traffic_stack
                             
                             	VLAN tags for locally\-sourced traffic
-                            	**type**\:  :py:class:`LocalTrafficStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack>`
+                            	**type**\:   :py:class:`LocalTrafficStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack>`
                             
                             .. attribute:: payload_ethertype
                             
                             	Payload Ethertype to match
-                            	**type**\:  :py:class:`EfpPayloadEtypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpPayloadEtypeEnum>`
+                            	**type**\:   :py:class:`EfpPayloadEtypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpPayloadEtypeEnum>`
                             
                             .. attribute:: pushe
                             
                             	VLAN tags pushed on egress
-                            	**type**\: list of  :py:class:`Pushe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.Pushe>`
+                            	**type**\: list of    :py:class:`Pushe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.Pushe>`
                             
                             .. attribute:: source_mac_match
                             
@@ -1819,7 +1823,7 @@ class Vlan(object):
                             .. attribute:: tags_to_match
                             
                             	Tags to match on ingress packets
-                            	**type**\: list of  :py:class:`TagsToMatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch>`
+                            	**type**\: list of    :py:class:`TagsToMatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch>`
                             
                             
 
@@ -1854,7 +1858,7 @@ class Vlan(object):
                                 .. attribute:: local_traffic_tag
                                 
                                 	VLAN tags for locally\-sourced traffic
-                                	**type**\: list of  :py:class:`LocalTrafficTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag>`
+                                	**type**\: list of    :py:class:`LocalTrafficTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag>`
                                 
                                 
 
@@ -1877,7 +1881,7 @@ class Vlan(object):
                                     .. attribute:: ethertype
                                     
                                     	Ethertype of tag
-                                    	**type**\:  :py:class:`EfpTagEtypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtypeEnum>`
+                                    	**type**\:   :py:class:`EfpTagEtypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtypeEnum>`
                                     
                                     .. attribute:: vlan_id
                                     
@@ -1959,17 +1963,17 @@ class Vlan(object):
                                 .. attribute:: ethertype
                                 
                                 	Ethertype of tag to match
-                                	**type**\:  :py:class:`EfpTagEtypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtypeEnum>`
+                                	**type**\:   :py:class:`EfpTagEtypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtypeEnum>`
                                 
                                 .. attribute:: priority
                                 
                                 	Priority to match
-                                	**type**\:  :py:class:`EfpTagPriorityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagPriorityEnum>`
+                                	**type**\:   :py:class:`EfpTagPriorityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagPriorityEnum>`
                                 
                                 .. attribute:: vlan_range
                                 
                                 	VLAN Ids to match
-                                	**type**\: list of  :py:class:`VlanRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange>`
+                                	**type**\: list of    :py:class:`VlanRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange>`
                                 
                                 
 
@@ -2084,7 +2088,7 @@ class Vlan(object):
                                 .. attribute:: ethertype
                                 
                                 	Ethertype of tag
-                                	**type**\:  :py:class:`EfpTagEtypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtypeEnum>`
+                                	**type**\:   :py:class:`EfpTagEtypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtypeEnum>`
                                 
                                 .. attribute:: vlan_id
                                 
@@ -2378,7 +2382,7 @@ class Vlan(object):
                 .. attribute:: tag_allocation
                 
                 	Operational data for a sub\-interface configured with VLANs
-                	**type**\: list of  :py:class:`TagAllocation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation>`
+                	**type**\: list of    :py:class:`TagAllocation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation>`
                 
                 
 
@@ -2402,7 +2406,7 @@ class Vlan(object):
                     .. attribute:: encapsulation_details
                     
                     	Encapsulation type and tag stack
-                    	**type**\:  :py:class:`EncapsulationDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails>`
+                    	**type**\:   :py:class:`EncapsulationDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails>`
                     
                     .. attribute:: first_tag
                     
@@ -2444,7 +2448,7 @@ class Vlan(object):
                     	The second tag
                     	**type**\: one of the below types:
                     
-                    	**type**\:  :py:class:`VlanTagOrAnyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrAnyEnum>`
+                    	**type**\:   :py:class:`VlanTagOrAnyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes.VlanTagOrAnyEnum>`
                     
                     
                     ----
@@ -2457,12 +2461,12 @@ class Vlan(object):
                     .. attribute:: service
                     
                     	Service type
-                    	**type**\:  :py:class:`VlanServiceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.VlanServiceEnum>`
+                    	**type**\:   :py:class:`VlanServiceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.VlanServiceEnum>`
                     
                     .. attribute:: state
                     
                     	Interface state
-                    	**type**\:  :py:class:`ImStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.ImStateEnumEnum>`
+                    	**type**\:   :py:class:`ImStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.ImStateEnumEnum>`
                     
                     .. attribute:: switched_mtu
                     
@@ -2500,7 +2504,7 @@ class Vlan(object):
                         .. attribute:: dot1ad_dot1q_stack
                         
                         	802.1ad 802.1Q stack value
-                        	**type**\:  :py:class:`Dot1AdDot1QStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1AdDot1QStack>`
+                        	**type**\:   :py:class:`Dot1AdDot1QStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1AdDot1QStack>`
                         
                         .. attribute:: dot1ad_native_tag
                         
@@ -2540,12 +2544,12 @@ class Vlan(object):
                         .. attribute:: service_instance_details
                         
                         	Service Instance encapsulation
-                        	**type**\:  :py:class:`ServiceInstanceDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails>`
+                        	**type**\:   :py:class:`ServiceInstanceDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails>`
                         
                         .. attribute:: stack
                         
                         	Stack value
-                        	**type**\:  :py:class:`Stack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Stack>`
+                        	**type**\:   :py:class:`Stack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Stack>`
                         
                         .. attribute:: tag
                         
@@ -2557,7 +2561,7 @@ class Vlan(object):
                         .. attribute:: vlan_encapsulation
                         
                         	VLANEncapsulation
-                        	**type**\:  :py:class:`VlanEncapsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.VlanEncapsEnum>`
+                        	**type**\:   :py:class:`VlanEncapsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.VlanEncapsEnum>`
                         
                         
 
@@ -2670,17 +2674,17 @@ class Vlan(object):
                             .. attribute:: local_traffic_stack
                             
                             	VLAN tags for locally\-sourced traffic
-                            	**type**\:  :py:class:`LocalTrafficStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack>`
+                            	**type**\:   :py:class:`LocalTrafficStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack>`
                             
                             .. attribute:: payload_ethertype
                             
                             	Payload Ethertype to match
-                            	**type**\:  :py:class:`EfpPayloadEtypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpPayloadEtypeEnum>`
+                            	**type**\:   :py:class:`EfpPayloadEtypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpPayloadEtypeEnum>`
                             
                             .. attribute:: pushe
                             
                             	VLAN tags pushed on egress
-                            	**type**\: list of  :py:class:`Pushe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.Pushe>`
+                            	**type**\: list of    :py:class:`Pushe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.Pushe>`
                             
                             .. attribute:: source_mac_match
                             
@@ -2699,7 +2703,7 @@ class Vlan(object):
                             .. attribute:: tags_to_match
                             
                             	Tags to match on ingress packets
-                            	**type**\: list of  :py:class:`TagsToMatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch>`
+                            	**type**\: list of    :py:class:`TagsToMatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch>`
                             
                             
 
@@ -2734,7 +2738,7 @@ class Vlan(object):
                                 .. attribute:: local_traffic_tag
                                 
                                 	VLAN tags for locally\-sourced traffic
-                                	**type**\: list of  :py:class:`LocalTrafficTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag>`
+                                	**type**\: list of    :py:class:`LocalTrafficTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag>`
                                 
                                 
 
@@ -2757,7 +2761,7 @@ class Vlan(object):
                                     .. attribute:: ethertype
                                     
                                     	Ethertype of tag
-                                    	**type**\:  :py:class:`EfpTagEtypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtypeEnum>`
+                                    	**type**\:   :py:class:`EfpTagEtypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtypeEnum>`
                                     
                                     .. attribute:: vlan_id
                                     
@@ -2839,17 +2843,17 @@ class Vlan(object):
                                 .. attribute:: ethertype
                                 
                                 	Ethertype of tag to match
-                                	**type**\:  :py:class:`EfpTagEtypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtypeEnum>`
+                                	**type**\:   :py:class:`EfpTagEtypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtypeEnum>`
                                 
                                 .. attribute:: priority
                                 
                                 	Priority to match
-                                	**type**\:  :py:class:`EfpTagPriorityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagPriorityEnum>`
+                                	**type**\:   :py:class:`EfpTagPriorityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagPriorityEnum>`
                                 
                                 .. attribute:: vlan_range
                                 
                                 	VLAN Ids to match
-                                	**type**\: list of  :py:class:`VlanRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange>`
+                                	**type**\: list of    :py:class:`VlanRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange>`
                                 
                                 
 
@@ -2964,7 +2968,7 @@ class Vlan(object):
                                 .. attribute:: ethertype
                                 
                                 	Ethertype of tag
-                                	**type**\:  :py:class:`EfpTagEtypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtypeEnum>`
+                                	**type**\:   :py:class:`EfpTagEtypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtypeEnum>`
                                 
                                 .. attribute:: vlan_id
                                 
@@ -3340,7 +3344,7 @@ class EthernetEncapsulation(object):
     .. attribute:: nodes
     
     	Per node Ethernet encapsulation operational data
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthernetEncapsulation.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthernetEncapsulation.Nodes>`
     
     
 
@@ -3361,7 +3365,7 @@ class EthernetEncapsulation(object):
         .. attribute:: node
         
         	The Ethernet encaps operational data for a particular node
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthernetEncapsulation.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthernetEncapsulation.Nodes.Node>`
         
         
 
@@ -3392,7 +3396,7 @@ class EthernetEncapsulation(object):
             .. attribute:: unicast_mac_filters
             
             	Unicast MAC filter table (specific to this node)
-            	**type**\:  :py:class:`UnicastMacFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthernetEncapsulation.Nodes.Node.UnicastMacFilters>`
+            	**type**\:   :py:class:`UnicastMacFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthernetEncapsulation.Nodes.Node.UnicastMacFilters>`
             
             
 
@@ -3416,7 +3420,7 @@ class EthernetEncapsulation(object):
                 .. attribute:: unicast_mac_filter
                 
                 	Operational data for interface with MAC filters configured
-                	**type**\: list of  :py:class:`UnicastMacFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter>`
+                	**type**\: list of    :py:class:`UnicastMacFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter>`
                 
                 
 
@@ -3447,7 +3451,7 @@ class EthernetEncapsulation(object):
                     .. attribute:: unicast_filter
                     
                     	Unicast MAC filter information
-                    	**type**\: list of  :py:class:`UnicastFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter.UnicastFilter>`
+                    	**type**\: list of    :py:class:`UnicastFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter.UnicastFilter>`
                     
                     
 
@@ -3478,7 +3482,7 @@ class EthernetEncapsulation(object):
                         .. attribute:: mode
                         
                         	Unicast MAC mode
-                        	**type**\:  :py:class:`EthCapsUcastMacModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthCapsUcastMacModeEnum>`
+                        	**type**\:   :py:class:`EthCapsUcastMacModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EthCapsUcastMacModeEnum>`
                         
                         
 

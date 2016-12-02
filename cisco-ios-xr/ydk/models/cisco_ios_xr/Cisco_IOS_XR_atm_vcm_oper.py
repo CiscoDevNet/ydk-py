@@ -30,43 +30,43 @@ class ClassLinkOamInheritLevelEnum(Enum):
 
     ATM VC\-class inheritence level for class\-link
 
-    .. data:: VC_CONFIGURED_ONVC = 0
+    .. data:: vc_configured_onvc = 0
 
     	Configured on VC
 
-    .. data:: VC_CLASS_ONVC = 1
+    .. data:: vc_class_onvc = 1
 
     	Class on VC
 
-    .. data:: VC_CLASS_ON_SUB_INTERFACE = 2
+    .. data:: vc_class_on_sub_interface = 2
 
     	Class on sub-if
 
-    .. data:: VC_CLASS_ON_MAIN_INTERFACE = 3
+    .. data:: vc_class_on_main_interface = 3
 
     	Class on main-if
 
-    .. data:: VC_GLOBAL_DEFAULT = 4
+    .. data:: vc_global_default = 4
 
     	Global default values
 
-    .. data:: VC_INHERIT_LEVEL_UNKNOWN = 5
+    .. data:: vc_inherit_level_unknown = 5
 
     	Unknown (invalid)
 
     """
 
-    VC_CONFIGURED_ONVC = 0
+    vc_configured_onvc = 0
 
-    VC_CLASS_ONVC = 1
+    vc_class_onvc = 1
 
-    VC_CLASS_ON_SUB_INTERFACE = 2
+    vc_class_on_sub_interface = 2
 
-    VC_CLASS_ON_MAIN_INTERFACE = 3
+    vc_class_on_main_interface = 3
 
-    VC_GLOBAL_DEFAULT = 4
+    vc_global_default = 4
 
-    VC_INHERIT_LEVEL_UNKNOWN = 5
+    vc_inherit_level_unknown = 5
 
 
     @staticmethod
@@ -81,25 +81,25 @@ class VcCellPackingModeEnum(Enum):
 
     ATM VC cell packing mode
 
-    .. data:: VP = 1
+    .. data:: vp = 1
 
     	VP mode
 
-    .. data:: VC = 2
+    .. data:: vc = 2
 
     	VC mode
 
-    .. data:: PORT_MODE = 3
+    .. data:: port_mode = 3
 
     	Port mode
 
     """
 
-    VP = 1
+    vp = 1
 
-    VC = 2
+    vc = 2
 
-    PORT_MODE = 3
+    port_mode = 3
 
 
     @staticmethod
@@ -114,61 +114,61 @@ class VcEncapEnum(Enum):
 
     VC Encapsulation Type
 
-    .. data:: ILMI = 1
+    .. data:: ilmi = 1
 
     	ILMI Encapsulation
 
-    .. data:: QSAAL = 2
+    .. data:: qsaal = 2
 
     	QSAAL Encapsulation
 
-    .. data:: SNAP = 3
+    .. data:: snap = 3
 
     	SNAP Encapsulation
 
-    .. data:: MUX = 4
+    .. data:: mux = 4
 
     	MUX Encapsulation
 
-    .. data:: NLPID = 5
+    .. data:: nlpid = 5
 
     	NLPID Encapsulation
 
-    .. data:: F4OAM = 6
+    .. data:: f4oam = 6
 
     	F4OAM Encapsulation
 
-    .. data:: AAL0 = 7
+    .. data:: aal0 = 7
 
     	AAL0 Encapsulation
 
-    .. data:: AAL5 = 8
+    .. data:: aal5 = 8
 
     	AAL5 Encapsulation
 
-    .. data:: ENCAP_UNKNOWN = 9
+    .. data:: encap_unknown = 9
 
     	Uknown (invalid) Encapsulation
 
     """
 
-    ILMI = 1
+    ilmi = 1
 
-    QSAAL = 2
+    qsaal = 2
 
-    SNAP = 3
+    snap = 3
 
-    MUX = 4
+    mux = 4
 
-    NLPID = 5
+    nlpid = 5
 
-    F4OAM = 6
+    f4oam = 6
 
-    AAL0 = 7
+    aal0 = 7
 
-    AAL5 = 8
+    aal5 = 8
 
-    ENCAP_UNKNOWN = 9
+    encap_unknown = 9
 
 
     @staticmethod
@@ -183,31 +183,31 @@ class VcEnum(Enum):
 
      ATM VC type
 
-    .. data:: LAYER3_VC = 0
+    .. data:: layer3_vc = 0
 
     	 ATM Layer 3 VC type
 
-    .. data:: LAYER2_VC = 1
+    .. data:: layer2_vc = 1
 
     	 ATM Layer 2 VC type
 
-    .. data:: LAYER2_VP = 2
+    .. data:: layer2_vp = 2
 
     	 ATM Layer 2 VP type
 
-    .. data:: VC_TYPE_UNKNOWN = 3
+    .. data:: vc_type_unknown = 3
 
     	 ATM type unknown
 
     """
 
-    LAYER3_VC = 0
+    layer3_vc = 0
 
-    LAYER2_VC = 1
+    layer2_vc = 1
 
-    LAYER2_VP = 2
+    layer2_vp = 2
 
-    VC_TYPE_UNKNOWN = 3
+    vc_type_unknown = 3
 
 
     @staticmethod
@@ -222,31 +222,31 @@ class VcInheritLevelEnum(Enum):
 
     ATM vc\-class inheritence level
 
-    .. data:: DIRECTLY_CONFIGURED_ONVC = 0
+    .. data:: directly_configured_onvc = 0
 
     	ATM vc-class inherit level: Config of VC
 
-    .. data:: VC_CLASS_CONFIGURED_ONVC = 1
+    .. data:: vc_class_configured_onvc = 1
 
     	ATM vc-class inherit level: Class of VC
 
-    .. data:: VC_CLASS_CONFIGURED_ON_SUB_INTERFACE = 2
+    .. data:: vc_class_configured_on_sub_interface = 2
 
     	ATM vc-class inherit level: Class of Sub-if
 
-    .. data:: VC_CLASS_CONFIGURED_ON_MAIN_INTERFACE = 3
+    .. data:: vc_class_configured_on_main_interface = 3
 
     	ATM vc-class inherit level: Class of Main-if
 
-    .. data:: GLOBAL_DEFAULT = 4
+    .. data:: global_default = 4
 
     	ATM vc-class inherit level: Global Default
 
-    .. data:: UNKNOWN = 5
+    .. data:: unknown = 5
 
     	ATM vc-class inherit level: Unknown (invalid)
 
-    .. data:: NOT_SUPPORTED = 6
+    .. data:: not_supported = 6
 
     	ATM vc-class inherit level: Not supported on
 
@@ -254,19 +254,19 @@ class VcInheritLevelEnum(Enum):
 
     """
 
-    DIRECTLY_CONFIGURED_ONVC = 0
+    directly_configured_onvc = 0
 
-    VC_CLASS_CONFIGURED_ONVC = 1
+    vc_class_configured_onvc = 1
 
-    VC_CLASS_CONFIGURED_ON_SUB_INTERFACE = 2
+    vc_class_configured_on_sub_interface = 2
 
-    VC_CLASS_CONFIGURED_ON_MAIN_INTERFACE = 3
+    vc_class_configured_on_main_interface = 3
 
-    GLOBAL_DEFAULT = 4
+    global_default = 4
 
-    UNKNOWN = 5
+    unknown = 5
 
-    NOT_SUPPORTED = 6
+    not_supported = 6
 
 
     @staticmethod
@@ -281,19 +281,19 @@ class VcManageLevelEnum(Enum):
 
     ATM Class link manage level
 
-    .. data:: MANAGE = 1
+    .. data:: manage = 1
 
     	Managed
 
-    .. data:: NOT_MANAGED = 2
+    .. data:: not_managed = 2
 
     	Not managed
 
     """
 
-    MANAGE = 1
+    manage = 1
 
-    NOT_MANAGED = 2
+    not_managed = 2
 
 
     @staticmethod
@@ -308,85 +308,85 @@ class VcStateEnum(Enum):
 
     VC State
 
-    .. data:: INITIALIZED = 0
+    .. data:: initialized = 0
 
     	ATM VC State: only VC data structure
 
     	initialized   
 
-    .. data:: MODIFYING = 1
+    .. data:: modifying = 1
 
     	ATM VC State: configuration currently being
 
     	changed
 
-    .. data:: MODIFIED = 2
+    .. data:: modified = 2
 
     	ATM VC State: configuration changed            
 
-    .. data:: ACTIVATING = 3
+    .. data:: activating = 3
 
     	ATM VC State: command sent to hardware to
 
     	activate 
 
-    .. data:: ACTIVATED = 4
+    .. data:: activated = 4
 
     	ATM VC State: activated in h/w or protocol     
 
-    .. data:: NOT_VERIFIED = 5
+    .. data:: not_verified = 5
 
     	ATM VC State: OAM/ILMI - yet to verify         
 
-    .. data:: READY = 6
+    .. data:: ready = 6
 
     	ATM VC State: Ready state                      
 
-    .. data:: DEACTIVATING = 7
+    .. data:: deactivating = 7
 
     	ATM VC State: command sent to h/w to deactivate
 
-    .. data:: INACTIVE = 8
+    .. data:: inactive = 8
 
     	ATM VC State: inactive/not present in hardware 
 
-    .. data:: DELETING = 9
+    .. data:: deleting = 9
 
     	ATM VC State: VC is being deleted              
 
-    .. data:: DELETED = 10
+    .. data:: deleted = 10
 
     	ATM VC State: VC is already delete in hardware 
 
-    .. data:: STATE_UNKNOWN = 11
+    .. data:: state_unknown = 11
 
     	ATM VC State: Unknown(invalid)
 
     """
 
-    INITIALIZED = 0
+    initialized = 0
 
-    MODIFYING = 1
+    modifying = 1
 
-    MODIFIED = 2
+    modified = 2
 
-    ACTIVATING = 3
+    activating = 3
 
-    ACTIVATED = 4
+    activated = 4
 
-    NOT_VERIFIED = 5
+    not_verified = 5
 
-    READY = 6
+    ready = 6
 
-    DEACTIVATING = 7
+    deactivating = 7
 
-    INACTIVE = 8
+    inactive = 8
 
-    DELETING = 9
+    deleting = 9
 
-    DELETED = 10
+    deleted = 10
 
-    STATE_UNKNOWN = 11
+    state_unknown = 11
 
 
     @staticmethod
@@ -401,25 +401,25 @@ class VcTestModeEnum(Enum):
 
     VC Test Mode Type
 
-    .. data:: TEST_MODE_NONE = 1
+    .. data:: test_mode_none = 1
 
     	VC not in test mode
 
-    .. data:: LOOP = 2
+    .. data:: loop = 2
 
     	VC in test mode Loop
 
-    .. data:: RESERVED = 3
+    .. data:: reserved = 3
 
     	VC in test mode Reserved
 
     """
 
-    TEST_MODE_NONE = 1
+    test_mode_none = 1
 
-    LOOP = 2
+    loop = 2
 
-    RESERVED = 3
+    reserved = 3
 
 
     @staticmethod
@@ -434,49 +434,49 @@ class VcTrafShapingEnum(Enum):
 
     VC traffic shaping type
 
-    .. data:: CBR = 1
+    .. data:: cbr = 1
 
     	VC traffic shaping type CBR
 
-    .. data:: VBR_NRT = 2
+    .. data:: vbr_nrt = 2
 
     	VC traffic shaping type VBR-NR
 
-    .. data:: VBR_RT = 3
+    .. data:: vbr_rt = 3
 
     	VC traffic shaping type VBR-RT
 
-    .. data:: ABR = 4
+    .. data:: abr = 4
 
     	VC traffic shaping type ABR
 
-    .. data:: UBR_PLUS = 5
+    .. data:: ubr_plus = 5
 
     	VC traffic shaping type UBR+
 
-    .. data:: UBR = 6
+    .. data:: ubr = 6
 
     	VC traffic shaping type UBR
 
-    .. data:: TRAF_SHAPING_UNKNOWN = 7
+    .. data:: traf_shaping_unknown = 7
 
     	VC traffic shaping type Unknown (invalid)
 
     """
 
-    CBR = 1
+    cbr = 1
 
-    VBR_NRT = 2
+    vbr_nrt = 2
 
-    VBR_RT = 3
+    vbr_rt = 3
 
-    ABR = 4
+    abr = 4
 
-    UBR_PLUS = 5
+    ubr_plus = 5
 
-    UBR = 6
+    ubr = 6
 
-    TRAF_SHAPING_UNKNOWN = 7
+    traf_shaping_unknown = 7
 
 
     @staticmethod
@@ -491,25 +491,25 @@ class VcmPortEnum(Enum):
 
     ATM port type
 
-    .. data:: PORT_TYPE_LAYER_2 = 0
+    .. data:: port_type_layer_2 = 0
 
     	 Layer 2 ATM port type 
 
-    .. data:: PORT_TYPE_LAYER_3 = 1
+    .. data:: port_type_layer_3 = 1
 
     	 Layer 3 ATM port type 
 
-    .. data:: PORT_TYPE_UNKNOWN = 3
+    .. data:: port_type_unknown = 3
 
     	 ATM port type unknown 
 
     """
 
-    PORT_TYPE_LAYER_2 = 0
+    port_type_layer_2 = 0
 
-    PORT_TYPE_LAYER_3 = 1
+    port_type_layer_3 = 1
 
-    PORT_TYPE_UNKNOWN = 3
+    port_type_unknown = 3
 
 
     @staticmethod
@@ -524,49 +524,49 @@ class VpStateEnum(Enum):
 
     VP\-Tunnel State
 
-    .. data:: VP_INITIALIZED = 0
+    .. data:: vp_initialized = 0
 
     	VP-Tunnel State: Initialized
 
-    .. data:: VP_MODIFYING = 1
+    .. data:: vp_modifying = 1
 
     	VP-Tunnel State: Modifying
 
-    .. data:: VP_READY = 2
+    .. data:: vp_ready = 2
 
     	VP-Tunnel State: Ready
 
-    .. data:: VP_MGD_DOWN = 3
+    .. data:: vp_mgd_down = 3
 
     	VP-Tunnel State: Managed Down
 
-    .. data:: VP_DELETING = 4
+    .. data:: vp_deleting = 4
 
     	VP-Tunnel State: Deleting
 
-    .. data:: VP_DELETED = 5
+    .. data:: vp_deleted = 5
 
     	VP-Tunnel State: Deleted
 
-    .. data:: VP_STATE_UNKNOWN = 6
+    .. data:: vp_state_unknown = 6
 
     	VP-Tunnel State: Unknown
 
     """
 
-    VP_INITIALIZED = 0
+    vp_initialized = 0
 
-    VP_MODIFYING = 1
+    vp_modifying = 1
 
-    VP_READY = 2
+    vp_ready = 2
 
-    VP_MGD_DOWN = 3
+    vp_mgd_down = 3
 
-    VP_DELETING = 4
+    vp_deleting = 4
 
-    VP_DELETED = 5
+    vp_deleted = 5
 
-    VP_STATE_UNKNOWN = 6
+    vp_state_unknown = 6
 
 
     @staticmethod
@@ -581,31 +581,31 @@ class VpTrafShapingEnum(Enum):
 
     VP\-Tunnel traffic shaping type
 
-    .. data:: VP_CBR = 1
+    .. data:: vp_cbr = 1
 
     	VP-Tunnel traffic shaping type CBR
 
-    .. data:: VP_VBR_NRT = 2
+    .. data:: vp_vbr_nrt = 2
 
     	VP-Tunnel traffic shaping type VBR-NR
 
-    .. data:: VP_VBR_RT = 3
+    .. data:: vp_vbr_rt = 3
 
     	VP-Tunnel traffic shaping type VBR-RT
 
-    .. data:: VP_ABR = 4
+    .. data:: vp_abr = 4
 
     	VP-Tunnel traffic shaping type ABR
 
-    .. data:: VP_UBR_PLUS = 5
+    .. data:: vp_ubr_plus = 5
 
     	VP-Tunnel traffic shaping type UBR+
 
-    .. data:: VP_UBR = 6
+    .. data:: vp_ubr = 6
 
     	VP-Tunnel traffic shaping type UBR
 
-    .. data:: VP_TRAF_SHAPING_UNKNOWN = 7
+    .. data:: vp_traf_shaping_unknown = 7
 
     	VP-Tunnel traffic shaping type Unknown
 
@@ -613,19 +613,19 @@ class VpTrafShapingEnum(Enum):
 
     """
 
-    VP_CBR = 1
+    vp_cbr = 1
 
-    VP_VBR_NRT = 2
+    vp_vbr_nrt = 2
 
-    VP_VBR_RT = 3
+    vp_vbr_rt = 3
 
-    VP_ABR = 4
+    vp_abr = 4
 
-    VP_UBR_PLUS = 5
+    vp_ubr_plus = 5
 
-    VP_UBR = 6
+    vp_ubr = 6
 
-    VP_TRAF_SHAPING_UNKNOWN = 7
+    vp_traf_shaping_unknown = 7
 
 
     @staticmethod
@@ -642,7 +642,7 @@ class AtmVcm(object):
     .. attribute:: nodes
     
     	Contains all the nodes
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes>`
     
     
 
@@ -663,7 +663,7 @@ class AtmVcm(object):
         .. attribute:: node
         
         	The node on which ATM Interfaces/VCs/VPs are located
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node>`
         
         
 
@@ -694,32 +694,32 @@ class AtmVcm(object):
             .. attribute:: cell_packs
             
             	Contains all cell packing information for node
-            	**type**\:  :py:class:`CellPacks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.CellPacks>`
+            	**type**\:   :py:class:`CellPacks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.CellPacks>`
             
             .. attribute:: class_links
             
             	Contains all class link information for node
-            	**type**\:  :py:class:`ClassLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks>`
+            	**type**\:   :py:class:`ClassLinks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks>`
             
             .. attribute:: interfaces
             
             	Contains all Interface information for node
-            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Interfaces>`
+            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Interfaces>`
             
             .. attribute:: pvps
             
             	Contains all L2 PVP information for node
-            	**type**\:  :py:class:`Pvps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Pvps>`
+            	**type**\:   :py:class:`Pvps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Pvps>`
             
             .. attribute:: vcs
             
             	Contains all VC information for node
-            	**type**\:  :py:class:`Vcs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Vcs>`
+            	**type**\:   :py:class:`Vcs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Vcs>`
             
             .. attribute:: vp_tunnels
             
             	Contains all VP\-tunnel information for node
-            	**type**\:  :py:class:`VpTunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.VpTunnels>`
+            	**type**\:   :py:class:`VpTunnels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.VpTunnels>`
             
             
 
@@ -752,7 +752,7 @@ class AtmVcm(object):
                 .. attribute:: vc
                 
                 	All VC information on a node
-                	**type**\: list of  :py:class:`Vc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Vcs.Vc>`
+                	**type**\: list of    :py:class:`Vc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Vcs.Vc>`
                 
                 
 
@@ -794,22 +794,22 @@ class AtmVcm(object):
                     .. attribute:: cell_packing_data
                     
                     	Cell packing specific data
-                    	**type**\:  :py:class:`CellPackingData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData>`
+                    	**type**\:   :py:class:`CellPackingData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Vcs.Vc.CellPackingData>`
                     
                     .. attribute:: encaps_inherit_level
                     
                     	Encapsulation inherit level \- identifies if encapsulation is set to default, configured on the VC, or inherited from the vcclass
-                    	**type**\:  :py:class:`VcInheritLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevelEnum>`
+                    	**type**\:   :py:class:`VcInheritLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevelEnum>`
                     
                     .. attribute:: encapsulation
                     
                     	Encapsulation type
-                    	**type**\:  :py:class:`VcEncapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcEncapEnum>`
+                    	**type**\:   :py:class:`VcEncapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcEncapEnum>`
                     
                     .. attribute:: internal_state
                     
                     	VC Internal state
-                    	**type**\:  :py:class:`VcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcStateEnum>`
+                    	**type**\:   :py:class:`VcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcStateEnum>`
                     
                     .. attribute:: last_state_change_time
                     
@@ -837,10 +837,12 @@ class AtmVcm(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: kbit/s
+                    
                     .. attribute:: qos_inherit_level
                     
                     	Quality of Service inherit level \- identifies if QoS is set to default, configured on the VC, or inherited from the vcclass
-                    	**type**\:  :py:class:`VcInheritLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevelEnum>`
+                    	**type**\:   :py:class:`VcInheritLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevelEnum>`
                     
                     .. attribute:: receive_mtu
                     
@@ -852,7 +854,7 @@ class AtmVcm(object):
                     .. attribute:: shape
                     
                     	ATM VC traffic shaping type
-                    	**type**\:  :py:class:`VcTrafShapingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcTrafShapingEnum>`
+                    	**type**\:   :py:class:`VcTrafShapingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcTrafShapingEnum>`
                     
                     .. attribute:: sub_interface
                     
@@ -868,10 +870,12 @@ class AtmVcm(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: kbit/s
+                    
                     .. attribute:: test_mode
                     
                     	VC test mode
-                    	**type**\:  :py:class:`VcTestModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcTestModeEnum>`
+                    	**type**\:   :py:class:`VcTestModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcTestModeEnum>`
                     
                     .. attribute:: transmit_mtu
                     
@@ -883,7 +887,7 @@ class AtmVcm(object):
                     .. attribute:: type
                     
                     	VC Type
-                    	**type**\:  :py:class:`VcEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcEnum>`
+                    	**type**\:   :py:class:`VcEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcEnum>`
                     
                     .. attribute:: vc_interface
                     
@@ -985,6 +989,8 @@ class AtmVcm(object):
                         	**type**\:  int
                         
                         	**range:** 0..65535
+                        
+                        	**units**\: microsecond
                         
                         .. attribute:: negotiated_max_cells_packed_per_packet
                         
@@ -1171,7 +1177,7 @@ class AtmVcm(object):
                 .. attribute:: cell_pack
                 
                 	All cell packing information on a node
-                	**type**\: list of  :py:class:`CellPack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.CellPacks.CellPack>`
+                	**type**\: list of    :py:class:`CellPack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.CellPacks.CellPack>`
                 
                 
 
@@ -1194,12 +1200,12 @@ class AtmVcm(object):
                     .. attribute:: cell_packing
                     
                     	Cell packing specific data
-                    	**type**\:  :py:class:`CellPacking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.CellPacks.CellPack.CellPacking>`
+                    	**type**\:   :py:class:`CellPacking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.CellPacks.CellPack.CellPacking>`
                     
                     .. attribute:: cell_packing_mode
                     
                     	ATM cell packing mode
-                    	**type**\:  :py:class:`VcCellPackingModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcCellPackingModeEnum>`
+                    	**type**\:   :py:class:`VcCellPackingModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcCellPackingModeEnum>`
                     
                     .. attribute:: interface_name
                     
@@ -1288,6 +1294,8 @@ class AtmVcm(object):
                         	**type**\:  int
                         
                         	**range:** 0..65535
+                        
+                        	**units**\: microsecond
                         
                         .. attribute:: negotiated_max_cells_packed_per_packet
                         
@@ -1421,7 +1429,7 @@ class AtmVcm(object):
                 .. attribute:: pvp
                 
                 	All L2 PVP information on a node
-                	**type**\: list of  :py:class:`Pvp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Pvps.Pvp>`
+                	**type**\: list of    :py:class:`Pvp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Pvps.Pvp>`
                 
                 
 
@@ -1463,22 +1471,22 @@ class AtmVcm(object):
                     .. attribute:: cell_packing_data
                     
                     	Cell packing specific data
-                    	**type**\:  :py:class:`CellPackingData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData>`
+                    	**type**\:   :py:class:`CellPackingData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Pvps.Pvp.CellPackingData>`
                     
                     .. attribute:: encaps_inherit_level
                     
                     	Encapsulation inherit level \- identifies if encapsulation is set to default, configured on the VC, or inherited from the vcclass
-                    	**type**\:  :py:class:`VcInheritLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevelEnum>`
+                    	**type**\:   :py:class:`VcInheritLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevelEnum>`
                     
                     .. attribute:: encapsulation
                     
                     	Encapsulation type
-                    	**type**\:  :py:class:`VcEncapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcEncapEnum>`
+                    	**type**\:   :py:class:`VcEncapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcEncapEnum>`
                     
                     .. attribute:: internal_state
                     
                     	VC Internal state
-                    	**type**\:  :py:class:`VcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcStateEnum>`
+                    	**type**\:   :py:class:`VcStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcStateEnum>`
                     
                     .. attribute:: last_state_change_time
                     
@@ -1506,10 +1514,12 @@ class AtmVcm(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: kbit/s
+                    
                     .. attribute:: qos_inherit_level
                     
                     	Quality of Service inherit level \- identifies if QoS is set to default, configured on the VC, or inherited from the vcclass
-                    	**type**\:  :py:class:`VcInheritLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevelEnum>`
+                    	**type**\:   :py:class:`VcInheritLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevelEnum>`
                     
                     .. attribute:: receive_mtu
                     
@@ -1521,7 +1531,7 @@ class AtmVcm(object):
                     .. attribute:: shape
                     
                     	ATM VC traffic shaping type
-                    	**type**\:  :py:class:`VcTrafShapingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcTrafShapingEnum>`
+                    	**type**\:   :py:class:`VcTrafShapingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcTrafShapingEnum>`
                     
                     .. attribute:: sub_interface
                     
@@ -1537,10 +1547,12 @@ class AtmVcm(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: kbit/s
+                    
                     .. attribute:: test_mode
                     
                     	VC test mode
-                    	**type**\:  :py:class:`VcTestModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcTestModeEnum>`
+                    	**type**\:   :py:class:`VcTestModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcTestModeEnum>`
                     
                     .. attribute:: transmit_mtu
                     
@@ -1552,7 +1564,7 @@ class AtmVcm(object):
                     .. attribute:: type
                     
                     	VC Type
-                    	**type**\:  :py:class:`VcEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcEnum>`
+                    	**type**\:   :py:class:`VcEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcEnum>`
                     
                     .. attribute:: vc_interface
                     
@@ -1646,6 +1658,8 @@ class AtmVcm(object):
                         	**type**\:  int
                         
                         	**range:** 0..65535
+                        
+                        	**units**\: microsecond
                         
                         .. attribute:: negotiated_max_cells_packed_per_packet
                         
@@ -1829,7 +1843,7 @@ class AtmVcm(object):
                 .. attribute:: class_link
                 
                 	All ATM VC information on a node
-                	**type**\: list of  :py:class:`ClassLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink>`
+                	**type**\: list of    :py:class:`ClassLink <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink>`
                 
                 
 
@@ -1859,7 +1873,7 @@ class AtmVcm(object):
                     .. attribute:: oam_config
                     
                     	Oam values for class link
-                    	**type**\:  :py:class:`OamConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig>`
+                    	**type**\:   :py:class:`OamConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig>`
                     
                     .. attribute:: sub_interface_name
                     
@@ -1871,7 +1885,7 @@ class AtmVcm(object):
                     .. attribute:: vc_class_not_supported
                     
                     	Not supported VC class
-                    	**type**\:  :py:class:`VcClassNotSupported <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.VcClassNotSupported>`
+                    	**type**\:   :py:class:`VcClassNotSupported <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.VcClassNotSupported>`
                     
                     .. attribute:: vci
                     
@@ -1905,12 +1919,12 @@ class AtmVcm(object):
                         .. attribute:: encapsulation_not_supported
                         
                         	Encapsulation type not supported
-                        	**type**\:  :py:class:`VcEncapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcEncapEnum>`
+                        	**type**\:   :py:class:`VcEncapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcEncapEnum>`
                         
                         .. attribute:: not_supported_inherit_level
                         
                         	NotSupportedInheritLevel
-                        	**type**\:  :py:class:`VcInheritLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevelEnum>`
+                        	**type**\:   :py:class:`VcInheritLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevelEnum>`
                         
                         
 
@@ -1959,27 +1973,27 @@ class AtmVcm(object):
                         .. attribute:: ais_rdi
                         
                         	AIS RDI details of a VC class
-                        	**type**\:  :py:class:`AisRdi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi>`
+                        	**type**\:   :py:class:`AisRdi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.AisRdi>`
                         
                         .. attribute:: class_link_encapsulation
                         
                         	Encapsulation details of VC class
-                        	**type**\:  :py:class:`ClassLinkEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation>`
+                        	**type**\:   :py:class:`ClassLinkEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkEncapsulation>`
                         
                         .. attribute:: class_link_shaping
                         
                         	Traffic Shaping detail of VC class
-                        	**type**\:  :py:class:`ClassLinkShaping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping>`
+                        	**type**\:   :py:class:`ClassLinkShaping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.ClassLinkShaping>`
                         
                         .. attribute:: oam_pvc
                         
                         	OAM PVC details of VC class
-                        	**type**\:  :py:class:`OamPvc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc>`
+                        	**type**\:   :py:class:`OamPvc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamPvc>`
                         
                         .. attribute:: oam_retry
                         
                         	OAM Retry details of VC class
-                        	**type**\:  :py:class:`OamRetry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry>`
+                        	**type**\:   :py:class:`OamRetry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.ClassLinks.ClassLink.OamConfig.OamRetry>`
                         
                         
 
@@ -2027,15 +2041,17 @@ class AtmVcm(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: kbit/s
+                            
                             .. attribute:: shaping_inherit_level
                             
                             	Shaping inherit level
-                            	**type**\:  :py:class:`VcInheritLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevelEnum>`
+                            	**type**\:   :py:class:`VcInheritLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevelEnum>`
                             
                             .. attribute:: shaping_type
                             
                             	ATM VC traffic shaping type
-                            	**type**\:  :py:class:`VcTrafShapingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcTrafShapingEnum>`
+                            	**type**\:   :py:class:`VcTrafShapingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcTrafShapingEnum>`
                             
                             
 
@@ -2096,12 +2112,12 @@ class AtmVcm(object):
                             .. attribute:: encapsulation_inherit_level
                             
                             	Encapsulation inherit level
-                            	**type**\:  :py:class:`VcInheritLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevelEnum>`
+                            	**type**\:   :py:class:`VcInheritLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcInheritLevelEnum>`
                             
                             .. attribute:: encapsulation_type
                             
                             	Encapsulation type
-                            	**type**\:  :py:class:`VcEncapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcEncapEnum>`
+                            	**type**\:   :py:class:`VcEncapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcEncapEnum>`
                             
                             
 
@@ -2160,12 +2176,12 @@ class AtmVcm(object):
                             .. attribute:: manage_inherit_level
                             
                             	Manage inherit level
-                            	**type**\:  :py:class:`ClassLinkOamInheritLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.ClassLinkOamInheritLevelEnum>`
+                            	**type**\:   :py:class:`ClassLinkOamInheritLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.ClassLinkOamInheritLevelEnum>`
                             
                             .. attribute:: manage_level
                             
                             	Manage Level
-                            	**type**\:  :py:class:`VcManageLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcManageLevelEnum>`
+                            	**type**\:   :py:class:`VcManageLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcManageLevelEnum>`
                             
                             .. attribute:: pvc_frequency
                             
@@ -2247,7 +2263,7 @@ class AtmVcm(object):
                             .. attribute:: retry_inherit_level
                             
                             	Retry inherit level
-                            	**type**\:  :py:class:`ClassLinkOamInheritLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.ClassLinkOamInheritLevelEnum>`
+                            	**type**\:   :py:class:`ClassLinkOamInheritLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.ClassLinkOamInheritLevelEnum>`
                             
                             .. attribute:: retry_up_count
                             
@@ -2311,7 +2327,7 @@ class AtmVcm(object):
                             .. attribute:: ais_rdi_inherit_level
                             
                             	AIS RDI inherit level
-                            	**type**\:  :py:class:`ClassLinkOamInheritLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.ClassLinkOamInheritLevelEnum>`
+                            	**type**\:   :py:class:`ClassLinkOamInheritLevelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.ClassLinkOamInheritLevelEnum>`
                             
                             .. attribute:: ais_rdi_up_count
                             
@@ -2326,6 +2342,8 @@ class AtmVcm(object):
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
+                            
+                            	**units**\: second
                             
                             
 
@@ -2478,7 +2496,7 @@ class AtmVcm(object):
                 .. attribute:: interface
                 
                 	ATM Interface data
-                	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Interfaces.Interface>`
+                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Interfaces.Interface>`
                 
                 
 
@@ -2508,7 +2526,7 @@ class AtmVcm(object):
                     .. attribute:: cell_packing_data
                     
                     	Cell packing specific information
-                    	**type**\:  :py:class:`CellPackingData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Interfaces.Interface.CellPackingData>`
+                    	**type**\:   :py:class:`CellPackingData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.Interfaces.Interface.CellPackingData>`
                     
                     .. attribute:: configured_layer2pv_cs
                     
@@ -2597,7 +2615,7 @@ class AtmVcm(object):
                     .. attribute:: port_type
                     
                     	ATM interface port type
-                    	**type**\:  :py:class:`VcmPortEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcmPortEnum>`
+                    	**type**\:   :py:class:`VcmPortEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VcmPortEnum>`
                     
                     .. attribute:: pvc_failures
                     
@@ -2665,6 +2683,8 @@ class AtmVcm(object):
                         	**type**\:  int
                         
                         	**range:** 0..65535
+                        
+                        	**units**\: microsecond
                         
                         .. attribute:: negotiated_max_cells_packed_per_packet
                         
@@ -2827,7 +2847,7 @@ class AtmVcm(object):
                 .. attribute:: vp_tunnel
                 
                 	All VP\-tunnel information on a node
-                	**type**\: list of  :py:class:`VpTunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.VpTunnels.VpTunnel>`
+                	**type**\: list of    :py:class:`VpTunnel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.AtmVcm.Nodes.Node.VpTunnels.VpTunnel>`
                 
                 
 
@@ -2881,7 +2901,7 @@ class AtmVcm(object):
                     .. attribute:: internal_state
                     
                     	Internal state
-                    	**type**\:  :py:class:`VpStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VpStateEnum>`
+                    	**type**\:   :py:class:`VpStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VpStateEnum>`
                     
                     .. attribute:: last_vp_state_change_time
                     
@@ -2909,10 +2929,12 @@ class AtmVcm(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: kbit/s
+                    
                     .. attribute:: shape
                     
                     	ATM VP traffic shaping type
-                    	**type**\:  :py:class:`VpTrafShapingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VpTrafShapingEnum>`
+                    	**type**\:   :py:class:`VpTrafShapingEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper.VpTrafShapingEnum>`
                     
                     .. attribute:: sustained_cell_rate
                     
@@ -2920,6 +2942,8 @@ class AtmVcm(object):
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: kbit/s
                     
                     .. attribute:: vp_interface
                     

@@ -1,0 +1,7 @@
+*
+!ydktest
+!ydktest/*
+!ydktest/_meta
+!ydktest/_meta/*
+!__init__.py
+!.gitignore

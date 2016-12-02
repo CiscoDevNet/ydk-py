@@ -16,182 +16,182 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'RsvpMgmtAssociationEnum' : _MetaInfoEnum('RsvpMgmtAssociationEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper',
         {
-            'none':'NONE',
-            'ipv4':'IPV4',
-            'ipv6':'IPV6',
-            'extended-ipv4':'EXTENDED_IPV4',
-            'extended-ipv6':'EXTENDED_IPV6',
+            'none':'none',
+            'ipv4':'ipv4',
+            'ipv6':'ipv6',
+            'extended-ipv4':'extended_ipv4',
+            'extended-ipv6':'extended_ipv6',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
     'RsvpMgmtEroSubobjEnum' : _MetaInfoEnum('RsvpMgmtEroSubobjEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper',
         {
-            'rsvp-mgmt-ero-type-ipv4':'RSVP_MGMT_ERO_TYPE_IPV4',
-            'rsvp-mgmt-ero-type-un-num':'RSVP_MGMT_ERO_TYPE_UN_NUM',
+            'rsvp-mgmt-ero-type-ipv4':'rsvp_mgmt_ero_type_ipv4',
+            'rsvp-mgmt-ero-type-un-num':'rsvp_mgmt_ero_type_un_num',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
     'RsvpMgmtQosServiceEnumEnum' : _MetaInfoEnum('RsvpMgmtQosServiceEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper',
         {
-            'rsvp-mgmt-qos-unknown':'RSVP_MGMT_QOS_UNKNOWN',
-            'rsvp-mgmt-qos-guaranteed':'RSVP_MGMT_QOS_GUARANTEED',
-            'rsvp-mgmt-qos-controlled-load':'RSVP_MGMT_QOS_CONTROLLED_LOAD',
-            'rsvp-mgmt-qos-qualitative':'RSVP_MGMT_QOS_QUALITATIVE',
+            'rsvp-mgmt-qos-unknown':'rsvp_mgmt_qos_unknown',
+            'rsvp-mgmt-qos-guaranteed':'rsvp_mgmt_qos_guaranteed',
+            'rsvp-mgmt-qos-controlled-load':'rsvp_mgmt_qos_controlled_load',
+            'rsvp-mgmt-qos-qualitative':'rsvp_mgmt_qos_qualitative',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
     'RsvpMgmtHelloInstanceEnum' : _MetaInfoEnum('RsvpMgmtHelloInstanceEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper',
         {
-            'active':'ACTIVE',
-            'passive':'PASSIVE',
+            'active':'active',
+            'passive':'passive',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
     'IgpteLibBwModelEnum' : _MetaInfoEnum('IgpteLibBwModelEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper',
         {
-            'rdm':'RDM',
-            'mam':'MAM',
-            'not-set':'NOT_SET',
+            'rdm':'rdm',
+            'mam':'mam',
+            'not-set':'not_set',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
     'RsvpMgmtFrrStateEnumEnum' : _MetaInfoEnum('RsvpMgmtFrrStateEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper',
         {
-            'ready-state':'READY_STATE',
-            'pending-state':'PENDING_STATE',
-            'active-state':'ACTIVE_STATE',
+            'ready-state':'ready_state',
+            'pending-state':'pending_state',
+            'active-state':'active_state',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
     'RsvpProcNsrNotReadyReasonEnum' : _MetaInfoEnum('RsvpProcNsrNotReadyReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper',
         {
-            'collab-time-out':'COLLAB_TIME_OUT',
-            'collab-conntection-idt':'COLLAB_CONNTECTION_IDT',
-            'nsr-peer-not-connected':'NSR_PEER_NOT_CONNECTED',
-            'nsr-peer-not-in-sync':'NSR_PEER_NOT_IN_SYNC',
+            'collab-time-out':'collab_time_out',
+            'collab-conntection-idt':'collab_conntection_idt',
+            'nsr-peer-not-connected':'nsr_peer_not_connected',
+            'nsr-peer-not-in-sync':'nsr_peer_not_in_sync',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
     'RsvpMgmtDsteModesEnum' : _MetaInfoEnum('RsvpMgmtDsteModesEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper',
         {
-            'pre-standard':'PRE_STANDARD',
-            'standard':'STANDARD',
+            'pre-standard':'pre_standard',
+            'standard':'standard',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
     'RsvpMgmtRestartStateEnum' : _MetaInfoEnum('RsvpMgmtRestartStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper',
         {
-            'done':'DONE',
-            'recovery':'RECOVERY',
-            'abort':'ABORT',
+            'done':'done',
+            'recovery':'recovery',
+            'abort':'abort',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
     'RsvpMgmtReservationTypeEnumEnum' : _MetaInfoEnum('RsvpMgmtReservationTypeEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper',
         {
-            'rsvp-mgmt-ff-option':'RSVP_MGMT_FF_OPTION',
-            'rsvp-mgmt-wf-option':'RSVP_MGMT_WF_OPTION',
-            'rsvp-mgmt-se-option':'RSVP_MGMT_SE_OPTION',
+            'rsvp-mgmt-ff-option':'rsvp_mgmt_ff_option',
+            'rsvp-mgmt-wf-option':'rsvp_mgmt_wf_option',
+            'rsvp-mgmt-se-option':'rsvp_mgmt_se_option',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
     'RsvpMgmtTspecEnum' : _MetaInfoEnum('RsvpMgmtTspecEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper',
         {
-            'g709otn':'G709OTN',
-            'intsrv':'INTSRV',
+            'g709otn':'g709otn',
+            'intsrv':'intsrv',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
     'RsvpMgmtAuthDirectionEnum' : _MetaInfoEnum('RsvpMgmtAuthDirectionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper',
         {
-            'rsvp-mgmt-auth-direction-send':'RSVP_MGMT_AUTH_DIRECTION_SEND',
-            'rsvp-mgmt-auth-direction-recv':'RSVP_MGMT_AUTH_DIRECTION_RECV',
+            'rsvp-mgmt-auth-direction-send':'rsvp_mgmt_auth_direction_send',
+            'rsvp-mgmt-auth-direction-recv':'rsvp_mgmt_auth_direction_recv',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
     'RsvpMgmtFilterEnum' : _MetaInfoEnum('RsvpMgmtFilterEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper',
         {
-            'rsvp-mgmt-filter-type-ipv4':'RSVP_MGMT_FILTER_TYPE_IPV4',
-            'rsvp-mgmt-filter-type-p2mp-lsp-ipv4':'RSVP_MGMT_FILTER_TYPE_P2MP_LSP_IPV4',
+            'rsvp-mgmt-filter-type-ipv4':'rsvp_mgmt_filter_type_ipv4',
+            'rsvp-mgmt-filter-type-p2mp-lsp-ipv4':'rsvp_mgmt_filter_type_p2mp_lsp_ipv4',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
     'RsvpProcRoleEnum' : _MetaInfoEnum('RsvpProcRoleEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper',
         {
-            'unknown':'UNKNOWN',
-            'v1-active':'V1_ACTIVE',
-            'v1-standby':'V1_STANDBY',
-            'v2-active':'V2_ACTIVE',
-            'v2-standby':'V2_STANDBY',
-            'v1-active-post-big-bang':'V1_ACTIVE_POST_BIG_BANG',
-            'v1-standby-post-big-bang':'V1_STANDBY_POST_BIG_BANG',
-            'count':'COUNT',
+            'unknown':'unknown',
+            'v1-active':'v1_active',
+            'v1-standby':'v1_standby',
+            'v2-active':'v2_active',
+            'v2-standby':'v2_standby',
+            'v1-active-post-big-bang':'v1_active_post_big_bang',
+            'v1-standby-post-big-bang':'v1_standby_post_big_bang',
+            'count':'count',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
     'RsvpSessionEnum' : _MetaInfoEnum('RsvpSessionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper',
         {
-            'ipv4':'IPV4',
-            'p2p-lsp-ipv4':'P2P_LSP_IPV4',
-            'ouni-ipv4':'OUNI_IPV4',
-            'p2mp-lsp-ipv4':'P2MP_LSP_IPV4',
+            'ipv4':'ipv4',
+            'p2p-lsp-ipv4':'p2p_lsp_ipv4',
+            'ouni-ipv4':'ouni_ipv4',
+            'p2mp-lsp-ipv4':'p2mp_lsp_ipv4',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
     'RsvpMgmtHelloStateEnum' : _MetaInfoEnum('RsvpMgmtHelloStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper',
         {
-            'hello-state-init':'HELLO_STATE_INIT',
-            'hello-state-up':'HELLO_STATE_UP',
-            'hello-state-down':'HELLO_STATE_DOWN',
+            'hello-state-init':'hello_state_init',
+            'hello-state-up':'hello_state_up',
+            'hello-state-down':'hello_state_down',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
     'RsvpMgmtFlowSpecEnum' : _MetaInfoEnum('RsvpMgmtFlowSpecEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper',
         {
-            'g709otn':'G709OTN',
+            'g709otn':'g709otn',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
     'RsvpMgmtHelloInstanceOwnerEnum' : _MetaInfoEnum('RsvpMgmtHelloInstanceOwnerEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper',
         {
-            'mpls-graceful-restart':'MPLS_GRACEFUL_RESTART',
-            'mpls-ouni':'MPLS_OUNI',
+            'mpls-graceful-restart':'mpls_graceful_restart',
+            'mpls-ouni':'mpls_ouni',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
     'RsvpMgmtRroSubobjEnum' : _MetaInfoEnum('RsvpMgmtRroSubobjEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper',
         {
-            'ipv4rro-type':'IPV4RRO_TYPE',
-            'label-rro-type':'LABEL_RRO_TYPE',
-            'unnumbered-rro-type':'UNNUMBERED_RRO_TYPE',
-            'srlg-rro-type':'SRLG_RRO_TYPE',
+            'ipv4rro-type':'ipv4rro_type',
+            'label-rro-type':'label_rro_type',
+            'unnumbered-rro-type':'unnumbered_rro_type',
+            'srlg-rro-type':'srlg_rro_type',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
     'RsvpMgmtSessionEnum' : _MetaInfoEnum('RsvpMgmtSessionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper',
         {
-            'rsvp-mgmt-session-type-udp-ipv4':'RSVP_MGMT_SESSION_TYPE_UDP_IPV4',
-            'rsvp-mgmt-session-type-lsp-ipv4':'RSVP_MGMT_SESSION_TYPE_LSP_IPV4',
-            'rsvp-mgmt-session-type-uni-ipv4':'RSVP_MGMT_SESSION_TYPE_UNI_IPV4',
-            'rsvp-mgmt-session-type-p2mp-lsp-ipv4':'RSVP_MGMT_SESSION_TYPE_P2MP_LSP_IPV4',
+            'rsvp-mgmt-session-type-udp-ipv4':'rsvp_mgmt_session_type_udp_ipv4',
+            'rsvp-mgmt-session-type-lsp-ipv4':'rsvp_mgmt_session_type_lsp_ipv4',
+            'rsvp-mgmt-session-type-uni-ipv4':'rsvp_mgmt_session_type_uni_ipv4',
+            'rsvp-mgmt-session-type-p2mp-lsp-ipv4':'rsvp_mgmt_session_type_p2mp_lsp_ipv4',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
     'RsvpMgmtHelloDownReasonEnum' : _MetaInfoEnum('RsvpMgmtHelloDownReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper',
         {
-            'not-applicable':'NOT_APPLICABLE',
-            'wrong-destination-instance':'WRONG_DESTINATION_INSTANCE',
-            'wrong-source-instance':'WRONG_SOURCE_INSTANCE',
-            'hello-missed':'HELLO_MISSED',
-            'interface-down':'INTERFACE_DOWN',
-            'neighbor-disabled-hello':'NEIGHBOR_DISABLED_HELLO',
-            'control-channel-down':'CONTROL_CHANNEL_DOWN',
+            'not-applicable':'not_applicable',
+            'wrong-destination-instance':'wrong_destination_instance',
+            'wrong-source-instance':'wrong_source_instance',
+            'hello-missed':'hello_missed',
+            'interface-down':'interface_down',
+            'neighbor-disabled-hello':'neighbor_disabled_hello',
+            'control-channel-down':'control_channel_down',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
     'RsvpMgmtGenericLabelEnum' : _MetaInfoEnum('RsvpMgmtGenericLabelEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper',
         {
-            'rsvp-mgmt-label-type-gmpls':'RSVP_MGMT_LABEL_TYPE_GMPLS',
+            'rsvp-mgmt-label-type-gmpls':'rsvp_mgmt_label_type_gmpls',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
     'RsvpMgmtGrAppEnum' : _MetaInfoEnum('RsvpMgmtGrAppEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper',
         {
-            'ouni':'OUNI',
-            'gmpls':'GMPLS',
+            'ouni':'ouni',
+            'gmpls':'gmpls',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
     'RsvpMgmtAuthChallengeStatusEnum' : _MetaInfoEnum('RsvpMgmtAuthChallengeStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper',
         {
-            'rsvp-mgmt-auth-cs-not-cfg':'RSVP_MGMT_AUTH_CS_NOT_CFG',
-            'rsvp-mgmt-auth-cs-completed':'RSVP_MGMT_AUTH_CS_COMPLETED',
-            'rsvp-mgmt-auth-cs-in-progress':'RSVP_MGMT_AUTH_CS_IN_PROGRESS',
-            'rsvp-mgmt-auth-cs-failure':'RSVP_MGMT_AUTH_CS_FAILURE',
-            'rsvp-mgmt-auth-cs-not-supported':'RSVP_MGMT_AUTH_CS_NOT_SUPPORTED',
+            'rsvp-mgmt-auth-cs-not-cfg':'rsvp_mgmt_auth_cs_not_cfg',
+            'rsvp-mgmt-auth-cs-completed':'rsvp_mgmt_auth_cs_completed',
+            'rsvp-mgmt-auth-cs-in-progress':'rsvp_mgmt_auth_cs_in_progress',
+            'rsvp-mgmt-auth-cs-failure':'rsvp_mgmt_auth_cs_failure',
+            'rsvp-mgmt-auth-cs-not-supported':'rsvp_mgmt_auth_cs_not_supported',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
     'RsvpMgmtAuthKiEnum' : _MetaInfoEnum('RsvpMgmtAuthKiEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper',
         {
-            'rsvp-mgmt-auth-ki-type-none':'RSVP_MGMT_AUTH_KI_TYPE_NONE',
-            'rsvp-mgmt-auth-ki-type-global':'RSVP_MGMT_AUTH_KI_TYPE_GLOBAL',
-            'rsvp-mgmt-auth-ki-type-interface':'RSVP_MGMT_AUTH_KI_TYPE_INTERFACE',
-            'rsvp-mgmt-auth-ki-type-neighbor':'RSVP_MGMT_AUTH_KI_TYPE_NEIGHBOR',
+            'rsvp-mgmt-auth-ki-type-none':'rsvp_mgmt_auth_ki_type_none',
+            'rsvp-mgmt-auth-ki-type-global':'rsvp_mgmt_auth_ki_type_global',
+            'rsvp-mgmt-auth-ki-type-interface':'rsvp_mgmt_auth_ki_type_interface',
+            'rsvp-mgmt-auth-ki-type-neighbor':'rsvp_mgmt_auth_ki_type_neighbor',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
     'RsvpTimerStateEnum' : _MetaInfoEnum('RsvpTimerStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper',
         {
-            'rsvp-timer-running-and-sleeping':'RSVP_TIMER_RUNNING_AND_SLEEPING',
-            'rsvp-timer-running':'RSVP_TIMER_RUNNING',
-            'rsvp-timer-not-running':'RSVP_TIMER_NOT_RUNNING',
+            'rsvp-timer-running-and-sleeping':'rsvp_timer_running_and_sleeping',
+            'rsvp-timer-running':'rsvp_timer_running',
+            'rsvp-timer-not-running':'rsvp_timer_not_running',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
     'RsvpSyncStatusEnum' : _MetaInfoEnum('RsvpSyncStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper',
         {
-            'not-ready':'NOT_READY',
-            'ready':'READY',
+            'not-ready':'not_ready',
+            'ready':'ready',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
     'RsvpModeEnum' : _MetaInfoEnum('RsvpModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper',
         {
-            'send':'SEND',
-            'receive':'RECEIVE',
+            'send':'send',
+            'receive':'receive',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
     'RsvpMgmtEroSubobjStatusEnum' : _MetaInfoEnum('RsvpMgmtEroSubobjStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper',
         {
-            'rsvp-mgmt-ero-status-not-available':'RSVP_MGMT_ERO_STATUS_NOT_AVAILABLE',
-            'rsvp-mgmt-ero-status-available':'RSVP_MGMT_ERO_STATUS_AVAILABLE',
-            'rsvp-mgmt-ero-status-bw-not-available':'RSVP_MGMT_ERO_STATUS_BW_NOT_AVAILABLE',
+            'rsvp-mgmt-ero-status-not-available':'rsvp_mgmt_ero_status_not_available',
+            'rsvp-mgmt-ero-status-available':'rsvp_mgmt_ero_status_available',
+            'rsvp-mgmt-ero-status-bw-not-available':'rsvp_mgmt_ero_status_bw_not_available',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
     'RsvpStandby.InterfaceNeighborBriefs.InterfaceNeighborBrief.InterfaceNeighborListCompact' : {
         'meta_info' : _MetaInfoClass('RsvpStandby.InterfaceNeighborBriefs.InterfaceNeighborBrief.InterfaceNeighborListCompact',
@@ -6430,8 +6430,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Forwarded' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Forwarded',
+    'RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Forwarded' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Forwarded',
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
@@ -6465,8 +6465,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.LocallyDestined' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.LocallyDestined',
+    'RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.LocallyDestined' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.LocallyDestined',
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
@@ -6500,8 +6500,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Dropped' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Dropped',
+    'RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Dropped' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Dropped',
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
@@ -6535,8 +6535,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.DefaultActionDropped' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.DefaultActionDropped',
+    'RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.DefaultActionDropped' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.DefaultActionDropped',
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
@@ -6570,8 +6570,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.DefaultActionProcessed' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.DefaultActionProcessed',
+    'RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.DefaultActionProcessed' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.DefaultActionProcessed',
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
@@ -6605,8 +6605,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Total' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Total',
+    'RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Total' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Total',
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
@@ -6640,8 +6640,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface',
+    'RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface',
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
@@ -6652,39 +6652,39 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ip-rsvp-oper', True),
-            _MetaInfoClassMember('default-action-dropped', REFERENCE_CLASS, 'DefaultActionDropped' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.DefaultActionDropped', 
+            _MetaInfoClassMember('default-action-dropped', REFERENCE_CLASS, 'DefaultActionDropped' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.DefaultActionDropped', 
                 [], [], 
                 '''                Count of messages which got dropped due to
                 default ACL action
                 ''',
                 'default_action_dropped',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('default-action-processed', REFERENCE_CLASS, 'DefaultActionProcessed' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.DefaultActionProcessed', 
+            _MetaInfoClassMember('default-action-processed', REFERENCE_CLASS, 'DefaultActionProcessed' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.DefaultActionProcessed', 
                 [], [], 
                 '''                Count of messages which were processed due to
                 default ACL action
                 ''',
                 'default_action_processed',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('dropped', REFERENCE_CLASS, 'Dropped' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Dropped', 
+            _MetaInfoClassMember('dropped', REFERENCE_CLASS, 'Dropped' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Dropped', 
                 [], [], 
                 '''                Count of messages dropped
                 ''',
                 'dropped',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('forwarded', REFERENCE_CLASS, 'Forwarded' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Forwarded', 
+            _MetaInfoClassMember('forwarded', REFERENCE_CLASS, 'Forwarded' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Forwarded', 
                 [], [], 
                 '''                Count of messages which got forwarded
                 ''',
                 'forwarded',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('locally-destined', REFERENCE_CLASS, 'LocallyDestined' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.LocallyDestined', 
+            _MetaInfoClassMember('locally-destined', REFERENCE_CLASS, 'LocallyDestined' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.LocallyDestined', 
                 [], [], 
                 '''                Count of locally destined messages
                 ''',
                 'locally_destined',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('total', REFERENCE_CLASS, 'Total' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Total', 
+            _MetaInfoClassMember('total', REFERENCE_CLASS, 'Total' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Total', 
                 [], [], 
                 '''                Count of total messages
                 ''',
@@ -6697,11 +6697,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces',
+    'RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_',
             False, 
             [
-            _MetaInfoClassMember('interface', REFERENCE_LIST, 'Interface' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface', 
+            _MetaInfoClassMember('interface', REFERENCE_LIST, 'Interface' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface', 
                 [], [], 
                 '''                Prefix filtering counters for a specific
                 interface
@@ -6719,7 +6719,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.Counters.PrefixFiltering.Interfaces',
             False, 
             [
-            _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces', 
+            _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_', 
                 [], [], 
                 '''                Table of interface specific prefix filtering
                 counters
@@ -6781,8 +6781,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.Counters.OutOfResource.Interfaces.Interfaces.Interface' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.Counters.OutOfResource.Interfaces.Interfaces.Interface',
+    'RsvpStandby.Counters.OutOfResource.Interfaces.Interfaces_.Interface' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.Counters.OutOfResource.Interfaces.Interfaces_.Interface',
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
@@ -6807,11 +6807,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'RsvpStandby.Counters.OutOfResource.Interfaces.Interfaces' : {
-        'meta_info' : _MetaInfoClass('RsvpStandby.Counters.OutOfResource.Interfaces.Interfaces',
+    'RsvpStandby.Counters.OutOfResource.Interfaces.Interfaces_' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.Counters.OutOfResource.Interfaces.Interfaces_',
             False, 
             [
-            _MetaInfoClassMember('interface', REFERENCE_LIST, 'Interface' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.Counters.OutOfResource.Interfaces.Interfaces.Interface', 
+            _MetaInfoClassMember('interface', REFERENCE_LIST, 'Interface' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.Counters.OutOfResource.Interfaces.Interfaces_.Interface', 
                 [], [], 
                 '''                Out of resource counters for a specific
                 interface
@@ -6829,7 +6829,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.Counters.OutOfResource.Interfaces',
             False, 
             [
-            _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.Counters.OutOfResource.Interfaces.Interfaces', 
+            _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.Counters.OutOfResource.Interfaces.Interfaces_', 
                 [], [], 
                 '''                Table of interface specific out of resource
                 counters
@@ -23005,8 +23005,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Forwarded' : {
-        'meta_info' : _MetaInfoClass('Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Forwarded',
+    'Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Forwarded' : {
+        'meta_info' : _MetaInfoClass('Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Forwarded',
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
@@ -23040,8 +23040,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.LocallyDestined' : {
-        'meta_info' : _MetaInfoClass('Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.LocallyDestined',
+    'Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.LocallyDestined' : {
+        'meta_info' : _MetaInfoClass('Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.LocallyDestined',
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
@@ -23075,8 +23075,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Dropped' : {
-        'meta_info' : _MetaInfoClass('Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Dropped',
+    'Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Dropped' : {
+        'meta_info' : _MetaInfoClass('Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Dropped',
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
@@ -23110,8 +23110,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.DefaultActionDropped' : {
-        'meta_info' : _MetaInfoClass('Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.DefaultActionDropped',
+    'Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.DefaultActionDropped' : {
+        'meta_info' : _MetaInfoClass('Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.DefaultActionDropped',
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
@@ -23145,8 +23145,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.DefaultActionProcessed' : {
-        'meta_info' : _MetaInfoClass('Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.DefaultActionProcessed',
+    'Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.DefaultActionProcessed' : {
+        'meta_info' : _MetaInfoClass('Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.DefaultActionProcessed',
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
@@ -23180,8 +23180,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Total' : {
-        'meta_info' : _MetaInfoClass('Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Total',
+    'Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Total' : {
+        'meta_info' : _MetaInfoClass('Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Total',
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
@@ -23215,8 +23215,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface' : {
-        'meta_info' : _MetaInfoClass('Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface',
+    'Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface' : {
+        'meta_info' : _MetaInfoClass('Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface',
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
@@ -23227,39 +23227,39 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ip-rsvp-oper', True),
-            _MetaInfoClassMember('default-action-dropped', REFERENCE_CLASS, 'DefaultActionDropped' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.DefaultActionDropped', 
+            _MetaInfoClassMember('default-action-dropped', REFERENCE_CLASS, 'DefaultActionDropped' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.DefaultActionDropped', 
                 [], [], 
                 '''                Count of messages which got dropped due to
                 default ACL action
                 ''',
                 'default_action_dropped',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('default-action-processed', REFERENCE_CLASS, 'DefaultActionProcessed' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.DefaultActionProcessed', 
+            _MetaInfoClassMember('default-action-processed', REFERENCE_CLASS, 'DefaultActionProcessed' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.DefaultActionProcessed', 
                 [], [], 
                 '''                Count of messages which were processed due to
                 default ACL action
                 ''',
                 'default_action_processed',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('dropped', REFERENCE_CLASS, 'Dropped' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Dropped', 
+            _MetaInfoClassMember('dropped', REFERENCE_CLASS, 'Dropped' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Dropped', 
                 [], [], 
                 '''                Count of messages dropped
                 ''',
                 'dropped',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('forwarded', REFERENCE_CLASS, 'Forwarded' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Forwarded', 
+            _MetaInfoClassMember('forwarded', REFERENCE_CLASS, 'Forwarded' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Forwarded', 
                 [], [], 
                 '''                Count of messages which got forwarded
                 ''',
                 'forwarded',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('locally-destined', REFERENCE_CLASS, 'LocallyDestined' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.LocallyDestined', 
+            _MetaInfoClassMember('locally-destined', REFERENCE_CLASS, 'LocallyDestined' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.LocallyDestined', 
                 [], [], 
                 '''                Count of locally destined messages
                 ''',
                 'locally_destined',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('total', REFERENCE_CLASS, 'Total' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Total', 
+            _MetaInfoClassMember('total', REFERENCE_CLASS, 'Total' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Total', 
                 [], [], 
                 '''                Count of total messages
                 ''',
@@ -23272,11 +23272,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces' : {
-        'meta_info' : _MetaInfoClass('Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces',
+    'Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_' : {
+        'meta_info' : _MetaInfoClass('Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_',
             False, 
             [
-            _MetaInfoClassMember('interface', REFERENCE_LIST, 'Interface' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface', 
+            _MetaInfoClassMember('interface', REFERENCE_LIST, 'Interface' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface', 
                 [], [], 
                 '''                Prefix filtering counters for a specific
                 interface
@@ -23294,7 +23294,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.Counters.PrefixFiltering.Interfaces',
             False, 
             [
-            _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces', 
+            _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_', 
                 [], [], 
                 '''                Table of interface specific prefix filtering
                 counters
@@ -23356,8 +23356,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.Counters.OutOfResource.Interfaces.Interfaces.Interface' : {
-        'meta_info' : _MetaInfoClass('Rsvp.Counters.OutOfResource.Interfaces.Interfaces.Interface',
+    'Rsvp.Counters.OutOfResource.Interfaces.Interfaces_.Interface' : {
+        'meta_info' : _MetaInfoClass('Rsvp.Counters.OutOfResource.Interfaces.Interfaces_.Interface',
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
@@ -23382,11 +23382,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
-    'Rsvp.Counters.OutOfResource.Interfaces.Interfaces' : {
-        'meta_info' : _MetaInfoClass('Rsvp.Counters.OutOfResource.Interfaces.Interfaces',
+    'Rsvp.Counters.OutOfResource.Interfaces.Interfaces_' : {
+        'meta_info' : _MetaInfoClass('Rsvp.Counters.OutOfResource.Interfaces.Interfaces_',
             False, 
             [
-            _MetaInfoClassMember('interface', REFERENCE_LIST, 'Interface' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.Counters.OutOfResource.Interfaces.Interfaces.Interface', 
+            _MetaInfoClassMember('interface', REFERENCE_LIST, 'Interface' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.Counters.OutOfResource.Interfaces.Interfaces_.Interface', 
                 [], [], 
                 '''                Out of resource counters for a specific
                 interface
@@ -23404,7 +23404,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.Counters.OutOfResource.Interfaces',
             False, 
             [
-            _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.Counters.OutOfResource.Interfaces.Interfaces', 
+            _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.Counters.OutOfResource.Interfaces.Interfaces_', 
                 [], [], 
                 '''                Table of interface specific out of resource
                 counters
@@ -31105,20 +31105,20 @@ _meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Summary.Dropped']['
 _meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Summary.DefaultActionDropped']['meta_info'].parent =_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Summary']['meta_info']
 _meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Summary.DefaultActionProcessed']['meta_info'].parent =_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Summary']['meta_info']
 _meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Summary.Total']['meta_info'].parent =_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Summary']['meta_info']
-_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Forwarded']['meta_info'].parent =_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface']['meta_info']
-_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.LocallyDestined']['meta_info'].parent =_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface']['meta_info']
-_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Dropped']['meta_info'].parent =_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface']['meta_info']
-_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.DefaultActionDropped']['meta_info'].parent =_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface']['meta_info']
-_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.DefaultActionProcessed']['meta_info'].parent =_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface']['meta_info']
-_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Total']['meta_info'].parent =_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface']['meta_info']
-_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface']['meta_info'].parent =_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces']['meta_info']
+_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Forwarded']['meta_info'].parent =_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface']['meta_info']
+_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.LocallyDestined']['meta_info'].parent =_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface']['meta_info']
+_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Dropped']['meta_info'].parent =_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface']['meta_info']
+_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.DefaultActionDropped']['meta_info'].parent =_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface']['meta_info']
+_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.DefaultActionProcessed']['meta_info'].parent =_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface']['meta_info']
+_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Total']['meta_info'].parent =_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface']['meta_info']
+_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface']['meta_info'].parent =_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_']['meta_info']
 _meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Summary']['meta_info'].parent =_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces']['meta_info']
-_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces']['meta_info'].parent =_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces']['meta_info']
+_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_']['meta_info'].parent =_meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces']['meta_info']
 _meta_table['RsvpStandby.Counters.PrefixFiltering.Accesses']['meta_info'].parent =_meta_table['RsvpStandby.Counters.PrefixFiltering']['meta_info']
 _meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces']['meta_info'].parent =_meta_table['RsvpStandby.Counters.PrefixFiltering']['meta_info']
-_meta_table['RsvpStandby.Counters.OutOfResource.Interfaces.Interfaces.Interface']['meta_info'].parent =_meta_table['RsvpStandby.Counters.OutOfResource.Interfaces.Interfaces']['meta_info']
+_meta_table['RsvpStandby.Counters.OutOfResource.Interfaces.Interfaces_.Interface']['meta_info'].parent =_meta_table['RsvpStandby.Counters.OutOfResource.Interfaces.Interfaces_']['meta_info']
 _meta_table['RsvpStandby.Counters.OutOfResource.Interfaces.Summary']['meta_info'].parent =_meta_table['RsvpStandby.Counters.OutOfResource.Interfaces']['meta_info']
-_meta_table['RsvpStandby.Counters.OutOfResource.Interfaces.Interfaces']['meta_info'].parent =_meta_table['RsvpStandby.Counters.OutOfResource.Interfaces']['meta_info']
+_meta_table['RsvpStandby.Counters.OutOfResource.Interfaces.Interfaces_']['meta_info'].parent =_meta_table['RsvpStandby.Counters.OutOfResource.Interfaces']['meta_info']
 _meta_table['RsvpStandby.Counters.OutOfResource.Interfaces']['meta_info'].parent =_meta_table['RsvpStandby.Counters.OutOfResource']['meta_info']
 _meta_table['RsvpStandby.Counters.InterfaceEvents.InterfaceEvent']['meta_info'].parent =_meta_table['RsvpStandby.Counters.InterfaceEvents']['meta_info']
 _meta_table['RsvpStandby.Counters.EventSyncs.EventSync']['meta_info'].parent =_meta_table['RsvpStandby.Counters.EventSyncs']['meta_info']
@@ -31530,20 +31530,20 @@ _meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Summary.Dropped']['meta_in
 _meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Summary.DefaultActionDropped']['meta_info'].parent =_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Summary']['meta_info']
 _meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Summary.DefaultActionProcessed']['meta_info'].parent =_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Summary']['meta_info']
 _meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Summary.Total']['meta_info'].parent =_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Summary']['meta_info']
-_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Forwarded']['meta_info'].parent =_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface']['meta_info']
-_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.LocallyDestined']['meta_info'].parent =_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface']['meta_info']
-_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Dropped']['meta_info'].parent =_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface']['meta_info']
-_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.DefaultActionDropped']['meta_info'].parent =_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface']['meta_info']
-_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.DefaultActionProcessed']['meta_info'].parent =_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface']['meta_info']
-_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Total']['meta_info'].parent =_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface']['meta_info']
-_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface']['meta_info'].parent =_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces']['meta_info']
+_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Forwarded']['meta_info'].parent =_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface']['meta_info']
+_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.LocallyDestined']['meta_info'].parent =_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface']['meta_info']
+_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Dropped']['meta_info'].parent =_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface']['meta_info']
+_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.DefaultActionDropped']['meta_info'].parent =_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface']['meta_info']
+_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.DefaultActionProcessed']['meta_info'].parent =_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface']['meta_info']
+_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Total']['meta_info'].parent =_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface']['meta_info']
+_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface']['meta_info'].parent =_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_']['meta_info']
 _meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Summary']['meta_info'].parent =_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces']['meta_info']
-_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces']['meta_info'].parent =_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces']['meta_info']
+_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_']['meta_info'].parent =_meta_table['Rsvp.Counters.PrefixFiltering.Interfaces']['meta_info']
 _meta_table['Rsvp.Counters.PrefixFiltering.Accesses']['meta_info'].parent =_meta_table['Rsvp.Counters.PrefixFiltering']['meta_info']
 _meta_table['Rsvp.Counters.PrefixFiltering.Interfaces']['meta_info'].parent =_meta_table['Rsvp.Counters.PrefixFiltering']['meta_info']
-_meta_table['Rsvp.Counters.OutOfResource.Interfaces.Interfaces.Interface']['meta_info'].parent =_meta_table['Rsvp.Counters.OutOfResource.Interfaces.Interfaces']['meta_info']
+_meta_table['Rsvp.Counters.OutOfResource.Interfaces.Interfaces_.Interface']['meta_info'].parent =_meta_table['Rsvp.Counters.OutOfResource.Interfaces.Interfaces_']['meta_info']
 _meta_table['Rsvp.Counters.OutOfResource.Interfaces.Summary']['meta_info'].parent =_meta_table['Rsvp.Counters.OutOfResource.Interfaces']['meta_info']
-_meta_table['Rsvp.Counters.OutOfResource.Interfaces.Interfaces']['meta_info'].parent =_meta_table['Rsvp.Counters.OutOfResource.Interfaces']['meta_info']
+_meta_table['Rsvp.Counters.OutOfResource.Interfaces.Interfaces_']['meta_info'].parent =_meta_table['Rsvp.Counters.OutOfResource.Interfaces']['meta_info']
 _meta_table['Rsvp.Counters.OutOfResource.Interfaces']['meta_info'].parent =_meta_table['Rsvp.Counters.OutOfResource']['meta_info']
 _meta_table['Rsvp.Counters.InterfaceEvents.InterfaceEvent']['meta_info'].parent =_meta_table['Rsvp.Counters.InterfaceEvents']['meta_info']
 _meta_table['Rsvp.Counters.EventSyncs.EventSync']['meta_info'].parent =_meta_table['Rsvp.Counters.EventSyncs']['meta_info']

@@ -32,7 +32,7 @@ class Telnet(object):
     .. attribute:: vrfs
     
     	VRF name for telnet service
-    	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_telnet_mgmt_cfg.Telnet.Vrfs>`
+    	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_telnet_mgmt_cfg.Telnet.Vrfs>`
     
     
 
@@ -53,7 +53,7 @@ class Telnet(object):
         .. attribute:: vrf
         
         	VRF name for telnet service
-        	**type**\: list of  :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_telnet_mgmt_cfg.Telnet.Vrfs.Vrf>`
+        	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_telnet_mgmt_cfg.Telnet.Vrfs.Vrf>`
         
         
 
@@ -83,7 +83,7 @@ class Telnet(object):
             .. attribute:: ipv4
             
             	IPv4 configuration
-            	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_telnet_mgmt_cfg.Telnet.Vrfs.Vrf.Ipv4>`
+            	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_telnet_mgmt_cfg.Telnet.Vrfs.Vrf.Ipv4>`
             
             
 

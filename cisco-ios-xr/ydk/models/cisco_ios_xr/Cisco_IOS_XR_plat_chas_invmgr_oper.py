@@ -31,19 +31,19 @@ class CardRedundancyStateEnum(Enum):
 
     Redundancy state detail
 
-    .. data:: ACTIVE = 1
+    .. data:: active = 1
 
     	Active
 
-    .. data:: STANDBY = 2
+    .. data:: standby = 2
 
     	Standby
 
     """
 
-    ACTIVE = 1
+    active = 1
 
-    STANDBY = 2
+    standby = 2
 
 
     @staticmethod
@@ -58,25 +58,25 @@ class InvAdminStateEnum(Enum):
 
     Inv admin state
 
-    .. data:: ADMIN_STATE_INVALID = 0
+    .. data:: admin_state_invalid = 0
 
     	admin state invalid
 
-    .. data:: ADMIN_UP = 1
+    .. data:: admin_up = 1
 
     	admin up
 
-    .. data:: ADMIN_DOWN = 2
+    .. data:: admin_down = 2
 
     	admin down
 
     """
 
-    ADMIN_STATE_INVALID = 0
+    admin_state_invalid = 0
 
-    ADMIN_UP = 1
+    admin_up = 1
 
-    ADMIN_DOWN = 2
+    admin_down = 2
 
 
     @staticmethod
@@ -91,241 +91,241 @@ class InvCardStateEnum(Enum):
 
     Inv card state
 
-    .. data:: INV_CARD_NOT_PRESENT = 0
+    .. data:: inv_card_not_present = 0
 
     	inv card not present
 
-    .. data:: INV_CARD_PRESENT = 1
+    .. data:: inv_card_present = 1
 
     	inv card present
 
-    .. data:: INV_CARD_RESET = 2
+    .. data:: inv_card_reset = 2
 
     	inv card reset
 
-    .. data:: INV_CARD_BOOTING = 3
+    .. data:: inv_card_booting = 3
 
     	inv card booting
 
-    .. data:: INV_CARD_MBI_BOOTING = 4
+    .. data:: inv_card_mbi_booting = 4
 
     	inv card mbi booting
 
-    .. data:: INV_CARD_RUNNING_MBI = 5
+    .. data:: inv_card_running_mbi = 5
 
     	inv card running mbi
 
-    .. data:: INV_CARD_RUNNING_ENA = 6
+    .. data:: inv_card_running_ena = 6
 
     	inv card running ena
 
-    .. data:: INV_CARD_BRING_DOWN = 7
+    .. data:: inv_card_bring_down = 7
 
     	inv card bring down
 
-    .. data:: INV_CARD_ENA_FAILURE = 8
+    .. data:: inv_card_ena_failure = 8
 
     	inv card ena failure
 
-    .. data:: INV_CARD_F_DIAG_RUN = 9
+    .. data:: inv_card_f_diag_run = 9
 
     	inv card f diag run
 
-    .. data:: INV_CARD_F_DIAG_FAILURE = 10
+    .. data:: inv_card_f_diag_failure = 10
 
     	inv card f diag failure
 
-    .. data:: INV_CARD_POWERED = 11
+    .. data:: inv_card_powered = 11
 
     	inv card powered
 
-    .. data:: INV_CARD_UNPOWERED = 12
+    .. data:: inv_card_unpowered = 12
 
     	inv card unpowered
 
-    .. data:: INV_CARD_MDR = 13
+    .. data:: inv_card_mdr = 13
 
     	inv card mdr
 
-    .. data:: INV_CARD_MDR_RUNNING_MBI = 14
+    .. data:: inv_card_mdr_running_mbi = 14
 
     	inv card mdr running mbi
 
-    .. data:: INV_CARD_MAIN_T_MODE = 15
+    .. data:: inv_card_main_t_mode = 15
 
     	inv card main t mode
 
-    .. data:: INV_CARD_ADMIN_DOWN = 16
+    .. data:: inv_card_admin_down = 16
 
     	inv card admin down
 
-    .. data:: INV_CARD_NO_MON = 17
+    .. data:: inv_card_no_mon = 17
 
     	inv card no mon
 
-    .. data:: INV_CARD_UNKNOWN = 18
+    .. data:: inv_card_unknown = 18
 
     	inv card unknown
 
-    .. data:: INV_CARD_FAILED = 19
+    .. data:: inv_card_failed = 19
 
     	inv card failed
 
-    .. data:: INV_CARD_OK = 20
+    .. data:: inv_card_ok = 20
 
     	inv card ok
 
-    .. data:: INV_CARD_MISSING = 21
+    .. data:: inv_card_missing = 21
 
     	inv card missing
 
-    .. data:: INV_CARD_FIELD_DIAG_DOWNLOADING = 22
+    .. data:: inv_card_field_diag_downloading = 22
 
     	inv card field diag downloading
 
-    .. data:: INV_CARD_FIELD_DIAG_UNMONITOR = 23
+    .. data:: inv_card_field_diag_unmonitor = 23
 
     	inv card field diag unmonitor
 
-    .. data:: INV_CARD_FABRIC_FIELD_DIAG_UNMONITOR = 24
+    .. data:: inv_card_fabric_field_diag_unmonitor = 24
 
     	inv card fabric field diag unmonitor
 
-    .. data:: INV_CARD_FIELD_DIAG_RP_LAUNCHING = 25
+    .. data:: inv_card_field_diag_rp_launching = 25
 
     	inv card field diag rp launching
 
-    .. data:: INV_CARD_FIELD_DIAG_RUNNING = 26
+    .. data:: inv_card_field_diag_running = 26
 
     	inv card field diag running
 
-    .. data:: INV_CARD_FIELD_DIAG_PASS = 27
+    .. data:: inv_card_field_diag_pass = 27
 
     	inv card field diag pass
 
-    .. data:: INV_CARD_FIELD_DIAG_FAIL = 28
+    .. data:: inv_card_field_diag_fail = 28
 
     	inv card field diag fail
 
-    .. data:: INV_CARD_FIELD_DIAG_TIMEOUT = 29
+    .. data:: inv_card_field_diag_timeout = 29
 
     	inv card field diag timeout
 
-    .. data:: INV_CARD_DISABLED = 30
+    .. data:: inv_card_disabled = 30
 
     	inv card disabled
 
-    .. data:: INV_CARD_SPA_BOOTING = 31
+    .. data:: inv_card_spa_booting = 31
 
     	inv card spa booting
 
-    .. data:: INV_CARD_NOT_ALLOWED_ONLINE = 32
+    .. data:: inv_card_not_allowed_online = 32
 
     	inv card not allowed online
 
-    .. data:: INV_CARD_STOPPED = 33
+    .. data:: inv_card_stopped = 33
 
     	inv card stopped
 
-    .. data:: INV_CARD_INCOMPATIBLE_FW_VER = 34
+    .. data:: inv_card_incompatible_fw_ver = 34
 
     	inv card incompatible fw ver
 
-    .. data:: INV_CARD_FPD_HOLD = 35
+    .. data:: inv_card_fpd_hold = 35
 
     	inv card fpd hold
 
-    .. data:: INV_CARD_NODE_PREP = 36
+    .. data:: inv_card_node_prep = 36
 
     	inv card node prep
 
-    .. data:: INV_CARD_UPDATING_FPD = 37
+    .. data:: inv_card_updating_fpd = 37
 
     	inv card updating fpd
 
-    .. data:: INV_CARD_NUM_STATES = 38
+    .. data:: inv_card_num_states = 38
 
     	inv card num states
 
     """
 
-    INV_CARD_NOT_PRESENT = 0
+    inv_card_not_present = 0
 
-    INV_CARD_PRESENT = 1
+    inv_card_present = 1
 
-    INV_CARD_RESET = 2
+    inv_card_reset = 2
 
-    INV_CARD_BOOTING = 3
+    inv_card_booting = 3
 
-    INV_CARD_MBI_BOOTING = 4
+    inv_card_mbi_booting = 4
 
-    INV_CARD_RUNNING_MBI = 5
+    inv_card_running_mbi = 5
 
-    INV_CARD_RUNNING_ENA = 6
+    inv_card_running_ena = 6
 
-    INV_CARD_BRING_DOWN = 7
+    inv_card_bring_down = 7
 
-    INV_CARD_ENA_FAILURE = 8
+    inv_card_ena_failure = 8
 
-    INV_CARD_F_DIAG_RUN = 9
+    inv_card_f_diag_run = 9
 
-    INV_CARD_F_DIAG_FAILURE = 10
+    inv_card_f_diag_failure = 10
 
-    INV_CARD_POWERED = 11
+    inv_card_powered = 11
 
-    INV_CARD_UNPOWERED = 12
+    inv_card_unpowered = 12
 
-    INV_CARD_MDR = 13
+    inv_card_mdr = 13
 
-    INV_CARD_MDR_RUNNING_MBI = 14
+    inv_card_mdr_running_mbi = 14
 
-    INV_CARD_MAIN_T_MODE = 15
+    inv_card_main_t_mode = 15
 
-    INV_CARD_ADMIN_DOWN = 16
+    inv_card_admin_down = 16
 
-    INV_CARD_NO_MON = 17
+    inv_card_no_mon = 17
 
-    INV_CARD_UNKNOWN = 18
+    inv_card_unknown = 18
 
-    INV_CARD_FAILED = 19
+    inv_card_failed = 19
 
-    INV_CARD_OK = 20
+    inv_card_ok = 20
 
-    INV_CARD_MISSING = 21
+    inv_card_missing = 21
 
-    INV_CARD_FIELD_DIAG_DOWNLOADING = 22
+    inv_card_field_diag_downloading = 22
 
-    INV_CARD_FIELD_DIAG_UNMONITOR = 23
+    inv_card_field_diag_unmonitor = 23
 
-    INV_CARD_FABRIC_FIELD_DIAG_UNMONITOR = 24
+    inv_card_fabric_field_diag_unmonitor = 24
 
-    INV_CARD_FIELD_DIAG_RP_LAUNCHING = 25
+    inv_card_field_diag_rp_launching = 25
 
-    INV_CARD_FIELD_DIAG_RUNNING = 26
+    inv_card_field_diag_running = 26
 
-    INV_CARD_FIELD_DIAG_PASS = 27
+    inv_card_field_diag_pass = 27
 
-    INV_CARD_FIELD_DIAG_FAIL = 28
+    inv_card_field_diag_fail = 28
 
-    INV_CARD_FIELD_DIAG_TIMEOUT = 29
+    inv_card_field_diag_timeout = 29
 
-    INV_CARD_DISABLED = 30
+    inv_card_disabled = 30
 
-    INV_CARD_SPA_BOOTING = 31
+    inv_card_spa_booting = 31
 
-    INV_CARD_NOT_ALLOWED_ONLINE = 32
+    inv_card_not_allowed_online = 32
 
-    INV_CARD_STOPPED = 33
+    inv_card_stopped = 33
 
-    INV_CARD_INCOMPATIBLE_FW_VER = 34
+    inv_card_incompatible_fw_ver = 34
 
-    INV_CARD_FPD_HOLD = 35
+    inv_card_fpd_hold = 35
 
-    INV_CARD_NODE_PREP = 36
+    inv_card_node_prep = 36
 
-    INV_CARD_UPDATING_FPD = 37
+    inv_card_updating_fpd = 37
 
-    INV_CARD_NUM_STATES = 38
+    inv_card_num_states = 38
 
 
     @staticmethod
@@ -340,19 +340,19 @@ class InvMonitorStateEnum(Enum):
 
     Inv monitor state
 
-    .. data:: UNMONITORED = 0
+    .. data:: unmonitored = 0
 
     	unmonitored
 
-    .. data:: MONITORED = 1
+    .. data:: monitored = 1
 
     	monitored
 
     """
 
-    UNMONITORED = 0
+    unmonitored = 0
 
-    MONITORED = 1
+    monitored = 1
 
 
     @staticmethod
@@ -367,25 +367,25 @@ class InvPowerAdminStateEnum(Enum):
 
     Inv power admin state
 
-    .. data:: ADMIN_POWER_INVALID = 0
+    .. data:: admin_power_invalid = 0
 
     	admin power invalid
 
-    .. data:: ADMIN_ON = 2
+    .. data:: admin_on = 2
 
     	admin on
 
-    .. data:: ADMIN_OFF = 3
+    .. data:: admin_off = 3
 
     	admin off
 
     """
 
-    ADMIN_POWER_INVALID = 0
+    admin_power_invalid = 0
 
-    ADMIN_ON = 2
+    admin_on = 2
 
-    ADMIN_OFF = 3
+    admin_off = 3
 
 
     @staticmethod
@@ -400,49 +400,49 @@ class InvResetReasonEnum(Enum):
 
     Inv reset reason
 
-    .. data:: MODULE_RESET_REASON_UNKNOWN = 0
+    .. data:: module_reset_reason_unknown = 0
 
     	module reset reason unknown
 
-    .. data:: MODULE_RESET_REASON_POWERUP = 1
+    .. data:: module_reset_reason_powerup = 1
 
     	module reset reason powerup
 
-    .. data:: MODULE_RESET_REASON_USER_SHUTDOWN = 2
+    .. data:: module_reset_reason_user_shutdown = 2
 
     	module reset reason user shutdown
 
-    .. data:: MODULE_RESET_REASON_USER_RELOAD = 3
+    .. data:: module_reset_reason_user_reload = 3
 
     	module reset reason user reload
 
-    .. data:: MODULE_RESET_REASON_AUTO_RELOAD = 4
+    .. data:: module_reset_reason_auto_reload = 4
 
     	module reset reason auto reload
 
-    .. data:: MODULE_RESET_REASON_ENVIRONMENT = 5
+    .. data:: module_reset_reason_environment = 5
 
     	module reset reason environment
 
-    .. data:: MODULE_RESET_REASON_USER_UNPOWER = 6
+    .. data:: module_reset_reason_user_unpower = 6
 
     	module reset reason user unpower
 
     """
 
-    MODULE_RESET_REASON_UNKNOWN = 0
+    module_reset_reason_unknown = 0
 
-    MODULE_RESET_REASON_POWERUP = 1
+    module_reset_reason_powerup = 1
 
-    MODULE_RESET_REASON_USER_SHUTDOWN = 2
+    module_reset_reason_user_shutdown = 2
 
-    MODULE_RESET_REASON_USER_RELOAD = 3
+    module_reset_reason_user_reload = 3
 
-    MODULE_RESET_REASON_AUTO_RELOAD = 4
+    module_reset_reason_auto_reload = 4
 
-    MODULE_RESET_REASON_ENVIRONMENT = 5
+    module_reset_reason_environment = 5
 
-    MODULE_RESET_REASON_USER_UNPOWER = 6
+    module_reset_reason_user_unpower = 6
 
 
     @staticmethod
@@ -457,313 +457,313 @@ class NodeStateEnum(Enum):
 
     Node state detail
 
-    .. data:: NOT_PRESENT = 0
+    .. data:: not_present = 0
 
     	Not present
 
-    .. data:: PRESENT = 1
+    .. data:: present = 1
 
     	Present
 
-    .. data:: RESET = 2
+    .. data:: reset = 2
 
     	Reset
 
-    .. data:: ROMMON = 3
+    .. data:: rommon = 3
 
     	Card booting or rommon
 
-    .. data:: MBI_BOOT = 4
+    .. data:: mbi_boot = 4
 
     	MBI booting
 
-    .. data:: MBI_RUN = 5
+    .. data:: mbi_run = 5
 
     	Running MBI
 
-    .. data:: XR_RUN = 6
+    .. data:: xr_run = 6
 
     	Running ENA
 
-    .. data:: BRING_DOWN = 7
+    .. data:: bring_down = 7
 
     	Bringdown
 
-    .. data:: XR_FAIL = 8
+    .. data:: xr_fail = 8
 
     	ENA failure
 
-    .. data:: FDIAG_RUN = 9
+    .. data:: fdiag_run = 9
 
     	Running FDIAG
 
-    .. data:: FDIAG_FAIL = 10
+    .. data:: fdiag_fail = 10
 
     	FDIAG failure
 
-    .. data:: POWER = 11
+    .. data:: power = 11
 
     	Powered
 
-    .. data:: UNPOWER = 12
+    .. data:: unpower = 12
 
     	Unpowered
 
-    .. data:: MDR_WARM_RELOAD = 13
+    .. data:: mdr_warm_reload = 13
 
     	MDR warm reload
 
-    .. data:: MDR_MBI_RUN = 14
+    .. data:: mdr_mbi_run = 14
 
     	MDR running MBI
 
-    .. data:: MAINTENANCE_MODE = 15
+    .. data:: maintenance_mode = 15
 
     	Maintenance mode
 
-    .. data:: ADMIN_DOWN = 16
+    .. data:: admin_down = 16
 
     	Admin down
 
-    .. data:: NOT_MONITOR = 17
+    .. data:: not_monitor = 17
 
     	No MON
 
-    .. data:: UNKNOWN_CARD = 18
+    .. data:: unknown_card = 18
 
     	Unknown
 
-    .. data:: FAILED = 19
+    .. data:: failed = 19
 
     	Failed
 
-    .. data:: OK = 20
+    .. data:: ok = 20
 
     	OK
 
-    .. data:: MISSING = 21
+    .. data:: missing = 21
 
     	Missing
 
-    .. data:: DIAG_DOWNLOAD = 22
+    .. data:: diag_download = 22
 
     	Field diag downloading
 
-    .. data:: DIAG_NOT_MONITOR = 23
+    .. data:: diag_not_monitor = 23
 
     	Field diag unmonitor
 
-    .. data:: FABRIC_DIAG_NOT_MONITOR = 24
+    .. data:: fabric_diag_not_monitor = 24
 
     	Fabric field diag unmonitor
 
-    .. data:: DIAG_RP_LAUNCH = 25
+    .. data:: diag_rp_launch = 25
 
     	Field diag RP launching
 
-    .. data:: DIAG_RUN = 26
+    .. data:: diag_run = 26
 
     	Field diag running
 
-    .. data:: DIAG_PASS = 27
+    .. data:: diag_pass = 27
 
     	Field diag pass
 
-    .. data:: DIAG_FAIL = 28
+    .. data:: diag_fail = 28
 
     	Field diag fail
 
-    .. data:: DIAG_TIMEOUT = 29
+    .. data:: diag_timeout = 29
 
     	Field diag timeout
 
-    .. data:: DISABLE = 30
+    .. data:: disable = 30
 
     	Disable
 
-    .. data:: SPA_BOOT = 31
+    .. data:: spa_boot = 31
 
     	SPA booting
 
-    .. data:: NOT_ALLOWED_ONLINE = 32
+    .. data:: not_allowed_online = 32
 
     	Not allowed online
 
-    .. data:: STOP = 33
+    .. data:: stop = 33
 
     	Stopped
 
-    .. data:: INCOMP_VERSION = 34
+    .. data:: incomp_version = 34
 
     	Incompatible FW version
 
-    .. data:: FPD_HOLD = 35
+    .. data:: fpd_hold = 35
 
     	FPD hold
 
-    .. data:: XR_PREPARATION = 36
+    .. data:: xr_preparation = 36
 
     	XR preparation
 
-    .. data:: SYNC_READY = 37
+    .. data:: sync_ready = 37
 
     	Sync ready state
 
-    .. data:: XR_ISOLATE = 38
+    .. data:: xr_isolate = 38
 
     	Node isolate state
 
-    .. data:: READY = 39
+    .. data:: ready = 39
 
     	Ready
 
-    .. data:: INVALID = 40
+    .. data:: invalid = 40
 
     	Invalid
 
-    .. data:: OPERATIONAL = 41
+    .. data:: operational = 41
 
     	Operational
 
-    .. data:: OPERATIONAL_LOCK = 42
+    .. data:: operational_lock = 42
 
     	Operational lock
 
-    .. data:: GOING_DOWN = 43
+    .. data:: going_down = 43
 
     	Going down
 
-    .. data:: GOING_OFFLINE = 44
+    .. data:: going_offline = 44
 
     	Going offline
 
-    .. data:: GOING_ONLINE = 45
+    .. data:: going_online = 45
 
     	Going online
 
-    .. data:: OFFLINE = 46
+    .. data:: offline = 46
 
     	Offline
 
-    .. data:: UP = 47
+    .. data:: up = 47
 
     	Up
 
-    .. data:: DOWN = 48
+    .. data:: down = 48
 
     	Down
 
-    .. data:: MAX = 49
+    .. data:: max = 49
 
     	Max
 
-    .. data:: UNKNOWN = 50
+    .. data:: unknown = 50
 
     	Unknown
 
     """
 
-    NOT_PRESENT = 0
+    not_present = 0
 
-    PRESENT = 1
+    present = 1
 
-    RESET = 2
+    reset = 2
 
-    ROMMON = 3
+    rommon = 3
 
-    MBI_BOOT = 4
+    mbi_boot = 4
 
-    MBI_RUN = 5
+    mbi_run = 5
 
-    XR_RUN = 6
+    xr_run = 6
 
-    BRING_DOWN = 7
+    bring_down = 7
 
-    XR_FAIL = 8
+    xr_fail = 8
 
-    FDIAG_RUN = 9
+    fdiag_run = 9
 
-    FDIAG_FAIL = 10
+    fdiag_fail = 10
 
-    POWER = 11
+    power = 11
 
-    UNPOWER = 12
+    unpower = 12
 
-    MDR_WARM_RELOAD = 13
+    mdr_warm_reload = 13
 
-    MDR_MBI_RUN = 14
+    mdr_mbi_run = 14
 
-    MAINTENANCE_MODE = 15
+    maintenance_mode = 15
 
-    ADMIN_DOWN = 16
+    admin_down = 16
 
-    NOT_MONITOR = 17
+    not_monitor = 17
 
-    UNKNOWN_CARD = 18
+    unknown_card = 18
 
-    FAILED = 19
+    failed = 19
 
-    OK = 20
+    ok = 20
 
-    MISSING = 21
+    missing = 21
 
-    DIAG_DOWNLOAD = 22
+    diag_download = 22
 
-    DIAG_NOT_MONITOR = 23
+    diag_not_monitor = 23
 
-    FABRIC_DIAG_NOT_MONITOR = 24
+    fabric_diag_not_monitor = 24
 
-    DIAG_RP_LAUNCH = 25
+    diag_rp_launch = 25
 
-    DIAG_RUN = 26
+    diag_run = 26
 
-    DIAG_PASS = 27
+    diag_pass = 27
 
-    DIAG_FAIL = 28
+    diag_fail = 28
 
-    DIAG_TIMEOUT = 29
+    diag_timeout = 29
 
-    DISABLE = 30
+    disable = 30
 
-    SPA_BOOT = 31
+    spa_boot = 31
 
-    NOT_ALLOWED_ONLINE = 32
+    not_allowed_online = 32
 
-    STOP = 33
+    stop = 33
 
-    INCOMP_VERSION = 34
+    incomp_version = 34
 
-    FPD_HOLD = 35
+    fpd_hold = 35
 
-    XR_PREPARATION = 36
+    xr_preparation = 36
 
-    SYNC_READY = 37
+    sync_ready = 37
 
-    XR_ISOLATE = 38
+    xr_isolate = 38
 
-    READY = 39
+    ready = 39
 
-    INVALID = 40
+    invalid = 40
 
-    OPERATIONAL = 41
+    operational = 41
 
-    OPERATIONAL_LOCK = 42
+    operational_lock = 42
 
-    GOING_DOWN = 43
+    going_down = 43
 
-    GOING_OFFLINE = 44
+    going_offline = 44
 
-    GOING_ONLINE = 45
+    going_online = 45
 
-    OFFLINE = 46
+    offline = 46
 
-    UP = 47
+    up = 47
 
-    DOWN = 48
+    down = 48
 
-    MAX = 49
+    max = 49
 
-    UNKNOWN = 50
+    unknown = 50
 
 
     @staticmethod
@@ -780,7 +780,7 @@ class Platform(object):
     .. attribute:: racks
     
     	Table of racks
-    	**type**\:  :py:class:`Racks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks>`
+    	**type**\:   :py:class:`Racks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks>`
     
     
 
@@ -801,7 +801,7 @@ class Platform(object):
         .. attribute:: rack
         
         	Rack name
-        	**type**\: list of  :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack>`
+        	**type**\: list of    :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack>`
         
         
 
@@ -831,7 +831,7 @@ class Platform(object):
             .. attribute:: slots
             
             	Table of slots
-            	**type**\:  :py:class:`Slots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack.Slots>`
+            	**type**\:   :py:class:`Slots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack.Slots>`
             
             
 
@@ -854,7 +854,7 @@ class Platform(object):
                 .. attribute:: slot
                 
                 	Slot name
-                	**type**\: list of  :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack.Slots.Slot>`
+                	**type**\: list of    :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack.Slots.Slot>`
                 
                 
 
@@ -884,17 +884,17 @@ class Platform(object):
                     .. attribute:: instances
                     
                     	Table of Instances
-                    	**type**\:  :py:class:`Instances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack.Slots.Slot.Instances>`
+                    	**type**\:   :py:class:`Instances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack.Slots.Slot.Instances>`
                     
                     .. attribute:: state
                     
                     	State information
-                    	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack.Slots.Slot.State>`
+                    	**type**\:   :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack.Slots.Slot.State>`
                     
                     .. attribute:: vm
                     
                     	VM information
-                    	**type**\:  :py:class:`Vm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack.Slots.Slot.Vm>`
+                    	**type**\:   :py:class:`Vm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack.Slots.Slot.Vm>`
                     
                     
 
@@ -921,7 +921,7 @@ class Platform(object):
                         .. attribute:: instance
                         
                         	Instance name
-                        	**type**\: list of  :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack.Slots.Slot.Instances.Instance>`
+                        	**type**\: list of    :py:class:`Instance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack.Slots.Slot.Instances.Instance>`
                         
                         
 
@@ -949,7 +949,7 @@ class Platform(object):
                             .. attribute:: state
                             
                             	State information
-                            	**type**\:  :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack.Slots.Slot.Instances.Instance.State>`
+                            	**type**\:   :py:class:`State <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.Platform.Racks.Rack.Slots.Slot.Instances.Instance.State>`
                             
                             
 
@@ -977,7 +977,7 @@ class Platform(object):
                                 .. attribute:: card_redundancy_state
                                 
                                 	Redundancy state
-                                	**type**\:  :py:class:`CardRedundancyStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.CardRedundancyStateEnum>`
+                                	**type**\:   :py:class:`CardRedundancyStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.CardRedundancyStateEnum>`
                                 
                                 .. attribute:: card_type
                                 
@@ -1007,7 +1007,7 @@ class Platform(object):
                                 .. attribute:: state
                                 
                                 	State
-                                	**type**\:  :py:class:`NodeStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.NodeStateEnum>`
+                                	**type**\:   :py:class:`NodeStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.NodeStateEnum>`
                                 
                                 
 
@@ -1221,7 +1221,7 @@ class Platform(object):
                         .. attribute:: card_redundancy_state
                         
                         	Redundancy state
-                        	**type**\:  :py:class:`CardRedundancyStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.CardRedundancyStateEnum>`
+                        	**type**\:   :py:class:`CardRedundancyStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.CardRedundancyStateEnum>`
                         
                         .. attribute:: card_type
                         
@@ -1251,7 +1251,7 @@ class Platform(object):
                         .. attribute:: state
                         
                         	State
-                        	**type**\:  :py:class:`NodeStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.NodeStateEnum>`
+                        	**type**\:   :py:class:`NodeStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.NodeStateEnum>`
                         
                         
 
@@ -1458,7 +1458,7 @@ class PlatformInventory(object):
     .. attribute:: racks
     
     	Table of racks
-    	**type**\:  :py:class:`Racks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks>`
+    	**type**\:   :py:class:`Racks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks>`
     
     
 
@@ -1479,7 +1479,7 @@ class PlatformInventory(object):
         .. attribute:: rack
         
         	Rack name
-        	**type**\: list of  :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack>`
+        	**type**\: list of    :py:class:`Rack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack>`
         
         
 
@@ -1509,12 +1509,12 @@ class PlatformInventory(object):
             .. attribute:: attributes
             
             	Attributes
-            	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Attributes>`
+            	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Attributes>`
             
             .. attribute:: slots
             
             	Table of slots
-            	**type**\:  :py:class:`Slots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots>`
+            	**type**\:   :py:class:`Slots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots>`
             
             
 
@@ -1539,7 +1539,7 @@ class PlatformInventory(object):
                 .. attribute:: slot
                 
                 	Slot name
-                	**type**\: list of  :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot>`
+                	**type**\: list of    :py:class:`Slot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot>`
                 
                 
 
@@ -1569,12 +1569,12 @@ class PlatformInventory(object):
                     .. attribute:: attributes
                     
                     	Attributes
-                    	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Attributes>`
+                    	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Attributes>`
                     
                     .. attribute:: cards
                     
                     	Table of cards
-                    	**type**\:  :py:class:`Cards <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards>`
+                    	**type**\:   :py:class:`Cards <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards>`
                     
                     
 
@@ -1599,7 +1599,7 @@ class PlatformInventory(object):
                         .. attribute:: card
                         
                         	Card number
-                        	**type**\: list of  :py:class:`Card <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card>`
+                        	**type**\: list of    :py:class:`Card <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card>`
                         
                         
 
@@ -1629,37 +1629,37 @@ class PlatformInventory(object):
                             .. attribute:: attributes
                             
                             	Attributes
-                            	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes>`
+                            	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes>`
                             
                             .. attribute:: hardware_information
                             
                             	HardwareInformationDir
-                            	**type**\:  :py:class:`HardwareInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation>`
+                            	**type**\:   :py:class:`HardwareInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation>`
                             
                             .. attribute:: hw_components
                             
                             	Table of  HW components 
-                            	**type**\:  :py:class:`HwComponents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents>`
+                            	**type**\:   :py:class:`HwComponents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents>`
                             
                             .. attribute:: port_slots
                             
                             	Table of port slots
-                            	**type**\:  :py:class:`PortSlots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots>`
+                            	**type**\:   :py:class:`PortSlots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots>`
                             
                             .. attribute:: portses
                             
                             	Table of spirit port slots
-                            	**type**\:  :py:class:`Portses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses>`
+                            	**type**\:   :py:class:`Portses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses>`
                             
                             .. attribute:: sensors
                             
                             	Table of sensors
-                            	**type**\:  :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors>`
+                            	**type**\:   :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors>`
                             
                             .. attribute:: sub_slots
                             
                             	Table of subslots
-                            	**type**\:  :py:class:`SubSlots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots>`
+                            	**type**\:   :py:class:`SubSlots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots>`
                             
                             
 
@@ -1694,7 +1694,7 @@ class PlatformInventory(object):
                                 .. attribute:: ports
                                 
                                 	Port number
-                                	**type**\: list of  :py:class:`Ports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports>`
+                                	**type**\: list of    :py:class:`Ports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports>`
                                 
                                 
 
@@ -1724,7 +1724,7 @@ class PlatformInventory(object):
                                     .. attribute:: attributes
                                     
                                     	Attributes
-                                    	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes>`
+                                    	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes>`
                                     
                                     
 
@@ -1747,12 +1747,12 @@ class PlatformInventory(object):
                                         .. attribute:: basic_info
                                         
                                         	Entity attributes
-                                        	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.BasicInfo>`
+                                        	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.BasicInfo>`
                                         
                                         .. attribute:: fru_info
                                         
                                         	Field Replaceable Unit (FRU) attributes
-                                        	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo>`
+                                        	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo>`
                                         
                                         
 
@@ -1909,37 +1909,37 @@ class PlatformInventory(object):
                                             .. attribute:: last_operational_state_change
                                             
                                             	Time operational state is   last changed
-                                            	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange>`
+                                            	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.LastOperationalStateChange>`
                                             
                                             .. attribute:: module_administrative_state
                                             
                                             	Administrative    state
-                                            	**type**\:  :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
+                                            	**type**\:   :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
                                             
                                             .. attribute:: module_monitor_state
                                             
                                             	Monitor state
-                                            	**type**\:  :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
+                                            	**type**\:   :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                             
                                             .. attribute:: module_operational_state
                                             
                                             	Operation state
-                                            	**type**\:  :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                            	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                             
                                             .. attribute:: module_power_administrative_state
                                             
                                             	Power administrative state
-                                            	**type**\:  :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                            	**type**\:   :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
                                             
                                             .. attribute:: module_reset_reason
                                             
                                             	Reset reason
-                                            	**type**\:  :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                            	**type**\:   :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
                                             
                                             .. attribute:: module_up_time
                                             
                                             	Module up time
-                                            	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.ModuleUpTime>`
+                                            	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Portses.Ports.Attributes.FruInfo.ModuleUpTime>`
                                             
                                             
 
@@ -1972,12 +1972,16 @@ class PlatformInventory(object):
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
+                                                	**units**\: nanosecond
+                                                
                                                 .. attribute:: time_in_seconds
                                                 
                                                 	Time Value in Seconds
                                                 	**type**\:  int
                                                 
                                                 	**range:** \-2147483648..2147483647
+                                                
+                                                	**units**\: second
                                                 
                                                 
 
@@ -2030,12 +2034,16 @@ class PlatformInventory(object):
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
+                                                	**units**\: nanosecond
+                                                
                                                 .. attribute:: time_in_seconds
                                                 
                                                 	Time Value in Seconds
                                                 	**type**\:  int
                                                 
                                                 	**range:** \-2147483648..2147483647
+                                                
+                                                	**units**\: second
                                                 
                                                 
 
@@ -2208,22 +2216,22 @@ class PlatformInventory(object):
                                 .. attribute:: bootflash_information
                                 
                                 	BootflashInformation
-                                	**type**\:  :py:class:`BootflashInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.BootflashInformation>`
+                                	**type**\:   :py:class:`BootflashInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.BootflashInformation>`
                                 
                                 .. attribute:: disk_information
                                 
                                 	DiskInformation
-                                	**type**\:  :py:class:`DiskInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.DiskInformation>`
+                                	**type**\:   :py:class:`DiskInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.DiskInformation>`
                                 
                                 .. attribute:: motherboard_information
                                 
                                 	MotherboardInformation
-                                	**type**\:  :py:class:`MotherboardInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation>`
+                                	**type**\:   :py:class:`MotherboardInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation>`
                                 
                                 .. attribute:: processor_information
                                 
                                 	ProcesorInformation
-                                	**type**\:  :py:class:`ProcessorInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.ProcessorInformation>`
+                                	**type**\:   :py:class:`ProcessorInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.ProcessorInformation>`
                                 
                                 
 
@@ -2320,7 +2328,7 @@ class PlatformInventory(object):
                                     .. attribute:: bootflash
                                     
                                     	Bootflash information
-                                    	**type**\:  :py:class:`Bootflash <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Bootflash>`
+                                    	**type**\:   :py:class:`Bootflash <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Bootflash>`
                                     
                                     .. attribute:: main_memory_size
                                     
@@ -2329,6 +2337,8 @@ class PlatformInventory(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**units**\: byte
+                                    
                                     .. attribute:: nvram_size
                                     
                                     	NVRAM size in bytes
@@ -2336,15 +2346,17 @@ class PlatformInventory(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**units**\: byte
+                                    
                                     .. attribute:: processor
                                     
                                     	Processor information
-                                    	**type**\:  :py:class:`Processor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Processor>`
+                                    	**type**\:   :py:class:`Processor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Processor>`
                                     
                                     .. attribute:: rom
                                     
                                     	ROM information
-                                    	**type**\:  :py:class:`Rom <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Rom>`
+                                    	**type**\:   :py:class:`Rom <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.MotherboardInformation.Rom>`
                                     
                                     
 
@@ -2478,6 +2490,8 @@ class PlatformInventory(object):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**units**\: kilobyte
+                                        
                                         .. attribute:: bootflash_type
                                         
                                         	Bootflash type e.g. SIMM
@@ -2540,6 +2554,8 @@ class PlatformInventory(object):
                                         	**type**\:  int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**units**\: byte
                                         
                                         
 
@@ -2729,6 +2745,8 @@ class PlatformInventory(object):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**units**\: kilobyte
+                                    
                                     .. attribute:: bootflash_type
                                     
                                     	Bootflash type e.g. SIMM
@@ -2791,6 +2809,8 @@ class PlatformInventory(object):
                                     	**type**\:  int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**units**\: byte
                                     
                                     
 
@@ -2882,10 +2902,12 @@ class PlatformInventory(object):
                                     
                                     	**range:** 0..4294967295
                                     
+                                    	**units**\: megabyte
+                                    
                                     .. attribute:: disks
                                     
                                     	Disk attributes
-                                    	**type**\: list of  :py:class:`Disks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.DiskInformation.Disks>`
+                                    	**type**\: list of    :py:class:`Disks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HardwareInformation.DiskInformation.Disks>`
                                     
                                     .. attribute:: sector_size
                                     
@@ -2893,6 +2915,8 @@ class PlatformInventory(object):
                                     	**type**\:  int
                                     
                                     	**range:** 0..4294967295
+                                    
+                                    	**units**\: byte
                                     
                                     
 
@@ -2929,12 +2953,16 @@ class PlatformInventory(object):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**units**\: megabyte
+                                        
                                         .. attribute:: sector_size
                                         
                                         	Disk sector size in bytes
                                         	**type**\:  int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**units**\: byte
                                         
                                         
 
@@ -3055,7 +3083,7 @@ class PlatformInventory(object):
                                 .. attribute:: sub_slot
                                 
                                 	Subslot number
-                                	**type**\: list of  :py:class:`SubSlot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot>`
+                                	**type**\: list of    :py:class:`SubSlot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot>`
                                 
                                 
 
@@ -3085,12 +3113,12 @@ class PlatformInventory(object):
                                     .. attribute:: attributes
                                     
                                     	Attributes
-                                    	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes>`
+                                    	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes>`
                                     
                                     .. attribute:: module
                                     
                                     	Module of a subslot
-                                    	**type**\:  :py:class:`Module <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module>`
+                                    	**type**\:   :py:class:`Module <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module>`
                                     
                                     
 
@@ -3115,17 +3143,17 @@ class PlatformInventory(object):
                                         .. attribute:: attributes
                                         
                                         	Attributes
-                                        	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes>`
+                                        	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes>`
                                         
                                         .. attribute:: port_slots
                                         
                                         	Table of port slots
-                                        	**type**\:  :py:class:`PortSlots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots>`
+                                        	**type**\:   :py:class:`PortSlots <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots>`
                                         
                                         .. attribute:: sensors
                                         
                                         	Table of sensors
-                                        	**type**\:  :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors>`
+                                        	**type**\:   :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors>`
                                         
                                         
 
@@ -3151,7 +3179,7 @@ class PlatformInventory(object):
                                             .. attribute:: port_slot
                                             
                                             	Port slot number
-                                            	**type**\: list of  :py:class:`PortSlot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot>`
+                                            	**type**\: list of    :py:class:`PortSlot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot>`
                                             
                                             
 
@@ -3181,17 +3209,17 @@ class PlatformInventory(object):
                                                 .. attribute:: attributes
                                                 
                                                 	Attributes
-                                                	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes>`
+                                                	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes>`
                                                 
                                                 .. attribute:: port
                                                 
                                                 	Port
-                                                	**type**\:  :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port>`
+                                                	**type**\:   :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port>`
                                                 
                                                 .. attribute:: sensors
                                                 
                                                 	Table of sensors
-                                                	**type**\:  :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors>`
+                                                	**type**\:   :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors>`
                                                 
                                                 
 
@@ -3218,7 +3246,7 @@ class PlatformInventory(object):
                                                     .. attribute:: attributes
                                                     
                                                     	Attributes
-                                                    	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes>`
+                                                    	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes>`
                                                     
                                                     
 
@@ -3240,12 +3268,12 @@ class PlatformInventory(object):
                                                         .. attribute:: basic_info
                                                         
                                                         	Entity attributes
-                                                        	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.BasicInfo>`
+                                                        	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.BasicInfo>`
                                                         
                                                         .. attribute:: fru_info
                                                         
                                                         	Field Replaceable Unit (FRU) attributes
-                                                        	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo>`
+                                                        	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo>`
                                                         
                                                         
 
@@ -3402,37 +3430,37 @@ class PlatformInventory(object):
                                                             .. attribute:: last_operational_state_change
                                                             
                                                             	Time operational state is   last changed
-                                                            	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo.LastOperationalStateChange>`
+                                                            	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo.LastOperationalStateChange>`
                                                             
                                                             .. attribute:: module_administrative_state
                                                             
                                                             	Administrative    state
-                                                            	**type**\:  :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
+                                                            	**type**\:   :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
                                                             
                                                             .. attribute:: module_monitor_state
                                                             
                                                             	Monitor state
-                                                            	**type**\:  :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
+                                                            	**type**\:   :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                                             
                                                             .. attribute:: module_operational_state
                                                             
                                                             	Operation state
-                                                            	**type**\:  :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                                            	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                                             
                                                             .. attribute:: module_power_administrative_state
                                                             
                                                             	Power administrative state
-                                                            	**type**\:  :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                                            	**type**\:   :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
                                                             
                                                             .. attribute:: module_reset_reason
                                                             
                                                             	Reset reason
-                                                            	**type**\:  :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                                            	**type**\:   :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
                                                             
                                                             .. attribute:: module_up_time
                                                             
                                                             	Module up time
-                                                            	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo.ModuleUpTime>`
+                                                            	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Port.Attributes.FruInfo.ModuleUpTime>`
                                                             
                                                             
 
@@ -3465,12 +3493,16 @@ class PlatformInventory(object):
                                                                 
                                                                 	**range:** \-2147483648..2147483647
                                                                 
+                                                                	**units**\: nanosecond
+                                                                
                                                                 .. attribute:: time_in_seconds
                                                                 
                                                                 	Time Value in Seconds
                                                                 	**type**\:  int
                                                                 
                                                                 	**range:** \-2147483648..2147483647
+                                                                
+                                                                	**units**\: second
                                                                 
                                                                 
 
@@ -3523,12 +3555,16 @@ class PlatformInventory(object):
                                                                 
                                                                 	**range:** \-2147483648..2147483647
                                                                 
+                                                                	**units**\: nanosecond
+                                                                
                                                                 .. attribute:: time_in_seconds
                                                                 
                                                                 	Time Value in Seconds
                                                                 	**type**\:  int
                                                                 
                                                                 	**range:** \-2147483648..2147483647
+                                                                
+                                                                	**units**\: second
                                                                 
                                                                 
 
@@ -3670,7 +3706,7 @@ class PlatformInventory(object):
                                                     .. attribute:: sensor
                                                     
                                                     	Sensor number
-                                                    	**type**\: list of  :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor>`
+                                                    	**type**\: list of    :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor>`
                                                     
                                                     
 
@@ -3700,7 +3736,7 @@ class PlatformInventory(object):
                                                         .. attribute:: attributes
                                                         
                                                         	Attributes
-                                                        	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes>`
+                                                        	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes>`
                                                         
                                                         
 
@@ -3723,12 +3759,12 @@ class PlatformInventory(object):
                                                             .. attribute:: basic_info
                                                             
                                                             	Entity attributes
-                                                            	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo>`
+                                                            	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo>`
                                                             
                                                             .. attribute:: fru_info
                                                             
                                                             	Field Replaceable Unit (FRU) attributes
-                                                            	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo>`
+                                                            	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo>`
                                                             
                                                             
 
@@ -3885,37 +3921,37 @@ class PlatformInventory(object):
                                                                 .. attribute:: last_operational_state_change
                                                                 
                                                                 	Time operational state is   last changed
-                                                                	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
+                                                                	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
                                                                 
                                                                 .. attribute:: module_administrative_state
                                                                 
                                                                 	Administrative    state
-                                                                	**type**\:  :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
+                                                                	**type**\:   :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
                                                                 
                                                                 .. attribute:: module_monitor_state
                                                                 
                                                                 	Monitor state
-                                                                	**type**\:  :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
+                                                                	**type**\:   :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                                                 
                                                                 .. attribute:: module_operational_state
                                                                 
                                                                 	Operation state
-                                                                	**type**\:  :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                                                	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                                                 
                                                                 .. attribute:: module_power_administrative_state
                                                                 
                                                                 	Power administrative state
-                                                                	**type**\:  :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                                                	**type**\:   :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
                                                                 
                                                                 .. attribute:: module_reset_reason
                                                                 
                                                                 	Reset reason
-                                                                	**type**\:  :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                                                	**type**\:   :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
                                                                 
                                                                 .. attribute:: module_up_time
                                                                 
                                                                 	Module up time
-                                                                	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
+                                                                	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
                                                                 
                                                                 
 
@@ -3948,12 +3984,16 @@ class PlatformInventory(object):
                                                                     
                                                                     	**range:** \-2147483648..2147483647
                                                                     
+                                                                    	**units**\: nanosecond
+                                                                    
                                                                     .. attribute:: time_in_seconds
                                                                     
                                                                     	Time Value in Seconds
                                                                     	**type**\:  int
                                                                     
                                                                     	**range:** \-2147483648..2147483647
+                                                                    
+                                                                    	**units**\: second
                                                                     
                                                                     
 
@@ -4006,12 +4046,16 @@ class PlatformInventory(object):
                                                                     
                                                                     	**range:** \-2147483648..2147483647
                                                                     
+                                                                    	**units**\: nanosecond
+                                                                    
                                                                     .. attribute:: time_in_seconds
                                                                     
                                                                     	Time Value in Seconds
                                                                     	**type**\:  int
                                                                     
                                                                     	**range:** \-2147483648..2147483647
+                                                                    
+                                                                    	**units**\: second
                                                                     
                                                                     
 
@@ -4184,12 +4228,12 @@ class PlatformInventory(object):
                                                     .. attribute:: basic_info
                                                     
                                                     	Entity attributes
-                                                    	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.BasicInfo>`
+                                                    	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.BasicInfo>`
                                                     
                                                     .. attribute:: fru_info
                                                     
                                                     	Field Replaceable Unit (FRU) attributes
-                                                    	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo>`
+                                                    	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo>`
                                                     
                                                     
 
@@ -4346,37 +4390,37 @@ class PlatformInventory(object):
                                                         .. attribute:: last_operational_state_change
                                                         
                                                         	Time operational state is   last changed
-                                                        	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange>`
+                                                        	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange>`
                                                         
                                                         .. attribute:: module_administrative_state
                                                         
                                                         	Administrative    state
-                                                        	**type**\:  :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
+                                                        	**type**\:   :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
                                                         
                                                         .. attribute:: module_monitor_state
                                                         
                                                         	Monitor state
-                                                        	**type**\:  :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
+                                                        	**type**\:   :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                                         
                                                         .. attribute:: module_operational_state
                                                         
                                                         	Operation state
-                                                        	**type**\:  :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                                        	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                                         
                                                         .. attribute:: module_power_administrative_state
                                                         
                                                         	Power administrative state
-                                                        	**type**\:  :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                                        	**type**\:   :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
                                                         
                                                         .. attribute:: module_reset_reason
                                                         
                                                         	Reset reason
-                                                        	**type**\:  :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                                        	**type**\:   :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
                                                         
                                                         .. attribute:: module_up_time
                                                         
                                                         	Module up time
-                                                        	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime>`
+                                                        	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime>`
                                                         
                                                         
 
@@ -4409,12 +4453,16 @@ class PlatformInventory(object):
                                                             
                                                             	**range:** \-2147483648..2147483647
                                                             
+                                                            	**units**\: nanosecond
+                                                            
                                                             .. attribute:: time_in_seconds
                                                             
                                                             	Time Value in Seconds
                                                             	**type**\:  int
                                                             
                                                             	**range:** \-2147483648..2147483647
+                                                            
+                                                            	**units**\: second
                                                             
                                                             
 
@@ -4467,12 +4515,16 @@ class PlatformInventory(object):
                                                             
                                                             	**range:** \-2147483648..2147483647
                                                             
+                                                            	**units**\: nanosecond
+                                                            
                                                             .. attribute:: time_in_seconds
                                                             
                                                             	Time Value in Seconds
                                                             	**type**\:  int
                                                             
                                                             	**range:** \-2147483648..2147483647
+                                                            
+                                                            	**units**\: second
                                                             
                                                             
 
@@ -4651,7 +4703,7 @@ class PlatformInventory(object):
                                             .. attribute:: sensor
                                             
                                             	Sensor number
-                                            	**type**\: list of  :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor>`
+                                            	**type**\: list of    :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor>`
                                             
                                             
 
@@ -4681,7 +4733,7 @@ class PlatformInventory(object):
                                                 .. attribute:: attributes
                                                 
                                                 	Attributes
-                                                	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes>`
+                                                	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes>`
                                                 
                                                 
 
@@ -4704,12 +4756,12 @@ class PlatformInventory(object):
                                                     .. attribute:: basic_info
                                                     
                                                     	Entity attributes
-                                                    	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.BasicInfo>`
+                                                    	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.BasicInfo>`
                                                     
                                                     .. attribute:: fru_info
                                                     
                                                     	Field Replaceable Unit (FRU) attributes
-                                                    	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo>`
+                                                    	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo>`
                                                     
                                                     
 
@@ -4866,37 +4918,37 @@ class PlatformInventory(object):
                                                         .. attribute:: last_operational_state_change
                                                         
                                                         	Time operational state is   last changed
-                                                        	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
+                                                        	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
                                                         
                                                         .. attribute:: module_administrative_state
                                                         
                                                         	Administrative    state
-                                                        	**type**\:  :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
+                                                        	**type**\:   :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
                                                         
                                                         .. attribute:: module_monitor_state
                                                         
                                                         	Monitor state
-                                                        	**type**\:  :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
+                                                        	**type**\:   :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                                         
                                                         .. attribute:: module_operational_state
                                                         
                                                         	Operation state
-                                                        	**type**\:  :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                                        	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                                         
                                                         .. attribute:: module_power_administrative_state
                                                         
                                                         	Power administrative state
-                                                        	**type**\:  :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                                        	**type**\:   :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
                                                         
                                                         .. attribute:: module_reset_reason
                                                         
                                                         	Reset reason
-                                                        	**type**\:  :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                                        	**type**\:   :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
                                                         
                                                         .. attribute:: module_up_time
                                                         
                                                         	Module up time
-                                                        	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
+                                                        	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
                                                         
                                                         
 
@@ -4929,12 +4981,16 @@ class PlatformInventory(object):
                                                             
                                                             	**range:** \-2147483648..2147483647
                                                             
+                                                            	**units**\: nanosecond
+                                                            
                                                             .. attribute:: time_in_seconds
                                                             
                                                             	Time Value in Seconds
                                                             	**type**\:  int
                                                             
                                                             	**range:** \-2147483648..2147483647
+                                                            
+                                                            	**units**\: second
                                                             
                                                             
 
@@ -4987,12 +5043,16 @@ class PlatformInventory(object):
                                                             
                                                             	**range:** \-2147483648..2147483647
                                                             
+                                                            	**units**\: nanosecond
+                                                            
                                                             .. attribute:: time_in_seconds
                                                             
                                                             	Time Value in Seconds
                                                             	**type**\:  int
                                                             
                                                             	**range:** \-2147483648..2147483647
+                                                            
+                                                            	**units**\: second
                                                             
                                                             
 
@@ -5165,12 +5225,12 @@ class PlatformInventory(object):
                                             .. attribute:: basic_info
                                             
                                             	Entity attributes
-                                            	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.BasicInfo>`
+                                            	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.BasicInfo>`
                                             
                                             .. attribute:: fru_info
                                             
                                             	Field Replaceable Unit (FRU) attributes
-                                            	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo>`
+                                            	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo>`
                                             
                                             
 
@@ -5327,37 +5387,37 @@ class PlatformInventory(object):
                                                 .. attribute:: last_operational_state_change
                                                 
                                                 	Time operational state is   last changed
-                                                	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo.LastOperationalStateChange>`
+                                                	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo.LastOperationalStateChange>`
                                                 
                                                 .. attribute:: module_administrative_state
                                                 
                                                 	Administrative    state
-                                                	**type**\:  :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
+                                                	**type**\:   :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
                                                 
                                                 .. attribute:: module_monitor_state
                                                 
                                                 	Monitor state
-                                                	**type**\:  :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
+                                                	**type**\:   :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                                 
                                                 .. attribute:: module_operational_state
                                                 
                                                 	Operation state
-                                                	**type**\:  :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                                	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                                 
                                                 .. attribute:: module_power_administrative_state
                                                 
                                                 	Power administrative state
-                                                	**type**\:  :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                                	**type**\:   :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
                                                 
                                                 .. attribute:: module_reset_reason
                                                 
                                                 	Reset reason
-                                                	**type**\:  :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                                	**type**\:   :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
                                                 
                                                 .. attribute:: module_up_time
                                                 
                                                 	Module up time
-                                                	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo.ModuleUpTime>`
+                                                	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Module.Attributes.FruInfo.ModuleUpTime>`
                                                 
                                                 
 
@@ -5390,12 +5450,16 @@ class PlatformInventory(object):
                                                     
                                                     	**range:** \-2147483648..2147483647
                                                     
+                                                    	**units**\: nanosecond
+                                                    
                                                     .. attribute:: time_in_seconds
                                                     
                                                     	Time Value in Seconds
                                                     	**type**\:  int
                                                     
                                                     	**range:** \-2147483648..2147483647
+                                                    
+                                                    	**units**\: second
                                                     
                                                     
 
@@ -5448,12 +5512,16 @@ class PlatformInventory(object):
                                                     
                                                     	**range:** \-2147483648..2147483647
                                                     
+                                                    	**units**\: nanosecond
+                                                    
                                                     .. attribute:: time_in_seconds
                                                     
                                                     	Time Value in Seconds
                                                     	**type**\:  int
                                                     
                                                     	**range:** \-2147483648..2147483647
+                                                    
+                                                    	**units**\: second
                                                     
                                                     
 
@@ -5601,12 +5669,12 @@ class PlatformInventory(object):
                                         .. attribute:: basic_info
                                         
                                         	Entity attributes
-                                        	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.BasicInfo>`
+                                        	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.BasicInfo>`
                                         
                                         .. attribute:: fru_info
                                         
                                         	Field Replaceable Unit (FRU) attributes
-                                        	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo>`
+                                        	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo>`
                                         
                                         
 
@@ -5763,37 +5831,37 @@ class PlatformInventory(object):
                                             .. attribute:: last_operational_state_change
                                             
                                             	Time operational state is   last changed
-                                            	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo.LastOperationalStateChange>`
+                                            	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo.LastOperationalStateChange>`
                                             
                                             .. attribute:: module_administrative_state
                                             
                                             	Administrative    state
-                                            	**type**\:  :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
+                                            	**type**\:   :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
                                             
                                             .. attribute:: module_monitor_state
                                             
                                             	Monitor state
-                                            	**type**\:  :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
+                                            	**type**\:   :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                             
                                             .. attribute:: module_operational_state
                                             
                                             	Operation state
-                                            	**type**\:  :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                            	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                             
                                             .. attribute:: module_power_administrative_state
                                             
                                             	Power administrative state
-                                            	**type**\:  :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                            	**type**\:   :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
                                             
                                             .. attribute:: module_reset_reason
                                             
                                             	Reset reason
-                                            	**type**\:  :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                            	**type**\:   :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
                                             
                                             .. attribute:: module_up_time
                                             
                                             	Module up time
-                                            	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo.ModuleUpTime>`
+                                            	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.SubSlots.SubSlot.Attributes.FruInfo.ModuleUpTime>`
                                             
                                             
 
@@ -5826,12 +5894,16 @@ class PlatformInventory(object):
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
+                                                	**units**\: nanosecond
+                                                
                                                 .. attribute:: time_in_seconds
                                                 
                                                 	Time Value in Seconds
                                                 	**type**\:  int
                                                 
                                                 	**range:** \-2147483648..2147483647
+                                                
+                                                	**units**\: second
                                                 
                                                 
 
@@ -5884,12 +5956,16 @@ class PlatformInventory(object):
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
+                                                	**units**\: nanosecond
+                                                
                                                 .. attribute:: time_in_seconds
                                                 
                                                 	Time Value in Seconds
                                                 	**type**\:  int
                                                 
                                                 	**range:** \-2147483648..2147483647
+                                                
+                                                	**units**\: second
                                                 
                                                 
 
@@ -6065,7 +6141,7 @@ class PlatformInventory(object):
                                 .. attribute:: hw_component
                                 
                                 	HW component number
-                                	**type**\: list of  :py:class:`HwComponent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent>`
+                                	**type**\: list of    :py:class:`HwComponent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent>`
                                 
                                 
 
@@ -6095,12 +6171,12 @@ class PlatformInventory(object):
                                     .. attribute:: attributes
                                     
                                     	Attributes
-                                    	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes>`
+                                    	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes>`
                                     
                                     .. attribute:: sensors
                                     
                                     	Table of sensors
-                                    	**type**\:  :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors>`
+                                    	**type**\:   :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors>`
                                     
                                     
 
@@ -6125,7 +6201,7 @@ class PlatformInventory(object):
                                         .. attribute:: sensor
                                         
                                         	Sensor number
-                                        	**type**\: list of  :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor>`
+                                        	**type**\: list of    :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor>`
                                         
                                         
 
@@ -6155,7 +6231,7 @@ class PlatformInventory(object):
                                             .. attribute:: attributes
                                             
                                             	Attributes
-                                            	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes>`
+                                            	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes>`
                                             
                                             
 
@@ -6178,12 +6254,12 @@ class PlatformInventory(object):
                                                 .. attribute:: basic_info
                                                 
                                                 	Entity attributes
-                                                	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo>`
+                                                	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.BasicInfo>`
                                                 
                                                 .. attribute:: fru_info
                                                 
                                                 	Field Replaceable Unit (FRU) attributes
-                                                	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo>`
+                                                	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo>`
                                                 
                                                 
 
@@ -6340,37 +6416,37 @@ class PlatformInventory(object):
                                                     .. attribute:: last_operational_state_change
                                                     
                                                     	Time operational state is   last changed
-                                                    	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
+                                                    	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
                                                     
                                                     .. attribute:: module_administrative_state
                                                     
                                                     	Administrative    state
-                                                    	**type**\:  :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
+                                                    	**type**\:   :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
                                                     
                                                     .. attribute:: module_monitor_state
                                                     
                                                     	Monitor state
-                                                    	**type**\:  :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
+                                                    	**type**\:   :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                                     
                                                     .. attribute:: module_operational_state
                                                     
                                                     	Operation state
-                                                    	**type**\:  :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                                    	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                                     
                                                     .. attribute:: module_power_administrative_state
                                                     
                                                     	Power administrative state
-                                                    	**type**\:  :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                                    	**type**\:   :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
                                                     
                                                     .. attribute:: module_reset_reason
                                                     
                                                     	Reset reason
-                                                    	**type**\:  :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                                    	**type**\:   :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
                                                     
                                                     .. attribute:: module_up_time
                                                     
                                                     	Module up time
-                                                    	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
+                                                    	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
                                                     
                                                     
 
@@ -6403,12 +6479,16 @@ class PlatformInventory(object):
                                                         
                                                         	**range:** \-2147483648..2147483647
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: time_in_seconds
                                                         
                                                         	Time Value in Seconds
                                                         	**type**\:  int
                                                         
                                                         	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**units**\: second
                                                         
                                                         
 
@@ -6461,12 +6541,16 @@ class PlatformInventory(object):
                                                         
                                                         	**range:** \-2147483648..2147483647
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: time_in_seconds
                                                         
                                                         	Time Value in Seconds
                                                         	**type**\:  int
                                                         
                                                         	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**units**\: second
                                                         
                                                         
 
@@ -6639,12 +6723,12 @@ class PlatformInventory(object):
                                         .. attribute:: basic_info
                                         
                                         	Entity attributes
-                                        	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.BasicInfo>`
+                                        	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.BasicInfo>`
                                         
                                         .. attribute:: fru_info
                                         
                                         	Field Replaceable Unit (FRU) attributes
-                                        	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo>`
+                                        	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo>`
                                         
                                         
 
@@ -6801,37 +6885,37 @@ class PlatformInventory(object):
                                             .. attribute:: last_operational_state_change
                                             
                                             	Time operational state is   last changed
-                                            	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange>`
+                                            	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo.LastOperationalStateChange>`
                                             
                                             .. attribute:: module_administrative_state
                                             
                                             	Administrative    state
-                                            	**type**\:  :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
+                                            	**type**\:   :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
                                             
                                             .. attribute:: module_monitor_state
                                             
                                             	Monitor state
-                                            	**type**\:  :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
+                                            	**type**\:   :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                             
                                             .. attribute:: module_operational_state
                                             
                                             	Operation state
-                                            	**type**\:  :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                            	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                             
                                             .. attribute:: module_power_administrative_state
                                             
                                             	Power administrative state
-                                            	**type**\:  :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                            	**type**\:   :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
                                             
                                             .. attribute:: module_reset_reason
                                             
                                             	Reset reason
-                                            	**type**\:  :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                            	**type**\:   :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
                                             
                                             .. attribute:: module_up_time
                                             
                                             	Module up time
-                                            	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime>`
+                                            	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.HwComponents.HwComponent.Attributes.FruInfo.ModuleUpTime>`
                                             
                                             
 
@@ -6864,12 +6948,16 @@ class PlatformInventory(object):
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
+                                                	**units**\: nanosecond
+                                                
                                                 .. attribute:: time_in_seconds
                                                 
                                                 	Time Value in Seconds
                                                 	**type**\:  int
                                                 
                                                 	**range:** \-2147483648..2147483647
+                                                
+                                                	**units**\: second
                                                 
                                                 
 
@@ -6922,12 +7010,16 @@ class PlatformInventory(object):
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
+                                                	**units**\: nanosecond
+                                                
                                                 .. attribute:: time_in_seconds
                                                 
                                                 	Time Value in Seconds
                                                 	**type**\:  int
                                                 
                                                 	**range:** \-2147483648..2147483647
+                                                
+                                                	**units**\: second
                                                 
                                                 
 
@@ -7103,7 +7195,7 @@ class PlatformInventory(object):
                                 .. attribute:: port_slot
                                 
                                 	Port slot number
-                                	**type**\: list of  :py:class:`PortSlot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot>`
+                                	**type**\: list of    :py:class:`PortSlot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot>`
                                 
                                 
 
@@ -7133,17 +7225,17 @@ class PlatformInventory(object):
                                     .. attribute:: attributes
                                     
                                     	Attributes
-                                    	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes>`
+                                    	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes>`
                                     
                                     .. attribute:: port
                                     
                                     	Port
-                                    	**type**\:  :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port>`
+                                    	**type**\:   :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port>`
                                     
                                     .. attribute:: sensors
                                     
                                     	Table of sensors
-                                    	**type**\:  :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors>`
+                                    	**type**\:   :py:class:`Sensors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors>`
                                     
                                     
 
@@ -7170,7 +7262,7 @@ class PlatformInventory(object):
                                         .. attribute:: attributes
                                         
                                         	Attributes
-                                        	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes>`
+                                        	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes>`
                                         
                                         
 
@@ -7192,12 +7284,12 @@ class PlatformInventory(object):
                                             .. attribute:: basic_info
                                             
                                             	Entity attributes
-                                            	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.BasicInfo>`
+                                            	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.BasicInfo>`
                                             
                                             .. attribute:: fru_info
                                             
                                             	Field Replaceable Unit (FRU) attributes
-                                            	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo>`
+                                            	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo>`
                                             
                                             
 
@@ -7354,37 +7446,37 @@ class PlatformInventory(object):
                                                 .. attribute:: last_operational_state_change
                                                 
                                                 	Time operational state is   last changed
-                                                	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo.LastOperationalStateChange>`
+                                                	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo.LastOperationalStateChange>`
                                                 
                                                 .. attribute:: module_administrative_state
                                                 
                                                 	Administrative    state
-                                                	**type**\:  :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
+                                                	**type**\:   :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
                                                 
                                                 .. attribute:: module_monitor_state
                                                 
                                                 	Monitor state
-                                                	**type**\:  :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
+                                                	**type**\:   :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                                 
                                                 .. attribute:: module_operational_state
                                                 
                                                 	Operation state
-                                                	**type**\:  :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                                	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                                 
                                                 .. attribute:: module_power_administrative_state
                                                 
                                                 	Power administrative state
-                                                	**type**\:  :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                                	**type**\:   :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
                                                 
                                                 .. attribute:: module_reset_reason
                                                 
                                                 	Reset reason
-                                                	**type**\:  :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                                	**type**\:   :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
                                                 
                                                 .. attribute:: module_up_time
                                                 
                                                 	Module up time
-                                                	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo.ModuleUpTime>`
+                                                	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Port.Attributes.FruInfo.ModuleUpTime>`
                                                 
                                                 
 
@@ -7417,12 +7509,16 @@ class PlatformInventory(object):
                                                     
                                                     	**range:** \-2147483648..2147483647
                                                     
+                                                    	**units**\: nanosecond
+                                                    
                                                     .. attribute:: time_in_seconds
                                                     
                                                     	Time Value in Seconds
                                                     	**type**\:  int
                                                     
                                                     	**range:** \-2147483648..2147483647
+                                                    
+                                                    	**units**\: second
                                                     
                                                     
 
@@ -7475,12 +7571,16 @@ class PlatformInventory(object):
                                                     
                                                     	**range:** \-2147483648..2147483647
                                                     
+                                                    	**units**\: nanosecond
+                                                    
                                                     .. attribute:: time_in_seconds
                                                     
                                                     	Time Value in Seconds
                                                     	**type**\:  int
                                                     
                                                     	**range:** \-2147483648..2147483647
+                                                    
+                                                    	**units**\: second
                                                     
                                                     
 
@@ -7622,7 +7722,7 @@ class PlatformInventory(object):
                                         .. attribute:: sensor
                                         
                                         	Sensor number
-                                        	**type**\: list of  :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor>`
+                                        	**type**\: list of    :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor>`
                                         
                                         
 
@@ -7652,7 +7752,7 @@ class PlatformInventory(object):
                                             .. attribute:: attributes
                                             
                                             	Attributes
-                                            	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes>`
+                                            	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes>`
                                             
                                             
 
@@ -7675,12 +7775,12 @@ class PlatformInventory(object):
                                                 .. attribute:: basic_info
                                                 
                                                 	Entity attributes
-                                                	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo>`
+                                                	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.BasicInfo>`
                                                 
                                                 .. attribute:: fru_info
                                                 
                                                 	Field Replaceable Unit (FRU) attributes
-                                                	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo>`
+                                                	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo>`
                                                 
                                                 
 
@@ -7837,37 +7937,37 @@ class PlatformInventory(object):
                                                     .. attribute:: last_operational_state_change
                                                     
                                                     	Time operational state is   last changed
-                                                    	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
+                                                    	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
                                                     
                                                     .. attribute:: module_administrative_state
                                                     
                                                     	Administrative    state
-                                                    	**type**\:  :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
+                                                    	**type**\:   :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
                                                     
                                                     .. attribute:: module_monitor_state
                                                     
                                                     	Monitor state
-                                                    	**type**\:  :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
+                                                    	**type**\:   :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                                     
                                                     .. attribute:: module_operational_state
                                                     
                                                     	Operation state
-                                                    	**type**\:  :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                                    	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                                     
                                                     .. attribute:: module_power_administrative_state
                                                     
                                                     	Power administrative state
-                                                    	**type**\:  :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                                    	**type**\:   :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
                                                     
                                                     .. attribute:: module_reset_reason
                                                     
                                                     	Reset reason
-                                                    	**type**\:  :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                                    	**type**\:   :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
                                                     
                                                     .. attribute:: module_up_time
                                                     
                                                     	Module up time
-                                                    	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
+                                                    	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
                                                     
                                                     
 
@@ -7900,12 +8000,16 @@ class PlatformInventory(object):
                                                         
                                                         	**range:** \-2147483648..2147483647
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: time_in_seconds
                                                         
                                                         	Time Value in Seconds
                                                         	**type**\:  int
                                                         
                                                         	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**units**\: second
                                                         
                                                         
 
@@ -7958,12 +8062,16 @@ class PlatformInventory(object):
                                                         
                                                         	**range:** \-2147483648..2147483647
                                                         
+                                                        	**units**\: nanosecond
+                                                        
                                                         .. attribute:: time_in_seconds
                                                         
                                                         	Time Value in Seconds
                                                         	**type**\:  int
                                                         
                                                         	**range:** \-2147483648..2147483647
+                                                        
+                                                        	**units**\: second
                                                         
                                                         
 
@@ -8136,12 +8244,12 @@ class PlatformInventory(object):
                                         .. attribute:: basic_info
                                         
                                         	Entity attributes
-                                        	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.BasicInfo>`
+                                        	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.BasicInfo>`
                                         
                                         .. attribute:: fru_info
                                         
                                         	Field Replaceable Unit (FRU) attributes
-                                        	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo>`
+                                        	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo>`
                                         
                                         
 
@@ -8298,37 +8406,37 @@ class PlatformInventory(object):
                                             .. attribute:: last_operational_state_change
                                             
                                             	Time operational state is   last changed
-                                            	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange>`
+                                            	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.LastOperationalStateChange>`
                                             
                                             .. attribute:: module_administrative_state
                                             
                                             	Administrative    state
-                                            	**type**\:  :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
+                                            	**type**\:   :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
                                             
                                             .. attribute:: module_monitor_state
                                             
                                             	Monitor state
-                                            	**type**\:  :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
+                                            	**type**\:   :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                             
                                             .. attribute:: module_operational_state
                                             
                                             	Operation state
-                                            	**type**\:  :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                            	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                             
                                             .. attribute:: module_power_administrative_state
                                             
                                             	Power administrative state
-                                            	**type**\:  :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                            	**type**\:   :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
                                             
                                             .. attribute:: module_reset_reason
                                             
                                             	Reset reason
-                                            	**type**\:  :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                            	**type**\:   :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
                                             
                                             .. attribute:: module_up_time
                                             
                                             	Module up time
-                                            	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime>`
+                                            	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.PortSlots.PortSlot.Attributes.FruInfo.ModuleUpTime>`
                                             
                                             
 
@@ -8361,12 +8469,16 @@ class PlatformInventory(object):
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
+                                                	**units**\: nanosecond
+                                                
                                                 .. attribute:: time_in_seconds
                                                 
                                                 	Time Value in Seconds
                                                 	**type**\:  int
                                                 
                                                 	**range:** \-2147483648..2147483647
+                                                
+                                                	**units**\: second
                                                 
                                                 
 
@@ -8419,12 +8531,16 @@ class PlatformInventory(object):
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
+                                                	**units**\: nanosecond
+                                                
                                                 .. attribute:: time_in_seconds
                                                 
                                                 	Time Value in Seconds
                                                 	**type**\:  int
                                                 
                                                 	**range:** \-2147483648..2147483647
+                                                
+                                                	**units**\: second
                                                 
                                                 
 
@@ -8603,7 +8719,7 @@ class PlatformInventory(object):
                                 .. attribute:: sensor
                                 
                                 	Sensor number
-                                	**type**\: list of  :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor>`
+                                	**type**\: list of    :py:class:`Sensor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor>`
                                 
                                 
 
@@ -8633,7 +8749,7 @@ class PlatformInventory(object):
                                     .. attribute:: attributes
                                     
                                     	Attributes
-                                    	**type**\:  :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes>`
+                                    	**type**\:   :py:class:`Attributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes>`
                                     
                                     
 
@@ -8656,12 +8772,12 @@ class PlatformInventory(object):
                                         .. attribute:: basic_info
                                         
                                         	Entity attributes
-                                        	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.BasicInfo>`
+                                        	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.BasicInfo>`
                                         
                                         .. attribute:: fru_info
                                         
                                         	Field Replaceable Unit (FRU) attributes
-                                        	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo>`
+                                        	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo>`
                                         
                                         
 
@@ -8818,37 +8934,37 @@ class PlatformInventory(object):
                                             .. attribute:: last_operational_state_change
                                             
                                             	Time operational state is   last changed
-                                            	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
+                                            	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.LastOperationalStateChange>`
                                             
                                             .. attribute:: module_administrative_state
                                             
                                             	Administrative    state
-                                            	**type**\:  :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
+                                            	**type**\:   :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
                                             
                                             .. attribute:: module_monitor_state
                                             
                                             	Monitor state
-                                            	**type**\:  :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
+                                            	**type**\:   :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                             
                                             .. attribute:: module_operational_state
                                             
                                             	Operation state
-                                            	**type**\:  :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                            	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                             
                                             .. attribute:: module_power_administrative_state
                                             
                                             	Power administrative state
-                                            	**type**\:  :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                            	**type**\:   :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
                                             
                                             .. attribute:: module_reset_reason
                                             
                                             	Reset reason
-                                            	**type**\:  :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                            	**type**\:   :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
                                             
                                             .. attribute:: module_up_time
                                             
                                             	Module up time
-                                            	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
+                                            	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Sensors.Sensor.Attributes.FruInfo.ModuleUpTime>`
                                             
                                             
 
@@ -8881,12 +8997,16 @@ class PlatformInventory(object):
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
+                                                	**units**\: nanosecond
+                                                
                                                 .. attribute:: time_in_seconds
                                                 
                                                 	Time Value in Seconds
                                                 	**type**\:  int
                                                 
                                                 	**range:** \-2147483648..2147483647
+                                                
+                                                	**units**\: second
                                                 
                                                 
 
@@ -8939,12 +9059,16 @@ class PlatformInventory(object):
                                                 
                                                 	**range:** \-2147483648..2147483647
                                                 
+                                                	**units**\: nanosecond
+                                                
                                                 .. attribute:: time_in_seconds
                                                 
                                                 	Time Value in Seconds
                                                 	**type**\:  int
                                                 
                                                 	**range:** \-2147483648..2147483647
+                                                
+                                                	**units**\: second
                                                 
                                                 
 
@@ -9117,12 +9241,12 @@ class PlatformInventory(object):
                                 .. attribute:: basic_info
                                 
                                 	Entity attributes
-                                	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.BasicInfo>`
+                                	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.BasicInfo>`
                                 
                                 .. attribute:: fru_info
                                 
                                 	Field Replaceable Unit (FRU) attributes
-                                	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo>`
+                                	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo>`
                                 
                                 
 
@@ -9279,37 +9403,37 @@ class PlatformInventory(object):
                                     .. attribute:: last_operational_state_change
                                     
                                     	Time operational state is   last changed
-                                    	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.LastOperationalStateChange>`
+                                    	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.LastOperationalStateChange>`
                                     
                                     .. attribute:: module_administrative_state
                                     
                                     	Administrative    state
-                                    	**type**\:  :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
+                                    	**type**\:   :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
                                     
                                     .. attribute:: module_monitor_state
                                     
                                     	Monitor state
-                                    	**type**\:  :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
+                                    	**type**\:   :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                                     
                                     .. attribute:: module_operational_state
                                     
                                     	Operation state
-                                    	**type**\:  :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                                    	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                                     
                                     .. attribute:: module_power_administrative_state
                                     
                                     	Power administrative state
-                                    	**type**\:  :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                                    	**type**\:   :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
                                     
                                     .. attribute:: module_reset_reason
                                     
                                     	Reset reason
-                                    	**type**\:  :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                                    	**type**\:   :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
                                     
                                     .. attribute:: module_up_time
                                     
                                     	Module up time
-                                    	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.ModuleUpTime>`
+                                    	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Cards.Card.Attributes.FruInfo.ModuleUpTime>`
                                     
                                     
 
@@ -9342,12 +9466,16 @@ class PlatformInventory(object):
                                         
                                         	**range:** \-2147483648..2147483647
                                         
+                                        	**units**\: nanosecond
+                                        
                                         .. attribute:: time_in_seconds
                                         
                                         	Time Value in Seconds
                                         	**type**\:  int
                                         
                                         	**range:** \-2147483648..2147483647
+                                        
+                                        	**units**\: second
                                         
                                         
 
@@ -9400,12 +9528,16 @@ class PlatformInventory(object):
                                         
                                         	**range:** \-2147483648..2147483647
                                         
+                                        	**units**\: nanosecond
+                                        
                                         .. attribute:: time_in_seconds
                                         
                                         	Time Value in Seconds
                                         	**type**\:  int
                                         
                                         	**range:** \-2147483648..2147483647
+                                        
+                                        	**units**\: second
                                         
                                         
 
@@ -9596,12 +9728,12 @@ class PlatformInventory(object):
                         .. attribute:: basic_info
                         
                         	Entity attributes
-                        	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Attributes.BasicInfo>`
+                        	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Attributes.BasicInfo>`
                         
                         .. attribute:: fru_info
                         
                         	Field Replaceable Unit (FRU) attributes
-                        	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo>`
+                        	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo>`
                         
                         
 
@@ -9758,37 +9890,37 @@ class PlatformInventory(object):
                             .. attribute:: last_operational_state_change
                             
                             	Time operational state is   last changed
-                            	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo.LastOperationalStateChange>`
+                            	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo.LastOperationalStateChange>`
                             
                             .. attribute:: module_administrative_state
                             
                             	Administrative    state
-                            	**type**\:  :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
+                            	**type**\:   :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
                             
                             .. attribute:: module_monitor_state
                             
                             	Monitor state
-                            	**type**\:  :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
+                            	**type**\:   :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                             
                             .. attribute:: module_operational_state
                             
                             	Operation state
-                            	**type**\:  :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                            	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                             
                             .. attribute:: module_power_administrative_state
                             
                             	Power administrative state
-                            	**type**\:  :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                            	**type**\:   :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
                             
                             .. attribute:: module_reset_reason
                             
                             	Reset reason
-                            	**type**\:  :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                            	**type**\:   :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
                             
                             .. attribute:: module_up_time
                             
                             	Module up time
-                            	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo.ModuleUpTime>`
+                            	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Slots.Slot.Attributes.FruInfo.ModuleUpTime>`
                             
                             
 
@@ -9821,12 +9953,16 @@ class PlatformInventory(object):
                                 
                                 	**range:** \-2147483648..2147483647
                                 
+                                	**units**\: nanosecond
+                                
                                 .. attribute:: time_in_seconds
                                 
                                 	Time Value in Seconds
                                 	**type**\:  int
                                 
                                 	**range:** \-2147483648..2147483647
+                                
+                                	**units**\: second
                                 
                                 
 
@@ -9879,12 +10015,16 @@ class PlatformInventory(object):
                                 
                                 	**range:** \-2147483648..2147483647
                                 
+                                	**units**\: nanosecond
+                                
                                 .. attribute:: time_in_seconds
                                 
                                 	Time Value in Seconds
                                 	**type**\:  int
                                 
                                 	**range:** \-2147483648..2147483647
+                                
+                                	**units**\: second
                                 
                                 
 
@@ -10060,12 +10200,12 @@ class PlatformInventory(object):
                 .. attribute:: basic_info
                 
                 	Entity attributes
-                	**type**\:  :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Attributes.BasicInfo>`
+                	**type**\:   :py:class:`BasicInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Attributes.BasicInfo>`
                 
                 .. attribute:: fru_info
                 
                 	Field Replaceable Unit (FRU) attributes
-                	**type**\:  :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Attributes.FruInfo>`
+                	**type**\:   :py:class:`FruInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Attributes.FruInfo>`
                 
                 
 
@@ -10222,37 +10362,37 @@ class PlatformInventory(object):
                     .. attribute:: last_operational_state_change
                     
                     	Time operational state is   last changed
-                    	**type**\:  :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Attributes.FruInfo.LastOperationalStateChange>`
+                    	**type**\:   :py:class:`LastOperationalStateChange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Attributes.FruInfo.LastOperationalStateChange>`
                     
                     .. attribute:: module_administrative_state
                     
                     	Administrative    state
-                    	**type**\:  :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
+                    	**type**\:   :py:class:`InvAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvAdminStateEnum>`
                     
                     .. attribute:: module_monitor_state
                     
                     	Monitor state
-                    	**type**\:  :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
+                    	**type**\:   :py:class:`InvMonitorStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvMonitorStateEnum>`
                     
                     .. attribute:: module_operational_state
                     
                     	Operation state
-                    	**type**\:  :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
+                    	**type**\:   :py:class:`InvCardStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvCardStateEnum>`
                     
                     .. attribute:: module_power_administrative_state
                     
                     	Power administrative state
-                    	**type**\:  :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
+                    	**type**\:   :py:class:`InvPowerAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvPowerAdminStateEnum>`
                     
                     .. attribute:: module_reset_reason
                     
                     	Reset reason
-                    	**type**\:  :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
+                    	**type**\:   :py:class:`InvResetReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.InvResetReasonEnum>`
                     
                     .. attribute:: module_up_time
                     
                     	Module up time
-                    	**type**\:  :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Attributes.FruInfo.ModuleUpTime>`
+                    	**type**\:   :py:class:`ModuleUpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper.PlatformInventory.Racks.Rack.Attributes.FruInfo.ModuleUpTime>`
                     
                     
 
@@ -10285,12 +10425,16 @@ class PlatformInventory(object):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**units**\: nanosecond
+                        
                         .. attribute:: time_in_seconds
                         
                         	Time Value in Seconds
                         	**type**\:  int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**units**\: second
                         
                         
 
@@ -10343,12 +10487,16 @@ class PlatformInventory(object):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**units**\: nanosecond
+                        
                         .. attribute:: time_in_seconds
                         
                         	Time Value in Seconds
                         	**type**\:  int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**units**\: second
                         
                         
 

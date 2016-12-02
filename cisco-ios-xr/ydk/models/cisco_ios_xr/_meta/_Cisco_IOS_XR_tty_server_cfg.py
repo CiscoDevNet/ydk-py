@@ -226,8 +226,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg'
         ),
     },
-    'Tty.TtyLines.TtyLine.Exec.Timeout' : {
-        'meta_info' : _MetaInfoClass('Tty.TtyLines.TtyLine.Exec.Timeout',
+    'Tty.TtyLines.TtyLine.Exec_.Timeout' : {
+        'meta_info' : _MetaInfoClass('Tty.TtyLines.TtyLine.Exec_.Timeout',
             False, 
             [
             _MetaInfoClassMember('minutes', ATTRIBUTE, 'int' , None, None, 
@@ -249,8 +249,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg'
         ),
     },
-    'Tty.TtyLines.TtyLine.Exec' : {
-        'meta_info' : _MetaInfoClass('Tty.TtyLines.TtyLine.Exec',
+    'Tty.TtyLines.TtyLine.Exec_' : {
+        'meta_info' : _MetaInfoClass('Tty.TtyLines.TtyLine.Exec_',
             False, 
             [
             _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'bool' , None, None, 
@@ -260,7 +260,7 @@ _meta_table = {
                 ''',
                 'time_stamp',
                 'Cisco-IOS-XR-tty-server-cfg', False),
-            _MetaInfoClassMember('timeout', REFERENCE_CLASS, 'Timeout' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg', 'Tty.TtyLines.TtyLine.Exec.Timeout', 
+            _MetaInfoClassMember('timeout', REFERENCE_CLASS, 'Timeout' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg', 'Tty.TtyLines.TtyLine.Exec_.Timeout', 
                 [], [], 
                 '''                EXEC Timeout
                 ''',
@@ -512,7 +512,7 @@ _meta_table = {
                 ''',
                 'connection',
                 'Cisco-IOS-XR-tty-management-cfg', False),
-            _MetaInfoClassMember('exec', REFERENCE_CLASS, 'Exec' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg', 'Tty.TtyLines.TtyLine.Exec', 
+            _MetaInfoClassMember('exec', REFERENCE_CLASS, 'Exec_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg', 'Tty.TtyLines.TtyLine.Exec_', 
                 [], [], 
                 '''                EXEC timeout and timestamp configurtion
                 ''',
@@ -586,14 +586,14 @@ _meta_table['Tty.TtyLines.TtyLine.Aaa.UserGroups']['meta_info'].parent =_meta_ta
 _meta_table['Tty.TtyLines.TtyLine.Aaa.Authorization']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine.Aaa']['meta_info']
 _meta_table['Tty.TtyLines.TtyLine.Aaa.Authentication']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine.Aaa']['meta_info']
 _meta_table['Tty.TtyLines.TtyLine.Aaa.Accounting']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine.Aaa']['meta_info']
-_meta_table['Tty.TtyLines.TtyLine.Exec.Timeout']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine.Exec']['meta_info']
+_meta_table['Tty.TtyLines.TtyLine.Exec_.Timeout']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine.Exec_']['meta_info']
 _meta_table['Tty.TtyLines.TtyLine.Connection.TransportInput']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine.Connection']['meta_info']
 _meta_table['Tty.TtyLines.TtyLine.Connection.TransportOutput']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine.Connection']['meta_info']
 _meta_table['Tty.TtyLines.TtyLine.Connection.SessionTimeout']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine.Connection']['meta_info']
 _meta_table['Tty.TtyLines.TtyLine.General']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine']['meta_info']
 _meta_table['Tty.TtyLines.TtyLine.Telnet']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine']['meta_info']
 _meta_table['Tty.TtyLines.TtyLine.Aaa']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine']['meta_info']
-_meta_table['Tty.TtyLines.TtyLine.Exec']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine']['meta_info']
+_meta_table['Tty.TtyLines.TtyLine.Exec_']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine']['meta_info']
 _meta_table['Tty.TtyLines.TtyLine.Connection']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine']['meta_info']
 _meta_table['Tty.TtyLines.TtyLine.ExecMode']['meta_info'].parent =_meta_table['Tty.TtyLines.TtyLine']['meta_info']
 _meta_table['Tty.TtyLines.TtyLine']['meta_info'].parent =_meta_table['Tty.TtyLines']['meta_info']

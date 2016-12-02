@@ -16,9 +16,9 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'WithDefaultsModeEnum' : _MetaInfoEnum('WithDefaultsModeEnum', 'ydk.models.ietf.ietf_netconf_with_defaults',
         {
-            'report-all':'REPORT_ALL',
-            'report-all-tagged':'REPORT_ALL_TAGGED',
-            'trim':'TRIM',
-            'explicit':'EXPLICIT',
+            'report-all':'report_all',
+            'report-all-tagged':'report_all_tagged',
+            'trim':'trim',
+            'explicit':'explicit',
         }, 'ietf-netconf-with-defaults', _yang_ns._namespaces['ietf-netconf-with-defaults']),
 }

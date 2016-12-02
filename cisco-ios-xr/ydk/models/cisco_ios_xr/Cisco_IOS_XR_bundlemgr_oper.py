@@ -35,19 +35,19 @@ class BmAfIdEnum(Enum):
 
     Bm af id
 
-    .. data:: BM_AF_ID_IPV4 = 1136568623
+    .. data:: bm_af_id_ipv4 = 1136568623
 
     	IPv4 AFI
 
-    .. data:: BM_AF_ID_IPV6 = 1136568624
+    .. data:: bm_af_id_ipv6 = 1136568624
 
     	IPv6 AFI
 
     """
 
-    BM_AF_ID_IPV4 = 1136568623
+    bm_af_id_ipv4 = 1136568623
 
-    BM_AF_ID_IPV6 = 1136568624
+    bm_af_id_ipv6 = 1136568624
 
 
     @staticmethod
@@ -62,37 +62,37 @@ class BmBdlMacSourceEnum(Enum):
 
     Bm bdl mac source
 
-    .. data:: BM_BDL_MAC_SOURCE_UNKNOWN = 0
+    .. data:: bm_bdl_mac_source_unknown = 0
 
     	The MAC is currently unknown
 
-    .. data:: BM_BDL_MAC_SOURCE_CHASSIS = 1
+    .. data:: bm_bdl_mac_source_chassis = 1
 
     	The MAC was allocated from the chassis pool
 
-    .. data:: BM_BDL_MAC_SOURCE_CONFIGURED = 2
+    .. data:: bm_bdl_mac_source_configured = 2
 
     	The MAC was configured by the user
 
-    .. data:: BM_BDL_MAC_SOURCE_MEMBER = 3
+    .. data:: bm_bdl_mac_source_member = 3
 
     	The MAC belongs to a member
 
-    .. data:: BM_BDL_MAC_SOURCE_PEER = 4
+    .. data:: bm_bdl_mac_source_peer = 4
 
     	The MAC has come from the peer device
 
     """
 
-    BM_BDL_MAC_SOURCE_UNKNOWN = 0
+    bm_bdl_mac_source_unknown = 0
 
-    BM_BDL_MAC_SOURCE_CHASSIS = 1
+    bm_bdl_mac_source_chassis = 1
 
-    BM_BDL_MAC_SOURCE_CONFIGURED = 2
+    bm_bdl_mac_source_configured = 2
 
-    BM_BDL_MAC_SOURCE_MEMBER = 3
+    bm_bdl_mac_source_member = 3
 
-    BM_BDL_MAC_SOURCE_PEER = 4
+    bm_bdl_mac_source_peer = 4
 
 
     @staticmethod
@@ -107,89 +107,89 @@ class BmBdlStateEnum(Enum):
 
     Bm bdl state
 
-    .. data:: BM_BDL_STATE_ADMIN_DOWN = 0
+    .. data:: bm_bdl_state_admin_down = 0
 
     	The bundle has been configured Down
 
-    .. data:: BM_BDL_STATE_DOWN = 1
+    .. data:: bm_bdl_state_down = 1
 
     	The bundle is Down
 
-    .. data:: BM_BDL_STATE_PTNR_DOWN = 2
+    .. data:: bm_bdl_state_ptnr_down = 2
 
     	The bundle is Down on the partner device
 
-    .. data:: BM_BDL_STATE_BUNDLE_SHUTDOWN = 3
+    .. data:: bm_bdl_state_bundle_shutdown = 3
 
     	Bundle shutdown has been configured
 
-    .. data:: BM_BDL_STATE_PE_ISOLATED = 4
+    .. data:: bm_bdl_state_pe_isolated = 4
 
     	The bundle cannot contact the core
 
-    .. data:: BM_BDL_STATE_NAK = 5
+    .. data:: bm_bdl_state_nak = 5
 
     	The state is disputed by a peer device
 
-    .. data:: BM_BDL_STATE_UP_ACTIVE = 6
+    .. data:: bm_bdl_state_up_active = 6
 
     	The bundle is Up
 
-    .. data:: BM_BDL_STATE_MLACP_HOT_STANDBY = 7
+    .. data:: bm_bdl_state_mlacp_hot_standby = 7
 
     	The bundle is Up, but is mLACP standby
 
-    .. data:: BM_BDL_STATE_MLACP_COLD_STANDBY = 8
+    .. data:: bm_bdl_state_mlacp_cold_standby = 8
 
     	The bundle is mLACP standby, but will not
 
     	eliminate traffic loss
 
-    .. data:: BM_BDL_STATE_UNKNOWN = 9
+    .. data:: bm_bdl_state_unknown = 9
 
     	The bundle state has not been determined
 
-    .. data:: BM_BDL_STATE_COLD_STANDBY = 10
+    .. data:: bm_bdl_state_cold_standby = 10
 
     	The bundle is standby, but will not eliminate
 
     	traffic loss
 
-    .. data:: BM_BDL_STATE_ERROR_DISABLED = 11
+    .. data:: bm_bdl_state_error_disabled = 11
 
     	The bundle has been error-disabled
 
-    .. data:: BM_BDL_STATE_EFD_DISABLED = 12
+    .. data:: bm_bdl_state_efd_disabled = 12
 
     	The bundle has been disabled by EFD
 
     """
 
-    BM_BDL_STATE_ADMIN_DOWN = 0
+    bm_bdl_state_admin_down = 0
 
-    BM_BDL_STATE_DOWN = 1
+    bm_bdl_state_down = 1
 
-    BM_BDL_STATE_PTNR_DOWN = 2
+    bm_bdl_state_ptnr_down = 2
 
-    BM_BDL_STATE_BUNDLE_SHUTDOWN = 3
+    bm_bdl_state_bundle_shutdown = 3
 
-    BM_BDL_STATE_PE_ISOLATED = 4
+    bm_bdl_state_pe_isolated = 4
 
-    BM_BDL_STATE_NAK = 5
+    bm_bdl_state_nak = 5
 
-    BM_BDL_STATE_UP_ACTIVE = 6
+    bm_bdl_state_up_active = 6
 
-    BM_BDL_STATE_MLACP_HOT_STANDBY = 7
+    bm_bdl_state_mlacp_hot_standby = 7
 
-    BM_BDL_STATE_MLACP_COLD_STANDBY = 8
+    bm_bdl_state_mlacp_cold_standby = 8
 
-    BM_BDL_STATE_UNKNOWN = 9
+    bm_bdl_state_unknown = 9
 
-    BM_BDL_STATE_COLD_STANDBY = 10
+    bm_bdl_state_cold_standby = 10
 
-    BM_BDL_STATE_ERROR_DISABLED = 11
+    bm_bdl_state_error_disabled = 11
 
-    BM_BDL_STATE_EFD_DISABLED = 12
+    bm_bdl_state_efd_disabled = 12
 
 
     @staticmethod
@@ -204,25 +204,25 @@ class BmFeatureStatusEnum(Enum):
 
     Bm feature status
 
-    .. data:: BM_FEATURE_NOT_CONFIGURED = 0
+    .. data:: bm_feature_not_configured = 0
 
     	No configuration is applied for a feature
 
-    .. data:: BM_FEATURE_NOT_OPERATIONAL = 1
+    .. data:: bm_feature_not_operational = 1
 
     	The feature is currently not operational
 
-    .. data:: BM_FEATURE_OPERATIONAL = 2
+    .. data:: bm_feature_operational = 2
 
     	The feature is currently operational
 
     """
 
-    BM_FEATURE_NOT_CONFIGURED = 0
+    bm_feature_not_configured = 0
 
-    BM_FEATURE_NOT_OPERATIONAL = 1
+    bm_feature_not_operational = 1
 
-    BM_FEATURE_OPERATIONAL = 2
+    bm_feature_operational = 2
 
 
     @staticmethod
@@ -237,519 +237,519 @@ class BmMbrStateReasonEnum(Enum):
 
     Bm mbr state reason
 
-    .. data:: BM_MBR_STATE_REASON_UNKNOWN = 0
+    .. data:: bm_mbr_state_reason_unknown = 0
 
     	Reason unavailable (diagnostics error)
 
-    .. data:: BM_MBR_STATE_REASON_UNSELECTABLE_UNKNOWN = 1
+    .. data:: bm_mbr_state_reason_unselectable_unknown = 1
 
     	Link cannot be used (unknown reason)
 
-    .. data:: BM_MBR_STATE_REASON_LINK_DOWN = 2
+    .. data:: bm_mbr_state_reason_link_down = 2
 
     	Link is down
 
-    .. data:: BM_MBR_STATE_REASON_LINK_DELETING = 3
+    .. data:: bm_mbr_state_reason_link_deleting = 3
 
     	Link is being removed from the bundle
 
-    .. data:: BM_MBR_STATE_REASON_CREATING = 4
+    .. data:: bm_mbr_state_reason_creating = 4
 
     	Link is in the process of being created
 
-    .. data:: BM_MBR_STATE_REASON_BUNDLE_CREATING = 5
+    .. data:: bm_mbr_state_reason_bundle_creating = 5
 
     	Bundle is in the process of being created
 
-    .. data:: BM_MBR_STATE_REASON_BUNDLE_DELETING = 6
+    .. data:: bm_mbr_state_reason_bundle_deleting = 6
 
     	Bundle is in the process of being deleted
 
-    .. data:: BM_MBR_STATE_REASON_BUNDLE_ADMIN_DOWN = 7
+    .. data:: bm_mbr_state_reason_bundle_admin_down = 7
 
     	Bundle has been shut down
 
-    .. data:: BM_MBR_STATE_REASON_REPLICATING = 8
+    .. data:: bm_mbr_state_reason_replicating = 8
 
     	Bundle is in the process of being replicated to
 
     	this location
 
-    .. data:: BM_MBR_STATE_REASON_BANDWIDTH = 9
+    .. data:: bm_mbr_state_reason_bandwidth = 9
 
     	Incompatible with other links in the bundle
 
     	(bandwidth out of range)
 
-    .. data:: BM_MBR_STATE_REASON_LOOP_BACK = 10
+    .. data:: bm_mbr_state_reason_loop_back = 10
 
     	Loopback: Actor and Partner have the same
 
     	System ID and Key
 
-    .. data:: BM_MBR_STATE_REASON_ACTIVITY_TYPE = 11
+    .. data:: bm_mbr_state_reason_activity_type = 11
 
     	Incompatible with other links in the bundle
 
     	(LACP vs non-LACP)
 
-    .. data:: BM_MBR_STATE_REASON_BUNDLE_SHUTDOWN = 12
+    .. data:: bm_mbr_state_reason_bundle_shutdown = 12
 
     	Bundle shutdown is configured for the bundle
 
-    .. data:: BM_MBR_STATE_REASON_MIN_SELECTED = 13
+    .. data:: bm_mbr_state_reason_min_selected = 13
 
     	Not enough links available to meet
 
     	minimum-active threshold
 
-    .. data:: BM_MBR_STATE_REASON_MAX_SELECTED = 14
+    .. data:: bm_mbr_state_reason_max_selected = 14
 
     	Link is Standby due to maximum-active links
 
     	configuration
 
-    .. data:: BM_MBR_STATE_REASON_LINK_LIMIT = 15
+    .. data:: bm_mbr_state_reason_link_limit = 15
 
     	Bundle has too many member links configured
 
-    .. data:: BM_MBR_STATE_REASON_ACTIVE_LIMIT = 16
+    .. data:: bm_mbr_state_reason_active_limit = 16
 
     	Bundle has reached maximum supported number of
 
     	active links
 
-    .. data:: BM_MBR_STATE_REASON_STANDBY_UNKNOWN = 17
+    .. data:: bm_mbr_state_reason_standby_unknown = 17
 
     	Link is Standby (unknown reason)
 
-    .. data:: BM_MBR_STATE_REASON_EXPIRED = 18
+    .. data:: bm_mbr_state_reason_expired = 18
 
     	Link is Expired; LACPDUs are not being received
 
     	from the partner
 
-    .. data:: BM_MBR_STATE_REASON_DEFAULTED = 19
+    .. data:: bm_mbr_state_reason_defaulted = 19
 
     	Link is Defaulted; LACPDUs are not being
 
     	received from the partner
 
-    .. data:: BM_MBR_STATE_REASON_ACT_OR_NOT_AGG = 20
+    .. data:: bm_mbr_state_reason_act_or_not_agg = 20
 
     	Link is Not Aggregatable (unknown reason)
 
-    .. data:: BM_MBR_STATE_REASON_PARTNER_NOT_AGG = 21
+    .. data:: bm_mbr_state_reason_partner_not_agg = 21
 
     	Partner has marked the link as Not Aggregatable
 
-    .. data:: BM_MBR_STATE_REASON_LAGID = 22
+    .. data:: bm_mbr_state_reason_lagid = 22
 
     	Partner System ID/Key do not match that of the
 
     	Selected links
 
-    .. data:: BM_MBR_STATE_REASON_BUNDLE_NOT_CFGD = 23
+    .. data:: bm_mbr_state_reason_bundle_not_cfgd = 23
 
     	Bundle interface is not present in
 
     	configuration
 
-    .. data:: BM_MBR_STATE_REASON_BUNDLE_NOT_READY = 24
+    .. data:: bm_mbr_state_reason_bundle_not_ready = 24
 
     	Wait-while timer is running
 
-    .. data:: BM_MBR_STATE_REASON_PARTNER_OOD = 25
+    .. data:: bm_mbr_state_reason_partner_ood = 25
 
     	Partner has not echoed the correct parameters
 
     	for this link
 
-    .. data:: BM_MBR_STATE_REASON_PARTNER_NOT_IN_SYNC = 26
+    .. data:: bm_mbr_state_reason_partner_not_in_sync = 26
 
     	Partner is not Synchronized (Waiting, Standby,
 
     	or LAG ID mismatch)
 
-    .. data:: BM_MBR_STATE_REASON_FOREIGN_PARTNER_OOS = 27
+    .. data:: bm_mbr_state_reason_foreign_partner_oos = 27
 
     	Partner is not Synchronized (Waiting, not
 
     	Selected, or out-of-date)
 
-    .. data:: BM_MBR_STATE_REASON_ATTACH_UNKNOWN = 28
+    .. data:: bm_mbr_state_reason_attach_unknown = 28
 
     	Link is Attached and has not gone Collecting
 
     	(unknown reason)
 
-    .. data:: BM_MBR_STATE_REASON_PARTNER_NOT_COLLECTING = 29
+    .. data:: bm_mbr_state_reason_partner_not_collecting = 29
 
     	Partner has not advertized that it is
 
     	Collecting
 
-    .. data:: BM_MBR_STATE_REASON_COLLECT_UNKNOWN = 30
+    .. data:: bm_mbr_state_reason_collect_unknown = 30
 
     	Link is Collecting and has not gone
 
     	Distributing (unknown reason)
 
-    .. data:: BM_MBR_STATE_REASON_STANDBY_FOREIGN = 31
+    .. data:: bm_mbr_state_reason_standby_foreign = 31
 
     	Link is marked as Standby by mLACP peer
 
-    .. data:: BM_MBR_STATE_REASON_BFD_STARTING = 32
+    .. data:: bm_mbr_state_reason_bfd_starting = 32
 
     	Link is waiting for BFD session to start
 
-    .. data:: BM_MBR_STATE_REASON_BFD_DOWN = 33
+    .. data:: bm_mbr_state_reason_bfd_down = 33
 
     	BFD state of this link is Down
 
-    .. data:: BM_MBR_STATE_REASON_BFD_NBR_UNCONFIG = 34
+    .. data:: bm_mbr_state_reason_bfd_nbr_unconfig = 34
 
     	BFD session is unconfigured on the remote end
 
-    .. data:: BM_MBR_STATE_REASON_MLACP = 35
+    .. data:: bm_mbr_state_reason_mlacp = 35
 
     	Link is not operational as a result of mLACP
 
     	negotiations
 
-    .. data:: BM_MBR_STATE_REASON_PE_ISOLATED = 36
+    .. data:: bm_mbr_state_reason_pe_isolated = 36
 
     	ICCP group is isolated from the core network
 
-    .. data:: BM_MBR_STATE_REASON_FORCED_SWITCHOVER = 37
+    .. data:: bm_mbr_state_reason_forced_switchover = 37
 
     	Forced switchover to the mLACP peer
 
-    .. data:: BM_MBR_STATE_REASON_ERRDIS_UNKNOWN = 38
+    .. data:: bm_mbr_state_reason_errdis_unknown = 38
 
     	Link is error disabled (unknown reason)
 
-    .. data:: BM_MBR_STATE_REASON_MLACP_NO_MBR_STATE_INFO = 39
+    .. data:: bm_mbr_state_reason_mlacp_no_mbr_state_info = 39
 
     	Waiting for member state information from mLACP
 
     	peer
 
-    .. data:: BM_MBR_STATE_REASON_ACTIVE = 40
+    .. data:: bm_mbr_state_reason_active = 40
 
     	Link is Active
 
-    .. data:: BM_MBR_STATE_REASON_MLACP_NO_BDL_STATE_INFO = 41
+    .. data:: bm_mbr_state_reason_mlacp_no_bdl_state_info = 41
 
     	Waiting for bundle state information from mLACP
 
     	peer
 
-    .. data:: BM_MBR_STATE_REASON_MLACP_NO_BDL_CONFIG_INFO = 42
+    .. data:: bm_mbr_state_reason_mlacp_no_bdl_config_info = 42
 
     	Waiting for bundle configuration information
 
     	from mLACP peer
 
-    .. data:: BM_MBR_STATE_REASON_MLACP_NO_BDL_SYNC = 43
+    .. data:: bm_mbr_state_reason_mlacp_no_bdl_sync = 43
 
     	Waiting for bundle to complete initial
 
     	synchronization with mLACP peer
 
-    .. data:: BM_MBR_STATE_REASON_MLACP_BDL_HAS_NO_PEER = 44
+    .. data:: bm_mbr_state_reason_mlacp_bdl_has_no_peer = 44
 
     	mLACP bundle does not have a peer device
 
-    .. data:: BM_MBR_STATE_REASON_MLACP_NAK = 45
+    .. data:: bm_mbr_state_reason_mlacp_nak = 45
 
     	Link is being ignored due to an inconsistency
 
     	with mLACP peer
 
-    .. data:: BM_MBR_STATE_REASON_MLACP_TRANSPORT_UNAVAILABLE = 46
+    .. data:: bm_mbr_state_reason_mlacp_transport_unavailable = 46
 
     	ICCP transport is unavailable
 
-    .. data:: BM_MBR_STATE_REASON_MLACP_NOT_CONFIGURED = 47
+    .. data:: bm_mbr_state_reason_mlacp_not_configured = 47
 
     	ICCP Group is not fully configured
 
-    .. data:: BM_MBR_STATE_REASON_RECOVERY_TIMER = 48
+    .. data:: bm_mbr_state_reason_recovery_timer = 48
 
     	mLACP recovery delay timer is running
 
-    .. data:: BM_MBR_STATE_REASON_MLACP_STANDBY = 49
+    .. data:: bm_mbr_state_reason_mlacp_standby = 49
 
     	mLACP peer is active
 
-    .. data:: BM_MBR_STATE_REASON_MAXIMIZED_OUT = 50
+    .. data:: bm_mbr_state_reason_maximized_out = 50
 
     	mLACP peer has more links/bandwidth available
 
-    .. data:: BM_MBR_STATE_REASON_MLACP_PEER_SELECTED = 51
+    .. data:: bm_mbr_state_reason_mlacp_peer_selected = 51
 
     	mLACP peer has one or more links Selected
 
-    .. data:: BM_MBR_STATE_REASON_MLACP_CONNECT_TIMER_RUNNING = 52
+    .. data:: bm_mbr_state_reason_mlacp_connect_timer_running = 52
 
     	mLACP bundle does not have a peer device
 
     	(connect timer running)
 
-    .. data:: BM_MBR_STATE_REASON_BUNDLE_NOT_MLACP = 53
+    .. data:: bm_mbr_state_reason_bundle_not_mlacp = 53
 
     	Bundle is not configured to run mLACP
 
-    .. data:: BM_MBR_STATE_REASON_NO_LON = 54
+    .. data:: bm_mbr_state_reason_no_lon = 54
 
     	Bundle has too many working links configured
 
     	(more than the maximum-active limit)
 
-    .. data:: BM_MBR_STATE_REASON_CUMUL_REL_BW_LIMIT = 55
+    .. data:: bm_mbr_state_reason_cumul_rel_bw_limit = 55
 
     	Additional bandwidth from link would exceed
 
     	load balancing capabilities
 
-    .. data:: BM_MBR_STATE_REASON_NO_MAC = 56
+    .. data:: bm_mbr_state_reason_no_mac = 56
 
     	No MAC address available for the bundle
 
-    .. data:: BM_MBR_STATE_REASON_NO_SYSTEM_ID = 57
+    .. data:: bm_mbr_state_reason_no_system_id = 57
 
     	No system ID available for use by this bundle
 
-    .. data:: BM_MBR_STATE_REASON_LINK_SHUTDOWN = 58
+    .. data:: bm_mbr_state_reason_link_shutdown = 58
 
     	Link is shutdown
 
-    .. data:: BM_MBR_STATE_REASON_ACTIVITY_MLACP = 59
+    .. data:: bm_mbr_state_reason_activity_mlacp = 59
 
     	Non-LACP link in mLACP bundle
 
-    .. data:: BM_MBR_STATE_REASON_ACTIVITY_ICCP = 60
+    .. data:: bm_mbr_state_reason_activity_iccp = 60
 
     	LACP link in inter-chassis bundle
 
-    .. data:: BM_MBR_STATE_REASON_BUNDLE_ICPE_MLACP = 61
+    .. data:: bm_mbr_state_reason_bundle_icpe_mlacp = 61
 
     	Parent bundle is both inter-chassis and
 
     	configured for mLACP
 
-    .. data:: BM_MBR_STATE_REASON_NO_LINK_NUM = 62
+    .. data:: bm_mbr_state_reason_no_link_num = 62
 
     	Too many bundle members in system; no link
 
     	number available
 
-    .. data:: BM_MBR_STATE_REASON_STANDBY_PEER_HIGHER_PRIO = 63
+    .. data:: bm_mbr_state_reason_standby_peer_higher_prio = 63
 
     	mLACP peer has a higher priority link
 
-    .. data:: BM_MBR_STATE_REASON_RED_STATE_STANDBY = 64
+    .. data:: bm_mbr_state_reason_red_state_standby = 64
 
     	Link is in standby redundancy state
 
-    .. data:: BM_MBR_STATE_REASON_OTHER_RED_STATE_STANDBY = 65
+    .. data:: bm_mbr_state_reason_other_red_state_standby = 65
 
     	One or more links in the bundle are in standby
 
     	redundancy state
 
-    .. data:: BM_MBR_STATE_REASON_HOLD_ING = 66
+    .. data:: bm_mbr_state_reason_hold_ing = 66
 
     	Holding down temporary to avoid churn after
 
     	restart
 
-    .. data:: BM_MBR_STATE_REASON_BUNDLE_ERROR_DISABLED = 67
+    .. data:: bm_mbr_state_reason_bundle_error_disabled = 67
 
     	Bundle has been error-disabled
 
-    .. data:: BM_MBR_STATE_REASON_BUNDLE_EFD_DISABLED = 68
+    .. data:: bm_mbr_state_reason_bundle_efd_disabled = 68
 
     	Bundle has been disabled by EFD
 
-    .. data:: BM_MBR_STATE_REASON_SINGLETON_PE_ISOLATED = 69
+    .. data:: bm_mbr_state_reason_singleton_pe_isolated = 69
 
     	Singleton ICCP group is isolated from the core
 
     	network
 
-    .. data:: BM_MBR_STATE_REASON_BFD_IPV6_STARTING = 70
+    .. data:: bm_mbr_state_reason_bfd_ipv6_starting = 70
 
     	Link is waiting for BFDv6 session to start
 
-    .. data:: BM_MBR_STATE_REASON_BFD_IPV6_DOWN = 71
+    .. data:: bm_mbr_state_reason_bfd_ipv6_down = 71
 
     	BFDv6 state of this link is Down
 
-    .. data:: BM_MBR_STATE_REASON_BFD_IPV6_NBR_UNCONFIG = 72
+    .. data:: bm_mbr_state_reason_bfd_ipv6_nbr_unconfig = 72
 
     	BFDv6 session is unconfigured on the remote end
 
-    .. data:: BM_MBR_STATE_REASON_TIMER_RUNNING = 73
+    .. data:: bm_mbr_state_reason_timer_running = 73
 
     	LACP delay timer is running
 
-    .. data:: BM_MBR_STATE_REASON_COUNT = 74
+    .. data:: bm_mbr_state_reason_count = 74
 
     	Enumeration maximum value
 
     """
 
-    BM_MBR_STATE_REASON_UNKNOWN = 0
+    bm_mbr_state_reason_unknown = 0
 
-    BM_MBR_STATE_REASON_UNSELECTABLE_UNKNOWN = 1
+    bm_mbr_state_reason_unselectable_unknown = 1
 
-    BM_MBR_STATE_REASON_LINK_DOWN = 2
+    bm_mbr_state_reason_link_down = 2
 
-    BM_MBR_STATE_REASON_LINK_DELETING = 3
+    bm_mbr_state_reason_link_deleting = 3
 
-    BM_MBR_STATE_REASON_CREATING = 4
+    bm_mbr_state_reason_creating = 4
 
-    BM_MBR_STATE_REASON_BUNDLE_CREATING = 5
+    bm_mbr_state_reason_bundle_creating = 5
 
-    BM_MBR_STATE_REASON_BUNDLE_DELETING = 6
+    bm_mbr_state_reason_bundle_deleting = 6
 
-    BM_MBR_STATE_REASON_BUNDLE_ADMIN_DOWN = 7
+    bm_mbr_state_reason_bundle_admin_down = 7
 
-    BM_MBR_STATE_REASON_REPLICATING = 8
+    bm_mbr_state_reason_replicating = 8
 
-    BM_MBR_STATE_REASON_BANDWIDTH = 9
+    bm_mbr_state_reason_bandwidth = 9
 
-    BM_MBR_STATE_REASON_LOOP_BACK = 10
+    bm_mbr_state_reason_loop_back = 10
 
-    BM_MBR_STATE_REASON_ACTIVITY_TYPE = 11
+    bm_mbr_state_reason_activity_type = 11
 
-    BM_MBR_STATE_REASON_BUNDLE_SHUTDOWN = 12
+    bm_mbr_state_reason_bundle_shutdown = 12
 
-    BM_MBR_STATE_REASON_MIN_SELECTED = 13
+    bm_mbr_state_reason_min_selected = 13
 
-    BM_MBR_STATE_REASON_MAX_SELECTED = 14
+    bm_mbr_state_reason_max_selected = 14
 
-    BM_MBR_STATE_REASON_LINK_LIMIT = 15
+    bm_mbr_state_reason_link_limit = 15
 
-    BM_MBR_STATE_REASON_ACTIVE_LIMIT = 16
+    bm_mbr_state_reason_active_limit = 16
 
-    BM_MBR_STATE_REASON_STANDBY_UNKNOWN = 17
+    bm_mbr_state_reason_standby_unknown = 17
 
-    BM_MBR_STATE_REASON_EXPIRED = 18
+    bm_mbr_state_reason_expired = 18
 
-    BM_MBR_STATE_REASON_DEFAULTED = 19
+    bm_mbr_state_reason_defaulted = 19
 
-    BM_MBR_STATE_REASON_ACT_OR_NOT_AGG = 20
+    bm_mbr_state_reason_act_or_not_agg = 20
 
-    BM_MBR_STATE_REASON_PARTNER_NOT_AGG = 21
+    bm_mbr_state_reason_partner_not_agg = 21
 
-    BM_MBR_STATE_REASON_LAGID = 22
+    bm_mbr_state_reason_lagid = 22
 
-    BM_MBR_STATE_REASON_BUNDLE_NOT_CFGD = 23
+    bm_mbr_state_reason_bundle_not_cfgd = 23
 
-    BM_MBR_STATE_REASON_BUNDLE_NOT_READY = 24
+    bm_mbr_state_reason_bundle_not_ready = 24
 
-    BM_MBR_STATE_REASON_PARTNER_OOD = 25
+    bm_mbr_state_reason_partner_ood = 25
 
-    BM_MBR_STATE_REASON_PARTNER_NOT_IN_SYNC = 26
+    bm_mbr_state_reason_partner_not_in_sync = 26
 
-    BM_MBR_STATE_REASON_FOREIGN_PARTNER_OOS = 27
+    bm_mbr_state_reason_foreign_partner_oos = 27
 
-    BM_MBR_STATE_REASON_ATTACH_UNKNOWN = 28
+    bm_mbr_state_reason_attach_unknown = 28
 
-    BM_MBR_STATE_REASON_PARTNER_NOT_COLLECTING = 29
+    bm_mbr_state_reason_partner_not_collecting = 29
 
-    BM_MBR_STATE_REASON_COLLECT_UNKNOWN = 30
+    bm_mbr_state_reason_collect_unknown = 30
 
-    BM_MBR_STATE_REASON_STANDBY_FOREIGN = 31
+    bm_mbr_state_reason_standby_foreign = 31
 
-    BM_MBR_STATE_REASON_BFD_STARTING = 32
+    bm_mbr_state_reason_bfd_starting = 32
 
-    BM_MBR_STATE_REASON_BFD_DOWN = 33
+    bm_mbr_state_reason_bfd_down = 33
 
-    BM_MBR_STATE_REASON_BFD_NBR_UNCONFIG = 34
+    bm_mbr_state_reason_bfd_nbr_unconfig = 34
 
-    BM_MBR_STATE_REASON_MLACP = 35
+    bm_mbr_state_reason_mlacp = 35
 
-    BM_MBR_STATE_REASON_PE_ISOLATED = 36
+    bm_mbr_state_reason_pe_isolated = 36
 
-    BM_MBR_STATE_REASON_FORCED_SWITCHOVER = 37
+    bm_mbr_state_reason_forced_switchover = 37
 
-    BM_MBR_STATE_REASON_ERRDIS_UNKNOWN = 38
+    bm_mbr_state_reason_errdis_unknown = 38
 
-    BM_MBR_STATE_REASON_MLACP_NO_MBR_STATE_INFO = 39
+    bm_mbr_state_reason_mlacp_no_mbr_state_info = 39
 
-    BM_MBR_STATE_REASON_ACTIVE = 40
+    bm_mbr_state_reason_active = 40
 
-    BM_MBR_STATE_REASON_MLACP_NO_BDL_STATE_INFO = 41
+    bm_mbr_state_reason_mlacp_no_bdl_state_info = 41
 
-    BM_MBR_STATE_REASON_MLACP_NO_BDL_CONFIG_INFO = 42
+    bm_mbr_state_reason_mlacp_no_bdl_config_info = 42
 
-    BM_MBR_STATE_REASON_MLACP_NO_BDL_SYNC = 43
+    bm_mbr_state_reason_mlacp_no_bdl_sync = 43
 
-    BM_MBR_STATE_REASON_MLACP_BDL_HAS_NO_PEER = 44
+    bm_mbr_state_reason_mlacp_bdl_has_no_peer = 44
 
-    BM_MBR_STATE_REASON_MLACP_NAK = 45
+    bm_mbr_state_reason_mlacp_nak = 45
 
-    BM_MBR_STATE_REASON_MLACP_TRANSPORT_UNAVAILABLE = 46
+    bm_mbr_state_reason_mlacp_transport_unavailable = 46
 
-    BM_MBR_STATE_REASON_MLACP_NOT_CONFIGURED = 47
+    bm_mbr_state_reason_mlacp_not_configured = 47
 
-    BM_MBR_STATE_REASON_RECOVERY_TIMER = 48
+    bm_mbr_state_reason_recovery_timer = 48
 
-    BM_MBR_STATE_REASON_MLACP_STANDBY = 49
+    bm_mbr_state_reason_mlacp_standby = 49
 
-    BM_MBR_STATE_REASON_MAXIMIZED_OUT = 50
+    bm_mbr_state_reason_maximized_out = 50
 
-    BM_MBR_STATE_REASON_MLACP_PEER_SELECTED = 51
+    bm_mbr_state_reason_mlacp_peer_selected = 51
 
-    BM_MBR_STATE_REASON_MLACP_CONNECT_TIMER_RUNNING = 52
+    bm_mbr_state_reason_mlacp_connect_timer_running = 52
 
-    BM_MBR_STATE_REASON_BUNDLE_NOT_MLACP = 53
+    bm_mbr_state_reason_bundle_not_mlacp = 53
 
-    BM_MBR_STATE_REASON_NO_LON = 54
+    bm_mbr_state_reason_no_lon = 54
 
-    BM_MBR_STATE_REASON_CUMUL_REL_BW_LIMIT = 55
+    bm_mbr_state_reason_cumul_rel_bw_limit = 55
 
-    BM_MBR_STATE_REASON_NO_MAC = 56
+    bm_mbr_state_reason_no_mac = 56
 
-    BM_MBR_STATE_REASON_NO_SYSTEM_ID = 57
+    bm_mbr_state_reason_no_system_id = 57
 
-    BM_MBR_STATE_REASON_LINK_SHUTDOWN = 58
+    bm_mbr_state_reason_link_shutdown = 58
 
-    BM_MBR_STATE_REASON_ACTIVITY_MLACP = 59
+    bm_mbr_state_reason_activity_mlacp = 59
 
-    BM_MBR_STATE_REASON_ACTIVITY_ICCP = 60
+    bm_mbr_state_reason_activity_iccp = 60
 
-    BM_MBR_STATE_REASON_BUNDLE_ICPE_MLACP = 61
+    bm_mbr_state_reason_bundle_icpe_mlacp = 61
 
-    BM_MBR_STATE_REASON_NO_LINK_NUM = 62
+    bm_mbr_state_reason_no_link_num = 62
 
-    BM_MBR_STATE_REASON_STANDBY_PEER_HIGHER_PRIO = 63
+    bm_mbr_state_reason_standby_peer_higher_prio = 63
 
-    BM_MBR_STATE_REASON_RED_STATE_STANDBY = 64
+    bm_mbr_state_reason_red_state_standby = 64
 
-    BM_MBR_STATE_REASON_OTHER_RED_STATE_STANDBY = 65
+    bm_mbr_state_reason_other_red_state_standby = 65
 
-    BM_MBR_STATE_REASON_HOLD_ING = 66
+    bm_mbr_state_reason_hold_ing = 66
 
-    BM_MBR_STATE_REASON_BUNDLE_ERROR_DISABLED = 67
+    bm_mbr_state_reason_bundle_error_disabled = 67
 
-    BM_MBR_STATE_REASON_BUNDLE_EFD_DISABLED = 68
+    bm_mbr_state_reason_bundle_efd_disabled = 68
 
-    BM_MBR_STATE_REASON_SINGLETON_PE_ISOLATED = 69
+    bm_mbr_state_reason_singleton_pe_isolated = 69
 
-    BM_MBR_STATE_REASON_BFD_IPV6_STARTING = 70
+    bm_mbr_state_reason_bfd_ipv6_starting = 70
 
-    BM_MBR_STATE_REASON_BFD_IPV6_DOWN = 71
+    bm_mbr_state_reason_bfd_ipv6_down = 71
 
-    BM_MBR_STATE_REASON_BFD_IPV6_NBR_UNCONFIG = 72
+    bm_mbr_state_reason_bfd_ipv6_nbr_unconfig = 72
 
-    BM_MBR_STATE_REASON_TIMER_RUNNING = 73
+    bm_mbr_state_reason_timer_running = 73
 
-    BM_MBR_STATE_REASON_COUNT = 74
+    bm_mbr_state_reason_count = 74
 
 
     @staticmethod
@@ -764,133 +764,133 @@ class BmMuxreasonEnum(Enum):
 
     Bm muxreason
 
-    .. data:: BM_MUX_REASON_NO_REASON = 0
+    .. data:: bm_mux_reason_no_reason = 0
 
     	Selection logic has not yet been run for the
 
     	bundle this link is a member of
 
-    .. data:: BM_MUX_REASON_LINK_DOWN = 1
+    .. data:: bm_mux_reason_link_down = 1
 
     	Link is down
 
-    .. data:: BM_MUX_REASON_LINK_DELETED = 2
+    .. data:: bm_mux_reason_link_deleted = 2
 
     	Link is being removed from the bundle
 
-    .. data:: BM_MUX_REASON_DUPLEX = 3
+    .. data:: bm_mux_reason_duplex = 3
 
     	Link has wrong duplexity
 
-    .. data:: BM_MUX_REASON_BANDWIDTH = 4
+    .. data:: bm_mux_reason_bandwidth = 4
 
     	Link has wrong bandwidth
 
-    .. data:: BM_MUX_REASON_LOOP_BACK = 5
+    .. data:: bm_mux_reason_loop_back = 5
 
     	Link is a loopback interface
 
-    .. data:: BM_MUX_REASON_ACTIVITY_TYPE = 6
+    .. data:: bm_mux_reason_activity_type = 6
 
     	Link has wrong activity type
 
-    .. data:: BM_MUX_REASON_LINK_LIMIT = 7
+    .. data:: bm_mux_reason_link_limit = 7
 
     	Link's bundle already has maximum number of
 
     	members allowed
 
-    .. data:: BM_MUX_REASON_SHARED = 8
+    .. data:: bm_mux_reason_shared = 8
 
     	Link is attached to a shared medium
 
-    .. data:: BM_MUX_REASON_LAGID = 9
+    .. data:: bm_mux_reason_lagid = 9
 
     	Link has wrong LAG ID
 
-    .. data:: BM_MUX_REASON_NO_BUNDLE = 10
+    .. data:: bm_mux_reason_no_bundle = 10
 
     	Link's bundle does not exist
 
-    .. data:: BM_MUX_REASON_NO_PRIMARY = 11
+    .. data:: bm_mux_reason_no_primary = 11
 
     	Link's bundle has no primary link
 
-    .. data:: BM_MUX_REASON_BUNDLE_DOWN = 12
+    .. data:: bm_mux_reason_bundle_down = 12
 
     	Link's bundle is shut down
 
-    .. data:: BM_MUX_REASON_INDIVIDUAL = 13
+    .. data:: bm_mux_reason_individual = 13
 
     	Link is marked individual by partner
 
-    .. data:: BM_MUX_REASON_DEFAULTED = 14
+    .. data:: bm_mux_reason_defaulted = 14
 
     	Link is Defaulted, suggesting it is not
 
     	receiving LACPDUs from the peer
 
-    .. data:: BM_MUX_REASON_IN_SYNC = 15
+    .. data:: bm_mux_reason_in_sync = 15
 
     	Link is in InSync state
 
-    .. data:: BM_MUX_REASON_COLLECTING = 16
+    .. data:: bm_mux_reason_collecting = 16
 
     	Link is in Collecting state
 
-    .. data:: BM_MUX_REASON_ACTIVE_LINK_LIMIT = 17
+    .. data:: bm_mux_reason_active_link_limit = 17
 
     	Link exceeds maximum active limit
 
-    .. data:: BM_MUX_REASON_DISTRIBUTING = 18
+    .. data:: bm_mux_reason_distributing = 18
 
     	Link is in Distributing state
 
-    .. data:: BM_MUX_REASON_COUNT = 19
+    .. data:: bm_mux_reason_count = 19
 
     	Enumeration maximum value
 
     """
 
-    BM_MUX_REASON_NO_REASON = 0
+    bm_mux_reason_no_reason = 0
 
-    BM_MUX_REASON_LINK_DOWN = 1
+    bm_mux_reason_link_down = 1
 
-    BM_MUX_REASON_LINK_DELETED = 2
+    bm_mux_reason_link_deleted = 2
 
-    BM_MUX_REASON_DUPLEX = 3
+    bm_mux_reason_duplex = 3
 
-    BM_MUX_REASON_BANDWIDTH = 4
+    bm_mux_reason_bandwidth = 4
 
-    BM_MUX_REASON_LOOP_BACK = 5
+    bm_mux_reason_loop_back = 5
 
-    BM_MUX_REASON_ACTIVITY_TYPE = 6
+    bm_mux_reason_activity_type = 6
 
-    BM_MUX_REASON_LINK_LIMIT = 7
+    bm_mux_reason_link_limit = 7
 
-    BM_MUX_REASON_SHARED = 8
+    bm_mux_reason_shared = 8
 
-    BM_MUX_REASON_LAGID = 9
+    bm_mux_reason_lagid = 9
 
-    BM_MUX_REASON_NO_BUNDLE = 10
+    bm_mux_reason_no_bundle = 10
 
-    BM_MUX_REASON_NO_PRIMARY = 11
+    bm_mux_reason_no_primary = 11
 
-    BM_MUX_REASON_BUNDLE_DOWN = 12
+    bm_mux_reason_bundle_down = 12
 
-    BM_MUX_REASON_INDIVIDUAL = 13
+    bm_mux_reason_individual = 13
 
-    BM_MUX_REASON_DEFAULTED = 14
+    bm_mux_reason_defaulted = 14
 
-    BM_MUX_REASON_IN_SYNC = 15
+    bm_mux_reason_in_sync = 15
 
-    BM_MUX_REASON_COLLECTING = 16
+    bm_mux_reason_collecting = 16
 
-    BM_MUX_REASON_ACTIVE_LINK_LIMIT = 17
+    bm_mux_reason_active_link_limit = 17
 
-    BM_MUX_REASON_DISTRIBUTING = 18
+    bm_mux_reason_distributing = 18
 
-    BM_MUX_REASON_COUNT = 19
+    bm_mux_reason_count = 19
 
 
     @staticmethod
@@ -905,43 +905,43 @@ class BmMuxstateEnum(Enum):
 
     Bm muxstate
 
-    .. data:: DETACHED = 1
+    .. data:: detached = 1
 
     	Port is not attached to a bundle
 
-    .. data:: WAITING = 2
+    .. data:: waiting = 2
 
     	Port has chosen bundle and is waiting to join
 
-    .. data:: ATTACHED = 3
+    .. data:: attached = 3
 
     	Port is attached to the bundle but not active
 
-    .. data:: COLLECTING = 4
+    .. data:: collecting = 4
 
     	Port is ready to receive data
 
-    .. data:: DISTRIBUTING = 5
+    .. data:: distributing = 5
 
     	Port is distributing data
 
-    .. data:: COLLECTING_DISTRIBUTING = 6
+    .. data:: collecting_distributing = 6
 
     	Port is active and can send and receive data
 
     """
 
-    DETACHED = 1
+    detached = 1
 
-    WAITING = 2
+    waiting = 2
 
-    ATTACHED = 3
+    attached = 3
 
-    COLLECTING = 4
+    collecting = 4
 
-    DISTRIBUTING = 5
+    distributing = 5
 
-    COLLECTING_DISTRIBUTING = 6
+    collecting_distributing = 6
 
 
     @staticmethod
@@ -956,37 +956,37 @@ class BmSeverityEnum(Enum):
 
     Severity of the member state reason
 
-    .. data:: OK = 0
+    .. data:: ok = 0
 
     	OK
 
-    .. data:: INFORMATION = 1
+    .. data:: information = 1
 
     	Information
 
-    .. data:: MISCONFIGURATION = 2
+    .. data:: misconfiguration = 2
 
     	Misconfiguration
 
-    .. data:: WARNING = 3
+    .. data:: warning = 3
 
     	Warning
 
-    .. data:: ERROR = 5
+    .. data:: error = 5
 
     	Error
 
     """
 
-    OK = 0
+    ok = 0
 
-    INFORMATION = 1
+    information = 1
 
-    MISCONFIGURATION = 2
+    misconfiguration = 2
 
-    WARNING = 3
+    warning = 3
 
-    ERROR = 5
+    error = 5
 
 
     @staticmethod
@@ -1001,19 +1001,19 @@ class BmStateReasonTargetEnum(Enum):
 
     Scope of the state reason
 
-    .. data:: MEMBER_REASON = 0
+    .. data:: member_reason = 0
 
     	Member applicable reason
 
-    .. data:: BUNDLE_REASON = 1
+    .. data:: bundle_reason = 1
 
     	Bundle applicable reason
 
     """
 
-    MEMBER_REASON = 0
+    member_reason = 0
 
-    BUNDLE_REASON = 1
+    bundle_reason = 1
 
 
     @staticmethod
@@ -1028,19 +1028,19 @@ class BmWhichSystemEnum(Enum):
 
     Bm which system
 
-    .. data:: BM_WHICH_SYSTEM_ACTR = 0
+    .. data:: bm_which_system_actr = 0
 
     	Actor
 
-    .. data:: BM_WHICH_SYSTEM_PTNR = 1
+    .. data:: bm_which_system_ptnr = 1
 
     	Partner
 
     """
 
-    BM_WHICH_SYSTEM_ACTR = 0
+    bm_which_system_actr = 0
 
-    BM_WHICH_SYSTEM_PTNR = 1
+    bm_which_system_ptnr = 1
 
 
     @staticmethod
@@ -1055,91 +1055,91 @@ class BmdBagEventBdlItemEnum(Enum):
 
     Description of an event for a bundle
 
-    .. data:: BMD_EVENT_BDL_IDB_CREATE = 0
+    .. data:: bmd_event_bdl_idb_create = 0
 
     	Bundle structure created
 
-    .. data:: BMD_EVENT_BDL_CONFIGURED = 1
+    .. data:: bmd_event_bdl_configured = 1
 
     	Bundle configured by user
 
-    .. data:: BMD_EVENT_BDL_IM_STATE = 2
+    .. data:: bmd_event_bdl_im_state = 2
 
     	Bundle's IM state changed
 
-    .. data:: BMD_EVENT_BDL_MBR_ADDED = 3
+    .. data:: bmd_event_bdl_mbr_added = 3
 
     	Member added to the bundle
 
-    .. data:: BMD_EVENT_BDL_MBR_DELETED = 4
+    .. data:: bmd_event_bdl_mbr_deleted = 4
 
     	Member removed from the bundle
 
-    .. data:: BMD_EVENT_BDL_MAC_ADDR = 5
+    .. data:: bmd_event_bdl_mac_addr = 5
 
     	Bundle's MAC address changed
 
-    .. data:: BMD_EVENT_BDL_FIRST_RETRY = 6
+    .. data:: bmd_event_bdl_first_retry = 6
 
     	First retry
 
-    .. data:: BMD_EVENT_BDL_USER_CONFIG = 7
+    .. data:: bmd_event_bdl_user_config = 7
 
     	User changed the configuration
 
-    .. data:: BMD_EVENT_BDL_ERROR = 8
+    .. data:: bmd_event_bdl_error = 8
 
     	Last error
 
-    .. data:: BMD_EVENT_BDL_MLACP_TLV = 9
+    .. data:: bmd_event_bdl_mlacp_tlv = 9
 
     	mLACP TLV received
 
-    .. data:: BMD_EVENT_BDL_REDUNDANCY_ROLE = 10
+    .. data:: bmd_event_bdl_redundancy_role = 10
 
     	redundancy role change
 
-    .. data:: BDL_BFD_STATE_CHANGE = 11
+    .. data:: bdl_bfd_state_change = 11
 
     	BFD state change
 
-    .. data:: BMD_EVENT_BDL_ICL = 12
+    .. data:: bmd_event_bdl_icl = 12
 
     	Inter-chassis link mode changed
 
-    .. data:: BMD_EVENT_BDL_COUNT = 13
+    .. data:: bmd_event_bdl_count = 13
 
     	Number of bundle events
 
     """
 
-    BMD_EVENT_BDL_IDB_CREATE = 0
+    bmd_event_bdl_idb_create = 0
 
-    BMD_EVENT_BDL_CONFIGURED = 1
+    bmd_event_bdl_configured = 1
 
-    BMD_EVENT_BDL_IM_STATE = 2
+    bmd_event_bdl_im_state = 2
 
-    BMD_EVENT_BDL_MBR_ADDED = 3
+    bmd_event_bdl_mbr_added = 3
 
-    BMD_EVENT_BDL_MBR_DELETED = 4
+    bmd_event_bdl_mbr_deleted = 4
 
-    BMD_EVENT_BDL_MAC_ADDR = 5
+    bmd_event_bdl_mac_addr = 5
 
-    BMD_EVENT_BDL_FIRST_RETRY = 6
+    bmd_event_bdl_first_retry = 6
 
-    BMD_EVENT_BDL_USER_CONFIG = 7
+    bmd_event_bdl_user_config = 7
 
-    BMD_EVENT_BDL_ERROR = 8
+    bmd_event_bdl_error = 8
 
-    BMD_EVENT_BDL_MLACP_TLV = 9
+    bmd_event_bdl_mlacp_tlv = 9
 
-    BMD_EVENT_BDL_REDUNDANCY_ROLE = 10
+    bmd_event_bdl_redundancy_role = 10
 
-    BDL_BFD_STATE_CHANGE = 11
+    bdl_bfd_state_change = 11
 
-    BMD_EVENT_BDL_ICL = 12
+    bmd_event_bdl_icl = 12
 
-    BMD_EVENT_BDL_COUNT = 13
+    bmd_event_bdl_count = 13
 
 
     @staticmethod
@@ -1154,25 +1154,25 @@ class BmdBagEventDataEnum(Enum):
 
     Type of additional info for an event
 
-    .. data:: BMD_BAG_EVT_DATA_NONE = 0
+    .. data:: bmd_bag_evt_data_none = 0
 
     	No additional data
 
-    .. data:: BMD_BAG_EVT_DATA_ERROR = 1
+    .. data:: bmd_bag_evt_data_error = 1
 
     	Additional data is an error code
 
-    .. data:: BMD_BAG_EVT_DATA_STRING = 2
+    .. data:: bmd_bag_evt_data_string = 2
 
     	Additional data is a string
 
     """
 
-    BMD_BAG_EVT_DATA_NONE = 0
+    bmd_bag_evt_data_none = 0
 
-    BMD_BAG_EVT_DATA_ERROR = 1
+    bmd_bag_evt_data_error = 1
 
-    BMD_BAG_EVT_DATA_STRING = 2
+    bmd_bag_evt_data_string = 2
 
 
     @staticmethod
@@ -1187,91 +1187,91 @@ class BmdBagEventMbrItemEnum(Enum):
 
     Description of an event for a member
 
-    .. data:: BMD_EVENT_MBR_IDB_CREATE = 0
+    .. data:: bmd_event_mbr_idb_create = 0
 
     	Member structure created
 
-    .. data:: BMD_EVENT_MBR_BDL_ADD = 1
+    .. data:: bmd_event_mbr_bdl_add = 1
 
     	Added to bundle
 
-    .. data:: BMD_EVENT_MBR_IM_STATE = 2
+    .. data:: bmd_event_mbr_im_state = 2
 
     	Member's IM state changed
 
-    .. data:: BMD_EVENT_MBR_SEL_LOGIC = 3
+    .. data:: bmd_event_mbr_sel_logic = 3
 
     	Sel logic state changed
 
-    .. data:: BMD_EVENT_MBR_MUX = 4
+    .. data:: bmd_event_mbr_mux = 4
 
     	Mux state changed
 
-    .. data:: BMD_EVENT_MBR_BFD = 5
+    .. data:: bmd_event_mbr_bfd = 5
 
     	BFD state changed
 
-    .. data:: BMD_EVENT_MBR_EXPIRED = 6
+    .. data:: bmd_event_mbr_expired = 6
 
     	Expired
 
-    .. data:: BMD_EVENT_MBR_DEFAULTED = 7
+    .. data:: bmd_event_mbr_defaulted = 7
 
     	Defaulted
 
-    .. data:: BMD_EVENT_MBR_FIRST_RETRY = 8
+    .. data:: bmd_event_mbr_first_retry = 8
 
     	First retry
 
-    .. data:: BMD_EVENT_MBR_MSG = 9
+    .. data:: bmd_event_mbr_msg = 9
 
     	Message from BML
 
-    .. data:: BMD_EVENT_MBR_ERROR = 10
+    .. data:: bmd_event_mbr_error = 10
 
     	Last error
 
-    .. data:: BMD_EVENT_MBR_MLACP_TLV = 11
+    .. data:: bmd_event_mbr_mlacp_tlv = 11
 
     	mLACP TLV received
 
-    .. data:: BMD_EVENT_MBR_REDUNDANCY_ROLE = 12
+    .. data:: bmd_event_mbr_redundancy_role = 12
 
     	redundancy role change
 
-    .. data:: BMD_EVENT_MBR_COUNT = 13
+    .. data:: bmd_event_mbr_count = 13
 
     	Number of member events
 
     """
 
-    BMD_EVENT_MBR_IDB_CREATE = 0
+    bmd_event_mbr_idb_create = 0
 
-    BMD_EVENT_MBR_BDL_ADD = 1
+    bmd_event_mbr_bdl_add = 1
 
-    BMD_EVENT_MBR_IM_STATE = 2
+    bmd_event_mbr_im_state = 2
 
-    BMD_EVENT_MBR_SEL_LOGIC = 3
+    bmd_event_mbr_sel_logic = 3
 
-    BMD_EVENT_MBR_MUX = 4
+    bmd_event_mbr_mux = 4
 
-    BMD_EVENT_MBR_BFD = 5
+    bmd_event_mbr_bfd = 5
 
-    BMD_EVENT_MBR_EXPIRED = 6
+    bmd_event_mbr_expired = 6
 
-    BMD_EVENT_MBR_DEFAULTED = 7
+    bmd_event_mbr_defaulted = 7
 
-    BMD_EVENT_MBR_FIRST_RETRY = 8
+    bmd_event_mbr_first_retry = 8
 
-    BMD_EVENT_MBR_MSG = 9
+    bmd_event_mbr_msg = 9
 
-    BMD_EVENT_MBR_ERROR = 10
+    bmd_event_mbr_error = 10
 
-    BMD_EVENT_MBR_MLACP_TLV = 11
+    bmd_event_mbr_mlacp_tlv = 11
 
-    BMD_EVENT_MBR_REDUNDANCY_ROLE = 12
+    bmd_event_mbr_redundancy_role = 12
 
-    BMD_EVENT_MBR_COUNT = 13
+    bmd_event_mbr_count = 13
 
 
     @staticmethod
@@ -1286,73 +1286,73 @@ class BmdBagEventRgItemEnum(Enum):
 
     Description of an event for a RG
 
-    .. data:: BMD_EVENT_RG_IDB_CREATE = 0
+    .. data:: bmd_event_rg_idb_create = 0
 
     	RG structure created
 
-    .. data:: BMD_EVENT_RG_CONFIGURED = 1
+    .. data:: bmd_event_rg_configured = 1
 
     	RG configured by user
 
-    .. data:: BMD_EVENT_RG_USER_CONFIG = 2
+    .. data:: bmd_event_rg_user_config = 2
 
     	User changed the configuration
 
-    .. data:: BMD_EVENT_RG_CONNECT_ION = 3
+    .. data:: bmd_event_rg_connect_ion = 3
 
     	Connection to peer
 
-    .. data:: BMD_EVENT_RG_DATA = 4
+    .. data:: bmd_event_rg_data = 4
 
     	Data received
 
-    .. data:: BMD_EVENT_RG_SYNC = 5
+    .. data:: bmd_event_rg_sync = 5
 
     	Sync performed
 
-    .. data:: BMD_EVENT_RG_FIRST_RETRY = 6
+    .. data:: bmd_event_rg_first_retry = 6
 
     	First retry
 
-    .. data:: BMD_EVENT_RG_ERROR = 7
+    .. data:: bmd_event_rg_error = 7
 
     	Last error
 
-    .. data:: BMD_EVENT_RG_MLACP_TLV = 8
+    .. data:: bmd_event_rg_mlacp_tlv = 8
 
     	mLACP TLV received
 
-    .. data:: BMD_EVENT_RG_ICCP_EVENT = 9
+    .. data:: bmd_event_rg_iccp_event = 9
 
     	ICCP event received
 
-    .. data:: BMD_EVENT_RG_COUNT = 10
+    .. data:: bmd_event_rg_count = 10
 
     	Number of RG events
 
     """
 
-    BMD_EVENT_RG_IDB_CREATE = 0
+    bmd_event_rg_idb_create = 0
 
-    BMD_EVENT_RG_CONFIGURED = 1
+    bmd_event_rg_configured = 1
 
-    BMD_EVENT_RG_USER_CONFIG = 2
+    bmd_event_rg_user_config = 2
 
-    BMD_EVENT_RG_CONNECT_ION = 3
+    bmd_event_rg_connect_ion = 3
 
-    BMD_EVENT_RG_DATA = 4
+    bmd_event_rg_data = 4
 
-    BMD_EVENT_RG_SYNC = 5
+    bmd_event_rg_sync = 5
 
-    BMD_EVENT_RG_FIRST_RETRY = 6
+    bmd_event_rg_first_retry = 6
 
-    BMD_EVENT_RG_ERROR = 7
+    bmd_event_rg_error = 7
 
-    BMD_EVENT_RG_MLACP_TLV = 8
+    bmd_event_rg_mlacp_tlv = 8
 
-    BMD_EVENT_RG_ICCP_EVENT = 9
+    bmd_event_rg_iccp_event = 9
 
-    BMD_EVENT_RG_COUNT = 10
+    bmd_event_rg_count = 10
 
 
     @staticmethod
@@ -1367,19 +1367,19 @@ class BmdBagMlacpSchActionItemEnum(Enum):
 
     Description of scheduled actions for a bundle
 
-    .. data:: SWITCHOVER = 0
+    .. data:: switchover = 0
 
     	mLACP Switchover scheduled
 
-    .. data:: SWITCHBACK = 1
+    .. data:: switchback = 1
 
     	mLACP Switchback scheduled
 
     """
 
-    SWITCHOVER = 0
+    switchover = 0
 
-    SWITCHBACK = 1
+    switchback = 1
 
 
     @staticmethod
@@ -1394,31 +1394,31 @@ class BmdBagTargetEnum(Enum):
 
     Scope of information
 
-    .. data:: BM_BAG_TARGET_MBR = 0
+    .. data:: bm_bag_target_mbr = 0
 
     	Information for a member
 
-    .. data:: BM_BAG_TARGET_BDL = 1
+    .. data:: bm_bag_target_bdl = 1
 
     	Information for a bundle
 
-    .. data:: BM_BAG_TARGET_NODE = 2
+    .. data:: bm_bag_target_node = 2
 
     	Information for a node
 
-    .. data:: BM_BAG_TARGET_RG = 3
+    .. data:: bm_bag_target_rg = 3
 
     	Information for an RG
 
     """
 
-    BM_BAG_TARGET_MBR = 0
+    bm_bag_target_mbr = 0
 
-    BM_BAG_TARGET_BDL = 1
+    bm_bag_target_bdl = 1
 
-    BM_BAG_TARGET_NODE = 2
+    bm_bag_target_node = 2
 
-    BM_BAG_TARGET_RG = 3
+    bm_bag_target_rg = 3
 
 
     @staticmethod
@@ -1433,33 +1433,33 @@ class BmdBfdBdlStateEnum(Enum):
 
     Bmd bfd bdl state
 
-    .. data:: BMD_BFD_BDL_DOWN = 0
+    .. data:: bmd_bfd_bdl_down = 0
 
     	BFD is down on the bundle
 
-    .. data:: BMD_BFD_BDL_UNKNOWN = 1
+    .. data:: bmd_bfd_bdl_unknown = 1
 
     	BFD has just started on a bundle, and the state
 
     	has not been determined
 
-    .. data:: BMD_BFD_BDL_UP = 2
+    .. data:: bmd_bfd_bdl_up = 2
 
     	BFD is up on the bundle
 
-    .. data:: BMD_BFD_BDL_COUNT = 3
+    .. data:: bmd_bfd_bdl_count = 3
 
     	Number of BFD states on a bundle
 
     """
 
-    BMD_BFD_BDL_DOWN = 0
+    bmd_bfd_bdl_down = 0
 
-    BMD_BFD_BDL_UNKNOWN = 1
+    bmd_bfd_bdl_unknown = 1
 
-    BMD_BFD_BDL_UP = 2
+    bmd_bfd_bdl_up = 2
 
-    BMD_BFD_BDL_COUNT = 3
+    bmd_bfd_bdl_count = 3
 
 
     @staticmethod
@@ -1474,43 +1474,43 @@ class BmdMemberStateEnum(Enum):
 
     Bmd member state
 
-    .. data:: BMD_MBR_STATE_CONFIGURED = 1
+    .. data:: bmd_mbr_state_configured = 1
 
     	Member is configured
 
-    .. data:: BMD_MBR_STATE_STANDBY = 2
+    .. data:: bmd_mbr_state_standby = 2
 
     	Member is standby
 
-    .. data:: BMD_MBR_STATE_HOT_STANDBY = 3
+    .. data:: bmd_mbr_state_hot_standby = 3
 
     	Member is hot standby
 
-    .. data:: BMD_MBR_STATE_NEGOTIATING = 4
+    .. data:: bmd_mbr_state_negotiating = 4
 
     	Member is negotiating
 
-    .. data:: BMD_MBR_STATE_BFD_RUNNING = 5
+    .. data:: bmd_mbr_state_bfd_running = 5
 
     	Member has a BFD session running
 
-    .. data:: BMD_MBR_STATE_ACTIVE = 6
+    .. data:: bmd_mbr_state_active = 6
 
     	Member is active
 
     """
 
-    BMD_MBR_STATE_CONFIGURED = 1
+    bmd_mbr_state_configured = 1
 
-    BMD_MBR_STATE_STANDBY = 2
+    bmd_mbr_state_standby = 2
 
-    BMD_MBR_STATE_HOT_STANDBY = 3
+    bmd_mbr_state_hot_standby = 3
 
-    BMD_MBR_STATE_NEGOTIATING = 4
+    bmd_mbr_state_negotiating = 4
 
-    BMD_MBR_STATE_BFD_RUNNING = 5
+    bmd_mbr_state_bfd_running = 5
 
-    BMD_MBR_STATE_ACTIVE = 6
+    bmd_mbr_state_active = 6
 
 
     @staticmethod
@@ -1525,27 +1525,27 @@ class BmdMemberTypeEnumEnum(Enum):
 
     Bmd member type enum
 
-    .. data:: BMD_MBR_LOCAL = 0
+    .. data:: bmd_mbr_local = 0
 
     	Member has been configured on the local device
 
-    .. data:: BMD_MBR_FOREIGN = 1
+    .. data:: bmd_mbr_foreign = 1
 
     	Member has been configured on an mLACP peer
 
     	device
 
-    .. data:: BMD_MBR_UNKNOWN = 2
+    .. data:: bmd_mbr_unknown = 2
 
     	Member's type is unknown
 
     """
 
-    BMD_MBR_LOCAL = 0
+    bmd_mbr_local = 0
 
-    BMD_MBR_FOREIGN = 1
+    bmd_mbr_foreign = 1
 
-    BMD_MBR_UNKNOWN = 2
+    bmd_mbr_unknown = 2
 
 
     @staticmethod
@@ -1560,61 +1560,61 @@ class BmdMlacpBdlStateEnumEnum(Enum):
 
     State of an mLACP device
 
-    .. data:: BDL_STATE_NAK = 0
+    .. data:: bdl_state_nak = 0
 
     	Bundle info NAK'd
 
-    .. data:: BDL_STATE_UNKNOWN = 1
+    .. data:: bdl_state_unknown = 1
 
     	No bundle state TLV received
 
-    .. data:: BDL_STATE_NO_SYNC = 2
+    .. data:: bdl_state_no_sync = 2
 
     	No bundle config TLV with sync bit set received
 
-    .. data:: BDL_STATE_REC_DELAY = 3
+    .. data:: bdl_state_rec_delay = 3
 
     	Revertive delay timer running
 
-    .. data:: BDL_STATE_UP = 4
+    .. data:: bdl_state_up = 4
 
     	Bundle is up
 
-    .. data:: BDL_STATE_DOWN = 5
+    .. data:: bdl_state_down = 5
 
     	Bundle is down
 
-    .. data:: BDL_STATE_ADMIN_DOWN = 6
+    .. data:: bdl_state_admin_down = 6
 
     	Bundle is admin down
 
-    .. data:: BDL_STATE_TEST = 7
+    .. data:: bdl_state_test = 7
 
     	Bundle state TLV reported test
 
-    .. data:: BDL_STATE_ERROR = 8
+    .. data:: bdl_state_error = 8
 
     	Bundle state TLV reported error
 
     """
 
-    BDL_STATE_NAK = 0
+    bdl_state_nak = 0
 
-    BDL_STATE_UNKNOWN = 1
+    bdl_state_unknown = 1
 
-    BDL_STATE_NO_SYNC = 2
+    bdl_state_no_sync = 2
 
-    BDL_STATE_REC_DELAY = 3
+    bdl_state_rec_delay = 3
 
-    BDL_STATE_UP = 4
+    bdl_state_up = 4
 
-    BDL_STATE_DOWN = 5
+    bdl_state_down = 5
 
-    BDL_STATE_ADMIN_DOWN = 6
+    bdl_state_admin_down = 6
 
-    BDL_STATE_TEST = 7
+    bdl_state_test = 7
 
-    BDL_STATE_ERROR = 8
+    bdl_state_error = 8
 
 
     @staticmethod
@@ -1629,49 +1629,49 @@ class BmdMlacpMbrStateEnumEnum(Enum):
 
     State of an mLACP device
 
-    .. data:: MBR_STATE_NAK = 0
+    .. data:: mbr_state_nak = 0
 
     	Member info NAK'd
 
-    .. data:: MBR_STATE_UNKNOWN = 1
+    .. data:: mbr_state_unknown = 1
 
     	No member state TLV received
 
-    .. data:: MBR_STATE_UP = 2
+    .. data:: mbr_state_up = 2
 
     	Member is up
 
-    .. data:: MBR_STATE_DOWN = 3
+    .. data:: mbr_state_down = 3
 
     	Member is down
 
-    .. data:: MBR_STATE_ADMIN_DOWN = 4
+    .. data:: mbr_state_admin_down = 4
 
     	Member is admin down
 
-    .. data:: MBR_STATE_TEST = 5
+    .. data:: mbr_state_test = 5
 
     	Member state TLV reported test
 
-    .. data:: MBR_STATE_ERROR = 6
+    .. data:: mbr_state_error = 6
 
     	Member state TLV reported error
 
     """
 
-    MBR_STATE_NAK = 0
+    mbr_state_nak = 0
 
-    MBR_STATE_UNKNOWN = 1
+    mbr_state_unknown = 1
 
-    MBR_STATE_UP = 2
+    mbr_state_up = 2
 
-    MBR_STATE_DOWN = 3
+    mbr_state_down = 3
 
-    MBR_STATE_ADMIN_DOWN = 4
+    mbr_state_admin_down = 4
 
-    MBR_STATE_TEST = 5
+    mbr_state_test = 5
 
-    MBR_STATE_ERROR = 6
+    mbr_state_error = 6
 
 
     @staticmethod
@@ -1686,91 +1686,91 @@ class BmdMlacpNodeStateEnumEnum(Enum):
 
     State of an mLACP device
 
-    .. data:: NODE_STATE_INCOMPLETE = 0
+    .. data:: node_state_incomplete = 0
 
     	Missing some mLACP IG config
 
-    .. data:: NODE_STATE_CONN_REJECTED = 1
+    .. data:: node_state_conn_rejected = 1
 
     	Connection rejected by peer
 
-    .. data:: NODE_STATE_CONNECT_SENT = 2
+    .. data:: node_state_connect_sent = 2
 
     	Connect timer running
 
-    .. data:: NODE_STATE_UNCONFIGURED = 3
+    .. data:: node_state_unconfigured = 3
 
     	Missing some ICCP IG config
 
-    .. data:: NODE_STATE_UNREACHABLE = 4
+    .. data:: node_state_unreachable = 4
 
     	ICCP declared peer node unreachable
 
-    .. data:: NODE_STATE_ICCP_DOWN = 5
+    .. data:: node_state_iccp_down = 5
 
     	ICCP declared peer node down
 
-    .. data:: NODE_STATE_NAK = 6
+    .. data:: node_state_nak = 6
 
     	System info NAK'd
 
-    .. data:: NODE_STATE_UNKNOWN = 7
+    .. data:: node_state_unknown = 7
 
     	No system state TLV received
 
-    .. data:: NODE_STATE_MLACP_DOWN = 8
+    .. data:: node_state_mlacp_down = 8
 
     	System state TLV reported down
 
-    .. data:: NODE_STATE_ADMIN_DOWN = 9
+    .. data:: node_state_admin_down = 9
 
     	System state TLV reported admin down
 
-    .. data:: NODE_STATE_PE_ISOLATED = 10
+    .. data:: node_state_pe_isolated = 10
 
     	System is isolated from core network
 
-    .. data:: NODE_STATE_ERROR = 11
+    .. data:: node_state_error = 11
 
     	System state TLV reported error
 
-    .. data:: NODE_STATE_TEST = 12
+    .. data:: node_state_test = 12
 
     	System state TLV reported test
 
-    .. data:: NODE_STATE_UP = 13
+    .. data:: node_state_up = 13
 
     	System is up
 
     """
 
-    NODE_STATE_INCOMPLETE = 0
+    node_state_incomplete = 0
 
-    NODE_STATE_CONN_REJECTED = 1
+    node_state_conn_rejected = 1
 
-    NODE_STATE_CONNECT_SENT = 2
+    node_state_connect_sent = 2
 
-    NODE_STATE_UNCONFIGURED = 3
+    node_state_unconfigured = 3
 
-    NODE_STATE_UNREACHABLE = 4
+    node_state_unreachable = 4
 
-    NODE_STATE_ICCP_DOWN = 5
+    node_state_iccp_down = 5
 
-    NODE_STATE_NAK = 6
+    node_state_nak = 6
 
-    NODE_STATE_UNKNOWN = 7
+    node_state_unknown = 7
 
-    NODE_STATE_MLACP_DOWN = 8
+    node_state_mlacp_down = 8
 
-    NODE_STATE_ADMIN_DOWN = 9
+    node_state_admin_down = 9
 
-    NODE_STATE_PE_ISOLATED = 10
+    node_state_pe_isolated = 10
 
-    NODE_STATE_ERROR = 11
+    node_state_error = 11
 
-    NODE_STATE_TEST = 12
+    node_state_test = 12
 
-    NODE_STATE_UP = 13
+    node_state_up = 13
 
 
     @staticmethod
@@ -1785,37 +1785,37 @@ class BmdMlacpNodeSyncEnumEnum(Enum):
 
     Synchronization states of an mLACP device
 
-    .. data:: NODE_SYNC_REQ = 0
+    .. data:: node_sync_req = 0
 
     	Sync requested of device
 
-    .. data:: NODE_SYNC_DONE = 1
+    .. data:: node_sync_done = 1
 
     	Sync performed by device
 
-    .. data:: NODE_SYNC_START = 2
+    .. data:: node_sync_start = 2
 
     	Sync in progress from device
 
-    .. data:: NODE_SYNC_INIT = 3
+    .. data:: node_sync_init = 3
 
     	Initial sync pending from device
 
-    .. data:: NODE_SYNC_SINGLETON = 4
+    .. data:: node_sync_singleton = 4
 
     	Sync not required for singleton groups
 
     """
 
-    NODE_SYNC_REQ = 0
+    node_sync_req = 0
 
-    NODE_SYNC_DONE = 1
+    node_sync_done = 1
 
-    NODE_SYNC_START = 2
+    node_sync_start = 2
 
-    NODE_SYNC_INIT = 3
+    node_sync_init = 3
 
-    NODE_SYNC_SINGLETON = 4
+    node_sync_singleton = 4
 
 
     @staticmethod
@@ -1830,31 +1830,31 @@ class BmdMlacpSwitchoverEnum(Enum):
 
     Bmd mlacp switchover
 
-    .. data:: BMD_MLACP_SWITCHOVER_NONREVERTIVE = 0
+    .. data:: bmd_mlacp_switchover_nonrevertive = 0
 
     	Non-revertive switchover type
 
-    .. data:: BMD_MLACP_SWITCHOVER_BRUTE_FORCE = 1
+    .. data:: bmd_mlacp_switchover_brute_force = 1
 
     	Brute force switchover type
 
-    .. data:: BMD_MLACP_SWITCHOVER_REVERTIVE = 2
+    .. data:: bmd_mlacp_switchover_revertive = 2
 
     	Revertive switchover type
 
-    .. data:: BMD_MLACP_SWITCHOVER_COUNT = 3
+    .. data:: bmd_mlacp_switchover_count = 3
 
     	Number of switchover types
 
     """
 
-    BMD_MLACP_SWITCHOVER_NONREVERTIVE = 0
+    bmd_mlacp_switchover_nonrevertive = 0
 
-    BMD_MLACP_SWITCHOVER_BRUTE_FORCE = 1
+    bmd_mlacp_switchover_brute_force = 1
 
-    BMD_MLACP_SWITCHOVER_REVERTIVE = 2
+    bmd_mlacp_switchover_revertive = 2
 
-    BMD_MLACP_SWITCHOVER_COUNT = 3
+    bmd_mlacp_switchover_count = 3
 
 
     @staticmethod
@@ -1869,65 +1869,65 @@ class BmdSwitchReasonEnum(Enum):
 
     Bmd switch reason
 
-    .. data:: BM_SWITCH_REASON_NONE = 0
+    .. data:: bm_switch_reason_none = 0
 
     	Switch is permitted
 
-    .. data:: BM_SWITCH_REASON_NOOP = 1
+    .. data:: bm_switch_reason_noop = 1
 
     	Switch has no effect
 
-    .. data:: BM_SWITCH_REASON_NOT_MLACP = 2
+    .. data:: bm_switch_reason_not_mlacp = 2
 
     	mLACP not configured
 
-    .. data:: BM_SWITCH_REASON_REVERTIVE = 3
+    .. data:: bm_switch_reason_revertive = 3
 
     	Brute-force or revertive switchover is in
 
     	effect
 
-    .. data:: BM_SWITCH_REASON_BDL_DOWN = 4
+    .. data:: bm_switch_reason_bdl_down = 4
 
     	Would-be active bundle is not ready
 
-    .. data:: BM_SWITCH_REASON_RECOVERY = 5
+    .. data:: bm_switch_reason_recovery = 5
 
     	Recovery delay in effect, applications may not
 
     	be fully synced
 
-    .. data:: BM_SWITCH_REASON_PRECEDING_ERROR = 6
+    .. data:: bm_switch_reason_preceding_error = 6
 
     	Preceding switch action not viable
 
-    .. data:: BM_SWITCH_REASON_WRONG_ORDER = 7
+    .. data:: bm_switch_reason_wrong_order = 7
 
     	Switch actions are scheduled incorrectly
 
-    .. data:: BM_SWITCH_REASON_SINGLETON = 8
+    .. data:: bm_switch_reason_singleton = 8
 
     	The ICCP group is operating in singleton mode
 
     """
 
-    BM_SWITCH_REASON_NONE = 0
+    bm_switch_reason_none = 0
 
-    BM_SWITCH_REASON_NOOP = 1
+    bm_switch_reason_noop = 1
 
-    BM_SWITCH_REASON_NOT_MLACP = 2
+    bm_switch_reason_not_mlacp = 2
 
-    BM_SWITCH_REASON_REVERTIVE = 3
+    bm_switch_reason_revertive = 3
 
-    BM_SWITCH_REASON_BDL_DOWN = 4
+    bm_switch_reason_bdl_down = 4
 
-    BM_SWITCH_REASON_RECOVERY = 5
+    bm_switch_reason_recovery = 5
 
-    BM_SWITCH_REASON_PRECEDING_ERROR = 6
+    bm_switch_reason_preceding_error = 6
 
-    BM_SWITCH_REASON_WRONG_ORDER = 7
+    bm_switch_reason_wrong_order = 7
 
-    BM_SWITCH_REASON_SINGLETON = 8
+    bm_switch_reason_singleton = 8
 
 
     @staticmethod
@@ -1942,19 +1942,19 @@ class BundleMedia1Enum(Enum):
 
     Bundle media1
 
-    .. data:: ETHERNET = 0
+    .. data:: ethernet = 0
 
     	Ethernet
 
-    .. data:: POS = 1
+    .. data:: pos = 1
 
     	POS
 
     """
 
-    ETHERNET = 0
+    ethernet = 0
 
-    POS = 1
+    pos = 1
 
 
     @staticmethod
@@ -1969,25 +1969,25 @@ class BundleMediaEnum(Enum):
 
     Bundle media
 
-    .. data:: BUNDLE_MEDIA_ETHERNET = 0
+    .. data:: bundle_media_ethernet = 0
 
     	bundle media ethernet
 
-    .. data:: BUNDLE_MEDIA_POS = 1
+    .. data:: bundle_media_pos = 1
 
     	bundle media pos
 
-    .. data:: BUNDLE_MEDIA_COUNT = 2
+    .. data:: bundle_media_count = 2
 
     	bundle media count
 
     """
 
-    BUNDLE_MEDIA_ETHERNET = 0
+    bundle_media_ethernet = 0
 
-    BUNDLE_MEDIA_POS = 1
+    bundle_media_pos = 1
 
-    BUNDLE_MEDIA_COUNT = 2
+    bundle_media_count = 2
 
 
     @staticmethod
@@ -2002,25 +2002,25 @@ class BundleMlacpModeEnum(Enum):
 
     Bundle mlacp mode
 
-    .. data:: BUNDLE_MLACP_MODE_STANDBY = 0
+    .. data:: bundle_mlacp_mode_standby = 0
 
     	bundle mlacp mode standby
 
-    .. data:: BUNDLE_MLACP_MODE_ACTIVE = 1
+    .. data:: bundle_mlacp_mode_active = 1
 
     	bundle mlacp mode active
 
-    .. data:: BUNDLE_MLACP_MODE_COUNT = 2
+    .. data:: bundle_mlacp_mode_count = 2
 
     	bundle mlacp mode count
 
     """
 
-    BUNDLE_MLACP_MODE_STANDBY = 0
+    bundle_mlacp_mode_standby = 0
 
-    BUNDLE_MLACP_MODE_ACTIVE = 1
+    bundle_mlacp_mode_active = 1
 
-    BUNDLE_MLACP_MODE_COUNT = 2
+    bundle_mlacp_mode_count = 2
 
 
     @staticmethod
@@ -2035,17 +2035,17 @@ class LacpChurnstatesEnum(Enum):
 
     Lacp churnstates
 
-    .. data:: NO_CHURN = 1
+    .. data:: no_churn = 1
 
     	The port is synchronized correctly
 
-    .. data:: CHURN = 2
+    .. data:: churn = 2
 
     	The port is OutOfSync and the churn timer has
 
     	expired
 
-    .. data:: CHURN_MONITOR = 3
+    .. data:: churn_monitor = 3
 
     	The port is OutOfSync but the churn timer has
 
@@ -2053,11 +2053,11 @@ class LacpChurnstatesEnum(Enum):
 
     """
 
-    NO_CHURN = 1
+    no_churn = 1
 
-    CHURN = 2
+    churn = 2
 
-    CHURN_MONITOR = 3
+    churn_monitor = 3
 
 
     @staticmethod
@@ -2072,25 +2072,25 @@ class LacpPeriodStateEnum(Enum):
 
     Lacp period state
 
-    .. data:: PERIOD_S_LOW = 0
+    .. data:: period_s_low = 0
 
     	Packets are being sent using a long period
 
-    .. data:: PERIOD_FAST = 1
+    .. data:: period_fast = 1
 
     	Packets are being sent using a short period
 
-    .. data:: PERIOD_NONE = 2
+    .. data:: period_none = 2
 
     	Packets are not being sent
 
     """
 
-    PERIOD_S_LOW = 0
+    period_s_low = 0
 
-    PERIOD_FAST = 1
+    period_fast = 1
 
-    PERIOD_NONE = 2
+    period_none = 2
 
 
     @staticmethod
@@ -2105,25 +2105,25 @@ class LacpSelStateEnum(Enum):
 
     Lacp sel state
 
-    .. data:: UNSELECTED = 0
+    .. data:: unselected = 0
 
     	The link is Unselected
 
-    .. data:: STANDBY = 1
+    .. data:: standby = 1
 
     	The link is Standby
 
-    .. data:: SELECTED = 2
+    .. data:: selected = 2
 
     	The link is Selected
 
     """
 
-    UNSELECTED = 0
+    unselected = 0
 
-    STANDBY = 1
+    standby = 1
 
-    SELECTED = 2
+    selected = 2
 
 
     @staticmethod
@@ -2138,43 +2138,43 @@ class LoadBalanceEnum(Enum):
 
     Load balance
 
-    .. data:: DEFAULT = 0
+    .. data:: default = 0
 
     	Default
 
-    .. data:: AUTO = 1
+    .. data:: auto = 1
 
     	Auto
 
-    .. data:: VALUE = 2
+    .. data:: value = 2
 
     	Value
 
-    .. data:: SOURCE_IP = 3
+    .. data:: source_ip = 3
 
     	Source IP
 
-    .. data:: DESTINATION_IP = 4
+    .. data:: destination_ip = 4
 
     	Destination IP
 
-    .. data:: UNKNOWN = 5
+    .. data:: unknown = 5
 
     	Unknown
 
     """
 
-    DEFAULT = 0
+    default = 0
 
-    AUTO = 1
+    auto = 1
 
-    VALUE = 2
+    value = 2
 
-    SOURCE_IP = 3
+    source_ip = 3
 
-    DESTINATION_IP = 4
+    destination_ip = 4
 
-    UNKNOWN = 5
+    unknown = 5
 
 
     @staticmethod
@@ -2189,43 +2189,43 @@ class RxstatesEnum(Enum):
 
     Rxstates
 
-    .. data:: CURRENT_RX = 1
+    .. data:: current_rx = 1
 
     	current rx
 
-    .. data:: EXPIRED = 2
+    .. data:: expired = 2
 
     	expired
 
-    .. data:: DEFAULTED = 3
+    .. data:: defaulted = 3
 
     	defaulted
 
-    .. data:: INITIALIZE = 4
+    .. data:: initialize = 4
 
     	initialize
 
-    .. data:: LACP_DISABLED = 5
+    .. data:: lacp_disabled = 5
 
     	lacp disabled
 
-    .. data:: PORT_DISABLED = 6
+    .. data:: port_disabled = 6
 
     	port disabled
 
     """
 
-    CURRENT_RX = 1
+    current_rx = 1
 
-    EXPIRED = 2
+    expired = 2
 
-    DEFAULTED = 3
+    defaulted = 3
 
-    INITIALIZE = 4
+    initialize = 4
 
-    LACP_DISABLED = 5
+    lacp_disabled = 5
 
-    PORT_DISABLED = 6
+    port_disabled = 6
 
 
     @staticmethod
@@ -2242,7 +2242,7 @@ class LacpBundles(object):
     .. attribute:: bundles
     
     	LACP bundle data
-    	**type**\:  :py:class:`Bundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles>`
+    	**type**\:   :py:class:`Bundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles>`
     
     
 
@@ -2263,7 +2263,7 @@ class LacpBundles(object):
         .. attribute:: bundle
         
         	LACP Bundle interface
-        	**type**\: list of  :py:class:`Bundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles.Bundle>`
+        	**type**\: list of    :py:class:`Bundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles.Bundle>`
         
         
 
@@ -2293,12 +2293,12 @@ class LacpBundles(object):
             .. attribute:: data
             
             	Data for each Bundle
-            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles.Bundle.Data>`
+            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles.Bundle.Data>`
             
             .. attribute:: members
             
             	LACP Member interface
-            	**type**\:  :py:class:`Members <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles.Bundle.Members>`
+            	**type**\:   :py:class:`Members <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles.Bundle.Members>`
             
             
 
@@ -2323,7 +2323,7 @@ class LacpBundles(object):
                 .. attribute:: actor_bundle_data
                 
                 	Basic bundle information
-                	**type**\:  :py:class:`ActorBundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles.Bundle.Data.ActorBundleData>`
+                	**type**\:   :py:class:`ActorBundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles.Bundle.Data.ActorBundleData>`
                 
                 .. attribute:: actor_operational_key
                 
@@ -2335,7 +2335,7 @@ class LacpBundles(object):
                 .. attribute:: bundle_system_id
                 
                 	System ID for the bundle
-                	**type**\:  :py:class:`BundleSystemId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles.Bundle.Data.BundleSystemId>`
+                	**type**\:   :py:class:`BundleSystemId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles.Bundle.Data.BundleSystemId>`
                 
                 .. attribute:: partner_operational_key
                 
@@ -2402,10 +2402,12 @@ class LacpBundles(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: kbit/s
+                    
                     .. attribute:: bfd_config
                     
                     	Configuration values for BFD on bundle members
-                    	**type**\: list of  :py:class:`BfdConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles.Bundle.Data.ActorBundleData.BfdConfig>`
+                    	**type**\: list of    :py:class:`BfdConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles.Bundle.Data.ActorBundleData.BfdConfig>`
                     
                     .. attribute:: bundle_interface_name
                     
@@ -2417,7 +2419,7 @@ class LacpBundles(object):
                     .. attribute:: bundle_status
                     
                     	The state of the bundle
-                    	**type**\:  :py:class:`BmBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlStateEnum>`
+                    	**type**\:   :py:class:`BmBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlStateEnum>`
                     
                     .. attribute:: cisco_extensions
                     
@@ -2437,6 +2439,8 @@ class LacpBundles(object):
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: kbit/s
                     
                     .. attribute:: configured_foreign_member_count
                     
@@ -2459,6 +2463,8 @@ class LacpBundles(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: kbit/s
+                    
                     .. attribute:: iccp_group_id
                     
                     	ICCP Group that the bundle is configured to
@@ -2474,12 +2480,12 @@ class LacpBundles(object):
                     .. attribute:: ipv4bfd_status
                     
                     	The status of the BFD (IPv4) feature on the bundle
-                    	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                    	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                     
                     .. attribute:: ipv6bfd_status
                     
                     	The status of the BFD (IPv6) feature on the bundle
-                    	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                    	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                     
                     .. attribute:: is_active
                     
@@ -2494,12 +2500,12 @@ class LacpBundles(object):
                     .. attribute:: lacp_status
                     
                     	The status of the LACP feature on the bundle
-                    	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                    	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                     
                     .. attribute:: link_order_status
                     
                     	The status of the link order signaling feature on the bundle
-                    	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                    	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                     
                     .. attribute:: load_balance_hash_type
                     
@@ -2516,12 +2522,12 @@ class LacpBundles(object):
                     .. attribute:: mac_address
                     
                     	MAC address of this member
-                    	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles.Bundle.Data.ActorBundleData.MacAddress>`
+                    	**type**\:   :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles.Bundle.Data.ActorBundleData.MacAddress>`
                     
                     .. attribute:: mac_source
                     
                     	The source of the MAC Address
-                    	**type**\:  :py:class:`BmBdlMacSourceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSourceEnum>`
+                    	**type**\:   :py:class:`BmBdlMacSourceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSourceEnum>`
                     
                     .. attribute:: mac_source_member
                     
@@ -2554,7 +2560,7 @@ class LacpBundles(object):
                     .. attribute:: maximum_active_links_source
                     
                     	Source of maximum active links value
-                    	**type**\:  :py:class:`BmWhichSystemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystemEnum>`
+                    	**type**\:   :py:class:`BmWhichSystemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystemEnum>`
                     
                     .. attribute:: minimum_active_links
                     
@@ -2570,15 +2576,17 @@ class LacpBundles(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: kbit/s
+                    
                     .. attribute:: mlacp_mode
                     
                     	Indicates the mode of the device for the bundle
-                    	**type**\:  :py:class:`BundleMlacpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpModeEnum>`
+                    	**type**\:   :py:class:`BundleMlacpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpModeEnum>`
                     
                     .. attribute:: mlacp_status
                     
                     	The status of the mLACP feature on the bundle
-                    	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                    	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                     
                     .. attribute:: primary_member
                     
@@ -2593,6 +2601,8 @@ class LacpBundles(object):
                     	**type**\:  int
                     
                     	**range:** 0..65535
+                    
+                    	**units**\: second
                     
                     .. attribute:: singleton
                     
@@ -2616,7 +2626,7 @@ class LacpBundles(object):
                     .. attribute:: switchover_type
                     
                     	How a switchover of the bundle from this device will occur
-                    	**type**\:  :py:class:`BmdMlacpSwitchoverEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchoverEnum>`
+                    	**type**\:   :py:class:`BmdMlacpSwitchoverEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchoverEnum>`
                     
                     .. attribute:: wait_while_timer
                     
@@ -2733,12 +2743,12 @@ class LacpBundles(object):
                         .. attribute:: bundle_status
                         
                         	Status of BFD on the bundle
-                        	**type**\:  :py:class:`BmdBfdBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlStateEnum>`
+                        	**type**\:   :py:class:`BmdBfdBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlStateEnum>`
                         
                         .. attribute:: destination_address
                         
                         	Configured destination address for BFD session
-                        	**type**\:  :py:class:`DestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles.Bundle.Data.ActorBundleData.BfdConfig.DestinationAddress>`
+                        	**type**\:   :py:class:`DestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles.Bundle.Data.ActorBundleData.BfdConfig.DestinationAddress>`
                         
                         .. attribute:: fast_detect
                         
@@ -2815,7 +2825,7 @@ class LacpBundles(object):
                             .. attribute:: af
                             
                             	AF
-                            	**type**\:  :py:class:`BmAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmAfIdEnum>`
+                            	**type**\:   :py:class:`BmAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmAfIdEnum>`
                             
                             .. attribute:: ipv4
                             
@@ -3073,7 +3083,7 @@ class LacpBundles(object):
                     .. attribute:: system_mac_addr
                     
                     	MAC Address used to identify the system
-                    	**type**\:  :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles.Bundle.Data.BundleSystemId.SystemMacAddr>`
+                    	**type**\:   :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles.Bundle.Data.BundleSystemId.SystemMacAddr>`
                     
                     .. attribute:: system_prio
                     
@@ -3216,7 +3226,7 @@ class LacpBundles(object):
                 .. attribute:: member
                 
                 	Member information
-                	**type**\: list of  :py:class:`Member <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles.Bundle.Members.Member>`
+                	**type**\: list of    :py:class:`Member <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles.Bundle.Members.Member>`
                 
                 
 
@@ -3250,10 +3260,12 @@ class LacpBundles(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: kbit/s
+                    
                     .. attribute:: counters
                     
                     	Counters data about member link
-                    	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles.Bundle.Members.Member.Counters>`
+                    	**type**\:   :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles.Bundle.Members.Member.Counters>`
                     
                     .. attribute:: iccp_node
                     
@@ -3272,7 +3284,7 @@ class LacpBundles(object):
                     .. attribute:: link_data
                     
                     	Lacp data about member link
-                    	**type**\:  :py:class:`LinkData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles.Bundle.Members.Member.LinkData>`
+                    	**type**\:   :py:class:`LinkData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles.Bundle.Members.Member.LinkData>`
                     
                     .. attribute:: link_order_number
                     
@@ -3284,12 +3296,12 @@ class LacpBundles(object):
                     .. attribute:: mac_address
                     
                     	MAC address of this member (deprecated)
-                    	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles.Bundle.Members.Member.MacAddress>`
+                    	**type**\:   :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles.Bundle.Members.Member.MacAddress>`
                     
                     .. attribute:: member_mux_data
                     
                     	Mux state machine data
-                    	**type**\:  :py:class:`MemberMuxData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles.Bundle.Members.Member.MemberMuxData>`
+                    	**type**\:   :py:class:`MemberMuxData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles.Bundle.Members.Member.MemberMuxData>`
                     
                     .. attribute:: member_name
                     
@@ -3299,7 +3311,7 @@ class LacpBundles(object):
                     .. attribute:: member_type
                     
                     	Member's type (local/foreign)
-                    	**type**\:  :py:class:`BmdMemberTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnumEnum>`
+                    	**type**\:   :py:class:`BmdMemberTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnumEnum>`
                     
                     .. attribute:: port_number
                     
@@ -3540,6 +3552,20 @@ class LacpBundles(object):
                         
                         	**range:** 0..255
                         
+                        .. attribute:: actor_system_mac_address
+                        
+                        	MAC Address of the actor system
+                        	**type**\:  str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                        
+                        .. attribute:: actor_system_priority
+                        
+                        	System priority of actor system
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
                         .. attribute:: attached_aggregator_id
                         
                         	MIB ifindex of attached bundle
@@ -3616,6 +3642,8 @@ class LacpBundles(object):
                             self.actor_port_id = None
                             self.actor_port_priority = None
                             self.actor_port_state = None
+                            self.actor_system_mac_address = None
+                            self.actor_system_priority = None
                             self.attached_aggregator_id = None
                             self.interface_handle = None
                             self.partner_operational_key = None
@@ -3650,6 +3678,12 @@ class LacpBundles(object):
                                 return True
 
                             if self.actor_port_state is not None:
+                                return True
+
+                            if self.actor_system_mac_address is not None:
+                                return True
+
+                            if self.actor_system_priority is not None:
                                 return True
 
                             if self.attached_aggregator_id is not None:
@@ -3701,27 +3735,27 @@ class LacpBundles(object):
                         .. attribute:: member_mux_state_reason
                         
                         	Reason for last Mux state change
-                        	**type**\:  :py:class:`BmMbrStateReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMbrStateReasonEnum>`
+                        	**type**\:   :py:class:`BmMbrStateReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMbrStateReasonEnum>`
                         
                         .. attribute:: member_mux_state_reason_data
                         
                         	Data regarding the reason for last Mux state change
-                        	**type**\:  :py:class:`MemberMuxStateReasonData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles.Bundle.Members.Member.MemberMuxData.MemberMuxStateReasonData>`
+                        	**type**\:   :py:class:`MemberMuxStateReasonData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundles.Bundles.Bundle.Members.Member.MemberMuxData.MemberMuxStateReasonData>`
                         
                         .. attribute:: member_state
                         
                         	Current internal state of this bundle member
-                        	**type**\:  :py:class:`BmdMemberStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberStateEnum>`
+                        	**type**\:   :py:class:`BmdMemberStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberStateEnum>`
                         
                         .. attribute:: mux_state
                         
                         	Current state of this bundle member
-                        	**type**\:  :py:class:`BmMuxstateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstateEnum>`
+                        	**type**\:   :py:class:`BmMuxstateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstateEnum>`
                         
                         .. attribute:: mux_state_reason
                         
                         	Reason for last Mux state change (Deprecated)
-                        	**type**\:  :py:class:`BmMuxreasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMuxreasonEnum>`
+                        	**type**\:   :py:class:`BmMuxreasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMuxreasonEnum>`
                         
                         
 
@@ -3749,12 +3783,12 @@ class LacpBundles(object):
                             .. attribute:: reason_type
                             
                             	The item the reason applies to
-                            	**type**\:  :py:class:`BmStateReasonTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmStateReasonTargetEnum>`
+                            	**type**\:   :py:class:`BmStateReasonTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmStateReasonTargetEnum>`
                             
                             .. attribute:: severity
                             
                             	The severity of the reason
-                            	**type**\:  :py:class:`BmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmSeverityEnum>`
+                            	**type**\:   :py:class:`BmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmSeverityEnum>`
                             
                             
 
@@ -4056,87 +4090,87 @@ class BundleInformation(object):
     .. attribute:: bfd_counters
     
     	BFD counters information for bundles and members
-    	**type**\:  :py:class:`BfdCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BfdCounters>`
+    	**type**\:   :py:class:`BfdCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BfdCounters>`
     
     .. attribute:: bundle
     
     	Generic information for bundles and members
-    	**type**\:  :py:class:`Bundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle>`
+    	**type**\:   :py:class:`Bundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle>`
     
     .. attribute:: bundle_briefs
     
     	Bundle interfaces with common bundle information
-    	**type**\:  :py:class:`BundleBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BundleBriefs>`
+    	**type**\:   :py:class:`BundleBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BundleBriefs>`
     
     .. attribute:: events
     
     	Events information for bundles and members
-    	**type**\:  :py:class:`Events <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events>`
+    	**type**\:   :py:class:`Events <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events>`
     
     .. attribute:: events_bdl
     
     	Bundle events information for bundles and members
-    	**type**\:  :py:class:`EventsBdl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl>`
+    	**type**\:   :py:class:`EventsBdl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl>`
     
     .. attribute:: events_mbr
     
     	Bundle member events information for bundles and members
-    	**type**\:  :py:class:`EventsMbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr>`
+    	**type**\:   :py:class:`EventsMbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr>`
     
     .. attribute:: events_rg
     
     	Bundle ICCP events information for bundles and members
-    	**type**\:  :py:class:`EventsRg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg>`
+    	**type**\:   :py:class:`EventsRg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg>`
     
     .. attribute:: lacp
     
     	LACP information for bundles and members
-    	**type**\:  :py:class:`Lacp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp>`
+    	**type**\:   :py:class:`Lacp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp>`
     
     .. attribute:: mac_allocation
     
     	Information about allocated MAC addresses that are not in use
-    	**type**\:  :py:class:`MacAllocation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MacAllocation>`
+    	**type**\:   :py:class:`MacAllocation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MacAllocation>`
     
     .. attribute:: mlacp
     
     	mLACP Information for Interchassis Groups and bundles
-    	**type**\:  :py:class:`Mlacp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp>`
+    	**type**\:   :py:class:`Mlacp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp>`
     
     .. attribute:: mlacp_brief
     
     	mLACP Information for Interchassis Groups and bundles
-    	**type**\:  :py:class:`MlacpBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief>`
+    	**type**\:   :py:class:`MlacpBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief>`
     
     .. attribute:: mlacp_bundle_counters
     
     	Bundle specific counters of mLACP events
-    	**type**\:  :py:class:`MlacpBundleCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters>`
+    	**type**\:   :py:class:`MlacpBundleCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters>`
     
     .. attribute:: mlacp_iccp_group_counters
     
     	ICCP Group specific counters of mLACP events
-    	**type**\:  :py:class:`MlacpIccpGroupCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters>`
+    	**type**\:   :py:class:`MlacpIccpGroupCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters>`
     
     .. attribute:: mlacp_member_counters
     
     	Member specific counters of mLACP events
-    	**type**\:  :py:class:`MlacpMemberCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters>`
+    	**type**\:   :py:class:`MlacpMemberCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters>`
     
     .. attribute:: protect
     
     	Information for bundles and members that are in the protect database
-    	**type**\:  :py:class:`Protect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Protect>`
+    	**type**\:   :py:class:`Protect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Protect>`
     
     .. attribute:: scheduled_actions
     
     	Scheduled actions on a bundle
-    	**type**\:  :py:class:`ScheduledActions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.ScheduledActions>`
+    	**type**\:   :py:class:`ScheduledActions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.ScheduledActions>`
     
     .. attribute:: system_id
     
     	System Identifiers for the local system and all ICCP Groups
-    	**type**\:  :py:class:`SystemId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.SystemId>`
+    	**type**\:   :py:class:`SystemId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.SystemId>`
     
     
 
@@ -4189,12 +4223,12 @@ class BundleInformation(object):
         .. attribute:: bfd_counters_bundles
         
         	Bundle interfaces with BFD counters information
-        	**type**\:  :py:class:`BfdCountersBundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BfdCounters.BfdCountersBundles>`
+        	**type**\:   :py:class:`BfdCountersBundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BfdCounters.BfdCountersBundles>`
         
         .. attribute:: bfd_counters_members
         
         	Member interfaces with BFD counters information
-        	**type**\:  :py:class:`BfdCountersMembers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BfdCounters.BfdCountersMembers>`
+        	**type**\:   :py:class:`BfdCountersMembers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BfdCounters.BfdCountersMembers>`
         
         
 
@@ -4218,7 +4252,7 @@ class BundleInformation(object):
             .. attribute:: bfd_counters_bundle
             
             	Bundle interface
-            	**type**\: list of  :py:class:`BfdCountersBundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BfdCounters.BfdCountersBundles.BfdCountersBundle>`
+            	**type**\: list of    :py:class:`BfdCountersBundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BfdCounters.BfdCountersBundles.BfdCountersBundle>`
             
             
 
@@ -4248,17 +4282,17 @@ class BundleInformation(object):
                 .. attribute:: bfd_counters_bundle_children_members
                 
                 	Children of bundle with BFD counters information
-                	**type**\:  :py:class:`BfdCountersBundleChildrenMembers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BfdCounters.BfdCountersBundles.BfdCountersBundle.BfdCountersBundleChildrenMembers>`
+                	**type**\:   :py:class:`BfdCountersBundleChildrenMembers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BfdCounters.BfdCountersBundles.BfdCountersBundle.BfdCountersBundleChildrenMembers>`
                 
                 .. attribute:: bfd_counters_bundle_descendant
                 
                 	Data for this item and all its members
-                	**type**\:  :py:class:`BfdCountersBundleDescendant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BfdCounters.BfdCountersBundles.BfdCountersBundle.BfdCountersBundleDescendant>`
+                	**type**\:   :py:class:`BfdCountersBundleDescendant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BfdCounters.BfdCountersBundles.BfdCountersBundle.BfdCountersBundleDescendant>`
                 
                 .. attribute:: bfd_counters_bundle_item
                 
                 	Data for this item
-                	**type**\:  :py:class:`BfdCountersBundleItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BfdCounters.BfdCountersBundles.BfdCountersBundle.BfdCountersBundleItem>`
+                	**type**\:   :py:class:`BfdCountersBundleItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BfdCounters.BfdCountersBundles.BfdCountersBundle.BfdCountersBundleItem>`
                 
                 
 
@@ -4285,12 +4319,12 @@ class BundleInformation(object):
                     .. attribute:: bfd_counter
                     
                     	BFD event counters
-                    	**type**\: list of  :py:class:`BfdCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BfdCounters.BfdCountersBundles.BfdCountersBundle.BfdCountersBundleDescendant.BfdCounter>`
+                    	**type**\: list of    :py:class:`BfdCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BfdCounters.BfdCountersBundles.BfdCountersBundle.BfdCountersBundleDescendant.BfdCounter>`
                     
                     .. attribute:: bundle_name
                     
                     	Name of the bundle this information is for
-                    	**type**\:  :py:class:`BundleName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BfdCounters.BfdCountersBundles.BfdCountersBundle.BfdCountersBundleDescendant.BundleName>`
+                    	**type**\:   :py:class:`BundleName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BfdCounters.BfdCountersBundles.BfdCountersBundle.BfdCountersBundleDescendant.BundleName>`
                     
                     
 
@@ -4411,6 +4445,8 @@ class BundleInformation(object):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**units**\: nanosecond
+                        
                         .. attribute:: up
                         
                         	Number of times member state changed to up
@@ -4523,7 +4559,7 @@ class BundleInformation(object):
                     .. attribute:: bfd_counters_bundle_children_member
                     
                     	Bundle member item with BFD counters information
-                    	**type**\: list of  :py:class:`BfdCountersBundleChildrenMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BfdCounters.BfdCountersBundles.BfdCountersBundle.BfdCountersBundleChildrenMembers.BfdCountersBundleChildrenMember>`
+                    	**type**\: list of    :py:class:`BfdCountersBundleChildrenMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BfdCounters.BfdCountersBundles.BfdCountersBundle.BfdCountersBundleChildrenMembers.BfdCountersBundleChildrenMember>`
                     
                     
 
@@ -4602,6 +4638,8 @@ class BundleInformation(object):
                         	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**units**\: nanosecond
                         
                         .. attribute:: up
                         
@@ -4819,7 +4857,7 @@ class BundleInformation(object):
             .. attribute:: bfd_counters_member
             
             	Member interface
-            	**type**\: list of  :py:class:`BfdCountersMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BfdCounters.BfdCountersMembers.BfdCountersMember>`
+            	**type**\: list of    :py:class:`BfdCountersMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BfdCounters.BfdCountersMembers.BfdCountersMember>`
             
             
 
@@ -4847,7 +4885,7 @@ class BundleInformation(object):
                 .. attribute:: bfd_counters_member_item
                 
                 	Data for this item
-                	**type**\:  :py:class:`BfdCountersMemberItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BfdCounters.BfdCountersMembers.BfdCountersMember.BfdCountersMemberItem>`
+                	**type**\:   :py:class:`BfdCountersMemberItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BfdCounters.BfdCountersMembers.BfdCountersMember.BfdCountersMemberItem>`
                 
                 
 
@@ -4920,6 +4958,8 @@ class BundleInformation(object):
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: nanosecond
                     
                     .. attribute:: up
                     
@@ -5079,7 +5119,7 @@ class BundleInformation(object):
         .. attribute:: scheduled_actions_bundles
         
         	Bundles with actions scheduled
-        	**type**\:  :py:class:`ScheduledActionsBundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.ScheduledActions.ScheduledActionsBundles>`
+        	**type**\:   :py:class:`ScheduledActionsBundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.ScheduledActions.ScheduledActionsBundles>`
         
         
 
@@ -5101,7 +5141,7 @@ class BundleInformation(object):
             .. attribute:: scheduled_actions_bundle
             
             	Bundle interface
-            	**type**\: list of  :py:class:`ScheduledActionsBundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.ScheduledActions.ScheduledActionsBundles.ScheduledActionsBundle>`
+            	**type**\: list of    :py:class:`ScheduledActionsBundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.ScheduledActions.ScheduledActionsBundles.ScheduledActionsBundle>`
             
             
 
@@ -5131,7 +5171,7 @@ class BundleInformation(object):
                 .. attribute:: scheduled_actions_bundle_item
                 
                 	Data for this item
-                	**type**\:  :py:class:`ScheduledActionsBundleItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.ScheduledActions.ScheduledActionsBundles.ScheduledActionsBundle.ScheduledActionsBundleItem>`
+                	**type**\:   :py:class:`ScheduledActionsBundleItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.ScheduledActions.ScheduledActionsBundles.ScheduledActionsBundle.ScheduledActionsBundleItem>`
                 
                 
 
@@ -5159,7 +5199,7 @@ class BundleInformation(object):
                     .. attribute:: scheduled_action
                     
                     	Scheduled actions
-                    	**type**\: list of  :py:class:`ScheduledAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.ScheduledActions.ScheduledActionsBundles.ScheduledActionsBundle.ScheduledActionsBundleItem.ScheduledAction>`
+                    	**type**\: list of    :py:class:`ScheduledAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.ScheduledActions.ScheduledActionsBundles.ScheduledActionsBundle.ScheduledActionsBundleItem.ScheduledAction>`
                     
                     
 
@@ -5183,12 +5223,12 @@ class BundleInformation(object):
                         .. attribute:: action_state
                         
                         	Details whether the switch action is viable
-                        	**type**\:  :py:class:`BmdSwitchReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdSwitchReasonEnum>`
+                        	**type**\:   :py:class:`BmdSwitchReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdSwitchReasonEnum>`
                         
                         .. attribute:: mlacp_action
                         
                         	Type of mLACP scheduled action for a bundle
-                        	**type**\:  :py:class:`BmdBagMlacpSchActionItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagMlacpSchActionItemEnum>`
+                        	**type**\:   :py:class:`BmdBagMlacpSchActionItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagMlacpSchActionItemEnum>`
                         
                         .. attribute:: time_remaining
                         
@@ -5196,6 +5236,8 @@ class BundleInformation(object):
                         	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**units**\: second
                         
                         
 
@@ -5350,12 +5392,12 @@ class BundleInformation(object):
         .. attribute:: bundle_bundles
         
         	Bundle interfaces with common bundle information
-        	**type**\:  :py:class:`BundleBundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles>`
+        	**type**\:   :py:class:`BundleBundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles>`
         
         .. attribute:: bundle_members
         
         	Member interfaces with common bundle information
-        	**type**\:  :py:class:`BundleMembers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers>`
+        	**type**\:   :py:class:`BundleMembers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers>`
         
         
 
@@ -5380,7 +5422,7 @@ class BundleInformation(object):
             .. attribute:: bundle_bundle
             
             	Bundle interface
-            	**type**\: list of  :py:class:`BundleBundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle>`
+            	**type**\: list of    :py:class:`BundleBundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle>`
             
             
 
@@ -5410,17 +5452,17 @@ class BundleInformation(object):
                 .. attribute:: bundle_bundle_children_members
                 
                 	Children of bundle with common bundle information
-                	**type**\:  :py:class:`BundleBundleChildrenMembers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers>`
+                	**type**\:   :py:class:`BundleBundleChildrenMembers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers>`
                 
                 .. attribute:: bundle_bundle_descendant
                 
                 	Data for this item and all its members
-                	**type**\:  :py:class:`BundleBundleDescendant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant>`
+                	**type**\:   :py:class:`BundleBundleDescendant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant>`
                 
                 .. attribute:: bundle_bundle_item
                 
                 	Data for this item
-                	**type**\:  :py:class:`BundleBundleItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleItem>`
+                	**type**\:   :py:class:`BundleBundleItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleItem>`
                 
                 
 
@@ -5447,12 +5489,12 @@ class BundleInformation(object):
                     .. attribute:: bundle_data
                     
                     	Bundle information
-                    	**type**\:  :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.BundleData>`
+                    	**type**\:   :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.BundleData>`
                     
                     .. attribute:: member_data
                     
                     	Member information
-                    	**type**\: list of  :py:class:`MemberData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData>`
+                    	**type**\: list of    :py:class:`MemberData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData>`
                     
                     
 
@@ -5495,10 +5537,12 @@ class BundleInformation(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: kbit/s
+                        
                         .. attribute:: bfd_config
                         
                         	Configuration values for BFD on bundle members
-                        	**type**\: list of  :py:class:`BfdConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.BundleData.BfdConfig>`
+                        	**type**\: list of    :py:class:`BfdConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.BundleData.BfdConfig>`
                         
                         .. attribute:: bundle_interface_name
                         
@@ -5510,7 +5554,7 @@ class BundleInformation(object):
                         .. attribute:: bundle_status
                         
                         	The state of the bundle
-                        	**type**\:  :py:class:`BmBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlStateEnum>`
+                        	**type**\:   :py:class:`BmBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlStateEnum>`
                         
                         .. attribute:: cisco_extensions
                         
@@ -5530,6 +5574,8 @@ class BundleInformation(object):
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: kbit/s
                         
                         .. attribute:: configured_foreign_member_count
                         
@@ -5552,6 +5598,8 @@ class BundleInformation(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: kbit/s
+                        
                         .. attribute:: iccp_group_id
                         
                         	ICCP Group that the bundle is configured to
@@ -5567,12 +5615,12 @@ class BundleInformation(object):
                         .. attribute:: ipv4bfd_status
                         
                         	The status of the BFD (IPv4) feature on the bundle
-                        	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                        	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                         
                         .. attribute:: ipv6bfd_status
                         
                         	The status of the BFD (IPv6) feature on the bundle
-                        	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                        	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                         
                         .. attribute:: is_active
                         
@@ -5587,12 +5635,12 @@ class BundleInformation(object):
                         .. attribute:: lacp_status
                         
                         	The status of the LACP feature on the bundle
-                        	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                        	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                         
                         .. attribute:: link_order_status
                         
                         	The status of the link order signaling feature on the bundle
-                        	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                        	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                         
                         .. attribute:: load_balance_hash_type
                         
@@ -5609,12 +5657,12 @@ class BundleInformation(object):
                         .. attribute:: mac_address
                         
                         	MAC address of this member
-                        	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.BundleData.MacAddress>`
+                        	**type**\:   :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.BundleData.MacAddress>`
                         
                         .. attribute:: mac_source
                         
                         	The source of the MAC Address
-                        	**type**\:  :py:class:`BmBdlMacSourceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSourceEnum>`
+                        	**type**\:   :py:class:`BmBdlMacSourceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSourceEnum>`
                         
                         .. attribute:: mac_source_member
                         
@@ -5647,7 +5695,7 @@ class BundleInformation(object):
                         .. attribute:: maximum_active_links_source
                         
                         	Source of maximum active links value
-                        	**type**\:  :py:class:`BmWhichSystemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystemEnum>`
+                        	**type**\:   :py:class:`BmWhichSystemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystemEnum>`
                         
                         .. attribute:: minimum_active_links
                         
@@ -5663,15 +5711,17 @@ class BundleInformation(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: kbit/s
+                        
                         .. attribute:: mlacp_mode
                         
                         	Indicates the mode of the device for the bundle
-                        	**type**\:  :py:class:`BundleMlacpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpModeEnum>`
+                        	**type**\:   :py:class:`BundleMlacpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpModeEnum>`
                         
                         .. attribute:: mlacp_status
                         
                         	The status of the mLACP feature on the bundle
-                        	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                        	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                         
                         .. attribute:: primary_member
                         
@@ -5686,6 +5736,8 @@ class BundleInformation(object):
                         	**type**\:  int
                         
                         	**range:** 0..65535
+                        
+                        	**units**\: second
                         
                         .. attribute:: singleton
                         
@@ -5709,7 +5761,7 @@ class BundleInformation(object):
                         .. attribute:: switchover_type
                         
                         	How a switchover of the bundle from this device will occur
-                        	**type**\:  :py:class:`BmdMlacpSwitchoverEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchoverEnum>`
+                        	**type**\:   :py:class:`BmdMlacpSwitchoverEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchoverEnum>`
                         
                         .. attribute:: wait_while_timer
                         
@@ -5826,12 +5878,12 @@ class BundleInformation(object):
                             .. attribute:: bundle_status
                             
                             	Status of BFD on the bundle
-                            	**type**\:  :py:class:`BmdBfdBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlStateEnum>`
+                            	**type**\:   :py:class:`BmdBfdBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlStateEnum>`
                             
                             .. attribute:: destination_address
                             
                             	Configured destination address for BFD session
-                            	**type**\:  :py:class:`DestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.BundleData.BfdConfig.DestinationAddress>`
+                            	**type**\:   :py:class:`DestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.BundleData.BfdConfig.DestinationAddress>`
                             
                             .. attribute:: fast_detect
                             
@@ -5908,7 +5960,7 @@ class BundleInformation(object):
                                 .. attribute:: af
                                 
                                 	AF
-                                	**type**\:  :py:class:`BmAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmAfIdEnum>`
+                                	**type**\:   :py:class:`BmAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmAfIdEnum>`
                                 
                                 .. attribute:: ipv4
                                 
@@ -6170,10 +6222,12 @@ class BundleInformation(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: kbit/s
+                        
                         .. attribute:: counters
                         
                         	Counters data about member link
-                        	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData.Counters>`
+                        	**type**\:   :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData.Counters>`
                         
                         .. attribute:: iccp_node
                         
@@ -6192,7 +6246,7 @@ class BundleInformation(object):
                         .. attribute:: link_data
                         
                         	Lacp data about member link
-                        	**type**\:  :py:class:`LinkData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData.LinkData>`
+                        	**type**\:   :py:class:`LinkData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData.LinkData>`
                         
                         .. attribute:: link_order_number
                         
@@ -6204,12 +6258,12 @@ class BundleInformation(object):
                         .. attribute:: mac_address
                         
                         	MAC address of this member (deprecated)
-                        	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData.MacAddress>`
+                        	**type**\:   :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData.MacAddress>`
                         
                         .. attribute:: member_mux_data
                         
                         	Mux state machine data
-                        	**type**\:  :py:class:`MemberMuxData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData.MemberMuxData>`
+                        	**type**\:   :py:class:`MemberMuxData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData.MemberMuxData>`
                         
                         .. attribute:: member_name
                         
@@ -6219,7 +6273,7 @@ class BundleInformation(object):
                         .. attribute:: member_type
                         
                         	Member's type (local/foreign)
-                        	**type**\:  :py:class:`BmdMemberTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnumEnum>`
+                        	**type**\:   :py:class:`BmdMemberTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnumEnum>`
                         
                         .. attribute:: port_number
                         
@@ -6459,6 +6513,20 @@ class BundleInformation(object):
                             
                             	**range:** 0..255
                             
+                            .. attribute:: actor_system_mac_address
+                            
+                            	MAC Address of the actor system
+                            	**type**\:  str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            .. attribute:: actor_system_priority
+                            
+                            	System priority of actor system
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
                             .. attribute:: attached_aggregator_id
                             
                             	MIB ifindex of attached bundle
@@ -6535,6 +6603,8 @@ class BundleInformation(object):
                                 self.actor_port_id = None
                                 self.actor_port_priority = None
                                 self.actor_port_state = None
+                                self.actor_system_mac_address = None
+                                self.actor_system_priority = None
                                 self.attached_aggregator_id = None
                                 self.interface_handle = None
                                 self.partner_operational_key = None
@@ -6569,6 +6639,12 @@ class BundleInformation(object):
                                     return True
 
                                 if self.actor_port_state is not None:
+                                    return True
+
+                                if self.actor_system_mac_address is not None:
+                                    return True
+
+                                if self.actor_system_priority is not None:
                                     return True
 
                                 if self.attached_aggregator_id is not None:
@@ -6620,27 +6696,27 @@ class BundleInformation(object):
                             .. attribute:: member_mux_state_reason
                             
                             	Reason for last Mux state change
-                            	**type**\:  :py:class:`BmMbrStateReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMbrStateReasonEnum>`
+                            	**type**\:   :py:class:`BmMbrStateReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMbrStateReasonEnum>`
                             
                             .. attribute:: member_mux_state_reason_data
                             
                             	Data regarding the reason for last Mux state change
-                            	**type**\:  :py:class:`MemberMuxStateReasonData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData.MemberMuxData.MemberMuxStateReasonData>`
+                            	**type**\:   :py:class:`MemberMuxStateReasonData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleDescendant.MemberData.MemberMuxData.MemberMuxStateReasonData>`
                             
                             .. attribute:: member_state
                             
                             	Current internal state of this bundle member
-                            	**type**\:  :py:class:`BmdMemberStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberStateEnum>`
+                            	**type**\:   :py:class:`BmdMemberStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberStateEnum>`
                             
                             .. attribute:: mux_state
                             
                             	Current state of this bundle member
-                            	**type**\:  :py:class:`BmMuxstateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstateEnum>`
+                            	**type**\:   :py:class:`BmMuxstateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstateEnum>`
                             
                             .. attribute:: mux_state_reason
                             
                             	Reason for last Mux state change (Deprecated)
-                            	**type**\:  :py:class:`BmMuxreasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMuxreasonEnum>`
+                            	**type**\:   :py:class:`BmMuxreasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMuxreasonEnum>`
                             
                             
 
@@ -6668,12 +6744,12 @@ class BundleInformation(object):
                                 .. attribute:: reason_type
                                 
                                 	The item the reason applies to
-                                	**type**\:  :py:class:`BmStateReasonTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmStateReasonTargetEnum>`
+                                	**type**\:   :py:class:`BmStateReasonTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmStateReasonTargetEnum>`
                                 
                                 .. attribute:: severity
                                 
                                 	The severity of the reason
-                                	**type**\:  :py:class:`BmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmSeverityEnum>`
+                                	**type**\:   :py:class:`BmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmSeverityEnum>`
                                 
                                 
 
@@ -6898,7 +6974,7 @@ class BundleInformation(object):
                     .. attribute:: bundle_bundle_children_member
                     
                     	Bundle member item with common bundle information
-                    	**type**\: list of  :py:class:`BundleBundleChildrenMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember>`
+                    	**type**\: list of    :py:class:`BundleBundleChildrenMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember>`
                     
                     
 
@@ -6931,10 +7007,12 @@ class BundleInformation(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: kbit/s
+                        
                         .. attribute:: counters
                         
                         	Counters data about member link
-                        	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember.Counters>`
+                        	**type**\:   :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember.Counters>`
                         
                         .. attribute:: iccp_node
                         
@@ -6953,7 +7031,7 @@ class BundleInformation(object):
                         .. attribute:: link_data
                         
                         	Lacp data about member link
-                        	**type**\:  :py:class:`LinkData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember.LinkData>`
+                        	**type**\:   :py:class:`LinkData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember.LinkData>`
                         
                         .. attribute:: link_order_number
                         
@@ -6965,12 +7043,12 @@ class BundleInformation(object):
                         .. attribute:: mac_address
                         
                         	MAC address of this member (deprecated)
-                        	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember.MacAddress>`
+                        	**type**\:   :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember.MacAddress>`
                         
                         .. attribute:: member_mux_data
                         
                         	Mux state machine data
-                        	**type**\:  :py:class:`MemberMuxData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember.MemberMuxData>`
+                        	**type**\:   :py:class:`MemberMuxData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember.MemberMuxData>`
                         
                         .. attribute:: member_name
                         
@@ -6980,7 +7058,7 @@ class BundleInformation(object):
                         .. attribute:: member_type
                         
                         	Member's type (local/foreign)
-                        	**type**\:  :py:class:`BmdMemberTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnumEnum>`
+                        	**type**\:   :py:class:`BmdMemberTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnumEnum>`
                         
                         .. attribute:: port_number
                         
@@ -7221,6 +7299,20 @@ class BundleInformation(object):
                             
                             	**range:** 0..255
                             
+                            .. attribute:: actor_system_mac_address
+                            
+                            	MAC Address of the actor system
+                            	**type**\:  str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            .. attribute:: actor_system_priority
+                            
+                            	System priority of actor system
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
                             .. attribute:: attached_aggregator_id
                             
                             	MIB ifindex of attached bundle
@@ -7297,6 +7389,8 @@ class BundleInformation(object):
                                 self.actor_port_id = None
                                 self.actor_port_priority = None
                                 self.actor_port_state = None
+                                self.actor_system_mac_address = None
+                                self.actor_system_priority = None
                                 self.attached_aggregator_id = None
                                 self.interface_handle = None
                                 self.partner_operational_key = None
@@ -7331,6 +7425,12 @@ class BundleInformation(object):
                                     return True
 
                                 if self.actor_port_state is not None:
+                                    return True
+
+                                if self.actor_system_mac_address is not None:
+                                    return True
+
+                                if self.actor_system_priority is not None:
                                     return True
 
                                 if self.attached_aggregator_id is not None:
@@ -7382,27 +7482,27 @@ class BundleInformation(object):
                             .. attribute:: member_mux_state_reason
                             
                             	Reason for last Mux state change
-                            	**type**\:  :py:class:`BmMbrStateReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMbrStateReasonEnum>`
+                            	**type**\:   :py:class:`BmMbrStateReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMbrStateReasonEnum>`
                             
                             .. attribute:: member_mux_state_reason_data
                             
                             	Data regarding the reason for last Mux state change
-                            	**type**\:  :py:class:`MemberMuxStateReasonData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember.MemberMuxData.MemberMuxStateReasonData>`
+                            	**type**\:   :py:class:`MemberMuxStateReasonData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleChildrenMembers.BundleBundleChildrenMember.MemberMuxData.MemberMuxStateReasonData>`
                             
                             .. attribute:: member_state
                             
                             	Current internal state of this bundle member
-                            	**type**\:  :py:class:`BmdMemberStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberStateEnum>`
+                            	**type**\:   :py:class:`BmdMemberStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberStateEnum>`
                             
                             .. attribute:: mux_state
                             
                             	Current state of this bundle member
-                            	**type**\:  :py:class:`BmMuxstateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstateEnum>`
+                            	**type**\:   :py:class:`BmMuxstateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstateEnum>`
                             
                             .. attribute:: mux_state_reason
                             
                             	Reason for last Mux state change (Deprecated)
-                            	**type**\:  :py:class:`BmMuxreasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMuxreasonEnum>`
+                            	**type**\:   :py:class:`BmMuxreasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMuxreasonEnum>`
                             
                             
 
@@ -7430,12 +7530,12 @@ class BundleInformation(object):
                                 .. attribute:: reason_type
                                 
                                 	The item the reason applies to
-                                	**type**\:  :py:class:`BmStateReasonTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmStateReasonTargetEnum>`
+                                	**type**\:   :py:class:`BmStateReasonTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmStateReasonTargetEnum>`
                                 
                                 .. attribute:: severity
                                 
                                 	The severity of the reason
-                                	**type**\:  :py:class:`BmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmSeverityEnum>`
+                                	**type**\:   :py:class:`BmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmSeverityEnum>`
                                 
                                 
 
@@ -7679,10 +7779,12 @@ class BundleInformation(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: kbit/s
+                    
                     .. attribute:: bfd_config
                     
                     	Configuration values for BFD on bundle members
-                    	**type**\: list of  :py:class:`BfdConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleItem.BfdConfig>`
+                    	**type**\: list of    :py:class:`BfdConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleItem.BfdConfig>`
                     
                     .. attribute:: bundle_interface_name
                     
@@ -7694,7 +7796,7 @@ class BundleInformation(object):
                     .. attribute:: bundle_status
                     
                     	The state of the bundle
-                    	**type**\:  :py:class:`BmBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlStateEnum>`
+                    	**type**\:   :py:class:`BmBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlStateEnum>`
                     
                     .. attribute:: cisco_extensions
                     
@@ -7714,6 +7816,8 @@ class BundleInformation(object):
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: kbit/s
                     
                     .. attribute:: configured_foreign_member_count
                     
@@ -7736,6 +7840,8 @@ class BundleInformation(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: kbit/s
+                    
                     .. attribute:: iccp_group_id
                     
                     	ICCP Group that the bundle is configured to
@@ -7751,12 +7857,12 @@ class BundleInformation(object):
                     .. attribute:: ipv4bfd_status
                     
                     	The status of the BFD (IPv4) feature on the bundle
-                    	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                    	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                     
                     .. attribute:: ipv6bfd_status
                     
                     	The status of the BFD (IPv6) feature on the bundle
-                    	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                    	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                     
                     .. attribute:: is_active
                     
@@ -7771,12 +7877,12 @@ class BundleInformation(object):
                     .. attribute:: lacp_status
                     
                     	The status of the LACP feature on the bundle
-                    	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                    	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                     
                     .. attribute:: link_order_status
                     
                     	The status of the link order signaling feature on the bundle
-                    	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                    	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                     
                     .. attribute:: load_balance_hash_type
                     
@@ -7793,12 +7899,12 @@ class BundleInformation(object):
                     .. attribute:: mac_address
                     
                     	MAC address of this member
-                    	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleItem.MacAddress>`
+                    	**type**\:   :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleItem.MacAddress>`
                     
                     .. attribute:: mac_source
                     
                     	The source of the MAC Address
-                    	**type**\:  :py:class:`BmBdlMacSourceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSourceEnum>`
+                    	**type**\:   :py:class:`BmBdlMacSourceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSourceEnum>`
                     
                     .. attribute:: mac_source_member
                     
@@ -7831,7 +7937,7 @@ class BundleInformation(object):
                     .. attribute:: maximum_active_links_source
                     
                     	Source of maximum active links value
-                    	**type**\:  :py:class:`BmWhichSystemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystemEnum>`
+                    	**type**\:   :py:class:`BmWhichSystemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystemEnum>`
                     
                     .. attribute:: minimum_active_links
                     
@@ -7847,15 +7953,17 @@ class BundleInformation(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: kbit/s
+                    
                     .. attribute:: mlacp_mode
                     
                     	Indicates the mode of the device for the bundle
-                    	**type**\:  :py:class:`BundleMlacpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpModeEnum>`
+                    	**type**\:   :py:class:`BundleMlacpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpModeEnum>`
                     
                     .. attribute:: mlacp_status
                     
                     	The status of the mLACP feature on the bundle
-                    	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                    	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                     
                     .. attribute:: primary_member
                     
@@ -7870,6 +7978,8 @@ class BundleInformation(object):
                     	**type**\:  int
                     
                     	**range:** 0..65535
+                    
+                    	**units**\: second
                     
                     .. attribute:: singleton
                     
@@ -7893,7 +8003,7 @@ class BundleInformation(object):
                     .. attribute:: switchover_type
                     
                     	How a switchover of the bundle from this device will occur
-                    	**type**\:  :py:class:`BmdMlacpSwitchoverEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchoverEnum>`
+                    	**type**\:   :py:class:`BmdMlacpSwitchoverEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchoverEnum>`
                     
                     .. attribute:: wait_while_timer
                     
@@ -8010,12 +8120,12 @@ class BundleInformation(object):
                         .. attribute:: bundle_status
                         
                         	Status of BFD on the bundle
-                        	**type**\:  :py:class:`BmdBfdBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlStateEnum>`
+                        	**type**\:   :py:class:`BmdBfdBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlStateEnum>`
                         
                         .. attribute:: destination_address
                         
                         	Configured destination address for BFD session
-                        	**type**\:  :py:class:`DestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleItem.BfdConfig.DestinationAddress>`
+                        	**type**\:   :py:class:`DestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleBundles.BundleBundle.BundleBundleItem.BfdConfig.DestinationAddress>`
                         
                         .. attribute:: fast_detect
                         
@@ -8092,7 +8202,7 @@ class BundleInformation(object):
                             .. attribute:: af
                             
                             	AF
-                            	**type**\:  :py:class:`BmAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmAfIdEnum>`
+                            	**type**\:   :py:class:`BmAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmAfIdEnum>`
                             
                             .. attribute:: ipv4
                             
@@ -8408,7 +8518,7 @@ class BundleInformation(object):
             .. attribute:: bundle_member
             
             	Member interface
-            	**type**\: list of  :py:class:`BundleMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember>`
+            	**type**\: list of    :py:class:`BundleMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember>`
             
             
 
@@ -8436,12 +8546,12 @@ class BundleInformation(object):
                 .. attribute:: bundle_member_ancestor
                 
                 	Data for this item and its parent bundle
-                	**type**\:  :py:class:`BundleMemberAncestor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor>`
+                	**type**\:   :py:class:`BundleMemberAncestor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor>`
                 
                 .. attribute:: bundle_member_item
                 
                 	Data for this item
-                	**type**\:  :py:class:`BundleMemberItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem>`
+                	**type**\:   :py:class:`BundleMemberItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem>`
                 
                 
 
@@ -8466,12 +8576,12 @@ class BundleInformation(object):
                     .. attribute:: bundle_data
                     
                     	Bundle information
-                    	**type**\:  :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.BundleData>`
+                    	**type**\:   :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.BundleData>`
                     
                     .. attribute:: member_data
                     
                     	Member information
-                    	**type**\: list of  :py:class:`MemberData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData>`
+                    	**type**\: list of    :py:class:`MemberData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData>`
                     
                     
 
@@ -8514,10 +8624,12 @@ class BundleInformation(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: kbit/s
+                        
                         .. attribute:: bfd_config
                         
                         	Configuration values for BFD on bundle members
-                        	**type**\: list of  :py:class:`BfdConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.BundleData.BfdConfig>`
+                        	**type**\: list of    :py:class:`BfdConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.BundleData.BfdConfig>`
                         
                         .. attribute:: bundle_interface_name
                         
@@ -8529,7 +8641,7 @@ class BundleInformation(object):
                         .. attribute:: bundle_status
                         
                         	The state of the bundle
-                        	**type**\:  :py:class:`BmBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlStateEnum>`
+                        	**type**\:   :py:class:`BmBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlStateEnum>`
                         
                         .. attribute:: cisco_extensions
                         
@@ -8549,6 +8661,8 @@ class BundleInformation(object):
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: kbit/s
                         
                         .. attribute:: configured_foreign_member_count
                         
@@ -8571,6 +8685,8 @@ class BundleInformation(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: kbit/s
+                        
                         .. attribute:: iccp_group_id
                         
                         	ICCP Group that the bundle is configured to
@@ -8586,12 +8702,12 @@ class BundleInformation(object):
                         .. attribute:: ipv4bfd_status
                         
                         	The status of the BFD (IPv4) feature on the bundle
-                        	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                        	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                         
                         .. attribute:: ipv6bfd_status
                         
                         	The status of the BFD (IPv6) feature on the bundle
-                        	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                        	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                         
                         .. attribute:: is_active
                         
@@ -8606,12 +8722,12 @@ class BundleInformation(object):
                         .. attribute:: lacp_status
                         
                         	The status of the LACP feature on the bundle
-                        	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                        	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                         
                         .. attribute:: link_order_status
                         
                         	The status of the link order signaling feature on the bundle
-                        	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                        	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                         
                         .. attribute:: load_balance_hash_type
                         
@@ -8628,12 +8744,12 @@ class BundleInformation(object):
                         .. attribute:: mac_address
                         
                         	MAC address of this member
-                        	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.BundleData.MacAddress>`
+                        	**type**\:   :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.BundleData.MacAddress>`
                         
                         .. attribute:: mac_source
                         
                         	The source of the MAC Address
-                        	**type**\:  :py:class:`BmBdlMacSourceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSourceEnum>`
+                        	**type**\:   :py:class:`BmBdlMacSourceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSourceEnum>`
                         
                         .. attribute:: mac_source_member
                         
@@ -8666,7 +8782,7 @@ class BundleInformation(object):
                         .. attribute:: maximum_active_links_source
                         
                         	Source of maximum active links value
-                        	**type**\:  :py:class:`BmWhichSystemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystemEnum>`
+                        	**type**\:   :py:class:`BmWhichSystemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystemEnum>`
                         
                         .. attribute:: minimum_active_links
                         
@@ -8682,15 +8798,17 @@ class BundleInformation(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: kbit/s
+                        
                         .. attribute:: mlacp_mode
                         
                         	Indicates the mode of the device for the bundle
-                        	**type**\:  :py:class:`BundleMlacpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpModeEnum>`
+                        	**type**\:   :py:class:`BundleMlacpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpModeEnum>`
                         
                         .. attribute:: mlacp_status
                         
                         	The status of the mLACP feature on the bundle
-                        	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                        	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                         
                         .. attribute:: primary_member
                         
@@ -8705,6 +8823,8 @@ class BundleInformation(object):
                         	**type**\:  int
                         
                         	**range:** 0..65535
+                        
+                        	**units**\: second
                         
                         .. attribute:: singleton
                         
@@ -8728,7 +8848,7 @@ class BundleInformation(object):
                         .. attribute:: switchover_type
                         
                         	How a switchover of the bundle from this device will occur
-                        	**type**\:  :py:class:`BmdMlacpSwitchoverEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchoverEnum>`
+                        	**type**\:   :py:class:`BmdMlacpSwitchoverEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchoverEnum>`
                         
                         .. attribute:: wait_while_timer
                         
@@ -8845,12 +8965,12 @@ class BundleInformation(object):
                             .. attribute:: bundle_status
                             
                             	Status of BFD on the bundle
-                            	**type**\:  :py:class:`BmdBfdBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlStateEnum>`
+                            	**type**\:   :py:class:`BmdBfdBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlStateEnum>`
                             
                             .. attribute:: destination_address
                             
                             	Configured destination address for BFD session
-                            	**type**\:  :py:class:`DestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.BundleData.BfdConfig.DestinationAddress>`
+                            	**type**\:   :py:class:`DestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.BundleData.BfdConfig.DestinationAddress>`
                             
                             .. attribute:: fast_detect
                             
@@ -8927,7 +9047,7 @@ class BundleInformation(object):
                                 .. attribute:: af
                                 
                                 	AF
-                                	**type**\:  :py:class:`BmAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmAfIdEnum>`
+                                	**type**\:   :py:class:`BmAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmAfIdEnum>`
                                 
                                 .. attribute:: ipv4
                                 
@@ -9189,10 +9309,12 @@ class BundleInformation(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: kbit/s
+                        
                         .. attribute:: counters
                         
                         	Counters data about member link
-                        	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData.Counters>`
+                        	**type**\:   :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData.Counters>`
                         
                         .. attribute:: iccp_node
                         
@@ -9211,7 +9333,7 @@ class BundleInformation(object):
                         .. attribute:: link_data
                         
                         	Lacp data about member link
-                        	**type**\:  :py:class:`LinkData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData.LinkData>`
+                        	**type**\:   :py:class:`LinkData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData.LinkData>`
                         
                         .. attribute:: link_order_number
                         
@@ -9223,12 +9345,12 @@ class BundleInformation(object):
                         .. attribute:: mac_address
                         
                         	MAC address of this member (deprecated)
-                        	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData.MacAddress>`
+                        	**type**\:   :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData.MacAddress>`
                         
                         .. attribute:: member_mux_data
                         
                         	Mux state machine data
-                        	**type**\:  :py:class:`MemberMuxData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData.MemberMuxData>`
+                        	**type**\:   :py:class:`MemberMuxData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData.MemberMuxData>`
                         
                         .. attribute:: member_name
                         
@@ -9238,7 +9360,7 @@ class BundleInformation(object):
                         .. attribute:: member_type
                         
                         	Member's type (local/foreign)
-                        	**type**\:  :py:class:`BmdMemberTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnumEnum>`
+                        	**type**\:   :py:class:`BmdMemberTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnumEnum>`
                         
                         .. attribute:: port_number
                         
@@ -9478,6 +9600,20 @@ class BundleInformation(object):
                             
                             	**range:** 0..255
                             
+                            .. attribute:: actor_system_mac_address
+                            
+                            	MAC Address of the actor system
+                            	**type**\:  str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            .. attribute:: actor_system_priority
+                            
+                            	System priority of actor system
+                            	**type**\:  int
+                            
+                            	**range:** 0..65535
+                            
                             .. attribute:: attached_aggregator_id
                             
                             	MIB ifindex of attached bundle
@@ -9554,6 +9690,8 @@ class BundleInformation(object):
                                 self.actor_port_id = None
                                 self.actor_port_priority = None
                                 self.actor_port_state = None
+                                self.actor_system_mac_address = None
+                                self.actor_system_priority = None
                                 self.attached_aggregator_id = None
                                 self.interface_handle = None
                                 self.partner_operational_key = None
@@ -9588,6 +9726,12 @@ class BundleInformation(object):
                                     return True
 
                                 if self.actor_port_state is not None:
+                                    return True
+
+                                if self.actor_system_mac_address is not None:
+                                    return True
+
+                                if self.actor_system_priority is not None:
                                     return True
 
                                 if self.attached_aggregator_id is not None:
@@ -9639,27 +9783,27 @@ class BundleInformation(object):
                             .. attribute:: member_mux_state_reason
                             
                             	Reason for last Mux state change
-                            	**type**\:  :py:class:`BmMbrStateReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMbrStateReasonEnum>`
+                            	**type**\:   :py:class:`BmMbrStateReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMbrStateReasonEnum>`
                             
                             .. attribute:: member_mux_state_reason_data
                             
                             	Data regarding the reason for last Mux state change
-                            	**type**\:  :py:class:`MemberMuxStateReasonData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData.MemberMuxData.MemberMuxStateReasonData>`
+                            	**type**\:   :py:class:`MemberMuxStateReasonData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberAncestor.MemberData.MemberMuxData.MemberMuxStateReasonData>`
                             
                             .. attribute:: member_state
                             
                             	Current internal state of this bundle member
-                            	**type**\:  :py:class:`BmdMemberStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberStateEnum>`
+                            	**type**\:   :py:class:`BmdMemberStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberStateEnum>`
                             
                             .. attribute:: mux_state
                             
                             	Current state of this bundle member
-                            	**type**\:  :py:class:`BmMuxstateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstateEnum>`
+                            	**type**\:   :py:class:`BmMuxstateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstateEnum>`
                             
                             .. attribute:: mux_state_reason
                             
                             	Reason for last Mux state change (Deprecated)
-                            	**type**\:  :py:class:`BmMuxreasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMuxreasonEnum>`
+                            	**type**\:   :py:class:`BmMuxreasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMuxreasonEnum>`
                             
                             
 
@@ -9687,12 +9831,12 @@ class BundleInformation(object):
                                 .. attribute:: reason_type
                                 
                                 	The item the reason applies to
-                                	**type**\:  :py:class:`BmStateReasonTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmStateReasonTargetEnum>`
+                                	**type**\:   :py:class:`BmStateReasonTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmStateReasonTargetEnum>`
                                 
                                 .. attribute:: severity
                                 
                                 	The severity of the reason
-                                	**type**\:  :py:class:`BmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmSeverityEnum>`
+                                	**type**\:   :py:class:`BmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmSeverityEnum>`
                                 
                                 
 
@@ -9920,10 +10064,12 @@ class BundleInformation(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: kbit/s
+                    
                     .. attribute:: counters
                     
                     	Counters data about member link
-                    	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem.Counters>`
+                    	**type**\:   :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem.Counters>`
                     
                     .. attribute:: iccp_node
                     
@@ -9942,7 +10088,7 @@ class BundleInformation(object):
                     .. attribute:: link_data
                     
                     	Lacp data about member link
-                    	**type**\:  :py:class:`LinkData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem.LinkData>`
+                    	**type**\:   :py:class:`LinkData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem.LinkData>`
                     
                     .. attribute:: link_order_number
                     
@@ -9954,12 +10100,12 @@ class BundleInformation(object):
                     .. attribute:: mac_address
                     
                     	MAC address of this member (deprecated)
-                    	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem.MacAddress>`
+                    	**type**\:   :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem.MacAddress>`
                     
                     .. attribute:: member_mux_data
                     
                     	Mux state machine data
-                    	**type**\:  :py:class:`MemberMuxData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem.MemberMuxData>`
+                    	**type**\:   :py:class:`MemberMuxData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem.MemberMuxData>`
                     
                     .. attribute:: member_name
                     
@@ -9969,7 +10115,7 @@ class BundleInformation(object):
                     .. attribute:: member_type
                     
                     	Member's type (local/foreign)
-                    	**type**\:  :py:class:`BmdMemberTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnumEnum>`
+                    	**type**\:   :py:class:`BmdMemberTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnumEnum>`
                     
                     .. attribute:: port_number
                     
@@ -10209,6 +10355,20 @@ class BundleInformation(object):
                         
                         	**range:** 0..255
                         
+                        .. attribute:: actor_system_mac_address
+                        
+                        	MAC Address of the actor system
+                        	**type**\:  str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                        
+                        .. attribute:: actor_system_priority
+                        
+                        	System priority of actor system
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
+                        
                         .. attribute:: attached_aggregator_id
                         
                         	MIB ifindex of attached bundle
@@ -10285,6 +10445,8 @@ class BundleInformation(object):
                             self.actor_port_id = None
                             self.actor_port_priority = None
                             self.actor_port_state = None
+                            self.actor_system_mac_address = None
+                            self.actor_system_priority = None
                             self.attached_aggregator_id = None
                             self.interface_handle = None
                             self.partner_operational_key = None
@@ -10319,6 +10481,12 @@ class BundleInformation(object):
                                 return True
 
                             if self.actor_port_state is not None:
+                                return True
+
+                            if self.actor_system_mac_address is not None:
+                                return True
+
+                            if self.actor_system_priority is not None:
                                 return True
 
                             if self.attached_aggregator_id is not None:
@@ -10370,27 +10538,27 @@ class BundleInformation(object):
                         .. attribute:: member_mux_state_reason
                         
                         	Reason for last Mux state change
-                        	**type**\:  :py:class:`BmMbrStateReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMbrStateReasonEnum>`
+                        	**type**\:   :py:class:`BmMbrStateReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMbrStateReasonEnum>`
                         
                         .. attribute:: member_mux_state_reason_data
                         
                         	Data regarding the reason for last Mux state change
-                        	**type**\:  :py:class:`MemberMuxStateReasonData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem.MemberMuxData.MemberMuxStateReasonData>`
+                        	**type**\:   :py:class:`MemberMuxStateReasonData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Bundle.BundleMembers.BundleMember.BundleMemberItem.MemberMuxData.MemberMuxStateReasonData>`
                         
                         .. attribute:: member_state
                         
                         	Current internal state of this bundle member
-                        	**type**\:  :py:class:`BmdMemberStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberStateEnum>`
+                        	**type**\:   :py:class:`BmdMemberStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberStateEnum>`
                         
                         .. attribute:: mux_state
                         
                         	Current state of this bundle member
-                        	**type**\:  :py:class:`BmMuxstateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstateEnum>`
+                        	**type**\:   :py:class:`BmMuxstateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstateEnum>`
                         
                         .. attribute:: mux_state_reason
                         
                         	Reason for last Mux state change (Deprecated)
-                        	**type**\:  :py:class:`BmMuxreasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMuxreasonEnum>`
+                        	**type**\:   :py:class:`BmMuxreasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMuxreasonEnum>`
                         
                         
 
@@ -10418,12 +10586,12 @@ class BundleInformation(object):
                             .. attribute:: reason_type
                             
                             	The item the reason applies to
-                            	**type**\:  :py:class:`BmStateReasonTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmStateReasonTargetEnum>`
+                            	**type**\:   :py:class:`BmStateReasonTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmStateReasonTargetEnum>`
                             
                             .. attribute:: severity
                             
                             	The severity of the reason
-                            	**type**\:  :py:class:`BmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmSeverityEnum>`
+                            	**type**\:   :py:class:`BmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmSeverityEnum>`
                             
                             
 
@@ -10698,17 +10866,17 @@ class BundleInformation(object):
         .. attribute:: events_rg_bundles
         
         	Bundle interfaces with ICCP events information
-        	**type**\:  :py:class:`EventsRgBundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgBundles>`
+        	**type**\:   :py:class:`EventsRgBundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgBundles>`
         
         .. attribute:: events_rg_iccp_groups
         
         	ICCP events for all ICCP Groups
-        	**type**\:  :py:class:`EventsRgIccpGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgIccpGroups>`
+        	**type**\:   :py:class:`EventsRgIccpGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgIccpGroups>`
         
         .. attribute:: events_rg_members
         
         	Bundle Member interfaces with ICCP events information
-        	**type**\:  :py:class:`EventsRgMembers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgMembers>`
+        	**type**\:   :py:class:`EventsRgMembers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgMembers>`
         
         
 
@@ -10735,7 +10903,7 @@ class BundleInformation(object):
             .. attribute:: events_rg_member
             
             	Member interface
-            	**type**\: list of  :py:class:`EventsRgMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgMembers.EventsRgMember>`
+            	**type**\: list of    :py:class:`EventsRgMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgMembers.EventsRgMember>`
             
             
 
@@ -10763,7 +10931,7 @@ class BundleInformation(object):
                 .. attribute:: events_rg_member_ancestor
                 
                 	Data for this item and its parent bundle
-                	**type**\:  :py:class:`EventsRgMemberAncestor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor>`
+                	**type**\:   :py:class:`EventsRgMemberAncestor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor>`
                 
                 
 
@@ -10791,7 +10959,7 @@ class BundleInformation(object):
                     .. attribute:: items
                     
                     	Event items
-                    	**type**\: list of  :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items>`
+                    	**type**\: list of    :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items>`
                     
                     
 
@@ -10815,22 +10983,22 @@ class BundleInformation(object):
                         .. attribute:: bundle_evt_info
                         
                         	Event information for a bundle
-                        	**type**\:  :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items.BundleEvtInfo>`
+                        	**type**\:   :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items.BundleEvtInfo>`
                         
                         .. attribute:: event_type
                         
                         	EventType
-                        	**type**\:  :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
+                        	**type**\:   :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                         
                         .. attribute:: member_evt_info
                         
                         	Event information for a member
-                        	**type**\:  :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items.MemberEvtInfo>`
+                        	**type**\:   :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items.MemberEvtInfo>`
                         
                         .. attribute:: rg_evt_info
                         
                         	Event information for an RG
-                        	**type**\:  :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items.RgEvtInfo>`
+                        	**type**\:   :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items.RgEvtInfo>`
                         
                         
 
@@ -10857,12 +11025,12 @@ class BundleInformation(object):
                             .. attribute:: data
                             
                             	Additional data for the event
-                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items.MemberEvtInfo.Data>`
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items.MemberEvtInfo.Data>`
                             
                             .. attribute:: member_event_type
                             
                             	Type of event for member
-                            	**type**\:  :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
+                            	**type**\:   :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -10893,7 +11061,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -10999,12 +11167,12 @@ class BundleInformation(object):
                             .. attribute:: bundle_event_type
                             
                             	Type of event for bundle
-                            	**type**\:  :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
+                            	**type**\:   :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                             
                             .. attribute:: data
                             
                             	Additional data for the event
-                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items.BundleEvtInfo.Data>`
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items.BundleEvtInfo.Data>`
                             
                             .. attribute:: time_stamp
                             
@@ -11035,7 +11203,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -11141,12 +11309,12 @@ class BundleInformation(object):
                             .. attribute:: data
                             
                             	Additional data for the event
-                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items.RgEvtInfo.Data>`
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgMembers.EventsRgMember.EventsRgMemberAncestor.Items.RgEvtInfo.Data>`
                             
                             .. attribute:: rg_event_type
                             
                             	Type of event for RG
-                            	**type**\:  :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
+                            	**type**\:   :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -11177,7 +11345,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -11396,7 +11564,7 @@ class BundleInformation(object):
             .. attribute:: events_rg_iccp_group
             
             	ICCP Group ID
-            	**type**\: list of  :py:class:`EventsRgIccpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup>`
+            	**type**\: list of    :py:class:`EventsRgIccpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup>`
             
             
 
@@ -11426,7 +11594,7 @@ class BundleInformation(object):
                 .. attribute:: events_rg_bundle_item_iccp_group
                 
                 	Data for this item
-                	**type**\:  :py:class:`EventsRgBundleItemIccpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup>`
+                	**type**\:   :py:class:`EventsRgBundleItemIccpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup>`
                 
                 
 
@@ -11454,7 +11622,7 @@ class BundleInformation(object):
                     .. attribute:: items
                     
                     	Event items
-                    	**type**\: list of  :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items>`
+                    	**type**\: list of    :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items>`
                     
                     
 
@@ -11478,22 +11646,22 @@ class BundleInformation(object):
                         .. attribute:: bundle_evt_info
                         
                         	Event information for a bundle
-                        	**type**\:  :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items.BundleEvtInfo>`
+                        	**type**\:   :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items.BundleEvtInfo>`
                         
                         .. attribute:: event_type
                         
                         	EventType
-                        	**type**\:  :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
+                        	**type**\:   :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                         
                         .. attribute:: member_evt_info
                         
                         	Event information for a member
-                        	**type**\:  :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items.MemberEvtInfo>`
+                        	**type**\:   :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items.MemberEvtInfo>`
                         
                         .. attribute:: rg_evt_info
                         
                         	Event information for an RG
-                        	**type**\:  :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items.RgEvtInfo>`
+                        	**type**\:   :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items.RgEvtInfo>`
                         
                         
 
@@ -11520,12 +11688,12 @@ class BundleInformation(object):
                             .. attribute:: data
                             
                             	Additional data for the event
-                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items.MemberEvtInfo.Data>`
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items.MemberEvtInfo.Data>`
                             
                             .. attribute:: member_event_type
                             
                             	Type of event for member
-                            	**type**\:  :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
+                            	**type**\:   :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -11556,7 +11724,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -11662,12 +11830,12 @@ class BundleInformation(object):
                             .. attribute:: bundle_event_type
                             
                             	Type of event for bundle
-                            	**type**\:  :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
+                            	**type**\:   :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                             
                             .. attribute:: data
                             
                             	Additional data for the event
-                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items.BundleEvtInfo.Data>`
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items.BundleEvtInfo.Data>`
                             
                             .. attribute:: time_stamp
                             
@@ -11698,7 +11866,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -11804,12 +11972,12 @@ class BundleInformation(object):
                             .. attribute:: data
                             
                             	Additional data for the event
-                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items.RgEvtInfo.Data>`
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgIccpGroups.EventsRgIccpGroup.EventsRgBundleItemIccpGroup.Items.RgEvtInfo.Data>`
                             
                             .. attribute:: rg_event_type
                             
                             	Type of event for RG
-                            	**type**\:  :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
+                            	**type**\:   :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -11840,7 +12008,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -12059,7 +12227,7 @@ class BundleInformation(object):
             .. attribute:: events_rg_bundle
             
             	Bundle interface
-            	**type**\: list of  :py:class:`EventsRgBundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle>`
+            	**type**\: list of    :py:class:`EventsRgBundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle>`
             
             
 
@@ -12089,7 +12257,7 @@ class BundleInformation(object):
                 .. attribute:: events_rg_bundle_ancestor
                 
                 	Data for this item and its parent bundle
-                	**type**\:  :py:class:`EventsRgBundleAncestor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor>`
+                	**type**\:   :py:class:`EventsRgBundleAncestor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor>`
                 
                 
 
@@ -12117,7 +12285,7 @@ class BundleInformation(object):
                     .. attribute:: items
                     
                     	Event items
-                    	**type**\: list of  :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items>`
+                    	**type**\: list of    :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items>`
                     
                     
 
@@ -12141,22 +12309,22 @@ class BundleInformation(object):
                         .. attribute:: bundle_evt_info
                         
                         	Event information for a bundle
-                        	**type**\:  :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items.BundleEvtInfo>`
+                        	**type**\:   :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items.BundleEvtInfo>`
                         
                         .. attribute:: event_type
                         
                         	EventType
-                        	**type**\:  :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
+                        	**type**\:   :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                         
                         .. attribute:: member_evt_info
                         
                         	Event information for a member
-                        	**type**\:  :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items.MemberEvtInfo>`
+                        	**type**\:   :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items.MemberEvtInfo>`
                         
                         .. attribute:: rg_evt_info
                         
                         	Event information for an RG
-                        	**type**\:  :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items.RgEvtInfo>`
+                        	**type**\:   :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items.RgEvtInfo>`
                         
                         
 
@@ -12183,12 +12351,12 @@ class BundleInformation(object):
                             .. attribute:: data
                             
                             	Additional data for the event
-                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items.MemberEvtInfo.Data>`
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items.MemberEvtInfo.Data>`
                             
                             .. attribute:: member_event_type
                             
                             	Type of event for member
-                            	**type**\:  :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
+                            	**type**\:   :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -12219,7 +12387,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -12325,12 +12493,12 @@ class BundleInformation(object):
                             .. attribute:: bundle_event_type
                             
                             	Type of event for bundle
-                            	**type**\:  :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
+                            	**type**\:   :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                             
                             .. attribute:: data
                             
                             	Additional data for the event
-                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items.BundleEvtInfo.Data>`
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items.BundleEvtInfo.Data>`
                             
                             .. attribute:: time_stamp
                             
@@ -12361,7 +12529,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -12467,12 +12635,12 @@ class BundleInformation(object):
                             .. attribute:: data
                             
                             	Additional data for the event
-                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items.RgEvtInfo.Data>`
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsRg.EventsRgBundles.EventsRgBundle.EventsRgBundleAncestor.Items.RgEvtInfo.Data>`
                             
                             .. attribute:: rg_event_type
                             
                             	Type of event for RG
-                            	**type**\:  :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
+                            	**type**\:   :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -12503,7 +12671,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -12750,12 +12918,12 @@ class BundleInformation(object):
         .. attribute:: lacp_bundles
         
         	Bundle interfaces with LACP information
-        	**type**\:  :py:class:`LacpBundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles>`
+        	**type**\:   :py:class:`LacpBundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles>`
         
         .. attribute:: lacp_members
         
         	Member interfaces with LACP information
-        	**type**\:  :py:class:`LacpMembers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers>`
+        	**type**\:   :py:class:`LacpMembers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers>`
         
         
 
@@ -12779,7 +12947,7 @@ class BundleInformation(object):
             .. attribute:: lacp_bundle
             
             	Bundle interface
-            	**type**\: list of  :py:class:`LacpBundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle>`
+            	**type**\: list of    :py:class:`LacpBundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle>`
             
             
 
@@ -12809,17 +12977,17 @@ class BundleInformation(object):
                 .. attribute:: lacp_bundle_children_members
                 
                 	Children of bundle with LACP information
-                	**type**\:  :py:class:`LacpBundleChildrenMembers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers>`
+                	**type**\:   :py:class:`LacpBundleChildrenMembers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers>`
                 
                 .. attribute:: lacp_bundle_descendant
                 
                 	Data for this item and all its members
-                	**type**\:  :py:class:`LacpBundleDescendant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant>`
+                	**type**\:   :py:class:`LacpBundleDescendant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant>`
                 
                 .. attribute:: lacp_bundle_item
                 
                 	Data for this item
-                	**type**\:  :py:class:`LacpBundleItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem>`
+                	**type**\:   :py:class:`LacpBundleItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem>`
                 
                 
 
@@ -12846,7 +13014,7 @@ class BundleInformation(object):
                     .. attribute:: actor_bundle_data
                     
                     	Basic bundle information
-                    	**type**\:  :py:class:`ActorBundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem.ActorBundleData>`
+                    	**type**\:   :py:class:`ActorBundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem.ActorBundleData>`
                     
                     .. attribute:: actor_operational_key
                     
@@ -12858,7 +13026,7 @@ class BundleInformation(object):
                     .. attribute:: bundle_system_id
                     
                     	System ID for the bundle
-                    	**type**\:  :py:class:`BundleSystemId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem.BundleSystemId>`
+                    	**type**\:   :py:class:`BundleSystemId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem.BundleSystemId>`
                     
                     .. attribute:: partner_operational_key
                     
@@ -12925,10 +13093,12 @@ class BundleInformation(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: kbit/s
+                        
                         .. attribute:: bfd_config
                         
                         	Configuration values for BFD on bundle members
-                        	**type**\: list of  :py:class:`BfdConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem.ActorBundleData.BfdConfig>`
+                        	**type**\: list of    :py:class:`BfdConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem.ActorBundleData.BfdConfig>`
                         
                         .. attribute:: bundle_interface_name
                         
@@ -12940,7 +13110,7 @@ class BundleInformation(object):
                         .. attribute:: bundle_status
                         
                         	The state of the bundle
-                        	**type**\:  :py:class:`BmBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlStateEnum>`
+                        	**type**\:   :py:class:`BmBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlStateEnum>`
                         
                         .. attribute:: cisco_extensions
                         
@@ -12960,6 +13130,8 @@ class BundleInformation(object):
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: kbit/s
                         
                         .. attribute:: configured_foreign_member_count
                         
@@ -12982,6 +13154,8 @@ class BundleInformation(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: kbit/s
+                        
                         .. attribute:: iccp_group_id
                         
                         	ICCP Group that the bundle is configured to
@@ -12997,12 +13171,12 @@ class BundleInformation(object):
                         .. attribute:: ipv4bfd_status
                         
                         	The status of the BFD (IPv4) feature on the bundle
-                        	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                        	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                         
                         .. attribute:: ipv6bfd_status
                         
                         	The status of the BFD (IPv6) feature on the bundle
-                        	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                        	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                         
                         .. attribute:: is_active
                         
@@ -13017,12 +13191,12 @@ class BundleInformation(object):
                         .. attribute:: lacp_status
                         
                         	The status of the LACP feature on the bundle
-                        	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                        	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                         
                         .. attribute:: link_order_status
                         
                         	The status of the link order signaling feature on the bundle
-                        	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                        	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                         
                         .. attribute:: load_balance_hash_type
                         
@@ -13039,12 +13213,12 @@ class BundleInformation(object):
                         .. attribute:: mac_address
                         
                         	MAC address of this member
-                        	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem.ActorBundleData.MacAddress>`
+                        	**type**\:   :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem.ActorBundleData.MacAddress>`
                         
                         .. attribute:: mac_source
                         
                         	The source of the MAC Address
-                        	**type**\:  :py:class:`BmBdlMacSourceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSourceEnum>`
+                        	**type**\:   :py:class:`BmBdlMacSourceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSourceEnum>`
                         
                         .. attribute:: mac_source_member
                         
@@ -13077,7 +13251,7 @@ class BundleInformation(object):
                         .. attribute:: maximum_active_links_source
                         
                         	Source of maximum active links value
-                        	**type**\:  :py:class:`BmWhichSystemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystemEnum>`
+                        	**type**\:   :py:class:`BmWhichSystemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystemEnum>`
                         
                         .. attribute:: minimum_active_links
                         
@@ -13093,15 +13267,17 @@ class BundleInformation(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: kbit/s
+                        
                         .. attribute:: mlacp_mode
                         
                         	Indicates the mode of the device for the bundle
-                        	**type**\:  :py:class:`BundleMlacpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpModeEnum>`
+                        	**type**\:   :py:class:`BundleMlacpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpModeEnum>`
                         
                         .. attribute:: mlacp_status
                         
                         	The status of the mLACP feature on the bundle
-                        	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                        	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                         
                         .. attribute:: primary_member
                         
@@ -13116,6 +13292,8 @@ class BundleInformation(object):
                         	**type**\:  int
                         
                         	**range:** 0..65535
+                        
+                        	**units**\: second
                         
                         .. attribute:: singleton
                         
@@ -13139,7 +13317,7 @@ class BundleInformation(object):
                         .. attribute:: switchover_type
                         
                         	How a switchover of the bundle from this device will occur
-                        	**type**\:  :py:class:`BmdMlacpSwitchoverEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchoverEnum>`
+                        	**type**\:   :py:class:`BmdMlacpSwitchoverEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchoverEnum>`
                         
                         .. attribute:: wait_while_timer
                         
@@ -13256,12 +13434,12 @@ class BundleInformation(object):
                             .. attribute:: bundle_status
                             
                             	Status of BFD on the bundle
-                            	**type**\:  :py:class:`BmdBfdBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlStateEnum>`
+                            	**type**\:   :py:class:`BmdBfdBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlStateEnum>`
                             
                             .. attribute:: destination_address
                             
                             	Configured destination address for BFD session
-                            	**type**\:  :py:class:`DestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem.ActorBundleData.BfdConfig.DestinationAddress>`
+                            	**type**\:   :py:class:`DestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem.ActorBundleData.BfdConfig.DestinationAddress>`
                             
                             .. attribute:: fast_detect
                             
@@ -13338,7 +13516,7 @@ class BundleInformation(object):
                                 .. attribute:: af
                                 
                                 	AF
-                                	**type**\:  :py:class:`BmAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmAfIdEnum>`
+                                	**type**\:   :py:class:`BmAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmAfIdEnum>`
                                 
                                 .. attribute:: ipv4
                                 
@@ -13596,7 +13774,7 @@ class BundleInformation(object):
                         .. attribute:: system_mac_addr
                         
                         	MAC Address used to identify the system
-                        	**type**\:  :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem.BundleSystemId.SystemMacAddr>`
+                        	**type**\:   :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleItem.BundleSystemId.SystemMacAddr>`
                         
                         .. attribute:: system_prio
                         
@@ -13739,12 +13917,12 @@ class BundleInformation(object):
                     .. attribute:: bundle_data
                     
                     	Bundle information
-                    	**type**\:  :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData>`
+                    	**type**\:   :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData>`
                     
                     .. attribute:: member_data
                     
                     	Member information
-                    	**type**\: list of  :py:class:`MemberData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData>`
+                    	**type**\: list of    :py:class:`MemberData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData>`
                     
                     
 
@@ -13769,7 +13947,7 @@ class BundleInformation(object):
                         .. attribute:: actor_bundle_data
                         
                         	Basic bundle information
-                        	**type**\:  :py:class:`ActorBundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData.ActorBundleData>`
+                        	**type**\:   :py:class:`ActorBundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData.ActorBundleData>`
                         
                         .. attribute:: actor_operational_key
                         
@@ -13781,7 +13959,7 @@ class BundleInformation(object):
                         .. attribute:: bundle_system_id
                         
                         	System ID for the bundle
-                        	**type**\:  :py:class:`BundleSystemId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData.BundleSystemId>`
+                        	**type**\:   :py:class:`BundleSystemId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData.BundleSystemId>`
                         
                         .. attribute:: partner_operational_key
                         
@@ -13848,10 +14026,12 @@ class BundleInformation(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: kbit/s
+                            
                             .. attribute:: bfd_config
                             
                             	Configuration values for BFD on bundle members
-                            	**type**\: list of  :py:class:`BfdConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData.ActorBundleData.BfdConfig>`
+                            	**type**\: list of    :py:class:`BfdConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData.ActorBundleData.BfdConfig>`
                             
                             .. attribute:: bundle_interface_name
                             
@@ -13863,7 +14043,7 @@ class BundleInformation(object):
                             .. attribute:: bundle_status
                             
                             	The state of the bundle
-                            	**type**\:  :py:class:`BmBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlStateEnum>`
+                            	**type**\:   :py:class:`BmBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlStateEnum>`
                             
                             .. attribute:: cisco_extensions
                             
@@ -13883,6 +14063,8 @@ class BundleInformation(object):
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
+                            
+                            	**units**\: kbit/s
                             
                             .. attribute:: configured_foreign_member_count
                             
@@ -13905,6 +14087,8 @@ class BundleInformation(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: kbit/s
+                            
                             .. attribute:: iccp_group_id
                             
                             	ICCP Group that the bundle is configured to
@@ -13920,12 +14104,12 @@ class BundleInformation(object):
                             .. attribute:: ipv4bfd_status
                             
                             	The status of the BFD (IPv4) feature on the bundle
-                            	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                            	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                             
                             .. attribute:: ipv6bfd_status
                             
                             	The status of the BFD (IPv6) feature on the bundle
-                            	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                            	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                             
                             .. attribute:: is_active
                             
@@ -13940,12 +14124,12 @@ class BundleInformation(object):
                             .. attribute:: lacp_status
                             
                             	The status of the LACP feature on the bundle
-                            	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                            	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                             
                             .. attribute:: link_order_status
                             
                             	The status of the link order signaling feature on the bundle
-                            	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                            	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                             
                             .. attribute:: load_balance_hash_type
                             
@@ -13962,12 +14146,12 @@ class BundleInformation(object):
                             .. attribute:: mac_address
                             
                             	MAC address of this member
-                            	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData.ActorBundleData.MacAddress>`
+                            	**type**\:   :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData.ActorBundleData.MacAddress>`
                             
                             .. attribute:: mac_source
                             
                             	The source of the MAC Address
-                            	**type**\:  :py:class:`BmBdlMacSourceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSourceEnum>`
+                            	**type**\:   :py:class:`BmBdlMacSourceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSourceEnum>`
                             
                             .. attribute:: mac_source_member
                             
@@ -14000,7 +14184,7 @@ class BundleInformation(object):
                             .. attribute:: maximum_active_links_source
                             
                             	Source of maximum active links value
-                            	**type**\:  :py:class:`BmWhichSystemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystemEnum>`
+                            	**type**\:   :py:class:`BmWhichSystemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystemEnum>`
                             
                             .. attribute:: minimum_active_links
                             
@@ -14016,15 +14200,17 @@ class BundleInformation(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: kbit/s
+                            
                             .. attribute:: mlacp_mode
                             
                             	Indicates the mode of the device for the bundle
-                            	**type**\:  :py:class:`BundleMlacpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpModeEnum>`
+                            	**type**\:   :py:class:`BundleMlacpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpModeEnum>`
                             
                             .. attribute:: mlacp_status
                             
                             	The status of the mLACP feature on the bundle
-                            	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                            	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                             
                             .. attribute:: primary_member
                             
@@ -14039,6 +14225,8 @@ class BundleInformation(object):
                             	**type**\:  int
                             
                             	**range:** 0..65535
+                            
+                            	**units**\: second
                             
                             .. attribute:: singleton
                             
@@ -14062,7 +14250,7 @@ class BundleInformation(object):
                             .. attribute:: switchover_type
                             
                             	How a switchover of the bundle from this device will occur
-                            	**type**\:  :py:class:`BmdMlacpSwitchoverEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchoverEnum>`
+                            	**type**\:   :py:class:`BmdMlacpSwitchoverEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchoverEnum>`
                             
                             .. attribute:: wait_while_timer
                             
@@ -14179,12 +14367,12 @@ class BundleInformation(object):
                                 .. attribute:: bundle_status
                                 
                                 	Status of BFD on the bundle
-                                	**type**\:  :py:class:`BmdBfdBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlStateEnum>`
+                                	**type**\:   :py:class:`BmdBfdBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlStateEnum>`
                                 
                                 .. attribute:: destination_address
                                 
                                 	Configured destination address for BFD session
-                                	**type**\:  :py:class:`DestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData.ActorBundleData.BfdConfig.DestinationAddress>`
+                                	**type**\:   :py:class:`DestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData.ActorBundleData.BfdConfig.DestinationAddress>`
                                 
                                 .. attribute:: fast_detect
                                 
@@ -14261,7 +14449,7 @@ class BundleInformation(object):
                                     .. attribute:: af
                                     
                                     	AF
-                                    	**type**\:  :py:class:`BmAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmAfIdEnum>`
+                                    	**type**\:   :py:class:`BmAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmAfIdEnum>`
                                     
                                     .. attribute:: ipv4
                                     
@@ -14519,7 +14707,7 @@ class BundleInformation(object):
                             .. attribute:: system_mac_addr
                             
                             	MAC Address used to identify the system
-                            	**type**\:  :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData.BundleSystemId.SystemMacAddr>`
+                            	**type**\:   :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.BundleData.BundleSystemId.SystemMacAddr>`
                             
                             .. attribute:: system_prio
                             
@@ -14662,17 +14850,17 @@ class BundleInformation(object):
                         .. attribute:: actor_churn_state
                         
                         	State of the Churn state machine for the Actor
-                        	**type**\:  :py:class:`LacpChurnstatesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpChurnstatesEnum>`
+                        	**type**\:   :py:class:`LacpChurnstatesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpChurnstatesEnum>`
                         
                         .. attribute:: actor_info
                         
                         	LACP information for the port from the actor
-                        	**type**\:  :py:class:`ActorInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.ActorInfo>`
+                        	**type**\:   :py:class:`ActorInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.ActorInfo>`
                         
                         .. attribute:: additional_info
                         
                         	Additional information for the link
-                        	**type**\:  :py:class:`AdditionalInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.AdditionalInfo>`
+                        	**type**\:   :py:class:`AdditionalInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.AdditionalInfo>`
                         
                         .. attribute:: attached_aggregator_id
                         
@@ -14691,27 +14879,27 @@ class BundleInformation(object):
                         .. attribute:: mux_state
                         
                         	State of the Mux state machine
-                        	**type**\:  :py:class:`BmMuxstateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstateEnum>`
+                        	**type**\:   :py:class:`BmMuxstateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstateEnum>`
                         
                         .. attribute:: partner_churn_state
                         
                         	State of the Churn state machine for the Partner
-                        	**type**\:  :py:class:`LacpChurnstatesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpChurnstatesEnum>`
+                        	**type**\:   :py:class:`LacpChurnstatesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpChurnstatesEnum>`
                         
                         .. attribute:: partner_info
                         
                         	LACP information for the port from the partner
-                        	**type**\:  :py:class:`PartnerInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.PartnerInfo>`
+                        	**type**\:   :py:class:`PartnerInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.PartnerInfo>`
                         
                         .. attribute:: period_state
                         
                         	State of the Period state machine
-                        	**type**\:  :py:class:`LacpPeriodStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpPeriodStateEnum>`
+                        	**type**\:   :py:class:`LacpPeriodStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpPeriodStateEnum>`
                         
                         .. attribute:: receive_machine_state
                         
                         	State of the RX state machine
-                        	**type**\:  :py:class:`RxstatesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.RxstatesEnum>`
+                        	**type**\:   :py:class:`RxstatesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.RxstatesEnum>`
                         
                         .. attribute:: selected_aggregator_id
                         
@@ -14723,7 +14911,7 @@ class BundleInformation(object):
                         .. attribute:: selection_state
                         
                         	State of the Selection Logic state machine
-                        	**type**\:  :py:class:`LacpSelStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpSelStateEnum>`
+                        	**type**\:   :py:class:`LacpSelStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpSelStateEnum>`
                         
                         
 
@@ -14758,7 +14946,7 @@ class BundleInformation(object):
                             .. attribute:: port_info
                             
                             	LACP parameters for this device
-                            	**type**\:  :py:class:`PortInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.ActorInfo.PortInfo>`
+                            	**type**\:   :py:class:`PortInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.ActorInfo.PortInfo>`
                             
                             .. attribute:: tx_period
                             
@@ -14795,7 +14983,7 @@ class BundleInformation(object):
                                 .. attribute:: port
                                 
                                 	port
-                                	**type**\:  :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.ActorInfo.PortInfo.Port>`
+                                	**type**\:   :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.ActorInfo.PortInfo.Port>`
                                 
                                 .. attribute:: state
                                 
@@ -14807,7 +14995,7 @@ class BundleInformation(object):
                                 .. attribute:: system
                                 
                                 	system
-                                	**type**\:  :py:class:`System <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.ActorInfo.PortInfo.System>`
+                                	**type**\:   :py:class:`System <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.ActorInfo.PortInfo.System>`
                                 
                                 
 
@@ -14833,7 +15021,7 @@ class BundleInformation(object):
                                     .. attribute:: system_mac_addr
                                     
                                     	MAC Address used to identify the system
-                                    	**type**\:  :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.ActorInfo.PortInfo.System.SystemMacAddr>`
+                                    	**type**\:   :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.ActorInfo.PortInfo.System.SystemMacAddr>`
                                     
                                     .. attribute:: system_prio
                                     
@@ -15055,7 +15243,7 @@ class BundleInformation(object):
                             .. attribute:: port_info
                             
                             	LACP parameters for this device
-                            	**type**\:  :py:class:`PortInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.PartnerInfo.PortInfo>`
+                            	**type**\:   :py:class:`PortInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.PartnerInfo.PortInfo>`
                             
                             .. attribute:: tx_period
                             
@@ -15092,7 +15280,7 @@ class BundleInformation(object):
                                 .. attribute:: port
                                 
                                 	port
-                                	**type**\:  :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.PartnerInfo.PortInfo.Port>`
+                                	**type**\:   :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.PartnerInfo.PortInfo.Port>`
                                 
                                 .. attribute:: state
                                 
@@ -15104,7 +15292,7 @@ class BundleInformation(object):
                                 .. attribute:: system
                                 
                                 	system
-                                	**type**\:  :py:class:`System <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.PartnerInfo.PortInfo.System>`
+                                	**type**\:   :py:class:`System <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.PartnerInfo.PortInfo.System>`
                                 
                                 
 
@@ -15130,7 +15318,7 @@ class BundleInformation(object):
                                     .. attribute:: system_mac_addr
                                     
                                     	MAC Address used to identify the system
-                                    	**type**\:  :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.PartnerInfo.PortInfo.System.SystemMacAddr>`
+                                    	**type**\:   :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.PartnerInfo.PortInfo.System.SystemMacAddr>`
                                     
                                     .. attribute:: system_prio
                                     
@@ -15352,17 +15540,17 @@ class BundleInformation(object):
                             .. attribute:: foreign
                             
                             	Information for a foreign port
-                            	**type**\:  :py:class:`Foreign <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.AdditionalInfo.Foreign>`
+                            	**type**\:   :py:class:`Foreign <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.AdditionalInfo.Foreign>`
                             
                             .. attribute:: local
                             
                             	Information for a local port
-                            	**type**\:  :py:class:`Local <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.AdditionalInfo.Local>`
+                            	**type**\:   :py:class:`Local <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleDescendant.MemberData.AdditionalInfo.Local>`
                             
                             .. attribute:: mbr_type
                             
                             	MbrType
-                            	**type**\:  :py:class:`BmdMemberTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnumEnum>`
+                            	**type**\:   :py:class:`BmdMemberTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnumEnum>`
                             
                             
 
@@ -15606,7 +15794,7 @@ class BundleInformation(object):
                     .. attribute:: lacp_bundle_children_member
                     
                     	Bundle member item with LACP information
-                    	**type**\: list of  :py:class:`LacpBundleChildrenMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember>`
+                    	**type**\: list of    :py:class:`LacpBundleChildrenMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember>`
                     
                     
 
@@ -15634,17 +15822,17 @@ class BundleInformation(object):
                         .. attribute:: actor_churn_state
                         
                         	State of the Churn state machine for the Actor
-                        	**type**\:  :py:class:`LacpChurnstatesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpChurnstatesEnum>`
+                        	**type**\:   :py:class:`LacpChurnstatesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpChurnstatesEnum>`
                         
                         .. attribute:: actor_info
                         
                         	LACP information for the port from the actor
-                        	**type**\:  :py:class:`ActorInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.ActorInfo>`
+                        	**type**\:   :py:class:`ActorInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.ActorInfo>`
                         
                         .. attribute:: additional_info
                         
                         	Additional information for the link
-                        	**type**\:  :py:class:`AdditionalInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.AdditionalInfo>`
+                        	**type**\:   :py:class:`AdditionalInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.AdditionalInfo>`
                         
                         .. attribute:: attached_aggregator_id
                         
@@ -15663,27 +15851,27 @@ class BundleInformation(object):
                         .. attribute:: mux_state
                         
                         	State of the Mux state machine
-                        	**type**\:  :py:class:`BmMuxstateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstateEnum>`
+                        	**type**\:   :py:class:`BmMuxstateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstateEnum>`
                         
                         .. attribute:: partner_churn_state
                         
                         	State of the Churn state machine for the Partner
-                        	**type**\:  :py:class:`LacpChurnstatesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpChurnstatesEnum>`
+                        	**type**\:   :py:class:`LacpChurnstatesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpChurnstatesEnum>`
                         
                         .. attribute:: partner_info
                         
                         	LACP information for the port from the partner
-                        	**type**\:  :py:class:`PartnerInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.PartnerInfo>`
+                        	**type**\:   :py:class:`PartnerInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.PartnerInfo>`
                         
                         .. attribute:: period_state
                         
                         	State of the Period state machine
-                        	**type**\:  :py:class:`LacpPeriodStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpPeriodStateEnum>`
+                        	**type**\:   :py:class:`LacpPeriodStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpPeriodStateEnum>`
                         
                         .. attribute:: receive_machine_state
                         
                         	State of the RX state machine
-                        	**type**\:  :py:class:`RxstatesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.RxstatesEnum>`
+                        	**type**\:   :py:class:`RxstatesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.RxstatesEnum>`
                         
                         .. attribute:: selected_aggregator_id
                         
@@ -15695,7 +15883,7 @@ class BundleInformation(object):
                         .. attribute:: selection_state
                         
                         	State of the Selection Logic state machine
-                        	**type**\:  :py:class:`LacpSelStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpSelStateEnum>`
+                        	**type**\:   :py:class:`LacpSelStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpSelStateEnum>`
                         
                         
 
@@ -15731,7 +15919,7 @@ class BundleInformation(object):
                             .. attribute:: port_info
                             
                             	LACP parameters for this device
-                            	**type**\:  :py:class:`PortInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.ActorInfo.PortInfo>`
+                            	**type**\:   :py:class:`PortInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.ActorInfo.PortInfo>`
                             
                             .. attribute:: tx_period
                             
@@ -15768,7 +15956,7 @@ class BundleInformation(object):
                                 .. attribute:: port
                                 
                                 	port
-                                	**type**\:  :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.ActorInfo.PortInfo.Port>`
+                                	**type**\:   :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.ActorInfo.PortInfo.Port>`
                                 
                                 .. attribute:: state
                                 
@@ -15780,7 +15968,7 @@ class BundleInformation(object):
                                 .. attribute:: system
                                 
                                 	system
-                                	**type**\:  :py:class:`System <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.ActorInfo.PortInfo.System>`
+                                	**type**\:   :py:class:`System <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.ActorInfo.PortInfo.System>`
                                 
                                 
 
@@ -15806,7 +15994,7 @@ class BundleInformation(object):
                                     .. attribute:: system_mac_addr
                                     
                                     	MAC Address used to identify the system
-                                    	**type**\:  :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.ActorInfo.PortInfo.System.SystemMacAddr>`
+                                    	**type**\:   :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.ActorInfo.PortInfo.System.SystemMacAddr>`
                                     
                                     .. attribute:: system_prio
                                     
@@ -16028,7 +16216,7 @@ class BundleInformation(object):
                             .. attribute:: port_info
                             
                             	LACP parameters for this device
-                            	**type**\:  :py:class:`PortInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.PartnerInfo.PortInfo>`
+                            	**type**\:   :py:class:`PortInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.PartnerInfo.PortInfo>`
                             
                             .. attribute:: tx_period
                             
@@ -16065,7 +16253,7 @@ class BundleInformation(object):
                                 .. attribute:: port
                                 
                                 	port
-                                	**type**\:  :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.PartnerInfo.PortInfo.Port>`
+                                	**type**\:   :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.PartnerInfo.PortInfo.Port>`
                                 
                                 .. attribute:: state
                                 
@@ -16077,7 +16265,7 @@ class BundleInformation(object):
                                 .. attribute:: system
                                 
                                 	system
-                                	**type**\:  :py:class:`System <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.PartnerInfo.PortInfo.System>`
+                                	**type**\:   :py:class:`System <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.PartnerInfo.PortInfo.System>`
                                 
                                 
 
@@ -16103,7 +16291,7 @@ class BundleInformation(object):
                                     .. attribute:: system_mac_addr
                                     
                                     	MAC Address used to identify the system
-                                    	**type**\:  :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.PartnerInfo.PortInfo.System.SystemMacAddr>`
+                                    	**type**\:   :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.PartnerInfo.PortInfo.System.SystemMacAddr>`
                                     
                                     .. attribute:: system_prio
                                     
@@ -16325,17 +16513,17 @@ class BundleInformation(object):
                             .. attribute:: foreign
                             
                             	Information for a foreign port
-                            	**type**\:  :py:class:`Foreign <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.AdditionalInfo.Foreign>`
+                            	**type**\:   :py:class:`Foreign <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.AdditionalInfo.Foreign>`
                             
                             .. attribute:: local
                             
                             	Information for a local port
-                            	**type**\:  :py:class:`Local <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.AdditionalInfo.Local>`
+                            	**type**\:   :py:class:`Local <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpBundles.LacpBundle.LacpBundleChildrenMembers.LacpBundleChildrenMember.AdditionalInfo.Local>`
                             
                             .. attribute:: mbr_type
                             
                             	MbrType
-                            	**type**\:  :py:class:`BmdMemberTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnumEnum>`
+                            	**type**\:   :py:class:`BmdMemberTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnumEnum>`
                             
                             
 
@@ -16638,7 +16826,7 @@ class BundleInformation(object):
             .. attribute:: lacp_member
             
             	Member interface
-            	**type**\: list of  :py:class:`LacpMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember>`
+            	**type**\: list of    :py:class:`LacpMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember>`
             
             
 
@@ -16666,12 +16854,12 @@ class BundleInformation(object):
                 .. attribute:: lacp_member_ancestor
                 
                 	Data for this item and its parent bundle
-                	**type**\:  :py:class:`LacpMemberAncestor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor>`
+                	**type**\:   :py:class:`LacpMemberAncestor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor>`
                 
                 .. attribute:: lacp_member_item
                 
                 	Data for this item
-                	**type**\:  :py:class:`LacpMemberItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem>`
+                	**type**\:   :py:class:`LacpMemberItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem>`
                 
                 
 
@@ -16696,12 +16884,12 @@ class BundleInformation(object):
                     .. attribute:: bundle_data
                     
                     	Bundle information
-                    	**type**\:  :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData>`
+                    	**type**\:   :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData>`
                     
                     .. attribute:: member_data
                     
                     	Member information
-                    	**type**\: list of  :py:class:`MemberData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData>`
+                    	**type**\: list of    :py:class:`MemberData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData>`
                     
                     
 
@@ -16726,7 +16914,7 @@ class BundleInformation(object):
                         .. attribute:: actor_bundle_data
                         
                         	Basic bundle information
-                        	**type**\:  :py:class:`ActorBundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData.ActorBundleData>`
+                        	**type**\:   :py:class:`ActorBundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData.ActorBundleData>`
                         
                         .. attribute:: actor_operational_key
                         
@@ -16738,7 +16926,7 @@ class BundleInformation(object):
                         .. attribute:: bundle_system_id
                         
                         	System ID for the bundle
-                        	**type**\:  :py:class:`BundleSystemId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData.BundleSystemId>`
+                        	**type**\:   :py:class:`BundleSystemId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData.BundleSystemId>`
                         
                         .. attribute:: partner_operational_key
                         
@@ -16805,10 +16993,12 @@ class BundleInformation(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: kbit/s
+                            
                             .. attribute:: bfd_config
                             
                             	Configuration values for BFD on bundle members
-                            	**type**\: list of  :py:class:`BfdConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData.ActorBundleData.BfdConfig>`
+                            	**type**\: list of    :py:class:`BfdConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData.ActorBundleData.BfdConfig>`
                             
                             .. attribute:: bundle_interface_name
                             
@@ -16820,7 +17010,7 @@ class BundleInformation(object):
                             .. attribute:: bundle_status
                             
                             	The state of the bundle
-                            	**type**\:  :py:class:`BmBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlStateEnum>`
+                            	**type**\:   :py:class:`BmBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlStateEnum>`
                             
                             .. attribute:: cisco_extensions
                             
@@ -16840,6 +17030,8 @@ class BundleInformation(object):
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
+                            
+                            	**units**\: kbit/s
                             
                             .. attribute:: configured_foreign_member_count
                             
@@ -16862,6 +17054,8 @@ class BundleInformation(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: kbit/s
+                            
                             .. attribute:: iccp_group_id
                             
                             	ICCP Group that the bundle is configured to
@@ -16877,12 +17071,12 @@ class BundleInformation(object):
                             .. attribute:: ipv4bfd_status
                             
                             	The status of the BFD (IPv4) feature on the bundle
-                            	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                            	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                             
                             .. attribute:: ipv6bfd_status
                             
                             	The status of the BFD (IPv6) feature on the bundle
-                            	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                            	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                             
                             .. attribute:: is_active
                             
@@ -16897,12 +17091,12 @@ class BundleInformation(object):
                             .. attribute:: lacp_status
                             
                             	The status of the LACP feature on the bundle
-                            	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                            	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                             
                             .. attribute:: link_order_status
                             
                             	The status of the link order signaling feature on the bundle
-                            	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                            	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                             
                             .. attribute:: load_balance_hash_type
                             
@@ -16919,12 +17113,12 @@ class BundleInformation(object):
                             .. attribute:: mac_address
                             
                             	MAC address of this member
-                            	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData.ActorBundleData.MacAddress>`
+                            	**type**\:   :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData.ActorBundleData.MacAddress>`
                             
                             .. attribute:: mac_source
                             
                             	The source of the MAC Address
-                            	**type**\:  :py:class:`BmBdlMacSourceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSourceEnum>`
+                            	**type**\:   :py:class:`BmBdlMacSourceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSourceEnum>`
                             
                             .. attribute:: mac_source_member
                             
@@ -16957,7 +17151,7 @@ class BundleInformation(object):
                             .. attribute:: maximum_active_links_source
                             
                             	Source of maximum active links value
-                            	**type**\:  :py:class:`BmWhichSystemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystemEnum>`
+                            	**type**\:   :py:class:`BmWhichSystemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystemEnum>`
                             
                             .. attribute:: minimum_active_links
                             
@@ -16973,15 +17167,17 @@ class BundleInformation(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: kbit/s
+                            
                             .. attribute:: mlacp_mode
                             
                             	Indicates the mode of the device for the bundle
-                            	**type**\:  :py:class:`BundleMlacpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpModeEnum>`
+                            	**type**\:   :py:class:`BundleMlacpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpModeEnum>`
                             
                             .. attribute:: mlacp_status
                             
                             	The status of the mLACP feature on the bundle
-                            	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                            	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                             
                             .. attribute:: primary_member
                             
@@ -16996,6 +17192,8 @@ class BundleInformation(object):
                             	**type**\:  int
                             
                             	**range:** 0..65535
+                            
+                            	**units**\: second
                             
                             .. attribute:: singleton
                             
@@ -17019,7 +17217,7 @@ class BundleInformation(object):
                             .. attribute:: switchover_type
                             
                             	How a switchover of the bundle from this device will occur
-                            	**type**\:  :py:class:`BmdMlacpSwitchoverEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchoverEnum>`
+                            	**type**\:   :py:class:`BmdMlacpSwitchoverEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchoverEnum>`
                             
                             .. attribute:: wait_while_timer
                             
@@ -17136,12 +17334,12 @@ class BundleInformation(object):
                                 .. attribute:: bundle_status
                                 
                                 	Status of BFD on the bundle
-                                	**type**\:  :py:class:`BmdBfdBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlStateEnum>`
+                                	**type**\:   :py:class:`BmdBfdBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlStateEnum>`
                                 
                                 .. attribute:: destination_address
                                 
                                 	Configured destination address for BFD session
-                                	**type**\:  :py:class:`DestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData.ActorBundleData.BfdConfig.DestinationAddress>`
+                                	**type**\:   :py:class:`DestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData.ActorBundleData.BfdConfig.DestinationAddress>`
                                 
                                 .. attribute:: fast_detect
                                 
@@ -17218,7 +17416,7 @@ class BundleInformation(object):
                                     .. attribute:: af
                                     
                                     	AF
-                                    	**type**\:  :py:class:`BmAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmAfIdEnum>`
+                                    	**type**\:   :py:class:`BmAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmAfIdEnum>`
                                     
                                     .. attribute:: ipv4
                                     
@@ -17476,7 +17674,7 @@ class BundleInformation(object):
                             .. attribute:: system_mac_addr
                             
                             	MAC Address used to identify the system
-                            	**type**\:  :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData.BundleSystemId.SystemMacAddr>`
+                            	**type**\:   :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.BundleData.BundleSystemId.SystemMacAddr>`
                             
                             .. attribute:: system_prio
                             
@@ -17619,17 +17817,17 @@ class BundleInformation(object):
                         .. attribute:: actor_churn_state
                         
                         	State of the Churn state machine for the Actor
-                        	**type**\:  :py:class:`LacpChurnstatesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpChurnstatesEnum>`
+                        	**type**\:   :py:class:`LacpChurnstatesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpChurnstatesEnum>`
                         
                         .. attribute:: actor_info
                         
                         	LACP information for the port from the actor
-                        	**type**\:  :py:class:`ActorInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.ActorInfo>`
+                        	**type**\:   :py:class:`ActorInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.ActorInfo>`
                         
                         .. attribute:: additional_info
                         
                         	Additional information for the link
-                        	**type**\:  :py:class:`AdditionalInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.AdditionalInfo>`
+                        	**type**\:   :py:class:`AdditionalInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.AdditionalInfo>`
                         
                         .. attribute:: attached_aggregator_id
                         
@@ -17648,27 +17846,27 @@ class BundleInformation(object):
                         .. attribute:: mux_state
                         
                         	State of the Mux state machine
-                        	**type**\:  :py:class:`BmMuxstateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstateEnum>`
+                        	**type**\:   :py:class:`BmMuxstateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstateEnum>`
                         
                         .. attribute:: partner_churn_state
                         
                         	State of the Churn state machine for the Partner
-                        	**type**\:  :py:class:`LacpChurnstatesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpChurnstatesEnum>`
+                        	**type**\:   :py:class:`LacpChurnstatesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpChurnstatesEnum>`
                         
                         .. attribute:: partner_info
                         
                         	LACP information for the port from the partner
-                        	**type**\:  :py:class:`PartnerInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.PartnerInfo>`
+                        	**type**\:   :py:class:`PartnerInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.PartnerInfo>`
                         
                         .. attribute:: period_state
                         
                         	State of the Period state machine
-                        	**type**\:  :py:class:`LacpPeriodStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpPeriodStateEnum>`
+                        	**type**\:   :py:class:`LacpPeriodStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpPeriodStateEnum>`
                         
                         .. attribute:: receive_machine_state
                         
                         	State of the RX state machine
-                        	**type**\:  :py:class:`RxstatesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.RxstatesEnum>`
+                        	**type**\:   :py:class:`RxstatesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.RxstatesEnum>`
                         
                         .. attribute:: selected_aggregator_id
                         
@@ -17680,7 +17878,7 @@ class BundleInformation(object):
                         .. attribute:: selection_state
                         
                         	State of the Selection Logic state machine
-                        	**type**\:  :py:class:`LacpSelStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpSelStateEnum>`
+                        	**type**\:   :py:class:`LacpSelStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpSelStateEnum>`
                         
                         
 
@@ -17715,7 +17913,7 @@ class BundleInformation(object):
                             .. attribute:: port_info
                             
                             	LACP parameters for this device
-                            	**type**\:  :py:class:`PortInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.ActorInfo.PortInfo>`
+                            	**type**\:   :py:class:`PortInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.ActorInfo.PortInfo>`
                             
                             .. attribute:: tx_period
                             
@@ -17752,7 +17950,7 @@ class BundleInformation(object):
                                 .. attribute:: port
                                 
                                 	port
-                                	**type**\:  :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.ActorInfo.PortInfo.Port>`
+                                	**type**\:   :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.ActorInfo.PortInfo.Port>`
                                 
                                 .. attribute:: state
                                 
@@ -17764,7 +17962,7 @@ class BundleInformation(object):
                                 .. attribute:: system
                                 
                                 	system
-                                	**type**\:  :py:class:`System <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.ActorInfo.PortInfo.System>`
+                                	**type**\:   :py:class:`System <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.ActorInfo.PortInfo.System>`
                                 
                                 
 
@@ -17790,7 +17988,7 @@ class BundleInformation(object):
                                     .. attribute:: system_mac_addr
                                     
                                     	MAC Address used to identify the system
-                                    	**type**\:  :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.ActorInfo.PortInfo.System.SystemMacAddr>`
+                                    	**type**\:   :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.ActorInfo.PortInfo.System.SystemMacAddr>`
                                     
                                     .. attribute:: system_prio
                                     
@@ -18012,7 +18210,7 @@ class BundleInformation(object):
                             .. attribute:: port_info
                             
                             	LACP parameters for this device
-                            	**type**\:  :py:class:`PortInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.PartnerInfo.PortInfo>`
+                            	**type**\:   :py:class:`PortInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.PartnerInfo.PortInfo>`
                             
                             .. attribute:: tx_period
                             
@@ -18049,7 +18247,7 @@ class BundleInformation(object):
                                 .. attribute:: port
                                 
                                 	port
-                                	**type**\:  :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.PartnerInfo.PortInfo.Port>`
+                                	**type**\:   :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.PartnerInfo.PortInfo.Port>`
                                 
                                 .. attribute:: state
                                 
@@ -18061,7 +18259,7 @@ class BundleInformation(object):
                                 .. attribute:: system
                                 
                                 	system
-                                	**type**\:  :py:class:`System <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.PartnerInfo.PortInfo.System>`
+                                	**type**\:   :py:class:`System <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.PartnerInfo.PortInfo.System>`
                                 
                                 
 
@@ -18087,7 +18285,7 @@ class BundleInformation(object):
                                     .. attribute:: system_mac_addr
                                     
                                     	MAC Address used to identify the system
-                                    	**type**\:  :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.PartnerInfo.PortInfo.System.SystemMacAddr>`
+                                    	**type**\:   :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.PartnerInfo.PortInfo.System.SystemMacAddr>`
                                     
                                     .. attribute:: system_prio
                                     
@@ -18309,17 +18507,17 @@ class BundleInformation(object):
                             .. attribute:: foreign
                             
                             	Information for a foreign port
-                            	**type**\:  :py:class:`Foreign <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.AdditionalInfo.Foreign>`
+                            	**type**\:   :py:class:`Foreign <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.AdditionalInfo.Foreign>`
                             
                             .. attribute:: local
                             
                             	Information for a local port
-                            	**type**\:  :py:class:`Local <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.AdditionalInfo.Local>`
+                            	**type**\:   :py:class:`Local <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberAncestor.MemberData.AdditionalInfo.Local>`
                             
                             .. attribute:: mbr_type
                             
                             	MbrType
-                            	**type**\:  :py:class:`BmdMemberTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnumEnum>`
+                            	**type**\:   :py:class:`BmdMemberTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnumEnum>`
                             
                             
 
@@ -18563,17 +18761,17 @@ class BundleInformation(object):
                     .. attribute:: actor_churn_state
                     
                     	State of the Churn state machine for the Actor
-                    	**type**\:  :py:class:`LacpChurnstatesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpChurnstatesEnum>`
+                    	**type**\:   :py:class:`LacpChurnstatesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpChurnstatesEnum>`
                     
                     .. attribute:: actor_info
                     
                     	LACP information for the port from the actor
-                    	**type**\:  :py:class:`ActorInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.ActorInfo>`
+                    	**type**\:   :py:class:`ActorInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.ActorInfo>`
                     
                     .. attribute:: additional_info
                     
                     	Additional information for the link
-                    	**type**\:  :py:class:`AdditionalInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.AdditionalInfo>`
+                    	**type**\:   :py:class:`AdditionalInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.AdditionalInfo>`
                     
                     .. attribute:: attached_aggregator_id
                     
@@ -18592,27 +18790,27 @@ class BundleInformation(object):
                     .. attribute:: mux_state
                     
                     	State of the Mux state machine
-                    	**type**\:  :py:class:`BmMuxstateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstateEnum>`
+                    	**type**\:   :py:class:`BmMuxstateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstateEnum>`
                     
                     .. attribute:: partner_churn_state
                     
                     	State of the Churn state machine for the Partner
-                    	**type**\:  :py:class:`LacpChurnstatesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpChurnstatesEnum>`
+                    	**type**\:   :py:class:`LacpChurnstatesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpChurnstatesEnum>`
                     
                     .. attribute:: partner_info
                     
                     	LACP information for the port from the partner
-                    	**type**\:  :py:class:`PartnerInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.PartnerInfo>`
+                    	**type**\:   :py:class:`PartnerInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.PartnerInfo>`
                     
                     .. attribute:: period_state
                     
                     	State of the Period state machine
-                    	**type**\:  :py:class:`LacpPeriodStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpPeriodStateEnum>`
+                    	**type**\:   :py:class:`LacpPeriodStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpPeriodStateEnum>`
                     
                     .. attribute:: receive_machine_state
                     
                     	State of the RX state machine
-                    	**type**\:  :py:class:`RxstatesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.RxstatesEnum>`
+                    	**type**\:   :py:class:`RxstatesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.RxstatesEnum>`
                     
                     .. attribute:: selected_aggregator_id
                     
@@ -18624,7 +18822,7 @@ class BundleInformation(object):
                     .. attribute:: selection_state
                     
                     	State of the Selection Logic state machine
-                    	**type**\:  :py:class:`LacpSelStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpSelStateEnum>`
+                    	**type**\:   :py:class:`LacpSelStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpSelStateEnum>`
                     
                     
 
@@ -18659,7 +18857,7 @@ class BundleInformation(object):
                         .. attribute:: port_info
                         
                         	LACP parameters for this device
-                        	**type**\:  :py:class:`PortInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.ActorInfo.PortInfo>`
+                        	**type**\:   :py:class:`PortInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.ActorInfo.PortInfo>`
                         
                         .. attribute:: tx_period
                         
@@ -18696,7 +18894,7 @@ class BundleInformation(object):
                             .. attribute:: port
                             
                             	port
-                            	**type**\:  :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.ActorInfo.PortInfo.Port>`
+                            	**type**\:   :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.ActorInfo.PortInfo.Port>`
                             
                             .. attribute:: state
                             
@@ -18708,7 +18906,7 @@ class BundleInformation(object):
                             .. attribute:: system
                             
                             	system
-                            	**type**\:  :py:class:`System <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.ActorInfo.PortInfo.System>`
+                            	**type**\:   :py:class:`System <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.ActorInfo.PortInfo.System>`
                             
                             
 
@@ -18734,7 +18932,7 @@ class BundleInformation(object):
                                 .. attribute:: system_mac_addr
                                 
                                 	MAC Address used to identify the system
-                                	**type**\:  :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.ActorInfo.PortInfo.System.SystemMacAddr>`
+                                	**type**\:   :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.ActorInfo.PortInfo.System.SystemMacAddr>`
                                 
                                 .. attribute:: system_prio
                                 
@@ -18956,7 +19154,7 @@ class BundleInformation(object):
                         .. attribute:: port_info
                         
                         	LACP parameters for this device
-                        	**type**\:  :py:class:`PortInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.PartnerInfo.PortInfo>`
+                        	**type**\:   :py:class:`PortInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.PartnerInfo.PortInfo>`
                         
                         .. attribute:: tx_period
                         
@@ -18993,7 +19191,7 @@ class BundleInformation(object):
                             .. attribute:: port
                             
                             	port
-                            	**type**\:  :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.PartnerInfo.PortInfo.Port>`
+                            	**type**\:   :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.PartnerInfo.PortInfo.Port>`
                             
                             .. attribute:: state
                             
@@ -19005,7 +19203,7 @@ class BundleInformation(object):
                             .. attribute:: system
                             
                             	system
-                            	**type**\:  :py:class:`System <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.PartnerInfo.PortInfo.System>`
+                            	**type**\:   :py:class:`System <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.PartnerInfo.PortInfo.System>`
                             
                             
 
@@ -19031,7 +19229,7 @@ class BundleInformation(object):
                                 .. attribute:: system_mac_addr
                                 
                                 	MAC Address used to identify the system
-                                	**type**\:  :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.PartnerInfo.PortInfo.System.SystemMacAddr>`
+                                	**type**\:   :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.PartnerInfo.PortInfo.System.SystemMacAddr>`
                                 
                                 .. attribute:: system_prio
                                 
@@ -19253,17 +19451,17 @@ class BundleInformation(object):
                         .. attribute:: foreign
                         
                         	Information for a foreign port
-                        	**type**\:  :py:class:`Foreign <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.AdditionalInfo.Foreign>`
+                        	**type**\:   :py:class:`Foreign <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.AdditionalInfo.Foreign>`
                         
                         .. attribute:: local
                         
                         	Information for a local port
-                        	**type**\:  :py:class:`Local <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.AdditionalInfo.Local>`
+                        	**type**\:   :py:class:`Local <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Lacp.LacpMembers.LacpMember.LacpMemberItem.AdditionalInfo.Local>`
                         
                         .. attribute:: mbr_type
                         
                         	MbrType
-                        	**type**\:  :py:class:`BmdMemberTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnumEnum>`
+                        	**type**\:   :py:class:`BmdMemberTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnumEnum>`
                         
                         
 
@@ -19557,17 +19755,17 @@ class BundleInformation(object):
         .. attribute:: bundles
         
         	Bundle interfaces with counters of mLACP events
-        	**type**\:  :py:class:`Bundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles>`
+        	**type**\:   :py:class:`Bundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles>`
         
         .. attribute:: iccp_groups
         
         	ICCP Groups with counters of their bundle's mLACP events
-        	**type**\:  :py:class:`IccpGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups>`
+        	**type**\:   :py:class:`IccpGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups>`
         
         .. attribute:: nodes
         
         	Devices with counters of their bundle's mLACP events
-        	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes>`
+        	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes>`
         
         
 
@@ -19594,7 +19792,7 @@ class BundleInformation(object):
             .. attribute:: iccp_group
             
             	ICCP Group ID
-            	**type**\: list of  :py:class:`IccpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup>`
+            	**type**\: list of    :py:class:`IccpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup>`
             
             
 
@@ -19624,7 +19822,7 @@ class BundleInformation(object):
                 .. attribute:: iccp_group_item
                 
                 	Data for this item
-                	**type**\:  :py:class:`IccpGroupItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem>`
+                	**type**\:   :py:class:`IccpGroupItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem>`
                 
                 
 
@@ -19647,12 +19845,12 @@ class BundleInformation(object):
                     .. attribute:: iccp_group_data
                     
                     	ICCP Group mLACP TLV counter information
-                    	**type**\:  :py:class:`IccpGroupData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData>`
+                    	**type**\:   :py:class:`IccpGroupData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData>`
                     
                     .. attribute:: node_data
                     
                     	Peer device bundle mLACP counter information
-                    	**type**\: list of  :py:class:`NodeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData>`
+                    	**type**\: list of    :py:class:`NodeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData>`
                     
                     
 
@@ -19677,7 +19875,7 @@ class BundleInformation(object):
                         .. attribute:: bundle_data
                         
                         	Local device bundle mLACP counter information
-                        	**type**\: list of  :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.BundleData>`
+                        	**type**\: list of    :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.BundleData>`
                         
                         .. attribute:: iccp_group_id
                         
@@ -19689,12 +19887,12 @@ class BundleInformation(object):
                         .. attribute:: mlacp_sync_requests_on_all_local_bundles
                         
                         	Counts of mLACP sync request TLVs on all bundles
-                        	**type**\:  :py:class:`MlacpSyncRequestsOnAllLocalBundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles>`
+                        	**type**\:   :py:class:`MlacpSyncRequestsOnAllLocalBundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles>`
                         
                         .. attribute:: mlacp_sync_requests_on_all_local_ports
                         
                         	Counts of mLACP sync request TLVs on all ports
-                        	**type**\:  :py:class:`MlacpSyncRequestsOnAllLocalPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts>`
+                        	**type**\:   :py:class:`MlacpSyncRequestsOnAllLocalPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts>`
                         
                         
 
@@ -19726,10 +19924,12 @@ class BundleInformation(object):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**units**\: nanosecond
+                            
                             .. attribute:: received_sync_requests
                             
                             	Number of mLACP sync request TLVs received
-                            	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests>`
+                            	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests>`
                             
                             .. attribute:: time_since_cleared
                             
@@ -19737,6 +19937,8 @@ class BundleInformation(object):
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**units**\: nanosecond
                             
                             
 
@@ -19863,10 +20065,12 @@ class BundleInformation(object):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**units**\: nanosecond
+                            
                             .. attribute:: received_sync_requests
                             
                             	Number of mLACP sync request TLVs received
-                            	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles.ReceivedSyncRequests>`
+                            	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles.ReceivedSyncRequests>`
                             
                             .. attribute:: time_since_cleared
                             
@@ -19874,6 +20078,8 @@ class BundleInformation(object):
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**units**\: nanosecond
                             
                             
 
@@ -20001,7 +20207,7 @@ class BundleInformation(object):
                             .. attribute:: mlacp_tlv_counters
                             
                             	Counts of mLACP TLVs sent and received
-                            	**type**\:  :py:class:`MlacpTlvCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.BundleData.MlacpTlvCounters>`
+                            	**type**\:   :py:class:`MlacpTlvCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.BundleData.MlacpTlvCounters>`
                             
                             
 
@@ -20028,12 +20234,16 @@ class BundleInformation(object):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**units**\: nanosecond
+                                
                                 .. attribute:: last_unexpected_event
                                 
                                 	Elapsed time in nsecs since last unexpected event
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: nanosecond
                                 
                                 .. attribute:: received_nak_tl_vs
                                 
@@ -20052,7 +20262,7 @@ class BundleInformation(object):
                                 .. attribute:: received_sync_requests
                                 
                                 	Number of mLACP sync request TLVs received
-                                	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.BundleData.MlacpTlvCounters.ReceivedSyncRequests>`
+                                	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.BundleData.MlacpTlvCounters.ReceivedSyncRequests>`
                                 
                                 .. attribute:: sent_config_tl_vs
                                 
@@ -20081,6 +20291,8 @@ class BundleInformation(object):
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: nanosecond
                                 
                                 
 
@@ -20289,12 +20501,12 @@ class BundleInformation(object):
                         .. attribute:: bundle_data
                         
                         	Peer device bundle mLACP TLV counter information
-                        	**type**\: list of  :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.BundleData>`
+                        	**type**\: list of    :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.BundleData>`
                         
                         .. attribute:: node_data
                         
                         	Peer device mLACP TLV counter information
-                        	**type**\:  :py:class:`NodeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData>`
+                        	**type**\:   :py:class:`NodeData_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_>`
                         
                         
 
@@ -20308,23 +20520,23 @@ class BundleInformation(object):
                             self.bundle_data = YList()
                             self.bundle_data.parent = self
                             self.bundle_data.name = 'bundle_data'
-                            self.node_data = BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData()
+                            self.node_data = BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_()
                             self.node_data.parent = self
 
 
-                        class NodeData(object):
+                        class NodeData_(object):
                             """
                             Peer device mLACP TLV counter information
                             
                             .. attribute:: mlacp_sync_requests_on_all_foreign_bundles
                             
                             	Counts of mLACP sync request TLVs on all bundles
-                            	**type**\:  :py:class:`MlacpSyncRequestsOnAllForeignBundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles>`
+                            	**type**\:   :py:class:`MlacpSyncRequestsOnAllForeignBundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles>`
                             
                             .. attribute:: mlacp_sync_requests_on_all_foreign_ports
                             
                             	Counts of mLACP sync request TLVs on all ports
-                            	**type**\:  :py:class:`MlacpSyncRequestsOnAllForeignPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts>`
+                            	**type**\:   :py:class:`MlacpSyncRequestsOnAllForeignPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts>`
                             
                             .. attribute:: node_id
                             
@@ -20342,9 +20554,9 @@ class BundleInformation(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.mlacp_sync_requests_on_all_foreign_bundles = BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles()
+                                self.mlacp_sync_requests_on_all_foreign_bundles = BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles()
                                 self.mlacp_sync_requests_on_all_foreign_bundles.parent = self
-                                self.mlacp_sync_requests_on_all_foreign_ports = BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts()
+                                self.mlacp_sync_requests_on_all_foreign_ports = BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts()
                                 self.mlacp_sync_requests_on_all_foreign_ports.parent = self
                                 self.node_id = None
 
@@ -20360,10 +20572,12 @@ class BundleInformation(object):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**units**\: nanosecond
+                                
                                 .. attribute:: received_sync_requests
                                 
                                 	Number of mLACP sync request TLVs received
-                                	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests>`
+                                	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests>`
                                 
                                 .. attribute:: time_since_cleared
                                 
@@ -20371,6 +20585,8 @@ class BundleInformation(object):
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: nanosecond
                                 
                                 
 
@@ -20382,7 +20598,7 @@ class BundleInformation(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.last_time_cleared = None
-                                    self.received_sync_requests = BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests()
+                                    self.received_sync_requests = BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests()
                                     self.received_sync_requests.parent = self
                                     self.time_since_cleared = None
 
@@ -20453,7 +20669,7 @@ class BundleInformation(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                                        return meta._meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests']['meta_info']
+                                        return meta._meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -20483,7 +20699,7 @@ class BundleInformation(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                                    return meta._meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts']['meta_info']
+                                    return meta._meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts']['meta_info']
 
 
                             class MlacpSyncRequestsOnAllForeignBundles(object):
@@ -20497,10 +20713,12 @@ class BundleInformation(object):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**units**\: nanosecond
+                                
                                 .. attribute:: received_sync_requests
                                 
                                 	Number of mLACP sync request TLVs received
-                                	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests>`
+                                	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests>`
                                 
                                 .. attribute:: time_since_cleared
                                 
@@ -20508,6 +20726,8 @@ class BundleInformation(object):
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: nanosecond
                                 
                                 
 
@@ -20519,7 +20739,7 @@ class BundleInformation(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.last_time_cleared = None
-                                    self.received_sync_requests = BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests()
+                                    self.received_sync_requests = BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests()
                                     self.received_sync_requests.parent = self
                                     self.time_since_cleared = None
 
@@ -20590,7 +20810,7 @@ class BundleInformation(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                                        return meta._meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests']['meta_info']
+                                        return meta._meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -20620,7 +20840,7 @@ class BundleInformation(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                                    return meta._meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles']['meta_info']
+                                    return meta._meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -20650,7 +20870,7 @@ class BundleInformation(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                                return meta._meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData']['meta_info']
+                                return meta._meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_']['meta_info']
 
 
                         class BundleData(object):
@@ -20665,7 +20885,7 @@ class BundleInformation(object):
                             .. attribute:: mlacp_tlv_counters
                             
                             	Counts of mLACP TLVs sent and received
-                            	**type**\:  :py:class:`MlacpTlvCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.BundleData.MlacpTlvCounters>`
+                            	**type**\:   :py:class:`MlacpTlvCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.BundleData.MlacpTlvCounters>`
                             
                             
 
@@ -20692,12 +20912,16 @@ class BundleInformation(object):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**units**\: nanosecond
+                                
                                 .. attribute:: last_unexpected_event
                                 
                                 	Elapsed time in nsecs since last unexpected event
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: nanosecond
                                 
                                 .. attribute:: received_nak_tl_vs
                                 
@@ -20716,7 +20940,7 @@ class BundleInformation(object):
                                 .. attribute:: received_sync_requests
                                 
                                 	Number of mLACP sync request TLVs received
-                                	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.BundleData.MlacpTlvCounters.ReceivedSyncRequests>`
+                                	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.BundleData.MlacpTlvCounters.ReceivedSyncRequests>`
                                 
                                 .. attribute:: sent_config_tl_vs
                                 
@@ -20745,6 +20969,8 @@ class BundleInformation(object):
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: nanosecond
                                 
                                 
 
@@ -21027,7 +21253,7 @@ class BundleInformation(object):
             .. attribute:: bundle
             
             	Bundle interface
-            	**type**\: list of  :py:class:`Bundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle>`
+            	**type**\: list of    :py:class:`Bundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle>`
             
             
 
@@ -21057,7 +21283,7 @@ class BundleInformation(object):
                 .. attribute:: bundle_item
                 
                 	Data for this item
-                	**type**\:  :py:class:`BundleItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem>`
+                	**type**\:   :py:class:`BundleItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem>`
                 
                 
 
@@ -21080,7 +21306,7 @@ class BundleInformation(object):
                     .. attribute:: iccp_group
                     
                     	ICCP Group mLACP TLV counter information
-                    	**type**\: list of  :py:class:`IccpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup>`
+                    	**type**\: list of    :py:class:`IccpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup>`
                     
                     
 
@@ -21103,12 +21329,12 @@ class BundleInformation(object):
                         .. attribute:: iccp_group_data
                         
                         	ICCP Group mLACP TLV counter information
-                        	**type**\:  :py:class:`IccpGroupData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData>`
+                        	**type**\:   :py:class:`IccpGroupData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData>`
                         
                         .. attribute:: node_data
                         
                         	Peer device bundle mLACP counter information
-                        	**type**\: list of  :py:class:`NodeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData>`
+                        	**type**\: list of    :py:class:`NodeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData>`
                         
                         
 
@@ -21133,7 +21359,7 @@ class BundleInformation(object):
                             .. attribute:: bundle_data
                             
                             	Local device bundle mLACP counter information
-                            	**type**\: list of  :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.BundleData>`
+                            	**type**\: list of    :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.BundleData>`
                             
                             .. attribute:: iccp_group_id
                             
@@ -21145,12 +21371,12 @@ class BundleInformation(object):
                             .. attribute:: mlacp_sync_requests_on_all_local_bundles
                             
                             	Counts of mLACP sync request TLVs on all bundles
-                            	**type**\:  :py:class:`MlacpSyncRequestsOnAllLocalBundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles>`
+                            	**type**\:   :py:class:`MlacpSyncRequestsOnAllLocalBundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles>`
                             
                             .. attribute:: mlacp_sync_requests_on_all_local_ports
                             
                             	Counts of mLACP sync request TLVs on all ports
-                            	**type**\:  :py:class:`MlacpSyncRequestsOnAllLocalPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts>`
+                            	**type**\:   :py:class:`MlacpSyncRequestsOnAllLocalPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts>`
                             
                             
 
@@ -21182,10 +21408,12 @@ class BundleInformation(object):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**units**\: nanosecond
+                                
                                 .. attribute:: received_sync_requests
                                 
                                 	Number of mLACP sync request TLVs received
-                                	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests>`
+                                	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests>`
                                 
                                 .. attribute:: time_since_cleared
                                 
@@ -21193,6 +21421,8 @@ class BundleInformation(object):
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: nanosecond
                                 
                                 
 
@@ -21319,10 +21549,12 @@ class BundleInformation(object):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**units**\: nanosecond
+                                
                                 .. attribute:: received_sync_requests
                                 
                                 	Number of mLACP sync request TLVs received
-                                	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles.ReceivedSyncRequests>`
+                                	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles.ReceivedSyncRequests>`
                                 
                                 .. attribute:: time_since_cleared
                                 
@@ -21330,6 +21562,8 @@ class BundleInformation(object):
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: nanosecond
                                 
                                 
 
@@ -21457,7 +21691,7 @@ class BundleInformation(object):
                                 .. attribute:: mlacp_tlv_counters
                                 
                                 	Counts of mLACP TLVs sent and received
-                                	**type**\:  :py:class:`MlacpTlvCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.BundleData.MlacpTlvCounters>`
+                                	**type**\:   :py:class:`MlacpTlvCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.BundleData.MlacpTlvCounters>`
                                 
                                 
 
@@ -21484,12 +21718,16 @@ class BundleInformation(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**units**\: nanosecond
+                                    
                                     .. attribute:: last_unexpected_event
                                     
                                     	Elapsed time in nsecs since last unexpected event
                                     	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: nanosecond
                                     
                                     .. attribute:: received_nak_tl_vs
                                     
@@ -21508,7 +21746,7 @@ class BundleInformation(object):
                                     .. attribute:: received_sync_requests
                                     
                                     	Number of mLACP sync request TLVs received
-                                    	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.BundleData.MlacpTlvCounters.ReceivedSyncRequests>`
+                                    	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.BundleData.MlacpTlvCounters.ReceivedSyncRequests>`
                                     
                                     .. attribute:: sent_config_tl_vs
                                     
@@ -21537,6 +21775,8 @@ class BundleInformation(object):
                                     	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: nanosecond
                                     
                                     
 
@@ -21745,12 +21985,12 @@ class BundleInformation(object):
                             .. attribute:: bundle_data
                             
                             	Peer device bundle mLACP TLV counter information
-                            	**type**\: list of  :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.BundleData>`
+                            	**type**\: list of    :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.BundleData>`
                             
                             .. attribute:: node_data
                             
                             	Peer device mLACP TLV counter information
-                            	**type**\:  :py:class:`NodeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData>`
+                            	**type**\:   :py:class:`NodeData_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_>`
                             
                             
 
@@ -21764,23 +22004,23 @@ class BundleInformation(object):
                                 self.bundle_data = YList()
                                 self.bundle_data.parent = self
                                 self.bundle_data.name = 'bundle_data'
-                                self.node_data = BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData()
+                                self.node_data = BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_()
                                 self.node_data.parent = self
 
 
-                            class NodeData(object):
+                            class NodeData_(object):
                                 """
                                 Peer device mLACP TLV counter information
                                 
                                 .. attribute:: mlacp_sync_requests_on_all_foreign_bundles
                                 
                                 	Counts of mLACP sync request TLVs on all bundles
-                                	**type**\:  :py:class:`MlacpSyncRequestsOnAllForeignBundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles>`
+                                	**type**\:   :py:class:`MlacpSyncRequestsOnAllForeignBundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles>`
                                 
                                 .. attribute:: mlacp_sync_requests_on_all_foreign_ports
                                 
                                 	Counts of mLACP sync request TLVs on all ports
-                                	**type**\:  :py:class:`MlacpSyncRequestsOnAllForeignPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts>`
+                                	**type**\:   :py:class:`MlacpSyncRequestsOnAllForeignPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts>`
                                 
                                 .. attribute:: node_id
                                 
@@ -21798,9 +22038,9 @@ class BundleInformation(object):
 
                                 def __init__(self):
                                     self.parent = None
-                                    self.mlacp_sync_requests_on_all_foreign_bundles = BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles()
+                                    self.mlacp_sync_requests_on_all_foreign_bundles = BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles()
                                     self.mlacp_sync_requests_on_all_foreign_bundles.parent = self
-                                    self.mlacp_sync_requests_on_all_foreign_ports = BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts()
+                                    self.mlacp_sync_requests_on_all_foreign_ports = BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts()
                                     self.mlacp_sync_requests_on_all_foreign_ports.parent = self
                                     self.node_id = None
 
@@ -21816,10 +22056,12 @@ class BundleInformation(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**units**\: nanosecond
+                                    
                                     .. attribute:: received_sync_requests
                                     
                                     	Number of mLACP sync request TLVs received
-                                    	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests>`
+                                    	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests>`
                                     
                                     .. attribute:: time_since_cleared
                                     
@@ -21827,6 +22069,8 @@ class BundleInformation(object):
                                     	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: nanosecond
                                     
                                     
 
@@ -21838,7 +22082,7 @@ class BundleInformation(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.last_time_cleared = None
-                                        self.received_sync_requests = BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests()
+                                        self.received_sync_requests = BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests()
                                         self.received_sync_requests.parent = self
                                         self.time_since_cleared = None
 
@@ -21909,7 +22153,7 @@ class BundleInformation(object):
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                                            return meta._meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests']['meta_info']
+                                            return meta._meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -21939,7 +22183,7 @@ class BundleInformation(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                                        return meta._meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts']['meta_info']
+                                        return meta._meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts']['meta_info']
 
 
                                 class MlacpSyncRequestsOnAllForeignBundles(object):
@@ -21953,10 +22197,12 @@ class BundleInformation(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**units**\: nanosecond
+                                    
                                     .. attribute:: received_sync_requests
                                     
                                     	Number of mLACP sync request TLVs received
-                                    	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests>`
+                                    	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests>`
                                     
                                     .. attribute:: time_since_cleared
                                     
@@ -21964,6 +22210,8 @@ class BundleInformation(object):
                                     	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: nanosecond
                                     
                                     
 
@@ -21975,7 +22223,7 @@ class BundleInformation(object):
                                     def __init__(self):
                                         self.parent = None
                                         self.last_time_cleared = None
-                                        self.received_sync_requests = BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests()
+                                        self.received_sync_requests = BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests()
                                         self.received_sync_requests.parent = self
                                         self.time_since_cleared = None
 
@@ -22046,7 +22294,7 @@ class BundleInformation(object):
                                         @staticmethod
                                         def _meta_info():
                                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                                            return meta._meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests']['meta_info']
+                                            return meta._meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests']['meta_info']
 
                                     @property
                                     def _common_path(self):
@@ -22076,7 +22324,7 @@ class BundleInformation(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                                        return meta._meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles']['meta_info']
+                                        return meta._meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -22106,7 +22354,7 @@ class BundleInformation(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                                    return meta._meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData']['meta_info']
+                                    return meta._meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_']['meta_info']
 
 
                             class BundleData(object):
@@ -22121,7 +22369,7 @@ class BundleInformation(object):
                                 .. attribute:: mlacp_tlv_counters
                                 
                                 	Counts of mLACP TLVs sent and received
-                                	**type**\:  :py:class:`MlacpTlvCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.BundleData.MlacpTlvCounters>`
+                                	**type**\:   :py:class:`MlacpTlvCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.BundleData.MlacpTlvCounters>`
                                 
                                 
 
@@ -22148,12 +22396,16 @@ class BundleInformation(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**units**\: nanosecond
+                                    
                                     .. attribute:: last_unexpected_event
                                     
                                     	Elapsed time in nsecs since last unexpected event
                                     	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: nanosecond
                                     
                                     .. attribute:: received_nak_tl_vs
                                     
@@ -22172,7 +22424,7 @@ class BundleInformation(object):
                                     .. attribute:: received_sync_requests
                                     
                                     	Number of mLACP sync request TLVs received
-                                    	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.BundleData.MlacpTlvCounters.ReceivedSyncRequests>`
+                                    	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.BundleData.MlacpTlvCounters.ReceivedSyncRequests>`
                                     
                                     .. attribute:: sent_config_tl_vs
                                     
@@ -22201,6 +22453,8 @@ class BundleInformation(object):
                                     	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: nanosecond
                                     
                                     
 
@@ -22510,7 +22764,7 @@ class BundleInformation(object):
             .. attribute:: node
             
             	Node ID
-            	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node>`
+            	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node>`
             
             
 
@@ -22538,7 +22792,7 @@ class BundleInformation(object):
                 .. attribute:: node_item
                 
                 	Data for this item
-                	**type**\:  :py:class:`NodeItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem>`
+                	**type**\:   :py:class:`NodeItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem>`
                 
                 
 
@@ -22561,12 +22815,12 @@ class BundleInformation(object):
                     .. attribute:: iccp_group_data
                     
                     	ICCP Group mLACP TLV counter information
-                    	**type**\:  :py:class:`IccpGroupData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData>`
+                    	**type**\:   :py:class:`IccpGroupData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData>`
                     
                     .. attribute:: node_data
                     
                     	Peer device bundle mLACP counter information
-                    	**type**\: list of  :py:class:`NodeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData>`
+                    	**type**\: list of    :py:class:`NodeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData>`
                     
                     
 
@@ -22591,7 +22845,7 @@ class BundleInformation(object):
                         .. attribute:: bundle_data
                         
                         	Local device bundle mLACP counter information
-                        	**type**\: list of  :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.BundleData>`
+                        	**type**\: list of    :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.BundleData>`
                         
                         .. attribute:: iccp_group_id
                         
@@ -22603,12 +22857,12 @@ class BundleInformation(object):
                         .. attribute:: mlacp_sync_requests_on_all_local_bundles
                         
                         	Counts of mLACP sync request TLVs on all bundles
-                        	**type**\:  :py:class:`MlacpSyncRequestsOnAllLocalBundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles>`
+                        	**type**\:   :py:class:`MlacpSyncRequestsOnAllLocalBundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles>`
                         
                         .. attribute:: mlacp_sync_requests_on_all_local_ports
                         
                         	Counts of mLACP sync request TLVs on all ports
-                        	**type**\:  :py:class:`MlacpSyncRequestsOnAllLocalPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts>`
+                        	**type**\:   :py:class:`MlacpSyncRequestsOnAllLocalPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts>`
                         
                         
 
@@ -22640,10 +22894,12 @@ class BundleInformation(object):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**units**\: nanosecond
+                            
                             .. attribute:: received_sync_requests
                             
                             	Number of mLACP sync request TLVs received
-                            	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests>`
+                            	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests>`
                             
                             .. attribute:: time_since_cleared
                             
@@ -22651,6 +22907,8 @@ class BundleInformation(object):
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**units**\: nanosecond
                             
                             
 
@@ -22777,10 +23035,12 @@ class BundleInformation(object):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**units**\: nanosecond
+                            
                             .. attribute:: received_sync_requests
                             
                             	Number of mLACP sync request TLVs received
-                            	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles.ReceivedSyncRequests>`
+                            	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles.ReceivedSyncRequests>`
                             
                             .. attribute:: time_since_cleared
                             
@@ -22788,6 +23048,8 @@ class BundleInformation(object):
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**units**\: nanosecond
                             
                             
 
@@ -22915,7 +23177,7 @@ class BundleInformation(object):
                             .. attribute:: mlacp_tlv_counters
                             
                             	Counts of mLACP TLVs sent and received
-                            	**type**\:  :py:class:`MlacpTlvCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.BundleData.MlacpTlvCounters>`
+                            	**type**\:   :py:class:`MlacpTlvCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.BundleData.MlacpTlvCounters>`
                             
                             
 
@@ -22942,12 +23204,16 @@ class BundleInformation(object):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**units**\: nanosecond
+                                
                                 .. attribute:: last_unexpected_event
                                 
                                 	Elapsed time in nsecs since last unexpected event
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: nanosecond
                                 
                                 .. attribute:: received_nak_tl_vs
                                 
@@ -22966,7 +23232,7 @@ class BundleInformation(object):
                                 .. attribute:: received_sync_requests
                                 
                                 	Number of mLACP sync request TLVs received
-                                	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.BundleData.MlacpTlvCounters.ReceivedSyncRequests>`
+                                	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.BundleData.MlacpTlvCounters.ReceivedSyncRequests>`
                                 
                                 .. attribute:: sent_config_tl_vs
                                 
@@ -22995,6 +23261,8 @@ class BundleInformation(object):
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: nanosecond
                                 
                                 
 
@@ -23203,12 +23471,12 @@ class BundleInformation(object):
                         .. attribute:: bundle_data
                         
                         	Peer device bundle mLACP TLV counter information
-                        	**type**\: list of  :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.BundleData>`
+                        	**type**\: list of    :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.BundleData>`
                         
                         .. attribute:: node_data
                         
                         	Peer device mLACP TLV counter information
-                        	**type**\:  :py:class:`NodeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData>`
+                        	**type**\:   :py:class:`NodeData_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_>`
                         
                         
 
@@ -23222,23 +23490,23 @@ class BundleInformation(object):
                             self.bundle_data = YList()
                             self.bundle_data.parent = self
                             self.bundle_data.name = 'bundle_data'
-                            self.node_data = BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData()
+                            self.node_data = BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_()
                             self.node_data.parent = self
 
 
-                        class NodeData(object):
+                        class NodeData_(object):
                             """
                             Peer device mLACP TLV counter information
                             
                             .. attribute:: mlacp_sync_requests_on_all_foreign_bundles
                             
                             	Counts of mLACP sync request TLVs on all bundles
-                            	**type**\:  :py:class:`MlacpSyncRequestsOnAllForeignBundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles>`
+                            	**type**\:   :py:class:`MlacpSyncRequestsOnAllForeignBundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles>`
                             
                             .. attribute:: mlacp_sync_requests_on_all_foreign_ports
                             
                             	Counts of mLACP sync request TLVs on all ports
-                            	**type**\:  :py:class:`MlacpSyncRequestsOnAllForeignPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts>`
+                            	**type**\:   :py:class:`MlacpSyncRequestsOnAllForeignPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts>`
                             
                             .. attribute:: node_id
                             
@@ -23256,9 +23524,9 @@ class BundleInformation(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.mlacp_sync_requests_on_all_foreign_bundles = BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles()
+                                self.mlacp_sync_requests_on_all_foreign_bundles = BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles()
                                 self.mlacp_sync_requests_on_all_foreign_bundles.parent = self
-                                self.mlacp_sync_requests_on_all_foreign_ports = BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts()
+                                self.mlacp_sync_requests_on_all_foreign_ports = BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts()
                                 self.mlacp_sync_requests_on_all_foreign_ports.parent = self
                                 self.node_id = None
 
@@ -23274,10 +23542,12 @@ class BundleInformation(object):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**units**\: nanosecond
+                                
                                 .. attribute:: received_sync_requests
                                 
                                 	Number of mLACP sync request TLVs received
-                                	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests>`
+                                	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests>`
                                 
                                 .. attribute:: time_since_cleared
                                 
@@ -23285,6 +23555,8 @@ class BundleInformation(object):
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: nanosecond
                                 
                                 
 
@@ -23296,7 +23568,7 @@ class BundleInformation(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.last_time_cleared = None
-                                    self.received_sync_requests = BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests()
+                                    self.received_sync_requests = BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests()
                                     self.received_sync_requests.parent = self
                                     self.time_since_cleared = None
 
@@ -23367,7 +23639,7 @@ class BundleInformation(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                                        return meta._meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests']['meta_info']
+                                        return meta._meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -23397,7 +23669,7 @@ class BundleInformation(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                                    return meta._meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts']['meta_info']
+                                    return meta._meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts']['meta_info']
 
 
                             class MlacpSyncRequestsOnAllForeignBundles(object):
@@ -23411,10 +23683,12 @@ class BundleInformation(object):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**units**\: nanosecond
+                                
                                 .. attribute:: received_sync_requests
                                 
                                 	Number of mLACP sync request TLVs received
-                                	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests>`
+                                	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests>`
                                 
                                 .. attribute:: time_since_cleared
                                 
@@ -23422,6 +23696,8 @@ class BundleInformation(object):
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: nanosecond
                                 
                                 
 
@@ -23433,7 +23709,7 @@ class BundleInformation(object):
                                 def __init__(self):
                                     self.parent = None
                                     self.last_time_cleared = None
-                                    self.received_sync_requests = BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests()
+                                    self.received_sync_requests = BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests()
                                     self.received_sync_requests.parent = self
                                     self.time_since_cleared = None
 
@@ -23504,7 +23780,7 @@ class BundleInformation(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                                        return meta._meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests']['meta_info']
+                                        return meta._meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -23534,7 +23810,7 @@ class BundleInformation(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                                    return meta._meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles']['meta_info']
+                                    return meta._meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -23564,7 +23840,7 @@ class BundleInformation(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                                return meta._meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData']['meta_info']
+                                return meta._meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_']['meta_info']
 
 
                         class BundleData(object):
@@ -23579,7 +23855,7 @@ class BundleInformation(object):
                             .. attribute:: mlacp_tlv_counters
                             
                             	Counts of mLACP TLVs sent and received
-                            	**type**\:  :py:class:`MlacpTlvCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.BundleData.MlacpTlvCounters>`
+                            	**type**\:   :py:class:`MlacpTlvCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.BundleData.MlacpTlvCounters>`
                             
                             
 
@@ -23606,12 +23882,16 @@ class BundleInformation(object):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**units**\: nanosecond
+                                
                                 .. attribute:: last_unexpected_event
                                 
                                 	Elapsed time in nsecs since last unexpected event
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: nanosecond
                                 
                                 .. attribute:: received_nak_tl_vs
                                 
@@ -23630,7 +23910,7 @@ class BundleInformation(object):
                                 .. attribute:: received_sync_requests
                                 
                                 	Number of mLACP sync request TLVs received
-                                	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.BundleData.MlacpTlvCounters.ReceivedSyncRequests>`
+                                	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.BundleData.MlacpTlvCounters.ReceivedSyncRequests>`
                                 
                                 .. attribute:: sent_config_tl_vs
                                 
@@ -23659,6 +23939,8 @@ class BundleInformation(object):
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: nanosecond
                                 
                                 
 
@@ -23970,7 +24252,7 @@ class BundleInformation(object):
         .. attribute:: protect_bundles
         
         	Bundle interfaces with information in the protect database
-        	**type**\:  :py:class:`ProtectBundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Protect.ProtectBundles>`
+        	**type**\:   :py:class:`ProtectBundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Protect.ProtectBundles>`
         
         
 
@@ -23993,7 +24275,7 @@ class BundleInformation(object):
             .. attribute:: protect_bundle
             
             	Bundle interface
-            	**type**\: list of  :py:class:`ProtectBundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Protect.ProtectBundles.ProtectBundle>`
+            	**type**\: list of    :py:class:`ProtectBundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Protect.ProtectBundles.ProtectBundle>`
             
             
 
@@ -24023,7 +24305,7 @@ class BundleInformation(object):
                 .. attribute:: protect_bundle_item
                 
                 	Data for this item
-                	**type**\:  :py:class:`ProtectBundleItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Protect.ProtectBundles.ProtectBundle.ProtectBundleItem>`
+                	**type**\:   :py:class:`ProtectBundleItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Protect.ProtectBundles.ProtectBundle.ProtectBundleItem>`
                 
                 
 
@@ -24053,7 +24335,7 @@ class BundleInformation(object):
                     .. attribute:: event_type
                     
                     	Scope of the last event that impacted the bundle
-                    	**type**\:  :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
+                    	**type**\:   :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                     
                     .. attribute:: interface_up
                     
@@ -24063,7 +24345,7 @@ class BundleInformation(object):
                     .. attribute:: member_info
                     
                     	Information about the members
-                    	**type**\: list of  :py:class:`MemberInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Protect.ProtectBundles.ProtectBundle.ProtectBundleItem.MemberInfo>`
+                    	**type**\: list of    :py:class:`MemberInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Protect.ProtectBundles.ProtectBundle.ProtectBundleItem.MemberInfo>`
                     
                     .. attribute:: minimum_active_links
                     
@@ -24387,12 +24669,12 @@ class BundleInformation(object):
         .. attribute:: mlacp_brief_iccp_groups
         
         	ICCP Groups with brief mLACP information
-        	**type**\:  :py:class:`MlacpBriefIccpGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBriefIccpGroups>`
+        	**type**\:   :py:class:`MlacpBriefIccpGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBriefIccpGroups>`
         
         .. attribute:: mlacp_bundle_briefs
         
         	Bundle interfaces with brief mLACP information
-        	**type**\:  :py:class:`MlacpBundleBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBundleBriefs>`
+        	**type**\:   :py:class:`MlacpBundleBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBundleBriefs>`
         
         
 
@@ -24416,7 +24698,7 @@ class BundleInformation(object):
             .. attribute:: mlacp_bundle_brief
             
             	Bundle interface
-            	**type**\: list of  :py:class:`MlacpBundleBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief>`
+            	**type**\: list of    :py:class:`MlacpBundleBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief>`
             
             
 
@@ -24446,7 +24728,7 @@ class BundleInformation(object):
                 .. attribute:: mlacp_bundle_item_brief
                 
                 	Data for this item
-                	**type**\:  :py:class:`MlacpBundleItemBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief>`
+                	**type**\:   :py:class:`MlacpBundleItemBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief>`
                 
                 
 
@@ -24469,7 +24751,7 @@ class BundleInformation(object):
                     .. attribute:: mlacp_data
                     
                     	mLACP data for multiple ICCP Groups
-                    	**type**\: list of  :py:class:`MlacpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData>`
+                    	**type**\: list of    :py:class:`MlacpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData>`
                     
                     
 
@@ -24492,12 +24774,12 @@ class BundleInformation(object):
                         .. attribute:: bundle_data
                         
                         	Bundle information
-                        	**type**\: list of  :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.BundleData>`
+                        	**type**\: list of    :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.BundleData>`
                         
                         .. attribute:: iccp_group_data
                         
                         	ICCP Group information
-                        	**type**\:  :py:class:`IccpGroupData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.IccpGroupData>`
+                        	**type**\:   :py:class:`IccpGroupData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.IccpGroupData>`
                         
                         
 
@@ -24526,6 +24808,8 @@ class BundleInformation(object):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**units**\: nanosecond
+                            
                             .. attribute:: iccp_group_id
                             
                             	ICCP Group that the mLACP information is for
@@ -24536,7 +24820,7 @@ class BundleInformation(object):
                             .. attribute:: node_data
                             
                             	Information for the IG from the local and peer devices
-                            	**type**\: list of  :py:class:`NodeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.IccpGroupData.NodeData>`
+                            	**type**\: list of    :py:class:`NodeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.IccpGroupData.NodeData>`
                             
                             .. attribute:: singleton
                             
@@ -24568,7 +24852,7 @@ class BundleInformation(object):
                                 .. attribute:: iccp_group_state
                                 
                                 	Node synchronization state
-                                	**type**\:  :py:class:`BmdMlacpNodeSyncEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpNodeSyncEnumEnum>`
+                                	**type**\:   :py:class:`BmdMlacpNodeSyncEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpNodeSyncEnumEnum>`
                                 
                                 .. attribute:: ldp_id
                                 
@@ -24587,12 +24871,12 @@ class BundleInformation(object):
                                 .. attribute:: node_state
                                 
                                 	Node state
-                                	**type**\:  :py:class:`BmdMlacpNodeStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpNodeStateEnumEnum>`
+                                	**type**\:   :py:class:`BmdMlacpNodeStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpNodeStateEnumEnum>`
                                 
                                 .. attribute:: system_id
                                 
                                 	System ID for the ICCP Group
-                                	**type**\:  :py:class:`SystemId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.IccpGroupData.NodeData.SystemId>`
+                                	**type**\:   :py:class:`SystemId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.IccpGroupData.NodeData.SystemId>`
                                 
                                 .. attribute:: version_number
                                 
@@ -24626,7 +24910,7 @@ class BundleInformation(object):
                                     .. attribute:: system_mac_addr
                                     
                                     	MAC Address used to identify the system
-                                    	**type**\:  :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.IccpGroupData.NodeData.SystemId.SystemMacAddr>`
+                                    	**type**\:   :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.IccpGroupData.NodeData.SystemId.SystemMacAddr>`
                                     
                                     .. attribute:: system_prio
                                     
@@ -24811,17 +25095,17 @@ class BundleInformation(object):
                             .. attribute:: media_type
                             
                             	The media type of the bundle interface
-                            	**type**\:  :py:class:`BundleMediaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleMediaEnum>`
+                            	**type**\:   :py:class:`BundleMediaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleMediaEnum>`
                             
                             .. attribute:: mlacp_bundle_data
                             
                             	mLACP information for the bundle
-                            	**type**\: list of  :py:class:`MlacpBundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.BundleData.MlacpBundleData>`
+                            	**type**\: list of    :py:class:`MlacpBundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.BundleData.MlacpBundleData>`
                             
                             .. attribute:: mlacp_member_data
                             
                             	mLACP information for the member
-                            	**type**\: list of  :py:class:`MlacpMemberData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.BundleData.MlacpMemberData>`
+                            	**type**\: list of    :py:class:`MlacpMemberData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.BundleData.MlacpMemberData>`
                             
                             .. attribute:: redundancy_object_id
                             
@@ -24869,12 +25153,12 @@ class BundleInformation(object):
                                 .. attribute:: bundle_state
                                 
                                 	Bundle state
-                                	**type**\:  :py:class:`BmdMlacpBdlStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpBdlStateEnumEnum>`
+                                	**type**\:   :py:class:`BmdMlacpBdlStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpBdlStateEnumEnum>`
                                 
                                 .. attribute:: mac_address
                                 
                                 	Bundle MAC address
-                                	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.BundleData.MlacpBundleData.MacAddress>`
+                                	**type**\:   :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBundleBriefs.MlacpBundleBrief.MlacpBundleItemBrief.MlacpData.BundleData.MlacpBundleData.MacAddress>`
                                 
                                 .. attribute:: mlacp_node_id
                                 
@@ -25015,7 +25299,7 @@ class BundleInformation(object):
                                 .. attribute:: member_state
                                 
                                 	Member state
-                                	**type**\:  :py:class:`BmdMlacpMbrStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpMbrStateEnumEnum>`
+                                	**type**\:   :py:class:`BmdMlacpMbrStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpMbrStateEnumEnum>`
                                 
                                 .. attribute:: mlacp_node_id
                                 
@@ -25256,7 +25540,7 @@ class BundleInformation(object):
             .. attribute:: mlacp_brief_iccp_group
             
             	ICCP Group ID
-            	**type**\: list of  :py:class:`MlacpBriefIccpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup>`
+            	**type**\: list of    :py:class:`MlacpBriefIccpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup>`
             
             
 
@@ -25286,7 +25570,7 @@ class BundleInformation(object):
                 .. attribute:: mlacp_brief_iccp_group_item
                 
                 	Data for this item
-                	**type**\:  :py:class:`MlacpBriefIccpGroupItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem>`
+                	**type**\:   :py:class:`MlacpBriefIccpGroupItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem>`
                 
                 
 
@@ -25309,12 +25593,12 @@ class BundleInformation(object):
                     .. attribute:: bundle_data
                     
                     	Bundle information
-                    	**type**\: list of  :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.BundleData>`
+                    	**type**\: list of    :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.BundleData>`
                     
                     .. attribute:: iccp_group_data
                     
                     	ICCP Group information
-                    	**type**\:  :py:class:`IccpGroupData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.IccpGroupData>`
+                    	**type**\:   :py:class:`IccpGroupData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.IccpGroupData>`
                     
                     
 
@@ -25343,6 +25627,8 @@ class BundleInformation(object):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**units**\: nanosecond
+                        
                         .. attribute:: iccp_group_id
                         
                         	ICCP Group that the mLACP information is for
@@ -25353,7 +25639,7 @@ class BundleInformation(object):
                         .. attribute:: node_data
                         
                         	Information for the IG from the local and peer devices
-                        	**type**\: list of  :py:class:`NodeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.IccpGroupData.NodeData>`
+                        	**type**\: list of    :py:class:`NodeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.IccpGroupData.NodeData>`
                         
                         .. attribute:: singleton
                         
@@ -25385,7 +25671,7 @@ class BundleInformation(object):
                             .. attribute:: iccp_group_state
                             
                             	Node synchronization state
-                            	**type**\:  :py:class:`BmdMlacpNodeSyncEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpNodeSyncEnumEnum>`
+                            	**type**\:   :py:class:`BmdMlacpNodeSyncEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpNodeSyncEnumEnum>`
                             
                             .. attribute:: ldp_id
                             
@@ -25404,12 +25690,12 @@ class BundleInformation(object):
                             .. attribute:: node_state
                             
                             	Node state
-                            	**type**\:  :py:class:`BmdMlacpNodeStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpNodeStateEnumEnum>`
+                            	**type**\:   :py:class:`BmdMlacpNodeStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpNodeStateEnumEnum>`
                             
                             .. attribute:: system_id
                             
                             	System ID for the ICCP Group
-                            	**type**\:  :py:class:`SystemId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.IccpGroupData.NodeData.SystemId>`
+                            	**type**\:   :py:class:`SystemId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.IccpGroupData.NodeData.SystemId>`
                             
                             .. attribute:: version_number
                             
@@ -25443,7 +25729,7 @@ class BundleInformation(object):
                                 .. attribute:: system_mac_addr
                                 
                                 	MAC Address used to identify the system
-                                	**type**\:  :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.IccpGroupData.NodeData.SystemId.SystemMacAddr>`
+                                	**type**\:   :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.IccpGroupData.NodeData.SystemId.SystemMacAddr>`
                                 
                                 .. attribute:: system_prio
                                 
@@ -25628,17 +25914,17 @@ class BundleInformation(object):
                         .. attribute:: media_type
                         
                         	The media type of the bundle interface
-                        	**type**\:  :py:class:`BundleMediaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleMediaEnum>`
+                        	**type**\:   :py:class:`BundleMediaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleMediaEnum>`
                         
                         .. attribute:: mlacp_bundle_data
                         
                         	mLACP information for the bundle
-                        	**type**\: list of  :py:class:`MlacpBundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.BundleData.MlacpBundleData>`
+                        	**type**\: list of    :py:class:`MlacpBundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.BundleData.MlacpBundleData>`
                         
                         .. attribute:: mlacp_member_data
                         
                         	mLACP information for the member
-                        	**type**\: list of  :py:class:`MlacpMemberData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.BundleData.MlacpMemberData>`
+                        	**type**\: list of    :py:class:`MlacpMemberData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.BundleData.MlacpMemberData>`
                         
                         .. attribute:: redundancy_object_id
                         
@@ -25686,12 +25972,12 @@ class BundleInformation(object):
                             .. attribute:: bundle_state
                             
                             	Bundle state
-                            	**type**\:  :py:class:`BmdMlacpBdlStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpBdlStateEnumEnum>`
+                            	**type**\:   :py:class:`BmdMlacpBdlStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpBdlStateEnumEnum>`
                             
                             .. attribute:: mac_address
                             
                             	Bundle MAC address
-                            	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.BundleData.MlacpBundleData.MacAddress>`
+                            	**type**\:   :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpBrief.MlacpBriefIccpGroups.MlacpBriefIccpGroup.MlacpBriefIccpGroupItem.BundleData.MlacpBundleData.MacAddress>`
                             
                             .. attribute:: mlacp_node_id
                             
@@ -25832,7 +26118,7 @@ class BundleInformation(object):
                             .. attribute:: member_state
                             
                             	Member state
-                            	**type**\:  :py:class:`BmdMlacpMbrStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpMbrStateEnumEnum>`
+                            	**type**\:   :py:class:`BmdMlacpMbrStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpMbrStateEnumEnum>`
                             
                             .. attribute:: mlacp_node_id
                             
@@ -26073,12 +26359,12 @@ class BundleInformation(object):
         .. attribute:: mlacp_bundles
         
         	Bundle interfaces with mLACP information
-        	**type**\:  :py:class:`MlacpBundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpBundles>`
+        	**type**\:   :py:class:`MlacpBundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpBundles>`
         
         .. attribute:: mlacp_iccp_groups
         
         	ICCP Groups with mLACP information
-        	**type**\:  :py:class:`MlacpIccpGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpIccpGroups>`
+        	**type**\:   :py:class:`MlacpIccpGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpIccpGroups>`
         
         
 
@@ -26102,7 +26388,7 @@ class BundleInformation(object):
             .. attribute:: mlacp_bundle
             
             	Bundle interface
-            	**type**\: list of  :py:class:`MlacpBundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpBundles.MlacpBundle>`
+            	**type**\: list of    :py:class:`MlacpBundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpBundles.MlacpBundle>`
             
             
 
@@ -26132,7 +26418,7 @@ class BundleInformation(object):
                 .. attribute:: mlacp_bundle_item
                 
                 	Data for this item
-                	**type**\:  :py:class:`MlacpBundleItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem>`
+                	**type**\:   :py:class:`MlacpBundleItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem>`
                 
                 
 
@@ -26155,7 +26441,7 @@ class BundleInformation(object):
                     .. attribute:: mlacp_data
                     
                     	mLACP data for multiple ICCP Groups
-                    	**type**\: list of  :py:class:`MlacpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData>`
+                    	**type**\: list of    :py:class:`MlacpData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData>`
                     
                     
 
@@ -26178,12 +26464,12 @@ class BundleInformation(object):
                         .. attribute:: bundle_data
                         
                         	Bundle information
-                        	**type**\: list of  :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.BundleData>`
+                        	**type**\: list of    :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.BundleData>`
                         
                         .. attribute:: iccp_group_data
                         
                         	ICCP Group information
-                        	**type**\:  :py:class:`IccpGroupData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.IccpGroupData>`
+                        	**type**\:   :py:class:`IccpGroupData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.IccpGroupData>`
                         
                         
 
@@ -26212,6 +26498,8 @@ class BundleInformation(object):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**units**\: nanosecond
+                            
                             .. attribute:: iccp_group_id
                             
                             	ICCP Group that the mLACP information is for
@@ -26222,7 +26510,7 @@ class BundleInformation(object):
                             .. attribute:: node_data
                             
                             	Information for the IG from the local and peer devices
-                            	**type**\: list of  :py:class:`NodeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.IccpGroupData.NodeData>`
+                            	**type**\: list of    :py:class:`NodeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.IccpGroupData.NodeData>`
                             
                             .. attribute:: singleton
                             
@@ -26254,7 +26542,7 @@ class BundleInformation(object):
                                 .. attribute:: iccp_group_state
                                 
                                 	Node synchronization state
-                                	**type**\:  :py:class:`BmdMlacpNodeSyncEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpNodeSyncEnumEnum>`
+                                	**type**\:   :py:class:`BmdMlacpNodeSyncEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpNodeSyncEnumEnum>`
                                 
                                 .. attribute:: ldp_id
                                 
@@ -26273,12 +26561,12 @@ class BundleInformation(object):
                                 .. attribute:: node_state
                                 
                                 	Node state
-                                	**type**\:  :py:class:`BmdMlacpNodeStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpNodeStateEnumEnum>`
+                                	**type**\:   :py:class:`BmdMlacpNodeStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpNodeStateEnumEnum>`
                                 
                                 .. attribute:: system_id
                                 
                                 	System ID for the ICCP Group
-                                	**type**\:  :py:class:`SystemId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.IccpGroupData.NodeData.SystemId>`
+                                	**type**\:   :py:class:`SystemId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.IccpGroupData.NodeData.SystemId>`
                                 
                                 .. attribute:: version_number
                                 
@@ -26312,7 +26600,7 @@ class BundleInformation(object):
                                     .. attribute:: system_mac_addr
                                     
                                     	MAC Address used to identify the system
-                                    	**type**\:  :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.IccpGroupData.NodeData.SystemId.SystemMacAddr>`
+                                    	**type**\:   :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.IccpGroupData.NodeData.SystemId.SystemMacAddr>`
                                     
                                     .. attribute:: system_prio
                                     
@@ -26497,17 +26785,17 @@ class BundleInformation(object):
                             .. attribute:: media_type
                             
                             	The media type of the bundle interface
-                            	**type**\:  :py:class:`BundleMediaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleMediaEnum>`
+                            	**type**\:   :py:class:`BundleMediaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleMediaEnum>`
                             
                             .. attribute:: mlacp_bundle_data
                             
                             	mLACP information for the bundle
-                            	**type**\: list of  :py:class:`MlacpBundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.BundleData.MlacpBundleData>`
+                            	**type**\: list of    :py:class:`MlacpBundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.BundleData.MlacpBundleData>`
                             
                             .. attribute:: mlacp_member_data
                             
                             	mLACP information for the member
-                            	**type**\: list of  :py:class:`MlacpMemberData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.BundleData.MlacpMemberData>`
+                            	**type**\: list of    :py:class:`MlacpMemberData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.BundleData.MlacpMemberData>`
                             
                             .. attribute:: redundancy_object_id
                             
@@ -26555,12 +26843,12 @@ class BundleInformation(object):
                                 .. attribute:: bundle_state
                                 
                                 	Bundle state
-                                	**type**\:  :py:class:`BmdMlacpBdlStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpBdlStateEnumEnum>`
+                                	**type**\:   :py:class:`BmdMlacpBdlStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpBdlStateEnumEnum>`
                                 
                                 .. attribute:: mac_address
                                 
                                 	Bundle MAC address
-                                	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.BundleData.MlacpBundleData.MacAddress>`
+                                	**type**\:   :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpBundles.MlacpBundle.MlacpBundleItem.MlacpData.BundleData.MlacpBundleData.MacAddress>`
                                 
                                 .. attribute:: mlacp_node_id
                                 
@@ -26701,7 +26989,7 @@ class BundleInformation(object):
                                 .. attribute:: member_state
                                 
                                 	Member state
-                                	**type**\:  :py:class:`BmdMlacpMbrStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpMbrStateEnumEnum>`
+                                	**type**\:   :py:class:`BmdMlacpMbrStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpMbrStateEnumEnum>`
                                 
                                 .. attribute:: mlacp_node_id
                                 
@@ -26942,7 +27230,7 @@ class BundleInformation(object):
             .. attribute:: mlacp_iccp_group
             
             	ICCP Group ID
-            	**type**\: list of  :py:class:`MlacpIccpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup>`
+            	**type**\: list of    :py:class:`MlacpIccpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup>`
             
             
 
@@ -26972,7 +27260,7 @@ class BundleInformation(object):
                 .. attribute:: mlacp_iccp_group_item
                 
                 	Data for this item
-                	**type**\:  :py:class:`MlacpIccpGroupItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem>`
+                	**type**\:   :py:class:`MlacpIccpGroupItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem>`
                 
                 
 
@@ -26995,12 +27283,12 @@ class BundleInformation(object):
                     .. attribute:: bundle_data
                     
                     	Bundle information
-                    	**type**\: list of  :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.BundleData>`
+                    	**type**\: list of    :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.BundleData>`
                     
                     .. attribute:: iccp_group_data
                     
                     	ICCP Group information
-                    	**type**\:  :py:class:`IccpGroupData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.IccpGroupData>`
+                    	**type**\:   :py:class:`IccpGroupData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.IccpGroupData>`
                     
                     
 
@@ -27029,6 +27317,8 @@ class BundleInformation(object):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**units**\: nanosecond
+                        
                         .. attribute:: iccp_group_id
                         
                         	ICCP Group that the mLACP information is for
@@ -27039,7 +27329,7 @@ class BundleInformation(object):
                         .. attribute:: node_data
                         
                         	Information for the IG from the local and peer devices
-                        	**type**\: list of  :py:class:`NodeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.IccpGroupData.NodeData>`
+                        	**type**\: list of    :py:class:`NodeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.IccpGroupData.NodeData>`
                         
                         .. attribute:: singleton
                         
@@ -27071,7 +27361,7 @@ class BundleInformation(object):
                             .. attribute:: iccp_group_state
                             
                             	Node synchronization state
-                            	**type**\:  :py:class:`BmdMlacpNodeSyncEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpNodeSyncEnumEnum>`
+                            	**type**\:   :py:class:`BmdMlacpNodeSyncEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpNodeSyncEnumEnum>`
                             
                             .. attribute:: ldp_id
                             
@@ -27090,12 +27380,12 @@ class BundleInformation(object):
                             .. attribute:: node_state
                             
                             	Node state
-                            	**type**\:  :py:class:`BmdMlacpNodeStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpNodeStateEnumEnum>`
+                            	**type**\:   :py:class:`BmdMlacpNodeStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpNodeStateEnumEnum>`
                             
                             .. attribute:: system_id
                             
                             	System ID for the ICCP Group
-                            	**type**\:  :py:class:`SystemId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.IccpGroupData.NodeData.SystemId>`
+                            	**type**\:   :py:class:`SystemId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.IccpGroupData.NodeData.SystemId>`
                             
                             .. attribute:: version_number
                             
@@ -27129,7 +27419,7 @@ class BundleInformation(object):
                                 .. attribute:: system_mac_addr
                                 
                                 	MAC Address used to identify the system
-                                	**type**\:  :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.IccpGroupData.NodeData.SystemId.SystemMacAddr>`
+                                	**type**\:   :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.IccpGroupData.NodeData.SystemId.SystemMacAddr>`
                                 
                                 .. attribute:: system_prio
                                 
@@ -27314,17 +27604,17 @@ class BundleInformation(object):
                         .. attribute:: media_type
                         
                         	The media type of the bundle interface
-                        	**type**\:  :py:class:`BundleMediaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleMediaEnum>`
+                        	**type**\:   :py:class:`BundleMediaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleMediaEnum>`
                         
                         .. attribute:: mlacp_bundle_data
                         
                         	mLACP information for the bundle
-                        	**type**\: list of  :py:class:`MlacpBundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.BundleData.MlacpBundleData>`
+                        	**type**\: list of    :py:class:`MlacpBundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.BundleData.MlacpBundleData>`
                         
                         .. attribute:: mlacp_member_data
                         
                         	mLACP information for the member
-                        	**type**\: list of  :py:class:`MlacpMemberData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.BundleData.MlacpMemberData>`
+                        	**type**\: list of    :py:class:`MlacpMemberData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.BundleData.MlacpMemberData>`
                         
                         .. attribute:: redundancy_object_id
                         
@@ -27372,12 +27662,12 @@ class BundleInformation(object):
                             .. attribute:: bundle_state
                             
                             	Bundle state
-                            	**type**\:  :py:class:`BmdMlacpBdlStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpBdlStateEnumEnum>`
+                            	**type**\:   :py:class:`BmdMlacpBdlStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpBdlStateEnumEnum>`
                             
                             .. attribute:: mac_address
                             
                             	Bundle MAC address
-                            	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.BundleData.MlacpBundleData.MacAddress>`
+                            	**type**\:   :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Mlacp.MlacpIccpGroups.MlacpIccpGroup.MlacpIccpGroupItem.BundleData.MlacpBundleData.MacAddress>`
                             
                             .. attribute:: mlacp_node_id
                             
@@ -27518,7 +27808,7 @@ class BundleInformation(object):
                             .. attribute:: member_state
                             
                             	Member state
-                            	**type**\:  :py:class:`BmdMlacpMbrStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpMbrStateEnumEnum>`
+                            	**type**\:   :py:class:`BmdMlacpMbrStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpMbrStateEnumEnum>`
                             
                             .. attribute:: mlacp_node_id
                             
@@ -27759,7 +28049,7 @@ class BundleInformation(object):
         .. attribute:: mac_allocation_global
         
         	All MAC addresses that are allocated but currently not in use
-        	**type**\:  :py:class:`MacAllocationGlobal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MacAllocation.MacAllocationGlobal>`
+        	**type**\:   :py:class:`MacAllocationGlobal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MacAllocation.MacAllocationGlobal>`
         
         
 
@@ -27782,7 +28072,7 @@ class BundleInformation(object):
             .. attribute:: mac_allocation_global_item
             
             	Data for this item
-            	**type**\:  :py:class:`MacAllocationGlobalItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MacAllocation.MacAllocationGlobal.MacAllocationGlobalItem>`
+            	**type**\:   :py:class:`MacAllocationGlobalItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MacAllocation.MacAllocationGlobal.MacAllocationGlobalItem>`
             
             
 
@@ -27804,7 +28094,7 @@ class BundleInformation(object):
                 .. attribute:: mac_address
                 
                 	MAC addresses allocated but unused
-                	**type**\: list of  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MacAllocation.MacAllocationGlobal.MacAllocationGlobalItem.MacAddress>`
+                	**type**\: list of    :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MacAllocation.MacAllocationGlobal.MacAllocationGlobalItem.MacAddress>`
                 
                 
 
@@ -27940,12 +28230,12 @@ class BundleInformation(object):
         .. attribute:: events_bundles
         
         	Bundle interfaces with events information
-        	**type**\:  :py:class:`EventsBundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles>`
+        	**type**\:   :py:class:`EventsBundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles>`
         
         .. attribute:: events_members
         
         	Member interfaces with events information
-        	**type**\:  :py:class:`EventsMembers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers>`
+        	**type**\:   :py:class:`EventsMembers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers>`
         
         
 
@@ -27969,7 +28259,7 @@ class BundleInformation(object):
             .. attribute:: events_member
             
             	Member interface
-            	**type**\: list of  :py:class:`EventsMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember>`
+            	**type**\: list of    :py:class:`EventsMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember>`
             
             
 
@@ -27997,12 +28287,12 @@ class BundleInformation(object):
                 .. attribute:: events_member_ancestor
                 
                 	Data for this item and its parent bundle
-                	**type**\:  :py:class:`EventsMemberAncestor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor>`
+                	**type**\:   :py:class:`EventsMemberAncestor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor>`
                 
                 .. attribute:: events_member_item
                 
                 	Data for this item
-                	**type**\:  :py:class:`EventsMemberItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem>`
+                	**type**\:   :py:class:`EventsMemberItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem>`
                 
                 
 
@@ -28032,7 +28322,7 @@ class BundleInformation(object):
                     .. attribute:: items
                     
                     	Event items
-                    	**type**\: list of  :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items>`
+                    	**type**\: list of    :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items>`
                     
                     
 
@@ -28056,22 +28346,22 @@ class BundleInformation(object):
                         .. attribute:: bundle_evt_info
                         
                         	Event information for a bundle
-                        	**type**\:  :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items.BundleEvtInfo>`
+                        	**type**\:   :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items.BundleEvtInfo>`
                         
                         .. attribute:: event_type
                         
                         	EventType
-                        	**type**\:  :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
+                        	**type**\:   :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                         
                         .. attribute:: member_evt_info
                         
                         	Event information for a member
-                        	**type**\:  :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items.MemberEvtInfo>`
+                        	**type**\:   :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items.MemberEvtInfo>`
                         
                         .. attribute:: rg_evt_info
                         
                         	Event information for an RG
-                        	**type**\:  :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items.RgEvtInfo>`
+                        	**type**\:   :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items.RgEvtInfo>`
                         
                         
 
@@ -28098,12 +28388,12 @@ class BundleInformation(object):
                             .. attribute:: data
                             
                             	Additional data for the event
-                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items.MemberEvtInfo.Data>`
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items.MemberEvtInfo.Data>`
                             
                             .. attribute:: member_event_type
                             
                             	Type of event for member
-                            	**type**\:  :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
+                            	**type**\:   :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -28134,7 +28424,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -28240,12 +28530,12 @@ class BundleInformation(object):
                             .. attribute:: bundle_event_type
                             
                             	Type of event for bundle
-                            	**type**\:  :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
+                            	**type**\:   :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                             
                             .. attribute:: data
                             
                             	Additional data for the event
-                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items.BundleEvtInfo.Data>`
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items.BundleEvtInfo.Data>`
                             
                             .. attribute:: time_stamp
                             
@@ -28276,7 +28566,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -28382,12 +28672,12 @@ class BundleInformation(object):
                             .. attribute:: data
                             
                             	Additional data for the event
-                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items.RgEvtInfo.Data>`
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember.EventsMemberItem.Items.RgEvtInfo.Data>`
                             
                             .. attribute:: rg_event_type
                             
                             	Type of event for RG
-                            	**type**\:  :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
+                            	**type**\:   :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -28418,7 +28708,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -28591,7 +28881,7 @@ class BundleInformation(object):
                     .. attribute:: items
                     
                     	Event items
-                    	**type**\: list of  :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items>`
+                    	**type**\: list of    :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items>`
                     
                     
 
@@ -28615,22 +28905,22 @@ class BundleInformation(object):
                         .. attribute:: bundle_evt_info
                         
                         	Event information for a bundle
-                        	**type**\:  :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items.BundleEvtInfo>`
+                        	**type**\:   :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items.BundleEvtInfo>`
                         
                         .. attribute:: event_type
                         
                         	EventType
-                        	**type**\:  :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
+                        	**type**\:   :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                         
                         .. attribute:: member_evt_info
                         
                         	Event information for a member
-                        	**type**\:  :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items.MemberEvtInfo>`
+                        	**type**\:   :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items.MemberEvtInfo>`
                         
                         .. attribute:: rg_evt_info
                         
                         	Event information for an RG
-                        	**type**\:  :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items.RgEvtInfo>`
+                        	**type**\:   :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items.RgEvtInfo>`
                         
                         
 
@@ -28657,12 +28947,12 @@ class BundleInformation(object):
                             .. attribute:: data
                             
                             	Additional data for the event
-                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items.MemberEvtInfo.Data>`
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items.MemberEvtInfo.Data>`
                             
                             .. attribute:: member_event_type
                             
                             	Type of event for member
-                            	**type**\:  :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
+                            	**type**\:   :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -28693,7 +28983,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -28799,12 +29089,12 @@ class BundleInformation(object):
                             .. attribute:: bundle_event_type
                             
                             	Type of event for bundle
-                            	**type**\:  :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
+                            	**type**\:   :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                             
                             .. attribute:: data
                             
                             	Additional data for the event
-                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items.BundleEvtInfo.Data>`
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items.BundleEvtInfo.Data>`
                             
                             .. attribute:: time_stamp
                             
@@ -28835,7 +29125,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -28941,12 +29231,12 @@ class BundleInformation(object):
                             .. attribute:: data
                             
                             	Additional data for the event
-                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items.RgEvtInfo.Data>`
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsMembers.EventsMember.EventsMemberAncestor.Items.RgEvtInfo.Data>`
                             
                             .. attribute:: rg_event_type
                             
                             	Type of event for RG
-                            	**type**\:  :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
+                            	**type**\:   :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -28977,7 +29267,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -29199,7 +29489,7 @@ class BundleInformation(object):
             .. attribute:: events_bundle
             
             	Bundle interface
-            	**type**\: list of  :py:class:`EventsBundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle>`
+            	**type**\: list of    :py:class:`EventsBundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle>`
             
             
 
@@ -29229,22 +29519,22 @@ class BundleInformation(object):
                 .. attribute:: events_bundle_ancestor
                 
                 	Data for this item and its parent bundle
-                	**type**\:  :py:class:`EventsBundleAncestor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor>`
+                	**type**\:   :py:class:`EventsBundleAncestor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor>`
                 
                 .. attribute:: events_bundle_children_members
                 
                 	Children of bundle with events information
-                	**type**\:  :py:class:`EventsBundleChildrenMembers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers>`
+                	**type**\:   :py:class:`EventsBundleChildrenMembers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers>`
                 
                 .. attribute:: events_bundle_descendant
                 
                 	Data for this item and all its members
-                	**type**\:  :py:class:`EventsBundleDescendant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant>`
+                	**type**\:   :py:class:`EventsBundleDescendant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant>`
                 
                 .. attribute:: events_bundle_item
                 
                 	Data for this item
-                	**type**\:  :py:class:`EventsBundleItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem>`
+                	**type**\:   :py:class:`EventsBundleItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem>`
                 
                 
 
@@ -29278,7 +29568,7 @@ class BundleInformation(object):
                     .. attribute:: items
                     
                     	Event items
-                    	**type**\: list of  :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items>`
+                    	**type**\: list of    :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items>`
                     
                     
 
@@ -29302,22 +29592,22 @@ class BundleInformation(object):
                         .. attribute:: bundle_evt_info
                         
                         	Event information for a bundle
-                        	**type**\:  :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items.BundleEvtInfo>`
+                        	**type**\:   :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items.BundleEvtInfo>`
                         
                         .. attribute:: event_type
                         
                         	EventType
-                        	**type**\:  :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
+                        	**type**\:   :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                         
                         .. attribute:: member_evt_info
                         
                         	Event information for a member
-                        	**type**\:  :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items.MemberEvtInfo>`
+                        	**type**\:   :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items.MemberEvtInfo>`
                         
                         .. attribute:: rg_evt_info
                         
                         	Event information for an RG
-                        	**type**\:  :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items.RgEvtInfo>`
+                        	**type**\:   :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items.RgEvtInfo>`
                         
                         
 
@@ -29344,12 +29634,12 @@ class BundleInformation(object):
                             .. attribute:: data
                             
                             	Additional data for the event
-                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items.MemberEvtInfo.Data>`
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items.MemberEvtInfo.Data>`
                             
                             .. attribute:: member_event_type
                             
                             	Type of event for member
-                            	**type**\:  :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
+                            	**type**\:   :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -29380,7 +29670,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -29486,12 +29776,12 @@ class BundleInformation(object):
                             .. attribute:: bundle_event_type
                             
                             	Type of event for bundle
-                            	**type**\:  :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
+                            	**type**\:   :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                             
                             .. attribute:: data
                             
                             	Additional data for the event
-                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items.BundleEvtInfo.Data>`
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items.BundleEvtInfo.Data>`
                             
                             .. attribute:: time_stamp
                             
@@ -29522,7 +29812,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -29628,12 +29918,12 @@ class BundleInformation(object):
                             .. attribute:: data
                             
                             	Additional data for the event
-                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items.RgEvtInfo.Data>`
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleAncestor.Items.RgEvtInfo.Data>`
                             
                             .. attribute:: rg_event_type
                             
                             	Type of event for RG
-                            	**type**\:  :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
+                            	**type**\:   :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -29664,7 +29954,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -29837,7 +30127,7 @@ class BundleInformation(object):
                     .. attribute:: items
                     
                     	Event items
-                    	**type**\: list of  :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items>`
+                    	**type**\: list of    :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items>`
                     
                     
 
@@ -29861,22 +30151,22 @@ class BundleInformation(object):
                         .. attribute:: bundle_evt_info
                         
                         	Event information for a bundle
-                        	**type**\:  :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items.BundleEvtInfo>`
+                        	**type**\:   :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items.BundleEvtInfo>`
                         
                         .. attribute:: event_type
                         
                         	EventType
-                        	**type**\:  :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
+                        	**type**\:   :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                         
                         .. attribute:: member_evt_info
                         
                         	Event information for a member
-                        	**type**\:  :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items.MemberEvtInfo>`
+                        	**type**\:   :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items.MemberEvtInfo>`
                         
                         .. attribute:: rg_evt_info
                         
                         	Event information for an RG
-                        	**type**\:  :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items.RgEvtInfo>`
+                        	**type**\:   :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items.RgEvtInfo>`
                         
                         
 
@@ -29903,12 +30193,12 @@ class BundleInformation(object):
                             .. attribute:: data
                             
                             	Additional data for the event
-                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items.MemberEvtInfo.Data>`
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items.MemberEvtInfo.Data>`
                             
                             .. attribute:: member_event_type
                             
                             	Type of event for member
-                            	**type**\:  :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
+                            	**type**\:   :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -29939,7 +30229,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -30045,12 +30335,12 @@ class BundleInformation(object):
                             .. attribute:: bundle_event_type
                             
                             	Type of event for bundle
-                            	**type**\:  :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
+                            	**type**\:   :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                             
                             .. attribute:: data
                             
                             	Additional data for the event
-                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items.BundleEvtInfo.Data>`
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items.BundleEvtInfo.Data>`
                             
                             .. attribute:: time_stamp
                             
@@ -30081,7 +30371,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -30187,12 +30477,12 @@ class BundleInformation(object):
                             .. attribute:: data
                             
                             	Additional data for the event
-                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items.RgEvtInfo.Data>`
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleItem.Items.RgEvtInfo.Data>`
                             
                             .. attribute:: rg_event_type
                             
                             	Type of event for RG
-                            	**type**\:  :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
+                            	**type**\:   :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -30223,7 +30513,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -30391,7 +30681,7 @@ class BundleInformation(object):
                     .. attribute:: events_item
                     
                     	Event items
-                    	**type**\: list of  :py:class:`EventsItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem>`
+                    	**type**\: list of    :py:class:`EventsItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem>`
                     
                     
 
@@ -30419,7 +30709,7 @@ class BundleInformation(object):
                         .. attribute:: items
                         
                         	Event items
-                        	**type**\: list of  :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items>`
+                        	**type**\: list of    :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items>`
                         
                         
 
@@ -30443,22 +30733,22 @@ class BundleInformation(object):
                             .. attribute:: bundle_evt_info
                             
                             	Event information for a bundle
-                            	**type**\:  :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items.BundleEvtInfo>`
+                            	**type**\:   :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items.BundleEvtInfo>`
                             
                             .. attribute:: event_type
                             
                             	EventType
-                            	**type**\:  :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
+                            	**type**\:   :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                             
                             .. attribute:: member_evt_info
                             
                             	Event information for a member
-                            	**type**\:  :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items.MemberEvtInfo>`
+                            	**type**\:   :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items.MemberEvtInfo>`
                             
                             .. attribute:: rg_evt_info
                             
                             	Event information for an RG
-                            	**type**\:  :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items.RgEvtInfo>`
+                            	**type**\:   :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items.RgEvtInfo>`
                             
                             
 
@@ -30485,12 +30775,12 @@ class BundleInformation(object):
                                 .. attribute:: data
                                 
                                 	Additional data for the event
-                                	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items.MemberEvtInfo.Data>`
+                                	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items.MemberEvtInfo.Data>`
                                 
                                 .. attribute:: member_event_type
                                 
                                 	Type of event for member
-                                	**type**\:  :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
+                                	**type**\:   :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -30521,7 +30811,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                    	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -30627,12 +30917,12 @@ class BundleInformation(object):
                                 .. attribute:: bundle_event_type
                                 
                                 	Type of event for bundle
-                                	**type**\:  :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
+                                	**type**\:   :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                                 
                                 .. attribute:: data
                                 
                                 	Additional data for the event
-                                	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items.BundleEvtInfo.Data>`
+                                	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items.BundleEvtInfo.Data>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -30663,7 +30953,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                    	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -30769,12 +31059,12 @@ class BundleInformation(object):
                                 .. attribute:: data
                                 
                                 	Additional data for the event
-                                	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items.RgEvtInfo.Data>`
+                                	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleDescendant.EventsItem.Items.RgEvtInfo.Data>`
                                 
                                 .. attribute:: rg_event_type
                                 
                                 	Type of event for RG
-                                	**type**\:  :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
+                                	**type**\:   :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -30805,7 +31095,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                    	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -30999,7 +31289,7 @@ class BundleInformation(object):
                     .. attribute:: events_bundle_children_member
                     
                     	Bundle member item with events information
-                    	**type**\: list of  :py:class:`EventsBundleChildrenMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember>`
+                    	**type**\: list of    :py:class:`EventsBundleChildrenMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember>`
                     
                     
 
@@ -31032,7 +31322,7 @@ class BundleInformation(object):
                         .. attribute:: items
                         
                         	Event items
-                        	**type**\: list of  :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items>`
+                        	**type**\: list of    :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items>`
                         
                         
 
@@ -31057,22 +31347,22 @@ class BundleInformation(object):
                             .. attribute:: bundle_evt_info
                             
                             	Event information for a bundle
-                            	**type**\:  :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items.BundleEvtInfo>`
+                            	**type**\:   :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items.BundleEvtInfo>`
                             
                             .. attribute:: event_type
                             
                             	EventType
-                            	**type**\:  :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
+                            	**type**\:   :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                             
                             .. attribute:: member_evt_info
                             
                             	Event information for a member
-                            	**type**\:  :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items.MemberEvtInfo>`
+                            	**type**\:   :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items.MemberEvtInfo>`
                             
                             .. attribute:: rg_evt_info
                             
                             	Event information for an RG
-                            	**type**\:  :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items.RgEvtInfo>`
+                            	**type**\:   :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items.RgEvtInfo>`
                             
                             
 
@@ -31099,12 +31389,12 @@ class BundleInformation(object):
                                 .. attribute:: data
                                 
                                 	Additional data for the event
-                                	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items.MemberEvtInfo.Data>`
+                                	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items.MemberEvtInfo.Data>`
                                 
                                 .. attribute:: member_event_type
                                 
                                 	Type of event for member
-                                	**type**\:  :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
+                                	**type**\:   :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -31135,7 +31425,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                    	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -31241,12 +31531,12 @@ class BundleInformation(object):
                                 .. attribute:: bundle_event_type
                                 
                                 	Type of event for bundle
-                                	**type**\:  :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
+                                	**type**\:   :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                                 
                                 .. attribute:: data
                                 
                                 	Additional data for the event
-                                	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items.BundleEvtInfo.Data>`
+                                	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items.BundleEvtInfo.Data>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -31277,7 +31567,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                    	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -31383,12 +31673,12 @@ class BundleInformation(object):
                                 .. attribute:: data
                                 
                                 	Additional data for the event
-                                	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items.RgEvtInfo.Data>`
+                                	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.Events.EventsBundles.EventsBundle.EventsBundleChildrenMembers.EventsBundleChildrenMember.Items.RgEvtInfo.Data>`
                                 
                                 .. attribute:: rg_event_type
                                 
                                 	Type of event for RG
-                                	**type**\:  :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
+                                	**type**\:   :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -31419,7 +31709,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                    	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -31704,17 +31994,17 @@ class BundleInformation(object):
         .. attribute:: events_bdl_bundles
         
         	Bundle interfaces with bundle events information
-        	**type**\:  :py:class:`EventsBdlBundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlBundles>`
+        	**type**\:   :py:class:`EventsBdlBundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlBundles>`
         
         .. attribute:: events_bdl_iccp_groups
         
         	Bundle events for all ICCP Groups
-        	**type**\:  :py:class:`EventsBdlIccpGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlIccpGroups>`
+        	**type**\:   :py:class:`EventsBdlIccpGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlIccpGroups>`
         
         .. attribute:: events_bdl_members
         
         	Member interfaces with bundle events information
-        	**type**\:  :py:class:`EventsBdlMembers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlMembers>`
+        	**type**\:   :py:class:`EventsBdlMembers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlMembers>`
         
         
 
@@ -31741,7 +32031,7 @@ class BundleInformation(object):
             .. attribute:: events_bdl_member
             
             	Member interface
-            	**type**\: list of  :py:class:`EventsBdlMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember>`
+            	**type**\: list of    :py:class:`EventsBdlMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember>`
             
             
 
@@ -31769,7 +32059,7 @@ class BundleInformation(object):
                 .. attribute:: events_bdl_member_ancestor
                 
                 	Data for this item and its parent bundle
-                	**type**\:  :py:class:`EventsBdlMemberAncestor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor>`
+                	**type**\:   :py:class:`EventsBdlMemberAncestor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor>`
                 
                 
 
@@ -31797,7 +32087,7 @@ class BundleInformation(object):
                     .. attribute:: items
                     
                     	Event items
-                    	**type**\: list of  :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items>`
+                    	**type**\: list of    :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items>`
                     
                     
 
@@ -31821,22 +32111,22 @@ class BundleInformation(object):
                         .. attribute:: bundle_evt_info
                         
                         	Event information for a bundle
-                        	**type**\:  :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items.BundleEvtInfo>`
+                        	**type**\:   :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items.BundleEvtInfo>`
                         
                         .. attribute:: event_type
                         
                         	EventType
-                        	**type**\:  :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
+                        	**type**\:   :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                         
                         .. attribute:: member_evt_info
                         
                         	Event information for a member
-                        	**type**\:  :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items.MemberEvtInfo>`
+                        	**type**\:   :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items.MemberEvtInfo>`
                         
                         .. attribute:: rg_evt_info
                         
                         	Event information for an RG
-                        	**type**\:  :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items.RgEvtInfo>`
+                        	**type**\:   :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items.RgEvtInfo>`
                         
                         
 
@@ -31863,12 +32153,12 @@ class BundleInformation(object):
                             .. attribute:: data
                             
                             	Additional data for the event
-                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items.MemberEvtInfo.Data>`
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items.MemberEvtInfo.Data>`
                             
                             .. attribute:: member_event_type
                             
                             	Type of event for member
-                            	**type**\:  :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
+                            	**type**\:   :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -31899,7 +32189,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -32005,12 +32295,12 @@ class BundleInformation(object):
                             .. attribute:: bundle_event_type
                             
                             	Type of event for bundle
-                            	**type**\:  :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
+                            	**type**\:   :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                             
                             .. attribute:: data
                             
                             	Additional data for the event
-                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items.BundleEvtInfo.Data>`
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items.BundleEvtInfo.Data>`
                             
                             .. attribute:: time_stamp
                             
@@ -32041,7 +32331,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -32147,12 +32437,12 @@ class BundleInformation(object):
                             .. attribute:: data
                             
                             	Additional data for the event
-                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items.RgEvtInfo.Data>`
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlMembers.EventsBdlMember.EventsBdlMemberAncestor.Items.RgEvtInfo.Data>`
                             
                             .. attribute:: rg_event_type
                             
                             	Type of event for RG
-                            	**type**\:  :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
+                            	**type**\:   :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -32183,7 +32473,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -32403,7 +32693,7 @@ class BundleInformation(object):
             .. attribute:: events_bdl_bundle
             
             	Bundle interface
-            	**type**\: list of  :py:class:`EventsBdlBundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle>`
+            	**type**\: list of    :py:class:`EventsBdlBundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle>`
             
             
 
@@ -32433,7 +32723,7 @@ class BundleInformation(object):
                 .. attribute:: events_bdl_bundle_item
                 
                 	Data for this item
-                	**type**\:  :py:class:`EventsBdlBundleItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem>`
+                	**type**\:   :py:class:`EventsBdlBundleItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem>`
                 
                 
 
@@ -32461,7 +32751,7 @@ class BundleInformation(object):
                     .. attribute:: items
                     
                     	Event items
-                    	**type**\: list of  :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items>`
+                    	**type**\: list of    :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items>`
                     
                     
 
@@ -32485,22 +32775,22 @@ class BundleInformation(object):
                         .. attribute:: bundle_evt_info
                         
                         	Event information for a bundle
-                        	**type**\:  :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items.BundleEvtInfo>`
+                        	**type**\:   :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items.BundleEvtInfo>`
                         
                         .. attribute:: event_type
                         
                         	EventType
-                        	**type**\:  :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
+                        	**type**\:   :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                         
                         .. attribute:: member_evt_info
                         
                         	Event information for a member
-                        	**type**\:  :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items.MemberEvtInfo>`
+                        	**type**\:   :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items.MemberEvtInfo>`
                         
                         .. attribute:: rg_evt_info
                         
                         	Event information for an RG
-                        	**type**\:  :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items.RgEvtInfo>`
+                        	**type**\:   :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items.RgEvtInfo>`
                         
                         
 
@@ -32527,12 +32817,12 @@ class BundleInformation(object):
                             .. attribute:: data
                             
                             	Additional data for the event
-                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items.MemberEvtInfo.Data>`
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items.MemberEvtInfo.Data>`
                             
                             .. attribute:: member_event_type
                             
                             	Type of event for member
-                            	**type**\:  :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
+                            	**type**\:   :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -32563,7 +32853,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -32669,12 +32959,12 @@ class BundleInformation(object):
                             .. attribute:: bundle_event_type
                             
                             	Type of event for bundle
-                            	**type**\:  :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
+                            	**type**\:   :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                             
                             .. attribute:: data
                             
                             	Additional data for the event
-                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items.BundleEvtInfo.Data>`
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items.BundleEvtInfo.Data>`
                             
                             .. attribute:: time_stamp
                             
@@ -32705,7 +32995,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -32811,12 +33101,12 @@ class BundleInformation(object):
                             .. attribute:: data
                             
                             	Additional data for the event
-                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items.RgEvtInfo.Data>`
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlBundles.EventsBdlBundle.EventsBdlBundleItem.Items.RgEvtInfo.Data>`
                             
                             .. attribute:: rg_event_type
                             
                             	Type of event for RG
-                            	**type**\:  :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
+                            	**type**\:   :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -32847,7 +33137,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -33066,7 +33356,7 @@ class BundleInformation(object):
             .. attribute:: events_bdl_iccp_group
             
             	ICCP Group ID
-            	**type**\: list of  :py:class:`EventsBdlIccpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup>`
+            	**type**\: list of    :py:class:`EventsBdlIccpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup>`
             
             
 
@@ -33096,7 +33386,7 @@ class BundleInformation(object):
                 .. attribute:: events_bdl_bundle_descendant_iccp_group
                 
                 	Data for this item and all its members
-                	**type**\:  :py:class:`EventsBdlBundleDescendantIccpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup>`
+                	**type**\:   :py:class:`EventsBdlBundleDescendantIccpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup>`
                 
                 
 
@@ -33119,7 +33409,7 @@ class BundleInformation(object):
                     .. attribute:: events_item
                     
                     	Event items
-                    	**type**\: list of  :py:class:`EventsItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem>`
+                    	**type**\: list of    :py:class:`EventsItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem>`
                     
                     
 
@@ -33147,7 +33437,7 @@ class BundleInformation(object):
                         .. attribute:: items
                         
                         	Event items
-                        	**type**\: list of  :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items>`
+                        	**type**\: list of    :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items>`
                         
                         
 
@@ -33171,22 +33461,22 @@ class BundleInformation(object):
                             .. attribute:: bundle_evt_info
                             
                             	Event information for a bundle
-                            	**type**\:  :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items.BundleEvtInfo>`
+                            	**type**\:   :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items.BundleEvtInfo>`
                             
                             .. attribute:: event_type
                             
                             	EventType
-                            	**type**\:  :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
+                            	**type**\:   :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                             
                             .. attribute:: member_evt_info
                             
                             	Event information for a member
-                            	**type**\:  :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items.MemberEvtInfo>`
+                            	**type**\:   :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items.MemberEvtInfo>`
                             
                             .. attribute:: rg_evt_info
                             
                             	Event information for an RG
-                            	**type**\:  :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items.RgEvtInfo>`
+                            	**type**\:   :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items.RgEvtInfo>`
                             
                             
 
@@ -33213,12 +33503,12 @@ class BundleInformation(object):
                                 .. attribute:: data
                                 
                                 	Additional data for the event
-                                	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items.MemberEvtInfo.Data>`
+                                	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items.MemberEvtInfo.Data>`
                                 
                                 .. attribute:: member_event_type
                                 
                                 	Type of event for member
-                                	**type**\:  :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
+                                	**type**\:   :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -33249,7 +33539,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                    	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -33355,12 +33645,12 @@ class BundleInformation(object):
                                 .. attribute:: bundle_event_type
                                 
                                 	Type of event for bundle
-                                	**type**\:  :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
+                                	**type**\:   :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                                 
                                 .. attribute:: data
                                 
                                 	Additional data for the event
-                                	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items.BundleEvtInfo.Data>`
+                                	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items.BundleEvtInfo.Data>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -33391,7 +33681,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                    	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -33497,12 +33787,12 @@ class BundleInformation(object):
                                 .. attribute:: data
                                 
                                 	Additional data for the event
-                                	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items.RgEvtInfo.Data>`
+                                	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsBdl.EventsBdlIccpGroups.EventsBdlIccpGroup.EventsBdlBundleDescendantIccpGroup.EventsItem.Items.RgEvtInfo.Data>`
                                 
                                 .. attribute:: rg_event_type
                                 
                                 	Type of event for RG
-                                	**type**\:  :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
+                                	**type**\:   :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -33533,7 +33823,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                    	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -33806,7 +34096,7 @@ class BundleInformation(object):
         .. attribute:: bundle_brief
         
         	Bundle interface
-        	**type**\: list of  :py:class:`BundleBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BundleBriefs.BundleBrief>`
+        	**type**\: list of    :py:class:`BundleBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BundleBriefs.BundleBrief>`
         
         
 
@@ -33836,7 +34126,7 @@ class BundleInformation(object):
             .. attribute:: bundle_brief_item
             
             	Data for this item
-            	**type**\:  :py:class:`BundleBriefItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BundleBriefs.BundleBrief.BundleBriefItem>`
+            	**type**\:   :py:class:`BundleBriefItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BundleBriefs.BundleBrief.BundleBriefItem>`
             
             
 
@@ -33877,10 +34167,12 @@ class BundleInformation(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: kbit/s
+                
                 .. attribute:: bfd_config
                 
                 	Configuration values for BFD on bundle members
-                	**type**\: list of  :py:class:`BfdConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BundleBriefs.BundleBrief.BundleBriefItem.BfdConfig>`
+                	**type**\: list of    :py:class:`BfdConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BundleBriefs.BundleBrief.BundleBriefItem.BfdConfig>`
                 
                 .. attribute:: bundle_interface_name
                 
@@ -33892,7 +34184,7 @@ class BundleInformation(object):
                 .. attribute:: bundle_status
                 
                 	The state of the bundle
-                	**type**\:  :py:class:`BmBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlStateEnum>`
+                	**type**\:   :py:class:`BmBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlStateEnum>`
                 
                 .. attribute:: cisco_extensions
                 
@@ -33912,6 +34204,8 @@ class BundleInformation(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: kbit/s
                 
                 .. attribute:: configured_foreign_member_count
                 
@@ -33934,6 +34228,8 @@ class BundleInformation(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: kbit/s
+                
                 .. attribute:: iccp_group_id
                 
                 	ICCP Group that the bundle is configured to
@@ -33949,12 +34245,12 @@ class BundleInformation(object):
                 .. attribute:: ipv4bfd_status
                 
                 	The status of the BFD (IPv4) feature on the bundle
-                	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                 
                 .. attribute:: ipv6bfd_status
                 
                 	The status of the BFD (IPv6) feature on the bundle
-                	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                 
                 .. attribute:: is_active
                 
@@ -33969,12 +34265,12 @@ class BundleInformation(object):
                 .. attribute:: lacp_status
                 
                 	The status of the LACP feature on the bundle
-                	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                 
                 .. attribute:: link_order_status
                 
                 	The status of the link order signaling feature on the bundle
-                	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                 
                 .. attribute:: load_balance_hash_type
                 
@@ -33991,12 +34287,12 @@ class BundleInformation(object):
                 .. attribute:: mac_address
                 
                 	MAC address of this member
-                	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BundleBriefs.BundleBrief.BundleBriefItem.MacAddress>`
+                	**type**\:   :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BundleBriefs.BundleBrief.BundleBriefItem.MacAddress>`
                 
                 .. attribute:: mac_source
                 
                 	The source of the MAC Address
-                	**type**\:  :py:class:`BmBdlMacSourceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSourceEnum>`
+                	**type**\:   :py:class:`BmBdlMacSourceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSourceEnum>`
                 
                 .. attribute:: mac_source_member
                 
@@ -34029,7 +34325,7 @@ class BundleInformation(object):
                 .. attribute:: maximum_active_links_source
                 
                 	Source of maximum active links value
-                	**type**\:  :py:class:`BmWhichSystemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystemEnum>`
+                	**type**\:   :py:class:`BmWhichSystemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystemEnum>`
                 
                 .. attribute:: minimum_active_links
                 
@@ -34045,15 +34341,17 @@ class BundleInformation(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: kbit/s
+                
                 .. attribute:: mlacp_mode
                 
                 	Indicates the mode of the device for the bundle
-                	**type**\:  :py:class:`BundleMlacpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpModeEnum>`
+                	**type**\:   :py:class:`BundleMlacpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpModeEnum>`
                 
                 .. attribute:: mlacp_status
                 
                 	The status of the mLACP feature on the bundle
-                	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                 
                 .. attribute:: primary_member
                 
@@ -34068,6 +34366,8 @@ class BundleInformation(object):
                 	**type**\:  int
                 
                 	**range:** 0..65535
+                
+                	**units**\: second
                 
                 .. attribute:: singleton
                 
@@ -34091,7 +34391,7 @@ class BundleInformation(object):
                 .. attribute:: switchover_type
                 
                 	How a switchover of the bundle from this device will occur
-                	**type**\:  :py:class:`BmdMlacpSwitchoverEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchoverEnum>`
+                	**type**\:   :py:class:`BmdMlacpSwitchoverEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchoverEnum>`
                 
                 .. attribute:: wait_while_timer
                 
@@ -34208,12 +34508,12 @@ class BundleInformation(object):
                     .. attribute:: bundle_status
                     
                     	Status of BFD on the bundle
-                    	**type**\:  :py:class:`BmdBfdBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlStateEnum>`
+                    	**type**\:   :py:class:`BmdBfdBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlStateEnum>`
                     
                     .. attribute:: destination_address
                     
                     	Configured destination address for BFD session
-                    	**type**\:  :py:class:`DestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BundleBriefs.BundleBrief.BundleBriefItem.BfdConfig.DestinationAddress>`
+                    	**type**\:   :py:class:`DestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.BundleBriefs.BundleBrief.BundleBriefItem.BfdConfig.DestinationAddress>`
                     
                     .. attribute:: fast_detect
                     
@@ -34290,7 +34590,7 @@ class BundleInformation(object):
                         .. attribute:: af
                         
                         	AF
-                        	**type**\:  :py:class:`BmAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmAfIdEnum>`
+                        	**type**\:   :py:class:`BmAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmAfIdEnum>`
                         
                         .. attribute:: ipv4
                         
@@ -34600,17 +34900,17 @@ class BundleInformation(object):
         .. attribute:: events_mbr_bundles
         
         	Bundle interfaces with member events information
-        	**type**\:  :py:class:`EventsMbrBundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles>`
+        	**type**\:   :py:class:`EventsMbrBundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles>`
         
         .. attribute:: events_mbr_iccp_groups
         
         	Member events for all ICCP Groups
-        	**type**\:  :py:class:`EventsMbrIccpGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups>`
+        	**type**\:   :py:class:`EventsMbrIccpGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups>`
         
         .. attribute:: events_mbr_members
         
         	Member interfaces with bundle member events information
-        	**type**\:  :py:class:`EventsMbrMembers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrMembers>`
+        	**type**\:   :py:class:`EventsMbrMembers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrMembers>`
         
         
 
@@ -34637,7 +34937,7 @@ class BundleInformation(object):
             .. attribute:: events_mbr_bundle
             
             	Bundle interface
-            	**type**\: list of  :py:class:`EventsMbrBundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle>`
+            	**type**\: list of    :py:class:`EventsMbrBundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle>`
             
             
 
@@ -34667,12 +34967,12 @@ class BundleInformation(object):
                 .. attribute:: events_mbr_bundle_children_members
                 
                 	Children of bundle with member events information
-                	**type**\:  :py:class:`EventsMbrBundleChildrenMembers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers>`
+                	**type**\:   :py:class:`EventsMbrBundleChildrenMembers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers>`
                 
                 .. attribute:: events_mbr_bundle_descendant
                 
                 	Data for this item and all its members
-                	**type**\:  :py:class:`EventsMbrBundleDescendant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant>`
+                	**type**\:   :py:class:`EventsMbrBundleDescendant <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant>`
                 
                 
 
@@ -34698,7 +34998,7 @@ class BundleInformation(object):
                     .. attribute:: events_mbr_bundle_children_member
                     
                     	Bundle member item with member events information
-                    	**type**\: list of  :py:class:`EventsMbrBundleChildrenMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember>`
+                    	**type**\: list of    :py:class:`EventsMbrBundleChildrenMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember>`
                     
                     
 
@@ -34732,7 +35032,7 @@ class BundleInformation(object):
                         .. attribute:: items
                         
                         	Event items
-                        	**type**\: list of  :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items>`
+                        	**type**\: list of    :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items>`
                         
                         
 
@@ -34757,22 +35057,22 @@ class BundleInformation(object):
                             .. attribute:: bundle_evt_info
                             
                             	Event information for a bundle
-                            	**type**\:  :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items.BundleEvtInfo>`
+                            	**type**\:   :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items.BundleEvtInfo>`
                             
                             .. attribute:: event_type
                             
                             	EventType
-                            	**type**\:  :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
+                            	**type**\:   :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                             
                             .. attribute:: member_evt_info
                             
                             	Event information for a member
-                            	**type**\:  :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items.MemberEvtInfo>`
+                            	**type**\:   :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items.MemberEvtInfo>`
                             
                             .. attribute:: rg_evt_info
                             
                             	Event information for an RG
-                            	**type**\:  :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items.RgEvtInfo>`
+                            	**type**\:   :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items.RgEvtInfo>`
                             
                             
 
@@ -34799,12 +35099,12 @@ class BundleInformation(object):
                                 .. attribute:: data
                                 
                                 	Additional data for the event
-                                	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items.MemberEvtInfo.Data>`
+                                	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items.MemberEvtInfo.Data>`
                                 
                                 .. attribute:: member_event_type
                                 
                                 	Type of event for member
-                                	**type**\:  :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
+                                	**type**\:   :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -34835,7 +35135,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                    	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -34941,12 +35241,12 @@ class BundleInformation(object):
                                 .. attribute:: bundle_event_type
                                 
                                 	Type of event for bundle
-                                	**type**\:  :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
+                                	**type**\:   :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                                 
                                 .. attribute:: data
                                 
                                 	Additional data for the event
-                                	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items.BundleEvtInfo.Data>`
+                                	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items.BundleEvtInfo.Data>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -34977,7 +35277,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                    	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -35083,12 +35383,12 @@ class BundleInformation(object):
                                 .. attribute:: data
                                 
                                 	Additional data for the event
-                                	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items.RgEvtInfo.Data>`
+                                	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleChildrenMembers.EventsMbrBundleChildrenMember.Items.RgEvtInfo.Data>`
                                 
                                 .. attribute:: rg_event_type
                                 
                                 	Type of event for RG
-                                	**type**\:  :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
+                                	**type**\:   :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -35119,7 +35419,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                    	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -35318,7 +35618,7 @@ class BundleInformation(object):
                     .. attribute:: events_item
                     
                     	Event items
-                    	**type**\: list of  :py:class:`EventsItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem>`
+                    	**type**\: list of    :py:class:`EventsItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem>`
                     
                     
 
@@ -35346,7 +35646,7 @@ class BundleInformation(object):
                         .. attribute:: items
                         
                         	Event items
-                        	**type**\: list of  :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items>`
+                        	**type**\: list of    :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items>`
                         
                         
 
@@ -35370,22 +35670,22 @@ class BundleInformation(object):
                             .. attribute:: bundle_evt_info
                             
                             	Event information for a bundle
-                            	**type**\:  :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items.BundleEvtInfo>`
+                            	**type**\:   :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items.BundleEvtInfo>`
                             
                             .. attribute:: event_type
                             
                             	EventType
-                            	**type**\:  :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
+                            	**type**\:   :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                             
                             .. attribute:: member_evt_info
                             
                             	Event information for a member
-                            	**type**\:  :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items.MemberEvtInfo>`
+                            	**type**\:   :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items.MemberEvtInfo>`
                             
                             .. attribute:: rg_evt_info
                             
                             	Event information for an RG
-                            	**type**\:  :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items.RgEvtInfo>`
+                            	**type**\:   :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items.RgEvtInfo>`
                             
                             
 
@@ -35412,12 +35712,12 @@ class BundleInformation(object):
                                 .. attribute:: data
                                 
                                 	Additional data for the event
-                                	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items.MemberEvtInfo.Data>`
+                                	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items.MemberEvtInfo.Data>`
                                 
                                 .. attribute:: member_event_type
                                 
                                 	Type of event for member
-                                	**type**\:  :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
+                                	**type**\:   :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -35448,7 +35748,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                    	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -35554,12 +35854,12 @@ class BundleInformation(object):
                                 .. attribute:: bundle_event_type
                                 
                                 	Type of event for bundle
-                                	**type**\:  :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
+                                	**type**\:   :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                                 
                                 .. attribute:: data
                                 
                                 	Additional data for the event
-                                	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items.BundleEvtInfo.Data>`
+                                	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items.BundleEvtInfo.Data>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -35590,7 +35890,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                    	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -35696,12 +35996,12 @@ class BundleInformation(object):
                                 .. attribute:: data
                                 
                                 	Additional data for the event
-                                	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items.RgEvtInfo.Data>`
+                                	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrBundles.EventsMbrBundle.EventsMbrBundleDescendant.EventsItem.Items.RgEvtInfo.Data>`
                                 
                                 .. attribute:: rg_event_type
                                 
                                 	Type of event for RG
-                                	**type**\:  :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
+                                	**type**\:   :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -35732,7 +36032,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                    	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -35981,7 +36281,7 @@ class BundleInformation(object):
             .. attribute:: events_mbr_member
             
             	Member interface
-            	**type**\: list of  :py:class:`EventsMbrMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember>`
+            	**type**\: list of    :py:class:`EventsMbrMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember>`
             
             
 
@@ -36009,7 +36309,7 @@ class BundleInformation(object):
                 .. attribute:: events_mbr_member_item
                 
                 	Data for this item
-                	**type**\:  :py:class:`EventsMbrMemberItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem>`
+                	**type**\:   :py:class:`EventsMbrMemberItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem>`
                 
                 
 
@@ -36037,7 +36337,7 @@ class BundleInformation(object):
                     .. attribute:: items
                     
                     	Event items
-                    	**type**\: list of  :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items>`
+                    	**type**\: list of    :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items>`
                     
                     
 
@@ -36061,22 +36361,22 @@ class BundleInformation(object):
                         .. attribute:: bundle_evt_info
                         
                         	Event information for a bundle
-                        	**type**\:  :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items.BundleEvtInfo>`
+                        	**type**\:   :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items.BundleEvtInfo>`
                         
                         .. attribute:: event_type
                         
                         	EventType
-                        	**type**\:  :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
+                        	**type**\:   :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                         
                         .. attribute:: member_evt_info
                         
                         	Event information for a member
-                        	**type**\:  :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items.MemberEvtInfo>`
+                        	**type**\:   :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items.MemberEvtInfo>`
                         
                         .. attribute:: rg_evt_info
                         
                         	Event information for an RG
-                        	**type**\:  :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items.RgEvtInfo>`
+                        	**type**\:   :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items.RgEvtInfo>`
                         
                         
 
@@ -36103,12 +36403,12 @@ class BundleInformation(object):
                             .. attribute:: data
                             
                             	Additional data for the event
-                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items.MemberEvtInfo.Data>`
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items.MemberEvtInfo.Data>`
                             
                             .. attribute:: member_event_type
                             
                             	Type of event for member
-                            	**type**\:  :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
+                            	**type**\:   :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -36139,7 +36439,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -36245,12 +36545,12 @@ class BundleInformation(object):
                             .. attribute:: bundle_event_type
                             
                             	Type of event for bundle
-                            	**type**\:  :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
+                            	**type**\:   :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                             
                             .. attribute:: data
                             
                             	Additional data for the event
-                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items.BundleEvtInfo.Data>`
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items.BundleEvtInfo.Data>`
                             
                             .. attribute:: time_stamp
                             
@@ -36281,7 +36581,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -36387,12 +36687,12 @@ class BundleInformation(object):
                             .. attribute:: data
                             
                             	Additional data for the event
-                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items.RgEvtInfo.Data>`
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrMembers.EventsMbrMember.EventsMbrMemberItem.Items.RgEvtInfo.Data>`
                             
                             .. attribute:: rg_event_type
                             
                             	Type of event for RG
-                            	**type**\:  :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
+                            	**type**\:   :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                             
                             .. attribute:: time_stamp
                             
@@ -36423,7 +36723,7 @@ class BundleInformation(object):
                                 .. attribute:: data_type
                                 
                                 	DataType
-                                	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                 
                                 .. attribute:: error
                                 
@@ -36642,7 +36942,7 @@ class BundleInformation(object):
             .. attribute:: events_mbr_iccp_group
             
             	ICCP Group ID
-            	**type**\: list of  :py:class:`EventsMbrIccpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup>`
+            	**type**\: list of    :py:class:`EventsMbrIccpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup>`
             
             
 
@@ -36672,12 +36972,12 @@ class BundleInformation(object):
                 .. attribute:: events_mbr_bundle_children_member_iccp_groups
                 
                 	Children of bundle with member events information
-                	**type**\:  :py:class:`EventsMbrBundleChildrenMemberIccpGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups>`
+                	**type**\:   :py:class:`EventsMbrBundleChildrenMemberIccpGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups>`
                 
                 .. attribute:: events_mbr_bundle_descendant_iccp_group
                 
                 	Data for this item and all its members
-                	**type**\:  :py:class:`EventsMbrBundleDescendantIccpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup>`
+                	**type**\:   :py:class:`EventsMbrBundleDescendantIccpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup>`
                 
                 
 
@@ -36703,7 +37003,7 @@ class BundleInformation(object):
                     .. attribute:: events_mbr_bundle_children_member_iccp_group
                     
                     	Bundle member item with ICCP events information
-                    	**type**\: list of  :py:class:`EventsMbrBundleChildrenMemberIccpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup>`
+                    	**type**\: list of    :py:class:`EventsMbrBundleChildrenMemberIccpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup>`
                     
                     
 
@@ -36737,7 +37037,7 @@ class BundleInformation(object):
                         .. attribute:: items
                         
                         	Event items
-                        	**type**\: list of  :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items>`
+                        	**type**\: list of    :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items>`
                         
                         
 
@@ -36762,22 +37062,22 @@ class BundleInformation(object):
                             .. attribute:: bundle_evt_info
                             
                             	Event information for a bundle
-                            	**type**\:  :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items.BundleEvtInfo>`
+                            	**type**\:   :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items.BundleEvtInfo>`
                             
                             .. attribute:: event_type
                             
                             	EventType
-                            	**type**\:  :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
+                            	**type**\:   :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                             
                             .. attribute:: member_evt_info
                             
                             	Event information for a member
-                            	**type**\:  :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items.MemberEvtInfo>`
+                            	**type**\:   :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items.MemberEvtInfo>`
                             
                             .. attribute:: rg_evt_info
                             
                             	Event information for an RG
-                            	**type**\:  :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items.RgEvtInfo>`
+                            	**type**\:   :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items.RgEvtInfo>`
                             
                             
 
@@ -36804,12 +37104,12 @@ class BundleInformation(object):
                                 .. attribute:: data
                                 
                                 	Additional data for the event
-                                	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items.MemberEvtInfo.Data>`
+                                	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items.MemberEvtInfo.Data>`
                                 
                                 .. attribute:: member_event_type
                                 
                                 	Type of event for member
-                                	**type**\:  :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
+                                	**type**\:   :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -36840,7 +37140,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                    	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -36946,12 +37246,12 @@ class BundleInformation(object):
                                 .. attribute:: bundle_event_type
                                 
                                 	Type of event for bundle
-                                	**type**\:  :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
+                                	**type**\:   :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                                 
                                 .. attribute:: data
                                 
                                 	Additional data for the event
-                                	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items.BundleEvtInfo.Data>`
+                                	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items.BundleEvtInfo.Data>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -36982,7 +37282,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                    	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -37088,12 +37388,12 @@ class BundleInformation(object):
                                 .. attribute:: data
                                 
                                 	Additional data for the event
-                                	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items.RgEvtInfo.Data>`
+                                	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleChildrenMemberIccpGroups.EventsMbrBundleChildrenMemberIccpGroup.Items.RgEvtInfo.Data>`
                                 
                                 .. attribute:: rg_event_type
                                 
                                 	Type of event for RG
-                                	**type**\:  :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
+                                	**type**\:   :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -37124,7 +37424,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                    	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -37323,7 +37623,7 @@ class BundleInformation(object):
                     .. attribute:: events_item
                     
                     	Event items
-                    	**type**\: list of  :py:class:`EventsItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem>`
+                    	**type**\: list of    :py:class:`EventsItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem>`
                     
                     
 
@@ -37351,7 +37651,7 @@ class BundleInformation(object):
                         .. attribute:: items
                         
                         	Event items
-                        	**type**\: list of  :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items>`
+                        	**type**\: list of    :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items>`
                         
                         
 
@@ -37375,22 +37675,22 @@ class BundleInformation(object):
                             .. attribute:: bundle_evt_info
                             
                             	Event information for a bundle
-                            	**type**\:  :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items.BundleEvtInfo>`
+                            	**type**\:   :py:class:`BundleEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items.BundleEvtInfo>`
                             
                             .. attribute:: event_type
                             
                             	EventType
-                            	**type**\:  :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
+                            	**type**\:   :py:class:`BmdBagTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagTargetEnum>`
                             
                             .. attribute:: member_evt_info
                             
                             	Event information for a member
-                            	**type**\:  :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items.MemberEvtInfo>`
+                            	**type**\:   :py:class:`MemberEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items.MemberEvtInfo>`
                             
                             .. attribute:: rg_evt_info
                             
                             	Event information for an RG
-                            	**type**\:  :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items.RgEvtInfo>`
+                            	**type**\:   :py:class:`RgEvtInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items.RgEvtInfo>`
                             
                             
 
@@ -37417,12 +37717,12 @@ class BundleInformation(object):
                                 .. attribute:: data
                                 
                                 	Additional data for the event
-                                	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items.MemberEvtInfo.Data>`
+                                	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items.MemberEvtInfo.Data>`
                                 
                                 .. attribute:: member_event_type
                                 
                                 	Type of event for member
-                                	**type**\:  :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
+                                	**type**\:   :py:class:`BmdBagEventMbrItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventMbrItemEnum>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -37453,7 +37753,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                    	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -37559,12 +37859,12 @@ class BundleInformation(object):
                                 .. attribute:: bundle_event_type
                                 
                                 	Type of event for bundle
-                                	**type**\:  :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
+                                	**type**\:   :py:class:`BmdBagEventBdlItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventBdlItemEnum>`
                                 
                                 .. attribute:: data
                                 
                                 	Additional data for the event
-                                	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items.BundleEvtInfo.Data>`
+                                	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items.BundleEvtInfo.Data>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -37595,7 +37895,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                    	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -37701,12 +38001,12 @@ class BundleInformation(object):
                                 .. attribute:: data
                                 
                                 	Additional data for the event
-                                	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items.RgEvtInfo.Data>`
+                                	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.EventsMbr.EventsMbrIccpGroups.EventsMbrIccpGroup.EventsMbrBundleDescendantIccpGroup.EventsItem.Items.RgEvtInfo.Data>`
                                 
                                 .. attribute:: rg_event_type
                                 
                                 	Type of event for RG
-                                	**type**\:  :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
+                                	**type**\:   :py:class:`BmdBagEventRgItemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventRgItemEnum>`
                                 
                                 .. attribute:: time_stamp
                                 
@@ -37737,7 +38037,7 @@ class BundleInformation(object):
                                     .. attribute:: data_type
                                     
                                     	DataType
-                                    	**type**\:  :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
+                                    	**type**\:   :py:class:`BmdBagEventDataEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBagEventDataEnum>`
                                     
                                     .. attribute:: error
                                     
@@ -38013,7 +38313,7 @@ class BundleInformation(object):
         .. attribute:: iccp_groups
         
         	ICCP Groups with counters of mLACP events
-        	**type**\:  :py:class:`IccpGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups>`
+        	**type**\:   :py:class:`IccpGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups>`
         
         
 
@@ -38035,7 +38335,7 @@ class BundleInformation(object):
             .. attribute:: iccp_group
             
             	ICCP Group ID
-            	**type**\: list of  :py:class:`IccpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup>`
+            	**type**\: list of    :py:class:`IccpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup>`
             
             
 
@@ -38065,22 +38365,22 @@ class BundleInformation(object):
                 .. attribute:: iccp_group_ancestor_bundle
                 
                 	Data for this item and its parent RG
-                	**type**\:  :py:class:`IccpGroupAncestorBundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorBundle>`
+                	**type**\:   :py:class:`IccpGroupAncestorBundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorBundle>`
                 
                 .. attribute:: iccp_group_ancestor_member
                 
                 	Data for this item and its parent RG
-                	**type**\:  :py:class:`IccpGroupAncestorMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorMember>`
+                	**type**\:   :py:class:`IccpGroupAncestorMember <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorMember>`
                 
                 .. attribute:: iccp_group_ancestor_node
                 
                 	Data for this item and its parent RG
-                	**type**\:  :py:class:`IccpGroupAncestorNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorNode>`
+                	**type**\:   :py:class:`IccpGroupAncestorNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorNode>`
                 
                 .. attribute:: iccp_group_item
                 
                 	Data for this item
-                	**type**\:  :py:class:`IccpGroupItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupItem>`
+                	**type**\:   :py:class:`IccpGroupItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupItem>`
                 
                 
 
@@ -38109,7 +38409,7 @@ class BundleInformation(object):
                     .. attribute:: iccp_group_counters
                     
                     	ICCP Group counters
-                    	**type**\:  :py:class:`IccpGroupCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorBundle.IccpGroupCounters>`
+                    	**type**\:   :py:class:`IccpGroupCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorBundle.IccpGroupCounters>`
                     
                     .. attribute:: iccp_group_id
                     
@@ -38139,22 +38439,22 @@ class BundleInformation(object):
                         .. attribute:: connection
                         
                         	Number of connection events
-                        	**type**\:  :py:class:`Connection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorBundle.IccpGroupCounters.Connection>`
+                        	**type**\:   :py:class:`Connection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorBundle.IccpGroupCounters.Connection>`
                         
                         .. attribute:: iccp_events
                         
                         	Number of ICCP events
-                        	**type**\:  :py:class:`IccpEvents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorBundle.IccpGroupCounters.IccpEvents>`
+                        	**type**\:   :py:class:`IccpEvents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorBundle.IccpGroupCounters.IccpEvents>`
                         
                         .. attribute:: iccp_messages
                         
                         	Number ICCP messages sent and received
-                        	**type**\:  :py:class:`IccpMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorBundle.IccpGroupCounters.IccpMessages>`
+                        	**type**\:   :py:class:`IccpMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorBundle.IccpGroupCounters.IccpMessages>`
                         
                         .. attribute:: invalid_tl_vs
                         
                         	Number invalid TLVs received
-                        	**type**\:  :py:class:`InvalidTlVs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorBundle.IccpGroupCounters.InvalidTlVs>`
+                        	**type**\:   :py:class:`InvalidTlVs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorBundle.IccpGroupCounters.InvalidTlVs>`
                         
                         .. attribute:: last_time_cleared
                         
@@ -38163,12 +38463,16 @@ class BundleInformation(object):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**units**\: nanosecond
+                        
                         .. attribute:: last_unexpected_event
                         
                         	Elapsed time in nsecs since last unexpected event
                         	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**units**\: nanosecond
                         
                         .. attribute:: time_since_cleared
                         
@@ -38177,10 +38481,12 @@ class BundleInformation(object):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**units**\: nanosecond
+                        
                         .. attribute:: tl_vs
                         
                         	Number TLVs sent and received
-                        	**type**\:  :py:class:`TlVs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorBundle.IccpGroupCounters.TlVs>`
+                        	**type**\:   :py:class:`TlVs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorBundle.IccpGroupCounters.TlVs>`
                         
                         
 
@@ -38971,7 +39277,7 @@ class BundleInformation(object):
                     .. attribute:: iccp_group_counters
                     
                     	ICCP Group counters
-                    	**type**\:  :py:class:`IccpGroupCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorMember.IccpGroupCounters>`
+                    	**type**\:   :py:class:`IccpGroupCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorMember.IccpGroupCounters>`
                     
                     .. attribute:: iccp_group_id
                     
@@ -39001,22 +39307,22 @@ class BundleInformation(object):
                         .. attribute:: connection
                         
                         	Number of connection events
-                        	**type**\:  :py:class:`Connection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorMember.IccpGroupCounters.Connection>`
+                        	**type**\:   :py:class:`Connection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorMember.IccpGroupCounters.Connection>`
                         
                         .. attribute:: iccp_events
                         
                         	Number of ICCP events
-                        	**type**\:  :py:class:`IccpEvents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorMember.IccpGroupCounters.IccpEvents>`
+                        	**type**\:   :py:class:`IccpEvents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorMember.IccpGroupCounters.IccpEvents>`
                         
                         .. attribute:: iccp_messages
                         
                         	Number ICCP messages sent and received
-                        	**type**\:  :py:class:`IccpMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorMember.IccpGroupCounters.IccpMessages>`
+                        	**type**\:   :py:class:`IccpMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorMember.IccpGroupCounters.IccpMessages>`
                         
                         .. attribute:: invalid_tl_vs
                         
                         	Number invalid TLVs received
-                        	**type**\:  :py:class:`InvalidTlVs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorMember.IccpGroupCounters.InvalidTlVs>`
+                        	**type**\:   :py:class:`InvalidTlVs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorMember.IccpGroupCounters.InvalidTlVs>`
                         
                         .. attribute:: last_time_cleared
                         
@@ -39025,12 +39331,16 @@ class BundleInformation(object):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**units**\: nanosecond
+                        
                         .. attribute:: last_unexpected_event
                         
                         	Elapsed time in nsecs since last unexpected event
                         	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**units**\: nanosecond
                         
                         .. attribute:: time_since_cleared
                         
@@ -39039,10 +39349,12 @@ class BundleInformation(object):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**units**\: nanosecond
+                        
                         .. attribute:: tl_vs
                         
                         	Number TLVs sent and received
-                        	**type**\:  :py:class:`TlVs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorMember.IccpGroupCounters.TlVs>`
+                        	**type**\:   :py:class:`TlVs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorMember.IccpGroupCounters.TlVs>`
                         
                         
 
@@ -39833,7 +40145,7 @@ class BundleInformation(object):
                     .. attribute:: iccp_group_counters
                     
                     	ICCP Group counters
-                    	**type**\:  :py:class:`IccpGroupCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorNode.IccpGroupCounters>`
+                    	**type**\:   :py:class:`IccpGroupCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorNode.IccpGroupCounters>`
                     
                     .. attribute:: iccp_group_id
                     
@@ -39863,22 +40175,22 @@ class BundleInformation(object):
                         .. attribute:: connection
                         
                         	Number of connection events
-                        	**type**\:  :py:class:`Connection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorNode.IccpGroupCounters.Connection>`
+                        	**type**\:   :py:class:`Connection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorNode.IccpGroupCounters.Connection>`
                         
                         .. attribute:: iccp_events
                         
                         	Number of ICCP events
-                        	**type**\:  :py:class:`IccpEvents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorNode.IccpGroupCounters.IccpEvents>`
+                        	**type**\:   :py:class:`IccpEvents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorNode.IccpGroupCounters.IccpEvents>`
                         
                         .. attribute:: iccp_messages
                         
                         	Number ICCP messages sent and received
-                        	**type**\:  :py:class:`IccpMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorNode.IccpGroupCounters.IccpMessages>`
+                        	**type**\:   :py:class:`IccpMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorNode.IccpGroupCounters.IccpMessages>`
                         
                         .. attribute:: invalid_tl_vs
                         
                         	Number invalid TLVs received
-                        	**type**\:  :py:class:`InvalidTlVs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorNode.IccpGroupCounters.InvalidTlVs>`
+                        	**type**\:   :py:class:`InvalidTlVs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorNode.IccpGroupCounters.InvalidTlVs>`
                         
                         .. attribute:: last_time_cleared
                         
@@ -39887,12 +40199,16 @@ class BundleInformation(object):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**units**\: nanosecond
+                        
                         .. attribute:: last_unexpected_event
                         
                         	Elapsed time in nsecs since last unexpected event
                         	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**units**\: nanosecond
                         
                         .. attribute:: time_since_cleared
                         
@@ -39901,10 +40217,12 @@ class BundleInformation(object):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**units**\: nanosecond
+                        
                         .. attribute:: tl_vs
                         
                         	Number TLVs sent and received
-                        	**type**\:  :py:class:`TlVs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorNode.IccpGroupCounters.TlVs>`
+                        	**type**\:   :py:class:`TlVs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupAncestorNode.IccpGroupCounters.TlVs>`
                         
                         
 
@@ -40695,7 +41013,7 @@ class BundleInformation(object):
                     .. attribute:: iccp_group_counters
                     
                     	ICCP Group counters
-                    	**type**\:  :py:class:`IccpGroupCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupCounters>`
+                    	**type**\:   :py:class:`IccpGroupCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupCounters>`
                     
                     .. attribute:: iccp_group_id
                     
@@ -40725,22 +41043,22 @@ class BundleInformation(object):
                         .. attribute:: connection
                         
                         	Number of connection events
-                        	**type**\:  :py:class:`Connection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupCounters.Connection>`
+                        	**type**\:   :py:class:`Connection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupCounters.Connection>`
                         
                         .. attribute:: iccp_events
                         
                         	Number of ICCP events
-                        	**type**\:  :py:class:`IccpEvents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupCounters.IccpEvents>`
+                        	**type**\:   :py:class:`IccpEvents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupCounters.IccpEvents>`
                         
                         .. attribute:: iccp_messages
                         
                         	Number ICCP messages sent and received
-                        	**type**\:  :py:class:`IccpMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupCounters.IccpMessages>`
+                        	**type**\:   :py:class:`IccpMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupCounters.IccpMessages>`
                         
                         .. attribute:: invalid_tl_vs
                         
                         	Number invalid TLVs received
-                        	**type**\:  :py:class:`InvalidTlVs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupCounters.InvalidTlVs>`
+                        	**type**\:   :py:class:`InvalidTlVs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupCounters.InvalidTlVs>`
                         
                         .. attribute:: last_time_cleared
                         
@@ -40749,12 +41067,16 @@ class BundleInformation(object):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**units**\: nanosecond
+                        
                         .. attribute:: last_unexpected_event
                         
                         	Elapsed time in nsecs since last unexpected event
                         	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**units**\: nanosecond
                         
                         .. attribute:: time_since_cleared
                         
@@ -40763,10 +41085,12 @@ class BundleInformation(object):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**units**\: nanosecond
+                        
                         .. attribute:: tl_vs
                         
                         	Number TLVs sent and received
-                        	**type**\:  :py:class:`TlVs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupCounters.TlVs>`
+                        	**type**\:   :py:class:`TlVs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupCounters.TlVs>`
                         
                         
 
@@ -41640,12 +41964,12 @@ class BundleInformation(object):
         .. attribute:: system_id_global
         
         	System Identifier for the local system
-        	**type**\:  :py:class:`SystemIdGlobal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.SystemId.SystemIdGlobal>`
+        	**type**\:   :py:class:`SystemIdGlobal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.SystemId.SystemIdGlobal>`
         
         .. attribute:: system_id_iccp_groups
         
         	System Identifiers for all ICCP Groups
-        	**type**\:  :py:class:`SystemIdIccpGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.SystemId.SystemIdIccpGroups>`
+        	**type**\:   :py:class:`SystemIdIccpGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.SystemId.SystemIdIccpGroups>`
         
         
 
@@ -41669,7 +41993,7 @@ class BundleInformation(object):
             .. attribute:: system_id_global_item
             
             	Data for this item
-            	**type**\:  :py:class:`SystemIdGlobalItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem>`
+            	**type**\:   :py:class:`SystemIdGlobalItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem>`
             
             
 
@@ -41698,7 +42022,7 @@ class BundleInformation(object):
                 .. attribute:: system_id
                 
                 	System ID
-                	**type**\:  :py:class:`SystemId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId>`
+                	**type**\:   :py:class:`SystemId_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId_>`
                 
                 .. attribute:: system_mac_address
                 
@@ -41724,20 +42048,20 @@ class BundleInformation(object):
                 def __init__(self):
                     self.parent = None
                     self.iccp_group_id = None
-                    self.system_id = BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId()
+                    self.system_id = BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId_()
                     self.system_id.parent = self
                     self.system_mac_address = None
                     self.system_priority = None
 
 
-                class SystemId(object):
+                class SystemId_(object):
                     """
                     System ID
                     
                     .. attribute:: system_mac_addr
                     
                     	MAC Address used to identify the system
-                    	**type**\:  :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId.SystemMacAddr>`
+                    	**type**\:   :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId_.SystemMacAddr>`
                     
                     .. attribute:: system_prio
                     
@@ -41755,7 +42079,7 @@ class BundleInformation(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.system_mac_addr = BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId.SystemMacAddr()
+                        self.system_mac_addr = BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId_.SystemMacAddr()
                         self.system_mac_addr.parent = self
                         self.system_prio = None
 
@@ -41802,7 +42126,7 @@ class BundleInformation(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                            return meta._meta_table['BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId.SystemMacAddr']['meta_info']
+                            return meta._meta_table['BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId_.SystemMacAddr']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -41827,7 +42151,7 @@ class BundleInformation(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                        return meta._meta_table['BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId']['meta_info']
+                        return meta._meta_table['BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId_']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -41890,7 +42214,7 @@ class BundleInformation(object):
             .. attribute:: system_id_iccp_group
             
             	ICCP Group ID
-            	**type**\: list of  :py:class:`SystemIdIccpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup>`
+            	**type**\: list of    :py:class:`SystemIdIccpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup>`
             
             
 
@@ -41920,7 +42244,7 @@ class BundleInformation(object):
                 .. attribute:: system_id_iccp_group_item
                 
                 	Data for this item
-                	**type**\:  :py:class:`SystemIdIccpGroupItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem>`
+                	**type**\:   :py:class:`SystemIdIccpGroupItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem>`
                 
                 
 
@@ -41950,7 +42274,7 @@ class BundleInformation(object):
                     .. attribute:: system_id
                     
                     	System ID
-                    	**type**\:  :py:class:`SystemId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId>`
+                    	**type**\:   :py:class:`SystemId_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId_>`
                     
                     .. attribute:: system_mac_address
                     
@@ -41976,20 +42300,20 @@ class BundleInformation(object):
                     def __init__(self):
                         self.parent = None
                         self.iccp_group_id = None
-                        self.system_id = BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId()
+                        self.system_id = BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId_()
                         self.system_id.parent = self
                         self.system_mac_address = None
                         self.system_priority = None
 
 
-                    class SystemId(object):
+                    class SystemId_(object):
                         """
                         System ID
                         
                         .. attribute:: system_mac_addr
                         
                         	MAC Address used to identify the system
-                        	**type**\:  :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId.SystemMacAddr>`
+                        	**type**\:   :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId_.SystemMacAddr>`
                         
                         .. attribute:: system_prio
                         
@@ -42007,7 +42331,7 @@ class BundleInformation(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.system_mac_addr = BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId.SystemMacAddr()
+                            self.system_mac_addr = BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId_.SystemMacAddr()
                             self.system_mac_addr.parent = self
                             self.system_prio = None
 
@@ -42056,7 +42380,7 @@ class BundleInformation(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                                return meta._meta_table['BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId.SystemMacAddr']['meta_info']
+                                return meta._meta_table['BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId_.SystemMacAddr']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -42083,7 +42407,7 @@ class BundleInformation(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                            return meta._meta_table['BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId']['meta_info']
+                            return meta._meta_table['BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId_']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -42202,22 +42526,22 @@ class BundleInformation(object):
         .. attribute:: bundles
         
         	Bundle interfaces with counters of their member's mLACP events
-        	**type**\:  :py:class:`Bundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Bundles>`
+        	**type**\:   :py:class:`Bundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Bundles>`
         
         .. attribute:: iccp_groups
         
         	ICCP Groups with counters of their member's mLACP events
-        	**type**\:  :py:class:`IccpGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups>`
+        	**type**\:   :py:class:`IccpGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups>`
         
         .. attribute:: members
         
         	Member interfaces with counters of mLACP events
-        	**type**\:  :py:class:`Members <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members>`
+        	**type**\:   :py:class:`Members <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members>`
         
         .. attribute:: nodes
         
         	Devices with counters of their member's mLACP events
-        	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes>`
+        	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes>`
         
         
 
@@ -42246,7 +42570,7 @@ class BundleInformation(object):
             .. attribute:: iccp_group
             
             	ICCP Group ID
-            	**type**\: list of  :py:class:`IccpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup>`
+            	**type**\: list of    :py:class:`IccpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup>`
             
             
 
@@ -42276,7 +42600,7 @@ class BundleInformation(object):
                 .. attribute:: iccp_group_item
                 
                 	Data for this item and all its members
-                	**type**\:  :py:class:`IccpGroupItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem>`
+                	**type**\:   :py:class:`IccpGroupItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem>`
                 
                 
 
@@ -42299,7 +42623,7 @@ class BundleInformation(object):
                     .. attribute:: items
                     
                     	mLACP counter information items
-                    	**type**\: list of  :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items>`
+                    	**type**\: list of    :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items>`
                     
                     
 
@@ -42322,17 +42646,17 @@ class BundleInformation(object):
                         .. attribute:: bundle_data
                         
                         	Bundle mLACP TLV counter information
-                        	**type**\:  :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.BundleData>`
+                        	**type**\:   :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.BundleData>`
                         
                         .. attribute:: member_data
                         
                         	Local member mLACP TLV counter information
-                        	**type**\: list of  :py:class:`MemberData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.MemberData>`
+                        	**type**\: list of    :py:class:`MemberData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.MemberData>`
                         
                         .. attribute:: node_data
                         
                         	Peer device mLACP TLV counter information
-                        	**type**\: list of  :py:class:`NodeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData>`
+                        	**type**\: list of    :py:class:`NodeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData>`
                         
                         
 
@@ -42372,7 +42696,7 @@ class BundleInformation(object):
                             .. attribute:: mlacp_sync_requests_on_all_local_ports
                             
                             	Counts of mLACP sync request TLVs on all ports
-                            	**type**\:  :py:class:`MlacpSyncRequestsOnAllLocalPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.BundleData.MlacpSyncRequestsOnAllLocalPorts>`
+                            	**type**\:   :py:class:`MlacpSyncRequestsOnAllLocalPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.BundleData.MlacpSyncRequestsOnAllLocalPorts>`
                             
                             
 
@@ -42400,10 +42724,12 @@ class BundleInformation(object):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**units**\: nanosecond
+                                
                                 .. attribute:: received_sync_requests
                                 
                                 	Number of mLACP sync request TLVs received
-                                	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.BundleData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests>`
+                                	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.BundleData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests>`
                                 
                                 .. attribute:: time_since_cleared
                                 
@@ -42411,6 +42737,8 @@ class BundleInformation(object):
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: nanosecond
                                 
                                 
 
@@ -42563,17 +42891,17 @@ class BundleInformation(object):
                             .. attribute:: member_data
                             
                             	Member mLACP TLV counter information
-                            	**type**\: list of  :py:class:`MemberData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.MemberData>`
+                            	**type**\: list of    :py:class:`MemberData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.MemberData>`
                             
                             .. attribute:: mlacp_sync_requests_on_all_foreign_ports
                             
                             	Counts of mLACP sync request TLVs on all ports
-                            	**type**\:  :py:class:`MlacpSyncRequestsOnAllForeignPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts>`
+                            	**type**\:   :py:class:`MlacpSyncRequestsOnAllForeignPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts>`
                             
                             .. attribute:: node_data
                             
                             	Peer device mLACP TLV counter information
-                            	**type**\:  :py:class:`NodeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.NodeData>`
+                            	**type**\:   :py:class:`NodeData_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.NodeData_>`
                             
                             
 
@@ -42589,11 +42917,11 @@ class BundleInformation(object):
                                 self.member_data.name = 'member_data'
                                 self.mlacp_sync_requests_on_all_foreign_ports = BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts()
                                 self.mlacp_sync_requests_on_all_foreign_ports.parent = self
-                                self.node_data = BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.NodeData()
+                                self.node_data = BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.NodeData_()
                                 self.node_data.parent = self
 
 
-                            class NodeData(object):
+                            class NodeData_(object):
                                 """
                                 Peer device mLACP TLV counter information
                                 
@@ -42648,7 +42976,7 @@ class BundleInformation(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                                    return meta._meta_table['BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.NodeData']['meta_info']
+                                    return meta._meta_table['BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.NodeData_']['meta_info']
 
 
                             class MlacpSyncRequestsOnAllForeignPorts(object):
@@ -42662,10 +42990,12 @@ class BundleInformation(object):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**units**\: nanosecond
+                                
                                 .. attribute:: received_sync_requests
                                 
                                 	Number of mLACP sync request TLVs received
-                                	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests>`
+                                	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests>`
                                 
                                 .. attribute:: time_since_cleared
                                 
@@ -42673,6 +43003,8 @@ class BundleInformation(object):
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: nanosecond
                                 
                                 
 
@@ -42795,7 +43127,7 @@ class BundleInformation(object):
                                 .. attribute:: mlacp_tlv_counters
                                 
                                 	Counts of mLACP TLVs sent and received
-                                	**type**\:  :py:class:`MlacpTlvCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.MemberData.MlacpTlvCounters>`
+                                	**type**\:   :py:class:`MlacpTlvCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.MemberData.MlacpTlvCounters>`
                                 
                                 .. attribute:: port_name
                                 
@@ -42827,12 +43159,16 @@ class BundleInformation(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**units**\: nanosecond
+                                    
                                     .. attribute:: last_unexpected_event
                                     
                                     	Elapsed time in nsecs since last unexpected event
                                     	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: nanosecond
                                     
                                     .. attribute:: received_nak_tl_vs
                                     
@@ -42851,7 +43187,7 @@ class BundleInformation(object):
                                     .. attribute:: received_sync_requests
                                     
                                     	Number of mLACP sync request TLVs received
-                                    	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.MemberData.MlacpTlvCounters.ReceivedSyncRequests>`
+                                    	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.MemberData.MlacpTlvCounters.ReceivedSyncRequests>`
                                     
                                     .. attribute:: sent_config_tl_vs
                                     
@@ -42880,6 +43216,8 @@ class BundleInformation(object):
                                     	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: nanosecond
                                     
                                     
 
@@ -43085,7 +43423,7 @@ class BundleInformation(object):
                             .. attribute:: mlacp_tlv_counters
                             
                             	Counts of mLACP TLVs sent and received
-                            	**type**\:  :py:class:`MlacpTlvCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.MemberData.MlacpTlvCounters>`
+                            	**type**\:   :py:class:`MlacpTlvCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.MemberData.MlacpTlvCounters>`
                             
                             .. attribute:: port_name
                             
@@ -43117,12 +43455,16 @@ class BundleInformation(object):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**units**\: nanosecond
+                                
                                 .. attribute:: last_unexpected_event
                                 
                                 	Elapsed time in nsecs since last unexpected event
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: nanosecond
                                 
                                 .. attribute:: received_nak_tl_vs
                                 
@@ -43141,7 +43483,7 @@ class BundleInformation(object):
                                 .. attribute:: received_sync_requests
                                 
                                 	Number of mLACP sync request TLVs received
-                                	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.MemberData.MlacpTlvCounters.ReceivedSyncRequests>`
+                                	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.MemberData.MlacpTlvCounters.ReceivedSyncRequests>`
                                 
                                 .. attribute:: sent_config_tl_vs
                                 
@@ -43170,6 +43512,8 @@ class BundleInformation(object):
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: nanosecond
                                 
                                 
 
@@ -43454,7 +43798,7 @@ class BundleInformation(object):
             .. attribute:: member
             
             	Member interface
-            	**type**\: list of  :py:class:`Member <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members.Member>`
+            	**type**\: list of    :py:class:`Member <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members.Member>`
             
             
 
@@ -43482,7 +43826,7 @@ class BundleInformation(object):
                 .. attribute:: member_item
                 
                 	Data for this item
-                	**type**\:  :py:class:`MemberItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members.Member.MemberItem>`
+                	**type**\:   :py:class:`MemberItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members.Member.MemberItem>`
                 
                 
 
@@ -43505,7 +43849,7 @@ class BundleInformation(object):
                     .. attribute:: items
                     
                     	mLACP counter information items
-                    	**type**\: list of  :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items>`
+                    	**type**\: list of    :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items>`
                     
                     
 
@@ -43528,17 +43872,17 @@ class BundleInformation(object):
                         .. attribute:: bundle_data
                         
                         	Bundle mLACP TLV counter information
-                        	**type**\:  :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.BundleData>`
+                        	**type**\:   :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.BundleData>`
                         
                         .. attribute:: member_data
                         
                         	Local member mLACP TLV counter information
-                        	**type**\: list of  :py:class:`MemberData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.MemberData>`
+                        	**type**\: list of    :py:class:`MemberData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.MemberData>`
                         
                         .. attribute:: node_data
                         
                         	Peer device mLACP TLV counter information
-                        	**type**\: list of  :py:class:`NodeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData>`
+                        	**type**\: list of    :py:class:`NodeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData>`
                         
                         
 
@@ -43578,7 +43922,7 @@ class BundleInformation(object):
                             .. attribute:: mlacp_sync_requests_on_all_local_ports
                             
                             	Counts of mLACP sync request TLVs on all ports
-                            	**type**\:  :py:class:`MlacpSyncRequestsOnAllLocalPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.BundleData.MlacpSyncRequestsOnAllLocalPorts>`
+                            	**type**\:   :py:class:`MlacpSyncRequestsOnAllLocalPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.BundleData.MlacpSyncRequestsOnAllLocalPorts>`
                             
                             
 
@@ -43606,10 +43950,12 @@ class BundleInformation(object):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**units**\: nanosecond
+                                
                                 .. attribute:: received_sync_requests
                                 
                                 	Number of mLACP sync request TLVs received
-                                	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.BundleData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests>`
+                                	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.BundleData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests>`
                                 
                                 .. attribute:: time_since_cleared
                                 
@@ -43617,6 +43963,8 @@ class BundleInformation(object):
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: nanosecond
                                 
                                 
 
@@ -43769,17 +44117,17 @@ class BundleInformation(object):
                             .. attribute:: member_data
                             
                             	Member mLACP TLV counter information
-                            	**type**\: list of  :py:class:`MemberData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.MemberData>`
+                            	**type**\: list of    :py:class:`MemberData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.MemberData>`
                             
                             .. attribute:: mlacp_sync_requests_on_all_foreign_ports
                             
                             	Counts of mLACP sync request TLVs on all ports
-                            	**type**\:  :py:class:`MlacpSyncRequestsOnAllForeignPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts>`
+                            	**type**\:   :py:class:`MlacpSyncRequestsOnAllForeignPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts>`
                             
                             .. attribute:: node_data
                             
                             	Peer device mLACP TLV counter information
-                            	**type**\:  :py:class:`NodeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.NodeData>`
+                            	**type**\:   :py:class:`NodeData_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.NodeData_>`
                             
                             
 
@@ -43795,11 +44143,11 @@ class BundleInformation(object):
                                 self.member_data.name = 'member_data'
                                 self.mlacp_sync_requests_on_all_foreign_ports = BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts()
                                 self.mlacp_sync_requests_on_all_foreign_ports.parent = self
-                                self.node_data = BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.NodeData()
+                                self.node_data = BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.NodeData_()
                                 self.node_data.parent = self
 
 
-                            class NodeData(object):
+                            class NodeData_(object):
                                 """
                                 Peer device mLACP TLV counter information
                                 
@@ -43854,7 +44202,7 @@ class BundleInformation(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                                    return meta._meta_table['BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.NodeData']['meta_info']
+                                    return meta._meta_table['BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.NodeData_']['meta_info']
 
 
                             class MlacpSyncRequestsOnAllForeignPorts(object):
@@ -43868,10 +44216,12 @@ class BundleInformation(object):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**units**\: nanosecond
+                                
                                 .. attribute:: received_sync_requests
                                 
                                 	Number of mLACP sync request TLVs received
-                                	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests>`
+                                	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests>`
                                 
                                 .. attribute:: time_since_cleared
                                 
@@ -43879,6 +44229,8 @@ class BundleInformation(object):
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: nanosecond
                                 
                                 
 
@@ -44001,7 +44353,7 @@ class BundleInformation(object):
                                 .. attribute:: mlacp_tlv_counters
                                 
                                 	Counts of mLACP TLVs sent and received
-                                	**type**\:  :py:class:`MlacpTlvCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.MemberData.MlacpTlvCounters>`
+                                	**type**\:   :py:class:`MlacpTlvCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.MemberData.MlacpTlvCounters>`
                                 
                                 .. attribute:: port_name
                                 
@@ -44033,12 +44385,16 @@ class BundleInformation(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**units**\: nanosecond
+                                    
                                     .. attribute:: last_unexpected_event
                                     
                                     	Elapsed time in nsecs since last unexpected event
                                     	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: nanosecond
                                     
                                     .. attribute:: received_nak_tl_vs
                                     
@@ -44057,7 +44413,7 @@ class BundleInformation(object):
                                     .. attribute:: received_sync_requests
                                     
                                     	Number of mLACP sync request TLVs received
-                                    	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.MemberData.MlacpTlvCounters.ReceivedSyncRequests>`
+                                    	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.MemberData.MlacpTlvCounters.ReceivedSyncRequests>`
                                     
                                     .. attribute:: sent_config_tl_vs
                                     
@@ -44086,6 +44442,8 @@ class BundleInformation(object):
                                     	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: nanosecond
                                     
                                     
 
@@ -44291,7 +44649,7 @@ class BundleInformation(object):
                             .. attribute:: mlacp_tlv_counters
                             
                             	Counts of mLACP TLVs sent and received
-                            	**type**\:  :py:class:`MlacpTlvCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.MemberData.MlacpTlvCounters>`
+                            	**type**\:   :py:class:`MlacpTlvCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.MemberData.MlacpTlvCounters>`
                             
                             .. attribute:: port_name
                             
@@ -44323,12 +44681,16 @@ class BundleInformation(object):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**units**\: nanosecond
+                                
                                 .. attribute:: last_unexpected_event
                                 
                                 	Elapsed time in nsecs since last unexpected event
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: nanosecond
                                 
                                 .. attribute:: received_nak_tl_vs
                                 
@@ -44347,7 +44709,7 @@ class BundleInformation(object):
                                 .. attribute:: received_sync_requests
                                 
                                 	Number of mLACP sync request TLVs received
-                                	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.MemberData.MlacpTlvCounters.ReceivedSyncRequests>`
+                                	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.MemberData.MlacpTlvCounters.ReceivedSyncRequests>`
                                 
                                 .. attribute:: sent_config_tl_vs
                                 
@@ -44376,6 +44738,8 @@ class BundleInformation(object):
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: nanosecond
                                 
                                 
 
@@ -44661,7 +45025,7 @@ class BundleInformation(object):
             .. attribute:: bundle
             
             	Bundle interface
-            	**type**\: list of  :py:class:`Bundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Bundles.Bundle>`
+            	**type**\: list of    :py:class:`Bundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Bundles.Bundle>`
             
             
 
@@ -44691,7 +45055,7 @@ class BundleInformation(object):
                 .. attribute:: bundle_item
                 
                 	Data for this item
-                	**type**\:  :py:class:`BundleItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem>`
+                	**type**\:   :py:class:`BundleItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem>`
                 
                 
 
@@ -44714,17 +45078,17 @@ class BundleInformation(object):
                     .. attribute:: bundle_data
                     
                     	Bundle mLACP TLV counter information
-                    	**type**\:  :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.BundleData>`
+                    	**type**\:   :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.BundleData>`
                     
                     .. attribute:: member_data
                     
                     	Local member mLACP TLV counter information
-                    	**type**\: list of  :py:class:`MemberData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.MemberData>`
+                    	**type**\: list of    :py:class:`MemberData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.MemberData>`
                     
                     .. attribute:: node_data
                     
                     	Peer device mLACP TLV counter information
-                    	**type**\: list of  :py:class:`NodeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData>`
+                    	**type**\: list of    :py:class:`NodeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData>`
                     
                     
 
@@ -44764,7 +45128,7 @@ class BundleInformation(object):
                         .. attribute:: mlacp_sync_requests_on_all_local_ports
                         
                         	Counts of mLACP sync request TLVs on all ports
-                        	**type**\:  :py:class:`MlacpSyncRequestsOnAllLocalPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.BundleData.MlacpSyncRequestsOnAllLocalPorts>`
+                        	**type**\:   :py:class:`MlacpSyncRequestsOnAllLocalPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.BundleData.MlacpSyncRequestsOnAllLocalPorts>`
                         
                         
 
@@ -44792,10 +45156,12 @@ class BundleInformation(object):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**units**\: nanosecond
+                            
                             .. attribute:: received_sync_requests
                             
                             	Number of mLACP sync request TLVs received
-                            	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.BundleData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests>`
+                            	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.BundleData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests>`
                             
                             .. attribute:: time_since_cleared
                             
@@ -44803,6 +45169,8 @@ class BundleInformation(object):
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**units**\: nanosecond
                             
                             
 
@@ -44955,17 +45323,17 @@ class BundleInformation(object):
                         .. attribute:: member_data
                         
                         	Member mLACP TLV counter information
-                        	**type**\: list of  :py:class:`MemberData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.MemberData>`
+                        	**type**\: list of    :py:class:`MemberData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.MemberData>`
                         
                         .. attribute:: mlacp_sync_requests_on_all_foreign_ports
                         
                         	Counts of mLACP sync request TLVs on all ports
-                        	**type**\:  :py:class:`MlacpSyncRequestsOnAllForeignPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.MlacpSyncRequestsOnAllForeignPorts>`
+                        	**type**\:   :py:class:`MlacpSyncRequestsOnAllForeignPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.MlacpSyncRequestsOnAllForeignPorts>`
                         
                         .. attribute:: node_data
                         
                         	Peer device mLACP TLV counter information
-                        	**type**\:  :py:class:`NodeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.NodeData>`
+                        	**type**\:   :py:class:`NodeData_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.NodeData_>`
                         
                         
 
@@ -44981,11 +45349,11 @@ class BundleInformation(object):
                             self.member_data.name = 'member_data'
                             self.mlacp_sync_requests_on_all_foreign_ports = BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.MlacpSyncRequestsOnAllForeignPorts()
                             self.mlacp_sync_requests_on_all_foreign_ports.parent = self
-                            self.node_data = BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.NodeData()
+                            self.node_data = BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.NodeData_()
                             self.node_data.parent = self
 
 
-                        class NodeData(object):
+                        class NodeData_(object):
                             """
                             Peer device mLACP TLV counter information
                             
@@ -45040,7 +45408,7 @@ class BundleInformation(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                                return meta._meta_table['BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.NodeData']['meta_info']
+                                return meta._meta_table['BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.NodeData_']['meta_info']
 
 
                         class MlacpSyncRequestsOnAllForeignPorts(object):
@@ -45054,10 +45422,12 @@ class BundleInformation(object):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**units**\: nanosecond
+                            
                             .. attribute:: received_sync_requests
                             
                             	Number of mLACP sync request TLVs received
-                            	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests>`
+                            	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests>`
                             
                             .. attribute:: time_since_cleared
                             
@@ -45065,6 +45435,8 @@ class BundleInformation(object):
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**units**\: nanosecond
                             
                             
 
@@ -45187,7 +45559,7 @@ class BundleInformation(object):
                             .. attribute:: mlacp_tlv_counters
                             
                             	Counts of mLACP TLVs sent and received
-                            	**type**\:  :py:class:`MlacpTlvCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.MemberData.MlacpTlvCounters>`
+                            	**type**\:   :py:class:`MlacpTlvCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.MemberData.MlacpTlvCounters>`
                             
                             .. attribute:: port_name
                             
@@ -45219,12 +45591,16 @@ class BundleInformation(object):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**units**\: nanosecond
+                                
                                 .. attribute:: last_unexpected_event
                                 
                                 	Elapsed time in nsecs since last unexpected event
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: nanosecond
                                 
                                 .. attribute:: received_nak_tl_vs
                                 
@@ -45243,7 +45619,7 @@ class BundleInformation(object):
                                 .. attribute:: received_sync_requests
                                 
                                 	Number of mLACP sync request TLVs received
-                                	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.MemberData.MlacpTlvCounters.ReceivedSyncRequests>`
+                                	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.MemberData.MlacpTlvCounters.ReceivedSyncRequests>`
                                 
                                 .. attribute:: sent_config_tl_vs
                                 
@@ -45272,6 +45648,8 @@ class BundleInformation(object):
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: nanosecond
                                 
                                 
 
@@ -45477,7 +45855,7 @@ class BundleInformation(object):
                         .. attribute:: mlacp_tlv_counters
                         
                         	Counts of mLACP TLVs sent and received
-                        	**type**\:  :py:class:`MlacpTlvCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.MemberData.MlacpTlvCounters>`
+                        	**type**\:   :py:class:`MlacpTlvCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.MemberData.MlacpTlvCounters>`
                         
                         .. attribute:: port_name
                         
@@ -45509,12 +45887,16 @@ class BundleInformation(object):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**units**\: nanosecond
+                            
                             .. attribute:: last_unexpected_event
                             
                             	Elapsed time in nsecs since last unexpected event
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**units**\: nanosecond
                             
                             .. attribute:: received_nak_tl_vs
                             
@@ -45533,7 +45915,7 @@ class BundleInformation(object):
                             .. attribute:: received_sync_requests
                             
                             	Number of mLACP sync request TLVs received
-                            	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.MemberData.MlacpTlvCounters.ReceivedSyncRequests>`
+                            	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.MemberData.MlacpTlvCounters.ReceivedSyncRequests>`
                             
                             .. attribute:: sent_config_tl_vs
                             
@@ -45562,6 +45944,8 @@ class BundleInformation(object):
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**units**\: nanosecond
                             
                             
 
@@ -45821,7 +46205,7 @@ class BundleInformation(object):
             .. attribute:: node
             
             	Node ID
-            	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes.Node>`
+            	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes.Node>`
             
             
 
@@ -45849,7 +46233,7 @@ class BundleInformation(object):
                 .. attribute:: node_item
                 
                 	Data for this item
-                	**type**\:  :py:class:`NodeItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem>`
+                	**type**\:   :py:class:`NodeItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem>`
                 
                 
 
@@ -45872,7 +46256,7 @@ class BundleInformation(object):
                     .. attribute:: items
                     
                     	mLACP counter information items
-                    	**type**\: list of  :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items>`
+                    	**type**\: list of    :py:class:`Items <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items>`
                     
                     
 
@@ -45895,17 +46279,17 @@ class BundleInformation(object):
                         .. attribute:: bundle_data
                         
                         	Bundle mLACP TLV counter information
-                        	**type**\:  :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.BundleData>`
+                        	**type**\:   :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.BundleData>`
                         
                         .. attribute:: member_data
                         
                         	Local member mLACP TLV counter information
-                        	**type**\: list of  :py:class:`MemberData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.MemberData>`
+                        	**type**\: list of    :py:class:`MemberData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.MemberData>`
                         
                         .. attribute:: node_data
                         
                         	Peer device mLACP TLV counter information
-                        	**type**\: list of  :py:class:`NodeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData>`
+                        	**type**\: list of    :py:class:`NodeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData>`
                         
                         
 
@@ -45945,7 +46329,7 @@ class BundleInformation(object):
                             .. attribute:: mlacp_sync_requests_on_all_local_ports
                             
                             	Counts of mLACP sync request TLVs on all ports
-                            	**type**\:  :py:class:`MlacpSyncRequestsOnAllLocalPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.BundleData.MlacpSyncRequestsOnAllLocalPorts>`
+                            	**type**\:   :py:class:`MlacpSyncRequestsOnAllLocalPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.BundleData.MlacpSyncRequestsOnAllLocalPorts>`
                             
                             
 
@@ -45973,10 +46357,12 @@ class BundleInformation(object):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**units**\: nanosecond
+                                
                                 .. attribute:: received_sync_requests
                                 
                                 	Number of mLACP sync request TLVs received
-                                	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.BundleData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests>`
+                                	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.BundleData.MlacpSyncRequestsOnAllLocalPorts.ReceivedSyncRequests>`
                                 
                                 .. attribute:: time_since_cleared
                                 
@@ -45984,6 +46370,8 @@ class BundleInformation(object):
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: nanosecond
                                 
                                 
 
@@ -46136,17 +46524,17 @@ class BundleInformation(object):
                             .. attribute:: member_data
                             
                             	Member mLACP TLV counter information
-                            	**type**\: list of  :py:class:`MemberData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.MemberData>`
+                            	**type**\: list of    :py:class:`MemberData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.MemberData>`
                             
                             .. attribute:: mlacp_sync_requests_on_all_foreign_ports
                             
                             	Counts of mLACP sync request TLVs on all ports
-                            	**type**\:  :py:class:`MlacpSyncRequestsOnAllForeignPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts>`
+                            	**type**\:   :py:class:`MlacpSyncRequestsOnAllForeignPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts>`
                             
                             .. attribute:: node_data
                             
                             	Peer device mLACP TLV counter information
-                            	**type**\:  :py:class:`NodeData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.NodeData>`
+                            	**type**\:   :py:class:`NodeData_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.NodeData_>`
                             
                             
 
@@ -46162,11 +46550,11 @@ class BundleInformation(object):
                                 self.member_data.name = 'member_data'
                                 self.mlacp_sync_requests_on_all_foreign_ports = BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts()
                                 self.mlacp_sync_requests_on_all_foreign_ports.parent = self
-                                self.node_data = BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.NodeData()
+                                self.node_data = BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.NodeData_()
                                 self.node_data.parent = self
 
 
-                            class NodeData(object):
+                            class NodeData_(object):
                                 """
                                 Peer device mLACP TLV counter information
                                 
@@ -46221,7 +46609,7 @@ class BundleInformation(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                                    return meta._meta_table['BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.NodeData']['meta_info']
+                                    return meta._meta_table['BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.NodeData_']['meta_info']
 
 
                             class MlacpSyncRequestsOnAllForeignPorts(object):
@@ -46235,10 +46623,12 @@ class BundleInformation(object):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**units**\: nanosecond
+                                
                                 .. attribute:: received_sync_requests
                                 
                                 	Number of mLACP sync request TLVs received
-                                	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests>`
+                                	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests>`
                                 
                                 .. attribute:: time_since_cleared
                                 
@@ -46246,6 +46636,8 @@ class BundleInformation(object):
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: nanosecond
                                 
                                 
 
@@ -46368,7 +46760,7 @@ class BundleInformation(object):
                                 .. attribute:: mlacp_tlv_counters
                                 
                                 	Counts of mLACP TLVs sent and received
-                                	**type**\:  :py:class:`MlacpTlvCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.MemberData.MlacpTlvCounters>`
+                                	**type**\:   :py:class:`MlacpTlvCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.MemberData.MlacpTlvCounters>`
                                 
                                 .. attribute:: port_name
                                 
@@ -46400,12 +46792,16 @@ class BundleInformation(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**units**\: nanosecond
+                                    
                                     .. attribute:: last_unexpected_event
                                     
                                     	Elapsed time in nsecs since last unexpected event
                                     	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: nanosecond
                                     
                                     .. attribute:: received_nak_tl_vs
                                     
@@ -46424,7 +46820,7 @@ class BundleInformation(object):
                                     .. attribute:: received_sync_requests
                                     
                                     	Number of mLACP sync request TLVs received
-                                    	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.MemberData.MlacpTlvCounters.ReceivedSyncRequests>`
+                                    	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.MemberData.MlacpTlvCounters.ReceivedSyncRequests>`
                                     
                                     .. attribute:: sent_config_tl_vs
                                     
@@ -46453,6 +46849,8 @@ class BundleInformation(object):
                                     	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: nanosecond
                                     
                                     
 
@@ -46658,7 +47056,7 @@ class BundleInformation(object):
                             .. attribute:: mlacp_tlv_counters
                             
                             	Counts of mLACP TLVs sent and received
-                            	**type**\:  :py:class:`MlacpTlvCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.MemberData.MlacpTlvCounters>`
+                            	**type**\:   :py:class:`MlacpTlvCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.MemberData.MlacpTlvCounters>`
                             
                             .. attribute:: port_name
                             
@@ -46690,12 +47088,16 @@ class BundleInformation(object):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**units**\: nanosecond
+                                
                                 .. attribute:: last_unexpected_event
                                 
                                 	Elapsed time in nsecs since last unexpected event
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: nanosecond
                                 
                                 .. attribute:: received_nak_tl_vs
                                 
@@ -46714,7 +47116,7 @@ class BundleInformation(object):
                                 .. attribute:: received_sync_requests
                                 
                                 	Number of mLACP sync request TLVs received
-                                	**type**\:  :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.MemberData.MlacpTlvCounters.ReceivedSyncRequests>`
+                                	**type**\:   :py:class:`ReceivedSyncRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.MemberData.MlacpTlvCounters.ReceivedSyncRequests>`
                                 
                                 .. attribute:: sent_config_tl_vs
                                 
@@ -46743,6 +47145,8 @@ class BundleInformation(object):
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: nanosecond
                                 
                                 
 
@@ -47128,7 +47532,7 @@ class LacpData(object):
     .. attribute:: global_
     
     	Global LACP data
-    	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpData.Global>`
+    	**type**\:   :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpData.Global_>`
     
     
 
@@ -47138,18 +47542,18 @@ class LacpData(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.global_ = LacpData.Global()
+        self.global_ = LacpData.Global_()
         self.global_.parent = self
 
 
-    class Global(object):
+    class Global_(object):
         """
         Global LACP data
         
         .. attribute:: system_id
         
         	LACP System ID
-        	**type**\:  :py:class:`SystemId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpData.Global.SystemId>`
+        	**type**\:   :py:class:`SystemId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpData.Global_.SystemId>`
         
         
 
@@ -47160,7 +47564,7 @@ class LacpData(object):
 
         def __init__(self):
             self.parent = None
-            self.system_id = LacpData.Global.SystemId()
+            self.system_id = LacpData.Global_.SystemId()
             self.system_id.parent = self
 
 
@@ -47178,7 +47582,7 @@ class LacpData(object):
             .. attribute:: system_id
             
             	System ID
-            	**type**\:  :py:class:`SystemId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpData.Global.SystemId.SystemId>`
+            	**type**\:   :py:class:`SystemId_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpData.Global_.SystemId.SystemId_>`
             
             .. attribute:: system_mac_address
             
@@ -47204,20 +47608,20 @@ class LacpData(object):
             def __init__(self):
                 self.parent = None
                 self.iccp_group_id = None
-                self.system_id = LacpData.Global.SystemId.SystemId()
+                self.system_id = LacpData.Global_.SystemId.SystemId_()
                 self.system_id.parent = self
                 self.system_mac_address = None
                 self.system_priority = None
 
 
-            class SystemId(object):
+            class SystemId_(object):
                 """
                 System ID
                 
                 .. attribute:: system_mac_addr
                 
                 	MAC Address used to identify the system
-                	**type**\:  :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpData.Global.SystemId.SystemId.SystemMacAddr>`
+                	**type**\:   :py:class:`SystemMacAddr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpData.Global_.SystemId.SystemId_.SystemMacAddr>`
                 
                 .. attribute:: system_prio
                 
@@ -47235,7 +47639,7 @@ class LacpData(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.system_mac_addr = LacpData.Global.SystemId.SystemId.SystemMacAddr()
+                    self.system_mac_addr = LacpData.Global_.SystemId.SystemId_.SystemMacAddr()
                     self.system_mac_addr.parent = self
                     self.system_prio = None
 
@@ -47282,7 +47686,7 @@ class LacpData(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                        return meta._meta_table['LacpData.Global.SystemId.SystemId.SystemMacAddr']['meta_info']
+                        return meta._meta_table['LacpData.Global_.SystemId.SystemId_.SystemMacAddr']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -47307,7 +47711,7 @@ class LacpData(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                    return meta._meta_table['LacpData.Global.SystemId.SystemId']['meta_info']
+                    return meta._meta_table['LacpData.Global_.SystemId.SystemId_']['meta_info']
 
             @property
             def _common_path(self):
@@ -47338,7 +47742,7 @@ class LacpData(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                return meta._meta_table['LacpData.Global.SystemId']['meta_info']
+                return meta._meta_table['LacpData.Global_.SystemId']['meta_info']
 
         @property
         def _common_path(self):
@@ -47360,7 +47764,7 @@ class LacpData(object):
         @staticmethod
         def _meta_info():
             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-            return meta._meta_table['LacpData.Global']['meta_info']
+            return meta._meta_table['LacpData.Global_']['meta_info']
 
     @property
     def _common_path(self):
@@ -47392,7 +47796,7 @@ class Bundles(object):
     .. attribute:: bundles
     
     	Per bundle operational data
-    	**type**\:  :py:class:`Bundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.Bundles.Bundles>`
+    	**type**\:   :py:class:`Bundles_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.Bundles.Bundles_>`
     
     
 
@@ -47402,18 +47806,18 @@ class Bundles(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.bundles = Bundles.Bundles()
+        self.bundles = Bundles.Bundles_()
         self.bundles.parent = self
 
 
-    class Bundles(object):
+    class Bundles_(object):
         """
         Per bundle operational data
         
         .. attribute:: bundle
         
         	Bundle interface
-        	**type**\: list of  :py:class:`Bundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.Bundles.Bundles.Bundle>`
+        	**type**\: list of    :py:class:`Bundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.Bundles.Bundles_.Bundle>`
         
         
 
@@ -47443,12 +47847,12 @@ class Bundles(object):
             .. attribute:: data
             
             	Data for each Bundle
-            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.Bundles.Bundles.Bundle.Data>`
+            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.Bundles.Bundles_.Bundle.Data>`
             
             .. attribute:: members
             
             	Member interface
-            	**type**\:  :py:class:`Members <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.Bundles.Bundles.Bundle.Members>`
+            	**type**\:   :py:class:`Members <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.Bundles.Bundles_.Bundle.Members>`
             
             
 
@@ -47460,9 +47864,9 @@ class Bundles(object):
             def __init__(self):
                 self.parent = None
                 self.bundle_interface = None
-                self.data = Bundles.Bundles.Bundle.Data()
+                self.data = Bundles.Bundles_.Bundle.Data()
                 self.data.parent = self
-                self.members = Bundles.Bundles.Bundle.Members()
+                self.members = Bundles.Bundles_.Bundle.Members()
                 self.members.parent = self
 
 
@@ -47491,10 +47895,12 @@ class Bundles(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: kbit/s
+                
                 .. attribute:: bfd_config
                 
                 	Configuration values for BFD on bundle members
-                	**type**\: list of  :py:class:`BfdConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.Bundles.Bundles.Bundle.Data.BfdConfig>`
+                	**type**\: list of    :py:class:`BfdConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.Bundles.Bundles_.Bundle.Data.BfdConfig>`
                 
                 .. attribute:: bundle_interface_name
                 
@@ -47506,7 +47912,7 @@ class Bundles(object):
                 .. attribute:: bundle_status
                 
                 	The state of the bundle
-                	**type**\:  :py:class:`BmBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlStateEnum>`
+                	**type**\:   :py:class:`BmBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlStateEnum>`
                 
                 .. attribute:: cisco_extensions
                 
@@ -47526,6 +47932,8 @@ class Bundles(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: kbit/s
                 
                 .. attribute:: configured_foreign_member_count
                 
@@ -47548,6 +47956,8 @@ class Bundles(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: kbit/s
+                
                 .. attribute:: iccp_group_id
                 
                 	ICCP Group that the bundle is configured to
@@ -47563,12 +47973,12 @@ class Bundles(object):
                 .. attribute:: ipv4bfd_status
                 
                 	The status of the BFD (IPv4) feature on the bundle
-                	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                 
                 .. attribute:: ipv6bfd_status
                 
                 	The status of the BFD (IPv6) feature on the bundle
-                	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                 
                 .. attribute:: is_active
                 
@@ -47583,12 +47993,12 @@ class Bundles(object):
                 .. attribute:: lacp_status
                 
                 	The status of the LACP feature on the bundle
-                	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                 
                 .. attribute:: link_order_status
                 
                 	The status of the link order signaling feature on the bundle
-                	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                 
                 .. attribute:: load_balance_hash_type
                 
@@ -47605,12 +48015,12 @@ class Bundles(object):
                 .. attribute:: mac_address
                 
                 	MAC address of this member
-                	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.Bundles.Bundles.Bundle.Data.MacAddress>`
+                	**type**\:   :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.Bundles.Bundles_.Bundle.Data.MacAddress>`
                 
                 .. attribute:: mac_source
                 
                 	The source of the MAC Address
-                	**type**\:  :py:class:`BmBdlMacSourceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSourceEnum>`
+                	**type**\:   :py:class:`BmBdlMacSourceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmBdlMacSourceEnum>`
                 
                 .. attribute:: mac_source_member
                 
@@ -47643,7 +48053,7 @@ class Bundles(object):
                 .. attribute:: maximum_active_links_source
                 
                 	Source of maximum active links value
-                	**type**\:  :py:class:`BmWhichSystemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystemEnum>`
+                	**type**\:   :py:class:`BmWhichSystemEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmWhichSystemEnum>`
                 
                 .. attribute:: minimum_active_links
                 
@@ -47659,15 +48069,17 @@ class Bundles(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: kbit/s
+                
                 .. attribute:: mlacp_mode
                 
                 	Indicates the mode of the device for the bundle
-                	**type**\:  :py:class:`BundleMlacpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpModeEnum>`
+                	**type**\:   :py:class:`BundleMlacpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleMlacpModeEnum>`
                 
                 .. attribute:: mlacp_status
                 
                 	The status of the mLACP feature on the bundle
-                	**type**\:  :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
+                	**type**\:   :py:class:`BmFeatureStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmFeatureStatusEnum>`
                 
                 .. attribute:: primary_member
                 
@@ -47682,6 +48094,8 @@ class Bundles(object):
                 	**type**\:  int
                 
                 	**range:** 0..65535
+                
+                	**units**\: second
                 
                 .. attribute:: singleton
                 
@@ -47705,7 +48119,7 @@ class Bundles(object):
                 .. attribute:: switchover_type
                 
                 	How a switchover of the bundle from this device will occur
-                	**type**\:  :py:class:`BmdMlacpSwitchoverEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchoverEnum>`
+                	**type**\:   :py:class:`BmdMlacpSwitchoverEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMlacpSwitchoverEnum>`
                 
                 .. attribute:: wait_while_timer
                 
@@ -47747,7 +48161,7 @@ class Bundles(object):
                     self.link_order_status = None
                     self.load_balance_hash_type = None
                     self.load_balance_locality_threshold = None
-                    self.mac_address = Bundles.Bundles.Bundle.Data.MacAddress()
+                    self.mac_address = Bundles.Bundles_.Bundle.Data.MacAddress()
                     self.mac_address.parent = self
                     self.mac_source = None
                     self.mac_source_member = None
@@ -47812,7 +48226,7 @@ class Bundles(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                        return meta._meta_table['Bundles.Bundles.Bundle.Data.MacAddress']['meta_info']
+                        return meta._meta_table['Bundles.Bundles_.Bundle.Data.MacAddress']['meta_info']
 
 
                 class BfdConfig(object):
@@ -47822,12 +48236,12 @@ class Bundles(object):
                     .. attribute:: bundle_status
                     
                     	Status of BFD on the bundle
-                    	**type**\:  :py:class:`BmdBfdBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlStateEnum>`
+                    	**type**\:   :py:class:`BmdBfdBdlStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdBfdBdlStateEnum>`
                     
                     .. attribute:: destination_address
                     
                     	Configured destination address for BFD session
-                    	**type**\:  :py:class:`DestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.Bundles.Bundles.Bundle.Data.BfdConfig.DestinationAddress>`
+                    	**type**\:   :py:class:`DestinationAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.Bundles.Bundles_.Bundle.Data.BfdConfig.DestinationAddress>`
                     
                     .. attribute:: fast_detect
                     
@@ -47886,7 +48300,7 @@ class Bundles(object):
                     def __init__(self):
                         self.parent = None
                         self.bundle_status = None
-                        self.destination_address = Bundles.Bundles.Bundle.Data.BfdConfig.DestinationAddress()
+                        self.destination_address = Bundles.Bundles_.Bundle.Data.BfdConfig.DestinationAddress()
                         self.destination_address.parent = self
                         self.fast_detect = None
                         self.mode_info = None
@@ -47904,7 +48318,7 @@ class Bundles(object):
                         .. attribute:: af
                         
                         	AF
-                        	**type**\:  :py:class:`BmAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmAfIdEnum>`
+                        	**type**\:   :py:class:`BmAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmAfIdEnum>`
                         
                         .. attribute:: ipv4
                         
@@ -47961,7 +48375,7 @@ class Bundles(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                            return meta._meta_table['Bundles.Bundles.Bundle.Data.BfdConfig.DestinationAddress']['meta_info']
+                            return meta._meta_table['Bundles.Bundles_.Bundle.Data.BfdConfig.DestinationAddress']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -48009,7 +48423,7 @@ class Bundles(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                        return meta._meta_table['Bundles.Bundles.Bundle.Data.BfdConfig']['meta_info']
+                        return meta._meta_table['Bundles.Bundles_.Bundle.Data.BfdConfig']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -48152,7 +48566,7 @@ class Bundles(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                    return meta._meta_table['Bundles.Bundles.Bundle.Data']['meta_info']
+                    return meta._meta_table['Bundles.Bundles_.Bundle.Data']['meta_info']
 
 
             class Members(object):
@@ -48162,7 +48576,7 @@ class Bundles(object):
                 .. attribute:: member
                 
                 	Member information
-                	**type**\: list of  :py:class:`Member <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.Bundles.Bundles.Bundle.Members.Member>`
+                	**type**\: list of    :py:class:`Member <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.Bundles.Bundles_.Bundle.Members.Member>`
                 
                 
 
@@ -48196,10 +48610,12 @@ class Bundles(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: kbit/s
+                    
                     .. attribute:: counters
                     
                     	Counters data about member link
-                    	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.Bundles.Bundles.Bundle.Members.Member.Counters>`
+                    	**type**\:   :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.Bundles.Bundles_.Bundle.Members.Member.Counters>`
                     
                     .. attribute:: iccp_node
                     
@@ -48218,7 +48634,7 @@ class Bundles(object):
                     .. attribute:: link_data
                     
                     	Lacp data about member link
-                    	**type**\:  :py:class:`LinkData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.Bundles.Bundles.Bundle.Members.Member.LinkData>`
+                    	**type**\:   :py:class:`LinkData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.Bundles.Bundles_.Bundle.Members.Member.LinkData>`
                     
                     .. attribute:: link_order_number
                     
@@ -48230,12 +48646,12 @@ class Bundles(object):
                     .. attribute:: mac_address
                     
                     	MAC address of this member (deprecated)
-                    	**type**\:  :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.Bundles.Bundles.Bundle.Members.Member.MacAddress>`
+                    	**type**\:   :py:class:`MacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.Bundles.Bundles_.Bundle.Members.Member.MacAddress>`
                     
                     .. attribute:: member_mux_data
                     
                     	Mux state machine data
-                    	**type**\:  :py:class:`MemberMuxData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.Bundles.Bundles.Bundle.Members.Member.MemberMuxData>`
+                    	**type**\:   :py:class:`MemberMuxData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.Bundles.Bundles_.Bundle.Members.Member.MemberMuxData>`
                     
                     .. attribute:: member_name
                     
@@ -48245,7 +48661,7 @@ class Bundles(object):
                     .. attribute:: member_type
                     
                     	Member's type (local/foreign)
-                    	**type**\:  :py:class:`BmdMemberTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnumEnum>`
+                    	**type**\:   :py:class:`BmdMemberTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberTypeEnumEnum>`
                     
                     .. attribute:: port_number
                     
@@ -48279,16 +48695,16 @@ class Bundles(object):
                         self.parent = None
                         self.member_interface = None
                         self.bandwidth = None
-                        self.counters = Bundles.Bundles.Bundle.Members.Member.Counters()
+                        self.counters = Bundles.Bundles_.Bundle.Members.Member.Counters()
                         self.counters.parent = self
                         self.iccp_node = None
                         self.interface_name = None
-                        self.link_data = Bundles.Bundles.Bundle.Members.Member.LinkData()
+                        self.link_data = Bundles.Bundles_.Bundle.Members.Member.LinkData()
                         self.link_data.parent = self
                         self.link_order_number = None
-                        self.mac_address = Bundles.Bundles.Bundle.Members.Member.MacAddress()
+                        self.mac_address = Bundles.Bundles_.Bundle.Members.Member.MacAddress()
                         self.mac_address.parent = self
-                        self.member_mux_data = Bundles.Bundles.Bundle.Members.Member.MemberMuxData()
+                        self.member_mux_data = Bundles.Bundles_.Bundle.Members.Member.MemberMuxData()
                         self.member_mux_data.parent = self
                         self.member_name = None
                         self.member_type = None
@@ -48451,7 +48867,7 @@ class Bundles(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                            return meta._meta_table['Bundles.Bundles.Bundle.Members.Member.Counters']['meta_info']
+                            return meta._meta_table['Bundles.Bundles_.Bundle.Members.Member.Counters']['meta_info']
 
 
                     class LinkData(object):
@@ -48485,6 +48901,20 @@ class Bundles(object):
                         	**type**\:  int
                         
                         	**range:** 0..255
+                        
+                        .. attribute:: actor_system_mac_address
+                        
+                        	MAC Address of the actor system
+                        	**type**\:  str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                        
+                        .. attribute:: actor_system_priority
+                        
+                        	System priority of actor system
+                        	**type**\:  int
+                        
+                        	**range:** 0..65535
                         
                         .. attribute:: attached_aggregator_id
                         
@@ -48562,6 +48992,8 @@ class Bundles(object):
                             self.actor_port_id = None
                             self.actor_port_priority = None
                             self.actor_port_state = None
+                            self.actor_system_mac_address = None
+                            self.actor_system_priority = None
                             self.attached_aggregator_id = None
                             self.interface_handle = None
                             self.partner_operational_key = None
@@ -48598,6 +49030,12 @@ class Bundles(object):
                             if self.actor_port_state is not None:
                                 return True
 
+                            if self.actor_system_mac_address is not None:
+                                return True
+
+                            if self.actor_system_priority is not None:
+                                return True
+
                             if self.attached_aggregator_id is not None:
                                 return True
 
@@ -48630,7 +49068,7 @@ class Bundles(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                            return meta._meta_table['Bundles.Bundles.Bundle.Members.Member.LinkData']['meta_info']
+                            return meta._meta_table['Bundles.Bundles_.Bundle.Members.Member.LinkData']['meta_info']
 
 
                     class MemberMuxData(object):
@@ -48647,27 +49085,27 @@ class Bundles(object):
                         .. attribute:: member_mux_state_reason
                         
                         	Reason for last Mux state change
-                        	**type**\:  :py:class:`BmMbrStateReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMbrStateReasonEnum>`
+                        	**type**\:   :py:class:`BmMbrStateReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMbrStateReasonEnum>`
                         
                         .. attribute:: member_mux_state_reason_data
                         
                         	Data regarding the reason for last Mux state change
-                        	**type**\:  :py:class:`MemberMuxStateReasonData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.Bundles.Bundles.Bundle.Members.Member.MemberMuxData.MemberMuxStateReasonData>`
+                        	**type**\:   :py:class:`MemberMuxStateReasonData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.Bundles.Bundles_.Bundle.Members.Member.MemberMuxData.MemberMuxStateReasonData>`
                         
                         .. attribute:: member_state
                         
                         	Current internal state of this bundle member
-                        	**type**\:  :py:class:`BmdMemberStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberStateEnum>`
+                        	**type**\:   :py:class:`BmdMemberStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmdMemberStateEnum>`
                         
                         .. attribute:: mux_state
                         
                         	Current state of this bundle member
-                        	**type**\:  :py:class:`BmMuxstateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstateEnum>`
+                        	**type**\:   :py:class:`BmMuxstateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMuxstateEnum>`
                         
                         .. attribute:: mux_state_reason
                         
                         	Reason for last Mux state change (Deprecated)
-                        	**type**\:  :py:class:`BmMuxreasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMuxreasonEnum>`
+                        	**type**\:   :py:class:`BmMuxreasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmMuxreasonEnum>`
                         
                         
 
@@ -48680,7 +49118,7 @@ class Bundles(object):
                             self.parent = None
                             self.error = None
                             self.member_mux_state_reason = None
-                            self.member_mux_state_reason_data = Bundles.Bundles.Bundle.Members.Member.MemberMuxData.MemberMuxStateReasonData()
+                            self.member_mux_state_reason_data = Bundles.Bundles_.Bundle.Members.Member.MemberMuxData.MemberMuxStateReasonData()
                             self.member_mux_state_reason_data.parent = self
                             self.member_state = None
                             self.mux_state = None
@@ -48695,12 +49133,12 @@ class Bundles(object):
                             .. attribute:: reason_type
                             
                             	The item the reason applies to
-                            	**type**\:  :py:class:`BmStateReasonTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmStateReasonTargetEnum>`
+                            	**type**\:   :py:class:`BmStateReasonTargetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmStateReasonTargetEnum>`
                             
                             .. attribute:: severity
                             
                             	The severity of the reason
-                            	**type**\:  :py:class:`BmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmSeverityEnum>`
+                            	**type**\:   :py:class:`BmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BmSeverityEnum>`
                             
                             
 
@@ -48739,7 +49177,7 @@ class Bundles(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                                return meta._meta_table['Bundles.Bundles.Bundle.Members.Member.MemberMuxData.MemberMuxStateReasonData']['meta_info']
+                                return meta._meta_table['Bundles.Bundles_.Bundle.Members.Member.MemberMuxData.MemberMuxStateReasonData']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -48778,7 +49216,7 @@ class Bundles(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                            return meta._meta_table['Bundles.Bundles.Bundle.Members.Member.MemberMuxData']['meta_info']
+                            return meta._meta_table['Bundles.Bundles_.Bundle.Members.Member.MemberMuxData']['meta_info']
 
 
                     class MacAddress(object):
@@ -48825,7 +49263,7 @@ class Bundles(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                            return meta._meta_table['Bundles.Bundles.Bundle.Members.Member.MacAddress']['meta_info']
+                            return meta._meta_table['Bundles.Bundles_.Bundle.Members.Member.MacAddress']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -48890,7 +49328,7 @@ class Bundles(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                        return meta._meta_table['Bundles.Bundles.Bundle.Members.Member']['meta_info']
+                        return meta._meta_table['Bundles.Bundles_.Bundle.Members.Member']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -48916,7 +49354,7 @@ class Bundles(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                    return meta._meta_table['Bundles.Bundles.Bundle.Members']['meta_info']
+                    return meta._meta_table['Bundles.Bundles_.Bundle.Members']['meta_info']
 
             @property
             def _common_path(self):
@@ -48946,7 +49384,7 @@ class Bundles(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-                return meta._meta_table['Bundles.Bundles.Bundle']['meta_info']
+                return meta._meta_table['Bundles.Bundles_.Bundle']['meta_info']
 
         @property
         def _common_path(self):
@@ -48970,7 +49408,7 @@ class Bundles(object):
         @staticmethod
         def _meta_info():
             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_oper as meta
-            return meta._meta_table['Bundles.Bundles']['meta_info']
+            return meta._meta_table['Bundles.Bundles_']['meta_info']
 
     @property
     def _common_path(self):
@@ -49002,12 +49440,12 @@ class LacpBundleMembers(object):
     .. attribute:: members
     
     	Table of LACP bundle member interfaces
-    	**type**\:  :py:class:`Members <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundleMembers.Members>`
+    	**type**\:   :py:class:`Members <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundleMembers.Members>`
     
     .. attribute:: nodes
     
     	Table of devices with their LACP bundle member interfaces
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundleMembers.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundleMembers.Nodes>`
     
     
 
@@ -49031,7 +49469,7 @@ class LacpBundleMembers(object):
         .. attribute:: node
         
         	Node ID
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundleMembers.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundleMembers.Nodes.Node>`
         
         
 
@@ -49059,7 +49497,7 @@ class LacpBundleMembers(object):
             .. attribute:: counters
             
             	Link counters for LACP bundle members per node
-            	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundleMembers.Nodes.Node.Counters>`
+            	**type**\:   :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundleMembers.Nodes.Node.Counters>`
             
             
 
@@ -49093,6 +49531,8 @@ class LacpBundleMembers(object):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**units**\: nanosecond
+                
                 .. attribute:: time_since_last_updated
                 
                 	Time elapsed since statistics were last updated (in nanoseconds)
@@ -49100,12 +49540,16 @@ class LacpBundleMembers(object):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**units**\: nanosecond
+                
                 .. attribute:: time_since_unexpected_event
                 
                 	Time elapsed since last unexpected event (in nanoseconds)
                 	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**units**\: nanosecond
                 
                 .. attribute:: undecodable_packets
                 
@@ -49246,7 +49690,7 @@ class LacpBundleMembers(object):
         .. attribute:: member
         
         	LACP bundle member interface data
-        	**type**\: list of  :py:class:`Member <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundleMembers.Members.Member>`
+        	**type**\: list of    :py:class:`Member <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundleMembers.Members.Member>`
         
         
 
@@ -49276,12 +49720,12 @@ class LacpBundleMembers(object):
             .. attribute:: counters
             
             	Link counters for LACP bundle members
-            	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundleMembers.Members.Member.Counters>`
+            	**type**\:   :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundleMembers.Members.Member.Counters>`
             
             .. attribute:: data
             
             	Link data for LACP bundle members
-            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundleMembers.Members.Member.Data>`
+            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LacpBundleMembers.Members.Member.Data>`
             
             
 
@@ -49330,6 +49774,20 @@ class LacpBundleMembers(object):
                 	**type**\:  int
                 
                 	**range:** 0..255
+                
+                .. attribute:: actor_system_mac_address
+                
+                	MAC Address of the actor system
+                	**type**\:  str
+                
+                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                
+                .. attribute:: actor_system_priority
+                
+                	System priority of the actor system
+                	**type**\:  int
+                
+                	**range:** 0..65535
                 
                 .. attribute:: attached_aggregator_id
                 
@@ -49407,6 +49865,8 @@ class LacpBundleMembers(object):
                     self.actor_port_id = None
                     self.actor_port_priority = None
                     self.actor_port_state = None
+                    self.actor_system_mac_address = None
+                    self.actor_system_priority = None
                     self.attached_aggregator_id = None
                     self.interface_handle = None
                     self.partner_operational_key = None
@@ -49441,6 +49901,12 @@ class LacpBundleMembers(object):
                         return True
 
                     if self.actor_port_state is not None:
+                        return True
+
+                    if self.actor_system_mac_address is not None:
+                        return True
+
+                    if self.actor_system_priority is not None:
                         return True
 
                     if self.attached_aggregator_id is not None:
@@ -49754,7 +50220,7 @@ class BundlesAdjacency(object):
     .. attribute:: nodes
     
     	Per bundle operational data
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundlesAdjacency.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundlesAdjacency.Nodes>`
     
     
 
@@ -49775,7 +50241,7 @@ class BundlesAdjacency(object):
         .. attribute:: node
         
         	Location
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundlesAdjacency.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundlesAdjacency.Nodes.Node>`
         
         
 
@@ -49805,12 +50271,12 @@ class BundlesAdjacency(object):
             .. attribute:: brief
             
             	Brief load\-balance information for the node
-            	**type**\:  :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundlesAdjacency.Nodes.Node.Brief>`
+            	**type**\:   :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundlesAdjacency.Nodes.Node.Brief>`
             
             .. attribute:: bundles
             
             	Per bundle operational data
-            	**type**\:  :py:class:`Bundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundlesAdjacency.Nodes.Node.Bundles>`
+            	**type**\:   :py:class:`Bundles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundlesAdjacency.Nodes.Node.Bundles>`
             
             
 
@@ -49835,7 +50301,7 @@ class BundlesAdjacency(object):
                 .. attribute:: bundle_data
                 
                 	Data for all bundles on node
-                	**type**\: list of  :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundlesAdjacency.Nodes.Node.Brief.BundleData>`
+                	**type**\: list of    :py:class:`BundleData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundlesAdjacency.Nodes.Node.Brief.BundleData>`
                 
                 
 
@@ -49872,7 +50338,7 @@ class BundlesAdjacency(object):
                     .. attribute:: sub_interface
                     
                     	Sub\-interfaces of the bundle
-                    	**type**\: list of  :py:class:`SubInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundlesAdjacency.Nodes.Node.Brief.BundleData.SubInterface>`
+                    	**type**\: list of    :py:class:`SubInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundlesAdjacency.Nodes.Node.Brief.BundleData.SubInterface>`
                     
                     .. attribute:: sub_interface_count
                     
@@ -49920,7 +50386,7 @@ class BundlesAdjacency(object):
                         .. attribute:: load_balance_data
                         
                         	Load balance data
-                        	**type**\:  :py:class:`LoadBalanceData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundlesAdjacency.Nodes.Node.Brief.BundleData.SubInterface.LoadBalanceData>`
+                        	**type**\:   :py:class:`LoadBalanceData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundlesAdjacency.Nodes.Node.Brief.BundleData.SubInterface.LoadBalanceData>`
                         
                         
 
@@ -49950,7 +50416,7 @@ class BundlesAdjacency(object):
                             .. attribute:: type
                             
                             	Type of load balancing to use
-                            	**type**\:  :py:class:`LoadBalanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LoadBalanceEnum>`
+                            	**type**\:   :py:class:`LoadBalanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LoadBalanceEnum>`
                             
                             .. attribute:: value
                             
@@ -50101,7 +50567,7 @@ class BundlesAdjacency(object):
                 .. attribute:: bundle
                 
                 	Bundle information
-                	**type**\: list of  :py:class:`Bundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundlesAdjacency.Nodes.Node.Bundles.Bundle>`
+                	**type**\: list of    :py:class:`Bundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundlesAdjacency.Nodes.Node.Bundles.Bundle>`
                 
                 
 
@@ -50131,7 +50597,7 @@ class BundlesAdjacency(object):
                     .. attribute:: bundle_info
                     
                     	Data for each Bundle
-                    	**type**\:  :py:class:`BundleInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo>`
+                    	**type**\:   :py:class:`BundleInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo>`
                     
                     
 
@@ -50159,12 +50625,12 @@ class BundlesAdjacency(object):
                         .. attribute:: brief
                         
                         	Brief bundle data
-                        	**type**\:  :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.Brief>`
+                        	**type**\:   :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.Brief>`
                         
                         .. attribute:: load_balance_data
                         
                         	Load Balance data
-                        	**type**\:  :py:class:`LoadBalanceData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.LoadBalanceData>`
+                        	**type**\:   :py:class:`LoadBalanceData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.LoadBalanceData>`
                         
                         .. attribute:: max_member_count
                         
@@ -50176,17 +50642,17 @@ class BundlesAdjacency(object):
                         .. attribute:: media
                         
                         	Media type of bundle
-                        	**type**\:  :py:class:`BundleMedia1Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleMedia1Enum>`
+                        	**type**\:   :py:class:`BundleMedia1Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundleMedia1Enum>`
                         
                         .. attribute:: member
                         
                         	Members of the bundle
-                        	**type**\: list of  :py:class:`Member <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.Member>`
+                        	**type**\: list of    :py:class:`Member <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.Member>`
                         
                         .. attribute:: sub_interface
                         
                         	Sub\-interfaces of the bundle
-                        	**type**\: list of  :py:class:`SubInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.SubInterface>`
+                        	**type**\: list of    :py:class:`SubInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.SubInterface>`
                         
                         
 
@@ -50233,7 +50699,7 @@ class BundlesAdjacency(object):
                             .. attribute:: sub_interface
                             
                             	Sub\-interfaces of the bundle
-                            	**type**\: list of  :py:class:`SubInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.Brief.SubInterface>`
+                            	**type**\: list of    :py:class:`SubInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.Brief.SubInterface>`
                             
                             .. attribute:: sub_interface_count
                             
@@ -50281,7 +50747,7 @@ class BundlesAdjacency(object):
                                 .. attribute:: load_balance_data
                                 
                                 	Load balance data
-                                	**type**\:  :py:class:`LoadBalanceData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.Brief.SubInterface.LoadBalanceData>`
+                                	**type**\:   :py:class:`LoadBalanceData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.Brief.SubInterface.LoadBalanceData>`
                                 
                                 
 
@@ -50311,7 +50777,7 @@ class BundlesAdjacency(object):
                                     .. attribute:: type
                                     
                                     	Type of load balancing to use
-                                    	**type**\:  :py:class:`LoadBalanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LoadBalanceEnum>`
+                                    	**type**\:   :py:class:`LoadBalanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LoadBalanceEnum>`
                                     
                                     .. attribute:: value
                                     
@@ -50443,7 +50909,7 @@ class BundlesAdjacency(object):
                             .. attribute:: type
                             
                             	Type of load balancing to use
-                            	**type**\:  :py:class:`LoadBalanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LoadBalanceEnum>`
+                            	**type**\:   :py:class:`LoadBalanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LoadBalanceEnum>`
                             
                             .. attribute:: value
                             
@@ -50590,7 +51056,7 @@ class BundlesAdjacency(object):
                             .. attribute:: load_balance_data
                             
                             	Load balance data
-                            	**type**\:  :py:class:`LoadBalanceData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.SubInterface.LoadBalanceData>`
+                            	**type**\:   :py:class:`LoadBalanceData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.BundlesAdjacency.Nodes.Node.Bundles.Bundle.BundleInfo.SubInterface.LoadBalanceData>`
                             
                             
 
@@ -50620,7 +51086,7 @@ class BundlesAdjacency(object):
                                 .. attribute:: type
                                 
                                 	Type of load balancing to use
-                                	**type**\:  :py:class:`LoadBalanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LoadBalanceEnum>`
+                                	**type**\:   :py:class:`LoadBalanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper.LoadBalanceEnum>`
                                 
                                 .. attribute:: value
                                 

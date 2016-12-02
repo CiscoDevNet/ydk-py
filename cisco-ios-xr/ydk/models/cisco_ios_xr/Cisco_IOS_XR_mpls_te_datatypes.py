@@ -26,13 +26,13 @@ class BfdReversePathEnum(Enum):
 
     Bfd reverse path
 
-    .. data:: BFD_REVERSE_PATH_BINDING_LABEL = 1
+    .. data:: bfd_reverse_path_binding_label = 1
 
     	BindingLabel
 
     """
 
-    BFD_REVERSE_PATH_BINDING_LABEL = 1
+    bfd_reverse_path_binding_label = 1
 
 
     @staticmethod
@@ -47,49 +47,49 @@ class CtypeEnum(Enum):
 
     Ctype
 
-    .. data:: CTYPE_NULL = 0
+    .. data:: ctype_null = 0
 
     	CTYPE NULL
 
-    .. data:: CTYPE_IPV4 = 1
+    .. data:: ctype_ipv4 = 1
 
     	CTYPE IPV4
 
-    .. data:: CTYPE_IPV4_P2P_TUNNEL = 7
+    .. data:: ctype_ipv4_p2p_tunnel = 7
 
     	CTYPE IPV4 P2P TUNNEL
 
-    .. data:: CTYPE_IPV6_P2P_TUNNEL = 8
+    .. data:: ctype_ipv6_p2p_tunnel = 8
 
     	CTYPE IPV6 P2P TUNNEL
 
-    .. data:: CTYPE_IPV4_UNI = 9
+    .. data:: ctype_ipv4_uni = 9
 
     	CTYPE IPV4 UNI
 
-    .. data:: CTYPE_IPV4_P2MP_TUNNEL = 13
+    .. data:: ctype_ipv4_p2mp_tunnel = 13
 
     	CTYPE IPV4 P2MP TUNNEL
 
-    .. data:: CTYPE_IPV6_P2MP_TUNNEL = 14
+    .. data:: ctype_ipv6_p2mp_tunnel = 14
 
     	CTYPE IPV6 P2MP TUNNEL
 
     """
 
-    CTYPE_NULL = 0
+    ctype_null = 0
 
-    CTYPE_IPV4 = 1
+    ctype_ipv4 = 1
 
-    CTYPE_IPV4_P2P_TUNNEL = 7
+    ctype_ipv4_p2p_tunnel = 7
 
-    CTYPE_IPV6_P2P_TUNNEL = 8
+    ctype_ipv6_p2p_tunnel = 8
 
-    CTYPE_IPV4_UNI = 9
+    ctype_ipv4_uni = 9
 
-    CTYPE_IPV4_P2MP_TUNNEL = 13
+    ctype_ipv4_p2mp_tunnel = 13
 
-    CTYPE_IPV6_P2MP_TUNNEL = 14
+    ctype_ipv6_p2mp_tunnel = 14
 
 
     @staticmethod
@@ -104,19 +104,19 @@ class MplsTeAffinityValueEnum(Enum):
 
     Mpls te affinity value
 
-    .. data:: HEX_VALUE = 1
+    .. data:: hex_value = 1
 
     	Affinity value in Hex number
 
-    .. data:: BIT_POSITION = 2
+    .. data:: bit_position = 2
 
     	Affinity value by Bit-Position
 
     """
 
-    HEX_VALUE = 1
+    hex_value = 1
 
-    BIT_POSITION = 2
+    bit_position = 2
 
 
     @staticmethod
@@ -131,67 +131,67 @@ class MplsTeAttrSetEnum(Enum):
 
     Mpls te attr set
 
-    .. data:: NOT_USED = 0
+    .. data:: not_used = 0
 
     	Not used
 
-    .. data:: STATIC = 1
+    .. data:: static = 1
 
     	Static
 
-    .. data:: LSP = 2
+    .. data:: lsp = 2
 
     	LSP
 
-    .. data:: UNASSIGNED = 3
+    .. data:: unassigned = 3
 
     	Unassigned
 
-    .. data:: AUTO_BACKUP = 4
+    .. data:: auto_backup = 4
 
     	Auto backup
 
-    .. data:: AUTO_MESH = 5
+    .. data:: auto_mesh = 5
 
     	Auto mesh
 
-    .. data:: XRO = 6
+    .. data:: xro = 6
 
     	XRO
 
-    .. data:: P2MP_TE = 7
+    .. data:: p2mp_te = 7
 
     	P2MP TE
 
-    .. data:: OTN_PP = 8
+    .. data:: otn_pp = 8
 
     	OTN Path Protection
 
-    .. data:: P2P_TE = 9
+    .. data:: p2p_te = 9
 
     	P2P TE
 
     """
 
-    NOT_USED = 0
+    not_used = 0
 
-    STATIC = 1
+    static = 1
 
-    LSP = 2
+    lsp = 2
 
-    UNASSIGNED = 3
+    unassigned = 3
 
-    AUTO_BACKUP = 4
+    auto_backup = 4
 
-    AUTO_MESH = 5
+    auto_mesh = 5
 
-    XRO = 6
+    xro = 6
 
-    P2MP_TE = 7
+    p2mp_te = 7
 
-    OTN_PP = 8
+    otn_pp = 8
 
-    P2P_TE = 9
+    p2p_te = 9
 
 
     @staticmethod
@@ -206,25 +206,25 @@ class MplsTeAutorouteMetricEnum(Enum):
 
     Mpls te autoroute metric
 
-    .. data:: RELATIVE = 1
+    .. data:: relative = 1
 
     	Relative
 
-    .. data:: ABSOLUTE = 2
+    .. data:: absolute = 2
 
     	Absolute
 
-    .. data:: CONSTANT = 3
+    .. data:: constant = 3
 
     	Constant
 
     """
 
-    RELATIVE = 1
+    relative = 1
 
-    ABSOLUTE = 2
+    absolute = 2
 
-    CONSTANT = 3
+    constant = 3
 
 
     @staticmethod
@@ -239,25 +239,25 @@ class MplsTeBackupBandwidthClassEnum(Enum):
 
     Mpls te backup bandwidth class
 
-    .. data:: CLASS0 = 0
+    .. data:: class0 = 0
 
     	Class 0
 
-    .. data:: CLASS1 = 1
+    .. data:: class1 = 1
 
     	Class 1
 
-    .. data:: ANY_CLASS = 9
+    .. data:: any_class = 9
 
     	Any Class
 
     """
 
-    CLASS0 = 0
+    class0 = 0
 
-    CLASS1 = 1
+    class1 = 1
 
-    ANY_CLASS = 9
+    any_class = 9
 
 
     @staticmethod
@@ -272,25 +272,25 @@ class MplsTeBackupBandwidthPoolEnum(Enum):
 
     Mpls te backup bandwidth pool
 
-    .. data:: ANY_POOL = 1
+    .. data:: any_pool = 1
 
     	Any Pool
 
-    .. data:: GLOBAL_POOL = 2
+    .. data:: global_pool = 2
 
     	Global Pool
 
-    .. data:: SUB_POOL = 4
+    .. data:: sub_pool = 4
 
     	Sub Pool
 
     """
 
-    ANY_POOL = 1
+    any_pool = 1
 
-    GLOBAL_POOL = 2
+    global_pool = 2
 
-    SUB_POOL = 4
+    sub_pool = 4
 
 
     @staticmethod
@@ -305,19 +305,19 @@ class MplsTeBandwidthDsteEnum(Enum):
 
     Mpls te bandwidth dste
 
-    .. data:: STANDARD_DSTE = 0
+    .. data:: standard_dste = 0
 
     	IETF-Standard DSTE
 
-    .. data:: PRE_STANDARD_DSTE = 1
+    .. data:: pre_standard_dste = 1
 
     	Pre-Standard DSTE
 
     """
 
-    STANDARD_DSTE = 0
+    standard_dste = 0
 
-    PRE_STANDARD_DSTE = 1
+    pre_standard_dste = 1
 
 
     @staticmethod
@@ -332,19 +332,19 @@ class MplsTeBandwidthLimitEnum(Enum):
 
     Mpls te bandwidth limit
 
-    .. data:: UNLIMITED = 64
+    .. data:: unlimited = 64
 
     	Unlimited
 
-    .. data:: LIMITED = 128
+    .. data:: limited = 128
 
     	Limited
 
     """
 
-    UNLIMITED = 64
+    unlimited = 64
 
-    LIMITED = 128
+    limited = 128
 
 
     @staticmethod
@@ -359,19 +359,19 @@ class MplsTeBandwidthPoolEnum(Enum):
 
     Mpls te bandwidth pool
 
-    .. data:: ANY_POOL = 0
+    .. data:: any_pool = 0
 
     	Any Pool
 
-    .. data:: SUB_POOL = 1
+    .. data:: sub_pool = 1
 
     	Sub Pool
 
     """
 
-    ANY_POOL = 0
+    any_pool = 0
 
-    SUB_POOL = 1
+    sub_pool = 1
 
 
     @staticmethod
@@ -386,13 +386,13 @@ class MplsTeBfdSessionDownActionEnum(Enum):
 
     Mpls te bfd session down action
 
-    .. data:: RE_SETUP = 1
+    .. data:: re_setup = 1
 
     	Tear down and resetup
 
     """
 
-    RE_SETUP = 1
+    re_setup = 1
 
 
     @staticmethod
@@ -407,25 +407,25 @@ class MplsTeIgpProtocolEnum(Enum):
 
     Mpls te igp protocol
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	Not set
 
-    .. data:: ISIS = 1
+    .. data:: isis = 1
 
     	IS IS
 
-    .. data:: OSPF = 2
+    .. data:: ospf = 2
 
     	OSPF
 
     """
 
-    NONE = 0
+    none = 0
 
-    ISIS = 1
+    isis = 1
 
-    OSPF = 2
+    ospf = 2
 
 
     @staticmethod
@@ -440,37 +440,37 @@ class MplsTeLogFrrProtectionEnum(Enum):
 
     Mpls te log frr protection
 
-    .. data:: FRR_ACTIVE_PRIMARY = 1
+    .. data:: frr_active_primary = 1
 
     	Track only FRR active on primary LSP
 
-    .. data:: BACKUP = 256
+    .. data:: backup = 256
 
     	backup tunnel
 
-    .. data:: FRR_READY_PRIMARY = 512
+    .. data:: frr_ready_primary = 512
 
     	Track only FRR ready on primary LSP
 
-    .. data:: PRIMARY = 513
+    .. data:: primary = 513
 
     	primary LSP
 
-    .. data:: ALL = 769
+    .. data:: all = 769
 
     	all
 
     """
 
-    FRR_ACTIVE_PRIMARY = 1
+    frr_active_primary = 1
 
-    BACKUP = 256
+    backup = 256
 
-    FRR_READY_PRIMARY = 512
+    frr_ready_primary = 512
 
-    PRIMARY = 513
+    primary = 513
 
-    ALL = 769
+    all = 769
 
 
     @staticmethod
@@ -485,25 +485,25 @@ class MplsTeOtnApsProtectionEnum(Enum):
 
     Mpls te otn aps protection
 
-    .. data:: Y_1PLUS1_UNIDIR_NO_APS = 4
+    .. data:: Y_1plus1_unidir_no_aps = 4
 
     	1PLUS1 UNIDIR NO APS
 
-    .. data:: Y_1PLUS1_UNIDIR_APS = 8
+    .. data:: Y_1plus1_unidir_aps = 8
 
     	1PLUS1 UNIDIR APS
 
-    .. data:: Y_1PLUS1_BDIR_APS = 16
+    .. data:: Y_1plus1_bdir_aps = 16
 
     	1PLUS1 BIDIR APS
 
     """
 
-    Y_1PLUS1_UNIDIR_NO_APS = 4
+    Y_1plus1_unidir_no_aps = 4
 
-    Y_1PLUS1_UNIDIR_APS = 8
+    Y_1plus1_unidir_aps = 8
 
-    Y_1PLUS1_BDIR_APS = 16
+    Y_1plus1_bdir_aps = 16
 
 
     @staticmethod
@@ -518,19 +518,19 @@ class MplsTeOtnApsProtectionModeEnum(Enum):
 
     Mpls te otn aps protection mode
 
-    .. data:: REVERTIVE = 1
+    .. data:: revertive = 1
 
     	Revertive
 
-    .. data:: NON_REVERTIVE = 2
+    .. data:: non_revertive = 2
 
     	Non Revertive
 
     """
 
-    REVERTIVE = 1
+    revertive = 1
 
-    NON_REVERTIVE = 2
+    non_revertive = 2
 
 
     @staticmethod
@@ -545,19 +545,19 @@ class MplsTeOtnApsRestorationStyleEnum(Enum):
 
     Mpls te otn aps restoration style
 
-    .. data:: KEEP_FAILED_LSP = 1
+    .. data:: keep_failed_lsp = 1
 
     	Keep Failed Lsp
 
-    .. data:: DELETE_FAILED_LSP = 2
+    .. data:: delete_failed_lsp = 2
 
     	Delete Failed Lsp
 
     """
 
-    KEEP_FAILED_LSP = 1
+    keep_failed_lsp = 1
 
-    DELETE_FAILED_LSP = 2
+    delete_failed_lsp = 2
 
 
     @staticmethod
@@ -572,25 +572,25 @@ class MplsTeOtnSncModeEnum(Enum):
 
     Mpls te otn snc mode
 
-    .. data:: SNC_N = 1
+    .. data:: snc_n = 1
 
     	SNC N
 
-    .. data:: SNC_I = 2
+    .. data:: snc_i = 2
 
     	SNC I
 
-    .. data:: SNC_S = 3
+    .. data:: snc_s = 3
 
     	SNC S
 
     """
 
-    SNC_N = 1
+    snc_n = 1
 
-    SNC_I = 2
+    snc_i = 2
 
-    SNC_S = 3
+    snc_s = 3
 
 
     @staticmethod
@@ -605,19 +605,19 @@ class MplsTePathDiversityConformanceEnum(Enum):
 
     Mpls te path diversity conformance
 
-    .. data:: STRICT = 0
+    .. data:: strict = 0
 
     	Strict
 
-    .. data:: BEST_EFFORT = 1
+    .. data:: best_effort = 1
 
     	Best effort
 
     """
 
-    STRICT = 0
+    strict = 0
 
-    BEST_EFFORT = 1
+    best_effort = 1
 
 
     @staticmethod
@@ -632,43 +632,43 @@ class MplsTePathOptionEnum(Enum):
 
     Mpls te path option
 
-    .. data:: NOT_SET = 0
+    .. data:: not_set = 0
 
     	Not Set
 
-    .. data:: DYNAMIC = 1
+    .. data:: dynamic = 1
 
     	Dynamic
 
-    .. data:: EXPLICIT_NAME = 3
+    .. data:: explicit_name = 3
 
     	Explicit, identified by name
 
-    .. data:: EXPLICIT_NUMBER = 4
+    .. data:: explicit_number = 4
 
     	Explicit, identified by number
 
-    .. data:: NO_ERO = 5
+    .. data:: no_ero = 5
 
     	No ERO
 
-    .. data:: SR = 6
+    .. data:: sr = 6
 
     	Segment routing
 
     """
 
-    NOT_SET = 0
+    not_set = 0
 
-    DYNAMIC = 1
+    dynamic = 1
 
-    EXPLICIT_NAME = 3
+    explicit_name = 3
 
-    EXPLICIT_NUMBER = 4
+    explicit_number = 4
 
-    NO_ERO = 5
+    no_ero = 5
 
-    SR = 6
+    sr = 6
 
 
     @staticmethod
@@ -683,39 +683,39 @@ class MplsTePathOptionPropertyEnum(Enum):
 
     Mpls te path option property
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	No property
 
-    .. data:: LOCKDOWN = 1
+    .. data:: lockdown = 1
 
     	Path is not a canditate forreoptimization
 
-    .. data:: VERBATIM = 4
+    .. data:: verbatim = 4
 
     	Explicit path does not require topology
 
     	database
 
-    .. data:: PCE = 8
+    .. data:: pce = 8
 
     	Dynamic path found by PCE server
 
-    .. data:: SEGMENT_ROUTING = 16
+    .. data:: segment_routing = 16
 
     	Segment Routing path
 
     """
 
-    NONE = 0
+    none = 0
 
-    LOCKDOWN = 1
+    lockdown = 1
 
-    VERBATIM = 4
+    verbatim = 4
 
-    PCE = 8
+    pce = 8
 
-    SEGMENT_ROUTING = 16
+    segment_routing = 16
 
 
     @staticmethod
@@ -730,19 +730,19 @@ class MplsTePathOptionProtectionEnum(Enum):
 
     Mpls te path option protection
 
-    .. data:: ACTIVE = 0
+    .. data:: active = 0
 
     	Active path
 
-    .. data:: PROTECTING = 1
+    .. data:: protecting = 1
 
     	Protecting Path
 
     """
 
-    ACTIVE = 0
+    active = 0
 
-    PROTECTING = 1
+    protecting = 1
 
 
     @staticmethod
@@ -757,19 +757,19 @@ class MplsTePathSelectionInvalidationTimerExpireEnum(Enum):
 
     Mpls te path selection invalidation timer expire
 
-    .. data:: TUNNEL_ACTION_TEAR = 1
+    .. data:: tunnel_action_tear = 1
 
     	Tear down tunnel.
 
-    .. data:: TUNNEL_ACTION_DROP = 2
+    .. data:: tunnel_action_drop = 2
 
     	Drop tunnel traffic.
 
     """
 
-    TUNNEL_ACTION_TEAR = 1
+    tunnel_action_tear = 1
 
-    TUNNEL_ACTION_DROP = 2
+    tunnel_action_drop = 2
 
 
     @staticmethod
@@ -784,25 +784,25 @@ class MplsTePathSelectionMetricEnum(Enum):
 
     Mpls te path selection metric
 
-    .. data:: IGP = 1
+    .. data:: igp = 1
 
     	IGP Metric
 
-    .. data:: TE = 2
+    .. data:: te = 2
 
     	TE Metric
 
-    .. data:: DELAY = 4
+    .. data:: delay = 4
 
     	DELAY Metric
 
     """
 
-    IGP = 1
+    igp = 1
 
-    TE = 2
+    te = 2
 
-    DELAY = 4
+    delay = 4
 
 
     @staticmethod
@@ -819,17 +819,17 @@ class MplsTePathSelectionSegmentRoutingAdjacencyProtectionEnum(Enum):
 
     protection
 
-    .. data:: NOT_SET = 0
+    .. data:: not_set = 0
 
     	Any segment can be used in a path.
 
-    .. data:: ADJ_UNPROTECTED = 1
+    .. data:: adj_unprotected = 1
 
     	Only unprotected adjacency segments can be used
 
     	in a path.
 
-    .. data:: ADJ_PROTECTED = 2
+    .. data:: adj_protected = 2
 
     	Only protected adjacency segments can be used
 
@@ -837,11 +837,11 @@ class MplsTePathSelectionSegmentRoutingAdjacencyProtectionEnum(Enum):
 
     """
 
-    NOT_SET = 0
+    not_set = 0
 
-    ADJ_UNPROTECTED = 1
+    adj_unprotected = 1
 
-    ADJ_PROTECTED = 2
+    adj_protected = 2
 
 
     @staticmethod
@@ -856,25 +856,25 @@ class MplsTePathSelectionTiebreakerEnum(Enum):
 
     Mpls te path selection tiebreaker
 
-    .. data:: MIN_FILL = 1
+    .. data:: min_fill = 1
 
     	Prefer the path with the least-utilized links
 
-    .. data:: MAX_FILL = 2
+    .. data:: max_fill = 2
 
     	Prefer the path with the most-utilized links
 
-    .. data:: RANDOM = 3
+    .. data:: random = 3
 
     	Prefer a path with links utilized randomly
 
     """
 
-    MIN_FILL = 1
+    min_fill = 1
 
-    MAX_FILL = 2
+    max_fill = 2
 
-    RANDOM = 3
+    random = 3
 
 
     @staticmethod
@@ -889,25 +889,25 @@ class MplsTeSigNameOptionEnum(Enum):
 
     Mpls te sig name option
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	None
 
-    .. data:: ADDRESS = 1
+    .. data:: address = 1
 
     	Address
 
-    .. data:: NAME = 2
+    .. data:: name = 2
 
     	Name
 
     """
 
-    NONE = 0
+    none = 0
 
-    ADDRESS = 1
+    address = 1
 
-    NAME = 2
+    name = 2
 
 
     @staticmethod
@@ -922,25 +922,25 @@ class MplsTeSwitchingCapEnum(Enum):
 
     Mpls te switching cap
 
-    .. data:: PSC1 = 1
+    .. data:: psc1 = 1
 
     	PSC1
 
-    .. data:: LSC = 150
+    .. data:: lsc = 150
 
     	LSC
 
-    .. data:: FSC = 200
+    .. data:: fsc = 200
 
     	FSC
 
     """
 
-    PSC1 = 1
+    psc1 = 1
 
-    LSC = 150
+    lsc = 150
 
-    FSC = 200
+    fsc = 200
 
 
     @staticmethod
@@ -955,37 +955,37 @@ class MplsTeTunnelAffinityEnum(Enum):
 
     Mpls te tunnel affinity
 
-    .. data:: INCLUDE = 1
+    .. data:: include = 1
 
     	Include Affinity
 
-    .. data:: INCLUDE_STRICT = 2
+    .. data:: include_strict = 2
 
     	Strictly Include Affinity
 
-    .. data:: EXCLUDE = 3
+    .. data:: exclude = 3
 
     	Exclude Affinity
 
-    .. data:: EXCLUDE_ALL = 4
+    .. data:: exclude_all = 4
 
     	Exclude All Affinities
 
-    .. data:: IGNORE = 5
+    .. data:: ignore = 5
 
     	Ignore Affinity
 
     """
 
-    INCLUDE = 1
+    include = 1
 
-    INCLUDE_STRICT = 2
+    include_strict = 2
 
-    EXCLUDE = 3
+    exclude = 3
 
-    EXCLUDE_ALL = 4
+    exclude_all = 4
 
-    IGNORE = 5
+    ignore = 5
 
 
     @staticmethod
@@ -1000,25 +1000,25 @@ class MplsTesrlgExcludeEnum(Enum):
 
     Mpls tesrlg exclude
 
-    .. data:: MANDATORY = 1
+    .. data:: mandatory = 1
 
     	SRLG Mandatory Exclude
 
-    .. data:: PREFERRED = 2
+    .. data:: preferred = 2
 
     	SRLG Preferred Exclude
 
-    .. data:: WEIGHTED = 3
+    .. data:: weighted = 3
 
     	SRLG Weighted Exclude
 
     """
 
-    MANDATORY = 1
+    mandatory = 1
 
-    PREFERRED = 2
+    preferred = 2
 
-    WEIGHTED = 3
+    weighted = 3
 
 
     @staticmethod
@@ -1033,19 +1033,19 @@ class PathInvalidationActionEnum(Enum):
 
     Path invalidation action
 
-    .. data:: TEAR = 1
+    .. data:: tear = 1
 
     	Tear
 
-    .. data:: DROP = 2
+    .. data:: drop = 2
 
     	Drop
 
     """
 
-    TEAR = 1
+    tear = 1
 
-    DROP = 2
+    drop = 2
 
 
     @staticmethod
@@ -1060,25 +1060,25 @@ class SrPrependEnum(Enum):
 
     Sr prepend
 
-    .. data:: NONE_TYPE = 0
+    .. data:: none_type = 0
 
     	NoneType
 
-    .. data:: NEXT_LABEL = 1
+    .. data:: next_label = 1
 
     	Next Label
 
-    .. data:: BGP_N_HOP = 2
+    .. data:: bgp_n_hop = 2
 
     	BGP NHOP
 
     """
 
-    NONE_TYPE = 0
+    none_type = 0
 
-    NEXT_LABEL = 1
+    next_label = 1
 
-    BGP_N_HOP = 2
+    bgp_n_hop = 2
 
 
     @staticmethod

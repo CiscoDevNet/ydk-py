@@ -30,17 +30,17 @@ class MplsIpTtlPropagateDisableEnum(Enum):
 
     Mpls ip ttl propagate disable
 
-    .. data:: ALL = 0
+    .. data:: all = 0
 
     	Disable IP TTL propagation for all MPLS packets
 
-    .. data:: FORWARD = 1
+    .. data:: forward = 1
 
     	Disable IP TTL propagation for only forwarded
 
     	MPLS packets
 
-    .. data:: LOCAL = 2
+    .. data:: local = 2
 
     	Disable IP TTL propagation for only locally
 
@@ -48,11 +48,11 @@ class MplsIpTtlPropagateDisableEnum(Enum):
 
     """
 
-    ALL = 0
+    all = 0
 
-    FORWARD = 1
+    forward = 1
 
-    LOCAL = 2
+    local = 2
 
 
     @staticmethod
@@ -69,32 +69,32 @@ class MplsLsd(object):
     .. attribute:: app_reg_delay_disable
     
     	Disable LSD application reg delay
-    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: ipv4
     
     	Configure IPv4 parameters
-    	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.MplsLsd.Ipv4>`
+    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.MplsLsd.Ipv4>`
     
     .. attribute:: ipv6
     
     	Configure IPv6 parameters
-    	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.MplsLsd.Ipv6>`
+    	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.MplsLsd.Ipv6>`
     
     .. attribute:: label_databases
     
     	Table of label databases
-    	**type**\:  :py:class:`LabelDatabases <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.MplsLsd.LabelDatabases>`
+    	**type**\:   :py:class:`LabelDatabases <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.MplsLsd.LabelDatabases>`
     
     .. attribute:: mpls_entropy_label
     
     	Enable MPLS Entropy Label
-    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: mpls_ip_ttl_propagate_disable
     
     	Disable Propagation of IP TTL onto the label stack
-    	**type**\:  :py:class:`MplsIpTtlPropagateDisableEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.MplsIpTtlPropagateDisableEnum>`
+    	**type**\:   :py:class:`MplsIpTtlPropagateDisableEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.MplsIpTtlPropagateDisableEnum>`
     
     
 
@@ -212,7 +212,7 @@ class MplsLsd(object):
         .. attribute:: label_database
         
         	A label database
-        	**type**\: list of  :py:class:`LabelDatabase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.MplsLsd.LabelDatabases.LabelDatabase>`
+        	**type**\: list of    :py:class:`LabelDatabase <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.MplsLsd.LabelDatabases.LabelDatabase>`
         
         
 
@@ -242,7 +242,7 @@ class MplsLsd(object):
             .. attribute:: label_range
             
             	Label range
-            	**type**\:  :py:class:`LabelRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.MplsLsd.LabelDatabases.LabelDatabase.LabelRange>`
+            	**type**\:   :py:class:`LabelRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg.MplsLsd.LabelDatabases.LabelDatabase.LabelRange>`
             
             
 

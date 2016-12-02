@@ -30,31 +30,31 @@ class MgmtMplsStaticLabelModeEnum(Enum):
 
     Mgmt mpls static label mode
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	No Label Mode
 
-    .. data:: PER_PREFIX = 1
+    .. data:: per_prefix = 1
 
     	Per-prefix Label
 
-    .. data:: PER_VRF = 2
+    .. data:: per_vrf = 2
 
     	Per-VRF label
 
-    .. data:: CROSS_CONNECT = 3
+    .. data:: cross_connect = 3
 
     	Label with crossconnect
 
     """
 
-    NONE = 0
+    none = 0
 
-    PER_PREFIX = 1
+    per_prefix = 1
 
-    PER_VRF = 2
+    per_vrf = 2
 
-    CROSS_CONNECT = 3
+    cross_connect = 3
 
 
     @staticmethod
@@ -69,85 +69,85 @@ class MgmtMplsStaticLabelStatusEnum(Enum):
 
     Mgmt mpls static label status
 
-    .. data:: NOT_CREATED = 0
+    .. data:: not_created = 0
 
     	Label Not Created
 
-    .. data:: VRF_DOWN = 1
+    .. data:: vrf_down = 1
 
     	Label without active VRF
 
-    .. data:: REWRITE_VRF_DOWN = 2
+    .. data:: rewrite_vrf_down = 2
 
     	Rewrite without active VRF
 
-    .. data:: LSD_DISCONNECTED = 3
+    .. data:: lsd_disconnected = 3
 
     	LSD is disconnected
 
-    .. data:: LSD_FAILED = 4
+    .. data:: lsd_failed = 4
 
     	LSD operation failed
 
-    .. data:: WAIT_FOR_LSD_REPLY = 5
+    .. data:: wait_for_lsd_reply = 5
 
     	Waiting for LSD operation
 
-    .. data:: LABEL_CREATED = 6
+    .. data:: label_created = 6
 
     	Label Created
 
-    .. data:: LABEL_CREATE_FAILED = 7
+    .. data:: label_create_failed = 7
 
     	Label Creation Failed
 
-    .. data:: LABEL_REWRITE_FAILED = 8
+    .. data:: label_rewrite_failed = 8
 
     	Rewrite Creation Failed
 
-    .. data:: REWRITE_NEXT_HOP_INTERFACE_MISSING = 9
+    .. data:: rewrite_next_hop_interface_missing = 9
 
     	Rewrite NextHop Missing 
 
-    .. data:: LABEL_DISCREPANCY = 10
+    .. data:: label_discrepancy = 10
 
     	Label Discrepancy 
 
-    .. data:: REWRITE_DISCREPANCY = 11
+    .. data:: rewrite_discrepancy = 11
 
     	Rewrite Discrepancy 
 
-    .. data:: LABEL_STATUS_UNKNOWN = 12
+    .. data:: label_status_unknown = 12
 
     	Label Status Unknown
 
     """
 
-    NOT_CREATED = 0
+    not_created = 0
 
-    VRF_DOWN = 1
+    vrf_down = 1
 
-    REWRITE_VRF_DOWN = 2
+    rewrite_vrf_down = 2
 
-    LSD_DISCONNECTED = 3
+    lsd_disconnected = 3
 
-    LSD_FAILED = 4
+    lsd_failed = 4
 
-    WAIT_FOR_LSD_REPLY = 5
+    wait_for_lsd_reply = 5
 
-    LABEL_CREATED = 6
+    label_created = 6
 
-    LABEL_CREATE_FAILED = 7
+    label_create_failed = 7
 
-    LABEL_REWRITE_FAILED = 8
+    label_rewrite_failed = 8
 
-    REWRITE_NEXT_HOP_INTERFACE_MISSING = 9
+    rewrite_next_hop_interface_missing = 9
 
-    LABEL_DISCREPANCY = 10
+    label_discrepancy = 10
 
-    REWRITE_DISCREPANCY = 11
+    rewrite_discrepancy = 11
 
-    LABEL_STATUS_UNKNOWN = 12
+    label_status_unknown = 12
 
 
     @staticmethod
@@ -162,19 +162,19 @@ class MgmtStaticAddrEnum(Enum):
 
     Mgmt static addr
 
-    .. data:: IPV4 = 0
+    .. data:: ipv4 = 0
 
     	IPv4
 
-    .. data:: IPV6 = 1
+    .. data:: ipv6 = 1
 
     	IPv6
 
     """
 
-    IPV4 = 0
+    ipv4 = 0
 
-    IPV6 = 1
+    ipv6 = 1
 
 
     @staticmethod
@@ -189,25 +189,25 @@ class MgmtStaticNhLblEnum(Enum):
 
     Mgmt static nh lbl
 
-    .. data:: OUT_LABEL = 0
+    .. data:: out_label = 0
 
     	Next-Hop Label
 
-    .. data:: OUT_POP = 1
+    .. data:: out_pop = 1
 
     	Next-Hop Pop
 
-    .. data:: OUT_EXPLICIT_NULL = 2
+    .. data:: out_explicit_null = 2
 
     	Next-Hop Explicit-Null
 
     """
 
-    OUT_LABEL = 0
+    out_label = 0
 
-    OUT_POP = 1
+    out_pop = 1
 
-    OUT_EXPLICIT_NULL = 2
+    out_explicit_null = 2
 
 
     @staticmethod
@@ -222,19 +222,19 @@ class MgmtStaticPathEnum(Enum):
 
     Mgmt static path
 
-    .. data:: CROSS_CONNECT_PATH = 0
+    .. data:: cross_connect_path = 0
 
     	Crossconnect Path
 
-    .. data:: POP_LOOKUP_PATH = 1
+    .. data:: pop_lookup_path = 1
 
     	Pop and Lookup Path
 
     """
 
-    CROSS_CONNECT_PATH = 0
+    cross_connect_path = 0
 
-    POP_LOOKUP_PATH = 1
+    pop_lookup_path = 1
 
 
     @staticmethod
@@ -251,17 +251,17 @@ class MplsStatic(object):
     .. attribute:: local_labels
     
     	data for static local\-label table
-    	**type**\:  :py:class:`LocalLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.LocalLabels>`
+    	**type**\:   :py:class:`LocalLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.LocalLabels>`
     
     .. attribute:: summary
     
     	MPLS STATIC summary data
-    	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Summary>`
+    	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Summary>`
     
     .. attribute:: vrfs
     
     	VRF table
-    	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs>`
+    	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs>`
     
     
 
@@ -286,7 +286,7 @@ class MplsStatic(object):
         .. attribute:: vrf
         
         	VRF Name
-        	**type**\: list of  :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf>`
+        	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf>`
         
         
 
@@ -316,12 +316,12 @@ class MplsStatic(object):
             .. attribute:: local_labels
             
             	data for static local\-label table
-            	**type**\:  :py:class:`LocalLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.LocalLabels>`
+            	**type**\:   :py:class:`LocalLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.LocalLabels>`
             
             .. attribute:: lsps
             
             	data for static lsp table
-            	**type**\:  :py:class:`Lsps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.Lsps>`
+            	**type**\:   :py:class:`Lsps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.Lsps>`
             
             
 
@@ -346,7 +346,7 @@ class MplsStatic(object):
                 .. attribute:: lsp
                 
                 	Data for static lsp
-                	**type**\: list of  :py:class:`Lsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.Lsps.Lsp>`
+                	**type**\: list of    :py:class:`Lsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.Lsps.Lsp>`
                 
                 
 
@@ -376,7 +376,7 @@ class MplsStatic(object):
                     .. attribute:: label
                     
                     	Label Information
-                    	**type**\:  :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label>`
+                    	**type**\:   :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label>`
                     
                     .. attribute:: lsp_name_xr
                     
@@ -412,22 +412,22 @@ class MplsStatic(object):
                         .. attribute:: label_mode
                         
                         	Label Mode
-                        	**type**\:  :py:class:`MgmtMplsStaticLabelModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticLabelModeEnum>`
+                        	**type**\:   :py:class:`MgmtMplsStaticLabelModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticLabelModeEnum>`
                         
                         .. attribute:: label_status
                         
                         	Label Status
-                        	**type**\:  :py:class:`MgmtMplsStaticLabelStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticLabelStatusEnum>`
+                        	**type**\:   :py:class:`MgmtMplsStaticLabelStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticLabelStatusEnum>`
                         
                         .. attribute:: path_info
                         
                         	Path Information
-                        	**type**\: list of  :py:class:`PathInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo>`
+                        	**type**\: list of    :py:class:`PathInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo>`
                         
                         .. attribute:: prefix
                         
                         	Prefix Information
-                        	**type**\:  :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix>`
+                        	**type**\:   :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix>`
                         
                         .. attribute:: vrf_name
                         
@@ -461,7 +461,7 @@ class MplsStatic(object):
                             .. attribute:: prefix
                             
                             	Prefix
-                            	**type**\:  :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix.Prefix>`
+                            	**type**\:   :py:class:`Prefix_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix.Prefix_>`
                             
                             .. attribute:: prefix_length
                             
@@ -479,19 +479,19 @@ class MplsStatic(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.prefix = MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix.Prefix()
+                                self.prefix = MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix.Prefix_()
                                 self.prefix.parent = self
                                 self.prefix_length = None
 
 
-                            class Prefix(object):
+                            class Prefix_(object):
                                 """
                                 Prefix
                                 
                                 .. attribute:: af_name
                                 
                                 	AFName
-                                	**type**\:  :py:class:`MgmtStaticAddrEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticAddrEnum>`
+                                	**type**\:   :py:class:`MgmtStaticAddrEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticAddrEnum>`
                                 
                                 .. attribute:: ipv4_prefix
                                 
@@ -548,7 +548,7 @@ class MplsStatic(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_oper as meta
-                                    return meta._meta_table['MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix.Prefix']['meta_info']
+                                    return meta._meta_table['MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix.Prefix_']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -609,7 +609,7 @@ class MplsStatic(object):
                             .. attribute:: next_hop_label_type
                             
                             	Next\-Hop Label Type
-                            	**type**\:  :py:class:`MgmtStaticNhLblEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticNhLblEnum>`
+                            	**type**\:   :py:class:`MgmtStaticNhLblEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticNhLblEnum>`
                             
                             .. attribute:: path
                             
@@ -621,7 +621,7 @@ class MplsStatic(object):
                             .. attribute:: type
                             
                             	Path Type
-                            	**type**\:  :py:class:`MgmtStaticPathEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticPathEnum>`
+                            	**type**\:   :py:class:`MgmtStaticPathEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticPathEnum>`
                             
                             
 
@@ -789,7 +789,7 @@ class MplsStatic(object):
                 .. attribute:: local_label
                 
                 	Data for static label
-                	**type**\: list of  :py:class:`LocalLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel>`
+                	**type**\: list of    :py:class:`LocalLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel>`
                 
                 
 
@@ -826,22 +826,22 @@ class MplsStatic(object):
                     .. attribute:: label_mode
                     
                     	Label Mode
-                    	**type**\:  :py:class:`MgmtMplsStaticLabelModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticLabelModeEnum>`
+                    	**type**\:   :py:class:`MgmtMplsStaticLabelModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticLabelModeEnum>`
                     
                     .. attribute:: label_status
                     
                     	Label Status
-                    	**type**\:  :py:class:`MgmtMplsStaticLabelStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticLabelStatusEnum>`
+                    	**type**\:   :py:class:`MgmtMplsStaticLabelStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticLabelStatusEnum>`
                     
                     .. attribute:: path_info
                     
                     	Path Information
-                    	**type**\: list of  :py:class:`PathInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo>`
+                    	**type**\: list of    :py:class:`PathInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo>`
                     
                     .. attribute:: prefix
                     
                     	Prefix Information
-                    	**type**\:  :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix>`
+                    	**type**\:   :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix>`
                     
                     .. attribute:: vrf_name
                     
@@ -876,7 +876,7 @@ class MplsStatic(object):
                         .. attribute:: prefix
                         
                         	Prefix
-                        	**type**\:  :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix.Prefix>`
+                        	**type**\:   :py:class:`Prefix_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix.Prefix_>`
                         
                         .. attribute:: prefix_length
                         
@@ -894,19 +894,19 @@ class MplsStatic(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.prefix = MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix.Prefix()
+                            self.prefix = MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix.Prefix_()
                             self.prefix.parent = self
                             self.prefix_length = None
 
 
-                        class Prefix(object):
+                        class Prefix_(object):
                             """
                             Prefix
                             
                             .. attribute:: af_name
                             
                             	AFName
-                            	**type**\:  :py:class:`MgmtStaticAddrEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticAddrEnum>`
+                            	**type**\:   :py:class:`MgmtStaticAddrEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticAddrEnum>`
                             
                             .. attribute:: ipv4_prefix
                             
@@ -963,7 +963,7 @@ class MplsStatic(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_oper as meta
-                                return meta._meta_table['MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix.Prefix']['meta_info']
+                                return meta._meta_table['MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix.Prefix_']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -1024,7 +1024,7 @@ class MplsStatic(object):
                         .. attribute:: next_hop_label_type
                         
                         	Next\-Hop Label Type
-                        	**type**\:  :py:class:`MgmtStaticNhLblEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticNhLblEnum>`
+                        	**type**\:   :py:class:`MgmtStaticNhLblEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticNhLblEnum>`
                         
                         .. attribute:: path
                         
@@ -1036,7 +1036,7 @@ class MplsStatic(object):
                         .. attribute:: type
                         
                         	Path Type
-                        	**type**\:  :py:class:`MgmtStaticPathEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticPathEnum>`
+                        	**type**\:   :py:class:`MgmtStaticPathEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticPathEnum>`
                         
                         
 
@@ -1380,7 +1380,7 @@ class MplsStatic(object):
         .. attribute:: local_label
         
         	Data for static label
-        	**type**\: list of  :py:class:`LocalLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.LocalLabels.LocalLabel>`
+        	**type**\: list of    :py:class:`LocalLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.LocalLabels.LocalLabel>`
         
         
 
@@ -1417,22 +1417,22 @@ class MplsStatic(object):
             .. attribute:: label_mode
             
             	Label Mode
-            	**type**\:  :py:class:`MgmtMplsStaticLabelModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticLabelModeEnum>`
+            	**type**\:   :py:class:`MgmtMplsStaticLabelModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticLabelModeEnum>`
             
             .. attribute:: label_status
             
             	Label Status
-            	**type**\:  :py:class:`MgmtMplsStaticLabelStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticLabelStatusEnum>`
+            	**type**\:   :py:class:`MgmtMplsStaticLabelStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticLabelStatusEnum>`
             
             .. attribute:: path_info
             
             	Path Information
-            	**type**\: list of  :py:class:`PathInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.LocalLabels.LocalLabel.PathInfo>`
+            	**type**\: list of    :py:class:`PathInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.LocalLabels.LocalLabel.PathInfo>`
             
             .. attribute:: prefix
             
             	Prefix Information
-            	**type**\:  :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.LocalLabels.LocalLabel.Prefix>`
+            	**type**\:   :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.LocalLabels.LocalLabel.Prefix>`
             
             .. attribute:: vrf_name
             
@@ -1467,7 +1467,7 @@ class MplsStatic(object):
                 .. attribute:: prefix
                 
                 	Prefix
-                	**type**\:  :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.LocalLabels.LocalLabel.Prefix.Prefix>`
+                	**type**\:   :py:class:`Prefix_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.LocalLabels.LocalLabel.Prefix.Prefix_>`
                 
                 .. attribute:: prefix_length
                 
@@ -1485,19 +1485,19 @@ class MplsStatic(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.prefix = MplsStatic.LocalLabels.LocalLabel.Prefix.Prefix()
+                    self.prefix = MplsStatic.LocalLabels.LocalLabel.Prefix.Prefix_()
                     self.prefix.parent = self
                     self.prefix_length = None
 
 
-                class Prefix(object):
+                class Prefix_(object):
                     """
                     Prefix
                     
                     .. attribute:: af_name
                     
                     	AFName
-                    	**type**\:  :py:class:`MgmtStaticAddrEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticAddrEnum>`
+                    	**type**\:   :py:class:`MgmtStaticAddrEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticAddrEnum>`
                     
                     .. attribute:: ipv4_prefix
                     
@@ -1554,7 +1554,7 @@ class MplsStatic(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_oper as meta
-                        return meta._meta_table['MplsStatic.LocalLabels.LocalLabel.Prefix.Prefix']['meta_info']
+                        return meta._meta_table['MplsStatic.LocalLabels.LocalLabel.Prefix.Prefix_']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -1615,7 +1615,7 @@ class MplsStatic(object):
                 .. attribute:: next_hop_label_type
                 
                 	Next\-Hop Label Type
-                	**type**\:  :py:class:`MgmtStaticNhLblEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticNhLblEnum>`
+                	**type**\:   :py:class:`MgmtStaticNhLblEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticNhLblEnum>`
                 
                 .. attribute:: path
                 
@@ -1627,7 +1627,7 @@ class MplsStatic(object):
                 .. attribute:: type
                 
                 	Path Type
-                	**type**\:  :py:class:`MgmtStaticPathEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticPathEnum>`
+                	**type**\:   :py:class:`MgmtStaticPathEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticPathEnum>`
                 
                 
 

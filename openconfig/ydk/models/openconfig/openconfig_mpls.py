@@ -237,27 +237,27 @@ class Mpls(object):
     .. attribute:: global_
     
     	general mpls configuration applicable to any type of LSP and signaling protocol \- label ranges, entropy label supportmay be added here
-    	**type**\:  :py:class:`Global <ydk.models.openconfig.openconfig_mpls.Mpls.Global>`
+    	**type**\:   :py:class:`Global_ <ydk.models.openconfig.openconfig_mpls.Mpls.Global_>`
     
     .. attribute:: lsps
     
     	LSP definitions and configuration
-    	**type**\:  :py:class:`Lsps <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps>`
+    	**type**\:   :py:class:`Lsps <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps>`
     
     .. attribute:: signaling_protocols
     
     	top\-level signaling protocol configuration
-    	**type**\:  :py:class:`SignalingProtocols <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols>`
+    	**type**\:   :py:class:`SignalingProtocols <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols>`
     
     .. attribute:: te_global_attributes
     
     	traffic\-engineering global attributes
-    	**type**\:  :py:class:`TeGlobalAttributes <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes>`
+    	**type**\:   :py:class:`TeGlobalAttributes <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes>`
     
     .. attribute:: te_interface_attributes
     
     	traffic engineering attributes specific for interfaces
-    	**type**\:  :py:class:`TeInterfaceAttributes <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes>`
+    	**type**\:   :py:class:`TeInterfaceAttributes <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes>`
     
     .. attribute:: _is_presence
     
@@ -275,7 +275,7 @@ class Mpls(object):
 
     def __init__(self):
         self._is_presence = True
-        self.global_ = Mpls.Global()
+        self.global_ = Mpls.Global_()
         self.global_.parent = self
         self.lsps = Mpls.Lsps()
         self.lsps.parent = self
@@ -287,7 +287,7 @@ class Mpls(object):
         self.te_interface_attributes.parent = self
 
 
-    class Global(object):
+    class Global_(object):
         """
         general mpls configuration applicable to any
         type of LSP and signaling protocol \- label ranges,
@@ -296,17 +296,17 @@ class Mpls(object):
         .. attribute:: config
         
         	Top level global MPLS configuration
-        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Global.Config>`
+        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Global_.Config>`
         
         .. attribute:: mpls_interface_attributes
         
         	Parameters related to MPLS interfaces
-        	**type**\:  :py:class:`MplsInterfaceAttributes <ydk.models.openconfig.openconfig_mpls.Mpls.Global.MplsInterfaceAttributes>`
+        	**type**\:   :py:class:`MplsInterfaceAttributes <ydk.models.openconfig.openconfig_mpls.Mpls.Global_.MplsInterfaceAttributes>`
         
         .. attribute:: state
         
         	Top level global MPLS state
-        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Global.State>`
+        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Global_.State>`
         
         
 
@@ -317,11 +317,11 @@ class Mpls(object):
 
         def __init__(self):
             self.parent = None
-            self.config = Mpls.Global.Config()
+            self.config = Mpls.Global_.Config()
             self.config.parent = self
-            self.mpls_interface_attributes = Mpls.Global.MplsInterfaceAttributes()
+            self.mpls_interface_attributes = Mpls.Global_.MplsInterfaceAttributes()
             self.mpls_interface_attributes.parent = self
-            self.state = Mpls.Global.State()
+            self.state = Mpls.Global_.State()
             self.state.parent = self
 
 
@@ -332,7 +332,9 @@ class Mpls(object):
             .. attribute:: null_label
             
             	The null\-label type used, implicit or explicit
-            	**type**\:  :py:class:`NullLabelTypeIdentity <ydk.models.openconfig.openconfig_mpls_types.NullLabelTypeIdentity>`
+            	**type**\:   :py:class:`NullLabelTypeIdentity <ydk.models.openconfig.openconfig_mpls_types.NullLabelTypeIdentity>`
+            
+            	**default value**\: mplst:IMPLICIT
             
             
 
@@ -365,7 +367,7 @@ class Mpls(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                return meta._meta_table['Mpls.Global.Config']['meta_info']
+                return meta._meta_table['Mpls.Global_.Config']['meta_info']
 
 
         class State(object):
@@ -375,7 +377,9 @@ class Mpls(object):
             .. attribute:: null_label
             
             	The null\-label type used, implicit or explicit
-            	**type**\:  :py:class:`NullLabelTypeIdentity <ydk.models.openconfig.openconfig_mpls_types.NullLabelTypeIdentity>`
+            	**type**\:   :py:class:`NullLabelTypeIdentity <ydk.models.openconfig.openconfig_mpls_types.NullLabelTypeIdentity>`
+            
+            	**default value**\: mplst:IMPLICIT
             
             
 
@@ -408,7 +412,7 @@ class Mpls(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                return meta._meta_table['Mpls.Global.State']['meta_info']
+                return meta._meta_table['Mpls.Global_.State']['meta_info']
 
 
         class MplsInterfaceAttributes(object):
@@ -418,7 +422,7 @@ class Mpls(object):
             .. attribute:: interface
             
             	List of TE interfaces
-            	**type**\: list of  :py:class:`Interface <ydk.models.openconfig.openconfig_mpls.Mpls.Global.MplsInterfaceAttributes.Interface>`
+            	**type**\: list of    :py:class:`Interface <ydk.models.openconfig.openconfig_mpls.Mpls.Global_.MplsInterfaceAttributes.Interface>`
             
             
 
@@ -443,17 +447,17 @@ class Mpls(object):
                 	The interface name
                 	**type**\:  str
                 
-                	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Global.MplsInterfaceAttributes.Interface.Config>`
+                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Global_.MplsInterfaceAttributes.Interface.Config>`
                 
                 .. attribute:: config
                 
                 	Configuration parameters related to MPLS interfaces\:
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Global.MplsInterfaceAttributes.Interface.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Global_.MplsInterfaceAttributes.Interface.Config>`
                 
                 .. attribute:: state
                 
                 	State parameters related to TE interfaces
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Global.MplsInterfaceAttributes.Interface.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Global_.MplsInterfaceAttributes.Interface.State>`
                 
                 
 
@@ -465,9 +469,9 @@ class Mpls(object):
                 def __init__(self):
                     self.parent = None
                     self.name = None
-                    self.config = Mpls.Global.MplsInterfaceAttributes.Interface.Config()
+                    self.config = Mpls.Global_.MplsInterfaceAttributes.Interface.Config()
                     self.config.parent = self
-                    self.state = Mpls.Global.MplsInterfaceAttributes.Interface.State()
+                    self.state = Mpls.Global_.MplsInterfaceAttributes.Interface.State()
                     self.state.parent = self
 
 
@@ -480,12 +484,14 @@ class Mpls(object):
                     	Enable MPLS forwarding on this interfacek
                     	**type**\:  bool
                     
+                    	**default value**\: false
+                    
                     .. attribute:: name
                     
                     	reference to interface name
                     	**type**\:  str
                     
-                    	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                     
                     
 
@@ -524,7 +530,7 @@ class Mpls(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                        return meta._meta_table['Mpls.Global.MplsInterfaceAttributes.Interface.Config']['meta_info']
+                        return meta._meta_table['Mpls.Global_.MplsInterfaceAttributes.Interface.Config']['meta_info']
 
 
                 class State(object):
@@ -536,12 +542,14 @@ class Mpls(object):
                     	Enable MPLS forwarding on this interfacek
                     	**type**\:  bool
                     
+                    	**default value**\: false
+                    
                     .. attribute:: name
                     
                     	reference to interface name
                     	**type**\:  str
                     
-                    	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                     
                     
 
@@ -580,7 +588,7 @@ class Mpls(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                        return meta._meta_table['Mpls.Global.MplsInterfaceAttributes.Interface.State']['meta_info']
+                        return meta._meta_table['Mpls.Global_.MplsInterfaceAttributes.Interface.State']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -610,7 +618,7 @@ class Mpls(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                    return meta._meta_table['Mpls.Global.MplsInterfaceAttributes.Interface']['meta_info']
+                    return meta._meta_table['Mpls.Global_.MplsInterfaceAttributes.Interface']['meta_info']
 
             @property
             def _common_path(self):
@@ -634,7 +642,7 @@ class Mpls(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                return meta._meta_table['Mpls.Global.MplsInterfaceAttributes']['meta_info']
+                return meta._meta_table['Mpls.Global_.MplsInterfaceAttributes']['meta_info']
 
         @property
         def _common_path(self):
@@ -662,7 +670,7 @@ class Mpls(object):
         @staticmethod
         def _meta_info():
             from ydk.models.openconfig._meta import _openconfig_mpls as meta
-            return meta._meta_table['Mpls.Global']['meta_info']
+            return meta._meta_table['Mpls.Global_']['meta_info']
 
 
     class TeGlobalAttributes(object):
@@ -672,22 +680,22 @@ class Mpls(object):
         .. attribute:: igp_flooding_bandwidth
         
         	Interface bandwidth change percentages that trigger update events into the IGP traffic engineering database (TED)
-        	**type**\:  :py:class:`IgpFloodingBandwidth <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth>`
+        	**type**\:   :py:class:`IgpFloodingBandwidth <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth>`
         
         .. attribute:: mpls_admin_groups
         
         	Top\-level container for admin\-groups configuration and state
-        	**type**\:  :py:class:`MplsAdminGroups <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups>`
+        	**type**\:   :py:class:`MplsAdminGroups <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups>`
         
         .. attribute:: srlg
         
         	Shared risk link groups attributes
-        	**type**\:  :py:class:`Srlg <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg>`
+        	**type**\:   :py:class:`Srlg <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg>`
         
         .. attribute:: te_lsp_timers
         
         	Definition for delays associated with setup and cleanup of TE LSPs
-        	**type**\:  :py:class:`TeLspTimers <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.TeLspTimers>`
+        	**type**\:   :py:class:`TeLspTimers <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.TeLspTimers>`
         
         
 
@@ -715,7 +723,7 @@ class Mpls(object):
             .. attribute:: srlg
             
             	List of shared risk link groups
-            	**type**\: list of  :py:class:`Srlg <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg>`
+            	**type**\: list of    :py:class:`Srlg_ <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg_>`
             
             
 
@@ -731,7 +739,7 @@ class Mpls(object):
                 self.srlg.name = 'srlg'
 
 
-            class Srlg(object):
+            class Srlg_(object):
                 """
                 List of shared risk link groups
                 
@@ -740,22 +748,22 @@ class Mpls(object):
                 	The SRLG group identifier
                 	**type**\:  str
                 
-                	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg.Config>`
+                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg_.Config>`
                 
                 .. attribute:: config
                 
                 	Configuration parameters related to the SRLG
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg_.Config>`
                 
                 .. attribute:: state
                 
                 	State parameters related to the SRLG
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg_.State>`
                 
                 .. attribute:: static_srlg_members
                 
                 	SRLG members for static (not flooded) SRLGs 
-                	**type**\:  :py:class:`StaticSrlgMembers <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers>`
+                	**type**\:   :py:class:`StaticSrlgMembers <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers>`
                 
                 
 
@@ -767,11 +775,11 @@ class Mpls(object):
                 def __init__(self):
                     self.parent = None
                     self.name = None
-                    self.config = Mpls.TeGlobalAttributes.Srlg.Srlg.Config()
+                    self.config = Mpls.TeGlobalAttributes.Srlg.Srlg_.Config()
                     self.config.parent = self
-                    self.state = Mpls.TeGlobalAttributes.Srlg.Srlg.State()
+                    self.state = Mpls.TeGlobalAttributes.Srlg.Srlg_.State()
                     self.state.parent = self
-                    self.static_srlg_members = Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers()
+                    self.static_srlg_members = Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers()
                     self.static_srlg_members.parent = self
 
 
@@ -789,7 +797,9 @@ class Mpls(object):
                     .. attribute:: flooding_type
                     
                     	The type of SRLG, either flooded in the IGP or statically configured
-                    	**type**\:  :py:class:`MplsSrlgFloodingTypeEnum <ydk.models.openconfig.openconfig_mpls.MplsSrlgFloodingTypeEnum>`
+                    	**type**\:   :py:class:`MplsSrlgFloodingTypeEnum <ydk.models.openconfig.openconfig_mpls.MplsSrlgFloodingTypeEnum>`
+                    
+                    	**default value**\: FLOODED-SRLG
                     
                     .. attribute:: name
                     
@@ -848,7 +858,7 @@ class Mpls(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                        return meta._meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg.Config']['meta_info']
+                        return meta._meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg_.Config']['meta_info']
 
 
                 class State(object):
@@ -865,7 +875,9 @@ class Mpls(object):
                     .. attribute:: flooding_type
                     
                     	The type of SRLG, either flooded in the IGP or statically configured
-                    	**type**\:  :py:class:`MplsSrlgFloodingTypeEnum <ydk.models.openconfig.openconfig_mpls.MplsSrlgFloodingTypeEnum>`
+                    	**type**\:   :py:class:`MplsSrlgFloodingTypeEnum <ydk.models.openconfig.openconfig_mpls.MplsSrlgFloodingTypeEnum>`
+                    
+                    	**default value**\: FLOODED-SRLG
                     
                     .. attribute:: name
                     
@@ -924,7 +936,7 @@ class Mpls(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                        return meta._meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg.State']['meta_info']
+                        return meta._meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg_.State']['meta_info']
 
 
                 class StaticSrlgMembers(object):
@@ -934,7 +946,7 @@ class Mpls(object):
                     .. attribute:: members_list
                     
                     	List of SRLG members, which are expressed as IP address endpoints of links contained in the SRLG
-                    	**type**\: list of  :py:class:`MembersList <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList>`
+                    	**type**\: list of    :py:class:`MembersList <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList>`
                     
                     
 
@@ -976,12 +988,12 @@ class Mpls(object):
                         .. attribute:: config
                         
                         	Configuration parameters relating to the SRLG members
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.Config>`
                         
                         .. attribute:: state
                         
                         	State parameters relating to the SRLG members
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.State>`
                         
                         
 
@@ -993,9 +1005,9 @@ class Mpls(object):
                         def __init__(self):
                             self.parent = None
                             self.from_address = None
-                            self.config = Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList.Config()
+                            self.config = Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.Config()
                             self.config.parent = self
-                            self.state = Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList.State()
+                            self.state = Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.State()
                             self.state.parent = self
 
 
@@ -1075,7 +1087,7 @@ class Mpls(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                return meta._meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList.Config']['meta_info']
+                                return meta._meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.Config']['meta_info']
 
 
                         class State(object):
@@ -1154,7 +1166,7 @@ class Mpls(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                                return meta._meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList.State']['meta_info']
+                                return meta._meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList.State']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -1186,7 +1198,7 @@ class Mpls(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                            return meta._meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers.MembersList']['meta_info']
+                            return meta._meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers.MembersList']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -1212,7 +1224,7 @@ class Mpls(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                        return meta._meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg.StaticSrlgMembers']['meta_info']
+                        return meta._meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg_.StaticSrlgMembers']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -1245,7 +1257,7 @@ class Mpls(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                    return meta._meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg']['meta_info']
+                    return meta._meta_table['Mpls.TeGlobalAttributes.Srlg.Srlg_']['meta_info']
 
             @property
             def _common_path(self):
@@ -1281,12 +1293,12 @@ class Mpls(object):
             .. attribute:: config
             
             	Configuration parameters for TED update threshold 
-            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config>`
+            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config>`
             
             .. attribute:: state
             
             	State parameters for TED update threshold 
-            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State>`
+            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State>`
             
             
 
@@ -1325,12 +1337,12 @@ class Mpls(object):
                 .. attribute:: threshold_specification
                 
                 	This value specifies whether a single set of threshold values should be used for both increasing and decreasing bandwidth when determining whether to trigger updated bandwidth values to be flooded in the IGP TE extensions. MIRRORED\-UP\-DOWN indicates that a single value (or set of values) should be used for both increasing and decreasing values, where SEPARATE\-UP\-DOWN specifies that the increasing and decreasing values will be separately specified
-                	**type**\:  :py:class:`ThresholdSpecificationEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config.ThresholdSpecificationEnum>`
+                	**type**\:   :py:class:`ThresholdSpecificationEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config.ThresholdSpecificationEnum>`
                 
                 .. attribute:: threshold_type
                 
                 	The type of threshold that should be used to specify the values at which bandwidth is flooded. DELTA indicates that the local system should flood IGP updates when a change in reserved bandwidth >= the specified delta occurs on the interface. Where THRESHOLD\-CROSSED is specified, the local system should trigger an update (and hence flood) the reserved bandwidth when the reserved bandwidth changes such that it crosses, or becomes equal to one of the threshold values
-                	**type**\:  :py:class:`ThresholdTypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config.ThresholdTypeEnum>`
+                	**type**\:   :py:class:`ThresholdTypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.Config.ThresholdTypeEnum>`
                 
                 .. attribute:: up_down_thresholds
                 
@@ -1547,12 +1559,12 @@ class Mpls(object):
                 .. attribute:: threshold_specification
                 
                 	This value specifies whether a single set of threshold values should be used for both increasing and decreasing bandwidth when determining whether to trigger updated bandwidth values to be flooded in the IGP TE extensions. MIRRORED\-UP\-DOWN indicates that a single value (or set of values) should be used for both increasing and decreasing values, where SEPARATE\-UP\-DOWN specifies that the increasing and decreasing values will be separately specified
-                	**type**\:  :py:class:`ThresholdSpecificationEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State.ThresholdSpecificationEnum>`
+                	**type**\:   :py:class:`ThresholdSpecificationEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State.ThresholdSpecificationEnum>`
                 
                 .. attribute:: threshold_type
                 
                 	The type of threshold that should be used to specify the values at which bandwidth is flooded. DELTA indicates that the local system should flood IGP updates when a change in reserved bandwidth >= the specified delta occurs on the interface. Where THRESHOLD\-CROSSED is specified, the local system should trigger an update (and hence flood) the reserved bandwidth when the reserved bandwidth changes such that it crosses, or becomes equal to one of the threshold values
-                	**type**\:  :py:class:`ThresholdTypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State.ThresholdTypeEnum>`
+                	**type**\:   :py:class:`ThresholdTypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.IgpFloodingBandwidth.State.ThresholdTypeEnum>`
                 
                 .. attribute:: up_down_thresholds
                 
@@ -1781,7 +1793,7 @@ class Mpls(object):
             .. attribute:: admin_group
             
             	configuration of value to name mapping for mpls affinities/admin\-groups
-            	**type**\: list of  :py:class:`AdminGroup <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+            	**type**\: list of    :py:class:`AdminGroup <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
             
             
 
@@ -1807,17 +1819,17 @@ class Mpls(object):
                 	name for mpls admin\-group
                 	**type**\:  str
                 
-                	**refers to**\: :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.Config>`
+                	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.Config>`
                 
                 .. attribute:: config
                 
                 	Configurable items for admin\-groups
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.Config>`
                 
                 .. attribute:: state
                 
                 	Operational state for admin\-groups
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup.State>`
                 
                 
 
@@ -2009,12 +2021,12 @@ class Mpls(object):
             .. attribute:: config
             
             	Configuration parameters related to timers for TE LSPs
-            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.TeLspTimers.Config>`
+            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.TeLspTimers.Config>`
             
             .. attribute:: state
             
             	State related to timers for TE LSPs
-            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.TeLspTimers.State>`
+            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.TeLspTimers.State>`
             
             
 
@@ -2043,6 +2055,8 @@ class Mpls(object):
                 
                 	**range:** 0..65535
                 
+                	**units**\: seconds
+                
                 .. attribute:: install_delay
                 
                 	delay the use of newly installed te lsp for a specified amount of time
@@ -2050,12 +2064,16 @@ class Mpls(object):
                 
                 	**range:** 0..3600
                 
+                	**units**\: seconds
+                
                 .. attribute:: reoptimize_timer
                 
                 	frequency of reoptimization of a traffic engineered LSP
                 	**type**\:  int
                 
                 	**range:** 0..65535
+                
+                	**units**\: seconds
                 
                 
 
@@ -2110,6 +2128,8 @@ class Mpls(object):
                 
                 	**range:** 0..65535
                 
+                	**units**\: seconds
+                
                 .. attribute:: install_delay
                 
                 	delay the use of newly installed te lsp for a specified amount of time
@@ -2117,12 +2137,16 @@ class Mpls(object):
                 
                 	**range:** 0..3600
                 
+                	**units**\: seconds
+                
                 .. attribute:: reoptimize_timer
                 
                 	frequency of reoptimization of a traffic engineered LSP
                 	**type**\:  int
                 
                 	**range:** 0..65535
+                
+                	**units**\: seconds
                 
                 
 
@@ -2230,7 +2254,7 @@ class Mpls(object):
         .. attribute:: interface
         
         	List of TE interfaces
-        	**type**\: list of  :py:class:`Interface <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface>`
+        	**type**\: list of    :py:class:`Interface <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface>`
         
         
 
@@ -2255,22 +2279,22 @@ class Mpls(object):
             	The interface name
             	**type**\:  str
             
-            	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.Config>`
+            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.Config>`
             
             .. attribute:: config
             
             	Configuration parameters related to TE interfaces\:
-            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.Config>`
+            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.Config>`
             
             .. attribute:: igp_flooding_bandwidth
             
             	Interface bandwidth change percentages that trigger update events into the IGP traffic engineering database (TED)
-            	**type**\:  :py:class:`IgpFloodingBandwidth <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth>`
+            	**type**\:   :py:class:`IgpFloodingBandwidth <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth>`
             
             .. attribute:: state
             
             	State parameters related to TE interfaces
-            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.State>`
+            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.State>`
             
             
 
@@ -2304,14 +2328,14 @@ class Mpls(object):
                 	reference to interface name
                 	**type**\:  str
                 
-                	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                 
                 .. attribute:: srlg_membership
                 
                 	list of references to named shared risk link groups that the interface belongs to
                 	**type**\:  list of str
                 
-                	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg>`
+                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg_>`
                 
                 .. attribute:: te_metric
                 
@@ -2390,14 +2414,14 @@ class Mpls(object):
                 	reference to interface name
                 	**type**\:  str
                 
-                	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                 
                 .. attribute:: srlg_membership
                 
                 	list of references to named shared risk link groups that the interface belongs to
                 	**type**\:  list of str
                 
-                	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg>`
+                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.Srlg.Srlg_>`
                 
                 .. attribute:: te_metric
                 
@@ -2471,12 +2495,12 @@ class Mpls(object):
                 .. attribute:: config
                 
                 	Configuration parameters for TED update threshold 
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config>`
                 
                 .. attribute:: state
                 
                 	State parameters for TED update threshold 
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State>`
                 
                 
 
@@ -2515,12 +2539,12 @@ class Mpls(object):
                     .. attribute:: threshold_specification
                     
                     	This value specifies whether a single set of threshold values should be used for both increasing and decreasing bandwidth when determining whether to trigger updated bandwidth values to be flooded in the IGP TE extensions. MIRRORED\-UP\-DOWN indicates that a single value (or set of values) should be used for both increasing and decreasing values, where SEPARATE\-UP\-DOWN specifies that the increasing and decreasing values will be separately specified
-                    	**type**\:  :py:class:`ThresholdSpecificationEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config.ThresholdSpecificationEnum>`
+                    	**type**\:   :py:class:`ThresholdSpecificationEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config.ThresholdSpecificationEnum>`
                     
                     .. attribute:: threshold_type
                     
                     	The type of threshold that should be used to specify the values at which bandwidth is flooded. DELTA indicates that the local system should flood IGP updates when a change in reserved bandwidth >= the specified delta occurs on the interface. Where THRESHOLD\-CROSSED is specified, the local system should trigger an update (and hence flood) the reserved bandwidth when the reserved bandwidth changes such that it crosses, or becomes equal to one of the threshold values
-                    	**type**\:  :py:class:`ThresholdTypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config.ThresholdTypeEnum>`
+                    	**type**\:   :py:class:`ThresholdTypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.Config.ThresholdTypeEnum>`
                     
                     .. attribute:: up_down_thresholds
                     
@@ -2739,12 +2763,12 @@ class Mpls(object):
                     .. attribute:: threshold_specification
                     
                     	This value specifies whether a single set of threshold values should be used for both increasing and decreasing bandwidth when determining whether to trigger updated bandwidth values to be flooded in the IGP TE extensions. MIRRORED\-UP\-DOWN indicates that a single value (or set of values) should be used for both increasing and decreasing values, where SEPARATE\-UP\-DOWN specifies that the increasing and decreasing values will be separately specified
-                    	**type**\:  :py:class:`ThresholdSpecificationEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdSpecificationEnum>`
+                    	**type**\:   :py:class:`ThresholdSpecificationEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdSpecificationEnum>`
                     
                     .. attribute:: threshold_type
                     
                     	The type of threshold that should be used to specify the values at which bandwidth is flooded. DELTA indicates that the local system should flood IGP updates when a change in reserved bandwidth >= the specified delta occurs on the interface. Where THRESHOLD\-CROSSED is specified, the local system should trigger an update (and hence flood) the reserved bandwidth when the reserved bandwidth changes such that it crosses, or becomes equal to one of the threshold values
-                    	**type**\:  :py:class:`ThresholdTypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdTypeEnum>`
+                    	**type**\:   :py:class:`ThresholdTypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.TeInterfaceAttributes.Interface.IgpFloodingBandwidth.State.ThresholdTypeEnum>`
                     
                     .. attribute:: up_down_thresholds
                     
@@ -3033,17 +3057,17 @@ class Mpls(object):
         .. attribute:: ldp
         
         	LDP global signaling configuration
-        	**type**\:  :py:class:`Ldp <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.Ldp>`
+        	**type**\:   :py:class:`Ldp <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.Ldp>`
         
         .. attribute:: rsvp_te
         
         	RSVP\-TE global signaling protocol configuration
-        	**type**\:  :py:class:`RsvpTe <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe>`
+        	**type**\:   :py:class:`RsvpTe <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe>`
         
         .. attribute:: segment_routing
         
         	SR global signaling config
-        	**type**\:  :py:class:`SegmentRouting <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting>`
+        	**type**\:   :py:class:`SegmentRouting <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting>`
         
         
 
@@ -3069,22 +3093,22 @@ class Mpls(object):
             .. attribute:: global_
             
             	Platform wide RSVP configuration and state
-            	**type**\:  :py:class:`Global <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global>`
+            	**type**\:   :py:class:`Global_ <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_>`
             
             .. attribute:: interface_attributes
             
             	Attributes relating to RSVP\-TE enabled interfaces
-            	**type**\:  :py:class:`InterfaceAttributes <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes>`
+            	**type**\:   :py:class:`InterfaceAttributes <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes>`
             
             .. attribute:: neighbors
             
             	Configuration and state for RSVP neighbors connecting to the device
-            	**type**\:  :py:class:`Neighbors <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors>`
+            	**type**\:   :py:class:`Neighbors <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors>`
             
             .. attribute:: sessions
             
             	Configuration and state of RSVP sessions
-            	**type**\:  :py:class:`Sessions <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions>`
+            	**type**\:   :py:class:`Sessions <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions>`
             
             
 
@@ -3095,7 +3119,7 @@ class Mpls(object):
 
             def __init__(self):
                 self.parent = None
-                self.global_ = Mpls.SignalingProtocols.RsvpTe.Global()
+                self.global_ = Mpls.SignalingProtocols.RsvpTe.Global_()
                 self.global_.parent = self
                 self.interface_attributes = Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes()
                 self.interface_attributes.parent = self
@@ -3112,12 +3136,12 @@ class Mpls(object):
                 .. attribute:: config
                 
                 	Configuration of RSVP sessions on the device
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.Config>`
                 
                 .. attribute:: state
                 
                 	State information relating to RSVP sessions on the device
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.State>`
                 
                 
 
@@ -3176,7 +3200,7 @@ class Mpls(object):
                     .. attribute:: session
                     
                     	List of RSVP sessions
-                    	**type**\: list of  :py:class:`Session <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session>`
+                    	**type**\: list of    :py:class:`Session <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session>`
                     
                     
 
@@ -3249,7 +3273,7 @@ class Mpls(object):
                         	List of label switched paths associated with this RSVP session
                         	**type**\:  list of str
                         
-                        	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Config>`
+                        	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Config>`
                         
                         .. attribute:: label_in
                         
@@ -3262,7 +3286,7 @@ class Mpls(object):
                         
                         
                         ----
-                        	**type**\:  :py:class:`MplsLabelEnum <ydk.models.openconfig.openconfig_mpls_types.MplsLabelEnum>`
+                        	**type**\:   :py:class:`MplsLabelEnum <ydk.models.openconfig.openconfig_mpls_types.MplsLabelEnum>`
                         
                         
                         ----
@@ -3277,14 +3301,14 @@ class Mpls(object):
                         
                         
                         ----
-                        	**type**\:  :py:class:`MplsLabelEnum <ydk.models.openconfig.openconfig_mpls_types.MplsLabelEnum>`
+                        	**type**\:   :py:class:`MplsLabelEnum <ydk.models.openconfig.openconfig_mpls_types.MplsLabelEnum>`
                         
                         
                         ----
                         .. attribute:: status
                         
                         	Enumeration of RSVP session states
-                        	**type**\:  :py:class:`StatusEnum <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.StatusEnum>`
+                        	**type**\:   :py:class:`StatusEnum <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.StatusEnum>`
                         
                         .. attribute:: tunnel_id
                         
@@ -3296,7 +3320,7 @@ class Mpls(object):
                         .. attribute:: type
                         
                         	Enumeration of possible RSVP session types
-                        	**type**\:  :py:class:`TypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.TypeEnum>`
+                        	**type**\:   :py:class:`TypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Sessions.State.Session.TypeEnum>`
                         
                         
 
@@ -3497,12 +3521,12 @@ class Mpls(object):
                 .. attribute:: config
                 
                 	Configuration of RSVP neighbor information
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors.Config>`
                 
                 .. attribute:: state
                 
                 	State information relating to RSVP neighbors
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors.State>`
                 
                 
 
@@ -3560,7 +3584,7 @@ class Mpls(object):
                     .. attribute:: neighbor
                     
                     	List of RSVP neighbors connecting to the device, keyed by neighbor address
-                    	**type**\: list of  :py:class:`Neighbor <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors.State.Neighbor>`
+                    	**type**\: list of    :py:class:`Neighbor <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors.State.Neighbor>`
                     
                     
 
@@ -3606,7 +3630,7 @@ class Mpls(object):
                         .. attribute:: neighbor_status
                         
                         	Enumuration of possible RSVP neighbor states
-                        	**type**\:  :py:class:`NeighborStatusEnum <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors.State.Neighbor.NeighborStatusEnum>`
+                        	**type**\:   :py:class:`NeighborStatusEnum <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Neighbors.State.Neighbor.NeighborStatusEnum>`
                         
                         .. attribute:: refresh_reduction
                         
@@ -3741,29 +3765,29 @@ class Mpls(object):
                     return meta._meta_table['Mpls.SignalingProtocols.RsvpTe.Neighbors']['meta_info']
 
 
-            class Global(object):
+            class Global_(object):
                 """
                 Platform wide RSVP configuration and state
                 
                 .. attribute:: graceful_restart
                 
                 	Operational state and configuration parameters relating to graceful\-restart for RSVP
-                	**type**\:  :py:class:`GracefulRestart <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart>`
+                	**type**\:   :py:class:`GracefulRestart <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart>`
                 
                 .. attribute:: hellos
                 
                 	Top level container for RSVP hello parameters
-                	**type**\:  :py:class:`Hellos <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global.Hellos>`
+                	**type**\:   :py:class:`Hellos <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.Hellos>`
                 
                 .. attribute:: soft_preemption
                 
                 	Protocol options relating to RSVP soft preemption
-                	**type**\:  :py:class:`SoftPreemption <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption>`
+                	**type**\:   :py:class:`SoftPreemption <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption>`
                 
                 .. attribute:: state
                 
                 	Platform wide RSVP state, including counters
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.State>`
                 
                 
 
@@ -3774,13 +3798,13 @@ class Mpls(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.graceful_restart = Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart()
+                    self.graceful_restart = Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart()
                     self.graceful_restart.parent = self
-                    self.hellos = Mpls.SignalingProtocols.RsvpTe.Global.Hellos()
+                    self.hellos = Mpls.SignalingProtocols.RsvpTe.Global_.Hellos()
                     self.hellos.parent = self
-                    self.soft_preemption = Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption()
+                    self.soft_preemption = Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption()
                     self.soft_preemption.parent = self
-                    self.state = Mpls.SignalingProtocols.RsvpTe.Global.State()
+                    self.state = Mpls.SignalingProtocols.RsvpTe.Global_.State()
                     self.state.parent = self
 
 
@@ -3792,12 +3816,12 @@ class Mpls(object):
                     .. attribute:: config
                     
                     	Configuration parameters relating to graceful\-restart
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.Config>`
+                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart.Config>`
                     
                     .. attribute:: state
                     
                     	State information associated with RSVP graceful\-restart
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.State>`
+                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart.State>`
                     
                     
 
@@ -3808,9 +3832,9 @@ class Mpls(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.config = Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.Config()
+                        self.config = Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart.Config()
                         self.config.parent = self
-                        self.state = Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.State()
+                        self.state = Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart.State()
                         self.state.parent = self
 
 
@@ -3823,6 +3847,8 @@ class Mpls(object):
                         
                         	Enables graceful restart on the node
                         	**type**\:  bool
+                        
+                        	**default value**\: false
                         
                         .. attribute:: recovery_time
                         
@@ -3877,7 +3903,7 @@ class Mpls(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                            return meta._meta_table['Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.Config']['meta_info']
+                            return meta._meta_table['Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart.Config']['meta_info']
 
 
                     class State(object):
@@ -3889,6 +3915,8 @@ class Mpls(object):
                         
                         	Enables graceful restart on the node
                         	**type**\:  bool
+                        
+                        	**default value**\: false
                         
                         .. attribute:: recovery_time
                         
@@ -3943,7 +3971,7 @@ class Mpls(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                            return meta._meta_table['Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart.State']['meta_info']
+                            return meta._meta_table['Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart.State']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -3968,7 +3996,7 @@ class Mpls(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                        return meta._meta_table['Mpls.SignalingProtocols.RsvpTe.Global.GracefulRestart']['meta_info']
+                        return meta._meta_table['Mpls.SignalingProtocols.RsvpTe.Global_.GracefulRestart']['meta_info']
 
 
                 class SoftPreemption(object):
@@ -3979,12 +4007,12 @@ class Mpls(object):
                     .. attribute:: config
                     
                     	Configuration parameters relating to RSVP soft preemption support
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.Config>`
+                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption.Config>`
                     
                     .. attribute:: state
                     
                     	State parameters relating to RSVP soft preemption support
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.State>`
+                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption.State>`
                     
                     
 
@@ -3995,9 +4023,9 @@ class Mpls(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.config = Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.Config()
+                        self.config = Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption.Config()
                         self.config.parent = self
-                        self.state = Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.State()
+                        self.state = Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption.State()
                         self.state.parent = self
 
 
@@ -4011,12 +4039,16 @@ class Mpls(object):
                         	Enables soft preemption on a node
                         	**type**\:  bool
                         
+                        	**default value**\: false
+                        
                         .. attribute:: soft_preemption_timeout
                         
                         	Timeout value for soft preemption to revert to hard preemption
                         	**type**\:  int
                         
                         	**range:** 0..65535
+                        
+                        	**default value**\: 0
                         
                         
 
@@ -4053,7 +4085,7 @@ class Mpls(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                            return meta._meta_table['Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.Config']['meta_info']
+                            return meta._meta_table['Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption.Config']['meta_info']
 
 
                     class State(object):
@@ -4066,12 +4098,16 @@ class Mpls(object):
                         	Enables soft preemption on a node
                         	**type**\:  bool
                         
+                        	**default value**\: false
+                        
                         .. attribute:: soft_preemption_timeout
                         
                         	Timeout value for soft preemption to revert to hard preemption
                         	**type**\:  int
                         
                         	**range:** 0..65535
+                        
+                        	**default value**\: 0
                         
                         
 
@@ -4108,7 +4144,7 @@ class Mpls(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                            return meta._meta_table['Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption.State']['meta_info']
+                            return meta._meta_table['Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption.State']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -4133,7 +4169,7 @@ class Mpls(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                        return meta._meta_table['Mpls.SignalingProtocols.RsvpTe.Global.SoftPreemption']['meta_info']
+                        return meta._meta_table['Mpls.SignalingProtocols.RsvpTe.Global_.SoftPreemption']['meta_info']
 
 
                 class Hellos(object):
@@ -4143,12 +4179,12 @@ class Mpls(object):
                     .. attribute:: config
                     
                     	Configuration parameters relating to RSVP hellos
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global.Hellos.Config>`
+                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.Hellos.Config>`
                     
                     .. attribute:: state
                     
                     	State information associated with RSVP hellos
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global.Hellos.State>`
+                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.Hellos.State>`
                     
                     
 
@@ -4159,9 +4195,9 @@ class Mpls(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.config = Mpls.SignalingProtocols.RsvpTe.Global.Hellos.Config()
+                        self.config = Mpls.SignalingProtocols.RsvpTe.Global_.Hellos.Config()
                         self.config.parent = self
-                        self.state = Mpls.SignalingProtocols.RsvpTe.Global.Hellos.State()
+                        self.state = Mpls.SignalingProtocols.RsvpTe.Global_.Hellos.State()
                         self.state.parent = self
 
 
@@ -4177,10 +4213,16 @@ class Mpls(object):
                         
                         	**range:** 1000..60000
                         
+                        	**units**\: milliseconds
+                        
+                        	**default value**\: 9000
+                        
                         .. attribute:: refresh_reduction
                         
                         	enables all RSVP refresh reduction message bundling, RSVP message ID, reliable message delivery and summary refresh
                         	**type**\:  bool
+                        
+                        	**default value**\: true
                         
                         
 
@@ -4217,7 +4259,7 @@ class Mpls(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                            return meta._meta_table['Mpls.SignalingProtocols.RsvpTe.Global.Hellos.Config']['meta_info']
+                            return meta._meta_table['Mpls.SignalingProtocols.RsvpTe.Global_.Hellos.Config']['meta_info']
 
 
                     class State(object):
@@ -4231,10 +4273,16 @@ class Mpls(object):
                         
                         	**range:** 1000..60000
                         
+                        	**units**\: milliseconds
+                        
+                        	**default value**\: 9000
+                        
                         .. attribute:: refresh_reduction
                         
                         	enables all RSVP refresh reduction message bundling, RSVP message ID, reliable message delivery and summary refresh
                         	**type**\:  bool
+                        
+                        	**default value**\: true
                         
                         
 
@@ -4271,7 +4319,7 @@ class Mpls(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                            return meta._meta_table['Mpls.SignalingProtocols.RsvpTe.Global.Hellos.State']['meta_info']
+                            return meta._meta_table['Mpls.SignalingProtocols.RsvpTe.Global_.Hellos.State']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -4296,7 +4344,7 @@ class Mpls(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                        return meta._meta_table['Mpls.SignalingProtocols.RsvpTe.Global.Hellos']['meta_info']
+                        return meta._meta_table['Mpls.SignalingProtocols.RsvpTe.Global_.Hellos']['meta_info']
 
 
                 class State(object):
@@ -4306,7 +4354,7 @@ class Mpls(object):
                     .. attribute:: counters
                     
                     	Platform wide RSVP statistics and counters
-                    	**type**\:  :py:class:`Counters <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global.State.Counters>`
+                    	**type**\:   :py:class:`Counters <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.Global_.State.Counters>`
                     
                     
 
@@ -4317,7 +4365,7 @@ class Mpls(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.counters = Mpls.SignalingProtocols.RsvpTe.Global.State.Counters()
+                        self.counters = Mpls.SignalingProtocols.RsvpTe.Global_.State.Counters()
                         self.counters.parent = self
 
 
@@ -4583,7 +4631,7 @@ class Mpls(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                            return meta._meta_table['Mpls.SignalingProtocols.RsvpTe.Global.State.Counters']['meta_info']
+                            return meta._meta_table['Mpls.SignalingProtocols.RsvpTe.Global_.State.Counters']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -4605,7 +4653,7 @@ class Mpls(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                        return meta._meta_table['Mpls.SignalingProtocols.RsvpTe.Global.State']['meta_info']
+                        return meta._meta_table['Mpls.SignalingProtocols.RsvpTe.Global_.State']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -4636,7 +4684,7 @@ class Mpls(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.openconfig._meta import _openconfig_mpls as meta
-                    return meta._meta_table['Mpls.SignalingProtocols.RsvpTe.Global']['meta_info']
+                    return meta._meta_table['Mpls.SignalingProtocols.RsvpTe.Global_']['meta_info']
 
 
             class InterfaceAttributes(object):
@@ -4646,7 +4694,7 @@ class Mpls(object):
                 .. attribute:: interface
                 
                 	list of per\-interface RSVP configurations
-                	**type**\: list of  :py:class:`Interface <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface>`
+                	**type**\: list of    :py:class:`Interface <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface>`
                 
                 
 
@@ -4671,37 +4719,37 @@ class Mpls(object):
                     	references a configured IP interface
                     	**type**\:  str
                     
-                    	**refers to**\: :py:class:`interface_name <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Config>`
+                    	**refers to**\:  :py:class:`interface_name <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Config>`
                     
                     .. attribute:: authentication
                     
                     	Configuration and state parameters relating to RSVP authentication as per RFC2747
-                    	**type**\:  :py:class:`Authentication <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication>`
+                    	**type**\:   :py:class:`Authentication <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication>`
                     
                     .. attribute:: config
                     
                     	Configuration of per\-interface RSVP parameters
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Config>`
+                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Config>`
                     
                     .. attribute:: hellos
                     
                     	Top level container for RSVP hello parameters
-                    	**type**\:  :py:class:`Hellos <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos>`
+                    	**type**\:   :py:class:`Hellos <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos>`
                     
                     .. attribute:: protection
                     
                     	link\-protection (NHOP) related configuration
-                    	**type**\:  :py:class:`Protection <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection>`
+                    	**type**\:   :py:class:`Protection <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection>`
                     
                     .. attribute:: state
                     
                     	Per\-interface RSVP protocol and state information
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State>`
+                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State>`
                     
                     .. attribute:: subscription
                     
                     	Bandwidth percentage reservable by RSVP on an interface
-                    	**type**\:  :py:class:`Subscription <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription>`
+                    	**type**\:   :py:class:`Subscription <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription>`
                     
                     
 
@@ -4736,7 +4784,7 @@ class Mpls(object):
                         	Name of configured IP interface
                         	**type**\:  str
                         
-                        	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                        	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                         
                         
 
@@ -4788,12 +4836,12 @@ class Mpls(object):
                         .. attribute:: bandwidth
                         
                         	Available and reserved bandwidth by priority on the interface
-                        	**type**\: list of  :py:class:`Bandwidth <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Bandwidth>`
+                        	**type**\: list of    :py:class:`Bandwidth <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Bandwidth>`
                         
                         .. attribute:: counters
                         
                         	Interface specific RSVP statistics and counters
-                        	**type**\:  :py:class:`Counters <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Counters>`
+                        	**type**\:   :py:class:`Counters <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.State.Counters>`
                         
                         .. attribute:: highwater_mark
                         
@@ -5168,12 +5216,12 @@ class Mpls(object):
                         .. attribute:: config
                         
                         	Configuration parameters relating to RSVP hellos
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.Config>`
                         
                         .. attribute:: state
                         
                         	State information associated with RSVP hellos
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.State>`
                         
                         
 
@@ -5202,10 +5250,16 @@ class Mpls(object):
                             
                             	**range:** 1000..60000
                             
+                            	**units**\: milliseconds
+                            
+                            	**default value**\: 9000
+                            
                             .. attribute:: refresh_reduction
                             
                             	enables all RSVP refresh reduction message bundling, RSVP message ID, reliable message delivery and summary refresh
                             	**type**\:  bool
+                            
+                            	**default value**\: true
                             
                             
 
@@ -5258,10 +5312,16 @@ class Mpls(object):
                             
                             	**range:** 1000..60000
                             
+                            	**units**\: milliseconds
+                            
+                            	**default value**\: 9000
+                            
                             .. attribute:: refresh_reduction
                             
                             	enables all RSVP refresh reduction message bundling, RSVP message ID, reliable message delivery and summary refresh
                             	**type**\:  bool
+                            
+                            	**default value**\: true
                             
                             
 
@@ -5338,12 +5398,12 @@ class Mpls(object):
                         .. attribute:: config
                         
                         	Configuration parameters relating to authentication
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.Config>`
                         
                         .. attribute:: state
                         
                         	State information associated with authentication
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Authentication.State>`
                         
                         
 
@@ -5376,6 +5436,8 @@ class Mpls(object):
                             
                             	Enables RSVP authentication on the node
                             	**type**\:  bool
+                            
+                            	**default value**\: false
                             
                             
 
@@ -5433,6 +5495,8 @@ class Mpls(object):
                             
                             	Enables RSVP authentication on the node
                             	**type**\:  bool
+                            
+                            	**default value**\: false
                             
                             
 
@@ -5509,12 +5573,12 @@ class Mpls(object):
                         .. attribute:: config
                         
                         	Configuration parameters relating to RSVP subscription options
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.Config>`
                         
                         .. attribute:: state
                         
                         	State parameters relating to RSVP subscription options
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Subscription.State>`
                         
                         
 
@@ -5661,12 +5725,12 @@ class Mpls(object):
                         .. attribute:: config
                         
                         	Configuration for link\-protection
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.Config>`
                         
                         .. attribute:: state
                         
                         	State for link\-protection
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Protection.State>`
                         
                         
 
@@ -5694,10 +5758,14 @@ class Mpls(object):
                             
                             	**range:** 0..65535
                             
+                            	**units**\: seconds
+                            
                             .. attribute:: link_protection_style_requested
                             
                             	Style of mpls frr protection desired\: link, link\-node, or unprotected
-                            	**type**\:  :py:class:`ProtectionTypeIdentity <ydk.models.openconfig.openconfig_mpls_types.ProtectionTypeIdentity>`
+                            	**type**\:   :py:class:`ProtectionTypeIdentity <ydk.models.openconfig.openconfig_mpls_types.ProtectionTypeIdentity>`
+                            
+                            	**default value**\: mplst:link-node-protection-requested
                             
                             
 
@@ -5750,10 +5818,14 @@ class Mpls(object):
                             
                             	**range:** 0..65535
                             
+                            	**units**\: seconds
+                            
                             .. attribute:: link_protection_style_requested
                             
                             	Style of mpls frr protection desired\: link, link\-node, or unprotected
-                            	**type**\:  :py:class:`ProtectionTypeIdentity <ydk.models.openconfig.openconfig_mpls_types.ProtectionTypeIdentity>`
+                            	**type**\:   :py:class:`ProtectionTypeIdentity <ydk.models.openconfig.openconfig_mpls_types.ProtectionTypeIdentity>`
+                            
+                            	**default value**\: mplst:link-node-protection-requested
                             
                             
 
@@ -5926,12 +5998,12 @@ class Mpls(object):
             .. attribute:: interfaces
             
             	List of interfaces with associated segment routing configuration
-            	**type**\: list of  :py:class:`Interfaces <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces>`
+            	**type**\: list of    :py:class:`Interfaces <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces>`
             
             .. attribute:: srgb
             
             	List of Segment Routing Global Block (SRGB) entries. These label blocks are reserved to be allocated as domain\-wide entries
-            	**type**\: list of  :py:class:`Srgb <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Srgb>`
+            	**type**\: list of    :py:class:`Srgb <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Srgb>`
             
             
 
@@ -5973,12 +6045,12 @@ class Mpls(object):
                 .. attribute:: config
                 
                 	Configuration parameters relating to the Segment Routing Global Block (SRGB)
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Srgb.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Srgb.Config>`
                 
                 .. attribute:: state
                 
                 	State parameters relating to the Segment Routing Global Block (SRGB)
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Srgb.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Srgb.State>`
                 
                 
 
@@ -6193,22 +6265,22 @@ class Mpls(object):
                 	Reference to the interface for which segment routing configuration is to be applied
                 	**type**\:  str
                 
-                	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                 
                 .. attribute:: adjacency_sid
                 
                 	Configuration for Adjacency SIDs that are related to the specified interface
-                	**type**\:  :py:class:`AdjacencySid <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid>`
+                	**type**\:   :py:class:`AdjacencySid <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid>`
                 
                 .. attribute:: config
                 
                 	Interface configuration parameters for Segment Routing relating to the specified interface
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.Config>`
                 
                 .. attribute:: state
                 
                 	State parameters for Segment Routing features relating to the specified interface
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.State>`
                 
                 
 
@@ -6238,7 +6310,7 @@ class Mpls(object):
                     	Reference to the interface for which segment routing configuration is to be applied
                     	**type**\:  str
                     
-                    	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                     
                     
 
@@ -6286,7 +6358,7 @@ class Mpls(object):
                     	Reference to the interface for which segment routing configuration is to be applied
                     	**type**\:  str
                     
-                    	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
+                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_interfaces.Interfaces.Interface>`
                     
                     
 
@@ -6332,12 +6404,12 @@ class Mpls(object):
                     .. attribute:: config
                     
                     	Configuration parameters for the Adjacency\-SIDs that are related to this interface
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.Config>`
+                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.Config>`
                     
                     .. attribute:: state
                     
                     	State parameters for the Adjacency\-SIDs that are related to this interface
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.State>`
+                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.State>`
                     
                     
 
@@ -6362,7 +6434,7 @@ class Mpls(object):
                         .. attribute:: advertise
                         
                         	Specifies the type of adjacency SID which should be advertised for the specified entity
-                        	**type**\:  list of :py:class:`AdvertiseEnum <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.Config.AdvertiseEnum>`
+                        	**type**\:  list of   :py:class:`AdvertiseEnum <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.Config.AdvertiseEnum>`
                         
                         .. attribute:: groups
                         
@@ -6468,7 +6540,7 @@ class Mpls(object):
                         .. attribute:: advertise
                         
                         	Specifies the type of adjacency SID which should be advertised for the specified entity
-                        	**type**\:  list of :py:class:`AdvertiseEnum <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.State.AdvertiseEnum>`
+                        	**type**\:  list of   :py:class:`AdvertiseEnum <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.SegmentRouting.Interfaces.AdjacencySid.State.AdvertiseEnum>`
                         
                         .. attribute:: groups
                         
@@ -6662,7 +6734,7 @@ class Mpls(object):
             .. attribute:: timers
             
             	LDP timers
-            	**type**\:  :py:class:`Timers <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.Ldp.Timers>`
+            	**type**\:   :py:class:`Timers <ydk.models.openconfig.openconfig_mpls.Mpls.SignalingProtocols.Ldp.Timers>`
             
             
 
@@ -6768,17 +6840,17 @@ class Mpls(object):
         .. attribute:: constrained_path
         
         	traffic\-engineered LSPs supporting different path computation and signaling methods
-        	**type**\:  :py:class:`ConstrainedPath <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath>`
+        	**type**\:   :py:class:`ConstrainedPath <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath>`
         
         .. attribute:: static_lsps
         
         	statically configured LSPs, without dynamic signaling
-        	**type**\:  :py:class:`StaticLsps <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps>`
+        	**type**\:   :py:class:`StaticLsps <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps>`
         
         .. attribute:: unconstrained_path
         
         	LSPs that use the IGP\-determined path, i.e., non traffic\-engineered, or non constrained\-path
-        	**type**\:  :py:class:`UnconstrainedPath <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath>`
+        	**type**\:   :py:class:`UnconstrainedPath <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath>`
         
         
 
@@ -6805,12 +6877,12 @@ class Mpls(object):
             .. attribute:: named_explicit_paths
             
             	A list of explicit paths
-            	**type**\: list of  :py:class:`NamedExplicitPaths <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths>`
+            	**type**\: list of    :py:class:`NamedExplicitPaths <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths>`
             
             .. attribute:: tunnel
             
             	List of TE tunnels
-            	**type**\: list of  :py:class:`Tunnel <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel>`
+            	**type**\: list of    :py:class:`Tunnel <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel>`
             
             
 
@@ -6838,22 +6910,22 @@ class Mpls(object):
                 	A string name that uniquely identifies an explicit path
                 	**type**\:  str
                 
-                	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config>`
+                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config>`
                 
                 .. attribute:: config
                 
                 	Configuration parameters relating to named explicit paths
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config>`
                 
                 .. attribute:: explicit_route_objects
                 
                 	List of explicit route objects
-                	**type**\: list of  :py:class:`ExplicitRouteObjects <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects>`
+                	**type**\: list of    :py:class:`ExplicitRouteObjects <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects>`
                 
                 .. attribute:: state
                 
                 	Operational state parameters relating to the named explicit paths
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.State>`
                 
                 
 
@@ -6977,17 +7049,17 @@ class Mpls(object):
                     
                     	**range:** 0..255
                     
-                    	**refers to**\: :py:class:`index <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects.Config>`
+                    	**refers to**\:  :py:class:`index <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects.Config>`
                     
                     .. attribute:: config
                     
                     	Configuration parameters relating to an explicit route
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects.Config>`
+                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects.Config>`
                     
                     .. attribute:: state
                     
                     	State parameters relating to an explicit route
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects.State>`
+                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.ExplicitRouteObjects.State>`
                     
                     
 
@@ -7030,7 +7102,7 @@ class Mpls(object):
                         .. attribute:: hop_type
                         
                         	strict or loose hop
-                        	**type**\:  :py:class:`MplsHopTypeEnum <ydk.models.openconfig.openconfig_mpls.MplsHopTypeEnum>`
+                        	**type**\:   :py:class:`MplsHopTypeEnum <ydk.models.openconfig.openconfig_mpls.MplsHopTypeEnum>`
                         
                         .. attribute:: index
                         
@@ -7107,7 +7179,7 @@ class Mpls(object):
                         .. attribute:: hop_type
                         
                         	strict or loose hop
-                        	**type**\:  :py:class:`MplsHopTypeEnum <ydk.models.openconfig.openconfig_mpls.MplsHopTypeEnum>`
+                        	**type**\:   :py:class:`MplsHopTypeEnum <ydk.models.openconfig.openconfig_mpls.MplsHopTypeEnum>`
                         
                         .. attribute:: index
                         
@@ -7236,32 +7308,32 @@ class Mpls(object):
                 	The tunnel name
                 	**type**\:  str
                 
-                	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Config>`
+                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Config>`
                 
                 .. attribute:: type  <key>
                 
                 	The tunnel type, p2p or p2mp
-                	**type**\:  :py:class:`TunnelTypeIdentity <ydk.models.openconfig.openconfig_mpls_types.TunnelTypeIdentity>`
+                	**type**\:   :py:class:`TunnelTypeIdentity <ydk.models.openconfig.openconfig_mpls_types.TunnelTypeIdentity>`
                 
                 .. attribute:: bandwidth
                 
                 	Bandwidth configuration for TE LSPs
-                	**type**\:  :py:class:`Bandwidth <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth>`
+                	**type**\:   :py:class:`Bandwidth <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth>`
                 
                 .. attribute:: config
                 
                 	Configuration parameters related to TE tunnels\:
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Config>`
                 
                 .. attribute:: p2p_tunnel_attributes
                 
                 	Parameters related to LSPs of type P2P
-                	**type**\:  :py:class:`P2PTunnelAttributes <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes>`
+                	**type**\:   :py:class:`P2PTunnelAttributes <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes>`
                 
                 .. attribute:: state
                 
                 	State parameters related to TE tunnels
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.State>`
                 
                 
 
@@ -7291,7 +7363,9 @@ class Mpls(object):
                     .. attribute:: admin_status
                     
                     	TE tunnel administrative state
-                    	**type**\:  :py:class:`TunnelAdminStatusIdentity <ydk.models.openconfig.openconfig_mpls_types.TunnelAdminStatusIdentity>`
+                    	**type**\:   :py:class:`TunnelAdminStatusIdentity <ydk.models.openconfig.openconfig_mpls_types.TunnelAdminStatusIdentity>`
+                    
+                    	**default value**\: mplst:ADMIN_UP
                     
                     .. attribute:: description
                     
@@ -7304,6 +7378,8 @@ class Mpls(object):
                     	**type**\:  int
                     
                     	**range:** 0..7
+                    
+                    	**default value**\: 0
                     
                     .. attribute:: local_id
                     
@@ -7325,7 +7401,7 @@ class Mpls(object):
                     	LSP metric, either explicit or IGP
                     	**type**\: one of the below types:
                     
-                    	**type**\:  :py:class:`TeMetricTypeEnum <ydk.models.openconfig.openconfig_mpls.TeMetricTypeEnum>`
+                    	**type**\:   :py:class:`TeMetricTypeEnum <ydk.models.openconfig.openconfig_mpls.TeMetricTypeEnum>`
                     
                     
                     ----
@@ -7350,7 +7426,9 @@ class Mpls(object):
                     .. attribute:: protection_style_requested
                     
                     	style of mpls frr protection desired\: can be link, link\-node or unprotected
-                    	**type**\:  :py:class:`ProtectionTypeIdentity <ydk.models.openconfig.openconfig_mpls_types.ProtectionTypeIdentity>`
+                    	**type**\:   :py:class:`ProtectionTypeIdentity <ydk.models.openconfig.openconfig_mpls_types.ProtectionTypeIdentity>`
+                    
+                    	**default value**\: mplst:unprotected
                     
                     .. attribute:: reoptimize_timer
                     
@@ -7359,6 +7437,8 @@ class Mpls(object):
                     
                     	**range:** 0..65535
                     
+                    	**units**\: seconds
+                    
                     .. attribute:: setup_priority
                     
                     	RSVP\-TE preemption priority during LSP setup, lower is higher priority; default 7 indicates that LSP will not preempt established LSPs during setup
@@ -7366,15 +7446,19 @@ class Mpls(object):
                     
                     	**range:** 0..7
                     
+                    	**default value**\: 7
+                    
                     .. attribute:: signaling_protocol
                     
                     	Signaling protocol used to set up this tunnel
-                    	**type**\:  :py:class:`TunnelTypeIdentity <ydk.models.openconfig.openconfig_mpls_types.TunnelTypeIdentity>`
+                    	**type**\:   :py:class:`TunnelTypeIdentity <ydk.models.openconfig.openconfig_mpls_types.TunnelTypeIdentity>`
                     
                     .. attribute:: soft_preemption
                     
                     	Enables RSVP soft\-preemption on this LSP
                     	**type**\:  bool
+                    
+                    	**default value**\: false
                     
                     .. attribute:: source
                     
@@ -7396,7 +7480,7 @@ class Mpls(object):
                     .. attribute:: type
                     
                     	Tunnel type, p2p or p2mp
-                    	**type**\:  :py:class:`TunnelTypeIdentity <ydk.models.openconfig.openconfig_mpls_types.TunnelTypeIdentity>`
+                    	**type**\:   :py:class:`TunnelTypeIdentity <ydk.models.openconfig.openconfig_mpls_types.TunnelTypeIdentity>`
                     
                     
 
@@ -7493,12 +7577,14 @@ class Mpls(object):
                     .. attribute:: admin_status
                     
                     	TE tunnel administrative state
-                    	**type**\:  :py:class:`TunnelAdminStatusIdentity <ydk.models.openconfig.openconfig_mpls_types.TunnelAdminStatusIdentity>`
+                    	**type**\:   :py:class:`TunnelAdminStatusIdentity <ydk.models.openconfig.openconfig_mpls_types.TunnelAdminStatusIdentity>`
+                    
+                    	**default value**\: mplst:ADMIN_UP
                     
                     .. attribute:: counters
                     
                     	State data for MPLS label switched paths. This state data is specific to a single label switched path
-                    	**type**\:  :py:class:`Counters <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.State.Counters>`
+                    	**type**\:   :py:class:`Counters <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.State.Counters>`
                     
                     .. attribute:: description
                     
@@ -7511,6 +7597,8 @@ class Mpls(object):
                     	**type**\:  int
                     
                     	**range:** 0..7
+                    
+                    	**default value**\: 0
                     
                     .. attribute:: local_id
                     
@@ -7532,7 +7620,7 @@ class Mpls(object):
                     	LSP metric, either explicit or IGP
                     	**type**\: one of the below types:
                     
-                    	**type**\:  :py:class:`TeMetricTypeEnum <ydk.models.openconfig.openconfig_mpls.TeMetricTypeEnum>`
+                    	**type**\:   :py:class:`TeMetricTypeEnum <ydk.models.openconfig.openconfig_mpls.TeMetricTypeEnum>`
                     
                     
                     ----
@@ -7550,7 +7638,7 @@ class Mpls(object):
                     .. attribute:: oper_status
                     
                     	The operational status of the TE tunnel
-                    	**type**\:  :py:class:`LspOperStatusIdentity <ydk.models.openconfig.openconfig_mpls_types.LspOperStatusIdentity>`
+                    	**type**\:   :py:class:`LspOperStatusIdentity <ydk.models.openconfig.openconfig_mpls_types.LspOperStatusIdentity>`
                     
                     .. attribute:: preference
                     
@@ -7562,7 +7650,9 @@ class Mpls(object):
                     .. attribute:: protection_style_requested
                     
                     	style of mpls frr protection desired\: can be link, link\-node or unprotected
-                    	**type**\:  :py:class:`ProtectionTypeIdentity <ydk.models.openconfig.openconfig_mpls_types.ProtectionTypeIdentity>`
+                    	**type**\:   :py:class:`ProtectionTypeIdentity <ydk.models.openconfig.openconfig_mpls_types.ProtectionTypeIdentity>`
+                    
+                    	**default value**\: mplst:unprotected
                     
                     .. attribute:: reoptimize_timer
                     
@@ -7571,10 +7661,12 @@ class Mpls(object):
                     
                     	**range:** 0..65535
                     
+                    	**units**\: seconds
+                    
                     .. attribute:: role
                     
                     	The lsp role at the current node, whether it is headend, transit or tailend
-                    	**type**\:  :py:class:`LspRoleIdentity <ydk.models.openconfig.openconfig_mpls_types.LspRoleIdentity>`
+                    	**type**\:   :py:class:`LspRoleIdentity <ydk.models.openconfig.openconfig_mpls_types.LspRoleIdentity>`
                     
                     .. attribute:: setup_priority
                     
@@ -7583,15 +7675,19 @@ class Mpls(object):
                     
                     	**range:** 0..7
                     
+                    	**default value**\: 7
+                    
                     .. attribute:: signaling_protocol
                     
                     	Signaling protocol used to set up this tunnel
-                    	**type**\:  :py:class:`TunnelTypeIdentity <ydk.models.openconfig.openconfig_mpls_types.TunnelTypeIdentity>`
+                    	**type**\:   :py:class:`TunnelTypeIdentity <ydk.models.openconfig.openconfig_mpls_types.TunnelTypeIdentity>`
                     
                     .. attribute:: soft_preemption
                     
                     	Enables RSVP soft\-preemption on this LSP
                     	**type**\:  bool
+                    
+                    	**default value**\: false
                     
                     .. attribute:: source
                     
@@ -7613,7 +7709,7 @@ class Mpls(object):
                     .. attribute:: type
                     
                     	Tunnel type, p2p or p2mp
-                    	**type**\:  :py:class:`TunnelTypeIdentity <ydk.models.openconfig.openconfig_mpls_types.TunnelTypeIdentity>`
+                    	**type**\:   :py:class:`TunnelTypeIdentity <ydk.models.openconfig.openconfig_mpls_types.TunnelTypeIdentity>`
                     
                     
 
@@ -7837,17 +7933,17 @@ class Mpls(object):
                     .. attribute:: auto_bandwidth
                     
                     	Parameters related to auto\-bandwidth
-                    	**type**\:  :py:class:`AutoBandwidth <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth>`
+                    	**type**\:   :py:class:`AutoBandwidth <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth>`
                     
                     .. attribute:: config
                     
                     	Configuration parameters related to bandwidth on TE tunnels\:
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.Config>`
+                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.Config>`
                     
                     .. attribute:: state
                     
                     	State parameters related to bandwidth configuration of TE tunnels
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.State>`
+                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.State>`
                     
                     
 
@@ -7881,7 +7977,9 @@ class Mpls(object):
                         .. attribute:: specification_type
                         
                         	The method used for settign the bandwidth, either explicitly specified or configured
-                        	**type**\:  :py:class:`TeBandwidthTypeEnum <ydk.models.openconfig.openconfig_mpls.TeBandwidthTypeEnum>`
+                        	**type**\:   :py:class:`TeBandwidthTypeEnum <ydk.models.openconfig.openconfig_mpls.TeBandwidthTypeEnum>`
+                        
+                        	**default value**\: SPECIFIED
                         
                         
 
@@ -7938,7 +8036,9 @@ class Mpls(object):
                         .. attribute:: specification_type
                         
                         	The method used for settign the bandwidth, either explicitly specified or configured
-                        	**type**\:  :py:class:`TeBandwidthTypeEnum <ydk.models.openconfig.openconfig_mpls.TeBandwidthTypeEnum>`
+                        	**type**\:   :py:class:`TeBandwidthTypeEnum <ydk.models.openconfig.openconfig_mpls.TeBandwidthTypeEnum>`
+                        
+                        	**default value**\: SPECIFIED
                         
                         
 
@@ -7987,22 +8087,22 @@ class Mpls(object):
                         .. attribute:: config
                         
                         	Configuration parameters relating to MPLS auto\-bandwidth on the tunnel
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Config>`
                         
                         .. attribute:: overflow
                         
                         	configuration of MPLS overflow bandwidth adjustement for the LSP
-                        	**type**\:  :py:class:`Overflow <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow>`
+                        	**type**\:   :py:class:`Overflow <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow>`
                         
                         .. attribute:: state
                         
                         	State parameters relating to MPLS auto\-bandwidth on the tunnel
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.State>`
                         
                         .. attribute:: underflow
                         
                         	configuration of MPLS underflow bandwidth           adjustement for the LSP
-                        	**type**\:  :py:class:`Underflow <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow>`
+                        	**type**\:   :py:class:`Underflow <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow>`
                         
                         
 
@@ -8046,6 +8146,8 @@ class Mpls(object):
                             
                             	enables mpls auto\-bandwidth on the lsp
                             	**type**\:  bool
+                            
+                            	**default value**\: false
                             
                             .. attribute:: max_bw
                             
@@ -8137,6 +8239,8 @@ class Mpls(object):
                             	enables mpls auto\-bandwidth on the lsp
                             	**type**\:  bool
                             
+                            	**default value**\: false
+                            
                             .. attribute:: max_bw
                             
                             	set the maximum bandwidth in Mbps for an auto\-bandwidth LSP
@@ -8211,12 +8315,12 @@ class Mpls(object):
                             .. attribute:: config
                             
                             	Config information for MPLS overflow bandwidth adjustment
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow.Config>`
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow.Config>`
                             
                             .. attribute:: state
                             
                             	Config information for MPLS overflow bandwidth adjustment
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow.State>`
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Overflow.State>`
                             
                             
 
@@ -8242,6 +8346,8 @@ class Mpls(object):
                                 
                                 	enables mpls lsp bandwidth overflow adjustment on the lsp
                                 	**type**\:  bool
+                                
+                                	**default value**\: false
                                 
                                 .. attribute:: overflow_threshold
                                 
@@ -8310,6 +8416,8 @@ class Mpls(object):
                                 
                                 	enables mpls lsp bandwidth overflow adjustment on the lsp
                                 	**type**\:  bool
+                                
+                                	**default value**\: false
                                 
                                 .. attribute:: overflow_threshold
                                 
@@ -8404,12 +8512,12 @@ class Mpls(object):
                             .. attribute:: config
                             
                             	Config information for MPLS underflow bandwidth           adjustment
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow.Config>`
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow.Config>`
                             
                             .. attribute:: state
                             
                             	State information for MPLS underflow bandwidth           adjustment
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow.State>`
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.AutoBandwidth.Underflow.State>`
                             
                             
 
@@ -8435,6 +8543,8 @@ class Mpls(object):
                                 
                                 	enables bandwidth underflow adjustment on the lsp
                                 	**type**\:  bool
+                                
+                                	**default value**\: false
                                 
                                 .. attribute:: trigger_event_count
                                 
@@ -8503,6 +8613,8 @@ class Mpls(object):
                                 
                                 	enables bandwidth underflow adjustment on the lsp
                                 	**type**\:  bool
+                                
+                                	**default value**\: false
                                 
                                 .. attribute:: trigger_event_count
                                 
@@ -8659,22 +8771,22 @@ class Mpls(object):
                     .. attribute:: config
                     
                     	Configuration parameters for P2P LSPs
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.Config>`
+                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.Config>`
                     
                     .. attribute:: p2p_primary_paths
                     
                     	List of p2p primary paths for a tunnel
-                    	**type**\: list of  :py:class:`P2PPrimaryPaths <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths>`
+                    	**type**\: list of    :py:class:`P2PPrimaryPaths <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths>`
                     
                     .. attribute:: p2p_secondary_paths
                     
                     	List of p2p primary paths for a tunnel
-                    	**type**\: list of  :py:class:`P2PSecondaryPaths <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths>`
+                    	**type**\: list of    :py:class:`P2PSecondaryPaths <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths>`
                     
                     .. attribute:: state
                     
                     	State parameters for P2P LSPs
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.State>`
+                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.State>`
                     
                     
 
@@ -8820,27 +8932,27 @@ class Mpls(object):
                         	Path name
                         	**type**\:  str
                         
-                        	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.Config>`
+                        	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.Config>`
                         
                         .. attribute:: admin_groups
                         
                         	Top\-level container for include/exclude constraints for link affinities
-                        	**type**\:  :py:class:`AdminGroups <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups>`
+                        	**type**\:   :py:class:`AdminGroups <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups>`
                         
                         .. attribute:: candidate_secondary_paths
                         
                         	The set of candidate secondary paths which may be used for this primary path. When secondary paths are specified in the list the path of the secondary LSP in use must be restricted to those path options referenced. The priority of the secondary paths is specified within the list. Higher priority values are less preferred \- that is to say that a path with priority 0 is the most preferred path. In the case that the list is empty, any secondary path option may be utilised when the current primary path is in use
-                        	**type**\:  :py:class:`CandidateSecondaryPaths <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths>`
+                        	**type**\:   :py:class:`CandidateSecondaryPaths <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths>`
                         
                         .. attribute:: config
                         
                         	Configuration parameters related to paths
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.Config>`
                         
                         .. attribute:: state
                         
                         	State parameters related to paths
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.State>`
                         
                         
 
@@ -8869,14 +8981,14 @@ class Mpls(object):
                             .. attribute:: cspf_tiebreaker
                             
                             	Determine the tie\-breaking method to choose between equally desirable paths during CSFP computation
-                            	**type**\:  :py:class:`CspfTieBreakingEnum <ydk.models.openconfig.openconfig_mpls.CspfTieBreakingEnum>`
+                            	**type**\:   :py:class:`CspfTieBreakingEnum <ydk.models.openconfig.openconfig_mpls.CspfTieBreakingEnum>`
                             
                             .. attribute:: explicit_path_name
                             
                             	reference to a defined path
                             	**type**\:  str
                             
-                            	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config>`
+                            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config>`
                             
                             .. attribute:: hold_priority
                             
@@ -8884,6 +8996,8 @@ class Mpls(object):
                             	**type**\:  int
                             
                             	**range:** 0..7
+                            
+                            	**default value**\: 0
                             
                             .. attribute:: name
                             
@@ -8893,7 +9007,9 @@ class Mpls(object):
                             .. attribute:: path_computation_method
                             
                             	The method used for computing the path, either locally computed, queried from a server or not computed at all (explicitly configured)
-                            	**type**\:  :py:class:`PathComputationMethodIdentity <ydk.models.openconfig.openconfig_mpls.PathComputationMethodIdentity>`
+                            	**type**\:   :py:class:`PathComputationMethodIdentity <ydk.models.openconfig.openconfig_mpls.PathComputationMethodIdentity>`
+                            
+                            	**default value**\: locally-computed
                             
                             .. attribute:: path_computation_server
                             
@@ -8926,12 +9042,16 @@ class Mpls(object):
                             
                             	**range:** 1..600
                             
+                            	**units**\: seconds
+                            
                             .. attribute:: setup_priority
                             
                             	RSVP\-TE preemption priority during LSP setup, lower is higher priority; default 7 indicates that LSP will not preempt established LSPs during setup
                             	**type**\:  int
                             
                             	**range:** 0..7
+                            
+                            	**default value**\: 7
                             
                             .. attribute:: use_cspf
                             
@@ -9017,14 +9137,14 @@ class Mpls(object):
                             .. attribute:: cspf_tiebreaker
                             
                             	Determine the tie\-breaking method to choose between equally desirable paths during CSFP computation
-                            	**type**\:  :py:class:`CspfTieBreakingEnum <ydk.models.openconfig.openconfig_mpls.CspfTieBreakingEnum>`
+                            	**type**\:   :py:class:`CspfTieBreakingEnum <ydk.models.openconfig.openconfig_mpls.CspfTieBreakingEnum>`
                             
                             .. attribute:: explicit_path_name
                             
                             	reference to a defined path
                             	**type**\:  str
                             
-                            	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config>`
+                            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config>`
                             
                             .. attribute:: hold_priority
                             
@@ -9032,6 +9152,8 @@ class Mpls(object):
                             	**type**\:  int
                             
                             	**range:** 0..7
+                            
+                            	**default value**\: 0
                             
                             .. attribute:: name
                             
@@ -9041,7 +9163,9 @@ class Mpls(object):
                             .. attribute:: path_computation_method
                             
                             	The method used for computing the path, either locally computed, queried from a server or not computed at all (explicitly configured)
-                            	**type**\:  :py:class:`PathComputationMethodIdentity <ydk.models.openconfig.openconfig_mpls.PathComputationMethodIdentity>`
+                            	**type**\:   :py:class:`PathComputationMethodIdentity <ydk.models.openconfig.openconfig_mpls.PathComputationMethodIdentity>`
+                            
+                            	**default value**\: locally-computed
                             
                             .. attribute:: path_computation_server
                             
@@ -9074,12 +9198,16 @@ class Mpls(object):
                             
                             	**range:** 1..600
                             
+                            	**units**\: seconds
+                            
                             .. attribute:: setup_priority
                             
                             	RSVP\-TE preemption priority during LSP setup, lower is higher priority; default 7 indicates that LSP will not preempt established LSPs during setup
                             	**type**\:  int
                             
                             	**range:** 0..7
+                            
+                            	**default value**\: 7
                             
                             .. attribute:: use_cspf
                             
@@ -9174,7 +9302,7 @@ class Mpls(object):
                             .. attribute:: candidate_secondary_path
                             
                             	List of secondary paths which may be utilised when the current primary path is in use
-                            	**type**\: list of  :py:class:`CandidateSecondaryPath <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath>`
+                            	**type**\: list of    :py:class:`CandidateSecondaryPath <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath>`
                             
                             
 
@@ -9200,17 +9328,17 @@ class Mpls(object):
                                 	A reference to the secondary path option reference which acts as the key of the candidate\-secondary\-path list
                                 	**type**\:  str
                                 
-                                	**refers to**\: :py:class:`secondary_path <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.Config>`
+                                	**refers to**\:  :py:class:`secondary_path <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.Config>`
                                 
                                 .. attribute:: config
                                 
                                 	Configuration parameters relating to the candidate secondary path
-                                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.Config>`
+                                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.Config>`
                                 
                                 .. attribute:: state
                                 
                                 	Operational state parameters relating to the candidate secondary path
-                                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.State>`
+                                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.CandidateSecondaryPaths.CandidateSecondaryPath.State>`
                                 
                                 
 
@@ -9245,7 +9373,7 @@ class Mpls(object):
                                     	A reference to the secondary path that should be utilised when the containing primary path option is in use
                                     	**type**\:  str
                                     
-                                    	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config>`
+                                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config>`
                                     
                                     
 
@@ -9309,7 +9437,7 @@ class Mpls(object):
                                     	A reference to the secondary path that should be utilised when the containing primary path option is in use
                                     	**type**\:  str
                                     
-                                    	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config>`
+                                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config>`
                                     
                                     
 
@@ -9421,12 +9549,12 @@ class Mpls(object):
                             .. attribute:: config
                             
                             	Configuration data 
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.Config>`
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.Config>`
                             
                             .. attribute:: state
                             
                             	Operational state data 
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.State>`
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PPrimaryPaths.AdminGroups.State>`
                             
                             
 
@@ -9452,21 +9580,21 @@ class Mpls(object):
                                 	list of references to named admin\-groups to exclude in path calculation
                                 	**type**\:  list of str
                                 
-                                	**refers to**\: :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
                                 
                                 .. attribute:: include_all_group
                                 
                                 	list of references to named admin\-groups of which all must be included
                                 	**type**\:  list of str
                                 
-                                	**refers to**\: :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
                                 
                                 .. attribute:: include_any_group
                                 
                                 	list of references to named admin\-groups of which one must be included
                                 	**type**\:  list of str
                                 
-                                	**refers to**\: :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
                                 
                                 
 
@@ -9533,21 +9661,21 @@ class Mpls(object):
                                 	list of references to named admin\-groups to exclude in path calculation
                                 	**type**\:  list of str
                                 
-                                	**refers to**\: :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
                                 
                                 .. attribute:: include_all_group
                                 
                                 	list of references to named admin\-groups of which all must be included
                                 	**type**\:  list of str
                                 
-                                	**refers to**\: :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
                                 
                                 .. attribute:: include_any_group
                                 
                                 	list of references to named admin\-groups of which one must be included
                                 	**type**\:  list of str
                                 
-                                	**refers to**\: :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
                                 
                                 
 
@@ -9679,22 +9807,22 @@ class Mpls(object):
                         	Path name
                         	**type**\:  str
                         
-                        	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config>`
+                        	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config>`
                         
                         .. attribute:: admin_groups
                         
                         	Top\-level container for include/exclude constraints for link affinities
-                        	**type**\:  :py:class:`AdminGroups <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups>`
+                        	**type**\:   :py:class:`AdminGroups <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups>`
                         
                         .. attribute:: config
                         
                         	Configuration parameters related to paths
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.Config>`
                         
                         .. attribute:: state
                         
                         	State parameters related to paths
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.State>`
                         
                         
 
@@ -9721,14 +9849,14 @@ class Mpls(object):
                             .. attribute:: cspf_tiebreaker
                             
                             	Determine the tie\-breaking method to choose between equally desirable paths during CSFP computation
-                            	**type**\:  :py:class:`CspfTieBreakingEnum <ydk.models.openconfig.openconfig_mpls.CspfTieBreakingEnum>`
+                            	**type**\:   :py:class:`CspfTieBreakingEnum <ydk.models.openconfig.openconfig_mpls.CspfTieBreakingEnum>`
                             
                             .. attribute:: explicit_path_name
                             
                             	reference to a defined path
                             	**type**\:  str
                             
-                            	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config>`
+                            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config>`
                             
                             .. attribute:: hold_priority
                             
@@ -9736,6 +9864,8 @@ class Mpls(object):
                             	**type**\:  int
                             
                             	**range:** 0..7
+                            
+                            	**default value**\: 0
                             
                             .. attribute:: name
                             
@@ -9745,7 +9875,9 @@ class Mpls(object):
                             .. attribute:: path_computation_method
                             
                             	The method used for computing the path, either locally computed, queried from a server or not computed at all (explicitly configured)
-                            	**type**\:  :py:class:`PathComputationMethodIdentity <ydk.models.openconfig.openconfig_mpls.PathComputationMethodIdentity>`
+                            	**type**\:   :py:class:`PathComputationMethodIdentity <ydk.models.openconfig.openconfig_mpls.PathComputationMethodIdentity>`
+                            
+                            	**default value**\: locally-computed
                             
                             .. attribute:: path_computation_server
                             
@@ -9778,12 +9910,16 @@ class Mpls(object):
                             
                             	**range:** 1..600
                             
+                            	**units**\: seconds
+                            
                             .. attribute:: setup_priority
                             
                             	RSVP\-TE preemption priority during LSP setup, lower is higher priority; default 7 indicates that LSP will not preempt established LSPs during setup
                             	**type**\:  int
                             
                             	**range:** 0..7
+                            
+                            	**default value**\: 7
                             
                             .. attribute:: use_cspf
                             
@@ -9869,14 +10005,14 @@ class Mpls(object):
                             .. attribute:: cspf_tiebreaker
                             
                             	Determine the tie\-breaking method to choose between equally desirable paths during CSFP computation
-                            	**type**\:  :py:class:`CspfTieBreakingEnum <ydk.models.openconfig.openconfig_mpls.CspfTieBreakingEnum>`
+                            	**type**\:   :py:class:`CspfTieBreakingEnum <ydk.models.openconfig.openconfig_mpls.CspfTieBreakingEnum>`
                             
                             .. attribute:: explicit_path_name
                             
                             	reference to a defined path
                             	**type**\:  str
                             
-                            	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config>`
+                            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.NamedExplicitPaths.Config>`
                             
                             .. attribute:: hold_priority
                             
@@ -9884,6 +10020,8 @@ class Mpls(object):
                             	**type**\:  int
                             
                             	**range:** 0..7
+                            
+                            	**default value**\: 0
                             
                             .. attribute:: name
                             
@@ -9893,7 +10031,9 @@ class Mpls(object):
                             .. attribute:: path_computation_method
                             
                             	The method used for computing the path, either locally computed, queried from a server or not computed at all (explicitly configured)
-                            	**type**\:  :py:class:`PathComputationMethodIdentity <ydk.models.openconfig.openconfig_mpls.PathComputationMethodIdentity>`
+                            	**type**\:   :py:class:`PathComputationMethodIdentity <ydk.models.openconfig.openconfig_mpls.PathComputationMethodIdentity>`
+                            
+                            	**default value**\: locally-computed
                             
                             .. attribute:: path_computation_server
                             
@@ -9926,12 +10066,16 @@ class Mpls(object):
                             
                             	**range:** 1..600
                             
+                            	**units**\: seconds
+                            
                             .. attribute:: setup_priority
                             
                             	RSVP\-TE preemption priority during LSP setup, lower is higher priority; default 7 indicates that LSP will not preempt established LSPs during setup
                             	**type**\:  int
                             
                             	**range:** 0..7
+                            
+                            	**default value**\: 7
                             
                             .. attribute:: use_cspf
                             
@@ -10018,12 +10162,12 @@ class Mpls(object):
                             .. attribute:: config
                             
                             	Configuration data 
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.Config>`
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.Config>`
                             
                             .. attribute:: state
                             
                             	Operational state data 
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.State>`
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.ConstrainedPath.Tunnel.P2PTunnelAttributes.P2PSecondaryPaths.AdminGroups.State>`
                             
                             
 
@@ -10049,21 +10193,21 @@ class Mpls(object):
                                 	list of references to named admin\-groups to exclude in path calculation
                                 	**type**\:  list of str
                                 
-                                	**refers to**\: :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
                                 
                                 .. attribute:: include_all_group
                                 
                                 	list of references to named admin\-groups of which all must be included
                                 	**type**\:  list of str
                                 
-                                	**refers to**\: :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
                                 
                                 .. attribute:: include_any_group
                                 
                                 	list of references to named admin\-groups of which one must be included
                                 	**type**\:  list of str
                                 
-                                	**refers to**\: :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
                                 
                                 
 
@@ -10130,21 +10274,21 @@ class Mpls(object):
                                 	list of references to named admin\-groups to exclude in path calculation
                                 	**type**\:  list of str
                                 
-                                	**refers to**\: :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
                                 
                                 .. attribute:: include_all_group
                                 
                                 	list of references to named admin\-groups of which all must be included
                                 	**type**\:  list of str
                                 
-                                	**refers to**\: :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
                                 
                                 .. attribute:: include_any_group
                                 
                                 	list of references to named admin\-groups of which one must be included
                                 	**type**\:  list of str
                                 
-                                	**refers to**\: :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
+                                	**refers to**\:  :py:class:`admin_group_name <ydk.models.openconfig.openconfig_mpls.Mpls.TeGlobalAttributes.MplsAdminGroups.AdminGroup>`
                                 
                                 
 
@@ -10379,7 +10523,7 @@ class Mpls(object):
             .. attribute:: path_setup_protocol
             
             	select and configure the signaling method for  the LSP
-            	**type**\:  :py:class:`PathSetupProtocol <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol>`
+            	**type**\:   :py:class:`PathSetupProtocol <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol>`
             
             
 
@@ -10402,12 +10546,16 @@ class Mpls(object):
                 .. attribute:: ldp
                 
                 	LDP signaling setup for IGP\-congruent LSPs
-                	**type**\:  :py:class:`Ldp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp>`
+                	**type**\:   :py:class:`Ldp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp>`
+                
+                	**presence node**\: True
                 
                 .. attribute:: segment_routing
                 
                 	segment routing signaling extensions for IGP\-confgruent LSPs
-                	**type**\:  :py:class:`SegmentRouting <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting>`
+                	**type**\:   :py:class:`SegmentRouting <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting>`
+                
+                	**presence node**\: True
                 
                 
 
@@ -10429,7 +10577,7 @@ class Mpls(object):
                     .. attribute:: tunnel
                     
                     	contains configuration stanzas for different LSP tunnel types (P2P, P2MP, etc.)
-                    	**type**\:  :py:class:`Tunnel <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel>`
+                    	**type**\:   :py:class:`Tunnel <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel>`
                     
                     .. attribute:: _is_presence
                     
@@ -10460,27 +10608,27 @@ class Mpls(object):
                         .. attribute:: ldp_type
                         
                         	specify basic or targeted LDP LSP
-                        	**type**\:  :py:class:`LdpTypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.LdpTypeEnum>`
+                        	**type**\:   :py:class:`LdpTypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.LdpTypeEnum>`
                         
                         .. attribute:: mp2mp_lsp
                         
                         	properties of multipoint\-to\-multipoint tunnels
-                        	**type**\:  :py:class:`Mp2MpLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.Mp2MpLsp>`
+                        	**type**\:   :py:class:`Mp2MpLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.Mp2MpLsp>`
                         
                         .. attribute:: p2mp_lsp
                         
                         	properties of point\-to\-multipoint tunnels
-                        	**type**\:  :py:class:`P2MpLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2MpLsp>`
+                        	**type**\:   :py:class:`P2MpLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2MpLsp>`
                         
                         .. attribute:: p2p_lsp
                         
                         	properties of point\-to\-point tunnels
-                        	**type**\:  :py:class:`P2PLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2PLsp>`
+                        	**type**\:   :py:class:`P2PLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.Ldp.Tunnel.P2PLsp>`
                         
                         .. attribute:: tunnel_type
                         
                         	specifies the type of LSP, e.g., P2P or P2MP
-                        	**type**\:  :py:class:`TunnelTypeEnum <ydk.models.openconfig.openconfig_mpls_types.TunnelTypeEnum>`
+                        	**type**\:   :py:class:`TunnelTypeEnum <ydk.models.openconfig.openconfig_mpls_types.TunnelTypeEnum>`
                         
                         
 
@@ -10721,7 +10869,7 @@ class Mpls(object):
                     .. attribute:: tunnel
                     
                     	contains configuration stanzas for different LSP tunnel types (P2P, P2MP, etc.)
-                    	**type**\:  :py:class:`Tunnel <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel>`
+                    	**type**\:   :py:class:`Tunnel <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel>`
                     
                     .. attribute:: _is_presence
                     
@@ -10752,12 +10900,12 @@ class Mpls(object):
                         .. attribute:: p2p_lsp
                         
                         	properties of point\-to\-point tunnels
-                        	**type**\:  :py:class:`P2PLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp>`
+                        	**type**\:   :py:class:`P2PLsp <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp>`
                         
                         .. attribute:: tunnel_type
                         
                         	specifies the type of LSP, e.g., P2P or P2MP
-                        	**type**\:  :py:class:`TunnelTypeEnum <ydk.models.openconfig.openconfig_mpls_types.TunnelTypeEnum>`
+                        	**type**\:   :py:class:`TunnelTypeEnum <ydk.models.openconfig.openconfig_mpls_types.TunnelTypeEnum>`
                         
                         
 
@@ -10780,7 +10928,7 @@ class Mpls(object):
                             .. attribute:: fec
                             
                             	List of FECs that are to be originated as SR LSPs
-                            	**type**\: list of  :py:class:`Fec <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec>`
+                            	**type**\: list of    :py:class:`Fec <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec>`
                             
                             
 
@@ -10820,17 +10968,17 @@ class Mpls(object):
                                 .. attribute:: config
                                 
                                 	Configuration parameters relating to the FEC to be advertised by SR
-                                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.Config>`
+                                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.Config>`
                                 
                                 .. attribute:: prefix_sid
                                 
                                 	Parameters relating to the Prefix\-SID used for the originated FEC
-                                	**type**\:  :py:class:`PrefixSid <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid>`
+                                	**type**\:   :py:class:`PrefixSid <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid>`
                                 
                                 .. attribute:: state
                                 
                                 	Operational state relating to a FEC advertised by SR
-                                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.State>`
+                                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.State>`
                                 
                                 
 
@@ -10973,12 +11121,12 @@ class Mpls(object):
                                     .. attribute:: config
                                     
                                     	Configuration parameters relating to the Prefix\-SID used for the originated FEC
-                                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config>`
+                                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config>`
                                     
                                     .. attribute:: state
                                     
                                     	Operational state parameters relating to the Prefix\-SID used for the originated FEC
-                                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State>`
+                                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State>`
                                     
                                     
 
@@ -11003,7 +11151,7 @@ class Mpls(object):
                                         .. attribute:: last_hop_behavior
                                         
                                         	Configuration relating to the LFIB actions for the Prefix\-SID to be used by the penultimate\-hop
-                                        	**type**\:  :py:class:`LastHopBehaviorEnum <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config.LastHopBehaviorEnum>`
+                                        	**type**\:   :py:class:`LastHopBehaviorEnum <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config.LastHopBehaviorEnum>`
                                         
                                         .. attribute:: node_flag
                                         
@@ -11013,7 +11161,9 @@ class Mpls(object):
                                         .. attribute:: type
                                         
                                         	Specifies how the value of the Prefix\-SID should be interpreted \- whether as an offset to the SRGB, or as an absolute value
-                                        	**type**\:  :py:class:`TypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config.TypeEnum>`
+                                        	**type**\:   :py:class:`TypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.Config.TypeEnum>`
+                                        
+                                        	**default value**\: INDEX
                                         
                                         
 
@@ -11153,7 +11303,7 @@ class Mpls(object):
                                         .. attribute:: last_hop_behavior
                                         
                                         	Configuration relating to the LFIB actions for the Prefix\-SID to be used by the penultimate\-hop
-                                        	**type**\:  :py:class:`LastHopBehaviorEnum <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State.LastHopBehaviorEnum>`
+                                        	**type**\:   :py:class:`LastHopBehaviorEnum <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State.LastHopBehaviorEnum>`
                                         
                                         .. attribute:: node_flag
                                         
@@ -11163,7 +11313,9 @@ class Mpls(object):
                                         .. attribute:: type
                                         
                                         	Specifies how the value of the Prefix\-SID should be interpreted \- whether as an offset to the SRGB, or as an absolute value
-                                        	**type**\:  :py:class:`TypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State.TypeEnum>`
+                                        	**type**\:   :py:class:`TypeEnum <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.P2PLsp.Fec.PrefixSid.State.TypeEnum>`
+                                        
+                                        	**default value**\: INDEX
                                         
                                         
 
@@ -11483,7 +11635,7 @@ class Mpls(object):
             .. attribute:: label_switched_path
             
             	list of defined static LSPs
-            	**type**\: list of  :py:class:`LabelSwitchedPath <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.LabelSwitchedPath>`
+            	**type**\: list of    :py:class:`LabelSwitchedPath <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.LabelSwitchedPath>`
             
             
 
@@ -11511,17 +11663,17 @@ class Mpls(object):
                 .. attribute:: egress
                 
                 	static LSPs for which the router is a egress  node
-                	**type**\:  :py:class:`Egress <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.LabelSwitchedPath.Egress>`
+                	**type**\:   :py:class:`Egress <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.LabelSwitchedPath.Egress>`
                 
                 .. attribute:: ingress
                 
                 	Static LSPs for which the router is an ingress node
-                	**type**\:  :py:class:`Ingress <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.LabelSwitchedPath.Ingress>`
+                	**type**\:   :py:class:`Ingress <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.LabelSwitchedPath.Ingress>`
                 
                 .. attribute:: transit
                 
                 	static LSPs for which the router is a transit node
-                	**type**\:  :py:class:`Transit <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.LabelSwitchedPath.Transit>`
+                	**type**\:   :py:class:`Transit <ydk.models.openconfig.openconfig_mpls.Mpls.Lsps.StaticLsps.LabelSwitchedPath.Transit>`
                 
                 
 
@@ -11557,7 +11709,7 @@ class Mpls(object):
                     
                     
                     ----
-                    	**type**\:  :py:class:`MplsLabelEnum <ydk.models.openconfig.openconfig_mpls_types.MplsLabelEnum>`
+                    	**type**\:   :py:class:`MplsLabelEnum <ydk.models.openconfig.openconfig_mpls_types.MplsLabelEnum>`
                     
                     
                     ----
@@ -11589,7 +11741,7 @@ class Mpls(object):
                     
                     
                     ----
-                    	**type**\:  :py:class:`MplsLabelEnum <ydk.models.openconfig.openconfig_mpls_types.MplsLabelEnum>`
+                    	**type**\:   :py:class:`MplsLabelEnum <ydk.models.openconfig.openconfig_mpls_types.MplsLabelEnum>`
                     
                     
                     ----
@@ -11653,7 +11805,7 @@ class Mpls(object):
                     
                     
                     ----
-                    	**type**\:  :py:class:`MplsLabelEnum <ydk.models.openconfig.openconfig_mpls_types.MplsLabelEnum>`
+                    	**type**\:   :py:class:`MplsLabelEnum <ydk.models.openconfig.openconfig_mpls_types.MplsLabelEnum>`
                     
                     
                     ----
@@ -11685,7 +11837,7 @@ class Mpls(object):
                     
                     
                     ----
-                    	**type**\:  :py:class:`MplsLabelEnum <ydk.models.openconfig.openconfig_mpls_types.MplsLabelEnum>`
+                    	**type**\:   :py:class:`MplsLabelEnum <ydk.models.openconfig.openconfig_mpls_types.MplsLabelEnum>`
                     
                     
                     ----
@@ -11749,7 +11901,7 @@ class Mpls(object):
                     
                     
                     ----
-                    	**type**\:  :py:class:`MplsLabelEnum <ydk.models.openconfig.openconfig_mpls_types.MplsLabelEnum>`
+                    	**type**\:   :py:class:`MplsLabelEnum <ydk.models.openconfig.openconfig_mpls_types.MplsLabelEnum>`
                     
                     
                     ----
@@ -11781,7 +11933,7 @@ class Mpls(object):
                     
                     
                     ----
-                    	**type**\:  :py:class:`MplsLabelEnum <ydk.models.openconfig.openconfig_mpls_types.MplsLabelEnum>`
+                    	**type**\:   :py:class:`MplsLabelEnum <ydk.models.openconfig.openconfig_mpls_types.MplsLabelEnum>`
                     
                     
                     ----

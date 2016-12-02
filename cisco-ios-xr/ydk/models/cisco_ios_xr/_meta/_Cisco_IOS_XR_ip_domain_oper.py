@@ -16,8 +16,8 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'ServerDomainLkupEnum' : _MetaInfoEnum('ServerDomainLkupEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper',
         {
-            'static-mapping':'STATIC_MAPPING',
-            'domain-service':'DOMAIN_SERVICE',
+            'static-mapping':'static_mapping',
+            'domain-service':'domain_service',
         }, 'Cisco-IOS-XR-ip-domain-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-domain-oper']),
     'HostAddressBaseIdentity' : {
         'meta_info' : _MetaInfoClass('HostAddressBaseIdentity',

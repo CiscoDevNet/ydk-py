@@ -16,19 +16,19 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'IepStatusEnum' : _MetaInfoEnum('IepStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper',
         {
-            'enabled':'ENABLED',
-            'disabled':'DISABLED',
+            'enabled':'enabled',
+            'disabled':'disabled',
         }, 'Cisco-IOS-XR-ip-iep-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-iep-oper']),
     'IepAddressEnum' : _MetaInfoEnum('IepAddressEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper',
         {
-            'next':'NEXT',
-            'exclude':'EXCLUDE',
-            'exclude-srlg':'EXCLUDE_SRLG',
+            'next':'next',
+            'exclude':'exclude',
+            'exclude-srlg':'exclude_srlg',
         }, 'Cisco-IOS-XR-ip-iep-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-iep-oper']),
     'IepHopEnum' : _MetaInfoEnum('IepHopEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper',
         {
-            'strict':'STRICT',
-            'loose':'LOOSE',
+            'strict':'strict',
+            'loose':'loose',
         }, 'Cisco-IOS-XR-ip-iep-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-iep-oper']),
     'ExplicitPaths.Identifiers.Identifier.Address' : {
         'meta_info' : _MetaInfoClass('ExplicitPaths.Identifiers.Identifier.Address',

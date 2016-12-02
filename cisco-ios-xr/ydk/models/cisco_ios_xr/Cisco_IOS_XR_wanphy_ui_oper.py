@@ -30,19 +30,19 @@ class WanphyAlarmRepStatusEnum(Enum):
 
     WANPHY Alarm Report Status
 
-    .. data:: DISABLE = 0
+    .. data:: disable = 0
 
     	Alarm reporting is disable
 
-    .. data:: ENABLE = 1
+    .. data:: enable = 1
 
     	Alarm reporting is enable
 
     """
 
-    DISABLE = 0
+    disable = 0
 
-    ENABLE = 1
+    enable = 1
 
 
     @staticmethod
@@ -57,19 +57,19 @@ class WanphyModeInfoEnum(Enum):
 
     WANPHY Modes
 
-    .. data:: LAN = 0
+    .. data:: lan = 0
 
     	LAN mode
 
-    .. data:: WAN = 1
+    .. data:: wan = 1
 
     	WAN mode
 
     """
 
-    LAN = 0
+    lan = 0
 
-    WAN = 1
+    wan = 1
 
 
     @staticmethod
@@ -86,7 +86,7 @@ class Wanphy(object):
     .. attribute:: controllers
     
     	All WANPHY controller operational data
-    	**type**\:  :py:class:`Controllers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.Wanphy.Controllers>`
+    	**type**\:   :py:class:`Controllers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.Wanphy.Controllers>`
     
     
 
@@ -107,7 +107,7 @@ class Wanphy(object):
         .. attribute:: controller
         
         	WANPHY controller operational data
-        	**type**\: list of  :py:class:`Controller <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.Wanphy.Controllers.Controller>`
+        	**type**\: list of    :py:class:`Controller <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.Wanphy.Controllers.Controller>`
         
         
 
@@ -137,7 +137,7 @@ class Wanphy(object):
             .. attribute:: info
             
             	WANPHY controller operational data
-            	**type**\:  :py:class:`Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.Wanphy.Controllers.Controller.Info>`
+            	**type**\:   :py:class:`Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.Wanphy.Controllers.Controller.Info>`
             
             
 
@@ -160,7 +160,7 @@ class Wanphy(object):
                 .. attribute:: admin_mode
                 
                 	Configuration Mode
-                	**type**\:  :py:class:`WanphyModeInfoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.WanphyModeInfoEnum>`
+                	**type**\:   :py:class:`WanphyModeInfoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.WanphyModeInfoEnum>`
                 
                 .. attribute:: line_ais
                 
@@ -193,7 +193,7 @@ class Wanphy(object):
                 .. attribute:: operational_mode
                 
                 	Operational Mode
-                	**type**\:  :py:class:`WanphyModeInfoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.WanphyModeInfoEnum>`
+                	**type**\:   :py:class:`WanphyModeInfoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.WanphyModeInfoEnum>`
                 
                 .. attribute:: path_ais
                 
@@ -357,7 +357,7 @@ class Wanphy(object):
                 .. attribute:: sd_ber_report
                 
                 	SD\_BER Report
-                	**type**\:  :py:class:`WanphyAlarmRepStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.WanphyAlarmRepStatusEnum>`
+                	**type**\:   :py:class:`WanphyAlarmRepStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.WanphyAlarmRepStatusEnum>`
                 
                 .. attribute:: sd_ber_threshold
                 
@@ -390,7 +390,7 @@ class Wanphy(object):
                 .. attribute:: sf_ber_report
                 
                 	SF\_BER Report
-                	**type**\:  :py:class:`WanphyAlarmRepStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.WanphyAlarmRepStatusEnum>`
+                	**type**\:   :py:class:`WanphyAlarmRepStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_oper.WanphyAlarmRepStatusEnum>`
                 
                 .. attribute:: sf_ber_threshold
                 

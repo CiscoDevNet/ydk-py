@@ -16,7 +16,7 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'UsageAddressFamilyEnum' : _MetaInfoEnum('UsageAddressFamilyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_platform_pifib_oper',
         {
-            'ipv4':'IPV4',
-            'ipv6':'IPV6',
+            'ipv4':'ipv4',
+            'ipv6':'ipv6',
         }, 'Cisco-IOS-XR-platform-pifib-oper', _yang_ns._namespaces['Cisco-IOS-XR-platform-pifib-oper']),
 }

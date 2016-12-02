@@ -30,13 +30,13 @@ class Ipv4DefaultPingEnum(Enum):
 
     Ipv4 default ping
 
-    .. data:: DISABLED = 0
+    .. data:: disabled = 0
 
     	Default route is not allowed to match when
 
     	checking source address
 
-    .. data:: ENABLED = 1
+    .. data:: enabled = 1
 
     	Allow default route to match when checking
 
@@ -44,9 +44,9 @@ class Ipv4DefaultPingEnum(Enum):
 
     """
 
-    DISABLED = 0
+    disabled = 0
 
-    ENABLED = 1
+    enabled = 1
 
 
     @staticmethod
@@ -61,15 +61,15 @@ class Ipv4InterfaceQppbEnum(Enum):
 
     Ipv4 interface qppb
 
-    .. data:: IP_PRECEDENCE = 1
+    .. data:: ip_precedence = 1
 
     	Enable IP precedence based QPPB
 
-    .. data:: QOS_GROUP = 2
+    .. data:: qos_group = 2
 
     	Enable QoS-group based QPPB
 
-    .. data:: BOTH = 3
+    .. data:: both = 3
 
     	Enable both IP precedence and QoS-group based
 
@@ -77,11 +77,11 @@ class Ipv4InterfaceQppbEnum(Enum):
 
     """
 
-    IP_PRECEDENCE = 1
+    ip_precedence = 1
 
-    QOS_GROUP = 2
+    qos_group = 2
 
-    BOTH = 3
+    both = 3
 
 
     @staticmethod
@@ -96,11 +96,11 @@ class Ipv4ReachableEnum(Enum):
 
     Ipv4 reachable
 
-    .. data:: ANY = 0
+    .. data:: any = 0
 
     	Source is reachable via any interface
 
-    .. data:: RECEIVED = 1
+    .. data:: received = 1
 
     	Source is reachable via interface on which
 
@@ -108,9 +108,9 @@ class Ipv4ReachableEnum(Enum):
 
     """
 
-    ANY = 0
+    any = 0
 
-    RECEIVED = 1
+    received = 1
 
 
     @staticmethod
@@ -125,19 +125,19 @@ class Ipv4SelfPingEnum(Enum):
 
     Ipv4 self ping
 
-    .. data:: DISABLED = 0
+    .. data:: disabled = 0
 
     	Doesn't allow router to ping itself
 
-    .. data:: ENABLED = 1
+    .. data:: enabled = 1
 
     	Allow router to ping itself
 
     """
 
-    DISABLED = 0
+    disabled = 0
 
-    ENABLED = 1
+    enabled = 1
 
 
     @staticmethod

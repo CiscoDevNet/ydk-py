@@ -30,19 +30,19 @@ class AutorpProtocolModeEnum(Enum):
 
     Autorp protocol mode
 
-    .. data:: SPARSE = 0
+    .. data:: sparse = 0
 
     	sparse
 
-    .. data:: BIDIRECTIONAL = 1
+    .. data:: bidirectional = 1
 
     	bidirectional
 
     """
 
-    SPARSE = 0
+    sparse = 0
 
-    BIDIRECTIONAL = 1
+    bidirectional = 1
 
 
     @staticmethod
@@ -59,12 +59,12 @@ class AutoRp(object):
     .. attribute:: active
     
     	Active Process
-    	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active>`
+    	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active>`
     
     .. attribute:: standby
     
     	Standby Process
-    	**type**\:  :py:class:`Standby <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby>`
+    	**type**\:   :py:class:`Standby <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby>`
     
     
 
@@ -87,12 +87,12 @@ class AutoRp(object):
         .. attribute:: candidate_rps
         
         	AutoRP Candidate RP Table
-        	**type**\:  :py:class:`CandidateRps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.CandidateRps>`
+        	**type**\:   :py:class:`CandidateRps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.CandidateRps>`
         
         .. attribute:: mapping_agent
         
         	AutoRP Mapping Agent Table
-        	**type**\:  :py:class:`MappingAgent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.MappingAgent>`
+        	**type**\:   :py:class:`MappingAgent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.MappingAgent>`
         
         
 
@@ -116,7 +116,7 @@ class AutoRp(object):
             .. attribute:: candidate_rp
             
             	AutoRP Candidate RP Entry
-            	**type**\: list of  :py:class:`CandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.CandidateRps.CandidateRp>`
+            	**type**\: list of    :py:class:`CandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.CandidateRps.CandidateRp>`
             
             
 
@@ -165,12 +165,12 @@ class AutoRp(object):
                 .. attribute:: protocol_mode
                 
                 	Protocol Mode
-                	**type**\:  :py:class:`AutoRpProtocolModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_datatypes.AutoRpProtocolModeEnum>`
+                	**type**\:   :py:class:`AutoRpProtocolModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_datatypes.AutoRpProtocolModeEnum>`
                 
                 .. attribute:: protocol_mode_xr
                 
                 	Protocol Mode
-                	**type**\:  :py:class:`AutorpProtocolModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutorpProtocolModeEnum>`
+                	**type**\:   :py:class:`AutorpProtocolModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutorpProtocolModeEnum>`
                 
                 .. attribute:: ttl
                 
@@ -268,12 +268,12 @@ class AutoRp(object):
             .. attribute:: rp_addresses
             
             	AutoRP Mapping Agent Table Entries
-            	**type**\:  :py:class:`RpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.MappingAgent.RpAddresses>`
+            	**type**\:   :py:class:`RpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.MappingAgent.RpAddresses>`
             
             .. attribute:: summary
             
             	AutoRP Mapping Agent Summary Information
-            	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.MappingAgent.Summary>`
+            	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.MappingAgent.Summary>`
             
             
 
@@ -297,7 +297,7 @@ class AutoRp(object):
                 .. attribute:: rp_address
                 
                 	AutoRP Mapping Agent Entry
-                	**type**\: list of  :py:class:`RpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.MappingAgent.RpAddresses.RpAddress>`
+                	**type**\: list of    :py:class:`RpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.MappingAgent.RpAddresses.RpAddress>`
                 
                 
 
@@ -331,6 +331,8 @@ class AutoRp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: second
+                    
                     .. attribute:: pim_version
                     
                     	PIM version of the CRP
@@ -341,7 +343,7 @@ class AutoRp(object):
                     .. attribute:: range
                     
                     	Array of ranges
-                    	**type**\: list of  :py:class:`Range <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.MappingAgent.RpAddresses.RpAddress.Range>`
+                    	**type**\: list of    :py:class:`Range <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Standby.MappingAgent.RpAddresses.RpAddress.Range>`
                     
                     .. attribute:: rp_address_xr
                     
@@ -408,7 +410,7 @@ class AutoRp(object):
                         .. attribute:: protocol_mode
                         
                         	Protocol Mode
-                        	**type**\:  :py:class:`AutorpProtocolModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutorpProtocolModeEnum>`
+                        	**type**\:   :py:class:`AutorpProtocolModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutorpProtocolModeEnum>`
                         
                         .. attribute:: uptime
                         
@@ -416,6 +418,8 @@ class AutoRp(object):
                         	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**units**\: second
                         
                         
 
@@ -661,12 +665,12 @@ class AutoRp(object):
         .. attribute:: candidate_rps
         
         	AutoRP Candidate RP Table
-        	**type**\:  :py:class:`CandidateRps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.CandidateRps>`
+        	**type**\:   :py:class:`CandidateRps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.CandidateRps>`
         
         .. attribute:: mapping_agent
         
         	AutoRP Mapping Agent Table
-        	**type**\:  :py:class:`MappingAgent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.MappingAgent>`
+        	**type**\:   :py:class:`MappingAgent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.MappingAgent>`
         
         
 
@@ -690,7 +694,7 @@ class AutoRp(object):
             .. attribute:: candidate_rp
             
             	AutoRP Candidate RP Entry
-            	**type**\: list of  :py:class:`CandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.CandidateRps.CandidateRp>`
+            	**type**\: list of    :py:class:`CandidateRp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.CandidateRps.CandidateRp>`
             
             
 
@@ -739,12 +743,12 @@ class AutoRp(object):
                 .. attribute:: protocol_mode
                 
                 	Protocol Mode
-                	**type**\:  :py:class:`AutoRpProtocolModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_datatypes.AutoRpProtocolModeEnum>`
+                	**type**\:   :py:class:`AutoRpProtocolModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_datatypes.AutoRpProtocolModeEnum>`
                 
                 .. attribute:: protocol_mode_xr
                 
                 	Protocol Mode
-                	**type**\:  :py:class:`AutorpProtocolModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutorpProtocolModeEnum>`
+                	**type**\:   :py:class:`AutorpProtocolModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutorpProtocolModeEnum>`
                 
                 .. attribute:: ttl
                 
@@ -842,12 +846,12 @@ class AutoRp(object):
             .. attribute:: rp_addresses
             
             	AutoRP Mapping Agent Table Entries
-            	**type**\:  :py:class:`RpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.MappingAgent.RpAddresses>`
+            	**type**\:   :py:class:`RpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.MappingAgent.RpAddresses>`
             
             .. attribute:: summary
             
             	AutoRP Mapping Agent Summary Information
-            	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.MappingAgent.Summary>`
+            	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.MappingAgent.Summary>`
             
             
 
@@ -871,7 +875,7 @@ class AutoRp(object):
                 .. attribute:: rp_address
                 
                 	AutoRP Mapping Agent Entry
-                	**type**\: list of  :py:class:`RpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.MappingAgent.RpAddresses.RpAddress>`
+                	**type**\: list of    :py:class:`RpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.MappingAgent.RpAddresses.RpAddress>`
                 
                 
 
@@ -905,6 +909,8 @@ class AutoRp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: second
+                    
                     .. attribute:: pim_version
                     
                     	PIM version of the CRP
@@ -915,7 +921,7 @@ class AutoRp(object):
                     .. attribute:: range
                     
                     	Array of ranges
-                    	**type**\: list of  :py:class:`Range <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.MappingAgent.RpAddresses.RpAddress.Range>`
+                    	**type**\: list of    :py:class:`Range <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutoRp.Active.MappingAgent.RpAddresses.RpAddress.Range>`
                     
                     .. attribute:: rp_address_xr
                     
@@ -982,7 +988,7 @@ class AutoRp(object):
                         .. attribute:: protocol_mode
                         
                         	Protocol Mode
-                        	**type**\:  :py:class:`AutorpProtocolModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutorpProtocolModeEnum>`
+                        	**type**\:   :py:class:`AutorpProtocolModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper.AutorpProtocolModeEnum>`
                         
                         .. attribute:: uptime
                         
@@ -990,6 +996,8 @@ class AutoRp(object):
                         	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**units**\: second
                         
                         
 

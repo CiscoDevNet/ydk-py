@@ -26,25 +26,25 @@ class AtmPvcDataEnum(Enum):
 
     Atm pvc data
 
-    .. data:: DATA = 0
+    .. data:: data = 0
 
     	Data
 
-    .. data:: ILMI = 2
+    .. data:: ilmi = 2
 
     	ILMI
 
-    .. data:: LAYER2 = 3
+    .. data:: layer2 = 3
 
     	Layer2
 
     """
 
-    DATA = 0
+    data = 0
 
-    ILMI = 2
+    ilmi = 2
 
-    LAYER2 = 3
+    layer2 = 3
 
 
     @staticmethod
@@ -59,37 +59,37 @@ class AtmPvcEncapsulationEnum(Enum):
 
     Atm pvc encapsulation
 
-    .. data:: SNAP = 3
+    .. data:: snap = 3
 
     	SNAP
 
-    .. data:: VC_MUX = 4
+    .. data:: vc_mux = 4
 
     	VC MUX
 
-    .. data:: NLPID = 5
+    .. data:: nlpid = 5
 
     	NLPID
 
-    .. data:: AAL0 = 7
+    .. data:: aal0 = 7
 
     	AAL0
 
-    .. data:: AAL5 = 8
+    .. data:: aal5 = 8
 
     	AAL5
 
     """
 
-    SNAP = 3
+    snap = 3
 
-    VC_MUX = 4
+    vc_mux = 4
 
-    NLPID = 5
+    nlpid = 5
 
-    AAL0 = 7
+    aal0 = 7
 
-    AAL5 = 8
+    aal5 = 8
 
 
     @staticmethod
@@ -104,31 +104,31 @@ class AtmPvcShapingEnum(Enum):
 
     Atm pvc shaping
 
-    .. data:: CBR = 1
+    .. data:: cbr = 1
 
     	Constant Bit Rate
 
-    .. data:: VBR_NRT = 2
+    .. data:: vbr_nrt = 2
 
     	Variable Bit Rate-non real time
 
-    .. data:: VBR_RT = 3
+    .. data:: vbr_rt = 3
 
     	Variable Bit Rate-real time
 
-    .. data:: UBR = 6
+    .. data:: ubr = 6
 
     	Unspecified Bit Rate
 
     """
 
-    CBR = 1
+    cbr = 1
 
-    VBR_NRT = 2
+    vbr_nrt = 2
 
-    VBR_RT = 3
+    vbr_rt = 3
 
-    UBR = 6
+    ubr = 6
 
 
     @staticmethod
@@ -143,31 +143,31 @@ class AtmVpShapingEnum(Enum):
 
     Atm vp shaping
 
-    .. data:: CBR = 1
+    .. data:: cbr = 1
 
     	Constant Bit Rate
 
-    .. data:: VBR_NRT = 2
+    .. data:: vbr_nrt = 2
 
     	Variable Bit Rate-non real time
 
-    .. data:: VBR_RT = 3
+    .. data:: vbr_rt = 3
 
     	Variable Bit Rate-real time
 
-    .. data:: UBR = 6
+    .. data:: ubr = 6
 
     	Unspecified Bit Rate
 
     """
 
-    CBR = 1
+    cbr = 1
 
-    VBR_NRT = 2
+    vbr_nrt = 2
 
-    VBR_RT = 3
+    vbr_rt = 3
 
-    UBR = 6
+    ubr = 6
 
 
     @staticmethod

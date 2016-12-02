@@ -32,12 +32,12 @@ class PerfMgmt(object):
     .. attribute:: monitor
     
     	Data from monitor (one history period) requests
-    	**type**\:  :py:class:`Monitor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor>`
+    	**type**\:   :py:class:`Monitor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor>`
     
     .. attribute:: periodic
     
     	Data from periodic requests
-    	**type**\:  :py:class:`Periodic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic>`
+    	**type**\:   :py:class:`Periodic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic>`
     
     
 
@@ -60,27 +60,27 @@ class PerfMgmt(object):
         .. attribute:: bgp
         
         	Collected BGP data
-        	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Bgp>`
+        	**type**\:   :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Bgp>`
         
         .. attribute:: interface
         
         	Collected Interface data
-        	**type**\:  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface>`
+        	**type**\:   :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface>`
         
         .. attribute:: mpls
         
         	Collected MPLS data
-        	**type**\:  :py:class:`Mpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Mpls>`
+        	**type**\:   :py:class:`Mpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Mpls>`
         
         .. attribute:: nodes
         
         	Nodes for which data is collected
-        	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes>`
+        	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes>`
         
         .. attribute:: ospf
         
         	Collected OSPF data
-        	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf>`
+        	**type**\:   :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf>`
         
         
 
@@ -110,12 +110,12 @@ class PerfMgmt(object):
             .. attribute:: ospfv2_protocol_instances
             
             	OSPF v2 instances for which protocol statistics are collected
-            	**type**\:  :py:class:`Ospfv2ProtocolInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances>`
+            	**type**\:   :py:class:`Ospfv2ProtocolInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances>`
             
             .. attribute:: ospfv3_protocol_instances
             
             	OSPF v3 instances for which protocol statistics are collected
-            	**type**\:  :py:class:`Ospfv3ProtocolInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances>`
+            	**type**\:   :py:class:`Ospfv3ProtocolInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances>`
             
             
 
@@ -140,7 +140,7 @@ class PerfMgmt(object):
                 .. attribute:: ospfv2_protocol_instance
                 
                 	Protocol samples for a particular OSPF v2 instance
-                	**type**\: list of  :py:class:`Ospfv2ProtocolInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance>`
+                	**type**\: list of    :py:class:`Ospfv2ProtocolInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance>`
                 
                 
 
@@ -171,7 +171,7 @@ class PerfMgmt(object):
                     .. attribute:: samples
                     
                     	Sample Table for an OSPV v2 instance
-                    	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples>`
+                    	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples>`
                     
                     
 
@@ -194,7 +194,7 @@ class PerfMgmt(object):
                         .. attribute:: sample
                         
                         	Generic Counters sample
-                        	**type**\: list of  :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples.Sample>`
+                        	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples.Sample>`
                         
                         
 
@@ -374,6 +374,8 @@ class PerfMgmt(object):
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**units**\: second
                             
                             
 
@@ -586,7 +588,7 @@ class PerfMgmt(object):
                 .. attribute:: ospfv3_protocol_instance
                 
                 	Protocol samples for a particular OSPF v3 instance
-                	**type**\: list of  :py:class:`Ospfv3ProtocolInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance>`
+                	**type**\: list of    :py:class:`Ospfv3ProtocolInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance>`
                 
                 
 
@@ -617,7 +619,7 @@ class PerfMgmt(object):
                     .. attribute:: samples
                     
                     	Sample Table for an OSPV v3 instance
-                    	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples>`
+                    	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples>`
                     
                     
 
@@ -640,7 +642,7 @@ class PerfMgmt(object):
                         .. attribute:: sample
                         
                         	Generic Counters sample
-                        	**type**\: list of  :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples.Sample>`
+                        	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples.Sample>`
                         
                         
 
@@ -813,6 +815,8 @@ class PerfMgmt(object):
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**units**\: second
                             
                             
 
@@ -1045,7 +1049,7 @@ class PerfMgmt(object):
             .. attribute:: ldp_neighbors
             
             	LDP neighbors for which statistics are collected
-            	**type**\:  :py:class:`LdpNeighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Mpls.LdpNeighbors>`
+            	**type**\:   :py:class:`LdpNeighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Mpls.LdpNeighbors>`
             
             
 
@@ -1068,7 +1072,7 @@ class PerfMgmt(object):
                 .. attribute:: ldp_neighbor
                 
                 	Samples for a particular LDP neighbor
-                	**type**\: list of  :py:class:`LdpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor>`
+                	**type**\: list of    :py:class:`LdpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor>`
                 
                 
 
@@ -1098,7 +1102,7 @@ class PerfMgmt(object):
                     .. attribute:: samples
                     
                     	Samples for a particular LDP neighbor
-                    	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor.Samples>`
+                    	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor.Samples>`
                     
                     
 
@@ -1121,7 +1125,7 @@ class PerfMgmt(object):
                         .. attribute:: sample
                         
                         	LDP neighbor statistics sample
-                        	**type**\: list of  :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor.Samples.Sample>`
+                        	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor.Samples.Sample>`
                         
                         
 
@@ -1266,6 +1270,8 @@ class PerfMgmt(object):
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**units**\: second
                             
                             .. attribute:: total_msgs_rcvd
                             
@@ -1501,7 +1507,7 @@ class PerfMgmt(object):
             .. attribute:: node
             
             	Node Instance
-            	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node>`
+            	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node>`
             
             
 
@@ -1531,17 +1537,17 @@ class PerfMgmt(object):
                 .. attribute:: processes
                 
                 	Processes data
-                	**type**\:  :py:class:`Processes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node.Processes>`
+                	**type**\:   :py:class:`Processes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node.Processes>`
                 
                 .. attribute:: sample_xr
                 
                 	Node CPU data
-                	**type**\:  :py:class:`SampleXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node.SampleXr>`
+                	**type**\:   :py:class:`SampleXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node.SampleXr>`
                 
                 .. attribute:: samples
                 
                 	Node Memory data
-                	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node.Samples>`
+                	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node.Samples>`
                 
                 
 
@@ -1568,7 +1574,7 @@ class PerfMgmt(object):
                     .. attribute:: sample
                     
                     	Node CPU data sample
-                    	**type**\: list of  :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node.SampleXr.Sample>`
+                    	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node.SampleXr.Sample>`
                     
                     
 
@@ -1615,6 +1621,8 @@ class PerfMgmt(object):
                         	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**units**\: second
                         
                         
 
@@ -1699,7 +1707,7 @@ class PerfMgmt(object):
                     .. attribute:: process
                     
                     	Process data
-                    	**type**\: list of  :py:class:`Process <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node.Processes.Process>`
+                    	**type**\: list of    :py:class:`Process <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node.Processes.Process>`
                     
                     
 
@@ -1729,7 +1737,7 @@ class PerfMgmt(object):
                         .. attribute:: samples
                         
                         	Process data
-                        	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node.Processes.Process.Samples>`
+                        	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node.Processes.Process.Samples>`
                         
                         
 
@@ -1752,7 +1760,7 @@ class PerfMgmt(object):
                             .. attribute:: sample
                             
                             	Process data sample
-                            	**type**\: list of  :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node.Processes.Process.Samples.Sample>`
+                            	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node.Processes.Process.Samples.Sample>`
                             
                             
 
@@ -1800,12 +1808,16 @@ class PerfMgmt(object):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**units**\: kilobyte
+                                
                                 .. attribute:: time_stamp
                                 
                                 	Timestamp of sample in seconds drom UCT
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: second
                                 
                                 
 
@@ -1949,7 +1961,7 @@ class PerfMgmt(object):
                     .. attribute:: sample
                     
                     	Node Memory data sample
-                    	**type**\: list of  :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node.Samples.Sample>`
+                    	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Nodes.Node.Samples.Sample>`
                     
                     
 
@@ -1983,6 +1995,8 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: byte
+                        
                         .. attribute:: peak_memory
                         
                         	Max. system memory (MBytes) used since bootup
@@ -1990,12 +2004,16 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: megabyte
+                        
                         .. attribute:: time_stamp
                         
                         	Timestamp of sample in seconds drom UCT
                         	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**units**\: second
                         
                         
 
@@ -2137,7 +2155,7 @@ class PerfMgmt(object):
             .. attribute:: bgp_neighbors
             
             	Neighbors for which statistics are collected
-            	**type**\:  :py:class:`BgpNeighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Bgp.BgpNeighbors>`
+            	**type**\:   :py:class:`BgpNeighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Bgp.BgpNeighbors>`
             
             
 
@@ -2159,7 +2177,7 @@ class PerfMgmt(object):
                 .. attribute:: bgp_neighbor
                 
                 	Samples for particular neighbor
-                	**type**\: list of  :py:class:`BgpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor>`
+                	**type**\: list of    :py:class:`BgpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor>`
                 
                 
 
@@ -2189,7 +2207,7 @@ class PerfMgmt(object):
                     .. attribute:: samples
                     
                     	Sample Table for a BGP neighbor
-                    	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor.Samples>`
+                    	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor.Samples>`
                     
                     
 
@@ -2212,7 +2230,7 @@ class PerfMgmt(object):
                         .. attribute:: sample
                         
                         	Neighbor statistics sample
-                        	**type**\: list of  :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor.Samples.Sample>`
+                        	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor.Samples.Sample>`
                         
                         
 
@@ -2301,6 +2319,8 @@ class PerfMgmt(object):
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**units**\: second
                             
                             
 
@@ -2482,17 +2502,17 @@ class PerfMgmt(object):
             .. attribute:: basic_counter_interfaces
             
             	Interfaces for which Basic Counters are collected
-            	**type**\:  :py:class:`BasicCounterInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.BasicCounterInterfaces>`
+            	**type**\:   :py:class:`BasicCounterInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.BasicCounterInterfaces>`
             
             .. attribute:: data_rate_interfaces
             
             	Interfaces for which Data Rates are collected
-            	**type**\:  :py:class:`DataRateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.DataRateInterfaces>`
+            	**type**\:   :py:class:`DataRateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.DataRateInterfaces>`
             
             .. attribute:: generic_counter_interfaces
             
             	Interfaces for which Generic Counters are collected
-            	**type**\:  :py:class:`GenericCounterInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.GenericCounterInterfaces>`
+            	**type**\:   :py:class:`GenericCounterInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.GenericCounterInterfaces>`
             
             
 
@@ -2519,7 +2539,7 @@ class PerfMgmt(object):
                 .. attribute:: generic_counter_interface
                 
                 	Samples for a particular interface
-                	**type**\: list of  :py:class:`GenericCounterInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface>`
+                	**type**\: list of    :py:class:`GenericCounterInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface>`
                 
                 
 
@@ -2549,7 +2569,7 @@ class PerfMgmt(object):
                     .. attribute:: samples
                     
                     	Generic Counter samples for an interface
-                    	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples>`
+                    	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples>`
                     
                     
 
@@ -2572,7 +2592,7 @@ class PerfMgmt(object):
                         .. attribute:: sample
                         
                         	Generic Counters sample
-                        	**type**\: list of  :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples.Sample>`
+                        	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples.Sample>`
                         
                         
 
@@ -2619,6 +2639,8 @@ class PerfMgmt(object):
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**units**\: byte
                             
                             .. attribute:: in_packets
                             
@@ -2704,6 +2726,8 @@ class PerfMgmt(object):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**units**\: byte
+                            
                             .. attribute:: out_packets
                             
                             	Packets sent
@@ -2745,6 +2769,8 @@ class PerfMgmt(object):
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**units**\: second
                             
                             
 
@@ -2953,7 +2979,7 @@ class PerfMgmt(object):
                 .. attribute:: basic_counter_interface
                 
                 	Samples for a particular interface
-                	**type**\: list of  :py:class:`BasicCounterInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface>`
+                	**type**\: list of    :py:class:`BasicCounterInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface>`
                 
                 
 
@@ -2983,7 +3009,7 @@ class PerfMgmt(object):
                     .. attribute:: samples
                     
                     	Basic Counter samples for an interface
-                    	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples>`
+                    	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples>`
                     
                     
 
@@ -3006,7 +3032,7 @@ class PerfMgmt(object):
                         .. attribute:: sample
                         
                         	Basic Counters sample
-                        	**type**\: list of  :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples.Sample>`
+                        	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples.Sample>`
                         
                         
 
@@ -3039,6 +3065,8 @@ class PerfMgmt(object):
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**units**\: byte
                             
                             .. attribute:: in_packets
                             
@@ -3075,6 +3103,8 @@ class PerfMgmt(object):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**units**\: byte
+                            
                             .. attribute:: out_packets
                             
                             	Packets sent
@@ -3109,6 +3139,8 @@ class PerfMgmt(object):
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**units**\: second
                             
                             
 
@@ -3276,7 +3308,7 @@ class PerfMgmt(object):
                 .. attribute:: data_rate_interface
                 
                 	Samples for a particular interface
-                	**type**\: list of  :py:class:`DataRateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface>`
+                	**type**\: list of    :py:class:`DataRateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface>`
                 
                 
 
@@ -3306,7 +3338,7 @@ class PerfMgmt(object):
                     .. attribute:: samples
                     
                     	Data Rate samples for an interface
-                    	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface.Samples>`
+                    	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface.Samples>`
                     
                     
 
@@ -3329,7 +3361,7 @@ class PerfMgmt(object):
                         .. attribute:: sample
                         
                         	Data Rates sample
-                        	**type**\: list of  :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface.Samples.Sample>`
+                        	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface.Samples.Sample>`
                         
                         
 
@@ -3363,6 +3395,8 @@ class PerfMgmt(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: kbit/s
+                            
                             .. attribute:: input_data_rate
                             
                             	Input datarate in 1000's of bps
@@ -3370,12 +3404,16 @@ class PerfMgmt(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: bit/s
+                            
                             .. attribute:: input_packet_rate
                             
                             	Input packets per second
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
+                            
+                            	**units**\: packet/s
                             
                             .. attribute:: input_peak_pkts
                             
@@ -3398,12 +3436,16 @@ class PerfMgmt(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: bit/s
+                            
                             .. attribute:: output_packet_rate
                             
                             	Output packets per second
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
+                            
+                            	**units**\: packet/s
                             
                             .. attribute:: output_peak_pkts
                             
@@ -3425,6 +3467,8 @@ class PerfMgmt(object):
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**units**\: second
                             
                             
 
@@ -3650,27 +3694,27 @@ class PerfMgmt(object):
         .. attribute:: bgp
         
         	Collected BGP data
-        	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Bgp>`
+        	**type**\:   :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Bgp>`
         
         .. attribute:: interface
         
         	Collected Interface data
-        	**type**\:  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface>`
+        	**type**\:   :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface>`
         
         .. attribute:: mpls
         
         	Collected MPLS data
-        	**type**\:  :py:class:`Mpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Mpls>`
+        	**type**\:   :py:class:`Mpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Mpls>`
         
         .. attribute:: nodes
         
         	Nodes for which data is collected
-        	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes>`
+        	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes>`
         
         .. attribute:: ospf
         
         	Collected OSPF data
-        	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf>`
+        	**type**\:   :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf>`
         
         
 
@@ -3700,12 +3744,12 @@ class PerfMgmt(object):
             .. attribute:: ospfv2_protocol_instances
             
             	OSPF v2 instances for which protocol statistics are collected
-            	**type**\:  :py:class:`Ospfv2ProtocolInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances>`
+            	**type**\:   :py:class:`Ospfv2ProtocolInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances>`
             
             .. attribute:: ospfv3_protocol_instances
             
             	OSPF v3 instances for which protocol statistics are collected
-            	**type**\:  :py:class:`Ospfv3ProtocolInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances>`
+            	**type**\:   :py:class:`Ospfv3ProtocolInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances>`
             
             
 
@@ -3730,7 +3774,7 @@ class PerfMgmt(object):
                 .. attribute:: ospfv2_protocol_instance
                 
                 	Protocol samples for a particular OSPF v2 instance
-                	**type**\: list of  :py:class:`Ospfv2ProtocolInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance>`
+                	**type**\: list of    :py:class:`Ospfv2ProtocolInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance>`
                 
                 
 
@@ -3761,7 +3805,7 @@ class PerfMgmt(object):
                     .. attribute:: samples
                     
                     	Sample Table for an OSPV v2 instance
-                    	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples>`
+                    	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples>`
                     
                     
 
@@ -3784,7 +3828,7 @@ class PerfMgmt(object):
                         .. attribute:: sample
                         
                         	Generic Counters sample
-                        	**type**\: list of  :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples.Sample>`
+                        	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples.Sample>`
                         
                         
 
@@ -3964,6 +4008,8 @@ class PerfMgmt(object):
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**units**\: second
                             
                             
 
@@ -4176,7 +4222,7 @@ class PerfMgmt(object):
                 .. attribute:: ospfv3_protocol_instance
                 
                 	Protocol samples for a particular OSPF v3 instance
-                	**type**\: list of  :py:class:`Ospfv3ProtocolInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance>`
+                	**type**\: list of    :py:class:`Ospfv3ProtocolInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance>`
                 
                 
 
@@ -4207,7 +4253,7 @@ class PerfMgmt(object):
                     .. attribute:: samples
                     
                     	Sample Table for an OSPV v3 instance
-                    	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples>`
+                    	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples>`
                     
                     
 
@@ -4230,7 +4276,7 @@ class PerfMgmt(object):
                         .. attribute:: sample
                         
                         	Generic Counters sample
-                        	**type**\: list of  :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples.Sample>`
+                        	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples.Sample>`
                         
                         
 
@@ -4403,6 +4449,8 @@ class PerfMgmt(object):
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**units**\: second
                             
                             
 
@@ -4635,7 +4683,7 @@ class PerfMgmt(object):
             .. attribute:: ldp_neighbors
             
             	LDP neighbors for which statistics are collected
-            	**type**\:  :py:class:`LdpNeighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Mpls.LdpNeighbors>`
+            	**type**\:   :py:class:`LdpNeighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Mpls.LdpNeighbors>`
             
             
 
@@ -4658,7 +4706,7 @@ class PerfMgmt(object):
                 .. attribute:: ldp_neighbor
                 
                 	Samples for a particular LDP neighbor
-                	**type**\: list of  :py:class:`LdpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor>`
+                	**type**\: list of    :py:class:`LdpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor>`
                 
                 
 
@@ -4688,7 +4736,7 @@ class PerfMgmt(object):
                     .. attribute:: samples
                     
                     	Samples for a particular LDP neighbor
-                    	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor.Samples>`
+                    	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor.Samples>`
                     
                     
 
@@ -4711,7 +4759,7 @@ class PerfMgmt(object):
                         .. attribute:: sample
                         
                         	LDP neighbor statistics sample
-                        	**type**\: list of  :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor.Samples.Sample>`
+                        	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor.Samples.Sample>`
                         
                         
 
@@ -4856,6 +4904,8 @@ class PerfMgmt(object):
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**units**\: second
                             
                             .. attribute:: total_msgs_rcvd
                             
@@ -5091,7 +5141,7 @@ class PerfMgmt(object):
             .. attribute:: node
             
             	Node Instance
-            	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node>`
+            	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node>`
             
             
 
@@ -5121,17 +5171,17 @@ class PerfMgmt(object):
                 .. attribute:: processes
                 
                 	Processes data
-                	**type**\:  :py:class:`Processes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node.Processes>`
+                	**type**\:   :py:class:`Processes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node.Processes>`
                 
                 .. attribute:: sample_xr
                 
                 	Node CPU data
-                	**type**\:  :py:class:`SampleXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node.SampleXr>`
+                	**type**\:   :py:class:`SampleXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node.SampleXr>`
                 
                 .. attribute:: samples
                 
                 	Node Memory data
-                	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node.Samples>`
+                	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node.Samples>`
                 
                 
 
@@ -5158,7 +5208,7 @@ class PerfMgmt(object):
                     .. attribute:: sample
                     
                     	Node CPU data sample
-                    	**type**\: list of  :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node.SampleXr.Sample>`
+                    	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node.SampleXr.Sample>`
                     
                     
 
@@ -5205,6 +5255,8 @@ class PerfMgmt(object):
                         	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**units**\: second
                         
                         
 
@@ -5289,7 +5341,7 @@ class PerfMgmt(object):
                     .. attribute:: process
                     
                     	Process data
-                    	**type**\: list of  :py:class:`Process <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node.Processes.Process>`
+                    	**type**\: list of    :py:class:`Process <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node.Processes.Process>`
                     
                     
 
@@ -5319,7 +5371,7 @@ class PerfMgmt(object):
                         .. attribute:: samples
                         
                         	Process data
-                        	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node.Processes.Process.Samples>`
+                        	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node.Processes.Process.Samples>`
                         
                         
 
@@ -5342,7 +5394,7 @@ class PerfMgmt(object):
                             .. attribute:: sample
                             
                             	Process data sample
-                            	**type**\: list of  :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node.Processes.Process.Samples.Sample>`
+                            	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node.Processes.Process.Samples.Sample>`
                             
                             
 
@@ -5390,12 +5442,16 @@ class PerfMgmt(object):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**units**\: kilobyte
+                                
                                 .. attribute:: time_stamp
                                 
                                 	Timestamp of sample in seconds drom UCT
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: second
                                 
                                 
 
@@ -5539,7 +5595,7 @@ class PerfMgmt(object):
                     .. attribute:: sample
                     
                     	Node Memory data sample
-                    	**type**\: list of  :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node.Samples.Sample>`
+                    	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Nodes.Node.Samples.Sample>`
                     
                     
 
@@ -5573,6 +5629,8 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: byte
+                        
                         .. attribute:: peak_memory
                         
                         	Max. system memory (MBytes) used since bootup
@@ -5580,12 +5638,16 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: megabyte
+                        
                         .. attribute:: time_stamp
                         
                         	Timestamp of sample in seconds drom UCT
                         	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**units**\: second
                         
                         
 
@@ -5727,7 +5789,7 @@ class PerfMgmt(object):
             .. attribute:: bgp_neighbors
             
             	Neighbors for which statistics are collected
-            	**type**\:  :py:class:`BgpNeighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Bgp.BgpNeighbors>`
+            	**type**\:   :py:class:`BgpNeighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Bgp.BgpNeighbors>`
             
             
 
@@ -5749,7 +5811,7 @@ class PerfMgmt(object):
                 .. attribute:: bgp_neighbor
                 
                 	Samples for particular neighbor
-                	**type**\: list of  :py:class:`BgpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor>`
+                	**type**\: list of    :py:class:`BgpNeighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor>`
                 
                 
 
@@ -5779,7 +5841,7 @@ class PerfMgmt(object):
                     .. attribute:: samples
                     
                     	Sample Table for a BGP neighbor
-                    	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor.Samples>`
+                    	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor.Samples>`
                     
                     
 
@@ -5802,7 +5864,7 @@ class PerfMgmt(object):
                         .. attribute:: sample
                         
                         	Neighbor statistics sample
-                        	**type**\: list of  :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor.Samples.Sample>`
+                        	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor.Samples.Sample>`
                         
                         
 
@@ -5891,6 +5953,8 @@ class PerfMgmt(object):
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**units**\: second
                             
                             
 
@@ -6072,17 +6136,17 @@ class PerfMgmt(object):
             .. attribute:: basic_counter_interfaces
             
             	Interfaces for which Basic Counters are collected
-            	**type**\:  :py:class:`BasicCounterInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.BasicCounterInterfaces>`
+            	**type**\:   :py:class:`BasicCounterInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.BasicCounterInterfaces>`
             
             .. attribute:: data_rate_interfaces
             
             	Interfaces for which Data Rates are collected
-            	**type**\:  :py:class:`DataRateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.DataRateInterfaces>`
+            	**type**\:   :py:class:`DataRateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.DataRateInterfaces>`
             
             .. attribute:: generic_counter_interfaces
             
             	Interfaces for which Generic Counters are collected
-            	**type**\:  :py:class:`GenericCounterInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.GenericCounterInterfaces>`
+            	**type**\:   :py:class:`GenericCounterInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.GenericCounterInterfaces>`
             
             
 
@@ -6109,7 +6173,7 @@ class PerfMgmt(object):
                 .. attribute:: generic_counter_interface
                 
                 	Samples for a particular interface
-                	**type**\: list of  :py:class:`GenericCounterInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface>`
+                	**type**\: list of    :py:class:`GenericCounterInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface>`
                 
                 
 
@@ -6139,7 +6203,7 @@ class PerfMgmt(object):
                     .. attribute:: samples
                     
                     	Generic Counter samples for an interface
-                    	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples>`
+                    	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples>`
                     
                     
 
@@ -6162,7 +6226,7 @@ class PerfMgmt(object):
                         .. attribute:: sample
                         
                         	Generic Counters sample
-                        	**type**\: list of  :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples.Sample>`
+                        	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples.Sample>`
                         
                         
 
@@ -6209,6 +6273,8 @@ class PerfMgmt(object):
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**units**\: byte
                             
                             .. attribute:: in_packets
                             
@@ -6294,6 +6360,8 @@ class PerfMgmt(object):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**units**\: byte
+                            
                             .. attribute:: out_packets
                             
                             	Packets sent
@@ -6335,6 +6403,8 @@ class PerfMgmt(object):
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**units**\: second
                             
                             
 
@@ -6543,7 +6613,7 @@ class PerfMgmt(object):
                 .. attribute:: basic_counter_interface
                 
                 	Samples for a particular interface
-                	**type**\: list of  :py:class:`BasicCounterInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface>`
+                	**type**\: list of    :py:class:`BasicCounterInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface>`
                 
                 
 
@@ -6573,7 +6643,7 @@ class PerfMgmt(object):
                     .. attribute:: samples
                     
                     	Basic Counter samples for an interface
-                    	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples>`
+                    	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples>`
                     
                     
 
@@ -6596,7 +6666,7 @@ class PerfMgmt(object):
                         .. attribute:: sample
                         
                         	Basic Counters sample
-                        	**type**\: list of  :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples.Sample>`
+                        	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples.Sample>`
                         
                         
 
@@ -6629,6 +6699,8 @@ class PerfMgmt(object):
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**units**\: byte
                             
                             .. attribute:: in_packets
                             
@@ -6665,6 +6737,8 @@ class PerfMgmt(object):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**units**\: byte
+                            
                             .. attribute:: out_packets
                             
                             	Packets sent
@@ -6699,6 +6773,8 @@ class PerfMgmt(object):
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**units**\: second
                             
                             
 
@@ -6866,7 +6942,7 @@ class PerfMgmt(object):
                 .. attribute:: data_rate_interface
                 
                 	Samples for a particular interface
-                	**type**\: list of  :py:class:`DataRateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface>`
+                	**type**\: list of    :py:class:`DataRateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface>`
                 
                 
 
@@ -6896,7 +6972,7 @@ class PerfMgmt(object):
                     .. attribute:: samples
                     
                     	Data Rate samples for an interface
-                    	**type**\:  :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface.Samples>`
+                    	**type**\:   :py:class:`Samples <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface.Samples>`
                     
                     
 
@@ -6919,7 +6995,7 @@ class PerfMgmt(object):
                         .. attribute:: sample
                         
                         	Data Rates sample
-                        	**type**\: list of  :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface.Samples.Sample>`
+                        	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_oper.PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface.Samples.Sample>`
                         
                         
 
@@ -6953,6 +7029,8 @@ class PerfMgmt(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: kbit/s
+                            
                             .. attribute:: input_data_rate
                             
                             	Input datarate in 1000's of bps
@@ -6960,12 +7038,16 @@ class PerfMgmt(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: bit/s
+                            
                             .. attribute:: input_packet_rate
                             
                             	Input packets per second
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
+                            
+                            	**units**\: packet/s
                             
                             .. attribute:: input_peak_pkts
                             
@@ -6988,12 +7070,16 @@ class PerfMgmt(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: bit/s
+                            
                             .. attribute:: output_packet_rate
                             
                             	Output packets per second
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
+                            
+                            	**units**\: packet/s
                             
                             .. attribute:: output_peak_pkts
                             
@@ -7015,6 +7101,8 @@ class PerfMgmt(object):
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**units**\: second
                             
                             
 

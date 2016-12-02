@@ -37,7 +37,7 @@ class Grpc(object):
     .. attribute:: enable
     
     	Enable GRPC
-    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: max_request_per_user
     
@@ -63,7 +63,7 @@ class Grpc(object):
     .. attribute:: tls
     
     	Transport Layer Security (TLS)
-    	**type**\:  :py:class:`Tls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ems_cfg.Grpc.Tls>`
+    	**type**\:   :py:class:`Tls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ems_cfg.Grpc.Tls>`
     
     
 
@@ -89,7 +89,7 @@ class Grpc(object):
         .. attribute:: enable
         
         	Enable TLS
-        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: trustpoint
         

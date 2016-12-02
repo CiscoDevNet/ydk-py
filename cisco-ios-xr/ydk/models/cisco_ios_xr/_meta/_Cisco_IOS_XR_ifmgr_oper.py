@@ -16,28 +16,28 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'ImStateEnumEnum' : _MetaInfoEnum('ImStateEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper',
         {
-            'im-state-not-ready':'IM_STATE_NOT_READY',
-            'im-state-admin-down':'IM_STATE_ADMIN_DOWN',
-            'im-state-down':'IM_STATE_DOWN',
-            'im-state-up':'IM_STATE_UP',
-            'im-state-shutdown':'IM_STATE_SHUTDOWN',
-            'im-state-err-disable':'IM_STATE_ERR_DISABLE',
-            'im-state-down-immediate':'IM_STATE_DOWN_IMMEDIATE',
-            'im-state-down-immediate-admin':'IM_STATE_DOWN_IMMEDIATE_ADMIN',
-            'im-state-down-graceful':'IM_STATE_DOWN_GRACEFUL',
-            'im-state-begin-shutdown':'IM_STATE_BEGIN_SHUTDOWN',
-            'im-state-end-shutdown':'IM_STATE_END_SHUTDOWN',
-            'im-state-begin-error-disable':'IM_STATE_BEGIN_ERROR_DISABLE',
-            'im-state-end-error-disable':'IM_STATE_END_ERROR_DISABLE',
-            'im-state-begin-down-graceful':'IM_STATE_BEGIN_DOWN_GRACEFUL',
-            'im-state-reset':'IM_STATE_RESET',
-            'im-state-operational':'IM_STATE_OPERATIONAL',
-            'im-state-not-operational':'IM_STATE_NOT_OPERATIONAL',
-            'im-state-unknown':'IM_STATE_UNKNOWN',
-            'im-state-last':'IM_STATE_LAST',
+            'im-state-not-ready':'im_state_not_ready',
+            'im-state-admin-down':'im_state_admin_down',
+            'im-state-down':'im_state_down',
+            'im-state-up':'im_state_up',
+            'im-state-shutdown':'im_state_shutdown',
+            'im-state-err-disable':'im_state_err_disable',
+            'im-state-down-immediate':'im_state_down_immediate',
+            'im-state-down-immediate-admin':'im_state_down_immediate_admin',
+            'im-state-down-graceful':'im_state_down_graceful',
+            'im-state-begin-shutdown':'im_state_begin_shutdown',
+            'im-state-end-shutdown':'im_state_end_shutdown',
+            'im-state-begin-error-disable':'im_state_begin_error_disable',
+            'im-state-end-error-disable':'im_state_end_error_disable',
+            'im-state-begin-down-graceful':'im_state_begin_down_graceful',
+            'im-state-reset':'im_state_reset',
+            'im-state-operational':'im_state_operational',
+            'im-state-not-operational':'im_state_not_operational',
+            'im-state-unknown':'im_state_unknown',
+            'im-state-last':'im_state_last',
         }, 'Cisco-IOS-XR-ifmgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-ifmgr-oper']),
-    'InterfaceDampening.Interfaces.Interface.IfDampening.InterfaceDampening' : {
-        'meta_info' : _MetaInfoClass('InterfaceDampening.Interfaces.Interface.IfDampening.InterfaceDampening',
+    'InterfaceDampening.Interfaces.Interface.IfDampening.InterfaceDampening_' : {
+        'meta_info' : _MetaInfoClass('InterfaceDampening.Interfaces.Interface.IfDampening.InterfaceDampening_',
             False, 
             [
             _MetaInfoClassMember('flaps', ATTRIBUTE, 'int' , None, None, 
@@ -157,7 +157,7 @@ _meta_table = {
                 ''',
                 'half_life',
                 'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('interface-dampening', REFERENCE_CLASS, 'InterfaceDampening' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper', 'InterfaceDampening.Interfaces.Interface.IfDampening.InterfaceDampening', 
+            _MetaInfoClassMember('interface-dampening', REFERENCE_CLASS, 'InterfaceDampening_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper', 'InterfaceDampening.Interfaces.Interface.IfDampening.InterfaceDampening_', 
                 [], [], 
                 '''                Interface dampening
                 ''',
@@ -253,8 +253,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper'
         ),
     },
-    'InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.InterfaceDampening' : {
-        'meta_info' : _MetaInfoClass('InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.InterfaceDampening',
+    'InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.InterfaceDampening_' : {
+        'meta_info' : _MetaInfoClass('InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.InterfaceDampening_',
             False, 
             [
             _MetaInfoClassMember('flaps', ATTRIBUTE, 'int' , None, None, 
@@ -380,7 +380,7 @@ _meta_table = {
                 ''',
                 'half_life',
                 'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('interface-dampening', REFERENCE_CLASS, 'InterfaceDampening' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper', 'InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.InterfaceDampening', 
+            _MetaInfoClassMember('interface-dampening', REFERENCE_CLASS, 'InterfaceDampening_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper', 'InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.InterfaceDampening_', 
                 [], [], 
                 '''                Interface dampening
                 ''',
@@ -452,8 +452,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper'
         ),
     },
-    'InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.InterfaceDampening' : {
-        'meta_info' : _MetaInfoClass('InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.InterfaceDampening',
+    'InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.InterfaceDampening_' : {
+        'meta_info' : _MetaInfoClass('InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.InterfaceDampening_',
             False, 
             [
             _MetaInfoClassMember('flaps', ATTRIBUTE, 'int' , None, None, 
@@ -579,7 +579,7 @@ _meta_table = {
                 ''',
                 'half_life',
                 'Cisco-IOS-XR-ifmgr-oper', False),
-            _MetaInfoClassMember('interface-dampening', REFERENCE_CLASS, 'InterfaceDampening' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper', 'InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.InterfaceDampening', 
+            _MetaInfoClassMember('interface-dampening', REFERENCE_CLASS, 'InterfaceDampening_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper', 'InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.InterfaceDampening_', 
                 [], [], 
                 '''                Interface dampening
                 ''',
@@ -1280,16 +1280,16 @@ _meta_table = {
     },
 }
 _meta_table['InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation.CapsulationDampening']['meta_info'].parent =_meta_table['InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation']['meta_info']
-_meta_table['InterfaceDampening.Interfaces.Interface.IfDampening.InterfaceDampening']['meta_info'].parent =_meta_table['InterfaceDampening.Interfaces.Interface.IfDampening']['meta_info']
+_meta_table['InterfaceDampening.Interfaces.Interface.IfDampening.InterfaceDampening_']['meta_info'].parent =_meta_table['InterfaceDampening.Interfaces.Interface.IfDampening']['meta_info']
 _meta_table['InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation']['meta_info'].parent =_meta_table['InterfaceDampening.Interfaces.Interface.IfDampening']['meta_info']
 _meta_table['InterfaceDampening.Interfaces.Interface.IfDampening']['meta_info'].parent =_meta_table['InterfaceDampening.Interfaces.Interface']['meta_info']
 _meta_table['InterfaceDampening.Interfaces.Interface']['meta_info'].parent =_meta_table['InterfaceDampening.Interfaces']['meta_info']
 _meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation.CapsulationDampening']['meta_info'].parent =_meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation']['meta_info']
-_meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.InterfaceDampening']['meta_info'].parent =_meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle']['meta_info']
+_meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.InterfaceDampening_']['meta_info'].parent =_meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle']['meta_info']
 _meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation']['meta_info'].parent =_meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle']['meta_info']
 _meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle']['meta_info'].parent =_meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles']['meta_info']
 _meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation.CapsulationDampening']['meta_info'].parent =_meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation']['meta_info']
-_meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.InterfaceDampening']['meta_info'].parent =_meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface']['meta_info']
+_meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.InterfaceDampening_']['meta_info'].parent =_meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface']['meta_info']
 _meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation']['meta_info'].parent =_meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface']['meta_info']
 _meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface']['meta_info'].parent =_meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces']['meta_info']
 _meta_table['InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles']['meta_info'].parent =_meta_table['InterfaceDampening.Nodes.Node.Show.Dampening']['meta_info']

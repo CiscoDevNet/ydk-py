@@ -30,25 +30,25 @@ class HsrpBAfEnum(Enum):
 
     Hsrp b af
 
-    .. data:: IPV4 = 0
+    .. data:: ipv4 = 0
 
     	IPv4 Address Family
 
-    .. data:: IPV6 = 1
+    .. data:: ipv6 = 1
 
     	IPv6 Address Family
 
-    .. data:: COUNT = 2
+    .. data:: count = 2
 
     	The number of supported address families
 
     """
 
-    IPV4 = 0
+    ipv4 = 0
 
-    IPV6 = 1
+    ipv6 = 1
 
-    COUNT = 2
+    count = 2
 
 
     @staticmethod
@@ -63,31 +63,31 @@ class HsrpBfdSessionStateEnum(Enum):
 
     Hsrp bfd session state
 
-    .. data:: BFD_STATE_NONE = 0
+    .. data:: bfd_state_none = 0
 
     	None
 
-    .. data:: BFD_STATE_INACTIVE = 1
+    .. data:: bfd_state_inactive = 1
 
     	Inactive
 
-    .. data:: BFD_STATE_UP = 2
+    .. data:: bfd_state_up = 2
 
     	Up
 
-    .. data:: BFD_STATE_DOWN = 3
+    .. data:: bfd_state_down = 3
 
     	Down
 
     """
 
-    BFD_STATE_NONE = 0
+    bfd_state_none = 0
 
-    BFD_STATE_INACTIVE = 1
+    bfd_state_inactive = 1
 
-    BFD_STATE_UP = 2
+    bfd_state_up = 2
 
-    BFD_STATE_DOWN = 3
+    bfd_state_down = 3
 
 
     @staticmethod
@@ -102,163 +102,163 @@ class HsrpStateChangeReasonEnum(Enum):
 
     Hsrp state change reason
 
-    .. data:: STATE_CHANGE_BFD_DOWN = 0
+    .. data:: state_change_bfd_down = 0
 
     	BFD session down
 
-    .. data:: STATE_CHANGE_VIP_LEARNT = 1
+    .. data:: state_change_vip_learnt = 1
 
     	Virtual IP learnt
 
-    .. data:: STATE_CHANGE_INTERFACE_IP = 2
+    .. data:: state_change_interface_ip = 2
 
     	Interface IP update
 
-    .. data:: STATE_CHANGE_DELAY_TIMER = 3
+    .. data:: state_change_delay_timer = 3
 
     	Delay timer expired
 
-    .. data:: STATE_CHANGE_STARTUP = 4
+    .. data:: state_change_startup = 4
 
     	Ready on startup
 
-    .. data:: STATE_CHANGE_SHUTDOWN = 5
+    .. data:: state_change_shutdown = 5
 
     	HSRP shut down
 
-    .. data:: STATE_CHANGE_INTERFACE_UP = 6
+    .. data:: state_change_interface_up = 6
 
     	Interface Up update
 
-    .. data:: STATE_CHANGE_INTERFACE_DOWN = 7
+    .. data:: state_change_interface_down = 7
 
     	Interface Down update
 
-    .. data:: STATE_CHANGE_ACTIVE_TIMER = 8
+    .. data:: state_change_active_timer = 8
 
     	Active timer expired
 
-    .. data:: STATE_CHANGE_STANDBY_TIMER = 9
+    .. data:: state_change_standby_timer = 9
 
     	Standby timer expired
 
-    .. data:: STATE_CHANGE_RESIGN = 10
+    .. data:: state_change_resign = 10
 
     	Resign received
 
-    .. data:: STATE_CHANGE_COUP = 11
+    .. data:: state_change_coup = 11
 
     	Coup received
 
-    .. data:: STATE_CHANGE_HIGHER_PRIORITY_SPEAK = 12
+    .. data:: state_change_higher_priority_speak = 12
 
     	Higher priority speak received
 
-    .. data:: STATE_CHANGE_HIGHER_PRIORITY_STANDBY = 13
+    .. data:: state_change_higher_priority_standby = 13
 
     	Higher priority standby received
 
-    .. data:: STATE_CHANGE_LOWER_PRIORITY_STANDBY = 14
+    .. data:: state_change_lower_priority_standby = 14
 
     	Lower priority standby received
 
-    .. data:: STATE_CHANGE_HIGHER_PRIORITY_ACTIVE = 15
+    .. data:: state_change_higher_priority_active = 15
 
     	Higher priority active received
 
-    .. data:: STATE_CHANGE_LOWER_PRIORITY_ACTIVE = 16
+    .. data:: state_change_lower_priority_active = 16
 
     	Lower priority active received
 
-    .. data:: STATE_CHANGE_VIRTUAL_IP_CONFIGURED = 17
+    .. data:: state_change_virtual_ip_configured = 17
 
     	Virtual IP configured
 
-    .. data:: STATE_CHANGE_VIRTUAL_IP_LOST = 18
+    .. data:: state_change_virtual_ip_lost = 18
 
     	Virtual IP lost
 
-    .. data:: STATE_CHANGE_RECOVERED_FROM_CHECKPOINT = 19
+    .. data:: state_change_recovered_from_checkpoint = 19
 
     	Recovered from checkpoint
 
-    .. data:: STATE_CHANGE_MAC_UPDATE = 20
+    .. data:: state_change_mac_update = 20
 
     	MAC address update
 
-    .. data:: STATE_CHANGE_ADMIN = 21
+    .. data:: state_change_admin = 21
 
     	Forwarder Admin state change
 
-    .. data:: STATE_CHANGE_PARENT = 22
+    .. data:: state_change_parent = 22
 
     	MGO parent change
 
-    .. data:: STATE_CHANGE_CHKPT_UPDATE = 23
+    .. data:: state_change_chkpt_update = 23
 
     	Checkpoint update from Primary HSRP instance
 
-    .. data:: STATE_CHANGE_ISSU_RESYNC = 24
+    .. data:: state_change_issu_resync = 24
 
     	Resync following ISSU primary event
 
-    .. data:: STATE_CHANGE_MAX = 25
+    .. data:: state_change_max = 25
 
     	Maximum reason in enumeration
 
     """
 
-    STATE_CHANGE_BFD_DOWN = 0
+    state_change_bfd_down = 0
 
-    STATE_CHANGE_VIP_LEARNT = 1
+    state_change_vip_learnt = 1
 
-    STATE_CHANGE_INTERFACE_IP = 2
+    state_change_interface_ip = 2
 
-    STATE_CHANGE_DELAY_TIMER = 3
+    state_change_delay_timer = 3
 
-    STATE_CHANGE_STARTUP = 4
+    state_change_startup = 4
 
-    STATE_CHANGE_SHUTDOWN = 5
+    state_change_shutdown = 5
 
-    STATE_CHANGE_INTERFACE_UP = 6
+    state_change_interface_up = 6
 
-    STATE_CHANGE_INTERFACE_DOWN = 7
+    state_change_interface_down = 7
 
-    STATE_CHANGE_ACTIVE_TIMER = 8
+    state_change_active_timer = 8
 
-    STATE_CHANGE_STANDBY_TIMER = 9
+    state_change_standby_timer = 9
 
-    STATE_CHANGE_RESIGN = 10
+    state_change_resign = 10
 
-    STATE_CHANGE_COUP = 11
+    state_change_coup = 11
 
-    STATE_CHANGE_HIGHER_PRIORITY_SPEAK = 12
+    state_change_higher_priority_speak = 12
 
-    STATE_CHANGE_HIGHER_PRIORITY_STANDBY = 13
+    state_change_higher_priority_standby = 13
 
-    STATE_CHANGE_LOWER_PRIORITY_STANDBY = 14
+    state_change_lower_priority_standby = 14
 
-    STATE_CHANGE_HIGHER_PRIORITY_ACTIVE = 15
+    state_change_higher_priority_active = 15
 
-    STATE_CHANGE_LOWER_PRIORITY_ACTIVE = 16
+    state_change_lower_priority_active = 16
 
-    STATE_CHANGE_VIRTUAL_IP_CONFIGURED = 17
+    state_change_virtual_ip_configured = 17
 
-    STATE_CHANGE_VIRTUAL_IP_LOST = 18
+    state_change_virtual_ip_lost = 18
 
-    STATE_CHANGE_RECOVERED_FROM_CHECKPOINT = 19
+    state_change_recovered_from_checkpoint = 19
 
-    STATE_CHANGE_MAC_UPDATE = 20
+    state_change_mac_update = 20
 
-    STATE_CHANGE_ADMIN = 21
+    state_change_admin = 21
 
-    STATE_CHANGE_PARENT = 22
+    state_change_parent = 22
 
-    STATE_CHANGE_CHKPT_UPDATE = 23
+    state_change_chkpt_update = 23
 
-    STATE_CHANGE_ISSU_RESYNC = 24
+    state_change_issu_resync = 24
 
-    STATE_CHANGE_MAX = 25
+    state_change_max = 25
 
 
     @staticmethod
@@ -273,31 +273,31 @@ class HsrpVmacStateEnum(Enum):
 
     Hsrp vmac state
 
-    .. data:: STORED = 0
+    .. data:: stored = 0
 
     	VMAC stored locally
 
-    .. data:: RESERVED = 1
+    .. data:: reserved = 1
 
     	VMAC reserved in mac table
 
-    .. data:: ACTIVE = 2
+    .. data:: active = 2
 
     	VMAC active in mac table
 
-    .. data:: RESERVING = 3
+    .. data:: reserving = 3
 
     	VMAC not yet reserved in mac table
 
     """
 
-    STORED = 0
+    stored = 0
 
-    RESERVED = 1
+    reserved = 1
 
-    ACTIVE = 2
+    active = 2
 
-    RESERVING = 3
+    reserving = 3
 
 
     @staticmethod
@@ -312,43 +312,43 @@ class StandbyGrpStateEnum(Enum):
 
     Standby grp state
 
-    .. data:: STATE_INITIAL = 1
+    .. data:: state_initial = 1
 
     	Initial
 
-    .. data:: STATE_LEARN = 2
+    .. data:: state_learn = 2
 
     	Learn
 
-    .. data:: STATE_LISTEN = 3
+    .. data:: state_listen = 3
 
     	Listen
 
-    .. data:: STATE_SPEAK = 4
+    .. data:: state_speak = 4
 
     	Speak
 
-    .. data:: STATE_STANDBY = 5
+    .. data:: state_standby = 5
 
     	Standby
 
-    .. data:: STATE_ACTIVE = 6
+    .. data:: state_active = 6
 
     	Active
 
     """
 
-    STATE_INITIAL = 1
+    state_initial = 1
 
-    STATE_LEARN = 2
+    state_learn = 2
 
-    STATE_LISTEN = 3
+    state_listen = 3
 
-    STATE_SPEAK = 4
+    state_speak = 4
 
-    STATE_STANDBY = 5
+    state_standby = 5
 
-    STATE_ACTIVE = 6
+    state_active = 6
 
 
     @staticmethod
@@ -365,27 +365,27 @@ class Hsrp(object):
     .. attribute:: bfd_sessions
     
     	The table of HSRP BFD Sessions
-    	**type**\:  :py:class:`BfdSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.BfdSessions>`
+    	**type**\:   :py:class:`BfdSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.BfdSessions>`
     
     .. attribute:: ipv4
     
     	IPv4 HSRP information
-    	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4>`
+    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4>`
     
     .. attribute:: ipv6
     
     	IPv6 HSRP information
-    	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6>`
+    	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6>`
     
     .. attribute:: mgo_sessions
     
     	HSRP MGO session table
-    	**type**\:  :py:class:`MgoSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.MgoSessions>`
+    	**type**\:   :py:class:`MgoSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.MgoSessions>`
     
     .. attribute:: summary
     
     	HSRP summary statistics
-    	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Summary>`
+    	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Summary>`
     
     
 
@@ -414,17 +414,17 @@ class Hsrp(object):
         .. attribute:: groups
         
         	The HSRP standby group table
-        	**type**\:  :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups>`
+        	**type**\:   :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups>`
         
         .. attribute:: interfaces
         
         	The HSRP interface information table
-        	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Interfaces>`
+        	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Interfaces>`
         
         .. attribute:: tracked_interfaces
         
         	The HSRP tracked interfaces table
-        	**type**\:  :py:class:`TrackedInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.TrackedInterfaces>`
+        	**type**\:   :py:class:`TrackedInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.TrackedInterfaces>`
         
         
 
@@ -450,7 +450,7 @@ class Hsrp(object):
             .. attribute:: group
             
             	An HSRP standby group
-            	**type**\: list of  :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group>`
+            	**type**\: list of    :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group>`
             
             
 
@@ -524,6 +524,8 @@ class Hsrp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: active_timer_secs
                 
                 	Active timer running time secs
@@ -531,10 +533,12 @@ class Hsrp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: address_family
                 
                 	Address family
-                	**type**\:  :py:class:`HsrpBAfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBAfEnum>`
+                	**type**\:   :py:class:`HsrpBAfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBAfEnum>`
                 
                 .. attribute:: authentication_string
                 
@@ -586,7 +590,7 @@ class Hsrp(object):
                 .. attribute:: bfd_session_state
                 
                 	BFD session state
-                	**type**\:  :py:class:`HsrpBfdSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBfdSessionStateEnum>`
+                	**type**\:   :py:class:`HsrpBfdSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBfdSessionStateEnum>`
                 
                 .. attribute:: configured_mac_address
                 
@@ -608,12 +612,12 @@ class Hsrp(object):
                 .. attribute:: coup_received_time
                 
                 	Time last coup was received
-                	**type**\:  :py:class:`CoupReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.CoupReceivedTime>`
+                	**type**\:   :py:class:`CoupReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.CoupReceivedTime>`
                 
                 .. attribute:: coup_sent_time
                 
                 	Time last coup was sent
-                	**type**\:  :py:class:`CoupSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.CoupSentTime>`
+                	**type**\:   :py:class:`CoupSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.CoupSentTime>`
                 
                 .. attribute:: current_state_timer_secs
                 
@@ -621,6 +625,8 @@ class Hsrp(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: delay_timer_flag
                 
@@ -634,12 +640,16 @@ class Hsrp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: delay_timer_secs
                 
                 	Delay timer running time secs
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: followed_session_name
                 
@@ -651,7 +661,7 @@ class Hsrp(object):
                 .. attribute:: global_address
                 
                 	Global virtual IPv6 addresses
-                	**type**\: list of  :py:class:`GlobalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.GlobalAddress>`
+                	**type**\: list of    :py:class:`GlobalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.GlobalAddress>`
                 
                 .. attribute:: hello_time
                 
@@ -659,6 +669,8 @@ class Hsrp(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: millisecond
                 
                 .. attribute:: hello_timer_flag
                 
@@ -672,6 +684,8 @@ class Hsrp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: hello_timer_secs
                 
                 	Hello timer running time secs
@@ -679,12 +693,16 @@ class Hsrp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: hold_time
                 
                 	Holdtime in msecs
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: millisecond
                 
                 .. attribute:: hsrp_group_number
                 
@@ -696,7 +714,7 @@ class Hsrp(object):
                 .. attribute:: hsrp_router_state
                 
                 	HSRP router state
-                	**type**\:  :py:class:`StandbyGrpStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpStateEnum>`
+                	**type**\:   :py:class:`StandbyGrpStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpStateEnum>`
                 
                 .. attribute:: interface
                 
@@ -724,12 +742,16 @@ class Hsrp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: learned_hold_time
                 
                 	Learned holdtime in msecs
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: millisecond
                 
                 .. attribute:: min_delay_time
                 
@@ -738,12 +760,16 @@ class Hsrp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: preempt_delay
                 
                 	Preempt delay time in seconds
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: preempt_enabled
                 
@@ -757,6 +783,8 @@ class Hsrp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: redirects_disabled
                 
                 	HSRP redirects disabled
@@ -769,15 +797,17 @@ class Hsrp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: resign_received_time
                 
                 	Time last resign was received
-                	**type**\:  :py:class:`ResignReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.ResignReceivedTime>`
+                	**type**\:   :py:class:`ResignReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.ResignReceivedTime>`
                 
                 .. attribute:: resign_sent_time
                 
                 	Time last resign was sent
-                	**type**\:  :py:class:`ResignSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.ResignSentTime>`
+                	**type**\:   :py:class:`ResignSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.ResignSentTime>`
                 
                 .. attribute:: router_priority
                 
@@ -840,12 +870,16 @@ class Hsrp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: standby_timer_secs
                 
                 	Standby timer running time secs
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: state_change_count
                 
@@ -857,12 +891,12 @@ class Hsrp(object):
                 .. attribute:: state_change_history
                 
                 	State change history
-                	**type**\: list of  :py:class:`StateChangeHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.StateChangeHistory>`
+                	**type**\: list of    :py:class:`StateChangeHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.StateChangeHistory>`
                 
                 .. attribute:: statistics
                 
                 	HSRP Group statistics
-                	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.Statistics>`
+                	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.Statistics>`
                 
                 .. attribute:: tracked_interface_count
                 
@@ -924,7 +958,7 @@ class Hsrp(object):
                 .. attribute:: virtual_mac_address_state
                 
                 	Virtual mac address state
-                	**type**\:  :py:class:`HsrpVmacStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpVmacStateEnum>`
+                	**type**\:   :py:class:`HsrpVmacStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpVmacStateEnum>`
                 
                 
 
@@ -1031,12 +1065,16 @@ class Hsrp(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	Seconds
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: second
                     
                     
 
@@ -1089,12 +1127,16 @@ class Hsrp(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	Seconds
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: second
                     
                     
 
@@ -1147,12 +1189,16 @@ class Hsrp(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	Seconds
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: second
                     
                     
 
@@ -1205,12 +1251,16 @@ class Hsrp(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	Seconds
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: second
                     
                     
 
@@ -1507,22 +1557,22 @@ class Hsrp(object):
                     .. attribute:: new_state
                     
                     	New State
-                    	**type**\:  :py:class:`StandbyGrpStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpStateEnum>`
+                    	**type**\:   :py:class:`StandbyGrpStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpStateEnum>`
                     
                     .. attribute:: old_state
                     
                     	Old State
-                    	**type**\:  :py:class:`StandbyGrpStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpStateEnum>`
+                    	**type**\:   :py:class:`StandbyGrpStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpStateEnum>`
                     
                     .. attribute:: reason
                     
                     	Reason for state change
-                    	**type**\:  :py:class:`HsrpStateChangeReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpStateChangeReasonEnum>`
+                    	**type**\:   :py:class:`HsrpStateChangeReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpStateChangeReasonEnum>`
                     
                     .. attribute:: time
                     
                     	Time of state change
-                    	**type**\:  :py:class:`Time <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.StateChangeHistory.Time>`
+                    	**type**\:   :py:class:`Time <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Groups.Group.StateChangeHistory.Time>`
                     
                     
 
@@ -1551,12 +1601,16 @@ class Hsrp(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: nanosecond
+                        
                         .. attribute:: seconds
                         
                         	Seconds
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: second
                         
                         
 
@@ -1907,7 +1961,7 @@ class Hsrp(object):
             .. attribute:: tracked_interface
             
             	An HSRP tracked interface entry
-            	**type**\: list of  :py:class:`TrackedInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.TrackedInterfaces.TrackedInterface>`
+            	**type**\: list of    :py:class:`TrackedInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.TrackedInterfaces.TrackedInterface>`
             
             
 
@@ -2089,7 +2143,7 @@ class Hsrp(object):
             .. attribute:: interface
             
             	A HSRP interface entry
-            	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Interfaces.Interface>`
+            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Interfaces.Interface>`
             
             
 
@@ -2126,7 +2180,7 @@ class Hsrp(object):
                 .. attribute:: statistics
                 
                 	HSRP Interface Statistics
-                	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Interfaces.Interface.Statistics>`
+                	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv4.Interfaces.Interface.Statistics>`
                 
                 .. attribute:: use_bia_flag
                 
@@ -2376,7 +2430,7 @@ class Hsrp(object):
         .. attribute:: mgo_session
         
         	HSRP MGO session
-        	**type**\: list of  :py:class:`MgoSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.MgoSessions.MgoSession>`
+        	**type**\: list of    :py:class:`MgoSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.MgoSessions.MgoSession>`
         
         
 
@@ -2406,7 +2460,7 @@ class Hsrp(object):
             .. attribute:: primary_af_name
             
             	Address family of primary session
-            	**type**\:  :py:class:`HsrpBAfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBAfEnum>`
+            	**type**\:   :py:class:`HsrpBAfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBAfEnum>`
             
             .. attribute:: primary_session_interface
             
@@ -2432,12 +2486,12 @@ class Hsrp(object):
             .. attribute:: primary_session_state
             
             	State of primary session
-            	**type**\:  :py:class:`StandbyGrpStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpStateEnum>`
+            	**type**\:   :py:class:`StandbyGrpStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpStateEnum>`
             
             .. attribute:: slave
             
             	List of slaves following this primary session
-            	**type**\: list of  :py:class:`Slave <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.MgoSessions.MgoSession.Slave>`
+            	**type**\: list of    :py:class:`Slave <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.MgoSessions.MgoSession.Slave>`
             
             
 
@@ -2592,17 +2646,17 @@ class Hsrp(object):
         .. attribute:: groups
         
         	The HSRP standby group table
-        	**type**\:  :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups>`
+        	**type**\:   :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups>`
         
         .. attribute:: interfaces
         
         	The HSRP interface information table
-        	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Interfaces>`
+        	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Interfaces>`
         
         .. attribute:: tracked_interfaces
         
         	The HSRP tracked interfaces table
-        	**type**\:  :py:class:`TrackedInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.TrackedInterfaces>`
+        	**type**\:   :py:class:`TrackedInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.TrackedInterfaces>`
         
         
 
@@ -2628,7 +2682,7 @@ class Hsrp(object):
             .. attribute:: tracked_interface
             
             	An HSRP tracked interface entry
-            	**type**\: list of  :py:class:`TrackedInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.TrackedInterfaces.TrackedInterface>`
+            	**type**\: list of    :py:class:`TrackedInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.TrackedInterfaces.TrackedInterface>`
             
             
 
@@ -2810,7 +2864,7 @@ class Hsrp(object):
             .. attribute:: group
             
             	An HSRP standby group
-            	**type**\: list of  :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group>`
+            	**type**\: list of    :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group>`
             
             
 
@@ -2884,6 +2938,8 @@ class Hsrp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: active_timer_secs
                 
                 	Active timer running time secs
@@ -2891,10 +2947,12 @@ class Hsrp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: address_family
                 
                 	Address family
-                	**type**\:  :py:class:`HsrpBAfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBAfEnum>`
+                	**type**\:   :py:class:`HsrpBAfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBAfEnum>`
                 
                 .. attribute:: authentication_string
                 
@@ -2946,7 +3004,7 @@ class Hsrp(object):
                 .. attribute:: bfd_session_state
                 
                 	BFD session state
-                	**type**\:  :py:class:`HsrpBfdSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBfdSessionStateEnum>`
+                	**type**\:   :py:class:`HsrpBfdSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBfdSessionStateEnum>`
                 
                 .. attribute:: configured_mac_address
                 
@@ -2968,12 +3026,12 @@ class Hsrp(object):
                 .. attribute:: coup_received_time
                 
                 	Time last coup was received
-                	**type**\:  :py:class:`CoupReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.CoupReceivedTime>`
+                	**type**\:   :py:class:`CoupReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.CoupReceivedTime>`
                 
                 .. attribute:: coup_sent_time
                 
                 	Time last coup was sent
-                	**type**\:  :py:class:`CoupSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.CoupSentTime>`
+                	**type**\:   :py:class:`CoupSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.CoupSentTime>`
                 
                 .. attribute:: current_state_timer_secs
                 
@@ -2981,6 +3039,8 @@ class Hsrp(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: delay_timer_flag
                 
@@ -2994,12 +3054,16 @@ class Hsrp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: delay_timer_secs
                 
                 	Delay timer running time secs
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: followed_session_name
                 
@@ -3011,7 +3075,7 @@ class Hsrp(object):
                 .. attribute:: global_address
                 
                 	Global virtual IPv6 addresses
-                	**type**\: list of  :py:class:`GlobalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.GlobalAddress>`
+                	**type**\: list of    :py:class:`GlobalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.GlobalAddress>`
                 
                 .. attribute:: hello_time
                 
@@ -3019,6 +3083,8 @@ class Hsrp(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: millisecond
                 
                 .. attribute:: hello_timer_flag
                 
@@ -3032,6 +3098,8 @@ class Hsrp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: hello_timer_secs
                 
                 	Hello timer running time secs
@@ -3039,12 +3107,16 @@ class Hsrp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: hold_time
                 
                 	Holdtime in msecs
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: millisecond
                 
                 .. attribute:: hsrp_group_number
                 
@@ -3056,7 +3128,7 @@ class Hsrp(object):
                 .. attribute:: hsrp_router_state
                 
                 	HSRP router state
-                	**type**\:  :py:class:`StandbyGrpStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpStateEnum>`
+                	**type**\:   :py:class:`StandbyGrpStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpStateEnum>`
                 
                 .. attribute:: interface
                 
@@ -3084,12 +3156,16 @@ class Hsrp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: learned_hold_time
                 
                 	Learned holdtime in msecs
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: millisecond
                 
                 .. attribute:: min_delay_time
                 
@@ -3098,12 +3174,16 @@ class Hsrp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: preempt_delay
                 
                 	Preempt delay time in seconds
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: preempt_enabled
                 
@@ -3117,6 +3197,8 @@ class Hsrp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: redirects_disabled
                 
                 	HSRP redirects disabled
@@ -3129,15 +3211,17 @@ class Hsrp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: resign_received_time
                 
                 	Time last resign was received
-                	**type**\:  :py:class:`ResignReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.ResignReceivedTime>`
+                	**type**\:   :py:class:`ResignReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.ResignReceivedTime>`
                 
                 .. attribute:: resign_sent_time
                 
                 	Time last resign was sent
-                	**type**\:  :py:class:`ResignSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.ResignSentTime>`
+                	**type**\:   :py:class:`ResignSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.ResignSentTime>`
                 
                 .. attribute:: router_priority
                 
@@ -3200,12 +3284,16 @@ class Hsrp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: standby_timer_secs
                 
                 	Standby timer running time secs
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: state_change_count
                 
@@ -3217,12 +3305,12 @@ class Hsrp(object):
                 .. attribute:: state_change_history
                 
                 	State change history
-                	**type**\: list of  :py:class:`StateChangeHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.StateChangeHistory>`
+                	**type**\: list of    :py:class:`StateChangeHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.StateChangeHistory>`
                 
                 .. attribute:: statistics
                 
                 	HSRP Group statistics
-                	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.Statistics>`
+                	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.Statistics>`
                 
                 .. attribute:: tracked_interface_count
                 
@@ -3284,7 +3372,7 @@ class Hsrp(object):
                 .. attribute:: virtual_mac_address_state
                 
                 	Virtual mac address state
-                	**type**\:  :py:class:`HsrpVmacStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpVmacStateEnum>`
+                	**type**\:   :py:class:`HsrpVmacStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpVmacStateEnum>`
                 
                 
 
@@ -3391,12 +3479,16 @@ class Hsrp(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	Seconds
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: second
                     
                     
 
@@ -3449,12 +3541,16 @@ class Hsrp(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	Seconds
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: second
                     
                     
 
@@ -3507,12 +3603,16 @@ class Hsrp(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	Seconds
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: second
                     
                     
 
@@ -3565,12 +3665,16 @@ class Hsrp(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	Seconds
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: second
                     
                     
 
@@ -3867,22 +3971,22 @@ class Hsrp(object):
                     .. attribute:: new_state
                     
                     	New State
-                    	**type**\:  :py:class:`StandbyGrpStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpStateEnum>`
+                    	**type**\:   :py:class:`StandbyGrpStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpStateEnum>`
                     
                     .. attribute:: old_state
                     
                     	Old State
-                    	**type**\:  :py:class:`StandbyGrpStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpStateEnum>`
+                    	**type**\:   :py:class:`StandbyGrpStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.StandbyGrpStateEnum>`
                     
                     .. attribute:: reason
                     
                     	Reason for state change
-                    	**type**\:  :py:class:`HsrpStateChangeReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpStateChangeReasonEnum>`
+                    	**type**\:   :py:class:`HsrpStateChangeReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpStateChangeReasonEnum>`
                     
                     .. attribute:: time
                     
                     	Time of state change
-                    	**type**\:  :py:class:`Time <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.StateChangeHistory.Time>`
+                    	**type**\:   :py:class:`Time <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Groups.Group.StateChangeHistory.Time>`
                     
                     
 
@@ -3911,12 +4015,16 @@ class Hsrp(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: nanosecond
+                        
                         .. attribute:: seconds
                         
                         	Seconds
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: second
                         
                         
 
@@ -4267,7 +4375,7 @@ class Hsrp(object):
             .. attribute:: interface
             
             	A HSRP interface entry
-            	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Interfaces.Interface>`
+            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Interfaces.Interface>`
             
             
 
@@ -4304,7 +4412,7 @@ class Hsrp(object):
                 .. attribute:: statistics
                 
                 	HSRP Interface Statistics
-                	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Interfaces.Interface.Statistics>`
+                	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.Ipv6.Interfaces.Interface.Statistics>`
                 
                 .. attribute:: use_bia_flag
                 
@@ -4554,7 +4662,7 @@ class Hsrp(object):
         .. attribute:: bfd_session
         
         	An HSRP BFD Session
-        	**type**\: list of  :py:class:`BfdSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.BfdSessions.BfdSession>`
+        	**type**\: list of    :py:class:`BfdSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.BfdSessions.BfdSession>`
         
         
 
@@ -4622,7 +4730,7 @@ class Hsrp(object):
             .. attribute:: bfd_session_state
             
             	BFD session state
-            	**type**\:  :py:class:`HsrpBfdSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBfdSessionStateEnum>`
+            	**type**\:   :py:class:`HsrpBfdSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBfdSessionStateEnum>`
             
             .. attribute:: destination_address
             
@@ -4641,12 +4749,12 @@ class Hsrp(object):
             .. attribute:: group
             
             	HSRP Groups tracking the BFD session
-            	**type**\: list of  :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.BfdSessions.BfdSession.Group>`
+            	**type**\: list of    :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.Hsrp.BfdSessions.BfdSession.Group>`
             
             .. attribute:: session_address_family
             
             	Session Address family
-            	**type**\:  :py:class:`HsrpBAfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBAfEnum>`
+            	**type**\:   :py:class:`HsrpBAfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_oper.HsrpBAfEnum>`
             
             
 

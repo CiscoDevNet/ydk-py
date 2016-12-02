@@ -32,19 +32,19 @@ class AddrFamilyEnum(Enum):
 
     Address Family Types
 
-    .. data:: INTERNETWORK = 2
+    .. data:: internetwork = 2
 
     	Internetwork: UDP, TCP, etc.
 
-    .. data:: IP_VERSION6 = 10
+    .. data:: ip_version6 = 10
 
     	IP version 6
 
     """
 
-    INTERNETWORK = 2
+    internetwork = 2
 
-    IP_VERSION6 = 10
+    ip_version6 = 10
 
 
     @staticmethod
@@ -59,151 +59,151 @@ class MessageTypeIcmpEnum(Enum):
 
     LPTS ICMP message types
 
-    .. data:: ECHO_REPLY = 0
+    .. data:: echo_reply = 0
 
     	ICMP Packet type: Echo reply
 
-    .. data:: DESTINATION_UNREACHABLE = 3
+    .. data:: destination_unreachable = 3
 
     	ICMP Packet type: Destination unreachable
 
-    .. data:: SOURCE_QUENCH = 4
+    .. data:: source_quench = 4
 
     	ICMP Packet type: Source quench
 
-    .. data:: REDIRECT = 5
+    .. data:: redirect = 5
 
     	ICMP Packet type: Redirect
 
-    .. data:: ALTERNATE_HOST_ADDRESS = 6
+    .. data:: alternate_host_address = 6
 
     	ICMP Packet type: Alternate host address
 
-    .. data:: ECHO = 8
+    .. data:: echo = 8
 
     	ICMP Packet type: Echo
 
-    .. data:: ROUTER_ADVERTISEMENT = 9
+    .. data:: router_advertisement = 9
 
     	ICMP Packet type: Router advertisement
 
-    .. data:: ROUTER_SELECTION = 10
+    .. data:: router_selection = 10
 
     	ICMP Packet type: Router selection
 
-    .. data:: TIME_EXCEEDED = 11
+    .. data:: time_exceeded = 11
 
     	ICMP Packet type: Time exceeded
 
-    .. data:: PARAMETER_PROBLEM = 12
+    .. data:: parameter_problem = 12
 
     	ICMP Packet type: Parameter problem
 
-    .. data:: TIME_STAMP = 13
+    .. data:: time_stamp = 13
 
     	ICMP Packet type: Time stamp
 
-    .. data:: TIME_STAMP_REPLY = 14
+    .. data:: time_stamp_reply = 14
 
     	ICMP Packet type: Time stamp reply
 
-    .. data:: INFORMATION_REQUEST = 15
+    .. data:: information_request = 15
 
     	ICMP Packet type: Information request
 
-    .. data:: INFORMATION_REPLY = 16
+    .. data:: information_reply = 16
 
     	ICMP Packet type: Information reply
 
-    .. data:: ADDRESS_MASK_REQUEST = 17
+    .. data:: address_mask_request = 17
 
     	ICMP Packet type: Address mask request
 
-    .. data:: ADDRESS_MASK_REPLY = 18
+    .. data:: address_mask_reply = 18
 
     	ICMP Packet type: Address mask reply
 
-    .. data:: TRACE_ROUTE = 30
+    .. data:: trace_route = 30
 
     	ICMP Packet type: Trace route
 
-    .. data:: DATAGRAM_CONVERSION_ERROR = 31
+    .. data:: datagram_conversion_error = 31
 
     	ICMP Packet type: Datagram Conversion error
 
-    .. data:: MOBILE_HOST_REDIRECT = 32
+    .. data:: mobile_host_redirect = 32
 
     	ICMP Packet type: Mobile host redirect
 
-    .. data:: WHERE_ARE_YOU = 33
+    .. data:: where_are_you = 33
 
     	ICMP Packet type: IPv6 where-are-you
 
-    .. data:: IAM_HERE = 34
+    .. data:: iam_here = 34
 
     	ICMP Packet type: IPv6 i-am-here
 
-    .. data:: MOBILE_REGISTRATION_REQUEST = 35
+    .. data:: mobile_registration_request = 35
 
     	ICMP Packet type: Mobile registration request
 
-    .. data:: MOBILE_REGISTRATION_REPLY = 36
+    .. data:: mobile_registration_reply = 36
 
     	ICMP Packet type: Mobile registration reply
 
-    .. data:: DOMAIN_NAME_REQUEST = 37
+    .. data:: domain_name_request = 37
 
     	ICMP Packet type: Domain name request
 
     """
 
-    ECHO_REPLY = 0
+    echo_reply = 0
 
-    DESTINATION_UNREACHABLE = 3
+    destination_unreachable = 3
 
-    SOURCE_QUENCH = 4
+    source_quench = 4
 
-    REDIRECT = 5
+    redirect = 5
 
-    ALTERNATE_HOST_ADDRESS = 6
+    alternate_host_address = 6
 
-    ECHO = 8
+    echo = 8
 
-    ROUTER_ADVERTISEMENT = 9
+    router_advertisement = 9
 
-    ROUTER_SELECTION = 10
+    router_selection = 10
 
-    TIME_EXCEEDED = 11
+    time_exceeded = 11
 
-    PARAMETER_PROBLEM = 12
+    parameter_problem = 12
 
-    TIME_STAMP = 13
+    time_stamp = 13
 
-    TIME_STAMP_REPLY = 14
+    time_stamp_reply = 14
 
-    INFORMATION_REQUEST = 15
+    information_request = 15
 
-    INFORMATION_REPLY = 16
+    information_reply = 16
 
-    ADDRESS_MASK_REQUEST = 17
+    address_mask_request = 17
 
-    ADDRESS_MASK_REPLY = 18
+    address_mask_reply = 18
 
-    TRACE_ROUTE = 30
+    trace_route = 30
 
-    DATAGRAM_CONVERSION_ERROR = 31
+    datagram_conversion_error = 31
 
-    MOBILE_HOST_REDIRECT = 32
+    mobile_host_redirect = 32
 
-    WHERE_ARE_YOU = 33
+    where_are_you = 33
 
-    IAM_HERE = 34
+    iam_here = 34
 
-    MOBILE_REGISTRATION_REQUEST = 35
+    mobile_registration_request = 35
 
-    MOBILE_REGISTRATION_REPLY = 36
+    mobile_registration_reply = 36
 
-    DOMAIN_NAME_REQUEST = 37
+    domain_name_request = 37
 
 
     @staticmethod
@@ -218,151 +218,151 @@ class MessageTypeIcmpEnum(Enum):
 
     LPTS ICMP message types
 
-    .. data:: ECHO_REPLY = 0
+    .. data:: echo_reply = 0
 
     	ICMP Packet type: Echo reply
 
-    .. data:: DESTINATION_UNREACHABLE = 3
+    .. data:: destination_unreachable = 3
 
     	ICMP Packet type: Destination unreachable
 
-    .. data:: SOURCE_QUENCH = 4
+    .. data:: source_quench = 4
 
     	ICMP Packet type: Source quench
 
-    .. data:: REDIRECT = 5
+    .. data:: redirect = 5
 
     	ICMP Packet type: Redirect
 
-    .. data:: ALTERNATE_HOST_ADDRESS = 6
+    .. data:: alternate_host_address = 6
 
     	ICMP Packet type: Alternate host address
 
-    .. data:: ECHO = 8
+    .. data:: echo = 8
 
     	ICMP Packet type: Echo
 
-    .. data:: ROUTER_ADVERTISEMENT = 9
+    .. data:: router_advertisement = 9
 
     	ICMP Packet type: Router advertisement
 
-    .. data:: ROUTER_SELECTION = 10
+    .. data:: router_selection = 10
 
     	ICMP Packet type: Router selection
 
-    .. data:: TIME_EXCEEDED = 11
+    .. data:: time_exceeded = 11
 
     	ICMP Packet type: Time exceeded
 
-    .. data:: PARAMETER_PROBLEM = 12
+    .. data:: parameter_problem = 12
 
     	ICMP Packet type: Parameter problem
 
-    .. data:: TIME_STAMP = 13
+    .. data:: time_stamp = 13
 
     	ICMP Packet type: Time stamp
 
-    .. data:: TIME_STAMP_REPLY = 14
+    .. data:: time_stamp_reply = 14
 
     	ICMP Packet type: Time stamp reply
 
-    .. data:: INFORMATION_REQUEST = 15
+    .. data:: information_request = 15
 
     	ICMP Packet type: Information request
 
-    .. data:: INFORMATION_REPLY = 16
+    .. data:: information_reply = 16
 
     	ICMP Packet type: Information reply
 
-    .. data:: ADDRESS_MASK_REQUEST = 17
+    .. data:: address_mask_request = 17
 
     	ICMP Packet type: Address mask request
 
-    .. data:: ADDRESS_MASK_REPLY = 18
+    .. data:: address_mask_reply = 18
 
     	ICMP Packet type: Address mask reply
 
-    .. data:: TRACE_ROUTE = 30
+    .. data:: trace_route = 30
 
     	ICMP Packet type: Trace route
 
-    .. data:: DATAGRAM_CONVERSION_ERROR = 31
+    .. data:: datagram_conversion_error = 31
 
     	ICMP Packet type: Datagram Conversion error
 
-    .. data:: MOBILE_HOST_REDIRECT = 32
+    .. data:: mobile_host_redirect = 32
 
     	ICMP Packet type: Mobile host redirect
 
-    .. data:: WHERE_ARE_YOU = 33
+    .. data:: where_are_you = 33
 
     	ICMP Packet type: IPv6 where-are-you
 
-    .. data:: IAM_HERE = 34
+    .. data:: iam_here = 34
 
     	ICMP Packet type: IPv6 i-am-here
 
-    .. data:: MOBILE_REGISTRATION_REQUEST = 35
+    .. data:: mobile_registration_request = 35
 
     	ICMP Packet type: Mobile registration request
 
-    .. data:: MOBILE_REGISTRATION_REPLY = 36
+    .. data:: mobile_registration_reply = 36
 
     	ICMP Packet type: Mobile registration reply
 
-    .. data:: DOMAIN_NAME_REQUEST = 37
+    .. data:: domain_name_request = 37
 
     	ICMP Packet type: Domain name request
 
     """
 
-    ECHO_REPLY = 0
+    echo_reply = 0
 
-    DESTINATION_UNREACHABLE = 3
+    destination_unreachable = 3
 
-    SOURCE_QUENCH = 4
+    source_quench = 4
 
-    REDIRECT = 5
+    redirect = 5
 
-    ALTERNATE_HOST_ADDRESS = 6
+    alternate_host_address = 6
 
-    ECHO = 8
+    echo = 8
 
-    ROUTER_ADVERTISEMENT = 9
+    router_advertisement = 9
 
-    ROUTER_SELECTION = 10
+    router_selection = 10
 
-    TIME_EXCEEDED = 11
+    time_exceeded = 11
 
-    PARAMETER_PROBLEM = 12
+    parameter_problem = 12
 
-    TIME_STAMP = 13
+    time_stamp = 13
 
-    TIME_STAMP_REPLY = 14
+    time_stamp_reply = 14
 
-    INFORMATION_REQUEST = 15
+    information_request = 15
 
-    INFORMATION_REPLY = 16
+    information_reply = 16
 
-    ADDRESS_MASK_REQUEST = 17
+    address_mask_request = 17
 
-    ADDRESS_MASK_REPLY = 18
+    address_mask_reply = 18
 
-    TRACE_ROUTE = 30
+    trace_route = 30
 
-    DATAGRAM_CONVERSION_ERROR = 31
+    datagram_conversion_error = 31
 
-    MOBILE_HOST_REDIRECT = 32
+    mobile_host_redirect = 32
 
-    WHERE_ARE_YOU = 33
+    where_are_you = 33
 
-    IAM_HERE = 34
+    iam_here = 34
 
-    MOBILE_REGISTRATION_REQUEST = 35
+    mobile_registration_request = 35
 
-    MOBILE_REGISTRATION_REPLY = 36
+    mobile_registration_reply = 36
 
-    DOMAIN_NAME_REQUEST = 37
+    domain_name_request = 37
 
 
     @staticmethod
@@ -377,125 +377,125 @@ class MessageTypeIcmpv6Enum(Enum):
 
     LPTS ICMPv6 message types
 
-    .. data:: DESTINATION_UNREACHABLE = 1
+    .. data:: destination_unreachable = 1
 
     	ICMPv6 Packet type: Destination unreachable
 
-    .. data:: PACKET_TOO_BIG = 2
+    .. data:: packet_too_big = 2
 
     	ICMPv6 Packet type: packet too big
 
-    .. data:: TIME_EXCEEDED = 3
+    .. data:: time_exceeded = 3
 
     	ICMPv6 Packet type: Time exceeded
 
-    .. data:: PARAMETER_PROBLEM = 4
+    .. data:: parameter_problem = 4
 
     	ICMPv6 Packet type: Parameter problem
 
-    .. data:: ECHO_REQUEST = 128
+    .. data:: echo_request = 128
 
     	ICMPv6 Packet type: Echo request
 
-    .. data:: ECHO_REPLY = 129
+    .. data:: echo_reply = 129
 
     	ICMPv6 Packet type: Echo reply
 
-    .. data:: MULTICAST_LISTENER_QUERY = 130
+    .. data:: multicast_listener_query = 130
 
     	ICMPv6 Packet type: Multicast listener query
 
-    .. data:: MULTICAST_LISTENER_REPORT = 131
+    .. data:: multicast_listener_report = 131
 
     	ICMPv6 Packet type: Multicast listener report
 
-    .. data:: MULTICAST_LISTENER_DONE = 132
+    .. data:: multicast_listener_done = 132
 
     	ICMPv6 Packet type: Multicast listener done
 
-    .. data:: ROUTER_SOLICITATION = 133
+    .. data:: router_solicitation = 133
 
     	ICMPv6 Packet type: Router solicitation
 
-    .. data:: ROUTER_ADVERTISEMENT = 134
+    .. data:: router_advertisement = 134
 
     	ICMPv6 Packet type: Router advertisement
 
-    .. data:: NEIGHBOR_SOLICITATION = 135
+    .. data:: neighbor_solicitation = 135
 
     	ICMPv6 Packet type: Neighbor solicitation
 
-    .. data:: NEIGHBOR_ADVERTISEMENT = 136
+    .. data:: neighbor_advertisement = 136
 
     	ICMPv6 Packet type: Neighbor advertisement
 
-    .. data:: REDIRECT_MESSAGE = 137
+    .. data:: redirect_message = 137
 
     	ICMPv6 Packet type: Redirect message
 
-    .. data:: ROUTER_RENUMBERING = 138
+    .. data:: router_renumbering = 138
 
     	ICMPv6 Packet type: Router renumbering
 
-    .. data:: NODE_INFORMATION_QUERY = 139
+    .. data:: node_information_query = 139
 
     	ICMPv6 Packet type: Node information query
 
-    .. data:: NODE_INFORMATION_REPLY = 140
+    .. data:: node_information_reply = 140
 
     	ICMPv6 Packet type: Node information reply
 
-    .. data:: INVERSE_NEIGHBOR_DISCOVERY_SOLICITAION = 141
+    .. data:: inverse_neighbor_discovery_solicitaion = 141
 
     	ICMPv6 Packet type: Inverse neighbor discovery
 
     	solicitation message
 
-    .. data:: INVERSE_NEIGHBOR_DISCOVER_ADVERTISEMENT = 142
+    .. data:: inverse_neighbor_discover_advertisement = 142
 
     	ICMPv6 Packet type: Inverse neighbor discovery
 
     	advertisement message
 
-    .. data:: V2_MULTICAST_LISTENER_REPORT = 143
+    .. data:: v2_multicast_listener_report = 143
 
     	ICMPv6 Packet type: Version 2 multicast
 
     	listener report
 
-    .. data:: HOME_AGENT_ADDRESS_DISCOVERY_REQUEST = 144
+    .. data:: home_agent_address_discovery_request = 144
 
     	ICMPv6 Packet type: Home agent address
 
     	discovery request message
 
-    .. data:: HOME_AGENT_ADDRESS_DISCOVERY_REPLY = 145
+    .. data:: home_agent_address_discovery_reply = 145
 
     	ICMPv6 Packet type: Home agent address
 
     	discovery reply message
 
-    .. data:: MOBILE_PREFIX_SOLICITATION = 146
+    .. data:: mobile_prefix_solicitation = 146
 
     	ICMPv6 Packet type: Mobile prefix solicitation
 
-    .. data:: MOBILE_PREFIX_ADVERTISEMENT = 147
+    .. data:: mobile_prefix_advertisement = 147
 
     	ICMPv6 Packet type: Mobile prefix advertisement
 
-    .. data:: CERTIFICATION_PATH_SOLICITATION_MESSAGE = 148
+    .. data:: certification_path_solicitation_message = 148
 
     	ICMPv6 Packet type: Certification path
 
     	solicitation message
 
-    .. data:: CERTIFICATION_PATH_ADVERTISEMENT_MESSAGE = 149
+    .. data:: certification_path_advertisement_message = 149
 
     	ICMPv6 Packet type: Certification path
 
     	advertisement message
 
-    .. data:: EXPERIMENTAL_MOBILITY_PROTOCOLS = 150
+    .. data:: experimental_mobility_protocols = 150
 
     	ICMPv6 Packet type: ICMP messages utilized by
 
@@ -503,91 +503,91 @@ class MessageTypeIcmpv6Enum(Enum):
 
     	seamoby
 
-    .. data:: MULTICAST_ROUTER_ADVERTISEMENT = 151
+    .. data:: multicast_router_advertisement = 151
 
     	ICMPv6 Packet type: Multicast router
 
     	advertisement
 
-    .. data:: MULTICAST_ROUTER_SOLICITATION = 152
+    .. data:: multicast_router_solicitation = 152
 
     	ICMPv6 Packet type: Multicast router
 
     	solicitation
 
-    .. data:: MULTICAST_ROUTER_TERMINATION = 153
+    .. data:: multicast_router_termination = 153
 
     	ICMPv6 Packet type: Multicast router
 
     	termination
 
-    .. data:: FMIPV6_MESSAGES = 154
+    .. data:: fmipv6_messages = 154
 
     	ICMPv6 Packet type: FMIPv6 messages
 
     """
 
-    DESTINATION_UNREACHABLE = 1
+    destination_unreachable = 1
 
-    PACKET_TOO_BIG = 2
+    packet_too_big = 2
 
-    TIME_EXCEEDED = 3
+    time_exceeded = 3
 
-    PARAMETER_PROBLEM = 4
+    parameter_problem = 4
 
-    ECHO_REQUEST = 128
+    echo_request = 128
 
-    ECHO_REPLY = 129
+    echo_reply = 129
 
-    MULTICAST_LISTENER_QUERY = 130
+    multicast_listener_query = 130
 
-    MULTICAST_LISTENER_REPORT = 131
+    multicast_listener_report = 131
 
-    MULTICAST_LISTENER_DONE = 132
+    multicast_listener_done = 132
 
-    ROUTER_SOLICITATION = 133
+    router_solicitation = 133
 
-    ROUTER_ADVERTISEMENT = 134
+    router_advertisement = 134
 
-    NEIGHBOR_SOLICITATION = 135
+    neighbor_solicitation = 135
 
-    NEIGHBOR_ADVERTISEMENT = 136
+    neighbor_advertisement = 136
 
-    REDIRECT_MESSAGE = 137
+    redirect_message = 137
 
-    ROUTER_RENUMBERING = 138
+    router_renumbering = 138
 
-    NODE_INFORMATION_QUERY = 139
+    node_information_query = 139
 
-    NODE_INFORMATION_REPLY = 140
+    node_information_reply = 140
 
-    INVERSE_NEIGHBOR_DISCOVERY_SOLICITAION = 141
+    inverse_neighbor_discovery_solicitaion = 141
 
-    INVERSE_NEIGHBOR_DISCOVER_ADVERTISEMENT = 142
+    inverse_neighbor_discover_advertisement = 142
 
-    V2_MULTICAST_LISTENER_REPORT = 143
+    v2_multicast_listener_report = 143
 
-    HOME_AGENT_ADDRESS_DISCOVERY_REQUEST = 144
+    home_agent_address_discovery_request = 144
 
-    HOME_AGENT_ADDRESS_DISCOVERY_REPLY = 145
+    home_agent_address_discovery_reply = 145
 
-    MOBILE_PREFIX_SOLICITATION = 146
+    mobile_prefix_solicitation = 146
 
-    MOBILE_PREFIX_ADVERTISEMENT = 147
+    mobile_prefix_advertisement = 147
 
-    CERTIFICATION_PATH_SOLICITATION_MESSAGE = 148
+    certification_path_solicitation_message = 148
 
-    CERTIFICATION_PATH_ADVERTISEMENT_MESSAGE = 149
+    certification_path_advertisement_message = 149
 
-    EXPERIMENTAL_MOBILITY_PROTOCOLS = 150
+    experimental_mobility_protocols = 150
 
-    MULTICAST_ROUTER_ADVERTISEMENT = 151
+    multicast_router_advertisement = 151
 
-    MULTICAST_ROUTER_SOLICITATION = 152
+    multicast_router_solicitation = 152
 
-    MULTICAST_ROUTER_TERMINATION = 153
+    multicast_router_termination = 153
 
-    FMIPV6_MESSAGES = 154
+    fmipv6_messages = 154
 
 
     @staticmethod
@@ -602,125 +602,125 @@ class MessageTypeIcmpv6Enum(Enum):
 
     LPTS ICMPv6 message types
 
-    .. data:: DESTINATION_UNREACHABLE = 1
+    .. data:: destination_unreachable = 1
 
     	ICMPv6 Packet type: Destination unreachable
 
-    .. data:: PACKET_TOO_BIG = 2
+    .. data:: packet_too_big = 2
 
     	ICMPv6 Packet type: packet too big
 
-    .. data:: TIME_EXCEEDED = 3
+    .. data:: time_exceeded = 3
 
     	ICMPv6 Packet type: Time exceeded
 
-    .. data:: PARAMETER_PROBLEM = 4
+    .. data:: parameter_problem = 4
 
     	ICMPv6 Packet type: Parameter problem
 
-    .. data:: ECHO_REQUEST = 128
+    .. data:: echo_request = 128
 
     	ICMPv6 Packet type: Echo request
 
-    .. data:: ECHO_REPLY = 129
+    .. data:: echo_reply = 129
 
     	ICMPv6 Packet type: Echo reply
 
-    .. data:: MULTICAST_LISTENER_QUERY = 130
+    .. data:: multicast_listener_query = 130
 
     	ICMPv6 Packet type: Multicast listener query
 
-    .. data:: MULTICAST_LISTENER_REPORT = 131
+    .. data:: multicast_listener_report = 131
 
     	ICMPv6 Packet type: Multicast listener report
 
-    .. data:: MULTICAST_LISTENER_DONE = 132
+    .. data:: multicast_listener_done = 132
 
     	ICMPv6 Packet type: Multicast listener done
 
-    .. data:: ROUTER_SOLICITATION = 133
+    .. data:: router_solicitation = 133
 
     	ICMPv6 Packet type: Router solicitation
 
-    .. data:: ROUTER_ADVERTISEMENT = 134
+    .. data:: router_advertisement = 134
 
     	ICMPv6 Packet type: Router advertisement
 
-    .. data:: NEIGHBOR_SOLICITATION = 135
+    .. data:: neighbor_solicitation = 135
 
     	ICMPv6 Packet type: Neighbor solicitation
 
-    .. data:: NEIGHBOR_ADVERTISEMENT = 136
+    .. data:: neighbor_advertisement = 136
 
     	ICMPv6 Packet type: Neighbor advertisement
 
-    .. data:: REDIRECT_MESSAGE = 137
+    .. data:: redirect_message = 137
 
     	ICMPv6 Packet type: Redirect message
 
-    .. data:: ROUTER_RENUMBERING = 138
+    .. data:: router_renumbering = 138
 
     	ICMPv6 Packet type: Router renumbering
 
-    .. data:: NODE_INFORMATION_QUERY = 139
+    .. data:: node_information_query = 139
 
     	ICMPv6 Packet type: Node information query
 
-    .. data:: NODE_INFORMATION_REPLY = 140
+    .. data:: node_information_reply = 140
 
     	ICMPv6 Packet type: Node information reply
 
-    .. data:: INVERSE_NEIGHBOR_DISCOVERY_SOLICITAION = 141
+    .. data:: inverse_neighbor_discovery_solicitaion = 141
 
     	ICMPv6 Packet type: Inverse neighbor discovery
 
     	solicitation message
 
-    .. data:: INVERSE_NEIGHBOR_DISCOVER_ADVERTISEMENT = 142
+    .. data:: inverse_neighbor_discover_advertisement = 142
 
     	ICMPv6 Packet type: Inverse neighbor discovery
 
     	advertisement message
 
-    .. data:: V2_MULTICAST_LISTENER_REPORT = 143
+    .. data:: v2_multicast_listener_report = 143
 
     	ICMPv6 Packet type: Version 2 multicast
 
     	listener report
 
-    .. data:: HOME_AGENT_ADDRESS_DISCOVERY_REQUEST = 144
+    .. data:: home_agent_address_discovery_request = 144
 
     	ICMPv6 Packet type: Home agent address
 
     	discovery request message
 
-    .. data:: HOME_AGENT_ADDRESS_DISCOVERY_REPLY = 145
+    .. data:: home_agent_address_discovery_reply = 145
 
     	ICMPv6 Packet type: Home agent address
 
     	discovery reply message
 
-    .. data:: MOBILE_PREFIX_SOLICITATION = 146
+    .. data:: mobile_prefix_solicitation = 146
 
     	ICMPv6 Packet type: Mobile prefix solicitation
 
-    .. data:: MOBILE_PREFIX_ADVERTISEMENT = 147
+    .. data:: mobile_prefix_advertisement = 147
 
     	ICMPv6 Packet type: Mobile prefix advertisement
 
-    .. data:: CERTIFICATION_PATH_SOLICITATION_MESSAGE = 148
+    .. data:: certification_path_solicitation_message = 148
 
     	ICMPv6 Packet type: Certification path
 
     	solicitation message
 
-    .. data:: CERTIFICATION_PATH_ADVERTISEMENT_MESSAGE = 149
+    .. data:: certification_path_advertisement_message = 149
 
     	ICMPv6 Packet type: Certification path
 
     	advertisement message
 
-    .. data:: EXPERIMENTAL_MOBILITY_PROTOCOLS = 150
+    .. data:: experimental_mobility_protocols = 150
 
     	ICMPv6 Packet type: ICMP messages utilized by
 
@@ -728,91 +728,91 @@ class MessageTypeIcmpv6Enum(Enum):
 
     	seamoby
 
-    .. data:: MULTICAST_ROUTER_ADVERTISEMENT = 151
+    .. data:: multicast_router_advertisement = 151
 
     	ICMPv6 Packet type: Multicast router
 
     	advertisement
 
-    .. data:: MULTICAST_ROUTER_SOLICITATION = 152
+    .. data:: multicast_router_solicitation = 152
 
     	ICMPv6 Packet type: Multicast router
 
     	solicitation
 
-    .. data:: MULTICAST_ROUTER_TERMINATION = 153
+    .. data:: multicast_router_termination = 153
 
     	ICMPv6 Packet type: Multicast router
 
     	termination
 
-    .. data:: FMIPV6_MESSAGES = 154
+    .. data:: fmipv6_messages = 154
 
     	ICMPv6 Packet type: FMIPv6 messages
 
     """
 
-    DESTINATION_UNREACHABLE = 1
+    destination_unreachable = 1
 
-    PACKET_TOO_BIG = 2
+    packet_too_big = 2
 
-    TIME_EXCEEDED = 3
+    time_exceeded = 3
 
-    PARAMETER_PROBLEM = 4
+    parameter_problem = 4
 
-    ECHO_REQUEST = 128
+    echo_request = 128
 
-    ECHO_REPLY = 129
+    echo_reply = 129
 
-    MULTICAST_LISTENER_QUERY = 130
+    multicast_listener_query = 130
 
-    MULTICAST_LISTENER_REPORT = 131
+    multicast_listener_report = 131
 
-    MULTICAST_LISTENER_DONE = 132
+    multicast_listener_done = 132
 
-    ROUTER_SOLICITATION = 133
+    router_solicitation = 133
 
-    ROUTER_ADVERTISEMENT = 134
+    router_advertisement = 134
 
-    NEIGHBOR_SOLICITATION = 135
+    neighbor_solicitation = 135
 
-    NEIGHBOR_ADVERTISEMENT = 136
+    neighbor_advertisement = 136
 
-    REDIRECT_MESSAGE = 137
+    redirect_message = 137
 
-    ROUTER_RENUMBERING = 138
+    router_renumbering = 138
 
-    NODE_INFORMATION_QUERY = 139
+    node_information_query = 139
 
-    NODE_INFORMATION_REPLY = 140
+    node_information_reply = 140
 
-    INVERSE_NEIGHBOR_DISCOVERY_SOLICITAION = 141
+    inverse_neighbor_discovery_solicitaion = 141
 
-    INVERSE_NEIGHBOR_DISCOVER_ADVERTISEMENT = 142
+    inverse_neighbor_discover_advertisement = 142
 
-    V2_MULTICAST_LISTENER_REPORT = 143
+    v2_multicast_listener_report = 143
 
-    HOME_AGENT_ADDRESS_DISCOVERY_REQUEST = 144
+    home_agent_address_discovery_request = 144
 
-    HOME_AGENT_ADDRESS_DISCOVERY_REPLY = 145
+    home_agent_address_discovery_reply = 145
 
-    MOBILE_PREFIX_SOLICITATION = 146
+    mobile_prefix_solicitation = 146
 
-    MOBILE_PREFIX_ADVERTISEMENT = 147
+    mobile_prefix_advertisement = 147
 
-    CERTIFICATION_PATH_SOLICITATION_MESSAGE = 148
+    certification_path_solicitation_message = 148
 
-    CERTIFICATION_PATH_ADVERTISEMENT_MESSAGE = 149
+    certification_path_advertisement_message = 149
 
-    EXPERIMENTAL_MOBILITY_PROTOCOLS = 150
+    experimental_mobility_protocols = 150
 
-    MULTICAST_ROUTER_ADVERTISEMENT = 151
+    multicast_router_advertisement = 151
 
-    MULTICAST_ROUTER_SOLICITATION = 152
+    multicast_router_solicitation = 152
 
-    MULTICAST_ROUTER_TERMINATION = 153
+    multicast_router_termination = 153
 
-    FMIPV6_MESSAGES = 154
+    fmipv6_messages = 154
 
 
     @staticmethod
@@ -827,87 +827,87 @@ class MessageTypeIgmpEnum(Enum):
 
     LPTS IGMP message types
 
-    .. data:: MEMBERSHIP_QUERY = 17
+    .. data:: membership_query = 17
 
     	IGMP Packet type: Membership query
 
-    .. data:: V1_MEMBERSHIP_REPORT = 18
+    .. data:: v1_membership_report = 18
 
     	IGMP Packet type: V1 membership report
 
-    .. data:: DVMRP = 19
+    .. data:: dvmrp = 19
 
     	IGMP Packet type: DVMRP
 
-    .. data:: PI_MV1 = 20
+    .. data:: pi_mv1 = 20
 
     	IGMP Packet type: PIM version 1
 
-    .. data:: CISCO_TRACE_MESSAGES = 21
+    .. data:: cisco_trace_messages = 21
 
     	IGMP Packet type: Cisco Trace Messages
 
-    .. data:: V2_MEMBERSHIP_REPORT = 22
+    .. data:: v2_membership_report = 22
 
     	IGMP Packet type: V2 membership report
 
-    .. data:: V2_LEAVE_GROUP = 23
+    .. data:: v2_leave_group = 23
 
     	IGMP Packet type: V2 leave group
 
-    .. data:: MULTICAST_TRACEROUTE_RESPONSE = 30
+    .. data:: multicast_traceroute_response = 30
 
     	IGMP Packet type: Multicast traceroute response
 
-    .. data:: MULTICAST_TRACEROUTE = 31
+    .. data:: multicast_traceroute = 31
 
     	IGMP Packet type: MulticastTraceroute
 
-    .. data:: V3_MEMBERSHIP_REPORT = 34
+    .. data:: v3_membership_report = 34
 
     	IGMP Packet type: V3 membership report
 
-    .. data:: MULTICAST_ROUTER_ADVERTISEMENT = 48
+    .. data:: multicast_router_advertisement = 48
 
     	IGMP Packet type: Multicast router
 
     	advertisement
 
-    .. data:: MULTICAST_ROUTER_SOLICITATION = 49
+    .. data:: multicast_router_solicitation = 49
 
     	IGMP Packet type: Multicast router solicitation
 
-    .. data:: MULTICAST_ROUTER_TERMINATION = 50
+    .. data:: multicast_router_termination = 50
 
     	IGMP Packet type: Multicast router termination
 
     """
 
-    MEMBERSHIP_QUERY = 17
+    membership_query = 17
 
-    V1_MEMBERSHIP_REPORT = 18
+    v1_membership_report = 18
 
-    DVMRP = 19
+    dvmrp = 19
 
-    PI_MV1 = 20
+    pi_mv1 = 20
 
-    CISCO_TRACE_MESSAGES = 21
+    cisco_trace_messages = 21
 
-    V2_MEMBERSHIP_REPORT = 22
+    v2_membership_report = 22
 
-    V2_LEAVE_GROUP = 23
+    v2_leave_group = 23
 
-    MULTICAST_TRACEROUTE_RESPONSE = 30
+    multicast_traceroute_response = 30
 
-    MULTICAST_TRACEROUTE = 31
+    multicast_traceroute = 31
 
-    V3_MEMBERSHIP_REPORT = 34
+    v3_membership_report = 34
 
-    MULTICAST_ROUTER_ADVERTISEMENT = 48
+    multicast_router_advertisement = 48
 
-    MULTICAST_ROUTER_SOLICITATION = 49
+    multicast_router_solicitation = 49
 
-    MULTICAST_ROUTER_TERMINATION = 50
+    multicast_router_termination = 50
 
 
     @staticmethod
@@ -922,87 +922,87 @@ class MessageTypeIgmpEnum(Enum):
 
     LPTS IGMP message types
 
-    .. data:: MEMBERSHIP_QUERY = 17
+    .. data:: membership_query = 17
 
     	IGMP Packet type: Membership query
 
-    .. data:: V1_MEMBERSHIP_REPORT = 18
+    .. data:: v1_membership_report = 18
 
     	IGMP Packet type: V1 membership report
 
-    .. data:: DVMRP = 19
+    .. data:: dvmrp = 19
 
     	IGMP Packet type: DVMRP
 
-    .. data:: PI_MV1 = 20
+    .. data:: pi_mv1 = 20
 
     	IGMP Packet type: PIM version 1
 
-    .. data:: CISCO_TRACE_MESSAGES = 21
+    .. data:: cisco_trace_messages = 21
 
     	IGMP Packet type: Cisco Trace Messages
 
-    .. data:: V2_MEMBERSHIP_REPORT = 22
+    .. data:: v2_membership_report = 22
 
     	IGMP Packet type: V2 membership report
 
-    .. data:: V2_LEAVE_GROUP = 23
+    .. data:: v2_leave_group = 23
 
     	IGMP Packet type: V2 leave group
 
-    .. data:: MULTICAST_TRACEROUTE_RESPONSE = 30
+    .. data:: multicast_traceroute_response = 30
 
     	IGMP Packet type: Multicast traceroute response
 
-    .. data:: MULTICAST_TRACEROUTE = 31
+    .. data:: multicast_traceroute = 31
 
     	IGMP Packet type: MulticastTraceroute
 
-    .. data:: V3_MEMBERSHIP_REPORT = 34
+    .. data:: v3_membership_report = 34
 
     	IGMP Packet type: V3 membership report
 
-    .. data:: MULTICAST_ROUTER_ADVERTISEMENT = 48
+    .. data:: multicast_router_advertisement = 48
 
     	IGMP Packet type: Multicast router
 
     	advertisement
 
-    .. data:: MULTICAST_ROUTER_SOLICITATION = 49
+    .. data:: multicast_router_solicitation = 49
 
     	IGMP Packet type: Multicast router solicitation
 
-    .. data:: MULTICAST_ROUTER_TERMINATION = 50
+    .. data:: multicast_router_termination = 50
 
     	IGMP Packet type: Multicast router termination
 
     """
 
-    MEMBERSHIP_QUERY = 17
+    membership_query = 17
 
-    V1_MEMBERSHIP_REPORT = 18
+    v1_membership_report = 18
 
-    DVMRP = 19
+    dvmrp = 19
 
-    PI_MV1 = 20
+    pi_mv1 = 20
 
-    CISCO_TRACE_MESSAGES = 21
+    cisco_trace_messages = 21
 
-    V2_MEMBERSHIP_REPORT = 22
+    v2_membership_report = 22
 
-    V2_LEAVE_GROUP = 23
+    v2_leave_group = 23
 
-    MULTICAST_TRACEROUTE_RESPONSE = 30
+    multicast_traceroute_response = 30
 
-    MULTICAST_TRACEROUTE = 31
+    multicast_traceroute = 31
 
-    V3_MEMBERSHIP_REPORT = 34
+    v3_membership_report = 34
 
-    MULTICAST_ROUTER_ADVERTISEMENT = 48
+    multicast_router_advertisement = 48
 
-    MULTICAST_ROUTER_SOLICITATION = 49
+    multicast_router_solicitation = 49
 
-    MULTICAST_ROUTER_TERMINATION = 50
+    multicast_router_termination = 50
 
 
     @staticmethod
@@ -1017,107 +1017,107 @@ class NsrDownReasonEnum(Enum):
 
     NSR\-Down Reasons
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	None, i.e. NSR was never up
 
-    .. data:: INIT_SYNC_ABORTED = 1
+    .. data:: init_sync_aborted = 1
 
     	Initial sync was aborted
 
-    .. data:: CLIENT_DISABLED = 2
+    .. data:: client_disabled = 2
 
     	Disabled by Active APP
 
-    .. data:: CLIENT_DISCONNECT = 3
+    .. data:: client_disconnect = 3
 
     	Standby APP disconnected
 
-    .. data:: TCP_DISCONNECT = 4
+    .. data:: tcp_disconnect = 4
 
     	Standby TCP disconnected
 
-    .. data:: FAILOVER = 5
+    .. data:: failover = 5
 
     	RP/DRP Failover occurred
 
-    .. data:: NSR_CLEAR = 6
+    .. data:: nsr_clear = 6
 
     	Clear nsr command
 
-    .. data:: INTERNAL_ERROR = 7
+    .. data:: internal_error = 7
 
     	Internal error occurred
 
-    .. data:: RETRANSMIT_THRESHOLD_EXCEED = 8
+    .. data:: retransmit_threshold_exceed = 8
 
     	Retransmission threshold exceededprobably
 
     	becauseS-TCP was not healthy
 
-    .. data:: INIT_SYNC_FAILURE_THRESH_EXCEEDED = 9
+    .. data:: init_sync_failure_thresh_exceeded = 9
 
     	Init-sync repeat failures have exceeded
 
     	threshold
 
-    .. data:: AUDIT_TIMEOUT = 10
+    .. data:: audit_timeout = 10
 
     	Audit operation timed out
 
-    .. data:: AUDIT_FAILED = 11
+    .. data:: audit_failed = 11
 
     	Audit operation failed
 
-    .. data:: STANDBY_SSCB_DELETED = 12
+    .. data:: standby_sscb_deleted = 12
 
     	Standby SSCB deleted
 
-    .. data:: STANDBY_SESSION_CLOSE = 13
+    .. data:: standby_session_close = 13
 
     	Session was closed on standby
 
-    .. data:: STANDBY_RXPATH_FROZEN = 14
+    .. data:: standby_rxpath_frozen = 14
 
     	RX-Path was frozen on standby
 
-    .. data:: PARTNER_DELETED = 15
+    .. data:: partner_deleted = 15
 
     	Partner was deleted from set
 
     """
 
-    NONE = 0
+    none = 0
 
-    INIT_SYNC_ABORTED = 1
+    init_sync_aborted = 1
 
-    CLIENT_DISABLED = 2
+    client_disabled = 2
 
-    CLIENT_DISCONNECT = 3
+    client_disconnect = 3
 
-    TCP_DISCONNECT = 4
+    tcp_disconnect = 4
 
-    FAILOVER = 5
+    failover = 5
 
-    NSR_CLEAR = 6
+    nsr_clear = 6
 
-    INTERNAL_ERROR = 7
+    internal_error = 7
 
-    RETRANSMIT_THRESHOLD_EXCEED = 8
+    retransmit_threshold_exceed = 8
 
-    INIT_SYNC_FAILURE_THRESH_EXCEEDED = 9
+    init_sync_failure_thresh_exceeded = 9
 
-    AUDIT_TIMEOUT = 10
+    audit_timeout = 10
 
-    AUDIT_FAILED = 11
+    audit_failed = 11
 
-    STANDBY_SSCB_DELETED = 12
+    standby_sscb_deleted = 12
 
-    STANDBY_SESSION_CLOSE = 13
+    standby_session_close = 13
 
-    STANDBY_RXPATH_FROZEN = 14
+    standby_rxpath_frozen = 14
 
-    PARTNER_DELETED = 15
+    partner_deleted = 15
 
 
     @staticmethod
@@ -1132,25 +1132,25 @@ class NsrStatusEnum(Enum):
 
     NSR Stream Status
 
-    .. data:: DOWN = 0
+    .. data:: down = 0
 
     	NSR Stream Down
 
-    .. data:: UP = 1
+    .. data:: up = 1
 
     	NSR Stream Up
 
-    .. data:: NA = 2
+    .. data:: na = 2
 
     	NSR Stream Not applicable
 
     """
 
-    DOWN = 0
+    down = 0
 
-    UP = 1
+    up = 1
 
-    NA = 2
+    na = 2
 
 
     @staticmethod
@@ -1165,31 +1165,31 @@ class PacketEnum(Enum):
 
     Packet type
 
-    .. data:: ICMP = 0
+    .. data:: icmp = 0
 
     	ICMP packet type
 
-    .. data:: ICM_PV6 = 1
+    .. data:: icm_pv6 = 1
 
     	ICMPv6 packet type
 
-    .. data:: IGMP = 2
+    .. data:: igmp = 2
 
     	IGMP packet type
 
-    .. data:: UNKNOWN = 3
+    .. data:: unknown = 3
 
     	Packet type unknown
 
     """
 
-    ICMP = 0
+    icmp = 0
 
-    ICM_PV6 = 1
+    icm_pv6 = 1
 
-    IGMP = 2
+    igmp = 2
 
-    UNKNOWN = 3
+    unknown = 3
 
 
     @staticmethod
@@ -1204,11 +1204,11 @@ class PakPrioEnum(Enum):
 
     Packet Priority Types
 
-    .. data:: UNSPECIFIED_PACKET = 0
+    .. data:: unspecified_packet = 0
 
     	Unspecified
 
-    .. data:: NORMAL_PACKET = 1
+    .. data:: normal_packet = 1
 
     	Normal: all traffic routed via this router,
 
@@ -1216,13 +1216,13 @@ class PakPrioEnum(Enum):
 
     	router
 
-    .. data:: MEDIUM_PACKET = 2
+    .. data:: medium_packet = 2
 
     	Medium: Packets with low drop probability e.g.
 
     	Routing updates & requests
 
-    .. data:: HIGH_PACKET = 3
+    .. data:: high_packet = 3
 
     	High: Packets with very low drop probability
 
@@ -1230,7 +1230,7 @@ class PakPrioEnum(Enum):
 
     	OSPF/ISIS Hellos
 
-    .. data:: CRUCIAL_PACKET = 4
+    .. data:: crucial_packet = 4
 
     	Crucial: Packets with very low drop probability
 
@@ -1240,15 +1240,15 @@ class PakPrioEnum(Enum):
 
     """
 
-    UNSPECIFIED_PACKET = 0
+    unspecified_packet = 0
 
-    NORMAL_PACKET = 1
+    normal_packet = 1
 
-    MEDIUM_PACKET = 2
+    medium_packet = 2
 
-    HIGH_PACKET = 3
+    high_packet = 3
 
-    CRUCIAL_PACKET = 4
+    crucial_packet = 4
 
 
     @staticmethod
@@ -1263,31 +1263,31 @@ class ShowEnum(Enum):
 
     Show
 
-    .. data:: ALL = 0
+    .. data:: all = 0
 
     	To dispay all
 
-    .. data:: STATIC_POLICY = 1
+    .. data:: static_policy = 1
 
     	To display static policy
 
-    .. data:: INTERFACE_FILTER = 2
+    .. data:: interface_filter = 2
 
     	To display interface filter
 
-    .. data:: PACKET_FILTER = 3
+    .. data:: packet_filter = 3
 
     	To display packet type filter
 
     """
 
-    ALL = 0
+    all = 0
 
-    STATIC_POLICY = 1
+    static_policy = 1
 
-    INTERFACE_FILTER = 2
+    interface_filter = 2
 
-    PACKET_FILTER = 3
+    packet_filter = 3
 
 
     @staticmethod
@@ -1302,19 +1302,19 @@ class TcpAddressFamilyEnum(Enum):
 
     Address Family Type
 
-    .. data:: IPV4 = 2
+    .. data:: ipv4 = 2
 
     	IPv4
 
-    .. data:: IPV6 = 10
+    .. data:: ipv6 = 10
 
     	IPv6
 
     """
 
-    IPV4 = 2
+    ipv4 = 2
 
-    IPV6 = 10
+    ipv6 = 10
 
 
     @staticmethod
@@ -1329,73 +1329,73 @@ class TcpConnStateEnum(Enum):
 
     TCP Connection State
 
-    .. data:: CLOSED = 0
+    .. data:: closed = 0
 
     	Closed
 
-    .. data:: LISTEN = 1
+    .. data:: listen = 1
 
     	Listen
 
-    .. data:: SYN_SENT = 2
+    .. data:: syn_sent = 2
 
     	Syn sent
 
-    .. data:: SYN_RECEIVED = 3
+    .. data:: syn_received = 3
 
     	Syn received
 
-    .. data:: ESTABLISHED = 4
+    .. data:: established = 4
 
     	Established
 
-    .. data:: CLOSE_WAIT = 5
+    .. data:: close_wait = 5
 
     	Close wait
 
-    .. data:: FIN_WAIT1 = 6
+    .. data:: fin_wait1 = 6
 
     	FIN Wait1
 
-    .. data:: CLOSING = 7
+    .. data:: closing = 7
 
     	Closing
 
-    .. data:: LAST_ACK = 8
+    .. data:: last_ack = 8
 
     	Last ack
 
-    .. data:: FIN_WAIT2 = 9
+    .. data:: fin_wait2 = 9
 
     	FIN Wait2
 
-    .. data:: TIME_WAIT = 10
+    .. data:: time_wait = 10
 
     	Time wait
 
     """
 
-    CLOSED = 0
+    closed = 0
 
-    LISTEN = 1
+    listen = 1
 
-    SYN_SENT = 2
+    syn_sent = 2
 
-    SYN_RECEIVED = 3
+    syn_received = 3
 
-    ESTABLISHED = 4
+    established = 4
 
-    CLOSE_WAIT = 5
+    close_wait = 5
 
-    FIN_WAIT1 = 6
+    fin_wait1 = 6
 
-    CLOSING = 7
+    closing = 7
 
-    LAST_ACK = 8
+    last_ack = 8
 
-    FIN_WAIT2 = 9
+    fin_wait2 = 9
 
-    TIME_WAIT = 10
+    time_wait = 10
 
 
     @staticmethod
@@ -1410,55 +1410,55 @@ class TcpTimerEnum(Enum):
 
     TCP Timer Type
 
-    .. data:: RETRANSMISSION_TIMER = 0
+    .. data:: retransmission_timer = 0
 
     	Retransmission timer
 
-    .. data:: WINDOW_PROBE_TIMER = 1
+    .. data:: window_probe_timer = 1
 
     	Send Window Probe timer
 
-    .. data:: TIMEWAIT_STATE_TIMER = 2
+    .. data:: timewait_state_timer = 2
 
     	TIMEWAIT state timer
 
-    .. data:: ACK_HOLD_TIMER = 3
+    .. data:: ack_hold_timer = 3
 
     	ACK Hold timer
 
-    .. data:: KEEP_ALIVE_TIMER = 4
+    .. data:: keep_alive_timer = 4
 
     	Keep Alive timer
 
-    .. data:: PMTU_AGER_TIMER = 5
+    .. data:: pmtu_ager_timer = 5
 
     	PMTU Ager Timer
 
-    .. data:: RETRANSMISSION_GIVEUP_TIMER = 6
+    .. data:: retransmission_giveup_timer = 6
 
     	Retransmission Giveup timer
 
-    .. data:: THROTTLE_TIMER = 7
+    .. data:: throttle_timer = 7
 
     	Throttle (for PAW/xipc) timer
 
     """
 
-    RETRANSMISSION_TIMER = 0
+    retransmission_timer = 0
 
-    WINDOW_PROBE_TIMER = 1
+    window_probe_timer = 1
 
-    TIMEWAIT_STATE_TIMER = 2
+    timewait_state_timer = 2
 
-    ACK_HOLD_TIMER = 3
+    ack_hold_timer = 3
 
-    KEEP_ALIVE_TIMER = 4
+    keep_alive_timer = 4
 
-    PMTU_AGER_TIMER = 5
+    pmtu_ager_timer = 5
 
-    RETRANSMISSION_GIVEUP_TIMER = 6
+    retransmission_giveup_timer = 6
 
-    THROTTLE_TIMER = 7
+    throttle_timer = 7
 
 
     @staticmethod
@@ -1475,7 +1475,7 @@ class TcpConnection(object):
     .. attribute:: nodes
     
     	Table of information about all nodes present on the system
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes>`
     
     
 
@@ -1497,7 +1497,7 @@ class TcpConnection(object):
         .. attribute:: node
         
         	Information about a single node
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node>`
         
         
 
@@ -1527,22 +1527,22 @@ class TcpConnection(object):
             .. attribute:: brief_informations
             
             	Table listing connections for which brief information is provided.Note that not all connections are listed in the brief table
-            	**type**\:  :py:class:`BriefInformations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.BriefInformations>`
+            	**type**\:   :py:class:`BriefInformations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.BriefInformations>`
             
             .. attribute:: detail_informations
             
             	Table listing TCP connections for which detailed information is provided
-            	**type**\:  :py:class:`DetailInformations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations>`
+            	**type**\:   :py:class:`DetailInformations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations>`
             
             .. attribute:: extended_information
             
             	Extended Filter related Information
-            	**type**\:  :py:class:`ExtendedInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation>`
+            	**type**\:   :py:class:`ExtendedInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation>`
             
             .. attribute:: statistics
             
             	Statistics of all TCP connections
-            	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics>`
+            	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics>`
             
             
 
@@ -1571,17 +1571,17 @@ class TcpConnection(object):
                 .. attribute:: clients
                 
                 	Table listing clients
-                	**type**\:  :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Clients>`
+                	**type**\:   :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Clients>`
                 
                 .. attribute:: pcbs
                 
                 	Table listing the TCP connections for which statistics are provided
-                	**type**\:  :py:class:`Pcbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs>`
+                	**type**\:   :py:class:`Pcbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs>`
                 
                 .. attribute:: summary
                 
                 	Summary statistics across all TCP connections
-                	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Summary>`
+                	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Summary>`
                 
                 
 
@@ -1607,7 +1607,7 @@ class TcpConnection(object):
                     .. attribute:: client
                     
                     	Describing Client ID
-                    	**type**\: list of  :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Clients.Client>`
+                    	**type**\: list of    :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Clients.Client>`
                     
                     
 
@@ -1772,7 +1772,7 @@ class TcpConnection(object):
                     .. attribute:: pcb
                     
                     	Protocol Control Block ID
-                    	**type**\: list of  :py:class:`Pcb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb>`
+                    	**type**\: list of    :py:class:`Pcb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb>`
                     
                     
 
@@ -1802,7 +1802,7 @@ class TcpConnection(object):
                         .. attribute:: async_session_stats
                         
                         	Statistics of Async TCP Sessions
-                        	**type**\:  :py:class:`AsyncSessionStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats>`
+                        	**type**\:   :py:class:`AsyncSessionStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.AsyncSessionStats>`
                         
                         .. attribute:: is_paw_socket
                         
@@ -1833,7 +1833,7 @@ class TcpConnection(object):
                         .. attribute:: read_io_counts
                         
                         	Read  I/O counts
-                        	**type**\:  :py:class:`ReadIoCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.ReadIoCounts>`
+                        	**type**\:   :py:class:`ReadIoCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.ReadIoCounts>`
                         
                         .. attribute:: read_io_time
                         
@@ -1908,7 +1908,7 @@ class TcpConnection(object):
                         .. attribute:: write_io_counts
                         
                         	Write I/O counts
-                        	**type**\:  :py:class:`WriteIoCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.WriteIoCounts>`
+                        	**type**\:   :py:class:`WriteIoCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.Statistics.Pcbs.Pcb.WriteIoCounts>`
                         
                         .. attribute:: write_io_time
                         
@@ -2162,6 +2162,8 @@ class TcpConnection(object):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**units**\: byte
+                            
                             .. attribute:: data_read_error_num
                             
                             	Number of failed data read from XIPC
@@ -2182,6 +2184,8 @@ class TcpConnection(object):
                             	**type**\:  list of int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**units**\: byte
                             
                             .. attribute:: data_write_error_num
                             
@@ -2454,12 +2458,16 @@ class TcpConnection(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: byte
+                    
                     .. attribute:: after_window_bytes_received
                     
                     	After\-window bytes received
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: byte
                     
                     .. attribute:: after_window_packets_received
                     
@@ -2481,6 +2489,8 @@ class TcpConnection(object):
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: byte
                     
                     .. attribute:: connection_rate_limited
                     
@@ -2552,12 +2562,16 @@ class TcpConnection(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: byte
+                    
                     .. attribute:: data_bytes_sent
                     
                     	Data bytes sent
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: byte
                     
                     .. attribute:: data_packets_received_in_sequence
                     
@@ -2586,6 +2600,8 @@ class TcpConnection(object):
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: byte
                     
                     .. attribute:: duplicate_packets_received
                     
@@ -2720,6 +2736,8 @@ class TcpConnection(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: byte
+                    
                     .. attribute:: out_of_order_packets_received
                     
                     	Out\-of\-order packets received
@@ -2761,6 +2779,8 @@ class TcpConnection(object):
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: byte
                     
                     .. attribute:: paws_dropped
                     
@@ -3441,7 +3461,7 @@ class TcpConnection(object):
                 .. attribute:: display_types
                 
                 	Table listing display types
-                	**type**\:  :py:class:`DisplayTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes>`
+                	**type**\:   :py:class:`DisplayTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes>`
                 
                 
 
@@ -3463,7 +3483,7 @@ class TcpConnection(object):
                     .. attribute:: display_type
                     
                     	Describing particular display type
-                    	**type**\: list of  :py:class:`DisplayType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType>`
+                    	**type**\: list of    :py:class:`DisplayType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType>`
                     
                     
 
@@ -3486,12 +3506,12 @@ class TcpConnection(object):
                         .. attribute:: disp_type  <key>
                         
                         	Specifying display type
-                        	**type**\:  :py:class:`ShowEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.ShowEnum>`
+                        	**type**\:   :py:class:`ShowEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.ShowEnum>`
                         
                         .. attribute:: connection_id
                         
                         	Describing connection ID
-                        	**type**\: list of  :py:class:`ConnectionId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId>`
+                        	**type**\: list of    :py:class:`ConnectionId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId>`
                         
                         
 
@@ -3522,12 +3542,12 @@ class TcpConnection(object):
                             .. attribute:: common
                             
                             	Common PCB information
-                            	**type**\:  :py:class:`Common <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common>`
+                            	**type**\:   :py:class:`Common <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common>`
                             
                             .. attribute:: foreign_address
                             
                             	Remote IP address
-                            	**type**\:  :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.ForeignAddress>`
+                            	**type**\:   :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.ForeignAddress>`
                             
                             .. attribute:: foreign_port
                             
@@ -3546,7 +3566,7 @@ class TcpConnection(object):
                             .. attribute:: local_address
                             
                             	Local IP address
-                            	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.LocalAddress>`
+                            	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.LocalAddress>`
                             
                             .. attribute:: local_port
                             
@@ -3583,7 +3603,7 @@ class TcpConnection(object):
                                 .. attribute:: af_name
                                 
                                 	AFName
-                                	**type**\:  :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
+                                	**type**\:   :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
                                 
                                 .. attribute:: ipv4_address
                                 
@@ -3650,7 +3670,7 @@ class TcpConnection(object):
                                 .. attribute:: af_name
                                 
                                 	AFName
-                                	**type**\:  :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
+                                	**type**\:   :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
                                 
                                 .. attribute:: ipv4_address
                                 
@@ -3717,12 +3737,12 @@ class TcpConnection(object):
                                 .. attribute:: af_name
                                 
                                 	Address Family
-                                	**type**\:  :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
+                                	**type**\:   :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
                                 
                                 .. attribute:: lpts_pcb
                                 
                                 	LPTS PCB information
-                                	**type**\:  :py:class:`LptsPcb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb>`
+                                	**type**\:   :py:class:`LptsPcb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb>`
                                 
                                 
 
@@ -3745,12 +3765,12 @@ class TcpConnection(object):
                                     .. attribute:: accept_mask
                                     
                                     	AcceptMask
-                                    	**type**\:  :py:class:`AcceptMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.AcceptMask>`
+                                    	**type**\:   :py:class:`AcceptMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.AcceptMask>`
                                     
                                     .. attribute:: filter
                                     
                                     	Interface Filters
-                                    	**type**\: list of  :py:class:`Filter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter>`
+                                    	**type**\: list of    :py:class:`Filter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter>`
                                     
                                     .. attribute:: flow_types_info
                                     
@@ -3762,12 +3782,12 @@ class TcpConnection(object):
                                     .. attribute:: lpts_flags
                                     
                                     	LPTS flags
-                                    	**type**\:  :py:class:`LptsFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.LptsFlags>`
+                                    	**type**\:   :py:class:`LptsFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.LptsFlags>`
                                     
                                     .. attribute:: options
                                     
                                     	Receive options
-                                    	**type**\:  :py:class:`Options <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Options>`
+                                    	**type**\:   :py:class:`Options <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Options>`
                                     
                                     .. attribute:: ttl
                                     
@@ -4026,7 +4046,7 @@ class TcpConnection(object):
                                         .. attribute:: local_address
                                         
                                         	Local address
-                                        	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.LocalAddress>`
+                                        	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.LocalAddress>`
                                         
                                         .. attribute:: local_length
                                         
@@ -4038,7 +4058,7 @@ class TcpConnection(object):
                                         .. attribute:: packet_type
                                         
                                         	Protocol\-specific packet type
-                                        	**type**\:  :py:class:`PacketType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.PacketType>`
+                                        	**type**\:   :py:class:`PacketType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.PacketType>`
                                         
                                         .. attribute:: priority
                                         
@@ -4064,7 +4084,7 @@ class TcpConnection(object):
                                         .. attribute:: remote_address
                                         
                                         	Remote address
-                                        	**type**\:  :py:class:`RemoteAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.RemoteAddress>`
+                                        	**type**\:   :py:class:`RemoteAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.ExtendedInformation.DisplayTypes.DisplayType.ConnectionId.Common.LptsPcb.Filter.RemoteAddress>`
                                         
                                         .. attribute:: remote_length
                                         
@@ -4112,17 +4132,17 @@ class TcpConnection(object):
                                             .. attribute:: icm_pv6_message_type
                                             
                                             	ICMPv6 message type
-                                            	**type**\:  :py:class:`MessageTypeIcmpv6Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.MessageTypeIcmpv6Enum>`
+                                            	**type**\:   :py:class:`MessageTypeIcmpv6Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.MessageTypeIcmpv6Enum>`
                                             
                                             .. attribute:: icmp_message_type
                                             
                                             	ICMP message type
-                                            	**type**\:  :py:class:`MessageTypeIcmpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.MessageTypeIcmpEnum>`
+                                            	**type**\:   :py:class:`MessageTypeIcmpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.MessageTypeIcmpEnum>`
                                             
                                             .. attribute:: igmp_message_type
                                             
                                             	IGMP message type
-                                            	**type**\:  :py:class:`MessageTypeIgmpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.MessageTypeIgmpEnum>`
+                                            	**type**\:   :py:class:`MessageTypeIgmpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.MessageTypeIgmpEnum>`
                                             
                                             .. attribute:: message_id
                                             
@@ -4134,7 +4154,7 @@ class TcpConnection(object):
                                             .. attribute:: type
                                             
                                             	Type
-                                            	**type**\:  :py:class:`PacketEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.PacketEnum>`
+                                            	**type**\:   :py:class:`PacketEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.PacketEnum>`
                                             
                                             
 
@@ -4195,7 +4215,7 @@ class TcpConnection(object):
                                             .. attribute:: af_name
                                             
                                             	AFName
-                                            	**type**\:  :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
+                                            	**type**\:   :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
                                             
                                             .. attribute:: ipv4_address
                                             
@@ -4262,7 +4282,7 @@ class TcpConnection(object):
                                             .. attribute:: af_name
                                             
                                             	AFName
-                                            	**type**\:  :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
+                                            	**type**\:   :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
                                             
                                             .. attribute:: ipv4_address
                                             
@@ -4577,7 +4597,7 @@ class TcpConnection(object):
                 .. attribute:: detail_information
                 
                 	Protocol Control Block ID
-                	**type**\: list of  :py:class:`DetailInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation>`
+                	**type**\: list of    :py:class:`DetailInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation>`
                 
                 
 
@@ -4614,7 +4634,7 @@ class TcpConnection(object):
                     .. attribute:: address_family
                     
                     	Address Family
-                    	**type**\:  :py:class:`TcpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpAddressFamilyEnum>`
+                    	**type**\:   :py:class:`TcpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpAddressFamilyEnum>`
                     
                     .. attribute:: connect_retries
                     
@@ -4630,10 +4650,12 @@ class TcpConnection(object):
                     
                     	**range:** 0..65535
                     
+                    	**units**\: second
+                    
                     .. attribute:: connection_state
                     
                     	Connection state
-                    	**type**\:  :py:class:`TcpConnStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnStateEnum>`
+                    	**type**\:   :py:class:`TcpConnStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnStateEnum>`
                     
                     .. attribute:: current_receive_queue_packet_size
                     
@@ -4649,12 +4671,16 @@ class TcpConnection(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: byte
+                    
                     .. attribute:: current_send_queue_size
                     
                     	Current send queue size in bytes
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: byte
                     
                     .. attribute:: established_time
                     
@@ -4666,7 +4692,7 @@ class TcpConnection(object):
                     .. attribute:: feature_flags
                     
                     	Connection feature flags
-                    	**type**\:  :py:class:`FeatureFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FeatureFlags>`
+                    	**type**\:   :py:class:`FeatureFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.FeatureFlags>`
                     
                     .. attribute:: fib_label_output
                     
@@ -4692,7 +4718,7 @@ class TcpConnection(object):
                     .. attribute:: foreign_address
                     
                     	Foreign address
-                    	**type**\:  :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ForeignAddress>`
+                    	**type**\:   :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ForeignAddress>`
                     
                     .. attribute:: foreign_port
                     
@@ -4744,7 +4770,7 @@ class TcpConnection(object):
                     .. attribute:: local_address
                     
                     	Local address
-                    	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.LocalAddress>`
+                    	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.LocalAddress>`
                     
                     .. attribute:: local_pid
                     
@@ -4781,6 +4807,8 @@ class TcpConnection(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: byte
+                    
                     .. attribute:: max_rtt
                     
                     	Max RTT (msec)
@@ -4794,6 +4822,8 @@ class TcpConnection(object):
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: byte
                     
                     .. attribute:: min_mss
                     
@@ -4816,6 +4846,8 @@ class TcpConnection(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: byte
+                    
                     .. attribute:: num_labels
                     
                     	Number of labels returned by fib lookup
@@ -4833,7 +4865,7 @@ class TcpConnection(object):
                     .. attribute:: packet_priority
                     
                     	Priority given to packets on this socket
-                    	**type**\:  :py:class:`PakPrioEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.PakPrioEnum>`
+                    	**type**\:   :py:class:`PakPrioEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.PakPrioEnum>`
                     
                     .. attribute:: packet_tos
                     
@@ -4863,6 +4895,8 @@ class TcpConnection(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: byte
+                    
                     .. attribute:: receive_adv_window_size
                     
                     	Receive advertised window size in bytes
@@ -4870,10 +4904,12 @@ class TcpConnection(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: byte
+                    
                     .. attribute:: receive_buf_state_flags
                     
                     	Receive buffer state flags
-                    	**type**\:  :py:class:`ReceiveBufStateFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ReceiveBufStateFlags>`
+                    	**type**\:   :py:class:`ReceiveBufStateFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.ReceiveBufStateFlags>`
                     
                     .. attribute:: receive_initial_sequence_num
                     
@@ -4903,6 +4939,8 @@ class TcpConnection(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: byte
+                    
                     .. attribute:: recvbuf_hiwat
                     
                     	Receive buffer's high water mark
@@ -4920,7 +4958,7 @@ class TcpConnection(object):
                     .. attribute:: request_flags
                     
                     	Connection request flags
-                    	**type**\:  :py:class:`RequestFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.RequestFlags>`
+                    	**type**\:   :py:class:`RequestFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.RequestFlags>`
                     
                     .. attribute:: request_receive_window_scale
                     
@@ -4960,7 +4998,7 @@ class TcpConnection(object):
                     .. attribute:: sack_blk
                     
                     	Seq nos. of sack blocks
-                    	**type**\: list of  :py:class:`SackBlk <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SackBlk>`
+                    	**type**\: list of    :py:class:`SackBlk <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SackBlk>`
                     
                     .. attribute:: save_queue_size
                     
@@ -4969,10 +5007,12 @@ class TcpConnection(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: byte
+                    
                     .. attribute:: send_buf_state_flags
                     
                     	Send buffer state flags
-                    	**type**\:  :py:class:`SendBufStateFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendBufStateFlags>`
+                    	**type**\:   :py:class:`SendBufStateFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendBufStateFlags>`
                     
                     .. attribute:: send_congestion_window_size
                     
@@ -4980,6 +5020,8 @@ class TcpConnection(object):
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: byte
                     
                     .. attribute:: send_initial_sequence_num
                     
@@ -5012,7 +5054,7 @@ class TcpConnection(object):
                     .. attribute:: send_sack_hole
                     
                     	Sorted list of sack holes
-                    	**type**\: list of  :py:class:`SendSackHole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendSackHole>`
+                    	**type**\: list of    :py:class:`SendSackHole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SendSackHole>`
                     
                     .. attribute:: send_unack_sequence_num
                     
@@ -5034,6 +5076,8 @@ class TcpConnection(object):
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: byte
                     
                     .. attribute:: sendbuf_hiwat
                     
@@ -5073,12 +5117,12 @@ class TcpConnection(object):
                     .. attribute:: socket_option_flags
                     
                     	Socket option flags
-                    	**type**\:  :py:class:`SocketOptionFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketOptionFlags>`
+                    	**type**\:   :py:class:`SocketOptionFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketOptionFlags>`
                     
                     .. attribute:: socket_state_flags
                     
                     	Socket state flags
-                    	**type**\:  :py:class:`SocketStateFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketStateFlags>`
+                    	**type**\:   :py:class:`SocketStateFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.SocketStateFlags>`
                     
                     .. attribute:: soft_error
                     
@@ -5104,7 +5148,7 @@ class TcpConnection(object):
                     .. attribute:: state_flags
                     
                     	Connection state flags
-                    	**type**\:  :py:class:`StateFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.StateFlags>`
+                    	**type**\:   :py:class:`StateFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.StateFlags>`
                     
                     .. attribute:: syn_wait_time
                     
@@ -5137,7 +5181,7 @@ class TcpConnection(object):
                     .. attribute:: timer
                     
                     	Timers
-                    	**type**\: list of  :py:class:`Timer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.Timer>`
+                    	**type**\: list of    :py:class:`Timer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.DetailInformations.DetailInformation.Timer>`
                     
                     .. attribute:: vrf_id
                     
@@ -5266,7 +5310,7 @@ class TcpConnection(object):
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\:  :py:class:`TcpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpAddressFamilyEnum>`
+                        	**type**\:   :py:class:`TcpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpAddressFamilyEnum>`
                         
                         .. attribute:: ipv4_address
                         
@@ -5333,7 +5377,7 @@ class TcpConnection(object):
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\:  :py:class:`TcpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpAddressFamilyEnum>`
+                        	**type**\:   :py:class:`TcpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpAddressFamilyEnum>`
                         
                         .. attribute:: ipv4_address
                         
@@ -6357,7 +6401,7 @@ class TcpConnection(object):
                         .. attribute:: timer_type
                         
                         	Timer Type
-                        	**type**\:  :py:class:`TcpTimerEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpTimerEnum>`
+                        	**type**\:   :py:class:`TcpTimerEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpTimerEnum>`
                         
                         
 
@@ -6862,7 +6906,7 @@ class TcpConnection(object):
                 .. attribute:: brief_information
                 
                 	Brief information about a TCP connection
-                	**type**\: list of  :py:class:`BriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.BriefInformations.BriefInformation>`
+                	**type**\: list of    :py:class:`BriefInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.BriefInformations.BriefInformation>`
                 
                 
 
@@ -6892,12 +6936,12 @@ class TcpConnection(object):
                     .. attribute:: af_name
                     
                     	Address family
-                    	**type**\:  :py:class:`TcpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpAddressFamilyEnum>`
+                    	**type**\:   :py:class:`TcpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpAddressFamilyEnum>`
                     
                     .. attribute:: connection_state
                     
                     	Connection state
-                    	**type**\:  :py:class:`TcpConnStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnStateEnum>`
+                    	**type**\:   :py:class:`TcpConnStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnStateEnum>`
                     
                     .. attribute:: current_receive_queue_size
                     
@@ -6906,6 +6950,8 @@ class TcpConnection(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: byte
+                    
                     .. attribute:: current_send_queue_size
                     
                     	Current send queue size in bytes
@@ -6913,10 +6959,12 @@ class TcpConnection(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: byte
+                    
                     .. attribute:: foreign_address
                     
                     	Foreign address
-                    	**type**\:  :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.BriefInformations.BriefInformation.ForeignAddress>`
+                    	**type**\:   :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.BriefInformations.BriefInformation.ForeignAddress>`
                     
                     .. attribute:: foreign_port
                     
@@ -6928,7 +6976,7 @@ class TcpConnection(object):
                     .. attribute:: local_address
                     
                     	Local address
-                    	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.BriefInformations.BriefInformation.LocalAddress>`
+                    	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpConnection.Nodes.Node.BriefInformations.BriefInformation.LocalAddress>`
                     
                     .. attribute:: local_pid
                     
@@ -6990,7 +7038,7 @@ class TcpConnection(object):
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\:  :py:class:`TcpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpAddressFamilyEnum>`
+                        	**type**\:   :py:class:`TcpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpAddressFamilyEnum>`
                         
                         .. attribute:: ipv4_address
                         
@@ -7057,7 +7105,7 @@ class TcpConnection(object):
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\:  :py:class:`TcpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpAddressFamilyEnum>`
+                        	**type**\:   :py:class:`TcpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpAddressFamilyEnum>`
                         
                         .. attribute:: ipv4_address
                         
@@ -7291,7 +7339,7 @@ class Tcp(object):
     .. attribute:: nodes
     
     	Node\-specific TCP operational data
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.Tcp.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.Tcp.Nodes>`
     
     
 
@@ -7312,7 +7360,7 @@ class Tcp(object):
         .. attribute:: node
         
         	TCP operational data for a particular node
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.Tcp.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.Tcp.Nodes.Node>`
         
         
 
@@ -7342,7 +7390,7 @@ class Tcp(object):
             .. attribute:: statistics
             
             	Statistical TCP operational data for a node
-            	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.Tcp.Nodes.Node.Statistics>`
+            	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.Tcp.Nodes.Node.Statistics>`
             
             
 
@@ -7365,12 +7413,12 @@ class Tcp(object):
                 .. attribute:: ipv4_traffic
                 
                 	TCP Traffic statistics for IPv4
-                	**type**\:  :py:class:`Ipv4Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.Tcp.Nodes.Node.Statistics.Ipv4Traffic>`
+                	**type**\:   :py:class:`Ipv4Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.Tcp.Nodes.Node.Statistics.Ipv4Traffic>`
                 
                 .. attribute:: ipv6_traffic
                 
                 	TCP Traffic statistics for IPv6
-                	**type**\:  :py:class:`Ipv6Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.Tcp.Nodes.Node.Statistics.Ipv6Traffic>`
+                	**type**\:   :py:class:`Ipv6Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.Tcp.Nodes.Node.Statistics.Ipv6Traffic>`
                 
                 
 
@@ -7676,7 +7724,7 @@ class TcpNsr(object):
     .. attribute:: nodes
     
     	Table of information about all nodes present on the system
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes>`
     
     
 
@@ -7698,7 +7746,7 @@ class TcpNsr(object):
         .. attribute:: node
         
         	Information about a single node
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node>`
         
         
 
@@ -7728,22 +7776,22 @@ class TcpNsr(object):
             .. attribute:: client
             
             	Information about TCP NSR Client
-            	**type**\:  :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Client>`
+            	**type**\:   :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Client>`
             
             .. attribute:: session
             
             	Information about TCP NSR Sessions
-            	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session>`
+            	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session>`
             
             .. attribute:: session_set
             
             	Information about TCP NSR Session Sets
-            	**type**\:  :py:class:`SessionSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.SessionSet>`
+            	**type**\:   :py:class:`SessionSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.SessionSet>`
             
             .. attribute:: statistics
             
             	Statis Information about TCP NSR connections
-            	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics>`
+            	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics>`
             
             
 
@@ -7772,12 +7820,12 @@ class TcpNsr(object):
                 .. attribute:: brief_sessions
                 
                 	Information about TCP NSR Sessions
-                	**type**\:  :py:class:`BriefSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.BriefSessions>`
+                	**type**\:   :py:class:`BriefSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.BriefSessions>`
                 
                 .. attribute:: detail_sessions
                 
                 	Table about TCP NSR Sessions details
-                	**type**\:  :py:class:`DetailSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.DetailSessions>`
+                	**type**\:   :py:class:`DetailSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.DetailSessions>`
                 
                 
 
@@ -7801,7 +7849,7 @@ class TcpNsr(object):
                     .. attribute:: brief_session
                     
                     	Brief information about NSR Sessions
-                    	**type**\: list of  :py:class:`BriefSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession>`
+                    	**type**\: list of    :py:class:`BriefSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.BriefSessions.BriefSession>`
                     
                     
 
@@ -7831,7 +7879,7 @@ class TcpNsr(object):
                         .. attribute:: address_family
                         
                         	Address family
-                        	**type**\:  :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
+                        	**type**\:   :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
                         
                         .. attribute:: foreign_address
                         
@@ -7855,7 +7903,7 @@ class TcpNsr(object):
                         .. attribute:: is_ds_operational_up
                         
                         	Is Downstream NSR operational?
-                        	**type**\:  :py:class:`NsrStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.NsrStatusEnum>`
+                        	**type**\:   :py:class:`NsrStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.NsrStatusEnum>`
                         
                         .. attribute:: is_only_receive_path_replication
                         
@@ -7865,7 +7913,7 @@ class TcpNsr(object):
                         .. attribute:: is_us_operational_up
                         
                         	Is Upstream NSR operational?
-                        	**type**\:  :py:class:`NsrStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.NsrStatusEnum>`
+                        	**type**\:   :py:class:`NsrStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.NsrStatusEnum>`
                         
                         .. attribute:: local_address
                         
@@ -8029,7 +8077,7 @@ class TcpNsr(object):
                     .. attribute:: detail_session
                     
                     	showing detailed information of NSR Sessions
-                    	**type**\: list of  :py:class:`DetailSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession>`
+                    	**type**\: list of    :py:class:`DetailSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession>`
                     
                     
 
@@ -8059,7 +8107,7 @@ class TcpNsr(object):
                         .. attribute:: address_family
                         
                         	Address family
-                        	**type**\:  :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
+                        	**type**\:   :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
                         
                         .. attribute:: cookie
                         
@@ -8117,6 +8165,8 @@ class TcpNsr(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: second
+                        
                         .. attribute:: init_sync_end_time_down_stream
                         
                         	Time at which the initial sync operation was ended (in seconds since 1st Jan 1970 00\:00\:00)
@@ -8124,12 +8174,16 @@ class TcpNsr(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: second
+                        
                         .. attribute:: init_sync_end_time_up_stream
                         
                         	Time at which the initial sync operation was ended (in seconds since 1st Jan 1970 00\:00\:00)
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: second
                         
                         .. attribute:: init_sync_error
                         
@@ -8150,12 +8204,16 @@ class TcpNsr(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: second
+                        
                         .. attribute:: init_sync_start_time_down_stream
                         
                         	Time at which the initial sync operation was started (in seconds since 1st Jan 1970 00\:00\:00)
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: second
                         
                         .. attribute:: init_sync_start_time_up_stream
                         
@@ -8164,10 +8222,12 @@ class TcpNsr(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: second
+                        
                         .. attribute:: internal_ack_hold_queue
                         
                         	Sequence Number and datalength of each node in hold\_iackqueue
-                        	**type**\: list of  :py:class:`InternalAckHoldQueue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.InternalAckHoldQueue>`
+                        	**type**\: list of    :py:class:`InternalAckHoldQueue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.InternalAckHoldQueue>`
                         
                         .. attribute:: is_admin_configured_up
                         
@@ -8177,7 +8237,7 @@ class TcpNsr(object):
                         .. attribute:: is_ds_operational_up
                         
                         	Is Downstream NSR operational?
-                        	**type**\:  :py:class:`NsrStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.NsrStatusEnum>`
+                        	**type**\:   :py:class:`NsrStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.NsrStatusEnum>`
                         
                         .. attribute:: is_init_sync_error_local
                         
@@ -8212,7 +8272,7 @@ class TcpNsr(object):
                         .. attribute:: is_us_operational_up
                         
                         	Is Upstream NSR operational?
-                        	**type**\:  :py:class:`NsrStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.NsrStatusEnum>`
+                        	**type**\:   :py:class:`NsrStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.NsrStatusEnum>`
                         
                         .. attribute:: local_address
                         
@@ -8259,17 +8319,17 @@ class TcpNsr(object):
                         .. attribute:: nsr_down_reason
                         
                         	If NSR is not up, the reason for it
-                        	**type**\:  :py:class:`NsrDownReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.NsrDownReasonEnum>`
+                        	**type**\:   :py:class:`NsrDownReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.NsrDownReasonEnum>`
                         
                         .. attribute:: nsr_down_reason_down_stream
                         
                         	The reason NSR is not up towards the upstream partner
-                        	**type**\:  :py:class:`NsrDownReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.NsrDownReasonEnum>`
+                        	**type**\:   :py:class:`NsrDownReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.NsrDownReasonEnum>`
                         
                         .. attribute:: nsr_down_reason_up_stream
                         
                         	The reason NSR is not up towards the upstream partner
-                        	**type**\:  :py:class:`NsrDownReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.NsrDownReasonEnum>`
+                        	**type**\:   :py:class:`NsrDownReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.NsrDownReasonEnum>`
                         
                         .. attribute:: nsr_down_time
                         
@@ -8295,7 +8355,7 @@ class TcpNsr(object):
                         .. attribute:: packet_hold_queue
                         
                         	Sequence Number and datalength of each node in hold\_pakqueue
-                        	**type**\: list of  :py:class:`PacketHoldQueue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.PacketHoldQueue>`
+                        	**type**\: list of    :py:class:`PacketHoldQueue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.PacketHoldQueue>`
                         
                         .. attribute:: pcb
                         
@@ -8342,7 +8402,7 @@ class TcpNsr(object):
                         .. attribute:: set_information
                         
                         	Sesson\-set information
-                        	**type**\:  :py:class:`SetInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.SetInformation>`
+                        	**type**\:   :py:class:`SetInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Session.DetailSessions.DetailSession.SetInformation>`
                         
                         .. attribute:: sscb
                         
@@ -8434,7 +8494,7 @@ class TcpNsr(object):
                             .. attribute:: address_family
                             
                             	Address Family of the sessions in this set
-                            	**type**\:  :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
+                            	**type**\:   :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
                             
                             .. attribute:: client_instance
                             
@@ -9031,12 +9091,12 @@ class TcpNsr(object):
                 .. attribute:: brief_clients
                 
                 	Information about TCP NSR Client
-                	**type**\:  :py:class:`BriefClients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Client.BriefClients>`
+                	**type**\:   :py:class:`BriefClients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Client.BriefClients>`
                 
                 .. attribute:: detail_clients
                 
                 	Table about TCP NSR Client details
-                	**type**\:  :py:class:`DetailClients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Client.DetailClients>`
+                	**type**\:   :py:class:`DetailClients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Client.DetailClients>`
                 
                 
 
@@ -9060,7 +9120,7 @@ class TcpNsr(object):
                     .. attribute:: detail_client
                     
                     	showing detailed information of NSR Clients
-                    	**type**\: list of  :py:class:`DetailClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Client.DetailClients.DetailClient>`
+                    	**type**\: list of    :py:class:`DetailClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Client.DetailClients.DetailClient>`
                     
                     
 
@@ -9100,6 +9160,8 @@ class TcpNsr(object):
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: second
                         
                         .. attribute:: instance
                         
@@ -9264,7 +9326,7 @@ class TcpNsr(object):
                     .. attribute:: brief_client
                     
                     	Brief information about NSR Client
-                    	**type**\: list of  :py:class:`BriefClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Client.BriefClients.BriefClient>`
+                    	**type**\: list of    :py:class:`BriefClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Client.BriefClients.BriefClient>`
                     
                     
 
@@ -9475,12 +9537,12 @@ class TcpNsr(object):
                 .. attribute:: brief_sets
                 
                 	Information about TCP NSR Session Sets
-                	**type**\:  :py:class:`BriefSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.SessionSet.BriefSets>`
+                	**type**\:   :py:class:`BriefSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.SessionSet.BriefSets>`
                 
                 .. attribute:: detail_sets
                 
                 	Table about TCP NSR Session Sets details
-                	**type**\:  :py:class:`DetailSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.SessionSet.DetailSets>`
+                	**type**\:   :py:class:`DetailSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.SessionSet.DetailSets>`
                 
                 
 
@@ -9504,7 +9566,7 @@ class TcpNsr(object):
                     .. attribute:: detail_set
                     
                     	showing detailed information of NSR Session Sets
-                    	**type**\: list of  :py:class:`DetailSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.SessionSet.DetailSets.DetailSet>`
+                    	**type**\: list of    :py:class:`DetailSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.SessionSet.DetailSets.DetailSet>`
                     
                     
 
@@ -9535,7 +9597,7 @@ class TcpNsr(object):
                         .. attribute:: address_family
                         
                         	Address Family of the sessions in this set
-                        	**type**\:  :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
+                        	**type**\:   :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
                         
                         .. attribute:: audit_end_time
                         
@@ -9543,6 +9605,8 @@ class TcpNsr(object):
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: second
                         
                         .. attribute:: audit_seq_number
                         
@@ -9558,12 +9622,16 @@ class TcpNsr(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: second
+                        
                         .. attribute:: init_sync_end_time
                         
                         	Time at which the last initial sync operation was ended (in seconds since 1st Jan 1970 00\:00 \:00)
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: second
                         
                         .. attribute:: init_sync_error
                         
@@ -9577,6 +9645,8 @@ class TcpNsr(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: second
+                        
                         .. attribute:: init_sync_ready_start_time
                         
                         	Time at which the session was ready for initial sync last (in seconds since 1st Jan 1970 00\:00 \:00)
@@ -9584,12 +9654,16 @@ class TcpNsr(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: second
+                        
                         .. attribute:: init_sync_start_time
                         
                         	Time at which last or current initial sync operation was started (in seconds since 1st Jan 1970 00\:00\:00)
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: second
                         
                         .. attribute:: init_sync_timer
                         
@@ -9650,6 +9724,8 @@ class TcpNsr(object):
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: second
                         
                         .. attribute:: number_of_init_synced_sessions
                         
@@ -9952,7 +10028,7 @@ class TcpNsr(object):
                     .. attribute:: brief_set
                     
                     	Brief information about NSR Session Sets
-                    	**type**\: list of  :py:class:`BriefSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.SessionSet.BriefSets.BriefSet>`
+                    	**type**\: list of    :py:class:`BriefSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.SessionSet.BriefSets.BriefSet>`
                     
                     
 
@@ -9982,7 +10058,7 @@ class TcpNsr(object):
                         .. attribute:: address_family
                         
                         	Address Family of the sessions in this set
-                        	**type**\:  :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
+                        	**type**\:   :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.AddrFamilyEnum>`
                         
                         .. attribute:: client_instance
                         
@@ -10267,22 +10343,22 @@ class TcpNsr(object):
                 .. attribute:: statistic_clients
                 
                 	Table listing NSR connections for which statistic information is provided
-                	**type**\:  :py:class:`StatisticClients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticClients>`
+                	**type**\:   :py:class:`StatisticClients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticClients>`
                 
                 .. attribute:: statistic_sessions
                 
                 	Table listing NSR connections for which statistic information is provided
-                	**type**\:  :py:class:`StatisticSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticSessions>`
+                	**type**\:   :py:class:`StatisticSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticSessions>`
                 
                 .. attribute:: statistic_sets
                 
                 	Table listing NSR connections for which statistic information is provided
-                	**type**\:  :py:class:`StatisticSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticSets>`
+                	**type**\:   :py:class:`StatisticSets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticSets>`
                 
                 .. attribute:: summary
                 
                 	Summary statistics across all NSR connections
-                	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary>`
+                	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary>`
                 
                 
 
@@ -10310,7 +10386,7 @@ class TcpNsr(object):
                     .. attribute:: audit_counters
                     
                     	Aggregate Audit counters
-                    	**type**\:  :py:class:`AuditCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters>`
+                    	**type**\:   :py:class:`AuditCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters>`
                     
                     .. attribute:: held_packet_drops
                     
@@ -10354,10 +10430,12 @@ class TcpNsr(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: second
+                    
                     .. attribute:: notification_statistic
                     
                     	Various types of notification stats
-                    	**type**\: list of  :py:class:`NotificationStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.NotificationStatistic>`
+                    	**type**\: list of    :py:class:`NotificationStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.NotificationStatistic>`
                     
                     .. attribute:: number_of_added_sessions
                     
@@ -10551,7 +10629,7 @@ class TcpNsr(object):
                     .. attribute:: snd_counters
                     
                     	Aggregate Send path counters
-                    	**type**\:  :py:class:`SndCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.SndCounters>`
+                    	**type**\:   :py:class:`SndCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.SndCounters>`
                     
                     
 
@@ -10611,12 +10689,12 @@ class TcpNsr(object):
                         .. attribute:: aggr_only
                         
                         	Aggregate only send path counters
-                        	**type**\:  :py:class:`AggrOnly <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.AggrOnly>`
+                        	**type**\:   :py:class:`AggrOnly <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.AggrOnly>`
                         
                         .. attribute:: common
                         
                         	Common send path counters
-                        	**type**\:  :py:class:`Common <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.Common>`
+                        	**type**\:   :py:class:`Common <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.SndCounters.Common>`
                         
                         
 
@@ -11102,12 +11180,12 @@ class TcpNsr(object):
                         .. attribute:: aggr_only
                         
                         	Aggregate only audit counters
-                        	**type**\:  :py:class:`AggrOnly <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.AggrOnly>`
+                        	**type**\:   :py:class:`AggrOnly <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.AggrOnly>`
                         
                         .. attribute:: common
                         
                         	Common audit counters
-                        	**type**\:  :py:class:`Common <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.Common>`
+                        	**type**\:   :py:class:`Common <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.Summary.AuditCounters.Common>`
                         
                         
 
@@ -11783,7 +11861,7 @@ class TcpNsr(object):
                     .. attribute:: statistic_client
                     
                     	showing statistic information of NSR Clients
-                    	**type**\: list of  :py:class:`StatisticClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient>`
+                    	**type**\: list of    :py:class:`StatisticClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient>`
                     
                     
 
@@ -11824,6 +11902,8 @@ class TcpNsr(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: second
+                        
                         .. attribute:: instance
                         
                         	Instance of the Client
@@ -11845,10 +11925,12 @@ class TcpNsr(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: second
+                        
                         .. attribute:: notification_statistic
                         
                         	Various types of notification stats
-                        	**type**\: list of  :py:class:`NotificationStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient.NotificationStatistic>`
+                        	**type**\: list of    :py:class:`NotificationStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticClients.StatisticClient.NotificationStatistic>`
                         
                         .. attribute:: number_of_created_sscb
                         
@@ -12072,7 +12154,7 @@ class TcpNsr(object):
                     .. attribute:: statistic_set
                     
                     	showing statistic information of NSR Session Set
-                    	**type**\: list of  :py:class:`StatisticSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticSets.StatisticSet>`
+                    	**type**\: list of    :py:class:`StatisticSet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticSets.StatisticSet>`
                     
                     
 
@@ -12106,6 +12188,8 @@ class TcpNsr(object):
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: second
                         
                         .. attribute:: number_of_attempted_init_sync
                         
@@ -12260,7 +12344,7 @@ class TcpNsr(object):
                     .. attribute:: statistic_session
                     
                     	showing statistic information of TCP connections
-                    	**type**\: list of  :py:class:`StatisticSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession>`
+                    	**type**\: list of    :py:class:`StatisticSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession>`
                     
                     
 
@@ -12323,6 +12407,8 @@ class TcpNsr(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: second
+                        
                         .. attribute:: number_of_timers_nsr_down
                         
                         	no. of times nsr went down
@@ -12361,7 +12447,7 @@ class TcpNsr(object):
                         .. attribute:: snd_counters
                         
                         	Send path counters for the PCB
-                        	**type**\:  :py:class:`SndCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession.SndCounters>`
+                        	**type**\:   :py:class:`SndCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper.TcpNsr.Nodes.Node.Statistics.StatisticSessions.StatisticSession.SndCounters>`
                         
                         
 

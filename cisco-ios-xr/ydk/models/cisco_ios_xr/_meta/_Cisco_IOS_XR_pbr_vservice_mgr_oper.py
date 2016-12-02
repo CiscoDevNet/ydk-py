@@ -16,14 +16,14 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'VsNshStatsEnum' : _MetaInfoEnum('VsNshStatsEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_mgr_oper',
         {
-            'vs-nsh-stats-spi-si':'VS_NSH_STATS_SPI_SI',
-            'vs-nsh-stats-ter-min-ate':'VS_NSH_STATS_TER_MIN_ATE',
-            'vs-nsh-stats-sf':'VS_NSH_STATS_SF',
-            'vs-nsh-stats-sff':'VS_NSH_STATS_SFF',
-            'vs-nsh-stats-sff-local':'VS_NSH_STATS_SFF_LOCAL',
-            'vs-nsh-stats-sfp':'VS_NSH_STATS_SFP',
-            'vs-nsh-stats-sfp-detail':'VS_NSH_STATS_SFP_DETAIL',
-            'vs-nsh-stats-max':'VS_NSH_STATS_MAX',
+            'vs-nsh-stats-spi-si':'vs_nsh_stats_spi_si',
+            'vs-nsh-stats-ter-min-ate':'vs_nsh_stats_ter_min_ate',
+            'vs-nsh-stats-sf':'vs_nsh_stats_sf',
+            'vs-nsh-stats-sff':'vs_nsh_stats_sff',
+            'vs-nsh-stats-sff-local':'vs_nsh_stats_sff_local',
+            'vs-nsh-stats-sfp':'vs_nsh_stats_sfp',
+            'vs-nsh-stats-sfp-detail':'vs_nsh_stats_sfp_detail',
+            'vs-nsh-stats-max':'vs_nsh_stats_max',
         }, 'Cisco-IOS-XR-pbr-vservice-mgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-pbr-vservice-mgr-oper']),
     'GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi' : {
         'meta_info' : _MetaInfoClass('GlobalServiceFunctionChaining.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi',

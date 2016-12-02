@@ -30,31 +30,31 @@ class Ipv4MaOperLineStateEnum(Enum):
 
     Interface line states
 
-    .. data:: UNKNOWN = 0
+    .. data:: unknown = 0
 
     	Interface state is unknown
 
-    .. data:: SHUTDOWN = 1
+    .. data:: shutdown = 1
 
     	Interface has been shutdown
 
-    .. data:: DOWN = 2
+    .. data:: down = 2
 
     	Interface state is down
 
-    .. data:: UP = 3
+    .. data:: up = 3
 
     	Interface state is up
 
     """
 
-    UNKNOWN = 0
+    unknown = 0
 
-    SHUTDOWN = 1
+    shutdown = 1
 
-    DOWN = 2
+    down = 2
 
-    UP = 3
+    up = 3
 
 
     @staticmethod
@@ -69,19 +69,19 @@ class RpfModeEnum(Enum):
 
     Interface line states
 
-    .. data:: STRICT = 0
+    .. data:: strict = 0
 
     	Strict RPF
 
-    .. data:: LOOSE = 1
+    .. data:: loose = 1
 
     	Loose RPF
 
     """
 
-    STRICT = 0
+    strict = 0
 
-    LOOSE = 1
+    loose = 1
 
 
     @staticmethod

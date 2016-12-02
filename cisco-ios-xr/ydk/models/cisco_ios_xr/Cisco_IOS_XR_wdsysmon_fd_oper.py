@@ -32,7 +32,7 @@ class SystemMonitoring(object):
     .. attribute:: cpu_utilization
     
     	Processes CPU utilization information
-    	**type**\: list of  :py:class:`CpuUtilization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wdsysmon_fd_oper.SystemMonitoring.CpuUtilization>`
+    	**type**\: list of    :py:class:`CpuUtilization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wdsysmon_fd_oper.SystemMonitoring.CpuUtilization>`
     
     
 
@@ -61,7 +61,7 @@ class SystemMonitoring(object):
         .. attribute:: process_cpu
         
         	Per process CPU utilization
-        	**type**\: list of  :py:class:`ProcessCpu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wdsysmon_fd_oper.SystemMonitoring.CpuUtilization.ProcessCpu>`
+        	**type**\: list of    :py:class:`ProcessCpu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_wdsysmon_fd_oper.SystemMonitoring.CpuUtilization.ProcessCpu>`
         
         .. attribute:: total_cpu_fifteen_minute
         
@@ -113,6 +113,8 @@ class SystemMonitoring(object):
             
             	**range:** 0..4294967295
             
+            	**units**\: percentage
+            
             .. attribute:: process_cpu_five_minute
             
             	Process CPU utilization in percent for past 5 minute
@@ -120,12 +122,16 @@ class SystemMonitoring(object):
             
             	**range:** 0..4294967295
             
+            	**units**\: percentage
+            
             .. attribute:: process_cpu_one_minute
             
             	Process CPU utilization in percent for past 1 minute
             	**type**\:  int
             
             	**range:** 0..4294967295
+            
+            	**units**\: percentage
             
             .. attribute:: process_id
             

@@ -16,14 +16,14 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'SbfdAddressFamilyEnum' : _MetaInfoEnum('SbfdAddressFamilyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper',
         {
-            'ipv4':'IPV4',
-            'ipv6':'IPV6',
+            'ipv4':'ipv4',
+            'ipv6':'ipv6',
         }, 'Cisco-IOS-XR-ip-sbfd-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-sbfd-oper']),
     'BfdAfIdEnum' : _MetaInfoEnum('BfdAfIdEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper',
         {
-            'bfd-af-id-none':'BFD_AF_ID_NONE',
-            'bfd-af-id-ipv4':'BFD_AF_ID_IPV4',
-            'bfd-af-id-ipv6':'BFD_AF_ID_IPV6',
+            'bfd-af-id-none':'bfd_af_id_none',
+            'bfd-af-id-ipv4':'bfd_af_id_ipv4',
+            'bfd-af-id-ipv6':'bfd_af_id_ipv6',
         }, 'Cisco-IOS-XR-ip-sbfd-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-sbfd-oper']),
     'Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator.IpAddress' : {
         'meta_info' : _MetaInfoClass('Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator.IpAddress',

@@ -26,25 +26,25 @@ class SpanSessionClassEnum(Enum):
 
     Span session class
 
-    .. data:: ETHERNET = 0
+    .. data:: ethernet = 0
 
     	Mirror Ethernet packets
 
-    .. data:: IPV4 = 1
+    .. data:: ipv4 = 1
 
     	Mirror IPv4 packets
 
-    .. data:: IPV6 = 2
+    .. data:: ipv6 = 2
 
     	Mirror IPv6 packets
 
     """
 
-    ETHERNET = 0
+    ethernet = 0
 
-    IPV4 = 1
+    ipv4 = 1
 
-    IPV6 = 2
+    ipv6 = 2
 
 
     @staticmethod
@@ -59,13 +59,13 @@ class SpanSessionClassOldEnum(Enum):
 
     Span session class old
 
-    .. data:: TRUE = 0
+    .. data:: true = 0
 
     	Mirror Ethernet packets
 
     """
 
-    TRUE = 0
+    true = 0
 
 
     @staticmethod

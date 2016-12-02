@@ -16,136 +16,136 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'MgmtLsdClientEnum' : _MetaInfoEnum('MgmtLsdClientEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper',
         {
-            'mgmt-lsd-client-type-app':'MGMT_LSD_CLIENT_TYPE_APP',
-            'mgmt-lsd-client-type-ba':'MGMT_LSD_CLIENT_TYPE_BA',
+            'mgmt-lsd-client-type-app':'mgmt_lsd_client_type_app',
+            'mgmt-lsd-client-type-ba':'mgmt_lsd_client_type_ba',
         }, 'Cisco-IOS-XR-mpls-lsd-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-lsd-oper']),
     'MgmtLsdFrrStateEnum' : _MetaInfoEnum('MgmtLsdFrrStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper',
         {
-            'mgmt-lsd-frr-state-partial':'MGMT_LSD_FRR_STATE_PARTIAL',
-            'mgmt-lsd-frr-state-active':'MGMT_LSD_FRR_STATE_ACTIVE',
-            'mgmt-lsd-frr-state-ready':'MGMT_LSD_FRR_STATE_READY',
-            'mgmt-lsd-frr-state-complete':'MGMT_LSD_FRR_STATE_COMPLETE',
-            'mgmt-lsd-frr-state-any':'MGMT_LSD_FRR_STATE_ANY',
-            'mgmt-lsd-frr-state-igp':'MGMT_LSD_FRR_STATE_IGP',
+            'mgmt-lsd-frr-state-partial':'mgmt_lsd_frr_state_partial',
+            'mgmt-lsd-frr-state-active':'mgmt_lsd_frr_state_active',
+            'mgmt-lsd-frr-state-ready':'mgmt_lsd_frr_state_ready',
+            'mgmt-lsd-frr-state-complete':'mgmt_lsd_frr_state_complete',
+            'mgmt-lsd-frr-state-any':'mgmt_lsd_frr_state_any',
+            'mgmt-lsd-frr-state-igp':'mgmt_lsd_frr_state_igp',
         }, 'Cisco-IOS-XR-mpls-lsd-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-lsd-oper']),
     'MgmtLsdMoiEnum' : _MetaInfoEnum('MgmtLsdMoiEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper',
         {
-            'mgmt-lsd-moi-type-pop-and-lkup-ipv4':'MGMT_LSD_MOI_TYPE_POP_AND_LKUP_IPV4',
-            'mgmt-lsd-moi-type-ipv4':'MGMT_LSD_MOI_TYPE_IPV4',
-            'mgmt-lsd-moi-type-ipv6':'MGMT_LSD_MOI_TYPE_IPV6',
-            'mgmt-lsd-moi-type-tev4':'MGMT_LSD_MOI_TYPE_TEV4',
-            'mgmt-lsd-moi-type-pw':'MGMT_LSD_MOI_TYPE_PW',
-            'mgmt-lsd-moi-type-pop-and-lkup-ipv6':'MGMT_LSD_MOI_TYPE_POP_AND_LKUP_IPV6',
-            'mgmt-lsd-moi-type-ip-sub':'MGMT_LSD_MOI_TYPE_IP_SUB',
-            'mgmt-lsd-moi-type-pwhe':'MGMT_LSD_MOI_TYPE_PWHE',
-            'mgmt-lsd-moi-type-pw-list':'MGMT_LSD_MOI_TYPE_PW_LIST',
-            'mgmt-lsd-moi-type-ipv4-stack':'MGMT_LSD_MOI_TYPE_IPV4_STACK',
-            'mgmt-lsd-moi-type-pop-and-lkup-tp':'MGMT_LSD_MOI_TYPE_POP_AND_LKUP_TP',
-            'mgmt-lsd-moi-type-ipv6-stack':'MGMT_LSD_MOI_TYPE_IPV6_STACK',
-            'mgmt-lsd-moi-type-te-head':'MGMT_LSD_MOI_TYPE_TE_HEAD',
-            'mgmt-lsd-moi-type-dmtc-ext-intf':'MGMT_LSD_MOI_TYPE_DMTC_EXT_INTF',
+            'mgmt-lsd-moi-type-pop-and-lkup-ipv4':'mgmt_lsd_moi_type_pop_and_lkup_ipv4',
+            'mgmt-lsd-moi-type-ipv4':'mgmt_lsd_moi_type_ipv4',
+            'mgmt-lsd-moi-type-ipv6':'mgmt_lsd_moi_type_ipv6',
+            'mgmt-lsd-moi-type-tev4':'mgmt_lsd_moi_type_tev4',
+            'mgmt-lsd-moi-type-pw':'mgmt_lsd_moi_type_pw',
+            'mgmt-lsd-moi-type-pop-and-lkup-ipv6':'mgmt_lsd_moi_type_pop_and_lkup_ipv6',
+            'mgmt-lsd-moi-type-ip-sub':'mgmt_lsd_moi_type_ip_sub',
+            'mgmt-lsd-moi-type-pwhe':'mgmt_lsd_moi_type_pwhe',
+            'mgmt-lsd-moi-type-pw-list':'mgmt_lsd_moi_type_pw_list',
+            'mgmt-lsd-moi-type-ipv4-stack':'mgmt_lsd_moi_type_ipv4_stack',
+            'mgmt-lsd-moi-type-pop-and-lkup-tp':'mgmt_lsd_moi_type_pop_and_lkup_tp',
+            'mgmt-lsd-moi-type-ipv6-stack':'mgmt_lsd_moi_type_ipv6_stack',
+            'mgmt-lsd-moi-type-te-head':'mgmt_lsd_moi_type_te_head',
+            'mgmt-lsd-moi-type-dmtc-ext-intf':'mgmt_lsd_moi_type_dmtc_ext_intf',
         }, 'Cisco-IOS-XR-mpls-lsd-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-lsd-oper']),
     'MgmtLsdFpiEnum' : _MetaInfoEnum('MgmtLsdFpiEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper',
         {
-            'mgmt-lsd-fpi-type-label':'MGMT_LSD_FPI_TYPE_LABEL',
-            'mgmt-lsd-fpi-type-te':'MGMT_LSD_FPI_TYPE_TE',
-            'mgmt-lsd-fpi-type-ipv4':'MGMT_LSD_FPI_TYPE_IPV4',
-            'mgmt-lsd-fpi-type-ipv6':'MGMT_LSD_FPI_TYPE_IPV6',
-            'mgmt-lsd-fpi-type-pw-list':'MGMT_LSD_FPI_TYPE_PW_LIST',
-            'mgmt-lsd-fpi-type-te-v2':'MGMT_LSD_FPI_TYPE_TE_V2',
-            'mgmt-lsd-fpi-type-dmtc-ext-intf':'MGMT_LSD_FPI_TYPE_DMTC_EXT_INTF',
+            'mgmt-lsd-fpi-type-label':'mgmt_lsd_fpi_type_label',
+            'mgmt-lsd-fpi-type-te':'mgmt_lsd_fpi_type_te',
+            'mgmt-lsd-fpi-type-ipv4':'mgmt_lsd_fpi_type_ipv4',
+            'mgmt-lsd-fpi-type-ipv6':'mgmt_lsd_fpi_type_ipv6',
+            'mgmt-lsd-fpi-type-pw-list':'mgmt_lsd_fpi_type_pw_list',
+            'mgmt-lsd-fpi-type-te-v2':'mgmt_lsd_fpi_type_te_v2',
+            'mgmt-lsd-fpi-type-dmtc-ext-intf':'mgmt_lsd_fpi_type_dmtc_ext_intf',
         }, 'Cisco-IOS-XR-mpls-lsd-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-lsd-oper']),
     'MgmtLsdLblCtxEnum' : _MetaInfoEnum('MgmtLsdLblCtxEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper',
         {
-            'mgmt-lsd-lbl-ctx-type-none':'MGMT_LSD_LBL_CTX_TYPE_NONE',
-            'mgmt-lsd-lbl-ctx-type-ipv4':'MGMT_LSD_LBL_CTX_TYPE_IPV4',
-            'mgmt-lsd-lbl-ctx-type-ipv6':'MGMT_LSD_LBL_CTX_TYPE_IPV6',
-            'mgmt-lsd-lbl-ctx-type-tev4':'MGMT_LSD_LBL_CTX_TYPE_TEV4',
-            'mgmt-lsd-lbl-ctx-type-l3vpn-ipv4':'MGMT_LSD_LBL_CTX_TYPE_L3VPN_IPV4',
-            'mgmt-lsd-lbl-ctx-type-l3vpn-ipv6':'MGMT_LSD_LBL_CTX_TYPE_L3VPN_IPV6',
-            'mgmt-lsd-lbl-ctx-type-l3vpn-vrf':'MGMT_LSD_LBL_CTX_TYPE_L3VPN_VRF',
-            'mgmt-lsd-lbl-ctx-type-l3vpn-cev4':'MGMT_LSD_LBL_CTX_TYPE_L3VPN_CEV4',
-            'mgmt-lsd-lbl-ctx-type-l3vpn-cev6':'MGMT_LSD_LBL_CTX_TYPE_L3VPN_CEV6',
-            'mgmt-lsd-lbl-ctx-type-pw':'MGMT_LSD_LBL_CTX_TYPE_PW',
-            'mgmt-lsd-lbl-ctx-type-lbl-blk':'MGMT_LSD_LBL_CTX_TYPE_LBL_BLK',
-            'mgmt-lsd-lbl-ctx-type-ip-sub':'MGMT_LSD_LBL_CTX_TYPE_IP_SUB',
-            'mgmt-lsd-lbl-ctx-type-tev4-p2mp':'MGMT_LSD_LBL_CTX_TYPE_TEV4_P2MP',
-            'mgmt-lsd-lbl-ctx-type-mldpv4':'MGMT_LSD_LBL_CTX_TYPE_MLDPV4',
-            'mgmt-lsd-lbl-ctx-type-pwhe':'MGMT_LSD_LBL_CTX_TYPE_PWHE',
-            'mgmt-lsd-lbl-ctx-type-tp':'MGMT_LSD_LBL_CTX_TYPE_TP',
-            'mgmt-lsd-lbl-ctx-type-gre':'MGMT_LSD_LBL_CTX_TYPE_GRE',
-            'mgmt-lsd-lbl-ctx-type-evpn':'MGMT_LSD_LBL_CTX_TYPE_EVPN',
-            'mgmt-lsd-lbl-ctx-type-blb-ipv4':'MGMT_LSD_LBL_CTX_TYPE_BLB_IPV4',
-            'mgmt-lsd-lbl-ctx-type-blb-ipv6':'MGMT_LSD_LBL_CTX_TYPE_BLB_IPV6',
-            'mgmt-lsd-lbl-ctx-type-pim-i-pmsi':'MGMT_LSD_LBL_CTX_TYPE_PIM_I_PMSI',
-            'mgmt-lsd-lbl-ctx-type-pim-s-pmsi':'MGMT_LSD_LBL_CTX_TYPE_PIM_S_PMSI',
-            'mgmt-lsd-lbl-ctx-type-l3vpn-nh-set':'MGMT_LSD_LBL_CTX_TYPE_L3VPN_NH_SET',
-            'mgmt-lsd-lbl-ctx-type-sr-pfx-seg':'MGMT_LSD_LBL_CTX_TYPE_SR_PFX_SEG',
-            'mgmt-lsd-lbl-ctx-type-sr-adj-seg-ipv4':'MGMT_LSD_LBL_CTX_TYPE_SR_ADJ_SEG_IPV4',
-            'mgmt-lsd-lbl-ctx-type-sr-adj-seg-ipv6':'MGMT_LSD_LBL_CTX_TYPE_SR_ADJ_SEG_IPV6',
-            'mgmt-lsd-lbl-ctx-type-lbl-blk-srgb':'MGMT_LSD_LBL_CTX_TYPE_LBL_BLK_SRGB',
-            'mgmt-lsd-lbl-ctx-type-te-binding':'MGMT_LSD_LBL_CTX_TYPE_TE_BINDING',
-            'mgmt-lsd-lbl-ctx-type-gre-ipv6':'MGMT_LSD_LBL_CTX_TYPE_GRE_IPV6',
-            'mgmt-lsd-lbl-ctx-type-any':'MGMT_LSD_LBL_CTX_TYPE_ANY',
+            'mgmt-lsd-lbl-ctx-type-none':'mgmt_lsd_lbl_ctx_type_none',
+            'mgmt-lsd-lbl-ctx-type-ipv4':'mgmt_lsd_lbl_ctx_type_ipv4',
+            'mgmt-lsd-lbl-ctx-type-ipv6':'mgmt_lsd_lbl_ctx_type_ipv6',
+            'mgmt-lsd-lbl-ctx-type-tev4':'mgmt_lsd_lbl_ctx_type_tev4',
+            'mgmt-lsd-lbl-ctx-type-l3vpn-ipv4':'mgmt_lsd_lbl_ctx_type_l3vpn_ipv4',
+            'mgmt-lsd-lbl-ctx-type-l3vpn-ipv6':'mgmt_lsd_lbl_ctx_type_l3vpn_ipv6',
+            'mgmt-lsd-lbl-ctx-type-l3vpn-vrf':'mgmt_lsd_lbl_ctx_type_l3vpn_vrf',
+            'mgmt-lsd-lbl-ctx-type-l3vpn-cev4':'mgmt_lsd_lbl_ctx_type_l3vpn_cev4',
+            'mgmt-lsd-lbl-ctx-type-l3vpn-cev6':'mgmt_lsd_lbl_ctx_type_l3vpn_cev6',
+            'mgmt-lsd-lbl-ctx-type-pw':'mgmt_lsd_lbl_ctx_type_pw',
+            'mgmt-lsd-lbl-ctx-type-lbl-blk':'mgmt_lsd_lbl_ctx_type_lbl_blk',
+            'mgmt-lsd-lbl-ctx-type-ip-sub':'mgmt_lsd_lbl_ctx_type_ip_sub',
+            'mgmt-lsd-lbl-ctx-type-tev4-p2mp':'mgmt_lsd_lbl_ctx_type_tev4_p2mp',
+            'mgmt-lsd-lbl-ctx-type-mldpv4':'mgmt_lsd_lbl_ctx_type_mldpv4',
+            'mgmt-lsd-lbl-ctx-type-pwhe':'mgmt_lsd_lbl_ctx_type_pwhe',
+            'mgmt-lsd-lbl-ctx-type-tp':'mgmt_lsd_lbl_ctx_type_tp',
+            'mgmt-lsd-lbl-ctx-type-gre':'mgmt_lsd_lbl_ctx_type_gre',
+            'mgmt-lsd-lbl-ctx-type-evpn':'mgmt_lsd_lbl_ctx_type_evpn',
+            'mgmt-lsd-lbl-ctx-type-blb-ipv4':'mgmt_lsd_lbl_ctx_type_blb_ipv4',
+            'mgmt-lsd-lbl-ctx-type-blb-ipv6':'mgmt_lsd_lbl_ctx_type_blb_ipv6',
+            'mgmt-lsd-lbl-ctx-type-pim-i-pmsi':'mgmt_lsd_lbl_ctx_type_pim_i_pmsi',
+            'mgmt-lsd-lbl-ctx-type-pim-s-pmsi':'mgmt_lsd_lbl_ctx_type_pim_s_pmsi',
+            'mgmt-lsd-lbl-ctx-type-l3vpn-nh-set':'mgmt_lsd_lbl_ctx_type_l3vpn_nh_set',
+            'mgmt-lsd-lbl-ctx-type-sr-pfx-seg':'mgmt_lsd_lbl_ctx_type_sr_pfx_seg',
+            'mgmt-lsd-lbl-ctx-type-sr-adj-seg-ipv4':'mgmt_lsd_lbl_ctx_type_sr_adj_seg_ipv4',
+            'mgmt-lsd-lbl-ctx-type-sr-adj-seg-ipv6':'mgmt_lsd_lbl_ctx_type_sr_adj_seg_ipv6',
+            'mgmt-lsd-lbl-ctx-type-lbl-blk-srgb':'mgmt_lsd_lbl_ctx_type_lbl_blk_srgb',
+            'mgmt-lsd-lbl-ctx-type-te-binding':'mgmt_lsd_lbl_ctx_type_te_binding',
+            'mgmt-lsd-lbl-ctx-type-gre-ipv6':'mgmt_lsd_lbl_ctx_type_gre_ipv6',
+            'mgmt-lsd-lbl-ctx-type-any':'mgmt_lsd_lbl_ctx_type_any',
         }, 'Cisco-IOS-XR-mpls-lsd-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-lsd-oper']),
     'MgmtLsdLspRoleEnum' : _MetaInfoEnum('MgmtLsdLspRoleEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper',
         {
-            'mgmt-lsd-lsp-role-head':'MGMT_LSD_LSP_ROLE_HEAD',
-            'mgmt-lsd-lsp-role-mid':'MGMT_LSD_LSP_ROLE_MID',
+            'mgmt-lsd-lsp-role-head':'mgmt_lsd_lsp_role_head',
+            'mgmt-lsd-lsp-role-mid':'mgmt_lsd_lsp_role_mid',
         }, 'Cisco-IOS-XR-mpls-lsd-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-lsd-oper']),
     'MgmtLsdAppRsrcStateEnum' : _MetaInfoEnum('MgmtLsdAppRsrcStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper',
         {
-            'mgmt-lsd-app-rsrc-state-active':'MGMT_LSD_APP_RSRC_STATE_ACTIVE',
-            'mgmt-lsd-app-rsrc-state-pnd':'MGMT_LSD_APP_RSRC_STATE_PND',
-            'mgmt-lsd-app-rsrc-state-pnd-svr':'MGMT_LSD_APP_RSRC_STATE_PND_SVR',
+            'mgmt-lsd-app-rsrc-state-active':'mgmt_lsd_app_rsrc_state_active',
+            'mgmt-lsd-app-rsrc-state-pnd':'mgmt_lsd_app_rsrc_state_pnd',
+            'mgmt-lsd-app-rsrc-state-pnd-svr':'mgmt_lsd_app_rsrc_state_pnd_svr',
         }, 'Cisco-IOS-XR-mpls-lsd-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-lsd-oper']),
     'MgmtLsdRwIdEnum' : _MetaInfoEnum('MgmtLsdRwIdEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper',
         {
-            'mgmt-lsd-rw-id-type-none':'MGMT_LSD_RW_ID_TYPE_NONE',
-            'mgmt-lsd-rw-id-type-lbl-ctx':'MGMT_LSD_RW_ID_TYPE_LBL_CTX',
-            'mgmt-lsd-rw-id-type-loc-lbl':'MGMT_LSD_RW_ID_TYPE_LOC_LBL',
+            'mgmt-lsd-rw-id-type-none':'mgmt_lsd_rw_id_type_none',
+            'mgmt-lsd-rw-id-type-lbl-ctx':'mgmt_lsd_rw_id_type_lbl_ctx',
+            'mgmt-lsd-rw-id-type-loc-lbl':'mgmt_lsd_rw_id_type_loc_lbl',
         }, 'Cisco-IOS-XR-mpls-lsd-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-lsd-oper']),
     'MgmtLsdAppEnum' : _MetaInfoEnum('MgmtLsdAppEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper',
         {
-            'mgmt-lsd-app-type-none':'MGMT_LSD_APP_TYPE_NONE',
-            'mgmt-lsd-app-type-int':'MGMT_LSD_APP_TYPE_INT',
-            'mgmt-lsd-app-type-test':'MGMT_LSD_APP_TYPE_TEST',
-            'mgmt-lsd-app-type-static':'MGMT_LSD_APP_TYPE_STATIC',
-            'mgmt-lsd-app-type-ldp':'MGMT_LSD_APP_TYPE_LDP',
-            'mgmt-lsd-app-type-te':'MGMT_LSD_APP_TYPE_TE',
-            'mgmt-lsd-app-type-te-int':'MGMT_LSD_APP_TYPE_TE_INT',
-            'mgmt-lsd-app-type-bgp-ipv4':'MGMT_LSD_APP_TYPE_BGP_IPV4',
-            'mgmt-lsd-app-type-bgp-vpn-ipv4':'MGMT_LSD_APP_TYPE_BGP_VPN_IPV4',
-            'mgmt-lsd-app-type-l2vpn':'MGMT_LSD_APP_TYPE_L2VPN',
-            'mgmt-lsd-app-type-bgp-spkr':'MGMT_LSD_APP_TYPE_BGP_SPKR',
-            'mgmt-lsd-app-type-bfd':'MGMT_LSD_APP_TYPE_BFD',
-            'mgmt-lsd-app-type-pim':'MGMT_LSD_APP_TYPE_PIM',
-            'mgmt-lsd-app-type-v2-lsd':'MGMT_LSD_APP_TYPE_V2_LSD',
-            'mgmt-lsd-app-type-pim6':'MGMT_LSD_APP_TYPE_PIM6',
-            'mgmt-lsd-app-type-isis':'MGMT_LSD_APP_TYPE_ISIS',
-            'mgmt-lsd-app-type-ospf':'MGMT_LSD_APP_TYPE_OSPF',
-            'mgmt-lsd-app-type-cgn':'MGMT_LSD_APP_TYPE_CGN',
-            'mgmt-lsd-app-type-dmtc':'MGMT_LSD_APP_TYPE_DMTC',
-            'mgmt-lsd-app-type-any':'MGMT_LSD_APP_TYPE_ANY',
+            'mgmt-lsd-app-type-none':'mgmt_lsd_app_type_none',
+            'mgmt-lsd-app-type-int':'mgmt_lsd_app_type_int',
+            'mgmt-lsd-app-type-test':'mgmt_lsd_app_type_test',
+            'mgmt-lsd-app-type-static':'mgmt_lsd_app_type_static',
+            'mgmt-lsd-app-type-ldp':'mgmt_lsd_app_type_ldp',
+            'mgmt-lsd-app-type-te':'mgmt_lsd_app_type_te',
+            'mgmt-lsd-app-type-te-int':'mgmt_lsd_app_type_te_int',
+            'mgmt-lsd-app-type-bgp-ipv4':'mgmt_lsd_app_type_bgp_ipv4',
+            'mgmt-lsd-app-type-bgp-vpn-ipv4':'mgmt_lsd_app_type_bgp_vpn_ipv4',
+            'mgmt-lsd-app-type-l2vpn':'mgmt_lsd_app_type_l2vpn',
+            'mgmt-lsd-app-type-bgp-spkr':'mgmt_lsd_app_type_bgp_spkr',
+            'mgmt-lsd-app-type-bfd':'mgmt_lsd_app_type_bfd',
+            'mgmt-lsd-app-type-pim':'mgmt_lsd_app_type_pim',
+            'mgmt-lsd-app-type-v2-lsd':'mgmt_lsd_app_type_v2_lsd',
+            'mgmt-lsd-app-type-pim6':'mgmt_lsd_app_type_pim6',
+            'mgmt-lsd-app-type-isis':'mgmt_lsd_app_type_isis',
+            'mgmt-lsd-app-type-ospf':'mgmt_lsd_app_type_ospf',
+            'mgmt-lsd-app-type-cgn':'mgmt_lsd_app_type_cgn',
+            'mgmt-lsd-app-type-dmtc':'mgmt_lsd_app_type_dmtc',
+            'mgmt-lsd-app-type-any':'mgmt_lsd_app_type_any',
         }, 'Cisco-IOS-XR-mpls-lsd-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-lsd-oper']),
     'MgmtLsdTeBindingEnum' : _MetaInfoEnum('MgmtLsdTeBindingEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper',
         {
-            'mgmt-lsd-ident-p2p-tun-id':'MGMT_LSD_IDENT_P2P_TUN_ID',
-            'mgmt-lsd-ident-p2p-grp-id':'MGMT_LSD_IDENT_P2P_GRP_ID',
-            'mgmt-lsd-ident-p2mp-tun-id':'MGMT_LSD_IDENT_P2MP_TUN_ID',
-            'mgmt-lsd-ident-p2mp-grp-id':'MGMT_LSD_IDENT_P2MP_GRP_ID',
+            'mgmt-lsd-ident-p2p-tun-id':'mgmt_lsd_ident_p2p_tun_id',
+            'mgmt-lsd-ident-p2p-grp-id':'mgmt_lsd_ident_p2p_grp_id',
+            'mgmt-lsd-ident-p2mp-tun-id':'mgmt_lsd_ident_p2mp_tun_id',
+            'mgmt-lsd-ident-p2mp-grp-id':'mgmt_lsd_ident_p2mp_grp_id',
         }, 'Cisco-IOS-XR-mpls-lsd-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-lsd-oper']),
     'MgmtLsdAppStateEnum' : _MetaInfoEnum('MgmtLsdAppStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper',
         {
-            'mgmt-lsd-app-state-active':'MGMT_LSD_APP_STATE_ACTIVE',
-            'mgmt-lsd-app-state-zombie':'MGMT_LSD_APP_STATE_ZOMBIE',
-            'mgmt-lsd-app-state-recover':'MGMT_LSD_APP_STATE_RECOVER',
+            'mgmt-lsd-app-state-active':'mgmt_lsd_app_state_active',
+            'mgmt-lsd-app-state-zombie':'mgmt_lsd_app_state_zombie',
+            'mgmt-lsd-app-state-recover':'mgmt_lsd_app_state_recover',
         }, 'Cisco-IOS-XR-mpls-lsd-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-lsd-oper']),
     'MgmtLsdIntfStateEnum' : _MetaInfoEnum('MgmtLsdIntfStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper',
         {
-            'mgmt-lsd-intf-state-unknown':'MGMT_LSD_INTF_STATE_UNKNOWN',
-            'mgmt-lsd-intf-state-up':'MGMT_LSD_INTF_STATE_UP',
-            'mgmt-lsd-intf-state-down':'MGMT_LSD_INTF_STATE_DOWN',
+            'mgmt-lsd-intf-state-unknown':'mgmt_lsd_intf_state_unknown',
+            'mgmt-lsd-intf-state-up':'mgmt_lsd_intf_state_up',
+            'mgmt-lsd-intf-state-down':'mgmt_lsd_intf_state_down',
         }, 'Cisco-IOS-XR-mpls-lsd-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-lsd-oper']),
     'MplsLsdNodes.MplsLsdNode.Clients.Client.ClientUnion.Application' : {
         'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Clients.Client.ClientUnion.Application',
@@ -2443,8 +2443,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4Data' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4Data',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4Data' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4Data',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -2484,8 +2484,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6Data' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6Data',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6Data' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6Data',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -2525,8 +2525,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Tev4Data' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Tev4Data',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Tev4Data' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Tev4Data',
             False, 
             [
             _MetaInfoClassMember('is-srte', ATTRIBUTE, 'int' , None, None, 
@@ -2578,8 +2578,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -2607,8 +2607,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -2636,8 +2636,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.VrfL3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.VrfL3VpnData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.VrfL3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.VrfL3VpnData',
             False, 
             [
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
@@ -2659,8 +2659,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Cev4L3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Cev4L3VpnData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData',
             False, 
             [
             _MetaInfoClassMember('ipv4-next-hop', ATTRIBUTE, 'str' , None, None, 
@@ -2688,8 +2688,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Cev6L3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Cev6L3VpnData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData',
             False, 
             [
             _MetaInfoClassMember('ipv6-next-hop', ATTRIBUTE, 'str' , None, None, 
@@ -2717,8 +2717,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PseudowireData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PseudowireData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PseudowireData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PseudowireData',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -2752,8 +2752,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.LabelBlockData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.LabelBlockData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.LabelBlockData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.LabelBlockData',
             False, 
             [
             _MetaInfoClassMember('edge-id', ATTRIBUTE, 'int' , None, None, 
@@ -2793,8 +2793,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.IpSubData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.IpSubData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.IpSubData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.IpSubData',
             False, 
             [
             _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
@@ -2816,8 +2816,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Tev4P2MpData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Tev4P2MpData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Tev4P2MpData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Tev4P2MpData',
             False, 
             [
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
@@ -2869,8 +2869,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.MldPv4Data' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.MldPv4Data',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.MldPv4Data' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.MldPv4Data',
             False, 
             [
             _MetaInfoClassMember('lsm-id', ATTRIBUTE, 'int' , None, None, 
@@ -2910,8 +2910,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData',
             False, 
             [
             _MetaInfoClassMember('pwhe-intf', ATTRIBUTE, 'str' , None, None, 
@@ -2927,8 +2927,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.TpData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.TpData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.TpData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.TpData',
             False, 
             [
             _MetaInfoClassMember('dest-global-id', ATTRIBUTE, 'int' , None, None, 
@@ -2980,8 +2980,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation',
             False, 
             [
             _MetaInfoClassMember('gre-interface', ATTRIBUTE, 'str' , None, None, 
@@ -2997,8 +2997,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation',
             False, 
             [
             _MetaInfoClassMember('greipv6-interface', ATTRIBUTE, 'str' , None, None, 
@@ -3014,8 +3014,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.EvpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.EvpnData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.EvpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.EvpnData',
             False, 
             [
             _MetaInfoClassMember('ethernet-segment', ATTRIBUTE, 'str' , None, None, 
@@ -3043,8 +3043,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4BlbData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4BlbData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4BlbData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4BlbData',
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
@@ -3066,8 +3066,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6BlbData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6BlbData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6BlbData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6BlbData',
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
@@ -3089,8 +3089,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PiMiPmsiData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PiMiPmsiData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PiMiPmsiData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PiMiPmsiData',
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
@@ -3118,8 +3118,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PiMsPmsiData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PiMsPmsiData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PiMsPmsiData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PiMsPmsiData',
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
@@ -3165,8 +3165,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn',
             False, 
             [
             _MetaInfoClassMember('next-hop-set-id', ATTRIBUTE, 'int' , None, None, 
@@ -3188,8 +3188,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrPrefixSegment' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrPrefixSegment',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrPrefixSegment' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrPrefixSegment',
             False, 
             [
             _MetaInfoClassMember('segment-id', ATTRIBUTE, 'int' , None, None, 
@@ -3211,8 +3211,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4',
             False, 
             [
             _MetaInfoClassMember('addr', ATTRIBUTE, 'str' , None, None, 
@@ -3246,8 +3246,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6',
             False, 
             [
             _MetaInfoClassMember('addr', ATTRIBUTE, 'str' , None, None, 
@@ -3281,8 +3281,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData',
             False, 
             [
             _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
@@ -3310,8 +3310,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.TeBinding' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.TeBinding',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.TeBinding' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.TeBinding',
             False, 
             [
             _MetaInfoClassMember('te-identifier', ATTRIBUTE, 'int' , None, None, 
@@ -3333,89 +3333,89 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext',
             False, 
             [
-            _MetaInfoClassMember('cev4l3vpn-data', REFERENCE_CLASS, 'Cev4L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Cev4L3VpnData', 
+            _MetaInfoClassMember('cev4l3vpn-data', REFERENCE_CLASS, 'Cev4L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData', 
                 [], [], 
                 '''                L3VPN CEv4 label context
                 ''',
                 'cev4l3vpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('cev6l3vpn-data', REFERENCE_CLASS, 'Cev6L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Cev6L3VpnData', 
+            _MetaInfoClassMember('cev6l3vpn-data', REFERENCE_CLASS, 'Cev6L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData', 
                 [], [], 
                 '''                L3VPN CEv6 label context
                 ''',
                 'cev6l3vpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('evpn-data', REFERENCE_CLASS, 'EvpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.EvpnData', 
+            _MetaInfoClassMember('evpn-data', REFERENCE_CLASS, 'EvpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.EvpnData', 
                 [], [], 
                 '''                EVPN context
                 ''',
                 'evpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('generic-routing-encapsulation', REFERENCE_CLASS, 'GenericRoutingEncapsulation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation', 
+            _MetaInfoClassMember('generic-routing-encapsulation', REFERENCE_CLASS, 'GenericRoutingEncapsulation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation', 
                 [], [], 
                 '''                Generic routing encapsulation context
                 ''',
                 'generic_routing_encapsulation',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ip-sub-data', REFERENCE_CLASS, 'IpSubData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.IpSubData', 
+            _MetaInfoClassMember('ip-sub-data', REFERENCE_CLASS, 'IpSubData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.IpSubData', 
                 [], [], 
                 '''                IP Subscriber context
                 ''',
                 'ip_sub_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv4-data', REFERENCE_CLASS, 'Ipv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4Data', 
+            _MetaInfoClassMember('ipv4-data', REFERENCE_CLASS, 'Ipv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4Data', 
                 [], [], 
                 '''                IPv4 label context
                 ''',
                 'ipv4_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv4blb-data', REFERENCE_CLASS, 'Ipv4BlbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4BlbData', 
+            _MetaInfoClassMember('ipv4blb-data', REFERENCE_CLASS, 'Ipv4BlbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4BlbData', 
                 [], [], 
                 '''                BFD BLB label context
                 ''',
                 'ipv4blb_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv4l3vpn-data', REFERENCE_CLASS, 'Ipv4L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData', 
+            _MetaInfoClassMember('ipv4l3vpn-data', REFERENCE_CLASS, 'Ipv4L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData', 
                 [], [], 
                 '''                L3VPN IPv4 label context
                 ''',
                 'ipv4l3vpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv6-data', REFERENCE_CLASS, 'Ipv6Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6Data', 
+            _MetaInfoClassMember('ipv6-data', REFERENCE_CLASS, 'Ipv6Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6Data', 
                 [], [], 
                 '''                IPv6 label context
                 ''',
                 'ipv6_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv6-generic-routing-encapsulation', REFERENCE_CLASS, 'Ipv6GenericRoutingEncapsulation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation', 
+            _MetaInfoClassMember('ipv6-generic-routing-encapsulation', REFERENCE_CLASS, 'Ipv6GenericRoutingEncapsulation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation', 
                 [], [], 
                 '''                Generic routing encapsulation context
                 ''',
                 'ipv6_generic_routing_encapsulation',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv6blb-data', REFERENCE_CLASS, 'Ipv6BlbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6BlbData', 
+            _MetaInfoClassMember('ipv6blb-data', REFERENCE_CLASS, 'Ipv6BlbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6BlbData', 
                 [], [], 
                 '''                BFD BLB label context
                 ''',
                 'ipv6blb_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv6l3vpn-data', REFERENCE_CLASS, 'Ipv6L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData', 
+            _MetaInfoClassMember('ipv6l3vpn-data', REFERENCE_CLASS, 'Ipv6L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData', 
                 [], [], 
                 '''                L3VPN IPv6 label context
                 ''',
                 'ipv6l3vpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('label-block-data', REFERENCE_CLASS, 'LabelBlockData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.LabelBlockData', 
+            _MetaInfoClassMember('label-block-data', REFERENCE_CLASS, 'LabelBlockData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.LabelBlockData', 
                 [], [], 
                 '''                Label block context
                 ''',
                 'label_block_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('label-block-srgb-data', REFERENCE_CLASS, 'LabelBlockSrgbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData', 
+            _MetaInfoClassMember('label-block-srgb-data', REFERENCE_CLASS, 'LabelBlockSrgbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData', 
                 [], [], 
                 '''                Label block SRGB context
                 ''',
@@ -3427,85 +3427,85 @@ _meta_table = {
                 ''',
                 'label_context_type',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('mld-pv4-data', REFERENCE_CLASS, 'MldPv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.MldPv4Data', 
+            _MetaInfoClassMember('mld-pv4-data', REFERENCE_CLASS, 'MldPv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.MldPv4Data', 
                 [], [], 
                 '''                MLDPv4 LSM-ID context
                 ''',
                 'mld_pv4_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('next-hop-set-l3vpn', REFERENCE_CLASS, 'NextHopSetL3Vpn' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn', 
+            _MetaInfoClassMember('next-hop-set-l3vpn', REFERENCE_CLASS, 'NextHopSetL3Vpn' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn', 
                 [], [], 
                 '''                L3VPN NH SET label context
                 ''',
                 'next_hop_set_l3vpn',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pi-mi-pmsi-data', REFERENCE_CLASS, 'PiMiPmsiData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PiMiPmsiData', 
+            _MetaInfoClassMember('pi-mi-pmsi-data', REFERENCE_CLASS, 'PiMiPmsiData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PiMiPmsiData', 
                 [], [], 
                 '''                PIM I-PMSI label conext
                 ''',
                 'pi_mi_pmsi_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pi-ms-pmsi-data', REFERENCE_CLASS, 'PiMsPmsiData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PiMsPmsiData', 
+            _MetaInfoClassMember('pi-ms-pmsi-data', REFERENCE_CLASS, 'PiMsPmsiData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PiMsPmsiData', 
                 [], [], 
                 '''                PIM S-PMSI label conext
                 ''',
                 'pi_ms_pmsi_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pseudowire-data', REFERENCE_CLASS, 'PseudowireData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PseudowireData', 
+            _MetaInfoClassMember('pseudowire-data', REFERENCE_CLASS, 'PseudowireData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PseudowireData', 
                 [], [], 
                 '''                Pseudowire label context
                 ''',
                 'pseudowire_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pseudowire-head-end-data', REFERENCE_CLASS, 'PseudowireHeadEndData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData', 
+            _MetaInfoClassMember('pseudowire-head-end-data', REFERENCE_CLASS, 'PseudowireHeadEndData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData', 
                 [], [], 
                 '''                Pseudowire Head-end label context
                 ''',
                 'pseudowire_head_end_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('sr-adj-segment-ipv4', REFERENCE_CLASS, 'SrAdjSegmentIpv4' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4', 
+            _MetaInfoClassMember('sr-adj-segment-ipv4', REFERENCE_CLASS, 'SrAdjSegmentIpv4' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4', 
                 [], [], 
                 '''                SR Adj Segment ipv4 context
                 ''',
                 'sr_adj_segment_ipv4',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('sr-adj-segment-ipv6', REFERENCE_CLASS, 'SrAdjSegmentIpv6' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6', 
+            _MetaInfoClassMember('sr-adj-segment-ipv6', REFERENCE_CLASS, 'SrAdjSegmentIpv6' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6', 
                 [], [], 
                 '''                SR Adj Segment ipv6 context
                 ''',
                 'sr_adj_segment_ipv6',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('sr-prefix-segment', REFERENCE_CLASS, 'SrPrefixSegment' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrPrefixSegment', 
+            _MetaInfoClassMember('sr-prefix-segment', REFERENCE_CLASS, 'SrPrefixSegment' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrPrefixSegment', 
                 [], [], 
                 '''                SR Prefix Segment context
                 ''',
                 'sr_prefix_segment',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('te-binding', REFERENCE_CLASS, 'TeBinding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.TeBinding', 
+            _MetaInfoClassMember('te-binding', REFERENCE_CLASS, 'TeBinding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.TeBinding', 
                 [], [], 
                 '''                MPLS TE tunnel binding context
                 ''',
                 'te_binding',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('tev4-data', REFERENCE_CLASS, 'Tev4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Tev4Data', 
+            _MetaInfoClassMember('tev4-data', REFERENCE_CLASS, 'Tev4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Tev4Data', 
                 [], [], 
                 '''                TEv4 label context
                 ''',
                 'tev4_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('tev4p2mp-data', REFERENCE_CLASS, 'Tev4P2MpData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Tev4P2MpData', 
+            _MetaInfoClassMember('tev4p2mp-data', REFERENCE_CLASS, 'Tev4P2MpData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Tev4P2MpData', 
                 [], [], 
                 '''                TEv4 P2MP context
                 ''',
                 'tev4p2mp_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('tp-data', REFERENCE_CLASS, 'TpData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.TpData', 
+            _MetaInfoClassMember('tp-data', REFERENCE_CLASS, 'TpData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.TpData', 
                 [], [], 
                 '''                TP context
                 ''',
                 'tp_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('vrf-l3vpn-data', REFERENCE_CLASS, 'VrfL3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.VrfL3VpnData', 
+            _MetaInfoClassMember('vrf-l3vpn-data', REFERENCE_CLASS, 'VrfL3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.VrfL3VpnData', 
                 [], [], 
                 '''                L3VPN VRF label context
                 ''',
@@ -3518,8 +3518,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LocalLabelRewrite' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LocalLabelRewrite',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LocalLabelRewrite' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LocalLabelRewrite',
             False, 
             [
             _MetaInfoClassMember('label-data', REFERENCE_LEAFLIST, 'int' , None, None, 
@@ -3535,17 +3535,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_',
             False, 
             [
-            _MetaInfoClassMember('label-context', REFERENCE_CLASS, 'LabelContext' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext', 
+            _MetaInfoClassMember('label-context', REFERENCE_CLASS, 'LabelContext' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext', 
                 [], [], 
                 '''                Label context
                 ''',
                 'label_context',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('local-label-rewrite', REFERENCE_CLASS, 'LocalLabelRewrite' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LocalLabelRewrite', 
+            _MetaInfoClassMember('local-label-rewrite', REFERENCE_CLASS, 'LocalLabelRewrite' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LocalLabelRewrite', 
                 [], [], 
                 '''                Local label rewrite information
                 ''',
@@ -3568,7 +3568,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId',
             False, 
             [
-            _MetaInfoClassMember('rewrite-id', REFERENCE_CLASS, 'RewriteId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId', 
+            _MetaInfoClassMember('rewrite-id', REFERENCE_CLASS, 'RewriteId_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_', 
                 [], [], 
                 '''                Rewrite ID
                 ''',
@@ -5467,8 +5467,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4Data' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4Data',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4Data' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4Data',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -5508,8 +5508,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6Data' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6Data',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6Data' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6Data',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -5549,8 +5549,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Tev4Data' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Tev4Data',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Tev4Data' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Tev4Data',
             False, 
             [
             _MetaInfoClassMember('is-srte', ATTRIBUTE, 'int' , None, None, 
@@ -5602,8 +5602,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -5631,8 +5631,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -5660,8 +5660,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.VrfL3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.VrfL3VpnData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.VrfL3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.VrfL3VpnData',
             False, 
             [
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
@@ -5683,8 +5683,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Cev4L3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Cev4L3VpnData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData',
             False, 
             [
             _MetaInfoClassMember('ipv4-next-hop', ATTRIBUTE, 'str' , None, None, 
@@ -5712,8 +5712,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Cev6L3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Cev6L3VpnData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData',
             False, 
             [
             _MetaInfoClassMember('ipv6-next-hop', ATTRIBUTE, 'str' , None, None, 
@@ -5741,8 +5741,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PseudowireData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PseudowireData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PseudowireData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PseudowireData',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -5776,8 +5776,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.LabelBlockData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.LabelBlockData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.LabelBlockData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.LabelBlockData',
             False, 
             [
             _MetaInfoClassMember('edge-id', ATTRIBUTE, 'int' , None, None, 
@@ -5817,8 +5817,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.IpSubData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.IpSubData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.IpSubData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.IpSubData',
             False, 
             [
             _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
@@ -5840,8 +5840,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Tev4P2MpData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Tev4P2MpData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Tev4P2MpData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Tev4P2MpData',
             False, 
             [
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
@@ -5893,8 +5893,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.MldPv4Data' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.MldPv4Data',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.MldPv4Data' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.MldPv4Data',
             False, 
             [
             _MetaInfoClassMember('lsm-id', ATTRIBUTE, 'int' , None, None, 
@@ -5934,8 +5934,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData',
             False, 
             [
             _MetaInfoClassMember('pwhe-intf', ATTRIBUTE, 'str' , None, None, 
@@ -5951,8 +5951,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.TpData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.TpData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.TpData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.TpData',
             False, 
             [
             _MetaInfoClassMember('dest-global-id', ATTRIBUTE, 'int' , None, None, 
@@ -6004,8 +6004,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation',
             False, 
             [
             _MetaInfoClassMember('gre-interface', ATTRIBUTE, 'str' , None, None, 
@@ -6021,8 +6021,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation',
             False, 
             [
             _MetaInfoClassMember('greipv6-interface', ATTRIBUTE, 'str' , None, None, 
@@ -6038,8 +6038,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.EvpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.EvpnData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.EvpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.EvpnData',
             False, 
             [
             _MetaInfoClassMember('ethernet-segment', ATTRIBUTE, 'str' , None, None, 
@@ -6067,8 +6067,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4BlbData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4BlbData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4BlbData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4BlbData',
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
@@ -6090,8 +6090,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6BlbData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6BlbData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6BlbData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6BlbData',
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
@@ -6113,8 +6113,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PiMiPmsiData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PiMiPmsiData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PiMiPmsiData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PiMiPmsiData',
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
@@ -6142,8 +6142,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PiMsPmsiData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PiMsPmsiData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PiMsPmsiData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PiMsPmsiData',
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
@@ -6189,8 +6189,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn',
             False, 
             [
             _MetaInfoClassMember('next-hop-set-id', ATTRIBUTE, 'int' , None, None, 
@@ -6212,8 +6212,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrPrefixSegment' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrPrefixSegment',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrPrefixSegment' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrPrefixSegment',
             False, 
             [
             _MetaInfoClassMember('segment-id', ATTRIBUTE, 'int' , None, None, 
@@ -6235,8 +6235,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4',
             False, 
             [
             _MetaInfoClassMember('addr', ATTRIBUTE, 'str' , None, None, 
@@ -6270,8 +6270,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6',
             False, 
             [
             _MetaInfoClassMember('addr', ATTRIBUTE, 'str' , None, None, 
@@ -6305,8 +6305,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData',
             False, 
             [
             _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
@@ -6334,8 +6334,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.TeBinding' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.TeBinding',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.TeBinding' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.TeBinding',
             False, 
             [
             _MetaInfoClassMember('te-identifier', ATTRIBUTE, 'int' , None, None, 
@@ -6357,89 +6357,89 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext',
             False, 
             [
-            _MetaInfoClassMember('cev4l3vpn-data', REFERENCE_CLASS, 'Cev4L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Cev4L3VpnData', 
+            _MetaInfoClassMember('cev4l3vpn-data', REFERENCE_CLASS, 'Cev4L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData', 
                 [], [], 
                 '''                L3VPN CEv4 label context
                 ''',
                 'cev4l3vpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('cev6l3vpn-data', REFERENCE_CLASS, 'Cev6L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Cev6L3VpnData', 
+            _MetaInfoClassMember('cev6l3vpn-data', REFERENCE_CLASS, 'Cev6L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData', 
                 [], [], 
                 '''                L3VPN CEv6 label context
                 ''',
                 'cev6l3vpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('evpn-data', REFERENCE_CLASS, 'EvpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.EvpnData', 
+            _MetaInfoClassMember('evpn-data', REFERENCE_CLASS, 'EvpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.EvpnData', 
                 [], [], 
                 '''                EVPN context
                 ''',
                 'evpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('generic-routing-encapsulation', REFERENCE_CLASS, 'GenericRoutingEncapsulation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation', 
+            _MetaInfoClassMember('generic-routing-encapsulation', REFERENCE_CLASS, 'GenericRoutingEncapsulation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation', 
                 [], [], 
                 '''                Generic routing encapsulation context
                 ''',
                 'generic_routing_encapsulation',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ip-sub-data', REFERENCE_CLASS, 'IpSubData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.IpSubData', 
+            _MetaInfoClassMember('ip-sub-data', REFERENCE_CLASS, 'IpSubData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.IpSubData', 
                 [], [], 
                 '''                IP Subscriber context
                 ''',
                 'ip_sub_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv4-data', REFERENCE_CLASS, 'Ipv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4Data', 
+            _MetaInfoClassMember('ipv4-data', REFERENCE_CLASS, 'Ipv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4Data', 
                 [], [], 
                 '''                IPv4 label context
                 ''',
                 'ipv4_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv4blb-data', REFERENCE_CLASS, 'Ipv4BlbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4BlbData', 
+            _MetaInfoClassMember('ipv4blb-data', REFERENCE_CLASS, 'Ipv4BlbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4BlbData', 
                 [], [], 
                 '''                BFD BLB label context
                 ''',
                 'ipv4blb_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv4l3vpn-data', REFERENCE_CLASS, 'Ipv4L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData', 
+            _MetaInfoClassMember('ipv4l3vpn-data', REFERENCE_CLASS, 'Ipv4L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData', 
                 [], [], 
                 '''                L3VPN IPv4 label context
                 ''',
                 'ipv4l3vpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv6-data', REFERENCE_CLASS, 'Ipv6Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6Data', 
+            _MetaInfoClassMember('ipv6-data', REFERENCE_CLASS, 'Ipv6Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6Data', 
                 [], [], 
                 '''                IPv6 label context
                 ''',
                 'ipv6_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv6-generic-routing-encapsulation', REFERENCE_CLASS, 'Ipv6GenericRoutingEncapsulation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation', 
+            _MetaInfoClassMember('ipv6-generic-routing-encapsulation', REFERENCE_CLASS, 'Ipv6GenericRoutingEncapsulation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation', 
                 [], [], 
                 '''                Generic routing encapsulation context
                 ''',
                 'ipv6_generic_routing_encapsulation',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv6blb-data', REFERENCE_CLASS, 'Ipv6BlbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6BlbData', 
+            _MetaInfoClassMember('ipv6blb-data', REFERENCE_CLASS, 'Ipv6BlbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6BlbData', 
                 [], [], 
                 '''                BFD BLB label context
                 ''',
                 'ipv6blb_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv6l3vpn-data', REFERENCE_CLASS, 'Ipv6L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData', 
+            _MetaInfoClassMember('ipv6l3vpn-data', REFERENCE_CLASS, 'Ipv6L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData', 
                 [], [], 
                 '''                L3VPN IPv6 label context
                 ''',
                 'ipv6l3vpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('label-block-data', REFERENCE_CLASS, 'LabelBlockData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.LabelBlockData', 
+            _MetaInfoClassMember('label-block-data', REFERENCE_CLASS, 'LabelBlockData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.LabelBlockData', 
                 [], [], 
                 '''                Label block context
                 ''',
                 'label_block_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('label-block-srgb-data', REFERENCE_CLASS, 'LabelBlockSrgbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData', 
+            _MetaInfoClassMember('label-block-srgb-data', REFERENCE_CLASS, 'LabelBlockSrgbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData', 
                 [], [], 
                 '''                Label block SRGB context
                 ''',
@@ -6451,85 +6451,85 @@ _meta_table = {
                 ''',
                 'label_context_type',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('mld-pv4-data', REFERENCE_CLASS, 'MldPv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.MldPv4Data', 
+            _MetaInfoClassMember('mld-pv4-data', REFERENCE_CLASS, 'MldPv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.MldPv4Data', 
                 [], [], 
                 '''                MLDPv4 LSM-ID context
                 ''',
                 'mld_pv4_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('next-hop-set-l3vpn', REFERENCE_CLASS, 'NextHopSetL3Vpn' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn', 
+            _MetaInfoClassMember('next-hop-set-l3vpn', REFERENCE_CLASS, 'NextHopSetL3Vpn' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn', 
                 [], [], 
                 '''                L3VPN NH SET label context
                 ''',
                 'next_hop_set_l3vpn',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pi-mi-pmsi-data', REFERENCE_CLASS, 'PiMiPmsiData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PiMiPmsiData', 
+            _MetaInfoClassMember('pi-mi-pmsi-data', REFERENCE_CLASS, 'PiMiPmsiData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PiMiPmsiData', 
                 [], [], 
                 '''                PIM I-PMSI label conext
                 ''',
                 'pi_mi_pmsi_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pi-ms-pmsi-data', REFERENCE_CLASS, 'PiMsPmsiData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PiMsPmsiData', 
+            _MetaInfoClassMember('pi-ms-pmsi-data', REFERENCE_CLASS, 'PiMsPmsiData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PiMsPmsiData', 
                 [], [], 
                 '''                PIM S-PMSI label conext
                 ''',
                 'pi_ms_pmsi_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pseudowire-data', REFERENCE_CLASS, 'PseudowireData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PseudowireData', 
+            _MetaInfoClassMember('pseudowire-data', REFERENCE_CLASS, 'PseudowireData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PseudowireData', 
                 [], [], 
                 '''                Pseudowire label context
                 ''',
                 'pseudowire_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pseudowire-head-end-data', REFERENCE_CLASS, 'PseudowireHeadEndData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData', 
+            _MetaInfoClassMember('pseudowire-head-end-data', REFERENCE_CLASS, 'PseudowireHeadEndData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData', 
                 [], [], 
                 '''                Pseudowire Head-end label context
                 ''',
                 'pseudowire_head_end_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('sr-adj-segment-ipv4', REFERENCE_CLASS, 'SrAdjSegmentIpv4' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4', 
+            _MetaInfoClassMember('sr-adj-segment-ipv4', REFERENCE_CLASS, 'SrAdjSegmentIpv4' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4', 
                 [], [], 
                 '''                SR Adj Segment ipv4 context
                 ''',
                 'sr_adj_segment_ipv4',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('sr-adj-segment-ipv6', REFERENCE_CLASS, 'SrAdjSegmentIpv6' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6', 
+            _MetaInfoClassMember('sr-adj-segment-ipv6', REFERENCE_CLASS, 'SrAdjSegmentIpv6' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6', 
                 [], [], 
                 '''                SR Adj Segment ipv6 context
                 ''',
                 'sr_adj_segment_ipv6',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('sr-prefix-segment', REFERENCE_CLASS, 'SrPrefixSegment' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrPrefixSegment', 
+            _MetaInfoClassMember('sr-prefix-segment', REFERENCE_CLASS, 'SrPrefixSegment' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrPrefixSegment', 
                 [], [], 
                 '''                SR Prefix Segment context
                 ''',
                 'sr_prefix_segment',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('te-binding', REFERENCE_CLASS, 'TeBinding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.TeBinding', 
+            _MetaInfoClassMember('te-binding', REFERENCE_CLASS, 'TeBinding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.TeBinding', 
                 [], [], 
                 '''                MPLS TE tunnel binding context
                 ''',
                 'te_binding',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('tev4-data', REFERENCE_CLASS, 'Tev4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Tev4Data', 
+            _MetaInfoClassMember('tev4-data', REFERENCE_CLASS, 'Tev4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Tev4Data', 
                 [], [], 
                 '''                TEv4 label context
                 ''',
                 'tev4_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('tev4p2mp-data', REFERENCE_CLASS, 'Tev4P2MpData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Tev4P2MpData', 
+            _MetaInfoClassMember('tev4p2mp-data', REFERENCE_CLASS, 'Tev4P2MpData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Tev4P2MpData', 
                 [], [], 
                 '''                TEv4 P2MP context
                 ''',
                 'tev4p2mp_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('tp-data', REFERENCE_CLASS, 'TpData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.TpData', 
+            _MetaInfoClassMember('tp-data', REFERENCE_CLASS, 'TpData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.TpData', 
                 [], [], 
                 '''                TP context
                 ''',
                 'tp_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('vrf-l3vpn-data', REFERENCE_CLASS, 'VrfL3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.VrfL3VpnData', 
+            _MetaInfoClassMember('vrf-l3vpn-data', REFERENCE_CLASS, 'VrfL3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.VrfL3VpnData', 
                 [], [], 
                 '''                L3VPN VRF label context
                 ''',
@@ -6542,8 +6542,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LocalLabelRewrite' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LocalLabelRewrite',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LocalLabelRewrite' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LocalLabelRewrite',
             False, 
             [
             _MetaInfoClassMember('label-data', REFERENCE_LEAFLIST, 'int' , None, None, 
@@ -6559,17 +6559,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_',
             False, 
             [
-            _MetaInfoClassMember('label-context', REFERENCE_CLASS, 'LabelContext' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext', 
+            _MetaInfoClassMember('label-context', REFERENCE_CLASS, 'LabelContext' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext', 
                 [], [], 
                 '''                Label context
                 ''',
                 'label_context',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('local-label-rewrite', REFERENCE_CLASS, 'LocalLabelRewrite' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LocalLabelRewrite', 
+            _MetaInfoClassMember('local-label-rewrite', REFERENCE_CLASS, 'LocalLabelRewrite' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LocalLabelRewrite', 
                 [], [], 
                 '''                Local label rewrite information
                 ''',
@@ -6592,7 +6592,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId',
             False, 
             [
-            _MetaInfoClassMember('rewrite-id', REFERENCE_CLASS, 'RewriteId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId', 
+            _MetaInfoClassMember('rewrite-id', REFERENCE_CLASS, 'RewriteId_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_', 
                 [], [], 
                 '''                Rewrite ID
                 ''',
@@ -8509,8 +8509,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4Data' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4Data',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4Data' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4Data',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -8550,8 +8550,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6Data' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6Data',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6Data' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6Data',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -8591,8 +8591,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Tev4Data' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Tev4Data',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Tev4Data' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Tev4Data',
             False, 
             [
             _MetaInfoClassMember('is-srte', ATTRIBUTE, 'int' , None, None, 
@@ -8644,8 +8644,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -8673,8 +8673,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -8702,8 +8702,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.VrfL3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.VrfL3VpnData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.VrfL3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.VrfL3VpnData',
             False, 
             [
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
@@ -8725,8 +8725,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Cev4L3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Cev4L3VpnData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData',
             False, 
             [
             _MetaInfoClassMember('ipv4-next-hop', ATTRIBUTE, 'str' , None, None, 
@@ -8754,8 +8754,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Cev6L3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Cev6L3VpnData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData',
             False, 
             [
             _MetaInfoClassMember('ipv6-next-hop', ATTRIBUTE, 'str' , None, None, 
@@ -8783,8 +8783,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PseudowireData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PseudowireData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PseudowireData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PseudowireData',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -8818,8 +8818,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.LabelBlockData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.LabelBlockData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.LabelBlockData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.LabelBlockData',
             False, 
             [
             _MetaInfoClassMember('edge-id', ATTRIBUTE, 'int' , None, None, 
@@ -8859,8 +8859,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.IpSubData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.IpSubData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.IpSubData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.IpSubData',
             False, 
             [
             _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
@@ -8882,8 +8882,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Tev4P2MpData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Tev4P2MpData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Tev4P2MpData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Tev4P2MpData',
             False, 
             [
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
@@ -8935,8 +8935,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.MldPv4Data' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.MldPv4Data',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.MldPv4Data' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.MldPv4Data',
             False, 
             [
             _MetaInfoClassMember('lsm-id', ATTRIBUTE, 'int' , None, None, 
@@ -8976,8 +8976,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData',
             False, 
             [
             _MetaInfoClassMember('pwhe-intf', ATTRIBUTE, 'str' , None, None, 
@@ -8993,8 +8993,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.TpData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.TpData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.TpData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.TpData',
             False, 
             [
             _MetaInfoClassMember('dest-global-id', ATTRIBUTE, 'int' , None, None, 
@@ -9046,8 +9046,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation',
             False, 
             [
             _MetaInfoClassMember('gre-interface', ATTRIBUTE, 'str' , None, None, 
@@ -9063,8 +9063,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation',
             False, 
             [
             _MetaInfoClassMember('greipv6-interface', ATTRIBUTE, 'str' , None, None, 
@@ -9080,8 +9080,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.EvpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.EvpnData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.EvpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.EvpnData',
             False, 
             [
             _MetaInfoClassMember('ethernet-segment', ATTRIBUTE, 'str' , None, None, 
@@ -9109,8 +9109,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4BlbData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4BlbData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4BlbData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4BlbData',
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
@@ -9132,8 +9132,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6BlbData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6BlbData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6BlbData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6BlbData',
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
@@ -9155,8 +9155,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PiMiPmsiData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PiMiPmsiData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PiMiPmsiData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PiMiPmsiData',
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
@@ -9184,8 +9184,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PiMsPmsiData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PiMsPmsiData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PiMsPmsiData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PiMsPmsiData',
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
@@ -9231,8 +9231,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn',
             False, 
             [
             _MetaInfoClassMember('next-hop-set-id', ATTRIBUTE, 'int' , None, None, 
@@ -9254,8 +9254,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrPrefixSegment' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrPrefixSegment',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrPrefixSegment' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrPrefixSegment',
             False, 
             [
             _MetaInfoClassMember('segment-id', ATTRIBUTE, 'int' , None, None, 
@@ -9277,8 +9277,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4',
             False, 
             [
             _MetaInfoClassMember('addr', ATTRIBUTE, 'str' , None, None, 
@@ -9312,8 +9312,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6',
             False, 
             [
             _MetaInfoClassMember('addr', ATTRIBUTE, 'str' , None, None, 
@@ -9347,8 +9347,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData',
             False, 
             [
             _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
@@ -9376,8 +9376,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.TeBinding' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.TeBinding',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.TeBinding' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.TeBinding',
             False, 
             [
             _MetaInfoClassMember('te-identifier', ATTRIBUTE, 'int' , None, None, 
@@ -9399,89 +9399,89 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext',
             False, 
             [
-            _MetaInfoClassMember('cev4l3vpn-data', REFERENCE_CLASS, 'Cev4L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Cev4L3VpnData', 
+            _MetaInfoClassMember('cev4l3vpn-data', REFERENCE_CLASS, 'Cev4L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData', 
                 [], [], 
                 '''                L3VPN CEv4 label context
                 ''',
                 'cev4l3vpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('cev6l3vpn-data', REFERENCE_CLASS, 'Cev6L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Cev6L3VpnData', 
+            _MetaInfoClassMember('cev6l3vpn-data', REFERENCE_CLASS, 'Cev6L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData', 
                 [], [], 
                 '''                L3VPN CEv6 label context
                 ''',
                 'cev6l3vpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('evpn-data', REFERENCE_CLASS, 'EvpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.EvpnData', 
+            _MetaInfoClassMember('evpn-data', REFERENCE_CLASS, 'EvpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.EvpnData', 
                 [], [], 
                 '''                EVPN context
                 ''',
                 'evpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('generic-routing-encapsulation', REFERENCE_CLASS, 'GenericRoutingEncapsulation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation', 
+            _MetaInfoClassMember('generic-routing-encapsulation', REFERENCE_CLASS, 'GenericRoutingEncapsulation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation', 
                 [], [], 
                 '''                Generic routing encapsulation context
                 ''',
                 'generic_routing_encapsulation',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ip-sub-data', REFERENCE_CLASS, 'IpSubData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.IpSubData', 
+            _MetaInfoClassMember('ip-sub-data', REFERENCE_CLASS, 'IpSubData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.IpSubData', 
                 [], [], 
                 '''                IP Subscriber context
                 ''',
                 'ip_sub_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv4-data', REFERENCE_CLASS, 'Ipv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4Data', 
+            _MetaInfoClassMember('ipv4-data', REFERENCE_CLASS, 'Ipv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4Data', 
                 [], [], 
                 '''                IPv4 label context
                 ''',
                 'ipv4_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv4blb-data', REFERENCE_CLASS, 'Ipv4BlbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4BlbData', 
+            _MetaInfoClassMember('ipv4blb-data', REFERENCE_CLASS, 'Ipv4BlbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4BlbData', 
                 [], [], 
                 '''                BFD BLB label context
                 ''',
                 'ipv4blb_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv4l3vpn-data', REFERENCE_CLASS, 'Ipv4L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData', 
+            _MetaInfoClassMember('ipv4l3vpn-data', REFERENCE_CLASS, 'Ipv4L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData', 
                 [], [], 
                 '''                L3VPN IPv4 label context
                 ''',
                 'ipv4l3vpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv6-data', REFERENCE_CLASS, 'Ipv6Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6Data', 
+            _MetaInfoClassMember('ipv6-data', REFERENCE_CLASS, 'Ipv6Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6Data', 
                 [], [], 
                 '''                IPv6 label context
                 ''',
                 'ipv6_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv6-generic-routing-encapsulation', REFERENCE_CLASS, 'Ipv6GenericRoutingEncapsulation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation', 
+            _MetaInfoClassMember('ipv6-generic-routing-encapsulation', REFERENCE_CLASS, 'Ipv6GenericRoutingEncapsulation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation', 
                 [], [], 
                 '''                Generic routing encapsulation context
                 ''',
                 'ipv6_generic_routing_encapsulation',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv6blb-data', REFERENCE_CLASS, 'Ipv6BlbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6BlbData', 
+            _MetaInfoClassMember('ipv6blb-data', REFERENCE_CLASS, 'Ipv6BlbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6BlbData', 
                 [], [], 
                 '''                BFD BLB label context
                 ''',
                 'ipv6blb_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv6l3vpn-data', REFERENCE_CLASS, 'Ipv6L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData', 
+            _MetaInfoClassMember('ipv6l3vpn-data', REFERENCE_CLASS, 'Ipv6L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData', 
                 [], [], 
                 '''                L3VPN IPv6 label context
                 ''',
                 'ipv6l3vpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('label-block-data', REFERENCE_CLASS, 'LabelBlockData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.LabelBlockData', 
+            _MetaInfoClassMember('label-block-data', REFERENCE_CLASS, 'LabelBlockData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.LabelBlockData', 
                 [], [], 
                 '''                Label block context
                 ''',
                 'label_block_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('label-block-srgb-data', REFERENCE_CLASS, 'LabelBlockSrgbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData', 
+            _MetaInfoClassMember('label-block-srgb-data', REFERENCE_CLASS, 'LabelBlockSrgbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData', 
                 [], [], 
                 '''                Label block SRGB context
                 ''',
@@ -9493,85 +9493,85 @@ _meta_table = {
                 ''',
                 'label_context_type',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('mld-pv4-data', REFERENCE_CLASS, 'MldPv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.MldPv4Data', 
+            _MetaInfoClassMember('mld-pv4-data', REFERENCE_CLASS, 'MldPv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.MldPv4Data', 
                 [], [], 
                 '''                MLDPv4 LSM-ID context
                 ''',
                 'mld_pv4_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('next-hop-set-l3vpn', REFERENCE_CLASS, 'NextHopSetL3Vpn' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn', 
+            _MetaInfoClassMember('next-hop-set-l3vpn', REFERENCE_CLASS, 'NextHopSetL3Vpn' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn', 
                 [], [], 
                 '''                L3VPN NH SET label context
                 ''',
                 'next_hop_set_l3vpn',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pi-mi-pmsi-data', REFERENCE_CLASS, 'PiMiPmsiData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PiMiPmsiData', 
+            _MetaInfoClassMember('pi-mi-pmsi-data', REFERENCE_CLASS, 'PiMiPmsiData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PiMiPmsiData', 
                 [], [], 
                 '''                PIM I-PMSI label conext
                 ''',
                 'pi_mi_pmsi_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pi-ms-pmsi-data', REFERENCE_CLASS, 'PiMsPmsiData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PiMsPmsiData', 
+            _MetaInfoClassMember('pi-ms-pmsi-data', REFERENCE_CLASS, 'PiMsPmsiData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PiMsPmsiData', 
                 [], [], 
                 '''                PIM S-PMSI label conext
                 ''',
                 'pi_ms_pmsi_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pseudowire-data', REFERENCE_CLASS, 'PseudowireData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PseudowireData', 
+            _MetaInfoClassMember('pseudowire-data', REFERENCE_CLASS, 'PseudowireData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PseudowireData', 
                 [], [], 
                 '''                Pseudowire label context
                 ''',
                 'pseudowire_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pseudowire-head-end-data', REFERENCE_CLASS, 'PseudowireHeadEndData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData', 
+            _MetaInfoClassMember('pseudowire-head-end-data', REFERENCE_CLASS, 'PseudowireHeadEndData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData', 
                 [], [], 
                 '''                Pseudowire Head-end label context
                 ''',
                 'pseudowire_head_end_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('sr-adj-segment-ipv4', REFERENCE_CLASS, 'SrAdjSegmentIpv4' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4', 
+            _MetaInfoClassMember('sr-adj-segment-ipv4', REFERENCE_CLASS, 'SrAdjSegmentIpv4' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4', 
                 [], [], 
                 '''                SR Adj Segment ipv4 context
                 ''',
                 'sr_adj_segment_ipv4',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('sr-adj-segment-ipv6', REFERENCE_CLASS, 'SrAdjSegmentIpv6' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6', 
+            _MetaInfoClassMember('sr-adj-segment-ipv6', REFERENCE_CLASS, 'SrAdjSegmentIpv6' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6', 
                 [], [], 
                 '''                SR Adj Segment ipv6 context
                 ''',
                 'sr_adj_segment_ipv6',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('sr-prefix-segment', REFERENCE_CLASS, 'SrPrefixSegment' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrPrefixSegment', 
+            _MetaInfoClassMember('sr-prefix-segment', REFERENCE_CLASS, 'SrPrefixSegment' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrPrefixSegment', 
                 [], [], 
                 '''                SR Prefix Segment context
                 ''',
                 'sr_prefix_segment',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('te-binding', REFERENCE_CLASS, 'TeBinding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.TeBinding', 
+            _MetaInfoClassMember('te-binding', REFERENCE_CLASS, 'TeBinding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.TeBinding', 
                 [], [], 
                 '''                MPLS TE tunnel binding context
                 ''',
                 'te_binding',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('tev4-data', REFERENCE_CLASS, 'Tev4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Tev4Data', 
+            _MetaInfoClassMember('tev4-data', REFERENCE_CLASS, 'Tev4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Tev4Data', 
                 [], [], 
                 '''                TEv4 label context
                 ''',
                 'tev4_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('tev4p2mp-data', REFERENCE_CLASS, 'Tev4P2MpData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Tev4P2MpData', 
+            _MetaInfoClassMember('tev4p2mp-data', REFERENCE_CLASS, 'Tev4P2MpData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Tev4P2MpData', 
                 [], [], 
                 '''                TEv4 P2MP context
                 ''',
                 'tev4p2mp_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('tp-data', REFERENCE_CLASS, 'TpData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.TpData', 
+            _MetaInfoClassMember('tp-data', REFERENCE_CLASS, 'TpData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.TpData', 
                 [], [], 
                 '''                TP context
                 ''',
                 'tp_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('vrf-l3vpn-data', REFERENCE_CLASS, 'VrfL3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.VrfL3VpnData', 
+            _MetaInfoClassMember('vrf-l3vpn-data', REFERENCE_CLASS, 'VrfL3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.VrfL3VpnData', 
                 [], [], 
                 '''                L3VPN VRF label context
                 ''',
@@ -9584,8 +9584,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LocalLabelRewrite' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LocalLabelRewrite',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LocalLabelRewrite' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LocalLabelRewrite',
             False, 
             [
             _MetaInfoClassMember('label-data', REFERENCE_LEAFLIST, 'int' , None, None, 
@@ -9601,17 +9601,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_',
             False, 
             [
-            _MetaInfoClassMember('label-context', REFERENCE_CLASS, 'LabelContext' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext', 
+            _MetaInfoClassMember('label-context', REFERENCE_CLASS, 'LabelContext' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext', 
                 [], [], 
                 '''                Label context
                 ''',
                 'label_context',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('local-label-rewrite', REFERENCE_CLASS, 'LocalLabelRewrite' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LocalLabelRewrite', 
+            _MetaInfoClassMember('local-label-rewrite', REFERENCE_CLASS, 'LocalLabelRewrite' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LocalLabelRewrite', 
                 [], [], 
                 '''                Local label rewrite information
                 ''',
@@ -9634,7 +9634,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId',
             False, 
             [
-            _MetaInfoClassMember('rewrite-id', REFERENCE_CLASS, 'RewriteId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId', 
+            _MetaInfoClassMember('rewrite-id', REFERENCE_CLASS, 'RewriteId_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_', 
                 [], [], 
                 '''                Rewrite ID
                 ''',
@@ -11533,8 +11533,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4Data' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4Data',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4Data' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4Data',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -11574,8 +11574,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6Data' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6Data',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6Data' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6Data',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -11615,8 +11615,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Tev4Data' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Tev4Data',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Tev4Data' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Tev4Data',
             False, 
             [
             _MetaInfoClassMember('is-srte', ATTRIBUTE, 'int' , None, None, 
@@ -11668,8 +11668,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -11697,8 +11697,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -11726,8 +11726,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.VrfL3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.VrfL3VpnData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.VrfL3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.VrfL3VpnData',
             False, 
             [
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
@@ -11749,8 +11749,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Cev4L3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Cev4L3VpnData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData',
             False, 
             [
             _MetaInfoClassMember('ipv4-next-hop', ATTRIBUTE, 'str' , None, None, 
@@ -11778,8 +11778,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Cev6L3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Cev6L3VpnData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData',
             False, 
             [
             _MetaInfoClassMember('ipv6-next-hop', ATTRIBUTE, 'str' , None, None, 
@@ -11807,8 +11807,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PseudowireData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PseudowireData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PseudowireData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PseudowireData',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -11842,8 +11842,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.LabelBlockData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.LabelBlockData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.LabelBlockData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.LabelBlockData',
             False, 
             [
             _MetaInfoClassMember('edge-id', ATTRIBUTE, 'int' , None, None, 
@@ -11883,8 +11883,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.IpSubData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.IpSubData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.IpSubData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.IpSubData',
             False, 
             [
             _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
@@ -11906,8 +11906,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Tev4P2MpData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Tev4P2MpData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Tev4P2MpData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Tev4P2MpData',
             False, 
             [
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
@@ -11959,8 +11959,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.MldPv4Data' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.MldPv4Data',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.MldPv4Data' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.MldPv4Data',
             False, 
             [
             _MetaInfoClassMember('lsm-id', ATTRIBUTE, 'int' , None, None, 
@@ -12000,8 +12000,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData',
             False, 
             [
             _MetaInfoClassMember('pwhe-intf', ATTRIBUTE, 'str' , None, None, 
@@ -12017,8 +12017,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.TpData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.TpData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.TpData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.TpData',
             False, 
             [
             _MetaInfoClassMember('dest-global-id', ATTRIBUTE, 'int' , None, None, 
@@ -12070,8 +12070,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation',
             False, 
             [
             _MetaInfoClassMember('gre-interface', ATTRIBUTE, 'str' , None, None, 
@@ -12087,8 +12087,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation',
             False, 
             [
             _MetaInfoClassMember('greipv6-interface', ATTRIBUTE, 'str' , None, None, 
@@ -12104,8 +12104,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.EvpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.EvpnData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.EvpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.EvpnData',
             False, 
             [
             _MetaInfoClassMember('ethernet-segment', ATTRIBUTE, 'str' , None, None, 
@@ -12133,8 +12133,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4BlbData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4BlbData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4BlbData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4BlbData',
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
@@ -12156,8 +12156,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6BlbData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6BlbData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6BlbData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6BlbData',
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
@@ -12179,8 +12179,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PiMiPmsiData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PiMiPmsiData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PiMiPmsiData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PiMiPmsiData',
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
@@ -12208,8 +12208,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PiMsPmsiData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PiMsPmsiData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PiMsPmsiData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PiMsPmsiData',
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
@@ -12255,8 +12255,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn',
             False, 
             [
             _MetaInfoClassMember('next-hop-set-id', ATTRIBUTE, 'int' , None, None, 
@@ -12278,8 +12278,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrPrefixSegment' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrPrefixSegment',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrPrefixSegment' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrPrefixSegment',
             False, 
             [
             _MetaInfoClassMember('segment-id', ATTRIBUTE, 'int' , None, None, 
@@ -12301,8 +12301,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4',
             False, 
             [
             _MetaInfoClassMember('addr', ATTRIBUTE, 'str' , None, None, 
@@ -12336,8 +12336,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6',
             False, 
             [
             _MetaInfoClassMember('addr', ATTRIBUTE, 'str' , None, None, 
@@ -12371,8 +12371,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData',
             False, 
             [
             _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
@@ -12400,8 +12400,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.TeBinding' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.TeBinding',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.TeBinding' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.TeBinding',
             False, 
             [
             _MetaInfoClassMember('te-identifier', ATTRIBUTE, 'int' , None, None, 
@@ -12423,89 +12423,89 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext',
             False, 
             [
-            _MetaInfoClassMember('cev4l3vpn-data', REFERENCE_CLASS, 'Cev4L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Cev4L3VpnData', 
+            _MetaInfoClassMember('cev4l3vpn-data', REFERENCE_CLASS, 'Cev4L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData', 
                 [], [], 
                 '''                L3VPN CEv4 label context
                 ''',
                 'cev4l3vpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('cev6l3vpn-data', REFERENCE_CLASS, 'Cev6L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Cev6L3VpnData', 
+            _MetaInfoClassMember('cev6l3vpn-data', REFERENCE_CLASS, 'Cev6L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData', 
                 [], [], 
                 '''                L3VPN CEv6 label context
                 ''',
                 'cev6l3vpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('evpn-data', REFERENCE_CLASS, 'EvpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.EvpnData', 
+            _MetaInfoClassMember('evpn-data', REFERENCE_CLASS, 'EvpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.EvpnData', 
                 [], [], 
                 '''                EVPN context
                 ''',
                 'evpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('generic-routing-encapsulation', REFERENCE_CLASS, 'GenericRoutingEncapsulation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation', 
+            _MetaInfoClassMember('generic-routing-encapsulation', REFERENCE_CLASS, 'GenericRoutingEncapsulation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation', 
                 [], [], 
                 '''                Generic routing encapsulation context
                 ''',
                 'generic_routing_encapsulation',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ip-sub-data', REFERENCE_CLASS, 'IpSubData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.IpSubData', 
+            _MetaInfoClassMember('ip-sub-data', REFERENCE_CLASS, 'IpSubData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.IpSubData', 
                 [], [], 
                 '''                IP Subscriber context
                 ''',
                 'ip_sub_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv4-data', REFERENCE_CLASS, 'Ipv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4Data', 
+            _MetaInfoClassMember('ipv4-data', REFERENCE_CLASS, 'Ipv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4Data', 
                 [], [], 
                 '''                IPv4 label context
                 ''',
                 'ipv4_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv4blb-data', REFERENCE_CLASS, 'Ipv4BlbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4BlbData', 
+            _MetaInfoClassMember('ipv4blb-data', REFERENCE_CLASS, 'Ipv4BlbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4BlbData', 
                 [], [], 
                 '''                BFD BLB label context
                 ''',
                 'ipv4blb_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv4l3vpn-data', REFERENCE_CLASS, 'Ipv4L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData', 
+            _MetaInfoClassMember('ipv4l3vpn-data', REFERENCE_CLASS, 'Ipv4L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData', 
                 [], [], 
                 '''                L3VPN IPv4 label context
                 ''',
                 'ipv4l3vpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv6-data', REFERENCE_CLASS, 'Ipv6Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6Data', 
+            _MetaInfoClassMember('ipv6-data', REFERENCE_CLASS, 'Ipv6Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6Data', 
                 [], [], 
                 '''                IPv6 label context
                 ''',
                 'ipv6_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv6-generic-routing-encapsulation', REFERENCE_CLASS, 'Ipv6GenericRoutingEncapsulation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation', 
+            _MetaInfoClassMember('ipv6-generic-routing-encapsulation', REFERENCE_CLASS, 'Ipv6GenericRoutingEncapsulation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation', 
                 [], [], 
                 '''                Generic routing encapsulation context
                 ''',
                 'ipv6_generic_routing_encapsulation',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv6blb-data', REFERENCE_CLASS, 'Ipv6BlbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6BlbData', 
+            _MetaInfoClassMember('ipv6blb-data', REFERENCE_CLASS, 'Ipv6BlbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6BlbData', 
                 [], [], 
                 '''                BFD BLB label context
                 ''',
                 'ipv6blb_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv6l3vpn-data', REFERENCE_CLASS, 'Ipv6L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData', 
+            _MetaInfoClassMember('ipv6l3vpn-data', REFERENCE_CLASS, 'Ipv6L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData', 
                 [], [], 
                 '''                L3VPN IPv6 label context
                 ''',
                 'ipv6l3vpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('label-block-data', REFERENCE_CLASS, 'LabelBlockData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.LabelBlockData', 
+            _MetaInfoClassMember('label-block-data', REFERENCE_CLASS, 'LabelBlockData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.LabelBlockData', 
                 [], [], 
                 '''                Label block context
                 ''',
                 'label_block_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('label-block-srgb-data', REFERENCE_CLASS, 'LabelBlockSrgbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData', 
+            _MetaInfoClassMember('label-block-srgb-data', REFERENCE_CLASS, 'LabelBlockSrgbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData', 
                 [], [], 
                 '''                Label block SRGB context
                 ''',
@@ -12517,85 +12517,85 @@ _meta_table = {
                 ''',
                 'label_context_type',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('mld-pv4-data', REFERENCE_CLASS, 'MldPv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.MldPv4Data', 
+            _MetaInfoClassMember('mld-pv4-data', REFERENCE_CLASS, 'MldPv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.MldPv4Data', 
                 [], [], 
                 '''                MLDPv4 LSM-ID context
                 ''',
                 'mld_pv4_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('next-hop-set-l3vpn', REFERENCE_CLASS, 'NextHopSetL3Vpn' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn', 
+            _MetaInfoClassMember('next-hop-set-l3vpn', REFERENCE_CLASS, 'NextHopSetL3Vpn' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn', 
                 [], [], 
                 '''                L3VPN NH SET label context
                 ''',
                 'next_hop_set_l3vpn',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pi-mi-pmsi-data', REFERENCE_CLASS, 'PiMiPmsiData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PiMiPmsiData', 
+            _MetaInfoClassMember('pi-mi-pmsi-data', REFERENCE_CLASS, 'PiMiPmsiData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PiMiPmsiData', 
                 [], [], 
                 '''                PIM I-PMSI label conext
                 ''',
                 'pi_mi_pmsi_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pi-ms-pmsi-data', REFERENCE_CLASS, 'PiMsPmsiData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PiMsPmsiData', 
+            _MetaInfoClassMember('pi-ms-pmsi-data', REFERENCE_CLASS, 'PiMsPmsiData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PiMsPmsiData', 
                 [], [], 
                 '''                PIM S-PMSI label conext
                 ''',
                 'pi_ms_pmsi_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pseudowire-data', REFERENCE_CLASS, 'PseudowireData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PseudowireData', 
+            _MetaInfoClassMember('pseudowire-data', REFERENCE_CLASS, 'PseudowireData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PseudowireData', 
                 [], [], 
                 '''                Pseudowire label context
                 ''',
                 'pseudowire_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pseudowire-head-end-data', REFERENCE_CLASS, 'PseudowireHeadEndData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData', 
+            _MetaInfoClassMember('pseudowire-head-end-data', REFERENCE_CLASS, 'PseudowireHeadEndData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData', 
                 [], [], 
                 '''                Pseudowire Head-end label context
                 ''',
                 'pseudowire_head_end_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('sr-adj-segment-ipv4', REFERENCE_CLASS, 'SrAdjSegmentIpv4' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4', 
+            _MetaInfoClassMember('sr-adj-segment-ipv4', REFERENCE_CLASS, 'SrAdjSegmentIpv4' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4', 
                 [], [], 
                 '''                SR Adj Segment ipv4 context
                 ''',
                 'sr_adj_segment_ipv4',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('sr-adj-segment-ipv6', REFERENCE_CLASS, 'SrAdjSegmentIpv6' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6', 
+            _MetaInfoClassMember('sr-adj-segment-ipv6', REFERENCE_CLASS, 'SrAdjSegmentIpv6' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6', 
                 [], [], 
                 '''                SR Adj Segment ipv6 context
                 ''',
                 'sr_adj_segment_ipv6',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('sr-prefix-segment', REFERENCE_CLASS, 'SrPrefixSegment' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrPrefixSegment', 
+            _MetaInfoClassMember('sr-prefix-segment', REFERENCE_CLASS, 'SrPrefixSegment' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrPrefixSegment', 
                 [], [], 
                 '''                SR Prefix Segment context
                 ''',
                 'sr_prefix_segment',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('te-binding', REFERENCE_CLASS, 'TeBinding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.TeBinding', 
+            _MetaInfoClassMember('te-binding', REFERENCE_CLASS, 'TeBinding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.TeBinding', 
                 [], [], 
                 '''                MPLS TE tunnel binding context
                 ''',
                 'te_binding',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('tev4-data', REFERENCE_CLASS, 'Tev4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Tev4Data', 
+            _MetaInfoClassMember('tev4-data', REFERENCE_CLASS, 'Tev4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Tev4Data', 
                 [], [], 
                 '''                TEv4 label context
                 ''',
                 'tev4_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('tev4p2mp-data', REFERENCE_CLASS, 'Tev4P2MpData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Tev4P2MpData', 
+            _MetaInfoClassMember('tev4p2mp-data', REFERENCE_CLASS, 'Tev4P2MpData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Tev4P2MpData', 
                 [], [], 
                 '''                TEv4 P2MP context
                 ''',
                 'tev4p2mp_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('tp-data', REFERENCE_CLASS, 'TpData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.TpData', 
+            _MetaInfoClassMember('tp-data', REFERENCE_CLASS, 'TpData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.TpData', 
                 [], [], 
                 '''                TP context
                 ''',
                 'tp_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('vrf-l3vpn-data', REFERENCE_CLASS, 'VrfL3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.VrfL3VpnData', 
+            _MetaInfoClassMember('vrf-l3vpn-data', REFERENCE_CLASS, 'VrfL3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.VrfL3VpnData', 
                 [], [], 
                 '''                L3VPN VRF label context
                 ''',
@@ -12608,8 +12608,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LocalLabelRewrite' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LocalLabelRewrite',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LocalLabelRewrite' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LocalLabelRewrite',
             False, 
             [
             _MetaInfoClassMember('label-data', REFERENCE_LEAFLIST, 'int' , None, None, 
@@ -12625,17 +12625,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId' : {
-        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId',
+    'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_' : {
+        'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_',
             False, 
             [
-            _MetaInfoClassMember('label-context', REFERENCE_CLASS, 'LabelContext' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext', 
+            _MetaInfoClassMember('label-context', REFERENCE_CLASS, 'LabelContext' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext', 
                 [], [], 
                 '''                Label context
                 ''',
                 'label_context',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('local-label-rewrite', REFERENCE_CLASS, 'LocalLabelRewrite' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LocalLabelRewrite', 
+            _MetaInfoClassMember('local-label-rewrite', REFERENCE_CLASS, 'LocalLabelRewrite' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LocalLabelRewrite', 
                 [], [], 
                 '''                Local label rewrite information
                 ''',
@@ -12658,7 +12658,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId',
             False, 
             [
-            _MetaInfoClassMember('rewrite-id', REFERENCE_CLASS, 'RewriteId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId', 
+            _MetaInfoClassMember('rewrite-id', REFERENCE_CLASS, 'RewriteId_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_', 
                 [], [], 
                 '''                Rewrite ID
                 ''',
@@ -17614,8 +17614,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4Data' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4Data',
+    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4Data' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4Data',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -17655,8 +17655,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6Data' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6Data',
+    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6Data' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6Data',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -17696,8 +17696,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Tev4Data' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Tev4Data',
+    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Tev4Data' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Tev4Data',
             False, 
             [
             _MetaInfoClassMember('is-srte', ATTRIBUTE, 'int' , None, None, 
@@ -17749,8 +17749,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData',
+    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -17778,8 +17778,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData',
+    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -17807,8 +17807,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.VrfL3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.VrfL3VpnData',
+    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.VrfL3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.VrfL3VpnData',
             False, 
             [
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
@@ -17830,8 +17830,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Cev4L3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Cev4L3VpnData',
+    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData',
             False, 
             [
             _MetaInfoClassMember('ipv4-next-hop', ATTRIBUTE, 'str' , None, None, 
@@ -17859,8 +17859,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Cev6L3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Cev6L3VpnData',
+    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData',
             False, 
             [
             _MetaInfoClassMember('ipv6-next-hop', ATTRIBUTE, 'str' , None, None, 
@@ -17888,8 +17888,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PseudowireData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PseudowireData',
+    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PseudowireData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PseudowireData',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -17923,8 +17923,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.LabelBlockData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.LabelBlockData',
+    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.LabelBlockData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.LabelBlockData',
             False, 
             [
             _MetaInfoClassMember('edge-id', ATTRIBUTE, 'int' , None, None, 
@@ -17964,8 +17964,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.IpSubData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.IpSubData',
+    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.IpSubData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.IpSubData',
             False, 
             [
             _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
@@ -17987,8 +17987,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Tev4P2MpData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Tev4P2MpData',
+    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Tev4P2MpData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Tev4P2MpData',
             False, 
             [
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
@@ -18040,8 +18040,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.MldPv4Data' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.MldPv4Data',
+    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.MldPv4Data' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.MldPv4Data',
             False, 
             [
             _MetaInfoClassMember('lsm-id', ATTRIBUTE, 'int' , None, None, 
@@ -18081,8 +18081,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData',
+    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData',
             False, 
             [
             _MetaInfoClassMember('pwhe-intf', ATTRIBUTE, 'str' , None, None, 
@@ -18098,8 +18098,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.TpData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.TpData',
+    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.TpData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.TpData',
             False, 
             [
             _MetaInfoClassMember('dest-global-id', ATTRIBUTE, 'int' , None, None, 
@@ -18151,8 +18151,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation',
+    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation',
             False, 
             [
             _MetaInfoClassMember('gre-interface', ATTRIBUTE, 'str' , None, None, 
@@ -18168,8 +18168,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation',
+    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation',
             False, 
             [
             _MetaInfoClassMember('greipv6-interface', ATTRIBUTE, 'str' , None, None, 
@@ -18185,8 +18185,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.EvpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.EvpnData',
+    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.EvpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.EvpnData',
             False, 
             [
             _MetaInfoClassMember('ethernet-segment', ATTRIBUTE, 'str' , None, None, 
@@ -18214,8 +18214,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4BlbData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4BlbData',
+    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4BlbData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4BlbData',
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
@@ -18237,8 +18237,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6BlbData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6BlbData',
+    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6BlbData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6BlbData',
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
@@ -18260,8 +18260,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PiMiPmsiData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PiMiPmsiData',
+    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PiMiPmsiData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PiMiPmsiData',
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
@@ -18289,8 +18289,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PiMsPmsiData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PiMsPmsiData',
+    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PiMsPmsiData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PiMsPmsiData',
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
@@ -18336,8 +18336,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn',
+    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn',
             False, 
             [
             _MetaInfoClassMember('next-hop-set-id', ATTRIBUTE, 'int' , None, None, 
@@ -18359,8 +18359,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrPrefixSegment' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrPrefixSegment',
+    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrPrefixSegment' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrPrefixSegment',
             False, 
             [
             _MetaInfoClassMember('segment-id', ATTRIBUTE, 'int' , None, None, 
@@ -18382,8 +18382,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4',
+    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4',
             False, 
             [
             _MetaInfoClassMember('addr', ATTRIBUTE, 'str' , None, None, 
@@ -18417,8 +18417,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6',
+    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6',
             False, 
             [
             _MetaInfoClassMember('addr', ATTRIBUTE, 'str' , None, None, 
@@ -18452,8 +18452,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData',
+    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData',
             False, 
             [
             _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
@@ -18481,8 +18481,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.TeBinding' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.TeBinding',
+    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.TeBinding' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.TeBinding',
             False, 
             [
             _MetaInfoClassMember('te-identifier', ATTRIBUTE, 'int' , None, None, 
@@ -18504,89 +18504,89 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext',
+    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext',
             False, 
             [
-            _MetaInfoClassMember('cev4l3vpn-data', REFERENCE_CLASS, 'Cev4L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Cev4L3VpnData', 
+            _MetaInfoClassMember('cev4l3vpn-data', REFERENCE_CLASS, 'Cev4L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData', 
                 [], [], 
                 '''                L3VPN CEv4 label context
                 ''',
                 'cev4l3vpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('cev6l3vpn-data', REFERENCE_CLASS, 'Cev6L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Cev6L3VpnData', 
+            _MetaInfoClassMember('cev6l3vpn-data', REFERENCE_CLASS, 'Cev6L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData', 
                 [], [], 
                 '''                L3VPN CEv6 label context
                 ''',
                 'cev6l3vpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('evpn-data', REFERENCE_CLASS, 'EvpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.EvpnData', 
+            _MetaInfoClassMember('evpn-data', REFERENCE_CLASS, 'EvpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.EvpnData', 
                 [], [], 
                 '''                EVPN context
                 ''',
                 'evpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('generic-routing-encapsulation', REFERENCE_CLASS, 'GenericRoutingEncapsulation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation', 
+            _MetaInfoClassMember('generic-routing-encapsulation', REFERENCE_CLASS, 'GenericRoutingEncapsulation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation', 
                 [], [], 
                 '''                Generic routing encapsulation context
                 ''',
                 'generic_routing_encapsulation',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ip-sub-data', REFERENCE_CLASS, 'IpSubData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.IpSubData', 
+            _MetaInfoClassMember('ip-sub-data', REFERENCE_CLASS, 'IpSubData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.IpSubData', 
                 [], [], 
                 '''                IP Subscriber context
                 ''',
                 'ip_sub_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv4-data', REFERENCE_CLASS, 'Ipv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4Data', 
+            _MetaInfoClassMember('ipv4-data', REFERENCE_CLASS, 'Ipv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4Data', 
                 [], [], 
                 '''                IPv4 label context
                 ''',
                 'ipv4_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv4blb-data', REFERENCE_CLASS, 'Ipv4BlbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4BlbData', 
+            _MetaInfoClassMember('ipv4blb-data', REFERENCE_CLASS, 'Ipv4BlbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4BlbData', 
                 [], [], 
                 '''                BFD BLB label context
                 ''',
                 'ipv4blb_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv4l3vpn-data', REFERENCE_CLASS, 'Ipv4L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData', 
+            _MetaInfoClassMember('ipv4l3vpn-data', REFERENCE_CLASS, 'Ipv4L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData', 
                 [], [], 
                 '''                L3VPN IPv4 label context
                 ''',
                 'ipv4l3vpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv6-data', REFERENCE_CLASS, 'Ipv6Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6Data', 
+            _MetaInfoClassMember('ipv6-data', REFERENCE_CLASS, 'Ipv6Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6Data', 
                 [], [], 
                 '''                IPv6 label context
                 ''',
                 'ipv6_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv6-generic-routing-encapsulation', REFERENCE_CLASS, 'Ipv6GenericRoutingEncapsulation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation', 
+            _MetaInfoClassMember('ipv6-generic-routing-encapsulation', REFERENCE_CLASS, 'Ipv6GenericRoutingEncapsulation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation', 
                 [], [], 
                 '''                Generic routing encapsulation context
                 ''',
                 'ipv6_generic_routing_encapsulation',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv6blb-data', REFERENCE_CLASS, 'Ipv6BlbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6BlbData', 
+            _MetaInfoClassMember('ipv6blb-data', REFERENCE_CLASS, 'Ipv6BlbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6BlbData', 
                 [], [], 
                 '''                BFD BLB label context
                 ''',
                 'ipv6blb_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv6l3vpn-data', REFERENCE_CLASS, 'Ipv6L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData', 
+            _MetaInfoClassMember('ipv6l3vpn-data', REFERENCE_CLASS, 'Ipv6L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData', 
                 [], [], 
                 '''                L3VPN IPv6 label context
                 ''',
                 'ipv6l3vpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('label-block-data', REFERENCE_CLASS, 'LabelBlockData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.LabelBlockData', 
+            _MetaInfoClassMember('label-block-data', REFERENCE_CLASS, 'LabelBlockData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.LabelBlockData', 
                 [], [], 
                 '''                Label block context
                 ''',
                 'label_block_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('label-block-srgb-data', REFERENCE_CLASS, 'LabelBlockSrgbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData', 
+            _MetaInfoClassMember('label-block-srgb-data', REFERENCE_CLASS, 'LabelBlockSrgbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData', 
                 [], [], 
                 '''                Label block SRGB context
                 ''',
@@ -18598,85 +18598,85 @@ _meta_table = {
                 ''',
                 'label_context_type',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('mld-pv4-data', REFERENCE_CLASS, 'MldPv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.MldPv4Data', 
+            _MetaInfoClassMember('mld-pv4-data', REFERENCE_CLASS, 'MldPv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.MldPv4Data', 
                 [], [], 
                 '''                MLDPv4 LSM-ID context
                 ''',
                 'mld_pv4_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('next-hop-set-l3vpn', REFERENCE_CLASS, 'NextHopSetL3Vpn' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn', 
+            _MetaInfoClassMember('next-hop-set-l3vpn', REFERENCE_CLASS, 'NextHopSetL3Vpn' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn', 
                 [], [], 
                 '''                L3VPN NH SET label context
                 ''',
                 'next_hop_set_l3vpn',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pi-mi-pmsi-data', REFERENCE_CLASS, 'PiMiPmsiData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PiMiPmsiData', 
+            _MetaInfoClassMember('pi-mi-pmsi-data', REFERENCE_CLASS, 'PiMiPmsiData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PiMiPmsiData', 
                 [], [], 
                 '''                PIM I-PMSI label conext
                 ''',
                 'pi_mi_pmsi_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pi-ms-pmsi-data', REFERENCE_CLASS, 'PiMsPmsiData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PiMsPmsiData', 
+            _MetaInfoClassMember('pi-ms-pmsi-data', REFERENCE_CLASS, 'PiMsPmsiData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PiMsPmsiData', 
                 [], [], 
                 '''                PIM S-PMSI label conext
                 ''',
                 'pi_ms_pmsi_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pseudowire-data', REFERENCE_CLASS, 'PseudowireData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PseudowireData', 
+            _MetaInfoClassMember('pseudowire-data', REFERENCE_CLASS, 'PseudowireData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PseudowireData', 
                 [], [], 
                 '''                Pseudowire label context
                 ''',
                 'pseudowire_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pseudowire-head-end-data', REFERENCE_CLASS, 'PseudowireHeadEndData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData', 
+            _MetaInfoClassMember('pseudowire-head-end-data', REFERENCE_CLASS, 'PseudowireHeadEndData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData', 
                 [], [], 
                 '''                Pseudowire Head-end label context
                 ''',
                 'pseudowire_head_end_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('sr-adj-segment-ipv4', REFERENCE_CLASS, 'SrAdjSegmentIpv4' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4', 
+            _MetaInfoClassMember('sr-adj-segment-ipv4', REFERENCE_CLASS, 'SrAdjSegmentIpv4' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4', 
                 [], [], 
                 '''                SR Adj Segment ipv4 context
                 ''',
                 'sr_adj_segment_ipv4',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('sr-adj-segment-ipv6', REFERENCE_CLASS, 'SrAdjSegmentIpv6' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6', 
+            _MetaInfoClassMember('sr-adj-segment-ipv6', REFERENCE_CLASS, 'SrAdjSegmentIpv6' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6', 
                 [], [], 
                 '''                SR Adj Segment ipv6 context
                 ''',
                 'sr_adj_segment_ipv6',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('sr-prefix-segment', REFERENCE_CLASS, 'SrPrefixSegment' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrPrefixSegment', 
+            _MetaInfoClassMember('sr-prefix-segment', REFERENCE_CLASS, 'SrPrefixSegment' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrPrefixSegment', 
                 [], [], 
                 '''                SR Prefix Segment context
                 ''',
                 'sr_prefix_segment',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('te-binding', REFERENCE_CLASS, 'TeBinding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.TeBinding', 
+            _MetaInfoClassMember('te-binding', REFERENCE_CLASS, 'TeBinding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.TeBinding', 
                 [], [], 
                 '''                MPLS TE tunnel binding context
                 ''',
                 'te_binding',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('tev4-data', REFERENCE_CLASS, 'Tev4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Tev4Data', 
+            _MetaInfoClassMember('tev4-data', REFERENCE_CLASS, 'Tev4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Tev4Data', 
                 [], [], 
                 '''                TEv4 label context
                 ''',
                 'tev4_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('tev4p2mp-data', REFERENCE_CLASS, 'Tev4P2MpData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Tev4P2MpData', 
+            _MetaInfoClassMember('tev4p2mp-data', REFERENCE_CLASS, 'Tev4P2MpData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Tev4P2MpData', 
                 [], [], 
                 '''                TEv4 P2MP context
                 ''',
                 'tev4p2mp_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('tp-data', REFERENCE_CLASS, 'TpData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.TpData', 
+            _MetaInfoClassMember('tp-data', REFERENCE_CLASS, 'TpData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.TpData', 
                 [], [], 
                 '''                TP context
                 ''',
                 'tp_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('vrf-l3vpn-data', REFERENCE_CLASS, 'VrfL3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.VrfL3VpnData', 
+            _MetaInfoClassMember('vrf-l3vpn-data', REFERENCE_CLASS, 'VrfL3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.VrfL3VpnData', 
                 [], [], 
                 '''                L3VPN VRF label context
                 ''',
@@ -18689,8 +18689,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LocalLabelRewrite' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LocalLabelRewrite',
+    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LocalLabelRewrite' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LocalLabelRewrite',
             False, 
             [
             _MetaInfoClassMember('label-data', REFERENCE_LEAFLIST, 'int' , None, None, 
@@ -18706,17 +18706,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId',
+    'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_',
             False, 
             [
-            _MetaInfoClassMember('label-context', REFERENCE_CLASS, 'LabelContext' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext', 
+            _MetaInfoClassMember('label-context', REFERENCE_CLASS, 'LabelContext' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext', 
                 [], [], 
                 '''                Label context
                 ''',
                 'label_context',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('local-label-rewrite', REFERENCE_CLASS, 'LocalLabelRewrite' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LocalLabelRewrite', 
+            _MetaInfoClassMember('local-label-rewrite', REFERENCE_CLASS, 'LocalLabelRewrite' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LocalLabelRewrite', 
                 [], [], 
                 '''                Local label rewrite information
                 ''',
@@ -18739,7 +18739,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId',
             False, 
             [
-            _MetaInfoClassMember('rewrite-id', REFERENCE_CLASS, 'RewriteId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId', 
+            _MetaInfoClassMember('rewrite-id', REFERENCE_CLASS, 'RewriteId_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_', 
                 [], [], 
                 '''                Rewrite ID
                 ''',
@@ -20638,8 +20638,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4Data' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4Data',
+    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4Data' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4Data',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -20679,8 +20679,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6Data' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6Data',
+    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6Data' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6Data',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -20720,8 +20720,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Tev4Data' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Tev4Data',
+    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Tev4Data' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Tev4Data',
             False, 
             [
             _MetaInfoClassMember('is-srte', ATTRIBUTE, 'int' , None, None, 
@@ -20773,8 +20773,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData',
+    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -20802,8 +20802,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData',
+    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -20831,8 +20831,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.VrfL3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.VrfL3VpnData',
+    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.VrfL3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.VrfL3VpnData',
             False, 
             [
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
@@ -20854,8 +20854,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Cev4L3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Cev4L3VpnData',
+    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData',
             False, 
             [
             _MetaInfoClassMember('ipv4-next-hop', ATTRIBUTE, 'str' , None, None, 
@@ -20883,8 +20883,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Cev6L3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Cev6L3VpnData',
+    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData',
             False, 
             [
             _MetaInfoClassMember('ipv6-next-hop', ATTRIBUTE, 'str' , None, None, 
@@ -20912,8 +20912,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PseudowireData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PseudowireData',
+    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PseudowireData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PseudowireData',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -20947,8 +20947,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.LabelBlockData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.LabelBlockData',
+    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.LabelBlockData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.LabelBlockData',
             False, 
             [
             _MetaInfoClassMember('edge-id', ATTRIBUTE, 'int' , None, None, 
@@ -20988,8 +20988,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.IpSubData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.IpSubData',
+    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.IpSubData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.IpSubData',
             False, 
             [
             _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
@@ -21011,8 +21011,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Tev4P2MpData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Tev4P2MpData',
+    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Tev4P2MpData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Tev4P2MpData',
             False, 
             [
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
@@ -21064,8 +21064,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.MldPv4Data' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.MldPv4Data',
+    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.MldPv4Data' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.MldPv4Data',
             False, 
             [
             _MetaInfoClassMember('lsm-id', ATTRIBUTE, 'int' , None, None, 
@@ -21105,8 +21105,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData',
+    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData',
             False, 
             [
             _MetaInfoClassMember('pwhe-intf', ATTRIBUTE, 'str' , None, None, 
@@ -21122,8 +21122,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.TpData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.TpData',
+    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.TpData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.TpData',
             False, 
             [
             _MetaInfoClassMember('dest-global-id', ATTRIBUTE, 'int' , None, None, 
@@ -21175,8 +21175,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation',
+    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation',
             False, 
             [
             _MetaInfoClassMember('gre-interface', ATTRIBUTE, 'str' , None, None, 
@@ -21192,8 +21192,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation',
+    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation',
             False, 
             [
             _MetaInfoClassMember('greipv6-interface', ATTRIBUTE, 'str' , None, None, 
@@ -21209,8 +21209,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.EvpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.EvpnData',
+    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.EvpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.EvpnData',
             False, 
             [
             _MetaInfoClassMember('ethernet-segment', ATTRIBUTE, 'str' , None, None, 
@@ -21238,8 +21238,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4BlbData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4BlbData',
+    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4BlbData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4BlbData',
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
@@ -21261,8 +21261,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6BlbData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6BlbData',
+    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6BlbData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6BlbData',
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
@@ -21284,8 +21284,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PiMiPmsiData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PiMiPmsiData',
+    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PiMiPmsiData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PiMiPmsiData',
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
@@ -21313,8 +21313,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PiMsPmsiData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PiMsPmsiData',
+    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PiMsPmsiData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PiMsPmsiData',
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
@@ -21360,8 +21360,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn',
+    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn',
             False, 
             [
             _MetaInfoClassMember('next-hop-set-id', ATTRIBUTE, 'int' , None, None, 
@@ -21383,8 +21383,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrPrefixSegment' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrPrefixSegment',
+    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrPrefixSegment' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrPrefixSegment',
             False, 
             [
             _MetaInfoClassMember('segment-id', ATTRIBUTE, 'int' , None, None, 
@@ -21406,8 +21406,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4',
+    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4',
             False, 
             [
             _MetaInfoClassMember('addr', ATTRIBUTE, 'str' , None, None, 
@@ -21441,8 +21441,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6',
+    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6',
             False, 
             [
             _MetaInfoClassMember('addr', ATTRIBUTE, 'str' , None, None, 
@@ -21476,8 +21476,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData',
+    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData',
             False, 
             [
             _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
@@ -21505,8 +21505,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.TeBinding' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.TeBinding',
+    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.TeBinding' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.TeBinding',
             False, 
             [
             _MetaInfoClassMember('te-identifier', ATTRIBUTE, 'int' , None, None, 
@@ -21528,89 +21528,89 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext',
+    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext',
             False, 
             [
-            _MetaInfoClassMember('cev4l3vpn-data', REFERENCE_CLASS, 'Cev4L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Cev4L3VpnData', 
+            _MetaInfoClassMember('cev4l3vpn-data', REFERENCE_CLASS, 'Cev4L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData', 
                 [], [], 
                 '''                L3VPN CEv4 label context
                 ''',
                 'cev4l3vpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('cev6l3vpn-data', REFERENCE_CLASS, 'Cev6L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Cev6L3VpnData', 
+            _MetaInfoClassMember('cev6l3vpn-data', REFERENCE_CLASS, 'Cev6L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData', 
                 [], [], 
                 '''                L3VPN CEv6 label context
                 ''',
                 'cev6l3vpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('evpn-data', REFERENCE_CLASS, 'EvpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.EvpnData', 
+            _MetaInfoClassMember('evpn-data', REFERENCE_CLASS, 'EvpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.EvpnData', 
                 [], [], 
                 '''                EVPN context
                 ''',
                 'evpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('generic-routing-encapsulation', REFERENCE_CLASS, 'GenericRoutingEncapsulation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation', 
+            _MetaInfoClassMember('generic-routing-encapsulation', REFERENCE_CLASS, 'GenericRoutingEncapsulation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation', 
                 [], [], 
                 '''                Generic routing encapsulation context
                 ''',
                 'generic_routing_encapsulation',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ip-sub-data', REFERENCE_CLASS, 'IpSubData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.IpSubData', 
+            _MetaInfoClassMember('ip-sub-data', REFERENCE_CLASS, 'IpSubData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.IpSubData', 
                 [], [], 
                 '''                IP Subscriber context
                 ''',
                 'ip_sub_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv4-data', REFERENCE_CLASS, 'Ipv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4Data', 
+            _MetaInfoClassMember('ipv4-data', REFERENCE_CLASS, 'Ipv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4Data', 
                 [], [], 
                 '''                IPv4 label context
                 ''',
                 'ipv4_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv4blb-data', REFERENCE_CLASS, 'Ipv4BlbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4BlbData', 
+            _MetaInfoClassMember('ipv4blb-data', REFERENCE_CLASS, 'Ipv4BlbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4BlbData', 
                 [], [], 
                 '''                BFD BLB label context
                 ''',
                 'ipv4blb_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv4l3vpn-data', REFERENCE_CLASS, 'Ipv4L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData', 
+            _MetaInfoClassMember('ipv4l3vpn-data', REFERENCE_CLASS, 'Ipv4L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData', 
                 [], [], 
                 '''                L3VPN IPv4 label context
                 ''',
                 'ipv4l3vpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv6-data', REFERENCE_CLASS, 'Ipv6Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6Data', 
+            _MetaInfoClassMember('ipv6-data', REFERENCE_CLASS, 'Ipv6Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6Data', 
                 [], [], 
                 '''                IPv6 label context
                 ''',
                 'ipv6_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv6-generic-routing-encapsulation', REFERENCE_CLASS, 'Ipv6GenericRoutingEncapsulation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation', 
+            _MetaInfoClassMember('ipv6-generic-routing-encapsulation', REFERENCE_CLASS, 'Ipv6GenericRoutingEncapsulation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation', 
                 [], [], 
                 '''                Generic routing encapsulation context
                 ''',
                 'ipv6_generic_routing_encapsulation',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv6blb-data', REFERENCE_CLASS, 'Ipv6BlbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6BlbData', 
+            _MetaInfoClassMember('ipv6blb-data', REFERENCE_CLASS, 'Ipv6BlbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6BlbData', 
                 [], [], 
                 '''                BFD BLB label context
                 ''',
                 'ipv6blb_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv6l3vpn-data', REFERENCE_CLASS, 'Ipv6L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData', 
+            _MetaInfoClassMember('ipv6l3vpn-data', REFERENCE_CLASS, 'Ipv6L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData', 
                 [], [], 
                 '''                L3VPN IPv6 label context
                 ''',
                 'ipv6l3vpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('label-block-data', REFERENCE_CLASS, 'LabelBlockData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.LabelBlockData', 
+            _MetaInfoClassMember('label-block-data', REFERENCE_CLASS, 'LabelBlockData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.LabelBlockData', 
                 [], [], 
                 '''                Label block context
                 ''',
                 'label_block_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('label-block-srgb-data', REFERENCE_CLASS, 'LabelBlockSrgbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData', 
+            _MetaInfoClassMember('label-block-srgb-data', REFERENCE_CLASS, 'LabelBlockSrgbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData', 
                 [], [], 
                 '''                Label block SRGB context
                 ''',
@@ -21622,85 +21622,85 @@ _meta_table = {
                 ''',
                 'label_context_type',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('mld-pv4-data', REFERENCE_CLASS, 'MldPv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.MldPv4Data', 
+            _MetaInfoClassMember('mld-pv4-data', REFERENCE_CLASS, 'MldPv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.MldPv4Data', 
                 [], [], 
                 '''                MLDPv4 LSM-ID context
                 ''',
                 'mld_pv4_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('next-hop-set-l3vpn', REFERENCE_CLASS, 'NextHopSetL3Vpn' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn', 
+            _MetaInfoClassMember('next-hop-set-l3vpn', REFERENCE_CLASS, 'NextHopSetL3Vpn' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn', 
                 [], [], 
                 '''                L3VPN NH SET label context
                 ''',
                 'next_hop_set_l3vpn',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pi-mi-pmsi-data', REFERENCE_CLASS, 'PiMiPmsiData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PiMiPmsiData', 
+            _MetaInfoClassMember('pi-mi-pmsi-data', REFERENCE_CLASS, 'PiMiPmsiData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PiMiPmsiData', 
                 [], [], 
                 '''                PIM I-PMSI label conext
                 ''',
                 'pi_mi_pmsi_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pi-ms-pmsi-data', REFERENCE_CLASS, 'PiMsPmsiData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PiMsPmsiData', 
+            _MetaInfoClassMember('pi-ms-pmsi-data', REFERENCE_CLASS, 'PiMsPmsiData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PiMsPmsiData', 
                 [], [], 
                 '''                PIM S-PMSI label conext
                 ''',
                 'pi_ms_pmsi_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pseudowire-data', REFERENCE_CLASS, 'PseudowireData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PseudowireData', 
+            _MetaInfoClassMember('pseudowire-data', REFERENCE_CLASS, 'PseudowireData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PseudowireData', 
                 [], [], 
                 '''                Pseudowire label context
                 ''',
                 'pseudowire_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pseudowire-head-end-data', REFERENCE_CLASS, 'PseudowireHeadEndData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData', 
+            _MetaInfoClassMember('pseudowire-head-end-data', REFERENCE_CLASS, 'PseudowireHeadEndData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData', 
                 [], [], 
                 '''                Pseudowire Head-end label context
                 ''',
                 'pseudowire_head_end_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('sr-adj-segment-ipv4', REFERENCE_CLASS, 'SrAdjSegmentIpv4' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4', 
+            _MetaInfoClassMember('sr-adj-segment-ipv4', REFERENCE_CLASS, 'SrAdjSegmentIpv4' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4', 
                 [], [], 
                 '''                SR Adj Segment ipv4 context
                 ''',
                 'sr_adj_segment_ipv4',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('sr-adj-segment-ipv6', REFERENCE_CLASS, 'SrAdjSegmentIpv6' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6', 
+            _MetaInfoClassMember('sr-adj-segment-ipv6', REFERENCE_CLASS, 'SrAdjSegmentIpv6' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6', 
                 [], [], 
                 '''                SR Adj Segment ipv6 context
                 ''',
                 'sr_adj_segment_ipv6',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('sr-prefix-segment', REFERENCE_CLASS, 'SrPrefixSegment' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrPrefixSegment', 
+            _MetaInfoClassMember('sr-prefix-segment', REFERENCE_CLASS, 'SrPrefixSegment' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrPrefixSegment', 
                 [], [], 
                 '''                SR Prefix Segment context
                 ''',
                 'sr_prefix_segment',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('te-binding', REFERENCE_CLASS, 'TeBinding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.TeBinding', 
+            _MetaInfoClassMember('te-binding', REFERENCE_CLASS, 'TeBinding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.TeBinding', 
                 [], [], 
                 '''                MPLS TE tunnel binding context
                 ''',
                 'te_binding',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('tev4-data', REFERENCE_CLASS, 'Tev4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Tev4Data', 
+            _MetaInfoClassMember('tev4-data', REFERENCE_CLASS, 'Tev4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Tev4Data', 
                 [], [], 
                 '''                TEv4 label context
                 ''',
                 'tev4_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('tev4p2mp-data', REFERENCE_CLASS, 'Tev4P2MpData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Tev4P2MpData', 
+            _MetaInfoClassMember('tev4p2mp-data', REFERENCE_CLASS, 'Tev4P2MpData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Tev4P2MpData', 
                 [], [], 
                 '''                TEv4 P2MP context
                 ''',
                 'tev4p2mp_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('tp-data', REFERENCE_CLASS, 'TpData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.TpData', 
+            _MetaInfoClassMember('tp-data', REFERENCE_CLASS, 'TpData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.TpData', 
                 [], [], 
                 '''                TP context
                 ''',
                 'tp_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('vrf-l3vpn-data', REFERENCE_CLASS, 'VrfL3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.VrfL3VpnData', 
+            _MetaInfoClassMember('vrf-l3vpn-data', REFERENCE_CLASS, 'VrfL3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.VrfL3VpnData', 
                 [], [], 
                 '''                L3VPN VRF label context
                 ''',
@@ -21713,8 +21713,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LocalLabelRewrite' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LocalLabelRewrite',
+    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LocalLabelRewrite' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LocalLabelRewrite',
             False, 
             [
             _MetaInfoClassMember('label-data', REFERENCE_LEAFLIST, 'int' , None, None, 
@@ -21730,17 +21730,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId',
+    'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_',
             False, 
             [
-            _MetaInfoClassMember('label-context', REFERENCE_CLASS, 'LabelContext' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext', 
+            _MetaInfoClassMember('label-context', REFERENCE_CLASS, 'LabelContext' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext', 
                 [], [], 
                 '''                Label context
                 ''',
                 'label_context',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('local-label-rewrite', REFERENCE_CLASS, 'LocalLabelRewrite' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LocalLabelRewrite', 
+            _MetaInfoClassMember('local-label-rewrite', REFERENCE_CLASS, 'LocalLabelRewrite' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LocalLabelRewrite', 
                 [], [], 
                 '''                Local label rewrite information
                 ''',
@@ -21763,7 +21763,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId',
             False, 
             [
-            _MetaInfoClassMember('rewrite-id', REFERENCE_CLASS, 'RewriteId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId', 
+            _MetaInfoClassMember('rewrite-id', REFERENCE_CLASS, 'RewriteId_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_', 
                 [], [], 
                 '''                Rewrite ID
                 ''',
@@ -23680,8 +23680,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4Data' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4Data',
+    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4Data' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4Data',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -23721,8 +23721,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6Data' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6Data',
+    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6Data' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6Data',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -23762,8 +23762,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Tev4Data' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Tev4Data',
+    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Tev4Data' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Tev4Data',
             False, 
             [
             _MetaInfoClassMember('is-srte', ATTRIBUTE, 'int' , None, None, 
@@ -23815,8 +23815,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData',
+    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -23844,8 +23844,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData',
+    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -23873,8 +23873,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.VrfL3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.VrfL3VpnData',
+    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.VrfL3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.VrfL3VpnData',
             False, 
             [
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
@@ -23896,8 +23896,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Cev4L3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Cev4L3VpnData',
+    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData',
             False, 
             [
             _MetaInfoClassMember('ipv4-next-hop', ATTRIBUTE, 'str' , None, None, 
@@ -23925,8 +23925,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Cev6L3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Cev6L3VpnData',
+    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData',
             False, 
             [
             _MetaInfoClassMember('ipv6-next-hop', ATTRIBUTE, 'str' , None, None, 
@@ -23954,8 +23954,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PseudowireData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PseudowireData',
+    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PseudowireData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PseudowireData',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -23989,8 +23989,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.LabelBlockData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.LabelBlockData',
+    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.LabelBlockData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.LabelBlockData',
             False, 
             [
             _MetaInfoClassMember('edge-id', ATTRIBUTE, 'int' , None, None, 
@@ -24030,8 +24030,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.IpSubData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.IpSubData',
+    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.IpSubData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.IpSubData',
             False, 
             [
             _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
@@ -24053,8 +24053,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Tev4P2MpData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Tev4P2MpData',
+    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Tev4P2MpData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Tev4P2MpData',
             False, 
             [
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
@@ -24106,8 +24106,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.MldPv4Data' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.MldPv4Data',
+    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.MldPv4Data' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.MldPv4Data',
             False, 
             [
             _MetaInfoClassMember('lsm-id', ATTRIBUTE, 'int' , None, None, 
@@ -24147,8 +24147,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData',
+    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData',
             False, 
             [
             _MetaInfoClassMember('pwhe-intf', ATTRIBUTE, 'str' , None, None, 
@@ -24164,8 +24164,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.TpData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.TpData',
+    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.TpData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.TpData',
             False, 
             [
             _MetaInfoClassMember('dest-global-id', ATTRIBUTE, 'int' , None, None, 
@@ -24217,8 +24217,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation',
+    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation',
             False, 
             [
             _MetaInfoClassMember('gre-interface', ATTRIBUTE, 'str' , None, None, 
@@ -24234,8 +24234,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation',
+    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation',
             False, 
             [
             _MetaInfoClassMember('greipv6-interface', ATTRIBUTE, 'str' , None, None, 
@@ -24251,8 +24251,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.EvpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.EvpnData',
+    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.EvpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.EvpnData',
             False, 
             [
             _MetaInfoClassMember('ethernet-segment', ATTRIBUTE, 'str' , None, None, 
@@ -24280,8 +24280,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4BlbData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4BlbData',
+    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4BlbData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4BlbData',
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
@@ -24303,8 +24303,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6BlbData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6BlbData',
+    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6BlbData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6BlbData',
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
@@ -24326,8 +24326,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PiMiPmsiData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PiMiPmsiData',
+    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PiMiPmsiData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PiMiPmsiData',
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
@@ -24355,8 +24355,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PiMsPmsiData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PiMsPmsiData',
+    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PiMsPmsiData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PiMsPmsiData',
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
@@ -24402,8 +24402,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn',
+    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn',
             False, 
             [
             _MetaInfoClassMember('next-hop-set-id', ATTRIBUTE, 'int' , None, None, 
@@ -24425,8 +24425,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrPrefixSegment' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrPrefixSegment',
+    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrPrefixSegment' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrPrefixSegment',
             False, 
             [
             _MetaInfoClassMember('segment-id', ATTRIBUTE, 'int' , None, None, 
@@ -24448,8 +24448,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4',
+    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4',
             False, 
             [
             _MetaInfoClassMember('addr', ATTRIBUTE, 'str' , None, None, 
@@ -24483,8 +24483,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6',
+    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6',
             False, 
             [
             _MetaInfoClassMember('addr', ATTRIBUTE, 'str' , None, None, 
@@ -24518,8 +24518,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData',
+    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData',
             False, 
             [
             _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
@@ -24547,8 +24547,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.TeBinding' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.TeBinding',
+    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.TeBinding' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.TeBinding',
             False, 
             [
             _MetaInfoClassMember('te-identifier', ATTRIBUTE, 'int' , None, None, 
@@ -24570,89 +24570,89 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext',
+    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext',
             False, 
             [
-            _MetaInfoClassMember('cev4l3vpn-data', REFERENCE_CLASS, 'Cev4L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Cev4L3VpnData', 
+            _MetaInfoClassMember('cev4l3vpn-data', REFERENCE_CLASS, 'Cev4L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData', 
                 [], [], 
                 '''                L3VPN CEv4 label context
                 ''',
                 'cev4l3vpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('cev6l3vpn-data', REFERENCE_CLASS, 'Cev6L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Cev6L3VpnData', 
+            _MetaInfoClassMember('cev6l3vpn-data', REFERENCE_CLASS, 'Cev6L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData', 
                 [], [], 
                 '''                L3VPN CEv6 label context
                 ''',
                 'cev6l3vpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('evpn-data', REFERENCE_CLASS, 'EvpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.EvpnData', 
+            _MetaInfoClassMember('evpn-data', REFERENCE_CLASS, 'EvpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.EvpnData', 
                 [], [], 
                 '''                EVPN context
                 ''',
                 'evpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('generic-routing-encapsulation', REFERENCE_CLASS, 'GenericRoutingEncapsulation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation', 
+            _MetaInfoClassMember('generic-routing-encapsulation', REFERENCE_CLASS, 'GenericRoutingEncapsulation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation', 
                 [], [], 
                 '''                Generic routing encapsulation context
                 ''',
                 'generic_routing_encapsulation',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ip-sub-data', REFERENCE_CLASS, 'IpSubData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.IpSubData', 
+            _MetaInfoClassMember('ip-sub-data', REFERENCE_CLASS, 'IpSubData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.IpSubData', 
                 [], [], 
                 '''                IP Subscriber context
                 ''',
                 'ip_sub_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv4-data', REFERENCE_CLASS, 'Ipv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4Data', 
+            _MetaInfoClassMember('ipv4-data', REFERENCE_CLASS, 'Ipv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4Data', 
                 [], [], 
                 '''                IPv4 label context
                 ''',
                 'ipv4_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv4blb-data', REFERENCE_CLASS, 'Ipv4BlbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4BlbData', 
+            _MetaInfoClassMember('ipv4blb-data', REFERENCE_CLASS, 'Ipv4BlbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4BlbData', 
                 [], [], 
                 '''                BFD BLB label context
                 ''',
                 'ipv4blb_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv4l3vpn-data', REFERENCE_CLASS, 'Ipv4L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData', 
+            _MetaInfoClassMember('ipv4l3vpn-data', REFERENCE_CLASS, 'Ipv4L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData', 
                 [], [], 
                 '''                L3VPN IPv4 label context
                 ''',
                 'ipv4l3vpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv6-data', REFERENCE_CLASS, 'Ipv6Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6Data', 
+            _MetaInfoClassMember('ipv6-data', REFERENCE_CLASS, 'Ipv6Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6Data', 
                 [], [], 
                 '''                IPv6 label context
                 ''',
                 'ipv6_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv6-generic-routing-encapsulation', REFERENCE_CLASS, 'Ipv6GenericRoutingEncapsulation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation', 
+            _MetaInfoClassMember('ipv6-generic-routing-encapsulation', REFERENCE_CLASS, 'Ipv6GenericRoutingEncapsulation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation', 
                 [], [], 
                 '''                Generic routing encapsulation context
                 ''',
                 'ipv6_generic_routing_encapsulation',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv6blb-data', REFERENCE_CLASS, 'Ipv6BlbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6BlbData', 
+            _MetaInfoClassMember('ipv6blb-data', REFERENCE_CLASS, 'Ipv6BlbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6BlbData', 
                 [], [], 
                 '''                BFD BLB label context
                 ''',
                 'ipv6blb_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv6l3vpn-data', REFERENCE_CLASS, 'Ipv6L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData', 
+            _MetaInfoClassMember('ipv6l3vpn-data', REFERENCE_CLASS, 'Ipv6L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData', 
                 [], [], 
                 '''                L3VPN IPv6 label context
                 ''',
                 'ipv6l3vpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('label-block-data', REFERENCE_CLASS, 'LabelBlockData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.LabelBlockData', 
+            _MetaInfoClassMember('label-block-data', REFERENCE_CLASS, 'LabelBlockData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.LabelBlockData', 
                 [], [], 
                 '''                Label block context
                 ''',
                 'label_block_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('label-block-srgb-data', REFERENCE_CLASS, 'LabelBlockSrgbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData', 
+            _MetaInfoClassMember('label-block-srgb-data', REFERENCE_CLASS, 'LabelBlockSrgbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData', 
                 [], [], 
                 '''                Label block SRGB context
                 ''',
@@ -24664,85 +24664,85 @@ _meta_table = {
                 ''',
                 'label_context_type',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('mld-pv4-data', REFERENCE_CLASS, 'MldPv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.MldPv4Data', 
+            _MetaInfoClassMember('mld-pv4-data', REFERENCE_CLASS, 'MldPv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.MldPv4Data', 
                 [], [], 
                 '''                MLDPv4 LSM-ID context
                 ''',
                 'mld_pv4_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('next-hop-set-l3vpn', REFERENCE_CLASS, 'NextHopSetL3Vpn' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn', 
+            _MetaInfoClassMember('next-hop-set-l3vpn', REFERENCE_CLASS, 'NextHopSetL3Vpn' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn', 
                 [], [], 
                 '''                L3VPN NH SET label context
                 ''',
                 'next_hop_set_l3vpn',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pi-mi-pmsi-data', REFERENCE_CLASS, 'PiMiPmsiData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PiMiPmsiData', 
+            _MetaInfoClassMember('pi-mi-pmsi-data', REFERENCE_CLASS, 'PiMiPmsiData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PiMiPmsiData', 
                 [], [], 
                 '''                PIM I-PMSI label conext
                 ''',
                 'pi_mi_pmsi_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pi-ms-pmsi-data', REFERENCE_CLASS, 'PiMsPmsiData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PiMsPmsiData', 
+            _MetaInfoClassMember('pi-ms-pmsi-data', REFERENCE_CLASS, 'PiMsPmsiData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PiMsPmsiData', 
                 [], [], 
                 '''                PIM S-PMSI label conext
                 ''',
                 'pi_ms_pmsi_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pseudowire-data', REFERENCE_CLASS, 'PseudowireData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PseudowireData', 
+            _MetaInfoClassMember('pseudowire-data', REFERENCE_CLASS, 'PseudowireData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PseudowireData', 
                 [], [], 
                 '''                Pseudowire label context
                 ''',
                 'pseudowire_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pseudowire-head-end-data', REFERENCE_CLASS, 'PseudowireHeadEndData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData', 
+            _MetaInfoClassMember('pseudowire-head-end-data', REFERENCE_CLASS, 'PseudowireHeadEndData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData', 
                 [], [], 
                 '''                Pseudowire Head-end label context
                 ''',
                 'pseudowire_head_end_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('sr-adj-segment-ipv4', REFERENCE_CLASS, 'SrAdjSegmentIpv4' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4', 
+            _MetaInfoClassMember('sr-adj-segment-ipv4', REFERENCE_CLASS, 'SrAdjSegmentIpv4' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4', 
                 [], [], 
                 '''                SR Adj Segment ipv4 context
                 ''',
                 'sr_adj_segment_ipv4',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('sr-adj-segment-ipv6', REFERENCE_CLASS, 'SrAdjSegmentIpv6' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6', 
+            _MetaInfoClassMember('sr-adj-segment-ipv6', REFERENCE_CLASS, 'SrAdjSegmentIpv6' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6', 
                 [], [], 
                 '''                SR Adj Segment ipv6 context
                 ''',
                 'sr_adj_segment_ipv6',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('sr-prefix-segment', REFERENCE_CLASS, 'SrPrefixSegment' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrPrefixSegment', 
+            _MetaInfoClassMember('sr-prefix-segment', REFERENCE_CLASS, 'SrPrefixSegment' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrPrefixSegment', 
                 [], [], 
                 '''                SR Prefix Segment context
                 ''',
                 'sr_prefix_segment',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('te-binding', REFERENCE_CLASS, 'TeBinding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.TeBinding', 
+            _MetaInfoClassMember('te-binding', REFERENCE_CLASS, 'TeBinding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.TeBinding', 
                 [], [], 
                 '''                MPLS TE tunnel binding context
                 ''',
                 'te_binding',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('tev4-data', REFERENCE_CLASS, 'Tev4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Tev4Data', 
+            _MetaInfoClassMember('tev4-data', REFERENCE_CLASS, 'Tev4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Tev4Data', 
                 [], [], 
                 '''                TEv4 label context
                 ''',
                 'tev4_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('tev4p2mp-data', REFERENCE_CLASS, 'Tev4P2MpData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Tev4P2MpData', 
+            _MetaInfoClassMember('tev4p2mp-data', REFERENCE_CLASS, 'Tev4P2MpData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Tev4P2MpData', 
                 [], [], 
                 '''                TEv4 P2MP context
                 ''',
                 'tev4p2mp_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('tp-data', REFERENCE_CLASS, 'TpData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.TpData', 
+            _MetaInfoClassMember('tp-data', REFERENCE_CLASS, 'TpData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.TpData', 
                 [], [], 
                 '''                TP context
                 ''',
                 'tp_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('vrf-l3vpn-data', REFERENCE_CLASS, 'VrfL3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.VrfL3VpnData', 
+            _MetaInfoClassMember('vrf-l3vpn-data', REFERENCE_CLASS, 'VrfL3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.VrfL3VpnData', 
                 [], [], 
                 '''                L3VPN VRF label context
                 ''',
@@ -24755,8 +24755,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LocalLabelRewrite' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LocalLabelRewrite',
+    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LocalLabelRewrite' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LocalLabelRewrite',
             False, 
             [
             _MetaInfoClassMember('label-data', REFERENCE_LEAFLIST, 'int' , None, None, 
@@ -24772,17 +24772,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId',
+    'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_',
             False, 
             [
-            _MetaInfoClassMember('label-context', REFERENCE_CLASS, 'LabelContext' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext', 
+            _MetaInfoClassMember('label-context', REFERENCE_CLASS, 'LabelContext' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext', 
                 [], [], 
                 '''                Label context
                 ''',
                 'label_context',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('local-label-rewrite', REFERENCE_CLASS, 'LocalLabelRewrite' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LocalLabelRewrite', 
+            _MetaInfoClassMember('local-label-rewrite', REFERENCE_CLASS, 'LocalLabelRewrite' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LocalLabelRewrite', 
                 [], [], 
                 '''                Local label rewrite information
                 ''',
@@ -24805,7 +24805,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId',
             False, 
             [
-            _MetaInfoClassMember('rewrite-id', REFERENCE_CLASS, 'RewriteId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId', 
+            _MetaInfoClassMember('rewrite-id', REFERENCE_CLASS, 'RewriteId_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_', 
                 [], [], 
                 '''                Rewrite ID
                 ''',
@@ -26704,8 +26704,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4Data' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4Data',
+    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4Data' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4Data',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -26745,8 +26745,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6Data' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6Data',
+    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6Data' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6Data',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -26786,8 +26786,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Tev4Data' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Tev4Data',
+    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Tev4Data' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Tev4Data',
             False, 
             [
             _MetaInfoClassMember('is-srte', ATTRIBUTE, 'int' , None, None, 
@@ -26839,8 +26839,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData',
+    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -26868,8 +26868,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData',
+    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -26897,8 +26897,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.VrfL3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.VrfL3VpnData',
+    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.VrfL3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.VrfL3VpnData',
             False, 
             [
             _MetaInfoClassMember('security-id', ATTRIBUTE, 'int' , None, None, 
@@ -26920,8 +26920,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Cev4L3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Cev4L3VpnData',
+    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData',
             False, 
             [
             _MetaInfoClassMember('ipv4-next-hop', ATTRIBUTE, 'str' , None, None, 
@@ -26949,8 +26949,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Cev6L3VpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Cev6L3VpnData',
+    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData',
             False, 
             [
             _MetaInfoClassMember('ipv6-next-hop', ATTRIBUTE, 'str' , None, None, 
@@ -26978,8 +26978,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PseudowireData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PseudowireData',
+    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PseudowireData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PseudowireData',
             False, 
             [
             _MetaInfoClassMember('prefix', ATTRIBUTE, 'str' , None, None, 
@@ -27013,8 +27013,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.LabelBlockData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.LabelBlockData',
+    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.LabelBlockData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.LabelBlockData',
             False, 
             [
             _MetaInfoClassMember('edge-id', ATTRIBUTE, 'int' , None, None, 
@@ -27054,8 +27054,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.IpSubData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.IpSubData',
+    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.IpSubData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.IpSubData',
             False, 
             [
             _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
@@ -27077,8 +27077,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Tev4P2MpData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Tev4P2MpData',
+    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Tev4P2MpData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Tev4P2MpData',
             False, 
             [
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
@@ -27130,8 +27130,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.MldPv4Data' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.MldPv4Data',
+    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.MldPv4Data' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.MldPv4Data',
             False, 
             [
             _MetaInfoClassMember('lsm-id', ATTRIBUTE, 'int' , None, None, 
@@ -27171,8 +27171,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData',
+    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData',
             False, 
             [
             _MetaInfoClassMember('pwhe-intf', ATTRIBUTE, 'str' , None, None, 
@@ -27188,8 +27188,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.TpData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.TpData',
+    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.TpData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.TpData',
             False, 
             [
             _MetaInfoClassMember('dest-global-id', ATTRIBUTE, 'int' , None, None, 
@@ -27241,8 +27241,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation',
+    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation',
             False, 
             [
             _MetaInfoClassMember('gre-interface', ATTRIBUTE, 'str' , None, None, 
@@ -27258,8 +27258,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation',
+    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation',
             False, 
             [
             _MetaInfoClassMember('greipv6-interface', ATTRIBUTE, 'str' , None, None, 
@@ -27275,8 +27275,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.EvpnData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.EvpnData',
+    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.EvpnData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.EvpnData',
             False, 
             [
             _MetaInfoClassMember('ethernet-segment', ATTRIBUTE, 'str' , None, None, 
@@ -27304,8 +27304,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4BlbData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4BlbData',
+    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4BlbData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4BlbData',
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
@@ -27327,8 +27327,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6BlbData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6BlbData',
+    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6BlbData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6BlbData',
             False, 
             [
             _MetaInfoClassMember('blb-intf', ATTRIBUTE, 'str' , None, None, 
@@ -27350,8 +27350,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PiMiPmsiData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PiMiPmsiData',
+    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PiMiPmsiData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PiMiPmsiData',
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
@@ -27379,8 +27379,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PiMsPmsiData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PiMsPmsiData',
+    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PiMsPmsiData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PiMsPmsiData',
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'int' , None, None, 
@@ -27426,8 +27426,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn',
+    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn',
             False, 
             [
             _MetaInfoClassMember('next-hop-set-id', ATTRIBUTE, 'int' , None, None, 
@@ -27449,8 +27449,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrPrefixSegment' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrPrefixSegment',
+    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrPrefixSegment' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrPrefixSegment',
             False, 
             [
             _MetaInfoClassMember('segment-id', ATTRIBUTE, 'int' , None, None, 
@@ -27472,8 +27472,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4',
+    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4',
             False, 
             [
             _MetaInfoClassMember('addr', ATTRIBUTE, 'str' , None, None, 
@@ -27507,8 +27507,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6',
+    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6',
             False, 
             [
             _MetaInfoClassMember('addr', ATTRIBUTE, 'str' , None, None, 
@@ -27542,8 +27542,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData',
+    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData',
             False, 
             [
             _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
@@ -27571,8 +27571,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.TeBinding' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.TeBinding',
+    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.TeBinding' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.TeBinding',
             False, 
             [
             _MetaInfoClassMember('te-identifier', ATTRIBUTE, 'int' , None, None, 
@@ -27594,89 +27594,89 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext',
+    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext',
             False, 
             [
-            _MetaInfoClassMember('cev4l3vpn-data', REFERENCE_CLASS, 'Cev4L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Cev4L3VpnData', 
+            _MetaInfoClassMember('cev4l3vpn-data', REFERENCE_CLASS, 'Cev4L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData', 
                 [], [], 
                 '''                L3VPN CEv4 label context
                 ''',
                 'cev4l3vpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('cev6l3vpn-data', REFERENCE_CLASS, 'Cev6L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Cev6L3VpnData', 
+            _MetaInfoClassMember('cev6l3vpn-data', REFERENCE_CLASS, 'Cev6L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData', 
                 [], [], 
                 '''                L3VPN CEv6 label context
                 ''',
                 'cev6l3vpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('evpn-data', REFERENCE_CLASS, 'EvpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.EvpnData', 
+            _MetaInfoClassMember('evpn-data', REFERENCE_CLASS, 'EvpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.EvpnData', 
                 [], [], 
                 '''                EVPN context
                 ''',
                 'evpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('generic-routing-encapsulation', REFERENCE_CLASS, 'GenericRoutingEncapsulation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation', 
+            _MetaInfoClassMember('generic-routing-encapsulation', REFERENCE_CLASS, 'GenericRoutingEncapsulation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation', 
                 [], [], 
                 '''                Generic routing encapsulation context
                 ''',
                 'generic_routing_encapsulation',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ip-sub-data', REFERENCE_CLASS, 'IpSubData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.IpSubData', 
+            _MetaInfoClassMember('ip-sub-data', REFERENCE_CLASS, 'IpSubData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.IpSubData', 
                 [], [], 
                 '''                IP Subscriber context
                 ''',
                 'ip_sub_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv4-data', REFERENCE_CLASS, 'Ipv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4Data', 
+            _MetaInfoClassMember('ipv4-data', REFERENCE_CLASS, 'Ipv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4Data', 
                 [], [], 
                 '''                IPv4 label context
                 ''',
                 'ipv4_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv4blb-data', REFERENCE_CLASS, 'Ipv4BlbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4BlbData', 
+            _MetaInfoClassMember('ipv4blb-data', REFERENCE_CLASS, 'Ipv4BlbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4BlbData', 
                 [], [], 
                 '''                BFD BLB label context
                 ''',
                 'ipv4blb_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv4l3vpn-data', REFERENCE_CLASS, 'Ipv4L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData', 
+            _MetaInfoClassMember('ipv4l3vpn-data', REFERENCE_CLASS, 'Ipv4L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData', 
                 [], [], 
                 '''                L3VPN IPv4 label context
                 ''',
                 'ipv4l3vpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv6-data', REFERENCE_CLASS, 'Ipv6Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6Data', 
+            _MetaInfoClassMember('ipv6-data', REFERENCE_CLASS, 'Ipv6Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6Data', 
                 [], [], 
                 '''                IPv6 label context
                 ''',
                 'ipv6_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv6-generic-routing-encapsulation', REFERENCE_CLASS, 'Ipv6GenericRoutingEncapsulation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation', 
+            _MetaInfoClassMember('ipv6-generic-routing-encapsulation', REFERENCE_CLASS, 'Ipv6GenericRoutingEncapsulation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation', 
                 [], [], 
                 '''                Generic routing encapsulation context
                 ''',
                 'ipv6_generic_routing_encapsulation',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv6blb-data', REFERENCE_CLASS, 'Ipv6BlbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6BlbData', 
+            _MetaInfoClassMember('ipv6blb-data', REFERENCE_CLASS, 'Ipv6BlbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6BlbData', 
                 [], [], 
                 '''                BFD BLB label context
                 ''',
                 'ipv6blb_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('ipv6l3vpn-data', REFERENCE_CLASS, 'Ipv6L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData', 
+            _MetaInfoClassMember('ipv6l3vpn-data', REFERENCE_CLASS, 'Ipv6L3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData', 
                 [], [], 
                 '''                L3VPN IPv6 label context
                 ''',
                 'ipv6l3vpn_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('label-block-data', REFERENCE_CLASS, 'LabelBlockData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.LabelBlockData', 
+            _MetaInfoClassMember('label-block-data', REFERENCE_CLASS, 'LabelBlockData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.LabelBlockData', 
                 [], [], 
                 '''                Label block context
                 ''',
                 'label_block_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('label-block-srgb-data', REFERENCE_CLASS, 'LabelBlockSrgbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData', 
+            _MetaInfoClassMember('label-block-srgb-data', REFERENCE_CLASS, 'LabelBlockSrgbData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData', 
                 [], [], 
                 '''                Label block SRGB context
                 ''',
@@ -27688,85 +27688,85 @@ _meta_table = {
                 ''',
                 'label_context_type',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('mld-pv4-data', REFERENCE_CLASS, 'MldPv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.MldPv4Data', 
+            _MetaInfoClassMember('mld-pv4-data', REFERENCE_CLASS, 'MldPv4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.MldPv4Data', 
                 [], [], 
                 '''                MLDPv4 LSM-ID context
                 ''',
                 'mld_pv4_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('next-hop-set-l3vpn', REFERENCE_CLASS, 'NextHopSetL3Vpn' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn', 
+            _MetaInfoClassMember('next-hop-set-l3vpn', REFERENCE_CLASS, 'NextHopSetL3Vpn' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn', 
                 [], [], 
                 '''                L3VPN NH SET label context
                 ''',
                 'next_hop_set_l3vpn',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pi-mi-pmsi-data', REFERENCE_CLASS, 'PiMiPmsiData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PiMiPmsiData', 
+            _MetaInfoClassMember('pi-mi-pmsi-data', REFERENCE_CLASS, 'PiMiPmsiData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PiMiPmsiData', 
                 [], [], 
                 '''                PIM I-PMSI label conext
                 ''',
                 'pi_mi_pmsi_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pi-ms-pmsi-data', REFERENCE_CLASS, 'PiMsPmsiData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PiMsPmsiData', 
+            _MetaInfoClassMember('pi-ms-pmsi-data', REFERENCE_CLASS, 'PiMsPmsiData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PiMsPmsiData', 
                 [], [], 
                 '''                PIM S-PMSI label conext
                 ''',
                 'pi_ms_pmsi_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pseudowire-data', REFERENCE_CLASS, 'PseudowireData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PseudowireData', 
+            _MetaInfoClassMember('pseudowire-data', REFERENCE_CLASS, 'PseudowireData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PseudowireData', 
                 [], [], 
                 '''                Pseudowire label context
                 ''',
                 'pseudowire_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('pseudowire-head-end-data', REFERENCE_CLASS, 'PseudowireHeadEndData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData', 
+            _MetaInfoClassMember('pseudowire-head-end-data', REFERENCE_CLASS, 'PseudowireHeadEndData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData', 
                 [], [], 
                 '''                Pseudowire Head-end label context
                 ''',
                 'pseudowire_head_end_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('sr-adj-segment-ipv4', REFERENCE_CLASS, 'SrAdjSegmentIpv4' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4', 
+            _MetaInfoClassMember('sr-adj-segment-ipv4', REFERENCE_CLASS, 'SrAdjSegmentIpv4' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4', 
                 [], [], 
                 '''                SR Adj Segment ipv4 context
                 ''',
                 'sr_adj_segment_ipv4',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('sr-adj-segment-ipv6', REFERENCE_CLASS, 'SrAdjSegmentIpv6' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6', 
+            _MetaInfoClassMember('sr-adj-segment-ipv6', REFERENCE_CLASS, 'SrAdjSegmentIpv6' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6', 
                 [], [], 
                 '''                SR Adj Segment ipv6 context
                 ''',
                 'sr_adj_segment_ipv6',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('sr-prefix-segment', REFERENCE_CLASS, 'SrPrefixSegment' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrPrefixSegment', 
+            _MetaInfoClassMember('sr-prefix-segment', REFERENCE_CLASS, 'SrPrefixSegment' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrPrefixSegment', 
                 [], [], 
                 '''                SR Prefix Segment context
                 ''',
                 'sr_prefix_segment',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('te-binding', REFERENCE_CLASS, 'TeBinding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.TeBinding', 
+            _MetaInfoClassMember('te-binding', REFERENCE_CLASS, 'TeBinding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.TeBinding', 
                 [], [], 
                 '''                MPLS TE tunnel binding context
                 ''',
                 'te_binding',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('tev4-data', REFERENCE_CLASS, 'Tev4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Tev4Data', 
+            _MetaInfoClassMember('tev4-data', REFERENCE_CLASS, 'Tev4Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Tev4Data', 
                 [], [], 
                 '''                TEv4 label context
                 ''',
                 'tev4_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('tev4p2mp-data', REFERENCE_CLASS, 'Tev4P2MpData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Tev4P2MpData', 
+            _MetaInfoClassMember('tev4p2mp-data', REFERENCE_CLASS, 'Tev4P2MpData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Tev4P2MpData', 
                 [], [], 
                 '''                TEv4 P2MP context
                 ''',
                 'tev4p2mp_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('tp-data', REFERENCE_CLASS, 'TpData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.TpData', 
+            _MetaInfoClassMember('tp-data', REFERENCE_CLASS, 'TpData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.TpData', 
                 [], [], 
                 '''                TP context
                 ''',
                 'tp_data',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('vrf-l3vpn-data', REFERENCE_CLASS, 'VrfL3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.VrfL3VpnData', 
+            _MetaInfoClassMember('vrf-l3vpn-data', REFERENCE_CLASS, 'VrfL3VpnData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.VrfL3VpnData', 
                 [], [], 
                 '''                L3VPN VRF label context
                 ''',
@@ -27779,8 +27779,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LocalLabelRewrite' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LocalLabelRewrite',
+    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LocalLabelRewrite' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LocalLabelRewrite',
             False, 
             [
             _MetaInfoClassMember('label-data', REFERENCE_LEAFLIST, 'int' , None, None, 
@@ -27796,17 +27796,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper'
         ),
     },
-    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId' : {
-        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId',
+    'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_' : {
+        'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_',
             False, 
             [
-            _MetaInfoClassMember('label-context', REFERENCE_CLASS, 'LabelContext' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext', 
+            _MetaInfoClassMember('label-context', REFERENCE_CLASS, 'LabelContext' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext', 
                 [], [], 
                 '''                Label context
                 ''',
                 'label_context',
                 'Cisco-IOS-XR-mpls-lsd-oper', False),
-            _MetaInfoClassMember('local-label-rewrite', REFERENCE_CLASS, 'LocalLabelRewrite' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LocalLabelRewrite', 
+            _MetaInfoClassMember('local-label-rewrite', REFERENCE_CLASS, 'LocalLabelRewrite' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LocalLabelRewrite', 
                 [], [], 
                 '''                Local label rewrite information
                 ''',
@@ -27829,7 +27829,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId',
             False, 
             [
-            _MetaInfoClassMember('rewrite-id', REFERENCE_CLASS, 'RewriteId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId', 
+            _MetaInfoClassMember('rewrite-id', REFERENCE_CLASS, 'RewriteId_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_oper', 'MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_', 
                 [], [], 
                 '''                Rewrite ID
                 ''',
@@ -30528,37 +30528,37 @@ _meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.FpiKey.Fpi.Pw
 _meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.FpiKey.Fpi.DmtcExtIntfData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.FpiKey.Fpi']['meta_info']
 _meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.FpiKey.Fpi']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.FpiKey']['meta_info']
 _meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.FpiKey.ApplicationOwner']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.FpiKey']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Tev4Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.VrfL3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Cev4L3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Cev6L3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PseudowireData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.LabelBlockData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.IpSubData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Tev4P2MpData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.MldPv4Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.TpData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.EvpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4BlbData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6BlbData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PiMiPmsiData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PiMsPmsiData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrPrefixSegment']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.TeBinding']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LocalLabelRewrite']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Tev4Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.VrfL3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PseudowireData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.LabelBlockData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.IpSubData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Tev4P2MpData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.MldPv4Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.TpData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.EvpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4BlbData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6BlbData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PiMiPmsiData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PiMsPmsiData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrPrefixSegment']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.TeBinding']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LocalLabelRewrite']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.RewriteId']['meta_info']
 _meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi.LabelData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi']['meta_info']
 _meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi.TeData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi']['meta_info']
 _meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi.Ipv4Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi']['meta_info']
@@ -30605,37 +30605,37 @@ _meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fp
 _meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi.DmtcExtIntfData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi']['meta_info']
 _meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey']['meta_info']
 _meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.ApplicationOwner']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Tev4Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.VrfL3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Cev4L3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Cev6L3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PseudowireData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.LabelBlockData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.IpSubData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Tev4P2MpData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.MldPv4Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.TpData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.EvpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4BlbData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6BlbData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PiMiPmsiData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PiMsPmsiData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrPrefixSegment']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.TeBinding']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LocalLabelRewrite']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Tev4Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.VrfL3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PseudowireData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.LabelBlockData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.IpSubData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Tev4P2MpData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.MldPv4Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.TpData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.EvpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4BlbData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6BlbData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PiMiPmsiData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PiMsPmsiData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrPrefixSegment']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.TeBinding']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LocalLabelRewrite']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId']['meta_info']
 _meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi.LabelData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi']['meta_info']
 _meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi.TeData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi']['meta_info']
 _meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi.Ipv4Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi']['meta_info']
@@ -30682,37 +30682,37 @@ _meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi.Pw
 _meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi.DmtcExtIntfData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi']['meta_info']
 _meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.FpiKey']['meta_info']
 _meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.FpiKey.ApplicationOwner']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.FpiKey']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Tev4Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.VrfL3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Cev4L3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Cev6L3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PseudowireData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.LabelBlockData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.IpSubData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Tev4P2MpData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.MldPv4Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.TpData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.EvpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4BlbData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6BlbData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PiMiPmsiData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PiMsPmsiData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrPrefixSegment']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.TeBinding']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LocalLabelRewrite']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Tev4Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.VrfL3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PseudowireData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.LabelBlockData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.IpSubData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Tev4P2MpData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.MldPv4Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.TpData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.EvpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4BlbData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6BlbData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PiMiPmsiData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PiMsPmsiData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrPrefixSegment']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.TeBinding']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LocalLabelRewrite']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.RewriteId']['meta_info']
 _meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi.LabelData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi']['meta_info']
 _meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi.TeData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi']['meta_info']
 _meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi.Ipv4Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi']['meta_info']
@@ -30759,37 +30759,37 @@ _meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.FpiKey.
 _meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi.DmtcExtIntfData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi']['meta_info']
 _meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.FpiKey']['meta_info']
 _meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.FpiKey.ApplicationOwner']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.FpiKey']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Tev4Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.VrfL3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Cev4L3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Cev6L3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PseudowireData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.LabelBlockData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.IpSubData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Tev4P2MpData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.MldPv4Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.TpData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.EvpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4BlbData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6BlbData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PiMiPmsiData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PiMsPmsiData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrPrefixSegment']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.TeBinding']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LocalLabelRewrite']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId']['meta_info']
-_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Tev4Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.VrfL3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PseudowireData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.LabelBlockData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.IpSubData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Tev4P2MpData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.MldPv4Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.TpData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.EvpnData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4BlbData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6BlbData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PiMiPmsiData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PiMsPmsiData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrPrefixSegment']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.TeBinding']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LocalLabelRewrite']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_']['meta_info']
+_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.RewriteId']['meta_info']
 _meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi.LabelData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi']['meta_info']
 _meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi.TeData']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi']['meta_info']
 _meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi.Ipv4Data']['meta_info'].parent =_meta_table['MplsLsdNodes.MplsLsdNode.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi']['meta_info']
@@ -30918,37 +30918,37 @@ _meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.FpiKey.Fpi.PwListData']['meta_
 _meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.FpiKey.Fpi.DmtcExtIntfData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.FpiKey.Fpi']['meta_info']
 _meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.FpiKey.Fpi']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.FpiKey']['meta_info']
 _meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.FpiKey.ApplicationOwner']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.FpiKey']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Tev4Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.VrfL3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Cev4L3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Cev6L3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PseudowireData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.LabelBlockData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.IpSubData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Tev4P2MpData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.MldPv4Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.TpData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.EvpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv4BlbData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.Ipv6BlbData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PiMiPmsiData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.PiMsPmsiData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrPrefixSegment']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext.TeBinding']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LabelContext']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId.LocalLabelRewrite']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Tev4Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.VrfL3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PseudowireData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.LabelBlockData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.IpSubData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Tev4P2MpData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.MldPv4Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.TpData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.EvpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv4BlbData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.Ipv6BlbData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PiMiPmsiData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.PiMsPmsiData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrPrefixSegment']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext.TeBinding']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LabelContext']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_.LocalLabelRewrite']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId.RewriteId_']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.RewriteId']['meta_info']
 _meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi.LabelData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi']['meta_info']
 _meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi.TeData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi']['meta_info']
 _meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi.Ipv4Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewritePws.RewritePw.AssociatedFpi.Fpi']['meta_info']
@@ -30995,37 +30995,37 @@ _meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi.PwListData']['m
 _meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi.DmtcExtIntfData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi']['meta_info']
 _meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.Fpi']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey']['meta_info']
 _meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey.ApplicationOwner']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.FpiKey']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Tev4Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.VrfL3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Cev4L3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Cev6L3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PseudowireData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.LabelBlockData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.IpSubData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Tev4P2MpData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.MldPv4Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.TpData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.EvpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv4BlbData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.Ipv6BlbData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PiMiPmsiData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.PiMsPmsiData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrPrefixSegment']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext.TeBinding']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LabelContext']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId.LocalLabelRewrite']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Tev4Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.VrfL3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PseudowireData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.LabelBlockData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.IpSubData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Tev4P2MpData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.MldPv4Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.TpData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.EvpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv4BlbData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.Ipv6BlbData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PiMiPmsiData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.PiMsPmsiData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrPrefixSegment']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext.TeBinding']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LabelContext']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_.LocalLabelRewrite']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId.RewriteId_']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.RewriteId']['meta_info']
 _meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi.LabelData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi']['meta_info']
 _meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi.TeData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi']['meta_info']
 _meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi.Ipv4Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteIpv4S.RewriteIpv4.AssociatedFpi.Fpi']['meta_info']
@@ -31072,37 +31072,37 @@ _meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi.PwListData']['meta_
 _meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi.DmtcExtIntfData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi']['meta_info']
 _meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.FpiKey.Fpi']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.FpiKey']['meta_info']
 _meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.FpiKey.ApplicationOwner']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.FpiKey']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Tev4Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.VrfL3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Cev4L3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Cev6L3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PseudowireData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.LabelBlockData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.IpSubData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Tev4P2MpData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.MldPv4Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.TpData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.EvpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv4BlbData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.Ipv6BlbData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PiMiPmsiData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.PiMsPmsiData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrPrefixSegment']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext.TeBinding']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LabelContext']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId.LocalLabelRewrite']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Tev4Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.VrfL3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PseudowireData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.LabelBlockData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.IpSubData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Tev4P2MpData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.MldPv4Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.TpData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.EvpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv4BlbData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.Ipv6BlbData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PiMiPmsiData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.PiMsPmsiData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrPrefixSegment']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext.TeBinding']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LabelContext']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_.LocalLabelRewrite']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId.RewriteId_']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.RewriteId']['meta_info']
 _meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi.LabelData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi']['meta_info']
 _meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi.TeData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi']['meta_info']
 _meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi.Ipv4Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteTes.RewriteTe.AssociatedFpi.Fpi']['meta_info']
@@ -31149,37 +31149,37 @@ _meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi.PwListData'][
 _meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi.DmtcExtIntfData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi']['meta_info']
 _meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.FpiKey.Fpi']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.FpiKey']['meta_info']
 _meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.FpiKey.ApplicationOwner']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.FpiKey']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Tev4Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4L3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6L3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.VrfL3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Cev4L3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Cev6L3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PseudowireData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.LabelBlockData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.IpSubData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Tev4P2MpData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.MldPv4Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PseudowireHeadEndData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.TpData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.GenericRoutingEncapsulation']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6GenericRoutingEncapsulation']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.EvpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv4BlbData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.Ipv6BlbData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PiMiPmsiData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.PiMsPmsiData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.NextHopSetL3Vpn']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrPrefixSegment']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv4']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.SrAdjSegmentIpv6']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.LabelBlockSrgbData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext.TeBinding']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LabelContext']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId.LocalLabelRewrite']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId']['meta_info']
-_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Tev4Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4L3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6L3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.VrfL3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Cev4L3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Cev6L3VpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PseudowireData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.LabelBlockData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.IpSubData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Tev4P2MpData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.MldPv4Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PseudowireHeadEndData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.TpData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.GenericRoutingEncapsulation']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6GenericRoutingEncapsulation']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.EvpnData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv4BlbData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.Ipv6BlbData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PiMiPmsiData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.PiMsPmsiData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.NextHopSetL3Vpn']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrPrefixSegment']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv4']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.SrAdjSegmentIpv6']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.LabelBlockSrgbData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext.TeBinding']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LabelContext']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_.LocalLabelRewrite']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_']['meta_info']
+_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId.RewriteId_']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.RewriteId']['meta_info']
 _meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi.LabelData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi']['meta_info']
 _meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi.TeData']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi']['meta_info']
 _meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi.Ipv4Data']['meta_info'].parent =_meta_table['MplsLsd.Rewrite.RewriteLabels.RewriteLabel.AssociatedFpi.Fpi']['meta_info']

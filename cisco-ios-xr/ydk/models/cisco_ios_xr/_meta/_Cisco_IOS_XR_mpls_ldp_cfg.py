@@ -16,57 +16,57 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'MplsLdpAdvertiseBgpaclEnum' : _MetaInfoEnum('MplsLdpAdvertiseBgpaclEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg',
         {
-            'peer-acl':'PEER_ACL',
+            'peer-acl':'peer_acl',
         }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
     'MplsLdpLabelAdvertiseEnum' : _MetaInfoEnum('MplsLdpLabelAdvertiseEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg',
         {
-            'for':'FOR',
-            'for-to':'FOR_TO',
+            'for':'for_',
+            'for-to':'for_to',
         }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
     'MplsLdpLabelAllocationEnum' : _MetaInfoEnum('MplsLdpLabelAllocationEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg',
         {
-            'acl':'ACL',
-            'host':'HOST',
+            'acl':'acl',
+            'host':'host',
         }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
     'MplsLdpTargetedAcceptEnum' : _MetaInfoEnum('MplsLdpTargetedAcceptEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg',
         {
-            'all':'ALL',
-            'from':'FROM',
+            'all':'all',
+            'from':'from_',
         }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
     'MplsLdpNbrPasswordEnum' : _MetaInfoEnum('MplsLdpNbrPasswordEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg',
         {
-            'disable':'DISABLE',
-            'specified':'SPECIFIED',
+            'disable':'disable',
+            'specified':'specified',
         }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
     'MplsLdpDownstreamOnDemandEnum' : _MetaInfoEnum('MplsLdpDownstreamOnDemandEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg',
         {
-            'peer-acl':'PEER_ACL',
+            'peer-acl':'peer_acl',
         }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
     'MplsLdpExpNullEnum' : _MetaInfoEnum('MplsLdpExpNullEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg',
         {
-            'all':'ALL',
-            'for':'FOR',
-            'to':'TO',
-            'for-to':'FOR_TO',
+            'all':'all',
+            'for':'for_',
+            'to':'to',
+            'for-to':'for_to',
         }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
     'MplsLdpafNameEnum' : _MetaInfoEnum('MplsLdpafNameEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg',
         {
-            'ipv4':'IPV4',
-            'ipv6':'IPV6',
+            'ipv4':'ipv4',
+            'ipv6':'ipv6',
         }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
     'MplsLdpTransportAddressEnum' : _MetaInfoEnum('MplsLdpTransportAddressEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg',
         {
-            'interface':'INTERFACE',
-            'address':'ADDRESS',
+            'interface':'interface',
+            'address':'address',
         }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
     'MplsLdpSessionProtectionEnum' : _MetaInfoEnum('MplsLdpSessionProtectionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg',
         {
-            'all':'ALL',
-            'for':'FOR',
-            'all-with-duration':'ALL_WITH_DURATION',
-            'for-with-duration':'FOR_WITH_DURATION',
-            'all-with-forever':'ALL_WITH_FOREVER',
-            'for-with-forever':'FOR_WITH_FOREVER',
+            'all':'all',
+            'for':'for_',
+            'all-with-duration':'all_with_duration',
+            'for-with-duration':'for_with_duration',
+            'all-with-forever':'all_with_forever',
+            'for-with-forever':'for_with_forever',
         }, 'Cisco-IOS-XR-mpls-ldp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-cfg']),
     'MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy' : {
         'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy',
@@ -650,8 +650,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.As' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.As',
+    'MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.As_' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.As_',
             False, 
             [
             _MetaInfoClassMember('as-xx', ATTRIBUTE, 'int' , None, None, 
@@ -711,7 +711,7 @@ _meta_table = {
                 ''',
                 'advertise_to',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('as', REFERENCE_CLASS, 'As' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.As', 
+            _MetaInfoClassMember('as', REFERENCE_CLASS, 'As_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.As_', 
                 [], [], 
                 '''                MPLS LDP configuration for protocol
                 redistribution
@@ -814,8 +814,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.DefaultVrf.Global.Session.Protection' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global.Session.Protection',
+    'MplsLdp.DefaultVrf.Global_.Session.Protection' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global_.Session.Protection',
             False, 
             [
             _MetaInfoClassMember('duration', ATTRIBUTE, 'int' , None, None, 
@@ -843,8 +843,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.DefaultVrf.Global.Session.DownstreamOnDemand' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global.Session.DownstreamOnDemand',
+    'MplsLdp.DefaultVrf.Global_.Session.DownstreamOnDemand' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global_.Session.DownstreamOnDemand',
             False, 
             [
             _MetaInfoClassMember('peer-acl-name', ATTRIBUTE, 'str' , None, None, 
@@ -866,18 +866,18 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.DefaultVrf.Global.Session' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global.Session',
+    'MplsLdp.DefaultVrf.Global_.Session' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global_.Session',
             False, 
             [
-            _MetaInfoClassMember('downstream-on-demand', REFERENCE_CLASS, 'DownstreamOnDemand' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global.Session.DownstreamOnDemand', 
+            _MetaInfoClassMember('downstream-on-demand', REFERENCE_CLASS, 'DownstreamOnDemand' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global_.Session.DownstreamOnDemand', 
                 [], [], 
                 '''                ACL with the list of neighbors configured for
                 Downstream on Demand
                 ''',
                 'downstream_on_demand',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('protection', REFERENCE_CLASS, 'Protection' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global.Session.Protection', 
+            _MetaInfoClassMember('protection', REFERENCE_CLASS, 'Protection' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global_.Session.Protection', 
                 [], [], 
                 '''                Configure Session Protection parameters
                 ''',
@@ -890,8 +890,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId.Password' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId.Password',
+    'MplsLdp.DefaultVrf.Global_.Neighbor.LdpIds.LdpId.Password' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global_.Neighbor.LdpIds.LdpId.Password',
             False, 
             [
             _MetaInfoClassMember('command-type', REFERENCE_ENUM_CLASS, 'MplsLdpNbrPasswordEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpNbrPasswordEnum', 
@@ -913,8 +913,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId',
+    'MplsLdp.DefaultVrf.Global_.Neighbor.LdpIds.LdpId' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global_.Neighbor.LdpIds.LdpId',
             False, 
             [
             _MetaInfoClassMember('label-space-id', ATTRIBUTE, 'int' , None, None, 
@@ -929,7 +929,7 @@ _meta_table = {
                 ''',
                 'lsr_id',
                 'Cisco-IOS-XR-mpls-ldp-cfg', True),
-            _MetaInfoClassMember('password', REFERENCE_CLASS, 'Password' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId.Password', 
+            _MetaInfoClassMember('password', REFERENCE_CLASS, 'Password' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global_.Neighbor.LdpIds.LdpId.Password', 
                 [], [], 
                 '''                Password for MD5 authentication for this
                 neighbor
@@ -943,11 +943,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.DefaultVrf.Global.Neighbor.LdpIds' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global.Neighbor.LdpIds',
+    'MplsLdp.DefaultVrf.Global_.Neighbor.LdpIds' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global_.Neighbor.LdpIds',
             False, 
             [
-            _MetaInfoClassMember('ldp-id', REFERENCE_LIST, 'LdpId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId', 
+            _MetaInfoClassMember('ldp-id', REFERENCE_LIST, 'LdpId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global_.Neighbor.LdpIds.LdpId', 
                 [], [], 
                 '''                LDP ID based configuration related to a
                 neigbor
@@ -961,8 +961,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection.Prefer' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection.Prefer',
+    'MplsLdp.DefaultVrf.Global_.Neighbor.DualStack.TransportConnection.Prefer' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global_.Neighbor.DualStack.TransportConnection.Prefer',
             False, 
             [
             _MetaInfoClassMember('ipv4', ATTRIBUTE, 'Empty' , None, None, 
@@ -980,8 +980,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection',
+    'MplsLdp.DefaultVrf.Global_.Neighbor.DualStack.TransportConnection' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global_.Neighbor.DualStack.TransportConnection',
             False, 
             [
             _MetaInfoClassMember('max-wait', ATTRIBUTE, 'int' , None, None, 
@@ -991,7 +991,7 @@ _meta_table = {
                 ''',
                 'max_wait',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('prefer', REFERENCE_CLASS, 'Prefer' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection.Prefer', 
+            _MetaInfoClassMember('prefer', REFERENCE_CLASS, 'Prefer' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global_.Neighbor.DualStack.TransportConnection.Prefer', 
                 [], [], 
                 '''                Configuration related to neighbor
                 dual-stack xport-connection preference
@@ -1005,8 +1005,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.DefaultVrf.Global.Neighbor.DualStack' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global.Neighbor.DualStack',
+    'MplsLdp.DefaultVrf.Global_.Neighbor.DualStack' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global_.Neighbor.DualStack',
             False, 
             [
             _MetaInfoClassMember('tlv-compliance', ATTRIBUTE, 'Empty' , None, None, 
@@ -1016,7 +1016,7 @@ _meta_table = {
                 ''',
                 'tlv_compliance',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('transport-connection', REFERENCE_CLASS, 'TransportConnection' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection', 
+            _MetaInfoClassMember('transport-connection', REFERENCE_CLASS, 'TransportConnection' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global_.Neighbor.DualStack.TransportConnection', 
                 [], [], 
                 '''                Configuration related to neighbor transport
                 ''',
@@ -1029,17 +1029,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.DefaultVrf.Global.Neighbor' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global.Neighbor',
+    'MplsLdp.DefaultVrf.Global_.Neighbor' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global_.Neighbor',
             False, 
             [
-            _MetaInfoClassMember('dual-stack', REFERENCE_CLASS, 'DualStack' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global.Neighbor.DualStack', 
+            _MetaInfoClassMember('dual-stack', REFERENCE_CLASS, 'DualStack' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global_.Neighbor.DualStack', 
                 [], [], 
                 '''                Configuration related to neighbor transport
                 ''',
                 'dual_stack',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('ldp-ids', REFERENCE_CLASS, 'LdpIds' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global.Neighbor.LdpIds', 
+            _MetaInfoClassMember('ldp-ids', REFERENCE_CLASS, 'LdpIds' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global_.Neighbor.LdpIds', 
                 [], [], 
                 '''                Configuration related to Neighbors using LDP
                 Id
@@ -1059,8 +1059,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.DefaultVrf.Global.GracefulRestart.HelperPeer' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global.GracefulRestart.HelperPeer',
+    'MplsLdp.DefaultVrf.Global_.GracefulRestart.HelperPeer' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global_.GracefulRestart.HelperPeer',
             False, 
             [
             _MetaInfoClassMember('maintain-on-local-reset', ATTRIBUTE, 'str' , None, None, 
@@ -1077,11 +1077,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.DefaultVrf.Global.GracefulRestart' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global.GracefulRestart',
+    'MplsLdp.DefaultVrf.Global_.GracefulRestart' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global_.GracefulRestart',
             False, 
             [
-            _MetaInfoClassMember('helper-peer', REFERENCE_CLASS, 'HelperPeer' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global.GracefulRestart.HelperPeer', 
+            _MetaInfoClassMember('helper-peer', REFERENCE_CLASS, 'HelperPeer' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global_.GracefulRestart.HelperPeer', 
                 [], [], 
                 '''                Configure parameters related to GR peer(s)
                 opearating in helper mode
@@ -1095,18 +1095,18 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.DefaultVrf.Global' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global',
+    'MplsLdp.DefaultVrf.Global_' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Global_',
             False, 
             [
-            _MetaInfoClassMember('graceful-restart', REFERENCE_CLASS, 'GracefulRestart' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global.GracefulRestart', 
+            _MetaInfoClassMember('graceful-restart', REFERENCE_CLASS, 'GracefulRestart' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global_.GracefulRestart', 
                 [], [], 
                 '''                Configuration for per-VRF LDP Graceful Restart
                 parameters
                 ''',
                 'graceful_restart',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('neighbor', REFERENCE_CLASS, 'Neighbor' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global.Neighbor', 
+            _MetaInfoClassMember('neighbor', REFERENCE_CLASS, 'Neighbor' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global_.Neighbor', 
                 [], [], 
                 '''                Configuration related to Neighbors
                 ''',
@@ -1118,7 +1118,7 @@ _meta_table = {
                 ''',
                 'router_id',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('session', REFERENCE_CLASS, 'Session' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global.Session', 
+            _MetaInfoClassMember('session', REFERENCE_CLASS, 'Session' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global_.Session', 
                 [], [], 
                 '''                LDP Session parameters
                 ''',
@@ -1277,8 +1277,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery.LinkHello' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery.LinkHello',
+    'MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Discovery.LinkHello' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Discovery.LinkHello',
             False, 
             [
             _MetaInfoClassMember('dual-stack', REFERENCE_ENUM_CLASS, 'MplsLdpafNameEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpafNameEnum', 
@@ -1306,8 +1306,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery',
+    'MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Discovery' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Discovery',
             False, 
             [
             _MetaInfoClassMember('disable-quick-start', ATTRIBUTE, 'Empty' , None, None, 
@@ -1316,7 +1316,7 @@ _meta_table = {
                 ''',
                 'disable_quick_start',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('link-hello', REFERENCE_CLASS, 'LinkHello' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery.LinkHello', 
+            _MetaInfoClassMember('link-hello', REFERENCE_CLASS, 'LinkHello' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Discovery.LinkHello', 
                 [], [], 
                 '''                LDP Link Hellos
                 ''',
@@ -1329,8 +1329,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay.OnSessionUp' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay.OnSessionUp',
+    'MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Igp.Sync.Delay.OnSessionUp' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Igp.Sync.Delay.OnSessionUp',
             False, 
             [
             _MetaInfoClassMember('disable', ATTRIBUTE, 'Empty' , None, None, 
@@ -1352,11 +1352,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay',
+    'MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Igp.Sync.Delay' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Igp.Sync.Delay',
             False, 
             [
-            _MetaInfoClassMember('on-session-up', REFERENCE_CLASS, 'OnSessionUp' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay.OnSessionUp', 
+            _MetaInfoClassMember('on-session-up', REFERENCE_CLASS, 'OnSessionUp' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Igp.Sync.Delay.OnSessionUp', 
                 [], [], 
                 '''                Interface sync up delay after session up
                 ''',
@@ -1369,11 +1369,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync',
+    'MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Igp.Sync' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Igp.Sync',
             False, 
             [
-            _MetaInfoClassMember('delay', REFERENCE_CLASS, 'Delay' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay', 
+            _MetaInfoClassMember('delay', REFERENCE_CLASS, 'Delay' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Igp.Sync.Delay', 
                 [], [], 
                 '''                LDP IGP synchronization delay time
                 ''',
@@ -1386,11 +1386,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp',
+    'MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Igp' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Igp',
             False, 
             [
-            _MetaInfoClassMember('sync', REFERENCE_CLASS, 'Sync' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync', 
+            _MetaInfoClassMember('sync', REFERENCE_CLASS, 'Sync' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Igp.Sync', 
                 [], [], 
                 '''                LDP IGP synchronization
                 ''',
@@ -1403,17 +1403,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.DefaultVrf.Interfaces.Interface.Global' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Interfaces.Interface.Global',
+    'MplsLdp.DefaultVrf.Interfaces.Interface.Global_' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.DefaultVrf.Interfaces.Interface.Global_',
             False, 
             [
-            _MetaInfoClassMember('discovery', REFERENCE_CLASS, 'Discovery' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery', 
+            _MetaInfoClassMember('discovery', REFERENCE_CLASS, 'Discovery' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Discovery', 
                 [], [], 
                 '''                Configure interface discovery parameters
                 ''',
                 'discovery',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('igp', REFERENCE_CLASS, 'Igp' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp', 
+            _MetaInfoClassMember('igp', REFERENCE_CLASS, 'Igp' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Igp', 
                 [], [], 
                 '''                LDP IGP configuration
                 ''',
@@ -1450,7 +1450,7 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('global', REFERENCE_CLASS, 'Global' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Interfaces.Interface.Global', 
+            _MetaInfoClassMember('global', REFERENCE_CLASS, 'Global_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Interfaces.Interface.Global_', 
                 [], [], 
                 '''                Per VRF interface Global configuration for
                 MPLS LDP
@@ -1493,7 +1493,7 @@ _meta_table = {
                 ''',
                 'afs',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('global', REFERENCE_CLASS, 'Global' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global', 
+            _MetaInfoClassMember('global', REFERENCE_CLASS, 'Global_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.DefaultVrf.Global_', 
                 [], [], 
                 '''                Default VRF Global configuration for MPLS LDP
                 ''',
@@ -1512,8 +1512,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Vrfs.Vrf.Global.Session.DownstreamOnDemand' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Vrfs.Vrf.Global.Session.DownstreamOnDemand',
+    'MplsLdp.Vrfs.Vrf.Global_.Session.DownstreamOnDemand' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Vrfs.Vrf.Global_.Session.DownstreamOnDemand',
             False, 
             [
             _MetaInfoClassMember('peer-acl-name', ATTRIBUTE, 'str' , None, None, 
@@ -1535,11 +1535,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Vrfs.Vrf.Global.Session' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Vrfs.Vrf.Global.Session',
+    'MplsLdp.Vrfs.Vrf.Global_.Session' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Vrfs.Vrf.Global_.Session',
             False, 
             [
-            _MetaInfoClassMember('downstream-on-demand', REFERENCE_CLASS, 'DownstreamOnDemand' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Global.Session.DownstreamOnDemand', 
+            _MetaInfoClassMember('downstream-on-demand', REFERENCE_CLASS, 'DownstreamOnDemand' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Global_.Session.DownstreamOnDemand', 
                 [], [], 
                 '''                ACL with the list of neighbors configured
                 for Downstream on Demand
@@ -1553,8 +1553,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId.Password' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId.Password',
+    'MplsLdp.Vrfs.Vrf.Global_.Neighbor.LdpIds.LdpId.Password' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Vrfs.Vrf.Global_.Neighbor.LdpIds.LdpId.Password',
             False, 
             [
             _MetaInfoClassMember('command-type', REFERENCE_ENUM_CLASS, 'MplsLdpNbrPasswordEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpNbrPasswordEnum', 
@@ -1576,8 +1576,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId',
+    'MplsLdp.Vrfs.Vrf.Global_.Neighbor.LdpIds.LdpId' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Vrfs.Vrf.Global_.Neighbor.LdpIds.LdpId',
             False, 
             [
             _MetaInfoClassMember('label-space-id', ATTRIBUTE, 'int' , None, None, 
@@ -1592,7 +1592,7 @@ _meta_table = {
                 ''',
                 'lsr_id',
                 'Cisco-IOS-XR-mpls-ldp-cfg', True),
-            _MetaInfoClassMember('password', REFERENCE_CLASS, 'Password' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId.Password', 
+            _MetaInfoClassMember('password', REFERENCE_CLASS, 'Password' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Global_.Neighbor.LdpIds.LdpId.Password', 
                 [], [], 
                 '''                Password for MD5 authentication for this
                 neighbor
@@ -1606,11 +1606,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds',
+    'MplsLdp.Vrfs.Vrf.Global_.Neighbor.LdpIds' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Vrfs.Vrf.Global_.Neighbor.LdpIds',
             False, 
             [
-            _MetaInfoClassMember('ldp-id', REFERENCE_LIST, 'LdpId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId', 
+            _MetaInfoClassMember('ldp-id', REFERENCE_LIST, 'LdpId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Global_.Neighbor.LdpIds.LdpId', 
                 [], [], 
                 '''                LDP ID based configuration related to a
                 neigbor
@@ -1624,11 +1624,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Vrfs.Vrf.Global.Neighbor' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Vrfs.Vrf.Global.Neighbor',
+    'MplsLdp.Vrfs.Vrf.Global_.Neighbor' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Vrfs.Vrf.Global_.Neighbor',
             False, 
             [
-            _MetaInfoClassMember('ldp-ids', REFERENCE_CLASS, 'LdpIds' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds', 
+            _MetaInfoClassMember('ldp-ids', REFERENCE_CLASS, 'LdpIds' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Global_.Neighbor.LdpIds', 
                 [], [], 
                 '''                Configuration related to Neighbors using LDP
                 Id
@@ -1648,8 +1648,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Vrfs.Vrf.Global.GracefulRestart.HelperPeer' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Vrfs.Vrf.Global.GracefulRestart.HelperPeer',
+    'MplsLdp.Vrfs.Vrf.Global_.GracefulRestart.HelperPeer' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Vrfs.Vrf.Global_.GracefulRestart.HelperPeer',
             False, 
             [
             _MetaInfoClassMember('maintain-on-local-reset', ATTRIBUTE, 'str' , None, None, 
@@ -1666,11 +1666,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Vrfs.Vrf.Global.GracefulRestart' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Vrfs.Vrf.Global.GracefulRestart',
+    'MplsLdp.Vrfs.Vrf.Global_.GracefulRestart' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Vrfs.Vrf.Global_.GracefulRestart',
             False, 
             [
-            _MetaInfoClassMember('helper-peer', REFERENCE_CLASS, 'HelperPeer' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Global.GracefulRestart.HelperPeer', 
+            _MetaInfoClassMember('helper-peer', REFERENCE_CLASS, 'HelperPeer' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Global_.GracefulRestart.HelperPeer', 
                 [], [], 
                 '''                Configure parameters related to GR peer(s)
                 opearating in helper mode
@@ -1684,18 +1684,18 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Vrfs.Vrf.Global' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Vrfs.Vrf.Global',
+    'MplsLdp.Vrfs.Vrf.Global_' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Vrfs.Vrf.Global_',
             False, 
             [
-            _MetaInfoClassMember('graceful-restart', REFERENCE_CLASS, 'GracefulRestart' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Global.GracefulRestart', 
+            _MetaInfoClassMember('graceful-restart', REFERENCE_CLASS, 'GracefulRestart' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Global_.GracefulRestart', 
                 [], [], 
                 '''                Configuration for per-VRF LDP Graceful
                 Restart parameters
                 ''',
                 'graceful_restart',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('neighbor', REFERENCE_CLASS, 'Neighbor' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Global.Neighbor', 
+            _MetaInfoClassMember('neighbor', REFERENCE_CLASS, 'Neighbor' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Global_.Neighbor', 
                 [], [], 
                 '''                Configuration related to Neighbors
                 ''',
@@ -1707,7 +1707,7 @@ _meta_table = {
                 ''',
                 'router_id',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('session', REFERENCE_CLASS, 'Session' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Global.Session', 
+            _MetaInfoClassMember('session', REFERENCE_CLASS, 'Session' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Global_.Session', 
                 [], [], 
                 '''                LDP Session parameters
                 ''',
@@ -2357,7 +2357,7 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('global', REFERENCE_CLASS, 'Global' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Global', 
+            _MetaInfoClassMember('global', REFERENCE_CLASS, 'Global_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Vrfs.Vrf.Global_', 
                 [], [], 
                 '''                Per VRF Global configuration for MPLS LDP
                 ''',
@@ -2394,8 +2394,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global.EntropyLabel' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global.EntropyLabel',
+    'MplsLdp.Global_.EntropyLabel' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.EntropyLabel',
             False, 
             [
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
@@ -2411,8 +2411,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global.Session.BackoffTime' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global.Session.BackoffTime',
+    'MplsLdp.Global_.Session.BackoffTime' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Session.BackoffTime',
             False, 
             [
             _MetaInfoClassMember('initial-backoff-time', ATTRIBUTE, 'int' , None, None, 
@@ -2434,11 +2434,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global.Session' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global.Session',
+    'MplsLdp.Global_.Session' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Session',
             False, 
             [
-            _MetaInfoClassMember('backoff-time', REFERENCE_CLASS, 'BackoffTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Session.BackoffTime', 
+            _MetaInfoClassMember('backoff-time', REFERENCE_CLASS, 'BackoffTime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Session.BackoffTime', 
                 [], [], 
                 '''                Configure Session Backoff parameters
                 ''',
@@ -2457,8 +2457,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global.Igp.Sync.Delay' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global.Igp.Sync.Delay',
+    'MplsLdp.Global_.Igp.Sync.Delay' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Igp.Sync.Delay',
             False, 
             [
             _MetaInfoClassMember('on-proc-restart', ATTRIBUTE, 'int' , None, None, 
@@ -2481,11 +2481,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global.Igp.Sync' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global.Igp.Sync',
+    'MplsLdp.Global_.Igp.Sync' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Igp.Sync',
             False, 
             [
-            _MetaInfoClassMember('delay', REFERENCE_CLASS, 'Delay' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Igp.Sync.Delay', 
+            _MetaInfoClassMember('delay', REFERENCE_CLASS, 'Delay' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Igp.Sync.Delay', 
                 [], [], 
                 '''                LDP IGP synchronization delay time
                 ''',
@@ -2498,11 +2498,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global.Igp' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global.Igp',
+    'MplsLdp.Global_.Igp' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Igp',
             False, 
             [
-            _MetaInfoClassMember('sync', REFERENCE_CLASS, 'Sync' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Igp.Sync', 
+            _MetaInfoClassMember('sync', REFERENCE_CLASS, 'Sync' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Igp.Sync', 
                 [], [], 
                 '''                LDP IGP synchronization
                 ''',
@@ -2515,8 +2515,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global.EnableLogging' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global.EnableLogging',
+    'MplsLdp.Global_.EnableLogging' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.EnableLogging',
             False, 
             [
             _MetaInfoClassMember('adjacency', ATTRIBUTE, 'Empty' , None, None, 
@@ -2556,8 +2556,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global.Signalling' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global.Signalling',
+    'MplsLdp.Global_.Signalling' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Signalling',
             False, 
             [
             _MetaInfoClassMember('dscp', ATTRIBUTE, 'int' , None, None, 
@@ -2573,8 +2573,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global.Nsr' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global.Nsr',
+    'MplsLdp.Global_.Nsr' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Nsr',
             False, 
             [
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
@@ -2590,8 +2590,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global.GracefulRestart' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global.GracefulRestart',
+    'MplsLdp.Global_.GracefulRestart' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.GracefulRestart',
             False, 
             [
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
@@ -2620,8 +2620,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global.Discovery.LinkHello' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global.Discovery.LinkHello',
+    'MplsLdp.Global_.Discovery.LinkHello' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Discovery.LinkHello',
             False, 
             [
             _MetaInfoClassMember('hold-time', ATTRIBUTE, 'int' , None, None, 
@@ -2643,8 +2643,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global.Discovery.TargetedHello' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global.Discovery.TargetedHello',
+    'MplsLdp.Global_.Discovery.TargetedHello' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Discovery.TargetedHello',
             False, 
             [
             _MetaInfoClassMember('hold-time', ATTRIBUTE, 'int' , None, None, 
@@ -2666,8 +2666,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global.Discovery' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global.Discovery',
+    'MplsLdp.Global_.Discovery' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Discovery',
             False, 
             [
             _MetaInfoClassMember('disable-instance-tlv', ATTRIBUTE, 'Empty' , None, None, 
@@ -2684,13 +2684,13 @@ _meta_table = {
                 ''',
                 'disable_quick_start',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('link-hello', REFERENCE_CLASS, 'LinkHello' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Discovery.LinkHello', 
+            _MetaInfoClassMember('link-hello', REFERENCE_CLASS, 'LinkHello' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Discovery.LinkHello', 
                 [], [], 
                 '''                LDP Link Hellos
                 ''',
                 'link_hello',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('targeted-hello', REFERENCE_CLASS, 'TargetedHello' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Discovery.TargetedHello', 
+            _MetaInfoClassMember('targeted-hello', REFERENCE_CLASS, 'TargetedHello' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Discovery.TargetedHello', 
                 [], [], 
                 '''                LDP Targeted Hellos
                 ''',
@@ -2703,8 +2703,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec',
+    'MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec',
             False, 
             [
             _MetaInfoClassMember('enable-mldp-recursive-fec', ATTRIBUTE, 'Empty' , None, None, 
@@ -2720,8 +2720,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MoFrr' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MoFrr',
+    'MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MoFrr' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MoFrr',
             False, 
             [
             _MetaInfoClassMember('enable-mo-frr', ATTRIBUTE, 'Empty' , None, None, 
@@ -2737,8 +2737,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak.Signaling' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak.Signaling',
+    'MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak.Signaling' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak.Signaling',
             False, 
             [
             _MetaInfoClassMember('delete-delay', ATTRIBUTE, 'int' , None, None, 
@@ -2760,11 +2760,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak',
+    'MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak',
             False, 
             [
-            _MetaInfoClassMember('signaling', REFERENCE_CLASS, 'Signaling' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak.Signaling', 
+            _MetaInfoClassMember('signaling', REFERENCE_CLASS, 'Signaling' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak.Signaling', 
                 [], [], 
                 '''                Enable MPLS mLDP MBB signaling
                 ''',
@@ -2777,8 +2777,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.Csc' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.Csc',
+    'MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.Csc' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.Csc',
             False, 
             [
             _MetaInfoClassMember('enable-csc', ATTRIBUTE, 'Empty' , None, None, 
@@ -2794,8 +2794,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af',
+    'MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'MplsLdpafNameEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpafNameEnum', 
@@ -2804,7 +2804,7 @@ _meta_table = {
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-mpls-ldp-cfg', True),
-            _MetaInfoClassMember('csc', REFERENCE_CLASS, 'Csc' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.Csc', 
+            _MetaInfoClassMember('csc', REFERENCE_CLASS, 'Csc' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.Csc', 
                 [], [], 
                 '''                MPLS mLDP CSC
                 ''',
@@ -2817,13 +2817,13 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('make-before-break', REFERENCE_CLASS, 'MakeBeforeBreak' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak', 
+            _MetaInfoClassMember('make-before-break', REFERENCE_CLASS, 'MakeBeforeBreak' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak', 
                 [], [], 
                 '''                MPLS mLDP Make-Before-Break configuration
                 ''',
                 'make_before_break',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('mldp-recursive-fec', REFERENCE_CLASS, 'MldpRecursiveFec' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec', 
+            _MetaInfoClassMember('mldp-recursive-fec', REFERENCE_CLASS, 'MldpRecursiveFec' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec', 
                 [], [], 
                 '''                MPLS mLDP Recursive FEC
                 ''',
@@ -2836,7 +2836,7 @@ _meta_table = {
                 ''',
                 'mldp_rib_unicast_always',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('mo-frr', REFERENCE_CLASS, 'MoFrr' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MoFrr', 
+            _MetaInfoClassMember('mo-frr', REFERENCE_CLASS, 'MoFrr' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MoFrr', 
                 [], [], 
                 '''                MPLS mLDP MoFRR
                 ''',
@@ -2849,11 +2849,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global.Mldp.Vrfs.Vrf.Afs' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global.Mldp.Vrfs.Vrf.Afs',
+    'MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs',
             False, 
             [
-            _MetaInfoClassMember('af', REFERENCE_LIST, 'Af' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af', 
+            _MetaInfoClassMember('af', REFERENCE_LIST, 'Af' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af', 
                 [], [], 
                 '''                Operational data for given Address Family
                 ''',
@@ -2866,8 +2866,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global.Mldp.Vrfs.Vrf' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global.Mldp.Vrfs.Vrf',
+    'MplsLdp.Global_.Mldp.Vrfs.Vrf' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.Vrfs.Vrf',
             False, 
             [
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
@@ -2876,7 +2876,7 @@ _meta_table = {
                 ''',
                 'vrf_name',
                 'Cisco-IOS-XR-mpls-ldp-cfg', True),
-            _MetaInfoClassMember('afs', REFERENCE_CLASS, 'Afs' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.Vrfs.Vrf.Afs', 
+            _MetaInfoClassMember('afs', REFERENCE_CLASS, 'Afs' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs', 
                 [], [], 
                 '''                Address Family specific operational data
                 ''',
@@ -2889,11 +2889,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global.Mldp.Vrfs' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global.Mldp.Vrfs',
+    'MplsLdp.Global_.Mldp.Vrfs' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.Vrfs',
             False, 
             [
-            _MetaInfoClassMember('vrf', REFERENCE_LIST, 'Vrf' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.Vrfs.Vrf', 
+            _MetaInfoClassMember('vrf', REFERENCE_LIST, 'Vrf' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Mldp.Vrfs.Vrf', 
                 [], [], 
                 '''                VRF attribute configuration for MPLS LDP
                 ''',
@@ -2906,8 +2906,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec',
+    'MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec',
             False, 
             [
             _MetaInfoClassMember('enable-mldp-recursive-fec', ATTRIBUTE, 'Empty' , None, None, 
@@ -2923,8 +2923,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MoFrr' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MoFrr',
+    'MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MoFrr' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MoFrr',
             False, 
             [
             _MetaInfoClassMember('enable-mo-frr', ATTRIBUTE, 'Empty' , None, None, 
@@ -2940,8 +2940,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak.Signaling' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak.Signaling',
+    'MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak.Signaling' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak.Signaling',
             False, 
             [
             _MetaInfoClassMember('delete-delay', ATTRIBUTE, 'int' , None, None, 
@@ -2963,11 +2963,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak',
+    'MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak',
             False, 
             [
-            _MetaInfoClassMember('signaling', REFERENCE_CLASS, 'Signaling' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak.Signaling', 
+            _MetaInfoClassMember('signaling', REFERENCE_CLASS, 'Signaling' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak.Signaling', 
                 [], [], 
                 '''                Enable MPLS mLDP MBB signaling
                 ''',
@@ -2980,8 +2980,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.Csc' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.Csc',
+    'MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.Csc' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.Csc',
             False, 
             [
             _MetaInfoClassMember('enable-csc', ATTRIBUTE, 'Empty' , None, None, 
@@ -2997,8 +2997,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global.Mldp.DefaultVrf.Afs.Af' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global.Mldp.DefaultVrf.Afs.Af',
+    'MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'MplsLdpafNameEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdpafNameEnum', 
@@ -3007,7 +3007,7 @@ _meta_table = {
                 ''',
                 'af_name',
                 'Cisco-IOS-XR-mpls-ldp-cfg', True),
-            _MetaInfoClassMember('csc', REFERENCE_CLASS, 'Csc' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.Csc', 
+            _MetaInfoClassMember('csc', REFERENCE_CLASS, 'Csc' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.Csc', 
                 [], [], 
                 '''                MPLS mLDP CSC
                 ''',
@@ -3020,13 +3020,13 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('make-before-break', REFERENCE_CLASS, 'MakeBeforeBreak' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak', 
+            _MetaInfoClassMember('make-before-break', REFERENCE_CLASS, 'MakeBeforeBreak' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak', 
                 [], [], 
                 '''                MPLS mLDP Make-Before-Break configuration
                 ''',
                 'make_before_break',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('mldp-recursive-fec', REFERENCE_CLASS, 'MldpRecursiveFec' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec', 
+            _MetaInfoClassMember('mldp-recursive-fec', REFERENCE_CLASS, 'MldpRecursiveFec' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec', 
                 [], [], 
                 '''                MPLS mLDP Recursive FEC
                 ''',
@@ -3039,7 +3039,7 @@ _meta_table = {
                 ''',
                 'mldp_rib_unicast_always',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('mo-frr', REFERENCE_CLASS, 'MoFrr' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MoFrr', 
+            _MetaInfoClassMember('mo-frr', REFERENCE_CLASS, 'MoFrr' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MoFrr', 
                 [], [], 
                 '''                MPLS mLDP MoFRR
                 ''',
@@ -3052,11 +3052,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global.Mldp.DefaultVrf.Afs' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global.Mldp.DefaultVrf.Afs',
+    'MplsLdp.Global_.Mldp.DefaultVrf.Afs' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.DefaultVrf.Afs',
             False, 
             [
-            _MetaInfoClassMember('af', REFERENCE_LIST, 'Af' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.DefaultVrf.Afs.Af', 
+            _MetaInfoClassMember('af', REFERENCE_LIST, 'Af' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af', 
                 [], [], 
                 '''                Operational data for given Address Family
                 ''',
@@ -3069,11 +3069,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global.Mldp.DefaultVrf' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global.Mldp.DefaultVrf',
+    'MplsLdp.Global_.Mldp.DefaultVrf' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.DefaultVrf',
             False, 
             [
-            _MetaInfoClassMember('afs', REFERENCE_CLASS, 'Afs' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.DefaultVrf.Afs', 
+            _MetaInfoClassMember('afs', REFERENCE_CLASS, 'Afs' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Mldp.DefaultVrf.Afs', 
                 [], [], 
                 '''                Address Family specific operational data
                 ''',
@@ -3086,8 +3086,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global.Mldp.MldpGlobal.Logging' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global.Mldp.MldpGlobal.Logging',
+    'MplsLdp.Global_.Mldp.MldpGlobal.Logging' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.MldpGlobal.Logging',
             False, 
             [
             _MetaInfoClassMember('notifications', ATTRIBUTE, 'Empty' , None, None, 
@@ -3103,11 +3103,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global.Mldp.MldpGlobal' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global.Mldp.MldpGlobal',
+    'MplsLdp.Global_.Mldp.MldpGlobal' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp.MldpGlobal',
             False, 
             [
-            _MetaInfoClassMember('logging', REFERENCE_CLASS, 'Logging' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.MldpGlobal.Logging', 
+            _MetaInfoClassMember('logging', REFERENCE_CLASS, 'Logging' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Mldp.MldpGlobal.Logging', 
                 [], [], 
                 '''                MPLS mLDP logging
                 ''',
@@ -3120,11 +3120,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global.Mldp' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global.Mldp',
+    'MplsLdp.Global_.Mldp' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_.Mldp',
             False, 
             [
-            _MetaInfoClassMember('default-vrf', REFERENCE_CLASS, 'DefaultVrf' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.DefaultVrf', 
+            _MetaInfoClassMember('default-vrf', REFERENCE_CLASS, 'DefaultVrf' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Mldp.DefaultVrf', 
                 [], [], 
                 '''                Default VRF attribute configuration for mLDP
                 ''',
@@ -3137,13 +3137,13 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('mldp-global', REFERENCE_CLASS, 'MldpGlobal' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.MldpGlobal', 
+            _MetaInfoClassMember('mldp-global', REFERENCE_CLASS, 'MldpGlobal' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Mldp.MldpGlobal', 
                 [], [], 
                 '''                Global configuration for mLDP
                 ''',
                 'mldp_global',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp.Vrfs', 
+            _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Mldp.Vrfs', 
                 [], [], 
                 '''                VRF Table attribute configuration for MPLS LDP
                 ''',
@@ -3156,8 +3156,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg'
         ),
     },
-    'MplsLdp.Global' : {
-        'meta_info' : _MetaInfoClass('MplsLdp.Global',
+    'MplsLdp.Global_' : {
+        'meta_info' : _MetaInfoClass('MplsLdp.Global_',
             False, 
             [
             _MetaInfoClassMember('disable-implicit-ipv4', ATTRIBUTE, 'Empty' , None, None, 
@@ -3167,32 +3167,32 @@ _meta_table = {
                 ''',
                 'disable_implicit_ipv4',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('discovery', REFERENCE_CLASS, 'Discovery' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Discovery', 
+            _MetaInfoClassMember('discovery', REFERENCE_CLASS, 'Discovery' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Discovery', 
                 [], [], 
                 '''                Configure Discovery parameters
                 ''',
                 'discovery',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('enable-logging', REFERENCE_CLASS, 'EnableLogging' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.EnableLogging', 
+            _MetaInfoClassMember('enable-logging', REFERENCE_CLASS, 'EnableLogging' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.EnableLogging', 
                 [], [], 
                 '''                Enable logging of events
                 ''',
                 'enable_logging',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('entropy-label', REFERENCE_CLASS, 'EntropyLabel' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.EntropyLabel', 
+            _MetaInfoClassMember('entropy-label', REFERENCE_CLASS, 'EntropyLabel' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.EntropyLabel', 
                 [], [], 
                 '''                Configure for LDP Entropy-Label
                 ''',
                 'entropy_label',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('graceful-restart', REFERENCE_CLASS, 'GracefulRestart' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.GracefulRestart', 
+            _MetaInfoClassMember('graceful-restart', REFERENCE_CLASS, 'GracefulRestart' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.GracefulRestart', 
                 [], [], 
                 '''                Configuration for LDP Graceful Restart
                 parameters
                 ''',
                 'graceful_restart',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('igp', REFERENCE_CLASS, 'Igp' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Igp', 
+            _MetaInfoClassMember('igp', REFERENCE_CLASS, 'Igp' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Igp', 
                 [], [], 
                 '''                LDP IGP configuration
                 ''',
@@ -3204,25 +3204,25 @@ _meta_table = {
                 ''',
                 'ltrace_buf_multiplier',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('mldp', REFERENCE_CLASS, 'Mldp' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Mldp', 
+            _MetaInfoClassMember('mldp', REFERENCE_CLASS, 'Mldp' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Mldp', 
                 [], [], 
                 '''                MPLS mLDP configuration
                 ''',
                 'mldp',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('nsr', REFERENCE_CLASS, 'Nsr' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Nsr', 
+            _MetaInfoClassMember('nsr', REFERENCE_CLASS, 'Nsr' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Nsr', 
                 [], [], 
                 '''                Configure LDP Non-Stop Routing
                 ''',
                 'nsr',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('session', REFERENCE_CLASS, 'Session' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Session', 
+            _MetaInfoClassMember('session', REFERENCE_CLASS, 'Session' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Session', 
                 [], [], 
                 '''                LDP Session parameters
                 ''',
                 'session',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('signalling', REFERENCE_CLASS, 'Signalling' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global.Signalling', 
+            _MetaInfoClassMember('signalling', REFERENCE_CLASS, 'Signalling' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_.Signalling', 
                 [], [], 
                 '''                Configure LDP signalling parameters
                 ''',
@@ -3254,7 +3254,7 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-mpls-ldp-cfg', False),
-            _MetaInfoClassMember('global', REFERENCE_CLASS, 'Global' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global', 
+            _MetaInfoClassMember('global', REFERENCE_CLASS, 'Global_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_cfg', 'MplsLdp.Global_', 
                 [], [], 
                 '''                Global configuration for MPLS LDP
                 ''',
@@ -3294,7 +3294,7 @@ _meta_table['MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh.GroupId
 _meta_table['MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering.AutoTunnelMesh']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering']['meta_info']
 _meta_table['MplsLdp.DefaultVrf.Afs.Af.Neighbor.Addresses.Address']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Afs.Af.Neighbor.Addresses']['meta_info']
 _meta_table['MplsLdp.DefaultVrf.Afs.Af.Neighbor.Addresses']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Afs.Af.Neighbor']['meta_info']
-_meta_table['MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.As']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp']['meta_info']
+_meta_table['MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.As_']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp']['meta_info']
 _meta_table['MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp.AdvertiseTo']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp']['meta_info']
 _meta_table['MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol.Bgp']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol']['meta_info']
 _meta_table['MplsLdp.DefaultVrf.Afs.Af.Label']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Afs.Af']['meta_info']
@@ -3303,43 +3303,43 @@ _meta_table['MplsLdp.DefaultVrf.Afs.Af.TrafficEngineering']['meta_info'].parent 
 _meta_table['MplsLdp.DefaultVrf.Afs.Af.Neighbor']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Afs.Af']['meta_info']
 _meta_table['MplsLdp.DefaultVrf.Afs.Af.RedistributionProtocol']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Afs.Af']['meta_info']
 _meta_table['MplsLdp.DefaultVrf.Afs.Af']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Afs']['meta_info']
-_meta_table['MplsLdp.DefaultVrf.Global.Session.Protection']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Global.Session']['meta_info']
-_meta_table['MplsLdp.DefaultVrf.Global.Session.DownstreamOnDemand']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Global.Session']['meta_info']
-_meta_table['MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId.Password']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId']['meta_info']
-_meta_table['MplsLdp.DefaultVrf.Global.Neighbor.LdpIds.LdpId']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Global.Neighbor.LdpIds']['meta_info']
-_meta_table['MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection.Prefer']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection']['meta_info']
-_meta_table['MplsLdp.DefaultVrf.Global.Neighbor.DualStack.TransportConnection']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Global.Neighbor.DualStack']['meta_info']
-_meta_table['MplsLdp.DefaultVrf.Global.Neighbor.LdpIds']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Global.Neighbor']['meta_info']
-_meta_table['MplsLdp.DefaultVrf.Global.Neighbor.DualStack']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Global.Neighbor']['meta_info']
-_meta_table['MplsLdp.DefaultVrf.Global.GracefulRestart.HelperPeer']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Global.GracefulRestart']['meta_info']
-_meta_table['MplsLdp.DefaultVrf.Global.Session']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Global']['meta_info']
-_meta_table['MplsLdp.DefaultVrf.Global.Neighbor']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Global']['meta_info']
-_meta_table['MplsLdp.DefaultVrf.Global.GracefulRestart']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Global']['meta_info']
+_meta_table['MplsLdp.DefaultVrf.Global_.Session.Protection']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Global_.Session']['meta_info']
+_meta_table['MplsLdp.DefaultVrf.Global_.Session.DownstreamOnDemand']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Global_.Session']['meta_info']
+_meta_table['MplsLdp.DefaultVrf.Global_.Neighbor.LdpIds.LdpId.Password']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Global_.Neighbor.LdpIds.LdpId']['meta_info']
+_meta_table['MplsLdp.DefaultVrf.Global_.Neighbor.LdpIds.LdpId']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Global_.Neighbor.LdpIds']['meta_info']
+_meta_table['MplsLdp.DefaultVrf.Global_.Neighbor.DualStack.TransportConnection.Prefer']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Global_.Neighbor.DualStack.TransportConnection']['meta_info']
+_meta_table['MplsLdp.DefaultVrf.Global_.Neighbor.DualStack.TransportConnection']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Global_.Neighbor.DualStack']['meta_info']
+_meta_table['MplsLdp.DefaultVrf.Global_.Neighbor.LdpIds']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Global_.Neighbor']['meta_info']
+_meta_table['MplsLdp.DefaultVrf.Global_.Neighbor.DualStack']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Global_.Neighbor']['meta_info']
+_meta_table['MplsLdp.DefaultVrf.Global_.GracefulRestart.HelperPeer']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Global_.GracefulRestart']['meta_info']
+_meta_table['MplsLdp.DefaultVrf.Global_.Session']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Global_']['meta_info']
+_meta_table['MplsLdp.DefaultVrf.Global_.Neighbor']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Global_']['meta_info']
+_meta_table['MplsLdp.DefaultVrf.Global_.GracefulRestart']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Global_']['meta_info']
 _meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Discovery.TransportAddress']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Discovery']['meta_info']
 _meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Discovery']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af']['meta_info']
 _meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Igp']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af']['meta_info']
 _meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af.Mldp']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af']['meta_info']
 _meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Afs.Af']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Afs']['meta_info']
-_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery.LinkHello']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery']['meta_info']
-_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay.OnSessionUp']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay']['meta_info']
-_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync.Delay']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync']['meta_info']
-_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp.Sync']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp']['meta_info']
-_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global.Discovery']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global']['meta_info']
-_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global.Igp']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global']['meta_info']
+_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Discovery.LinkHello']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Discovery']['meta_info']
+_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Igp.Sync.Delay.OnSessionUp']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Igp.Sync.Delay']['meta_info']
+_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Igp.Sync.Delay']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Igp.Sync']['meta_info']
+_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Igp.Sync']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Igp']['meta_info']
+_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Discovery']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global_']['meta_info']
+_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global_.Igp']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global_']['meta_info']
 _meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Afs']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface']['meta_info']
-_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface']['meta_info']
+_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface.Global_']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Interfaces.Interface']['meta_info']
 _meta_table['MplsLdp.DefaultVrf.Interfaces.Interface']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf.Interfaces']['meta_info']
 _meta_table['MplsLdp.DefaultVrf.Afs']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf']['meta_info']
-_meta_table['MplsLdp.DefaultVrf.Global']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf']['meta_info']
+_meta_table['MplsLdp.DefaultVrf.Global_']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf']['meta_info']
 _meta_table['MplsLdp.DefaultVrf.Interfaces']['meta_info'].parent =_meta_table['MplsLdp.DefaultVrf']['meta_info']
-_meta_table['MplsLdp.Vrfs.Vrf.Global.Session.DownstreamOnDemand']['meta_info'].parent =_meta_table['MplsLdp.Vrfs.Vrf.Global.Session']['meta_info']
-_meta_table['MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId.Password']['meta_info'].parent =_meta_table['MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId']['meta_info']
-_meta_table['MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds.LdpId']['meta_info'].parent =_meta_table['MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds']['meta_info']
-_meta_table['MplsLdp.Vrfs.Vrf.Global.Neighbor.LdpIds']['meta_info'].parent =_meta_table['MplsLdp.Vrfs.Vrf.Global.Neighbor']['meta_info']
-_meta_table['MplsLdp.Vrfs.Vrf.Global.GracefulRestart.HelperPeer']['meta_info'].parent =_meta_table['MplsLdp.Vrfs.Vrf.Global.GracefulRestart']['meta_info']
-_meta_table['MplsLdp.Vrfs.Vrf.Global.Session']['meta_info'].parent =_meta_table['MplsLdp.Vrfs.Vrf.Global']['meta_info']
-_meta_table['MplsLdp.Vrfs.Vrf.Global.Neighbor']['meta_info'].parent =_meta_table['MplsLdp.Vrfs.Vrf.Global']['meta_info']
-_meta_table['MplsLdp.Vrfs.Vrf.Global.GracefulRestart']['meta_info'].parent =_meta_table['MplsLdp.Vrfs.Vrf.Global']['meta_info']
+_meta_table['MplsLdp.Vrfs.Vrf.Global_.Session.DownstreamOnDemand']['meta_info'].parent =_meta_table['MplsLdp.Vrfs.Vrf.Global_.Session']['meta_info']
+_meta_table['MplsLdp.Vrfs.Vrf.Global_.Neighbor.LdpIds.LdpId.Password']['meta_info'].parent =_meta_table['MplsLdp.Vrfs.Vrf.Global_.Neighbor.LdpIds.LdpId']['meta_info']
+_meta_table['MplsLdp.Vrfs.Vrf.Global_.Neighbor.LdpIds.LdpId']['meta_info'].parent =_meta_table['MplsLdp.Vrfs.Vrf.Global_.Neighbor.LdpIds']['meta_info']
+_meta_table['MplsLdp.Vrfs.Vrf.Global_.Neighbor.LdpIds']['meta_info'].parent =_meta_table['MplsLdp.Vrfs.Vrf.Global_.Neighbor']['meta_info']
+_meta_table['MplsLdp.Vrfs.Vrf.Global_.GracefulRestart.HelperPeer']['meta_info'].parent =_meta_table['MplsLdp.Vrfs.Vrf.Global_.GracefulRestart']['meta_info']
+_meta_table['MplsLdp.Vrfs.Vrf.Global_.Session']['meta_info'].parent =_meta_table['MplsLdp.Vrfs.Vrf.Global_']['meta_info']
+_meta_table['MplsLdp.Vrfs.Vrf.Global_.Neighbor']['meta_info'].parent =_meta_table['MplsLdp.Vrfs.Vrf.Global_']['meta_info']
+_meta_table['MplsLdp.Vrfs.Vrf.Global_.GracefulRestart']['meta_info'].parent =_meta_table['MplsLdp.Vrfs.Vrf.Global_']['meta_info']
 _meta_table['MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy.PeerAcceptPolicyData']['meta_info'].parent =_meta_table['MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy']['meta_info']
 _meta_table['MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy.LsrId']['meta_info'].parent =_meta_table['MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy']['meta_info']
 _meta_table['MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies.PeerAcceptPolicy']['meta_info'].parent =_meta_table['MplsLdp.Vrfs.Vrf.Afs.Af.Label.Remote.Accept.PeerAcceptPolicies']['meta_info']
@@ -3364,43 +3364,43 @@ _meta_table['MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af.Discovery']['meta_info
 _meta_table['MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs.Af']['meta_info'].parent =_meta_table['MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs']['meta_info']
 _meta_table['MplsLdp.Vrfs.Vrf.Interfaces.Interface.Afs']['meta_info'].parent =_meta_table['MplsLdp.Vrfs.Vrf.Interfaces.Interface']['meta_info']
 _meta_table['MplsLdp.Vrfs.Vrf.Interfaces.Interface']['meta_info'].parent =_meta_table['MplsLdp.Vrfs.Vrf.Interfaces']['meta_info']
-_meta_table['MplsLdp.Vrfs.Vrf.Global']['meta_info'].parent =_meta_table['MplsLdp.Vrfs.Vrf']['meta_info']
+_meta_table['MplsLdp.Vrfs.Vrf.Global_']['meta_info'].parent =_meta_table['MplsLdp.Vrfs.Vrf']['meta_info']
 _meta_table['MplsLdp.Vrfs.Vrf.Afs']['meta_info'].parent =_meta_table['MplsLdp.Vrfs.Vrf']['meta_info']
 _meta_table['MplsLdp.Vrfs.Vrf.Interfaces']['meta_info'].parent =_meta_table['MplsLdp.Vrfs.Vrf']['meta_info']
 _meta_table['MplsLdp.Vrfs.Vrf']['meta_info'].parent =_meta_table['MplsLdp.Vrfs']['meta_info']
-_meta_table['MplsLdp.Global.Session.BackoffTime']['meta_info'].parent =_meta_table['MplsLdp.Global.Session']['meta_info']
-_meta_table['MplsLdp.Global.Igp.Sync.Delay']['meta_info'].parent =_meta_table['MplsLdp.Global.Igp.Sync']['meta_info']
-_meta_table['MplsLdp.Global.Igp.Sync']['meta_info'].parent =_meta_table['MplsLdp.Global.Igp']['meta_info']
-_meta_table['MplsLdp.Global.Discovery.LinkHello']['meta_info'].parent =_meta_table['MplsLdp.Global.Discovery']['meta_info']
-_meta_table['MplsLdp.Global.Discovery.TargetedHello']['meta_info'].parent =_meta_table['MplsLdp.Global.Discovery']['meta_info']
-_meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak.Signaling']['meta_info'].parent =_meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak']['meta_info']
-_meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec']['meta_info'].parent =_meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af']['meta_info']
-_meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MoFrr']['meta_info'].parent =_meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af']['meta_info']
-_meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak']['meta_info'].parent =_meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af']['meta_info']
-_meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af.Csc']['meta_info'].parent =_meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af']['meta_info']
-_meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf.Afs.Af']['meta_info'].parent =_meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf.Afs']['meta_info']
-_meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf.Afs']['meta_info'].parent =_meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf']['meta_info']
-_meta_table['MplsLdp.Global.Mldp.Vrfs.Vrf']['meta_info'].parent =_meta_table['MplsLdp.Global.Mldp.Vrfs']['meta_info']
-_meta_table['MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak.Signaling']['meta_info'].parent =_meta_table['MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak']['meta_info']
-_meta_table['MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec']['meta_info'].parent =_meta_table['MplsLdp.Global.Mldp.DefaultVrf.Afs.Af']['meta_info']
-_meta_table['MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MoFrr']['meta_info'].parent =_meta_table['MplsLdp.Global.Mldp.DefaultVrf.Afs.Af']['meta_info']
-_meta_table['MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak']['meta_info'].parent =_meta_table['MplsLdp.Global.Mldp.DefaultVrf.Afs.Af']['meta_info']
-_meta_table['MplsLdp.Global.Mldp.DefaultVrf.Afs.Af.Csc']['meta_info'].parent =_meta_table['MplsLdp.Global.Mldp.DefaultVrf.Afs.Af']['meta_info']
-_meta_table['MplsLdp.Global.Mldp.DefaultVrf.Afs.Af']['meta_info'].parent =_meta_table['MplsLdp.Global.Mldp.DefaultVrf.Afs']['meta_info']
-_meta_table['MplsLdp.Global.Mldp.DefaultVrf.Afs']['meta_info'].parent =_meta_table['MplsLdp.Global.Mldp.DefaultVrf']['meta_info']
-_meta_table['MplsLdp.Global.Mldp.MldpGlobal.Logging']['meta_info'].parent =_meta_table['MplsLdp.Global.Mldp.MldpGlobal']['meta_info']
-_meta_table['MplsLdp.Global.Mldp.Vrfs']['meta_info'].parent =_meta_table['MplsLdp.Global.Mldp']['meta_info']
-_meta_table['MplsLdp.Global.Mldp.DefaultVrf']['meta_info'].parent =_meta_table['MplsLdp.Global.Mldp']['meta_info']
-_meta_table['MplsLdp.Global.Mldp.MldpGlobal']['meta_info'].parent =_meta_table['MplsLdp.Global.Mldp']['meta_info']
-_meta_table['MplsLdp.Global.EntropyLabel']['meta_info'].parent =_meta_table['MplsLdp.Global']['meta_info']
-_meta_table['MplsLdp.Global.Session']['meta_info'].parent =_meta_table['MplsLdp.Global']['meta_info']
-_meta_table['MplsLdp.Global.Igp']['meta_info'].parent =_meta_table['MplsLdp.Global']['meta_info']
-_meta_table['MplsLdp.Global.EnableLogging']['meta_info'].parent =_meta_table['MplsLdp.Global']['meta_info']
-_meta_table['MplsLdp.Global.Signalling']['meta_info'].parent =_meta_table['MplsLdp.Global']['meta_info']
-_meta_table['MplsLdp.Global.Nsr']['meta_info'].parent =_meta_table['MplsLdp.Global']['meta_info']
-_meta_table['MplsLdp.Global.GracefulRestart']['meta_info'].parent =_meta_table['MplsLdp.Global']['meta_info']
-_meta_table['MplsLdp.Global.Discovery']['meta_info'].parent =_meta_table['MplsLdp.Global']['meta_info']
-_meta_table['MplsLdp.Global.Mldp']['meta_info'].parent =_meta_table['MplsLdp.Global']['meta_info']
+_meta_table['MplsLdp.Global_.Session.BackoffTime']['meta_info'].parent =_meta_table['MplsLdp.Global_.Session']['meta_info']
+_meta_table['MplsLdp.Global_.Igp.Sync.Delay']['meta_info'].parent =_meta_table['MplsLdp.Global_.Igp.Sync']['meta_info']
+_meta_table['MplsLdp.Global_.Igp.Sync']['meta_info'].parent =_meta_table['MplsLdp.Global_.Igp']['meta_info']
+_meta_table['MplsLdp.Global_.Discovery.LinkHello']['meta_info'].parent =_meta_table['MplsLdp.Global_.Discovery']['meta_info']
+_meta_table['MplsLdp.Global_.Discovery.TargetedHello']['meta_info'].parent =_meta_table['MplsLdp.Global_.Discovery']['meta_info']
+_meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak.Signaling']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak']['meta_info']
+_meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MldpRecursiveFec']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af']['meta_info']
+_meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MoFrr']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af']['meta_info']
+_meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.MakeBeforeBreak']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af']['meta_info']
+_meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af.Csc']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af']['meta_info']
+_meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs.Af']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs']['meta_info']
+_meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf.Afs']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf']['meta_info']
+_meta_table['MplsLdp.Global_.Mldp.Vrfs.Vrf']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.Vrfs']['meta_info']
+_meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak.Signaling']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak']['meta_info']
+_meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MldpRecursiveFec']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af']['meta_info']
+_meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MoFrr']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af']['meta_info']
+_meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.MakeBeforeBreak']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af']['meta_info']
+_meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af.Csc']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af']['meta_info']
+_meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs.Af']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs']['meta_info']
+_meta_table['MplsLdp.Global_.Mldp.DefaultVrf.Afs']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.DefaultVrf']['meta_info']
+_meta_table['MplsLdp.Global_.Mldp.MldpGlobal.Logging']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp.MldpGlobal']['meta_info']
+_meta_table['MplsLdp.Global_.Mldp.Vrfs']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp']['meta_info']
+_meta_table['MplsLdp.Global_.Mldp.DefaultVrf']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp']['meta_info']
+_meta_table['MplsLdp.Global_.Mldp.MldpGlobal']['meta_info'].parent =_meta_table['MplsLdp.Global_.Mldp']['meta_info']
+_meta_table['MplsLdp.Global_.EntropyLabel']['meta_info'].parent =_meta_table['MplsLdp.Global_']['meta_info']
+_meta_table['MplsLdp.Global_.Session']['meta_info'].parent =_meta_table['MplsLdp.Global_']['meta_info']
+_meta_table['MplsLdp.Global_.Igp']['meta_info'].parent =_meta_table['MplsLdp.Global_']['meta_info']
+_meta_table['MplsLdp.Global_.EnableLogging']['meta_info'].parent =_meta_table['MplsLdp.Global_']['meta_info']
+_meta_table['MplsLdp.Global_.Signalling']['meta_info'].parent =_meta_table['MplsLdp.Global_']['meta_info']
+_meta_table['MplsLdp.Global_.Nsr']['meta_info'].parent =_meta_table['MplsLdp.Global_']['meta_info']
+_meta_table['MplsLdp.Global_.GracefulRestart']['meta_info'].parent =_meta_table['MplsLdp.Global_']['meta_info']
+_meta_table['MplsLdp.Global_.Discovery']['meta_info'].parent =_meta_table['MplsLdp.Global_']['meta_info']
+_meta_table['MplsLdp.Global_.Mldp']['meta_info'].parent =_meta_table['MplsLdp.Global_']['meta_info']
 _meta_table['MplsLdp.DefaultVrf']['meta_info'].parent =_meta_table['MplsLdp']['meta_info']
 _meta_table['MplsLdp.Vrfs']['meta_info'].parent =_meta_table['MplsLdp']['meta_info']
-_meta_table['MplsLdp.Global']['meta_info'].parent =_meta_table['MplsLdp']['meta_info']
+_meta_table['MplsLdp.Global_']['meta_info'].parent =_meta_table['MplsLdp']['meta_info']

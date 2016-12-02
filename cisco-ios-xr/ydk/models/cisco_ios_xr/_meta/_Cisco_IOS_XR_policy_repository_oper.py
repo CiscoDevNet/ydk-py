@@ -16,47 +16,47 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'GroupEnum' : _MetaInfoEnum('GroupEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper',
         {
-            'address-family-group':'ADDRESS_FAMILY_GROUP',
-            'session-group':'SESSION_GROUP',
-            'neighbor-group':'NEIGHBOR_GROUP',
-            'neighbor':'NEIGHBOR',
-            'error-group':'ERROR_GROUP',
+            'address-family-group':'address_family_group',
+            'session-group':'session_group',
+            'neighbor-group':'neighbor_group',
+            'neighbor':'neighbor',
+            'error-group':'error_group',
         }, 'Cisco-IOS-XR-policy-repository-oper', _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper']),
     'AttachPointDirectionEnum' : _MetaInfoEnum('AttachPointDirectionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper',
         {
-            'in':'IN',
-            'out':'OUT',
+            'in':'in_',
+            'out':'out',
         }, 'Cisco-IOS-XR-policy-repository-oper', _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper']),
     'SubAddressFamilyEnum' : _MetaInfoEnum('SubAddressFamilyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper',
         {
-            'unicast':'UNICAST',
-            'multicast':'MULTICAST',
-            'label':'LABEL',
-            'tunnel':'TUNNEL',
-            'vpn':'VPN',
-            'mdt':'MDT',
-            'vpls':'VPLS',
-            'rt-constraint':'RT_CONSTRAINT',
-            'mvpn':'MVPN',
-            'flow':'FLOW',
-            'vpn-mcast':'VPN_MCAST',
-            'saf-none':'SAF_NONE',
-            'saf-unknown':'SAF_UNKNOWN',
+            'unicast':'unicast',
+            'multicast':'multicast',
+            'label':'label',
+            'tunnel':'tunnel',
+            'vpn':'vpn',
+            'mdt':'mdt',
+            'vpls':'vpls',
+            'rt-constraint':'rt_constraint',
+            'mvpn':'mvpn',
+            'flow':'flow',
+            'vpn-mcast':'vpn_mcast',
+            'saf-none':'saf_none',
+            'saf-unknown':'saf_unknown',
         }, 'Cisco-IOS-XR-policy-repository-oper', _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper']),
     'AddressFamilyEnum' : _MetaInfoEnum('AddressFamilyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper',
         {
-            'ipv4':'IPV4',
-            'ipv6':'IPV6',
-            'l2vpn':'L2VPN',
-            'ls':'LS',
-            'af-none':'AF_NONE',
-            'af-unknown':'AF_UNKNOWN',
+            'ipv4':'ipv4',
+            'ipv6':'ipv6',
+            'l2vpn':'l2vpn',
+            'ls':'ls',
+            'af-none':'af_none',
+            'af-unknown':'af_unknown',
         }, 'Cisco-IOS-XR-policy-repository-oper', _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper']),
     'ObjectStatusEnum' : _MetaInfoEnum('ObjectStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper',
         {
-            'active':'ACTIVE',
-            'inactive':'INACTIVE',
-            'unused':'UNUSED',
+            'active':'active',
+            'inactive':'inactive',
+            'unused':'unused',
         }, 'Cisco-IOS-XR-policy-repository-oper', _yang_ns._namespaces['Cisco-IOS-XR-policy-repository-oper']),
     'RoutingPolicy.Limits' : {
         'meta_info' : _MetaInfoClass('RoutingPolicy.Limits',
@@ -611,8 +611,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.OspfArea.Sets.Set.UsedBy.Reference' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.OspfArea.Sets.Set.UsedBy.Reference',
+    'RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy.Reference' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy.Reference',
             False, 
             [
             _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
@@ -641,11 +641,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.OspfArea.Sets.Set.UsedBy' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.OspfArea.Sets.Set.UsedBy',
+    'RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy',
             False, 
             [
-            _MetaInfoClassMember('reference', REFERENCE_LIST, 'Reference' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.OspfArea.Sets.Set.UsedBy.Reference', 
+            _MetaInfoClassMember('reference', REFERENCE_LIST, 'Reference' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy.Reference', 
                 [], [], 
                 '''                Information about policies referring to this
                 object
@@ -659,8 +659,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.OspfArea.Sets.Set.Attached.Binding' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.OspfArea.Sets.Set.Attached.Binding',
+    'RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached.Binding' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached.Binding',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
@@ -796,11 +796,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.OspfArea.Sets.Set.Attached' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.OspfArea.Sets.Set.Attached',
+    'RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached',
             False, 
             [
-            _MetaInfoClassMember('binding', REFERENCE_LIST, 'Binding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.OspfArea.Sets.Set.Attached.Binding', 
+            _MetaInfoClassMember('binding', REFERENCE_LIST, 'Binding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached.Binding', 
                 [], [], 
                 '''                bindings list
                 ''',
@@ -813,8 +813,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.OspfArea.Sets.Set' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.OspfArea.Sets.Set',
+    'RoutingPolicy.Sets.OspfArea.Sets_.Set' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.OspfArea.Sets_.Set',
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
@@ -823,14 +823,14 @@ _meta_table = {
                 ''',
                 'set_name',
                 'Cisco-IOS-XR-policy-repository-oper', True),
-            _MetaInfoClassMember('attached', REFERENCE_CLASS, 'Attached' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.OspfArea.Sets.Set.Attached', 
+            _MetaInfoClassMember('attached', REFERENCE_CLASS, 'Attached' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached', 
                 [], [], 
                 '''                Information about where this policy or set is
                 attached
                 ''',
                 'attached',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('used-by', REFERENCE_CLASS, 'UsedBy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.OspfArea.Sets.Set.UsedBy', 
+            _MetaInfoClassMember('used-by', REFERENCE_CLASS, 'UsedBy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy', 
                 [], [], 
                 '''                Policies that use this object, directly or
                 indirectly
@@ -844,11 +844,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.OspfArea.Sets' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.OspfArea.Sets',
+    'RoutingPolicy.Sets.OspfArea.Sets_' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.OspfArea.Sets_',
             False, 
             [
-            _MetaInfoClassMember('set', REFERENCE_LIST, 'Set' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.OspfArea.Sets.Set', 
+            _MetaInfoClassMember('set', REFERENCE_LIST, 'Set' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.OspfArea.Sets_.Set', 
                 [], [], 
                 '''                Information about an individual set
                 ''',
@@ -930,7 +930,7 @@ _meta_table = {
                 ''',
                 'inactive',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('sets', REFERENCE_CLASS, 'Sets' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.OspfArea.Sets', 
+            _MetaInfoClassMember('sets', REFERENCE_CLASS, 'Sets_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.OspfArea.Sets_', 
                 [], [], 
                 '''                Information about individual sets
                 ''',
@@ -950,8 +950,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.UsedBy.Reference' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.UsedBy.Reference',
+    'RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy.Reference' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy.Reference',
             False, 
             [
             _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
@@ -980,11 +980,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.UsedBy' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.UsedBy',
+    'RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy',
             False, 
             [
-            _MetaInfoClassMember('reference', REFERENCE_LIST, 'Reference' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.UsedBy.Reference', 
+            _MetaInfoClassMember('reference', REFERENCE_LIST, 'Reference' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy.Reference', 
                 [], [], 
                 '''                Information about policies referring to this
                 object
@@ -998,8 +998,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.Attached.Binding' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.Attached.Binding',
+    'RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached.Binding' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached.Binding',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
@@ -1135,11 +1135,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.Attached' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.Attached',
+    'RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached',
             False, 
             [
-            _MetaInfoClassMember('binding', REFERENCE_LIST, 'Binding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.Attached.Binding', 
+            _MetaInfoClassMember('binding', REFERENCE_LIST, 'Binding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached.Binding', 
                 [], [], 
                 '''                bindings list
                 ''',
@@ -1152,8 +1152,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set',
+    'RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set',
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
@@ -1162,14 +1162,14 @@ _meta_table = {
                 ''',
                 'set_name',
                 'Cisco-IOS-XR-policy-repository-oper', True),
-            _MetaInfoClassMember('attached', REFERENCE_CLASS, 'Attached' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.Attached', 
+            _MetaInfoClassMember('attached', REFERENCE_CLASS, 'Attached' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached', 
                 [], [], 
                 '''                Information about where this policy or set is
                 attached
                 ''',
                 'attached',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('used-by', REFERENCE_CLASS, 'UsedBy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.UsedBy', 
+            _MetaInfoClassMember('used-by', REFERENCE_CLASS, 'UsedBy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy', 
                 [], [], 
                 '''                Policies that use this object, directly or
                 indirectly
@@ -1183,11 +1183,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets',
+    'RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_',
             False, 
             [
-            _MetaInfoClassMember('set', REFERENCE_LIST, 'Set' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set', 
+            _MetaInfoClassMember('set', REFERENCE_LIST, 'Set' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set', 
                 [], [], 
                 '''                Information about an individual set
                 ''',
@@ -1269,7 +1269,7 @@ _meta_table = {
                 ''',
                 'inactive',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('sets', REFERENCE_CLASS, 'Sets' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets', 
+            _MetaInfoClassMember('sets', REFERENCE_CLASS, 'Sets_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_', 
                 [], [], 
                 '''                Information about individual sets
                 ''',
@@ -1289,8 +1289,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.UsedBy.Reference' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.UsedBy.Reference',
+    'RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy.Reference' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy.Reference',
             False, 
             [
             _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
@@ -1319,11 +1319,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.UsedBy' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.UsedBy',
+    'RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy',
             False, 
             [
-            _MetaInfoClassMember('reference', REFERENCE_LIST, 'Reference' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.UsedBy.Reference', 
+            _MetaInfoClassMember('reference', REFERENCE_LIST, 'Reference' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy.Reference', 
                 [], [], 
                 '''                Information about policies referring to this
                 object
@@ -1337,8 +1337,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.Attached.Binding' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.Attached.Binding',
+    'RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached.Binding' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached.Binding',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
@@ -1474,11 +1474,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.Attached' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.Attached',
+    'RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached',
             False, 
             [
-            _MetaInfoClassMember('binding', REFERENCE_LIST, 'Binding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.Attached.Binding', 
+            _MetaInfoClassMember('binding', REFERENCE_LIST, 'Binding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached.Binding', 
                 [], [], 
                 '''                bindings list
                 ''',
@@ -1491,8 +1491,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set',
+    'RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set',
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
@@ -1501,14 +1501,14 @@ _meta_table = {
                 ''',
                 'set_name',
                 'Cisco-IOS-XR-policy-repository-oper', True),
-            _MetaInfoClassMember('attached', REFERENCE_CLASS, 'Attached' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.Attached', 
+            _MetaInfoClassMember('attached', REFERENCE_CLASS, 'Attached' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached', 
                 [], [], 
                 '''                Information about where this policy or set is
                 attached
                 ''',
                 'attached',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('used-by', REFERENCE_CLASS, 'UsedBy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.UsedBy', 
+            _MetaInfoClassMember('used-by', REFERENCE_CLASS, 'UsedBy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy', 
                 [], [], 
                 '''                Policies that use this object, directly or
                 indirectly
@@ -1522,11 +1522,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets',
+    'RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_',
             False, 
             [
-            _MetaInfoClassMember('set', REFERENCE_LIST, 'Set' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set', 
+            _MetaInfoClassMember('set', REFERENCE_LIST, 'Set' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set', 
                 [], [], 
                 '''                Information about an individual set
                 ''',
@@ -1608,7 +1608,7 @@ _meta_table = {
                 ''',
                 'inactive',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('sets', REFERENCE_CLASS, 'Sets' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets', 
+            _MetaInfoClassMember('sets', REFERENCE_CLASS, 'Sets_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_', 
                 [], [], 
                 '''                Information about individual sets
                 ''',
@@ -1628,8 +1628,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.UsedBy.Reference' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.UsedBy.Reference',
+    'RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy.Reference' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy.Reference',
             False, 
             [
             _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
@@ -1658,11 +1658,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.UsedBy' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.UsedBy',
+    'RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy',
             False, 
             [
-            _MetaInfoClassMember('reference', REFERENCE_LIST, 'Reference' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.UsedBy.Reference', 
+            _MetaInfoClassMember('reference', REFERENCE_LIST, 'Reference' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy.Reference', 
                 [], [], 
                 '''                Information about policies referring to this
                 object
@@ -1676,8 +1676,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.Attached.Binding' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.Attached.Binding',
+    'RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.Attached.Binding' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.Attached.Binding',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
@@ -1813,11 +1813,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.Attached' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.Attached',
+    'RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.Attached' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.Attached',
             False, 
             [
-            _MetaInfoClassMember('binding', REFERENCE_LIST, 'Binding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.Attached.Binding', 
+            _MetaInfoClassMember('binding', REFERENCE_LIST, 'Binding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.Attached.Binding', 
                 [], [], 
                 '''                bindings list
                 ''',
@@ -1830,8 +1830,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set',
+    'RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set',
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
@@ -1840,14 +1840,14 @@ _meta_table = {
                 ''',
                 'set_name',
                 'Cisco-IOS-XR-policy-repository-oper', True),
-            _MetaInfoClassMember('attached', REFERENCE_CLASS, 'Attached' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.Attached', 
+            _MetaInfoClassMember('attached', REFERENCE_CLASS, 'Attached' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.Attached', 
                 [], [], 
                 '''                Information about where this policy or set is
                 attached
                 ''',
                 'attached',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('used-by', REFERENCE_CLASS, 'UsedBy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.UsedBy', 
+            _MetaInfoClassMember('used-by', REFERENCE_CLASS, 'UsedBy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy', 
                 [], [], 
                 '''                Policies that use this object, directly or
                 indirectly
@@ -1861,11 +1861,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunitySoo.Sets' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunitySoo.Sets',
+    'RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_',
             False, 
             [
-            _MetaInfoClassMember('set', REFERENCE_LIST, 'Set' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set', 
+            _MetaInfoClassMember('set', REFERENCE_LIST, 'Set' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set', 
                 [], [], 
                 '''                Information about an individual set
                 ''',
@@ -1947,7 +1947,7 @@ _meta_table = {
                 ''',
                 'inactive',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('sets', REFERENCE_CLASS, 'Sets' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunitySoo.Sets', 
+            _MetaInfoClassMember('sets', REFERENCE_CLASS, 'Sets_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_', 
                 [], [], 
                 '''                Information about individual sets
                 ''',
@@ -1967,8 +1967,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.Tag.Sets.Set.UsedBy.Reference' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Tag.Sets.Set.UsedBy.Reference',
+    'RoutingPolicy.Sets.Tag.Sets_.Set.UsedBy.Reference' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Tag.Sets_.Set.UsedBy.Reference',
             False, 
             [
             _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
@@ -1997,11 +1997,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.Tag.Sets.Set.UsedBy' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Tag.Sets.Set.UsedBy',
+    'RoutingPolicy.Sets.Tag.Sets_.Set.UsedBy' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Tag.Sets_.Set.UsedBy',
             False, 
             [
-            _MetaInfoClassMember('reference', REFERENCE_LIST, 'Reference' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Tag.Sets.Set.UsedBy.Reference', 
+            _MetaInfoClassMember('reference', REFERENCE_LIST, 'Reference' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Tag.Sets_.Set.UsedBy.Reference', 
                 [], [], 
                 '''                Information about policies referring to this
                 object
@@ -2015,8 +2015,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.Tag.Sets.Set.Attached.Binding' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Tag.Sets.Set.Attached.Binding',
+    'RoutingPolicy.Sets.Tag.Sets_.Set.Attached.Binding' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Tag.Sets_.Set.Attached.Binding',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
@@ -2152,11 +2152,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.Tag.Sets.Set.Attached' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Tag.Sets.Set.Attached',
+    'RoutingPolicy.Sets.Tag.Sets_.Set.Attached' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Tag.Sets_.Set.Attached',
             False, 
             [
-            _MetaInfoClassMember('binding', REFERENCE_LIST, 'Binding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Tag.Sets.Set.Attached.Binding', 
+            _MetaInfoClassMember('binding', REFERENCE_LIST, 'Binding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Tag.Sets_.Set.Attached.Binding', 
                 [], [], 
                 '''                bindings list
                 ''',
@@ -2169,8 +2169,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.Tag.Sets.Set' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Tag.Sets.Set',
+    'RoutingPolicy.Sets.Tag.Sets_.Set' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Tag.Sets_.Set',
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
@@ -2179,14 +2179,14 @@ _meta_table = {
                 ''',
                 'set_name',
                 'Cisco-IOS-XR-policy-repository-oper', True),
-            _MetaInfoClassMember('attached', REFERENCE_CLASS, 'Attached' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Tag.Sets.Set.Attached', 
+            _MetaInfoClassMember('attached', REFERENCE_CLASS, 'Attached' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Tag.Sets_.Set.Attached', 
                 [], [], 
                 '''                Information about where this policy or set is
                 attached
                 ''',
                 'attached',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('used-by', REFERENCE_CLASS, 'UsedBy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Tag.Sets.Set.UsedBy', 
+            _MetaInfoClassMember('used-by', REFERENCE_CLASS, 'UsedBy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Tag.Sets_.Set.UsedBy', 
                 [], [], 
                 '''                Policies that use this object, directly or
                 indirectly
@@ -2200,11 +2200,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.Tag.Sets' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Tag.Sets',
+    'RoutingPolicy.Sets.Tag.Sets_' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Tag.Sets_',
             False, 
             [
-            _MetaInfoClassMember('set', REFERENCE_LIST, 'Set' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Tag.Sets.Set', 
+            _MetaInfoClassMember('set', REFERENCE_LIST, 'Set' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Tag.Sets_.Set', 
                 [], [], 
                 '''                Information about an individual set
                 ''',
@@ -2286,7 +2286,7 @@ _meta_table = {
                 ''',
                 'inactive',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('sets', REFERENCE_CLASS, 'Sets' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Tag.Sets', 
+            _MetaInfoClassMember('sets', REFERENCE_CLASS, 'Sets_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Tag.Sets_', 
                 [], [], 
                 '''                Information about individual sets
                 ''',
@@ -2306,8 +2306,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.Prefix.Sets.Set.UsedBy.Reference' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Prefix.Sets.Set.UsedBy.Reference',
+    'RoutingPolicy.Sets.Prefix.Sets_.Set.UsedBy.Reference' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Prefix.Sets_.Set.UsedBy.Reference',
             False, 
             [
             _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
@@ -2336,11 +2336,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.Prefix.Sets.Set.UsedBy' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Prefix.Sets.Set.UsedBy',
+    'RoutingPolicy.Sets.Prefix.Sets_.Set.UsedBy' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Prefix.Sets_.Set.UsedBy',
             False, 
             [
-            _MetaInfoClassMember('reference', REFERENCE_LIST, 'Reference' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Prefix.Sets.Set.UsedBy.Reference', 
+            _MetaInfoClassMember('reference', REFERENCE_LIST, 'Reference' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Prefix.Sets_.Set.UsedBy.Reference', 
                 [], [], 
                 '''                Information about policies referring to this
                 object
@@ -2354,8 +2354,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.Prefix.Sets.Set.Attached.Binding' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Prefix.Sets.Set.Attached.Binding',
+    'RoutingPolicy.Sets.Prefix.Sets_.Set.Attached.Binding' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Prefix.Sets_.Set.Attached.Binding',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
@@ -2491,11 +2491,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.Prefix.Sets.Set.Attached' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Prefix.Sets.Set.Attached',
+    'RoutingPolicy.Sets.Prefix.Sets_.Set.Attached' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Prefix.Sets_.Set.Attached',
             False, 
             [
-            _MetaInfoClassMember('binding', REFERENCE_LIST, 'Binding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Prefix.Sets.Set.Attached.Binding', 
+            _MetaInfoClassMember('binding', REFERENCE_LIST, 'Binding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Prefix.Sets_.Set.Attached.Binding', 
                 [], [], 
                 '''                bindings list
                 ''',
@@ -2508,8 +2508,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.Prefix.Sets.Set' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Prefix.Sets.Set',
+    'RoutingPolicy.Sets.Prefix.Sets_.Set' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Prefix.Sets_.Set',
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
@@ -2518,14 +2518,14 @@ _meta_table = {
                 ''',
                 'set_name',
                 'Cisco-IOS-XR-policy-repository-oper', True),
-            _MetaInfoClassMember('attached', REFERENCE_CLASS, 'Attached' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Prefix.Sets.Set.Attached', 
+            _MetaInfoClassMember('attached', REFERENCE_CLASS, 'Attached' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Prefix.Sets_.Set.Attached', 
                 [], [], 
                 '''                Information about where this policy or set is
                 attached
                 ''',
                 'attached',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('used-by', REFERENCE_CLASS, 'UsedBy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Prefix.Sets.Set.UsedBy', 
+            _MetaInfoClassMember('used-by', REFERENCE_CLASS, 'UsedBy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Prefix.Sets_.Set.UsedBy', 
                 [], [], 
                 '''                Policies that use this object, directly or
                 indirectly
@@ -2539,11 +2539,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.Prefix.Sets' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Prefix.Sets',
+    'RoutingPolicy.Sets.Prefix.Sets_' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Prefix.Sets_',
             False, 
             [
-            _MetaInfoClassMember('set', REFERENCE_LIST, 'Set' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Prefix.Sets.Set', 
+            _MetaInfoClassMember('set', REFERENCE_LIST, 'Set' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Prefix.Sets_.Set', 
                 [], [], 
                 '''                Information about an individual set
                 ''',
@@ -2625,7 +2625,7 @@ _meta_table = {
                 ''',
                 'inactive',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('sets', REFERENCE_CLASS, 'Sets' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Prefix.Sets', 
+            _MetaInfoClassMember('sets', REFERENCE_CLASS, 'Sets_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Prefix.Sets_', 
                 [], [], 
                 '''                Information about individual sets
                 ''',
@@ -2645,8 +2645,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.Community.Sets.Set.UsedBy.Reference' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Community.Sets.Set.UsedBy.Reference',
+    'RoutingPolicy.Sets.Community.Sets_.Set.UsedBy.Reference' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Community.Sets_.Set.UsedBy.Reference',
             False, 
             [
             _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
@@ -2675,11 +2675,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.Community.Sets.Set.UsedBy' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Community.Sets.Set.UsedBy',
+    'RoutingPolicy.Sets.Community.Sets_.Set.UsedBy' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Community.Sets_.Set.UsedBy',
             False, 
             [
-            _MetaInfoClassMember('reference', REFERENCE_LIST, 'Reference' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Community.Sets.Set.UsedBy.Reference', 
+            _MetaInfoClassMember('reference', REFERENCE_LIST, 'Reference' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Community.Sets_.Set.UsedBy.Reference', 
                 [], [], 
                 '''                Information about policies referring to this
                 object
@@ -2693,8 +2693,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.Community.Sets.Set.Attached.Binding' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Community.Sets.Set.Attached.Binding',
+    'RoutingPolicy.Sets.Community.Sets_.Set.Attached.Binding' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Community.Sets_.Set.Attached.Binding',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
@@ -2830,11 +2830,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.Community.Sets.Set.Attached' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Community.Sets.Set.Attached',
+    'RoutingPolicy.Sets.Community.Sets_.Set.Attached' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Community.Sets_.Set.Attached',
             False, 
             [
-            _MetaInfoClassMember('binding', REFERENCE_LIST, 'Binding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Community.Sets.Set.Attached.Binding', 
+            _MetaInfoClassMember('binding', REFERENCE_LIST, 'Binding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Community.Sets_.Set.Attached.Binding', 
                 [], [], 
                 '''                bindings list
                 ''',
@@ -2847,8 +2847,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.Community.Sets.Set' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Community.Sets.Set',
+    'RoutingPolicy.Sets.Community.Sets_.Set' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Community.Sets_.Set',
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
@@ -2857,14 +2857,14 @@ _meta_table = {
                 ''',
                 'set_name',
                 'Cisco-IOS-XR-policy-repository-oper', True),
-            _MetaInfoClassMember('attached', REFERENCE_CLASS, 'Attached' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Community.Sets.Set.Attached', 
+            _MetaInfoClassMember('attached', REFERENCE_CLASS, 'Attached' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Community.Sets_.Set.Attached', 
                 [], [], 
                 '''                Information about where this policy or set is
                 attached
                 ''',
                 'attached',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('used-by', REFERENCE_CLASS, 'UsedBy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Community.Sets.Set.UsedBy', 
+            _MetaInfoClassMember('used-by', REFERENCE_CLASS, 'UsedBy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Community.Sets_.Set.UsedBy', 
                 [], [], 
                 '''                Policies that use this object, directly or
                 indirectly
@@ -2878,11 +2878,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.Community.Sets' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Community.Sets',
+    'RoutingPolicy.Sets.Community.Sets_' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Community.Sets_',
             False, 
             [
-            _MetaInfoClassMember('set', REFERENCE_LIST, 'Set' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Community.Sets.Set', 
+            _MetaInfoClassMember('set', REFERENCE_LIST, 'Set' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Community.Sets_.Set', 
                 [], [], 
                 '''                Information about an individual set
                 ''',
@@ -2964,7 +2964,7 @@ _meta_table = {
                 ''',
                 'inactive',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('sets', REFERENCE_CLASS, 'Sets' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Community.Sets', 
+            _MetaInfoClassMember('sets', REFERENCE_CLASS, 'Sets_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Community.Sets_', 
                 [], [], 
                 '''                Information about individual sets
                 ''',
@@ -2984,8 +2984,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.AsPath.Sets.Set.UsedBy.Reference' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.AsPath.Sets.Set.UsedBy.Reference',
+    'RoutingPolicy.Sets.AsPath.Sets_.Set.UsedBy.Reference' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.AsPath.Sets_.Set.UsedBy.Reference',
             False, 
             [
             _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
@@ -3014,11 +3014,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.AsPath.Sets.Set.UsedBy' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.AsPath.Sets.Set.UsedBy',
+    'RoutingPolicy.Sets.AsPath.Sets_.Set.UsedBy' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.AsPath.Sets_.Set.UsedBy',
             False, 
             [
-            _MetaInfoClassMember('reference', REFERENCE_LIST, 'Reference' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.AsPath.Sets.Set.UsedBy.Reference', 
+            _MetaInfoClassMember('reference', REFERENCE_LIST, 'Reference' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.AsPath.Sets_.Set.UsedBy.Reference', 
                 [], [], 
                 '''                Information about policies referring to this
                 object
@@ -3032,8 +3032,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.AsPath.Sets.Set.Attached.Binding' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.AsPath.Sets.Set.Attached.Binding',
+    'RoutingPolicy.Sets.AsPath.Sets_.Set.Attached.Binding' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.AsPath.Sets_.Set.Attached.Binding',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
@@ -3169,11 +3169,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.AsPath.Sets.Set.Attached' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.AsPath.Sets.Set.Attached',
+    'RoutingPolicy.Sets.AsPath.Sets_.Set.Attached' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.AsPath.Sets_.Set.Attached',
             False, 
             [
-            _MetaInfoClassMember('binding', REFERENCE_LIST, 'Binding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.AsPath.Sets.Set.Attached.Binding', 
+            _MetaInfoClassMember('binding', REFERENCE_LIST, 'Binding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.AsPath.Sets_.Set.Attached.Binding', 
                 [], [], 
                 '''                bindings list
                 ''',
@@ -3186,8 +3186,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.AsPath.Sets.Set' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.AsPath.Sets.Set',
+    'RoutingPolicy.Sets.AsPath.Sets_.Set' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.AsPath.Sets_.Set',
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
@@ -3196,14 +3196,14 @@ _meta_table = {
                 ''',
                 'set_name',
                 'Cisco-IOS-XR-policy-repository-oper', True),
-            _MetaInfoClassMember('attached', REFERENCE_CLASS, 'Attached' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.AsPath.Sets.Set.Attached', 
+            _MetaInfoClassMember('attached', REFERENCE_CLASS, 'Attached' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.AsPath.Sets_.Set.Attached', 
                 [], [], 
                 '''                Information about where this policy or set is
                 attached
                 ''',
                 'attached',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('used-by', REFERENCE_CLASS, 'UsedBy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.AsPath.Sets.Set.UsedBy', 
+            _MetaInfoClassMember('used-by', REFERENCE_CLASS, 'UsedBy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.AsPath.Sets_.Set.UsedBy', 
                 [], [], 
                 '''                Policies that use this object, directly or
                 indirectly
@@ -3217,11 +3217,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.AsPath.Sets' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.AsPath.Sets',
+    'RoutingPolicy.Sets.AsPath.Sets_' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.AsPath.Sets_',
             False, 
             [
-            _MetaInfoClassMember('set', REFERENCE_LIST, 'Set' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.AsPath.Sets.Set', 
+            _MetaInfoClassMember('set', REFERENCE_LIST, 'Set' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.AsPath.Sets_.Set', 
                 [], [], 
                 '''                Information about an individual set
                 ''',
@@ -3303,7 +3303,7 @@ _meta_table = {
                 ''',
                 'inactive',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('sets', REFERENCE_CLASS, 'Sets' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.AsPath.Sets', 
+            _MetaInfoClassMember('sets', REFERENCE_CLASS, 'Sets_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.AsPath.Sets_', 
                 [], [], 
                 '''                Information about individual sets
                 ''',
@@ -3323,8 +3323,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.UsedBy.Reference' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.UsedBy.Reference',
+    'RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy.Reference' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy.Reference',
             False, 
             [
             _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
@@ -3353,11 +3353,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.UsedBy' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.UsedBy',
+    'RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy',
             False, 
             [
-            _MetaInfoClassMember('reference', REFERENCE_LIST, 'Reference' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.UsedBy.Reference', 
+            _MetaInfoClassMember('reference', REFERENCE_LIST, 'Reference' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy.Reference', 
                 [], [], 
                 '''                Information about policies referring to this
                 object
@@ -3371,8 +3371,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.Attached.Binding' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.Attached.Binding',
+    'RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached.Binding' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached.Binding',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
@@ -3508,11 +3508,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.Attached' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.Attached',
+    'RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached',
             False, 
             [
-            _MetaInfoClassMember('binding', REFERENCE_LIST, 'Binding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.Attached.Binding', 
+            _MetaInfoClassMember('binding', REFERENCE_LIST, 'Binding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached.Binding', 
                 [], [], 
                 '''                bindings list
                 ''',
@@ -3525,8 +3525,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set',
+    'RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set',
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
@@ -3535,14 +3535,14 @@ _meta_table = {
                 ''',
                 'set_name',
                 'Cisco-IOS-XR-policy-repository-oper', True),
-            _MetaInfoClassMember('attached', REFERENCE_CLASS, 'Attached' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.Attached', 
+            _MetaInfoClassMember('attached', REFERENCE_CLASS, 'Attached' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached', 
                 [], [], 
                 '''                Information about where this policy or set is
                 attached
                 ''',
                 'attached',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('used-by', REFERENCE_CLASS, 'UsedBy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.UsedBy', 
+            _MetaInfoClassMember('used-by', REFERENCE_CLASS, 'UsedBy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy', 
                 [], [], 
                 '''                Policies that use this object, directly or
                 indirectly
@@ -3556,11 +3556,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets',
+    'RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_',
             False, 
             [
-            _MetaInfoClassMember('set', REFERENCE_LIST, 'Set' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set', 
+            _MetaInfoClassMember('set', REFERENCE_LIST, 'Set' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set', 
                 [], [], 
                 '''                Information about an individual set
                 ''',
@@ -3618,7 +3618,7 @@ _meta_table = {
                 ''',
                 'inactive',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('sets', REFERENCE_CLASS, 'Sets' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets', 
+            _MetaInfoClassMember('sets', REFERENCE_CLASS, 'Sets_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_', 
                 [], [], 
                 '''                Information about individual sets
                 ''',
@@ -3638,8 +3638,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.UsedBy.Reference' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.UsedBy.Reference',
+    'RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy.Reference' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy.Reference',
             False, 
             [
             _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
@@ -3668,11 +3668,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.UsedBy' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.UsedBy',
+    'RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy',
             False, 
             [
-            _MetaInfoClassMember('reference', REFERENCE_LIST, 'Reference' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.UsedBy.Reference', 
+            _MetaInfoClassMember('reference', REFERENCE_LIST, 'Reference' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy.Reference', 
                 [], [], 
                 '''                Information about policies referring to this
                 object
@@ -3686,8 +3686,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.Attached.Binding' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.Attached.Binding',
+    'RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.Attached.Binding' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.Attached.Binding',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
@@ -3823,11 +3823,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.Attached' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.Attached',
+    'RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.Attached' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.Attached',
             False, 
             [
-            _MetaInfoClassMember('binding', REFERENCE_LIST, 'Binding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.Attached.Binding', 
+            _MetaInfoClassMember('binding', REFERENCE_LIST, 'Binding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.Attached.Binding', 
                 [], [], 
                 '''                bindings list
                 ''',
@@ -3840,8 +3840,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set',
+    'RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set',
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
@@ -3850,14 +3850,14 @@ _meta_table = {
                 ''',
                 'set_name',
                 'Cisco-IOS-XR-policy-repository-oper', True),
-            _MetaInfoClassMember('attached', REFERENCE_CLASS, 'Attached' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.Attached', 
+            _MetaInfoClassMember('attached', REFERENCE_CLASS, 'Attached' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.Attached', 
                 [], [], 
                 '''                Information about where this policy or set is
                 attached
                 ''',
                 'attached',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('used-by', REFERENCE_CLASS, 'UsedBy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.UsedBy', 
+            _MetaInfoClassMember('used-by', REFERENCE_CLASS, 'UsedBy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy', 
                 [], [], 
                 '''                Policies that use this object, directly or
                 indirectly
@@ -3871,11 +3871,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunityRt.Sets' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityRt.Sets',
+    'RoutingPolicy.Sets.ExtendedCommunityRt.Sets_' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityRt.Sets_',
             False, 
             [
-            _MetaInfoClassMember('set', REFERENCE_LIST, 'Set' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set', 
+            _MetaInfoClassMember('set', REFERENCE_LIST, 'Set' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set', 
                 [], [], 
                 '''                Information about an individual set
                 ''',
@@ -3957,7 +3957,7 @@ _meta_table = {
                 ''',
                 'inactive',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('sets', REFERENCE_CLASS, 'Sets' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityRt.Sets', 
+            _MetaInfoClassMember('sets', REFERENCE_CLASS, 'Sets_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityRt.Sets_', 
                 [], [], 
                 '''                Information about individual sets
                 ''',
@@ -3977,8 +3977,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.Rd.Sets.Set.UsedBy.Reference' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Rd.Sets.Set.UsedBy.Reference',
+    'RoutingPolicy.Sets.Rd.Sets_.Set.UsedBy.Reference' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Rd.Sets_.Set.UsedBy.Reference',
             False, 
             [
             _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
@@ -4007,11 +4007,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.Rd.Sets.Set.UsedBy' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Rd.Sets.Set.UsedBy',
+    'RoutingPolicy.Sets.Rd.Sets_.Set.UsedBy' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Rd.Sets_.Set.UsedBy',
             False, 
             [
-            _MetaInfoClassMember('reference', REFERENCE_LIST, 'Reference' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Rd.Sets.Set.UsedBy.Reference', 
+            _MetaInfoClassMember('reference', REFERENCE_LIST, 'Reference' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Rd.Sets_.Set.UsedBy.Reference', 
                 [], [], 
                 '''                Information about policies referring to this
                 object
@@ -4025,8 +4025,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.Rd.Sets.Set.Attached.Binding' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Rd.Sets.Set.Attached.Binding',
+    'RoutingPolicy.Sets.Rd.Sets_.Set.Attached.Binding' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Rd.Sets_.Set.Attached.Binding',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
@@ -4162,11 +4162,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.Rd.Sets.Set.Attached' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Rd.Sets.Set.Attached',
+    'RoutingPolicy.Sets.Rd.Sets_.Set.Attached' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Rd.Sets_.Set.Attached',
             False, 
             [
-            _MetaInfoClassMember('binding', REFERENCE_LIST, 'Binding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Rd.Sets.Set.Attached.Binding', 
+            _MetaInfoClassMember('binding', REFERENCE_LIST, 'Binding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Rd.Sets_.Set.Attached.Binding', 
                 [], [], 
                 '''                bindings list
                 ''',
@@ -4179,8 +4179,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.Rd.Sets.Set' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Rd.Sets.Set',
+    'RoutingPolicy.Sets.Rd.Sets_.Set' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Rd.Sets_.Set',
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
@@ -4189,14 +4189,14 @@ _meta_table = {
                 ''',
                 'set_name',
                 'Cisco-IOS-XR-policy-repository-oper', True),
-            _MetaInfoClassMember('attached', REFERENCE_CLASS, 'Attached' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Rd.Sets.Set.Attached', 
+            _MetaInfoClassMember('attached', REFERENCE_CLASS, 'Attached' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Rd.Sets_.Set.Attached', 
                 [], [], 
                 '''                Information about where this policy or set is
                 attached
                 ''',
                 'attached',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('used-by', REFERENCE_CLASS, 'UsedBy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Rd.Sets.Set.UsedBy', 
+            _MetaInfoClassMember('used-by', REFERENCE_CLASS, 'UsedBy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Rd.Sets_.Set.UsedBy', 
                 [], [], 
                 '''                Policies that use this object, directly or
                 indirectly
@@ -4210,11 +4210,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.Rd.Sets' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Rd.Sets',
+    'RoutingPolicy.Sets.Rd.Sets_' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.Rd.Sets_',
             False, 
             [
-            _MetaInfoClassMember('set', REFERENCE_LIST, 'Set' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Rd.Sets.Set', 
+            _MetaInfoClassMember('set', REFERENCE_LIST, 'Set' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Rd.Sets_.Set', 
                 [], [], 
                 '''                Information about an individual set
                 ''',
@@ -4296,7 +4296,7 @@ _meta_table = {
                 ''',
                 'inactive',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('sets', REFERENCE_CLASS, 'Sets' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Rd.Sets', 
+            _MetaInfoClassMember('sets', REFERENCE_CLASS, 'Sets_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.Rd.Sets_', 
                 [], [], 
                 '''                Information about individual sets
                 ''',
@@ -4316,8 +4316,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.UsedBy.Reference' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.UsedBy.Reference',
+    'RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy.Reference' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy.Reference',
             False, 
             [
             _MetaInfoClassMember('route-policy-name', ATTRIBUTE, 'str' , None, None, 
@@ -4346,11 +4346,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.UsedBy' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.UsedBy',
+    'RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy',
             False, 
             [
-            _MetaInfoClassMember('reference', REFERENCE_LIST, 'Reference' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.UsedBy.Reference', 
+            _MetaInfoClassMember('reference', REFERENCE_LIST, 'Reference' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy.Reference', 
                 [], [], 
                 '''                Information about policies referring to this
                 object
@@ -4364,8 +4364,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.Attached.Binding' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.Attached.Binding',
+    'RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached.Binding' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached.Binding',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'AddressFamilyEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'AddressFamilyEnum', 
@@ -4501,11 +4501,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.Attached' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.Attached',
+    'RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached',
             False, 
             [
-            _MetaInfoClassMember('binding', REFERENCE_LIST, 'Binding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.Attached.Binding', 
+            _MetaInfoClassMember('binding', REFERENCE_LIST, 'Binding' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached.Binding', 
                 [], [], 
                 '''                bindings list
                 ''',
@@ -4518,8 +4518,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set',
+    'RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set',
             False, 
             [
             _MetaInfoClassMember('set-name', ATTRIBUTE, 'str' , None, None, 
@@ -4528,14 +4528,14 @@ _meta_table = {
                 ''',
                 'set_name',
                 'Cisco-IOS-XR-policy-repository-oper', True),
-            _MetaInfoClassMember('attached', REFERENCE_CLASS, 'Attached' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.Attached', 
+            _MetaInfoClassMember('attached', REFERENCE_CLASS, 'Attached' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached', 
                 [], [], 
                 '''                Information about where this policy or set is
                 attached
                 ''',
                 'attached',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('used-by', REFERENCE_CLASS, 'UsedBy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.UsedBy', 
+            _MetaInfoClassMember('used-by', REFERENCE_CLASS, 'UsedBy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy', 
                 [], [], 
                 '''                Policies that use this object, directly or
                 indirectly
@@ -4549,11 +4549,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper'
         ),
     },
-    'RoutingPolicy.Sets.ExtendedCommunityCost.Sets' : {
-        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityCost.Sets',
+    'RoutingPolicy.Sets.ExtendedCommunityCost.Sets_' : {
+        'meta_info' : _MetaInfoClass('RoutingPolicy.Sets.ExtendedCommunityCost.Sets_',
             False, 
             [
-            _MetaInfoClassMember('set', REFERENCE_LIST, 'Set' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set', 
+            _MetaInfoClassMember('set', REFERENCE_LIST, 'Set' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set', 
                 [], [], 
                 '''                Information about an individual set
                 ''',
@@ -4635,7 +4635,7 @@ _meta_table = {
                 ''',
                 'inactive',
                 'Cisco-IOS-XR-policy-repository-oper', False),
-            _MetaInfoClassMember('sets', REFERENCE_CLASS, 'Sets' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityCost.Sets', 
+            _MetaInfoClassMember('sets', REFERENCE_CLASS, 'Sets_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_policy_repository_oper', 'RoutingPolicy.Sets.ExtendedCommunityCost.Sets_', 
                 [], [], 
                 '''                Information about individual sets
                 ''',
@@ -4787,110 +4787,110 @@ _meta_table['RoutingPolicy.Policies.RoutePolicies']['meta_info'].parent =_meta_t
 _meta_table['RoutingPolicy.Policies.Unused']['meta_info'].parent =_meta_table['RoutingPolicy.Policies']['meta_info']
 _meta_table['RoutingPolicy.Policies.Inactive']['meta_info'].parent =_meta_table['RoutingPolicy.Policies']['meta_info']
 _meta_table['RoutingPolicy.Policies.Active']['meta_info'].parent =_meta_table['RoutingPolicy.Policies']['meta_info']
-_meta_table['RoutingPolicy.Sets.OspfArea.Sets.Set.UsedBy.Reference']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.OspfArea.Sets.Set.UsedBy']['meta_info']
-_meta_table['RoutingPolicy.Sets.OspfArea.Sets.Set.Attached.Binding']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.OspfArea.Sets.Set.Attached']['meta_info']
-_meta_table['RoutingPolicy.Sets.OspfArea.Sets.Set.UsedBy']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.OspfArea.Sets.Set']['meta_info']
-_meta_table['RoutingPolicy.Sets.OspfArea.Sets.Set.Attached']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.OspfArea.Sets.Set']['meta_info']
-_meta_table['RoutingPolicy.Sets.OspfArea.Sets.Set']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.OspfArea.Sets']['meta_info']
-_meta_table['RoutingPolicy.Sets.OspfArea.Sets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.OspfArea']['meta_info']
+_meta_table['RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy.Reference']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy']['meta_info']
+_meta_table['RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached.Binding']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached']['meta_info']
+_meta_table['RoutingPolicy.Sets.OspfArea.Sets_.Set.UsedBy']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.OspfArea.Sets_.Set']['meta_info']
+_meta_table['RoutingPolicy.Sets.OspfArea.Sets_.Set.Attached']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.OspfArea.Sets_.Set']['meta_info']
+_meta_table['RoutingPolicy.Sets.OspfArea.Sets_.Set']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.OspfArea.Sets_']['meta_info']
+_meta_table['RoutingPolicy.Sets.OspfArea.Sets_']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.OspfArea']['meta_info']
 _meta_table['RoutingPolicy.Sets.OspfArea.Unused']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.OspfArea']['meta_info']
 _meta_table['RoutingPolicy.Sets.OspfArea.Inactive']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.OspfArea']['meta_info']
 _meta_table['RoutingPolicy.Sets.OspfArea.Active']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.OspfArea']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.UsedBy.Reference']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.UsedBy']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.Attached.Binding']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.Attached']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.UsedBy']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set.Attached']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets.Set']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy.Reference']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached.Binding']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.UsedBy']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set.Attached']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_.Set']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Sets_']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Unused']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Inactive']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque.Active']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityOpaque']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.UsedBy.Reference']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.UsedBy']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.Attached.Binding']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.Attached']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.UsedBy']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set.Attached']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets.Set']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy.Reference']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached.Binding']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.UsedBy']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set.Attached']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_.Set']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Sets_']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Unused']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Inactive']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh.Active']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunitySegNh']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.UsedBy.Reference']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.UsedBy']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.Attached.Binding']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.Attached']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.UsedBy']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set.Attached']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets.Set']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy.Reference']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.Attached.Binding']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.Attached']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.UsedBy']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set.Attached']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_.Set']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Sets_']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Unused']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Inactive']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo.Active']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunitySoo']['meta_info']
-_meta_table['RoutingPolicy.Sets.Tag.Sets.Set.UsedBy.Reference']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Tag.Sets.Set.UsedBy']['meta_info']
-_meta_table['RoutingPolicy.Sets.Tag.Sets.Set.Attached.Binding']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Tag.Sets.Set.Attached']['meta_info']
-_meta_table['RoutingPolicy.Sets.Tag.Sets.Set.UsedBy']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Tag.Sets.Set']['meta_info']
-_meta_table['RoutingPolicy.Sets.Tag.Sets.Set.Attached']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Tag.Sets.Set']['meta_info']
-_meta_table['RoutingPolicy.Sets.Tag.Sets.Set']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Tag.Sets']['meta_info']
-_meta_table['RoutingPolicy.Sets.Tag.Sets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Tag']['meta_info']
+_meta_table['RoutingPolicy.Sets.Tag.Sets_.Set.UsedBy.Reference']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Tag.Sets_.Set.UsedBy']['meta_info']
+_meta_table['RoutingPolicy.Sets.Tag.Sets_.Set.Attached.Binding']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Tag.Sets_.Set.Attached']['meta_info']
+_meta_table['RoutingPolicy.Sets.Tag.Sets_.Set.UsedBy']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Tag.Sets_.Set']['meta_info']
+_meta_table['RoutingPolicy.Sets.Tag.Sets_.Set.Attached']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Tag.Sets_.Set']['meta_info']
+_meta_table['RoutingPolicy.Sets.Tag.Sets_.Set']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Tag.Sets_']['meta_info']
+_meta_table['RoutingPolicy.Sets.Tag.Sets_']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Tag']['meta_info']
 _meta_table['RoutingPolicy.Sets.Tag.Unused']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Tag']['meta_info']
 _meta_table['RoutingPolicy.Sets.Tag.Inactive']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Tag']['meta_info']
 _meta_table['RoutingPolicy.Sets.Tag.Active']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Tag']['meta_info']
-_meta_table['RoutingPolicy.Sets.Prefix.Sets.Set.UsedBy.Reference']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Prefix.Sets.Set.UsedBy']['meta_info']
-_meta_table['RoutingPolicy.Sets.Prefix.Sets.Set.Attached.Binding']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Prefix.Sets.Set.Attached']['meta_info']
-_meta_table['RoutingPolicy.Sets.Prefix.Sets.Set.UsedBy']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Prefix.Sets.Set']['meta_info']
-_meta_table['RoutingPolicy.Sets.Prefix.Sets.Set.Attached']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Prefix.Sets.Set']['meta_info']
-_meta_table['RoutingPolicy.Sets.Prefix.Sets.Set']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Prefix.Sets']['meta_info']
-_meta_table['RoutingPolicy.Sets.Prefix.Sets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Prefix']['meta_info']
+_meta_table['RoutingPolicy.Sets.Prefix.Sets_.Set.UsedBy.Reference']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Prefix.Sets_.Set.UsedBy']['meta_info']
+_meta_table['RoutingPolicy.Sets.Prefix.Sets_.Set.Attached.Binding']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Prefix.Sets_.Set.Attached']['meta_info']
+_meta_table['RoutingPolicy.Sets.Prefix.Sets_.Set.UsedBy']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Prefix.Sets_.Set']['meta_info']
+_meta_table['RoutingPolicy.Sets.Prefix.Sets_.Set.Attached']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Prefix.Sets_.Set']['meta_info']
+_meta_table['RoutingPolicy.Sets.Prefix.Sets_.Set']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Prefix.Sets_']['meta_info']
+_meta_table['RoutingPolicy.Sets.Prefix.Sets_']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Prefix']['meta_info']
 _meta_table['RoutingPolicy.Sets.Prefix.Unused']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Prefix']['meta_info']
 _meta_table['RoutingPolicy.Sets.Prefix.Inactive']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Prefix']['meta_info']
 _meta_table['RoutingPolicy.Sets.Prefix.Active']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Prefix']['meta_info']
-_meta_table['RoutingPolicy.Sets.Community.Sets.Set.UsedBy.Reference']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Community.Sets.Set.UsedBy']['meta_info']
-_meta_table['RoutingPolicy.Sets.Community.Sets.Set.Attached.Binding']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Community.Sets.Set.Attached']['meta_info']
-_meta_table['RoutingPolicy.Sets.Community.Sets.Set.UsedBy']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Community.Sets.Set']['meta_info']
-_meta_table['RoutingPolicy.Sets.Community.Sets.Set.Attached']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Community.Sets.Set']['meta_info']
-_meta_table['RoutingPolicy.Sets.Community.Sets.Set']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Community.Sets']['meta_info']
-_meta_table['RoutingPolicy.Sets.Community.Sets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Community']['meta_info']
+_meta_table['RoutingPolicy.Sets.Community.Sets_.Set.UsedBy.Reference']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Community.Sets_.Set.UsedBy']['meta_info']
+_meta_table['RoutingPolicy.Sets.Community.Sets_.Set.Attached.Binding']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Community.Sets_.Set.Attached']['meta_info']
+_meta_table['RoutingPolicy.Sets.Community.Sets_.Set.UsedBy']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Community.Sets_.Set']['meta_info']
+_meta_table['RoutingPolicy.Sets.Community.Sets_.Set.Attached']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Community.Sets_.Set']['meta_info']
+_meta_table['RoutingPolicy.Sets.Community.Sets_.Set']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Community.Sets_']['meta_info']
+_meta_table['RoutingPolicy.Sets.Community.Sets_']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Community']['meta_info']
 _meta_table['RoutingPolicy.Sets.Community.Unused']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Community']['meta_info']
 _meta_table['RoutingPolicy.Sets.Community.Inactive']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Community']['meta_info']
 _meta_table['RoutingPolicy.Sets.Community.Active']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Community']['meta_info']
-_meta_table['RoutingPolicy.Sets.AsPath.Sets.Set.UsedBy.Reference']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.AsPath.Sets.Set.UsedBy']['meta_info']
-_meta_table['RoutingPolicy.Sets.AsPath.Sets.Set.Attached.Binding']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.AsPath.Sets.Set.Attached']['meta_info']
-_meta_table['RoutingPolicy.Sets.AsPath.Sets.Set.UsedBy']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.AsPath.Sets.Set']['meta_info']
-_meta_table['RoutingPolicy.Sets.AsPath.Sets.Set.Attached']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.AsPath.Sets.Set']['meta_info']
-_meta_table['RoutingPolicy.Sets.AsPath.Sets.Set']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.AsPath.Sets']['meta_info']
-_meta_table['RoutingPolicy.Sets.AsPath.Sets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.AsPath']['meta_info']
+_meta_table['RoutingPolicy.Sets.AsPath.Sets_.Set.UsedBy.Reference']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.AsPath.Sets_.Set.UsedBy']['meta_info']
+_meta_table['RoutingPolicy.Sets.AsPath.Sets_.Set.Attached.Binding']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.AsPath.Sets_.Set.Attached']['meta_info']
+_meta_table['RoutingPolicy.Sets.AsPath.Sets_.Set.UsedBy']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.AsPath.Sets_.Set']['meta_info']
+_meta_table['RoutingPolicy.Sets.AsPath.Sets_.Set.Attached']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.AsPath.Sets_.Set']['meta_info']
+_meta_table['RoutingPolicy.Sets.AsPath.Sets_.Set']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.AsPath.Sets_']['meta_info']
+_meta_table['RoutingPolicy.Sets.AsPath.Sets_']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.AsPath']['meta_info']
 _meta_table['RoutingPolicy.Sets.AsPath.Unused']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.AsPath']['meta_info']
 _meta_table['RoutingPolicy.Sets.AsPath.Inactive']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.AsPath']['meta_info']
 _meta_table['RoutingPolicy.Sets.AsPath.Active']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.AsPath']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.UsedBy.Reference']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.UsedBy']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.Attached.Binding']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.Attached']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.UsedBy']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set.Attached']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets.Set']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy.Reference']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached.Binding']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.UsedBy']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set.Attached']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_.Set']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Sets_']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Unused']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth.Inactive']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityBandwidth']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.UsedBy.Reference']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.UsedBy']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.Attached.Binding']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.Attached']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.UsedBy']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set.Attached']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets.Set']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityRt']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy.Reference']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.Attached.Binding']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.Attached']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.UsedBy']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set.Attached']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets_.Set']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets_']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Sets_']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityRt']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Unused']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityRt']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Inactive']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityRt']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunityRt.Active']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityRt']['meta_info']
-_meta_table['RoutingPolicy.Sets.Rd.Sets.Set.UsedBy.Reference']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Rd.Sets.Set.UsedBy']['meta_info']
-_meta_table['RoutingPolicy.Sets.Rd.Sets.Set.Attached.Binding']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Rd.Sets.Set.Attached']['meta_info']
-_meta_table['RoutingPolicy.Sets.Rd.Sets.Set.UsedBy']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Rd.Sets.Set']['meta_info']
-_meta_table['RoutingPolicy.Sets.Rd.Sets.Set.Attached']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Rd.Sets.Set']['meta_info']
-_meta_table['RoutingPolicy.Sets.Rd.Sets.Set']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Rd.Sets']['meta_info']
-_meta_table['RoutingPolicy.Sets.Rd.Sets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Rd']['meta_info']
+_meta_table['RoutingPolicy.Sets.Rd.Sets_.Set.UsedBy.Reference']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Rd.Sets_.Set.UsedBy']['meta_info']
+_meta_table['RoutingPolicy.Sets.Rd.Sets_.Set.Attached.Binding']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Rd.Sets_.Set.Attached']['meta_info']
+_meta_table['RoutingPolicy.Sets.Rd.Sets_.Set.UsedBy']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Rd.Sets_.Set']['meta_info']
+_meta_table['RoutingPolicy.Sets.Rd.Sets_.Set.Attached']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Rd.Sets_.Set']['meta_info']
+_meta_table['RoutingPolicy.Sets.Rd.Sets_.Set']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Rd.Sets_']['meta_info']
+_meta_table['RoutingPolicy.Sets.Rd.Sets_']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Rd']['meta_info']
 _meta_table['RoutingPolicy.Sets.Rd.Unused']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Rd']['meta_info']
 _meta_table['RoutingPolicy.Sets.Rd.Inactive']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Rd']['meta_info']
 _meta_table['RoutingPolicy.Sets.Rd.Active']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.Rd']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.UsedBy.Reference']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.UsedBy']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.Attached.Binding']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.Attached']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.UsedBy']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set.Attached']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets.Set']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets']['meta_info']
-_meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityCost']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy.Reference']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached.Binding']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.UsedBy']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set.Attached']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets_.Set']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets_']['meta_info']
+_meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Sets_']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityCost']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Unused']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityCost']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Inactive']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityCost']['meta_info']
 _meta_table['RoutingPolicy.Sets.ExtendedCommunityCost.Active']['meta_info'].parent =_meta_table['RoutingPolicy.Sets.ExtendedCommunityCost']['meta_info']

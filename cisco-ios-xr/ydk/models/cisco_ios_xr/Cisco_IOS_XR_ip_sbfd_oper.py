@@ -30,25 +30,25 @@ class BfdAfIdEnum(Enum):
 
     Bfd af id
 
-    .. data:: BFD_AF_ID_NONE = 0
+    .. data:: bfd_af_id_none = 0
 
     	No Address
 
-    .. data:: BFD_AF_ID_IPV4 = 2
+    .. data:: bfd_af_id_ipv4 = 2
 
     	IPv4 AFI
 
-    .. data:: BFD_AF_ID_IPV6 = 10
+    .. data:: bfd_af_id_ipv6 = 26
 
     	IPv6 AFI
 
     """
 
-    BFD_AF_ID_NONE = 0
+    bfd_af_id_none = 0
 
-    BFD_AF_ID_IPV4 = 2
+    bfd_af_id_ipv4 = 2
 
-    BFD_AF_ID_IPV6 = 10
+    bfd_af_id_ipv6 = 26
 
 
     @staticmethod
@@ -63,19 +63,19 @@ class SbfdAddressFamilyEnum(Enum):
 
     Sbfd address family
 
-    .. data:: IPV4 = 1
+    .. data:: ipv4 = 1
 
     	ipv4
 
-    .. data:: IPV6 = 2
+    .. data:: ipv6 = 2
 
     	ipv6
 
     """
 
-    IPV4 = 1
+    ipv4 = 1
 
-    IPV6 = 2
+    ipv6 = 2
 
 
     @staticmethod
@@ -92,7 +92,7 @@ class Sbfd(object):
     .. attribute:: target_identifier
     
     	Target\-identifier information
-    	**type**\:  :py:class:`TargetIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier>`
+    	**type**\:   :py:class:`TargetIdentifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier>`
     
     
 
@@ -113,12 +113,12 @@ class Sbfd(object):
         .. attribute:: local_vrfs
         
         	SBFD local discriminator  data
-        	**type**\:  :py:class:`LocalVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.LocalVrfs>`
+        	**type**\:   :py:class:`LocalVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.LocalVrfs>`
         
         .. attribute:: remote_vrfs
         
         	SBFD remote discriminator data
-        	**type**\:  :py:class:`RemoteVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.RemoteVrfs>`
+        	**type**\:   :py:class:`RemoteVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.RemoteVrfs>`
         
         
 
@@ -142,7 +142,7 @@ class Sbfd(object):
             .. attribute:: remote_vrf
             
             	Table of remote discriminator data per VRF
-            	**type**\: list of  :py:class:`RemoteVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf>`
+            	**type**\: list of    :py:class:`RemoteVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf>`
             
             
 
@@ -172,7 +172,7 @@ class Sbfd(object):
                 .. attribute:: remote_discriminator
                 
                 	SBFD remote discriminator 
-                	**type**\: list of  :py:class:`RemoteDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator>`
+                	**type**\: list of    :py:class:`RemoteDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator>`
                 
                 
 
@@ -225,7 +225,7 @@ class Sbfd(object):
                     .. attribute:: ip_address
                     
                     	IP address
-                    	**type**\:  :py:class:`IpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator.IpAddress>`
+                    	**type**\:   :py:class:`IpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator.IpAddress>`
                     
                     .. attribute:: remote_discriminator
                     
@@ -242,7 +242,7 @@ class Sbfd(object):
                     .. attribute:: tid_type
                     
                     	Target identifier for sbfd
-                    	**type**\:  :py:class:`SbfdAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.SbfdAddressFamilyEnum>`
+                    	**type**\:   :py:class:`SbfdAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.SbfdAddressFamilyEnum>`
                     
                     .. attribute:: vrf_name
                     
@@ -284,7 +284,7 @@ class Sbfd(object):
                         .. attribute:: afi
                         
                         	AFI
-                        	**type**\:  :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.BfdAfIdEnum>`
+                        	**type**\:   :py:class:`BfdAfIdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.BfdAfIdEnum>`
                         
                         .. attribute:: dummy
                         
@@ -463,7 +463,7 @@ class Sbfd(object):
             .. attribute:: local_vrf
             
             	Table of local discriminator data per VRF
-            	**type**\: list of  :py:class:`LocalVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.LocalVrfs.LocalVrf>`
+            	**type**\: list of    :py:class:`LocalVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.LocalVrfs.LocalVrf>`
             
             
 
@@ -493,7 +493,7 @@ class Sbfd(object):
                 .. attribute:: local_discriminator
                 
                 	SBFD local discriminator 
-                	**type**\: list of  :py:class:`LocalDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.LocalVrfs.LocalVrf.LocalDiscriminator>`
+                	**type**\: list of    :py:class:`LocalDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper.Sbfd.TargetIdentifier.LocalVrfs.LocalVrf.LocalDiscriminator>`
                 
                 
 

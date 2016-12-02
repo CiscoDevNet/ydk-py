@@ -46,17 +46,17 @@ class Bgp(object):
     .. attribute:: global_
     
     	Global configuration for the BGP router
-    	**type**\:  :py:class:`Global <ydk.models.openconfig.openconfig_bgp.Bgp.Global>`
+    	**type**\:   :py:class:`Global_ <ydk.models.openconfig.openconfig_bgp.Bgp.Global_>`
     
     .. attribute:: neighbors
     
     	Configuration for BGP neighbors
-    	**type**\:  :py:class:`Neighbors <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors>`
+    	**type**\:   :py:class:`Neighbors <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors>`
     
     .. attribute:: peer_groups
     
     	Configuration for BGP peer\-groups
-    	**type**\:  :py:class:`PeerGroups <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups>`
+    	**type**\:   :py:class:`PeerGroups <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups>`
     
     .. attribute:: _is_presence
     
@@ -74,7 +74,7 @@ class Bgp(object):
 
     def __init__(self):
         self._is_presence = True
-        self.global_ = Bgp.Global()
+        self.global_ = Bgp.Global_()
         self.global_.parent = self
         self.neighbors = Bgp.Neighbors()
         self.neighbors.parent = self
@@ -82,54 +82,54 @@ class Bgp(object):
         self.peer_groups.parent = self
 
 
-    class Global(object):
+    class Global_(object):
         """
         Global configuration for the BGP router
         
         .. attribute:: afi_safis
         
         	Address family specific configuration
-        	**type**\:  :py:class:`AfiSafis <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis>`
+        	**type**\:   :py:class:`AfiSafis <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis>`
         
         .. attribute:: apply_policy
         
         	Anchor point for routing policies in the model. Import and export policies are with respect to the local routing table, i.e., export (send) and import (receive), depending on the context
-        	**type**\:  :py:class:`ApplyPolicy <ydk.models.openconfig.openconfig_bgp.Bgp.Global.ApplyPolicy>`
+        	**type**\:   :py:class:`ApplyPolicy <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.ApplyPolicy>`
         
         .. attribute:: confederation
         
         	Parameters indicating whether the local system acts as part of a BGP confederation
-        	**type**\:  :py:class:`Confederation <ydk.models.openconfig.openconfig_bgp.Bgp.Global.Confederation>`
+        	**type**\:   :py:class:`Confederation <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.Confederation>`
         
         .. attribute:: config
         
         	Configuration parameters relating to the global BGP router
-        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.Config>`
+        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.Config>`
         
         .. attribute:: default_route_distance
         
         	Administrative distance (or preference) assigned to routes received from different sources (external, internal, and local)
-        	**type**\:  :py:class:`DefaultRouteDistance <ydk.models.openconfig.openconfig_bgp.Bgp.Global.DefaultRouteDistance>`
+        	**type**\:   :py:class:`DefaultRouteDistance <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.DefaultRouteDistance>`
         
         .. attribute:: graceful_restart
         
         	Parameters relating the graceful restart mechanism for BGP
-        	**type**\:  :py:class:`GracefulRestart <ydk.models.openconfig.openconfig_bgp.Bgp.Global.GracefulRestart>`
+        	**type**\:   :py:class:`GracefulRestart <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.GracefulRestart>`
         
         .. attribute:: route_selection_options
         
         	Parameters relating to options for route selection
-        	**type**\:  :py:class:`RouteSelectionOptions <ydk.models.openconfig.openconfig_bgp.Bgp.Global.RouteSelectionOptions>`
+        	**type**\:   :py:class:`RouteSelectionOptions <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.RouteSelectionOptions>`
         
         .. attribute:: state
         
         	State information relating to the global BGP router
-        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.State>`
+        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.State>`
         
         .. attribute:: use_multiple_paths
         
         	Parameters related to the use of multiple paths for the same NLRI
-        	**type**\:  :py:class:`UseMultiplePaths <ydk.models.openconfig.openconfig_bgp.Bgp.Global.UseMultiplePaths>`
+        	**type**\:   :py:class:`UseMultiplePaths <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.UseMultiplePaths>`
         
         
 
@@ -140,23 +140,23 @@ class Bgp(object):
 
         def __init__(self):
             self.parent = None
-            self.afi_safis = Bgp.Global.AfiSafis()
+            self.afi_safis = Bgp.Global_.AfiSafis()
             self.afi_safis.parent = self
-            self.apply_policy = Bgp.Global.ApplyPolicy()
+            self.apply_policy = Bgp.Global_.ApplyPolicy()
             self.apply_policy.parent = self
-            self.confederation = Bgp.Global.Confederation()
+            self.confederation = Bgp.Global_.Confederation()
             self.confederation.parent = self
-            self.config = Bgp.Global.Config()
+            self.config = Bgp.Global_.Config()
             self.config.parent = self
-            self.default_route_distance = Bgp.Global.DefaultRouteDistance()
+            self.default_route_distance = Bgp.Global_.DefaultRouteDistance()
             self.default_route_distance.parent = self
-            self.graceful_restart = Bgp.Global.GracefulRestart()
+            self.graceful_restart = Bgp.Global_.GracefulRestart()
             self.graceful_restart.parent = self
-            self.route_selection_options = Bgp.Global.RouteSelectionOptions()
+            self.route_selection_options = Bgp.Global_.RouteSelectionOptions()
             self.route_selection_options.parent = self
-            self.state = Bgp.Global.State()
+            self.state = Bgp.Global_.State()
             self.state.parent = self
-            self.use_multiple_paths = Bgp.Global.UseMultiplePaths()
+            self.use_multiple_paths = Bgp.Global_.UseMultiplePaths()
             self.use_multiple_paths.parent = self
 
 
@@ -215,7 +215,7 @@ class Bgp(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                return meta._meta_table['Bgp.Global.Config']['meta_info']
+                return meta._meta_table['Bgp.Global_.Config']['meta_info']
 
 
         class State(object):
@@ -295,7 +295,7 @@ class Bgp(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                return meta._meta_table['Bgp.Global.State']['meta_info']
+                return meta._meta_table['Bgp.Global_.State']['meta_info']
 
 
         class RouteSelectionOptions(object):
@@ -305,12 +305,12 @@ class Bgp(object):
             .. attribute:: config
             
             	Configuration parameters relating to route selection options
-            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.RouteSelectionOptions.Config>`
+            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.RouteSelectionOptions.Config>`
             
             .. attribute:: state
             
             	State information for the route selection options
-            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.RouteSelectionOptions.State>`
+            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.RouteSelectionOptions.State>`
             
             
 
@@ -321,9 +321,9 @@ class Bgp(object):
 
             def __init__(self):
                 self.parent = None
-                self.config = Bgp.Global.RouteSelectionOptions.Config()
+                self.config = Bgp.Global_.RouteSelectionOptions.Config()
                 self.config.parent = self
-                self.state = Bgp.Global.RouteSelectionOptions.State()
+                self.state = Bgp.Global_.RouteSelectionOptions.State()
                 self.state.parent = self
 
 
@@ -337,30 +337,42 @@ class Bgp(object):
                 	Advertise inactive routes to external peers.  The default is to only advertise active routes
                 	**type**\:  bool
                 
+                	**default value**\: false
+                
                 .. attribute:: always_compare_med
                 
                 	Compare multi\-exit discriminator (MED) value from different ASes when selecting the best route.  The default behavior is to only compare MEDs for paths received from the same AS
                 	**type**\:  bool
+                
+                	**default value**\: false
                 
                 .. attribute:: enable_aigp
                 
                 	Flag to enable sending / receiving accumulated IGP attribute in routing updates
                 	**type**\:  bool
                 
+                	**default value**\: false
+                
                 .. attribute:: external_compare_router_id
                 
                 	When comparing similar routes received from external BGP peers, use the router\-id as a criterion to select the active path
                 	**type**\:  bool
+                
+                	**default value**\: true
                 
                 .. attribute:: ignore_as_path_length
                 
                 	Ignore the AS path length when selecting the best path. The default is to use the AS path length and prefer paths with shorter length
                 	**type**\:  bool
                 
+                	**default value**\: false
+                
                 .. attribute:: ignore_next_hop_igp_metric
                 
                 	Ignore the IGP metric to the next\-hop when calculating BGP best\-path. The default is to select the route for which the metric to the next\-hop is lowest
                 	**type**\:  bool
+                
+                	**default value**\: false
                 
                 
 
@@ -413,7 +425,7 @@ class Bgp(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                    return meta._meta_table['Bgp.Global.RouteSelectionOptions.Config']['meta_info']
+                    return meta._meta_table['Bgp.Global_.RouteSelectionOptions.Config']['meta_info']
 
 
             class State(object):
@@ -425,30 +437,42 @@ class Bgp(object):
                 	Advertise inactive routes to external peers.  The default is to only advertise active routes
                 	**type**\:  bool
                 
+                	**default value**\: false
+                
                 .. attribute:: always_compare_med
                 
                 	Compare multi\-exit discriminator (MED) value from different ASes when selecting the best route.  The default behavior is to only compare MEDs for paths received from the same AS
                 	**type**\:  bool
+                
+                	**default value**\: false
                 
                 .. attribute:: enable_aigp
                 
                 	Flag to enable sending / receiving accumulated IGP attribute in routing updates
                 	**type**\:  bool
                 
+                	**default value**\: false
+                
                 .. attribute:: external_compare_router_id
                 
                 	When comparing similar routes received from external BGP peers, use the router\-id as a criterion to select the active path
                 	**type**\:  bool
+                
+                	**default value**\: true
                 
                 .. attribute:: ignore_as_path_length
                 
                 	Ignore the AS path length when selecting the best path. The default is to use the AS path length and prefer paths with shorter length
                 	**type**\:  bool
                 
+                	**default value**\: false
+                
                 .. attribute:: ignore_next_hop_igp_metric
                 
                 	Ignore the IGP metric to the next\-hop when calculating BGP best\-path. The default is to select the route for which the metric to the next\-hop is lowest
                 	**type**\:  bool
+                
+                	**default value**\: false
                 
                 
 
@@ -501,7 +525,7 @@ class Bgp(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                    return meta._meta_table['Bgp.Global.RouteSelectionOptions.State']['meta_info']
+                    return meta._meta_table['Bgp.Global_.RouteSelectionOptions.State']['meta_info']
 
             @property
             def _common_path(self):
@@ -526,7 +550,7 @@ class Bgp(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                return meta._meta_table['Bgp.Global.RouteSelectionOptions']['meta_info']
+                return meta._meta_table['Bgp.Global_.RouteSelectionOptions']['meta_info']
 
 
         class DefaultRouteDistance(object):
@@ -538,12 +562,12 @@ class Bgp(object):
             .. attribute:: config
             
             	Configuration parameters relating to the default route distance
-            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.DefaultRouteDistance.Config>`
+            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.DefaultRouteDistance.Config>`
             
             .. attribute:: state
             
             	State information relating to the default route distance
-            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.DefaultRouteDistance.State>`
+            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.DefaultRouteDistance.State>`
             
             
 
@@ -554,9 +578,9 @@ class Bgp(object):
 
             def __init__(self):
                 self.parent = None
-                self.config = Bgp.Global.DefaultRouteDistance.Config()
+                self.config = Bgp.Global_.DefaultRouteDistance.Config()
                 self.config.parent = self
-                self.state = Bgp.Global.DefaultRouteDistance.State()
+                self.state = Bgp.Global_.DefaultRouteDistance.State()
                 self.state.parent = self
 
 
@@ -614,7 +638,7 @@ class Bgp(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                    return meta._meta_table['Bgp.Global.DefaultRouteDistance.Config']['meta_info']
+                    return meta._meta_table['Bgp.Global_.DefaultRouteDistance.Config']['meta_info']
 
 
             class State(object):
@@ -670,7 +694,7 @@ class Bgp(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                    return meta._meta_table['Bgp.Global.DefaultRouteDistance.State']['meta_info']
+                    return meta._meta_table['Bgp.Global_.DefaultRouteDistance.State']['meta_info']
 
             @property
             def _common_path(self):
@@ -695,7 +719,7 @@ class Bgp(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                return meta._meta_table['Bgp.Global.DefaultRouteDistance']['meta_info']
+                return meta._meta_table['Bgp.Global_.DefaultRouteDistance']['meta_info']
 
 
         class Confederation(object):
@@ -706,12 +730,12 @@ class Bgp(object):
             .. attribute:: config
             
             	Configuration parameters relating to BGP confederations
-            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.Confederation.Config>`
+            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.Confederation.Config>`
             
             .. attribute:: state
             
             	State information relating to the BGP confederations
-            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.Confederation.State>`
+            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.Confederation.State>`
             
             
 
@@ -722,9 +746,9 @@ class Bgp(object):
 
             def __init__(self):
                 self.parent = None
-                self.config = Bgp.Global.Confederation.Config()
+                self.config = Bgp.Global_.Confederation.Config()
                 self.config.parent = self
-                self.state = Bgp.Global.Confederation.State()
+                self.state = Bgp.Global_.Confederation.State()
                 self.state.parent = self
 
 
@@ -794,7 +818,7 @@ class Bgp(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                    return meta._meta_table['Bgp.Global.Confederation.Config']['meta_info']
+                    return meta._meta_table['Bgp.Global_.Confederation.Config']['meta_info']
 
 
             class State(object):
@@ -863,7 +887,7 @@ class Bgp(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                    return meta._meta_table['Bgp.Global.Confederation.State']['meta_info']
+                    return meta._meta_table['Bgp.Global_.Confederation.State']['meta_info']
 
             @property
             def _common_path(self):
@@ -888,7 +912,7 @@ class Bgp(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                return meta._meta_table['Bgp.Global.Confederation']['meta_info']
+                return meta._meta_table['Bgp.Global_.Confederation']['meta_info']
 
 
         class UseMultiplePaths(object):
@@ -899,22 +923,22 @@ class Bgp(object):
             .. attribute:: config
             
             	Configuration parameters relating to multipath
-            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.UseMultiplePaths.Config>`
+            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.UseMultiplePaths.Config>`
             
             .. attribute:: ebgp
             
             	Multipath parameters for eBGP
-            	**type**\:  :py:class:`Ebgp <ydk.models.openconfig.openconfig_bgp.Bgp.Global.UseMultiplePaths.Ebgp>`
+            	**type**\:   :py:class:`Ebgp <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.UseMultiplePaths.Ebgp>`
             
             .. attribute:: ibgp
             
             	Multipath parameters for iBGP
-            	**type**\:  :py:class:`Ibgp <ydk.models.openconfig.openconfig_bgp.Bgp.Global.UseMultiplePaths.Ibgp>`
+            	**type**\:   :py:class:`Ibgp <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.UseMultiplePaths.Ibgp>`
             
             .. attribute:: state
             
             	State parameters relating to multipath
-            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.UseMultiplePaths.State>`
+            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.UseMultiplePaths.State>`
             
             
 
@@ -925,13 +949,13 @@ class Bgp(object):
 
             def __init__(self):
                 self.parent = None
-                self.config = Bgp.Global.UseMultiplePaths.Config()
+                self.config = Bgp.Global_.UseMultiplePaths.Config()
                 self.config.parent = self
-                self.ebgp = Bgp.Global.UseMultiplePaths.Ebgp()
+                self.ebgp = Bgp.Global_.UseMultiplePaths.Ebgp()
                 self.ebgp.parent = self
-                self.ibgp = Bgp.Global.UseMultiplePaths.Ibgp()
+                self.ibgp = Bgp.Global_.UseMultiplePaths.Ibgp()
                 self.ibgp.parent = self
-                self.state = Bgp.Global.UseMultiplePaths.State()
+                self.state = Bgp.Global_.UseMultiplePaths.State()
                 self.state.parent = self
 
 
@@ -943,6 +967,8 @@ class Bgp(object):
                 
                 	Whether the use of multiple paths for the same NLRI is enabled for the neighbor. This value is overridden by any more specific configuration value
                 	**type**\:  bool
+                
+                	**default value**\: false
                 
                 
 
@@ -975,7 +1001,7 @@ class Bgp(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                    return meta._meta_table['Bgp.Global.UseMultiplePaths.Config']['meta_info']
+                    return meta._meta_table['Bgp.Global_.UseMultiplePaths.Config']['meta_info']
 
 
             class State(object):
@@ -986,6 +1012,8 @@ class Bgp(object):
                 
                 	Whether the use of multiple paths for the same NLRI is enabled for the neighbor. This value is overridden by any more specific configuration value
                 	**type**\:  bool
+                
+                	**default value**\: false
                 
                 
 
@@ -1018,7 +1046,7 @@ class Bgp(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                    return meta._meta_table['Bgp.Global.UseMultiplePaths.State']['meta_info']
+                    return meta._meta_table['Bgp.Global_.UseMultiplePaths.State']['meta_info']
 
 
             class Ebgp(object):
@@ -1028,12 +1056,12 @@ class Bgp(object):
                 .. attribute:: config
                 
                 	Configuration parameters relating to eBGP multipath
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.UseMultiplePaths.Ebgp.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.UseMultiplePaths.Ebgp.Config>`
                 
                 .. attribute:: state
                 
                 	State information relating to eBGP multipath
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.UseMultiplePaths.Ebgp.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.UseMultiplePaths.Ebgp.State>`
                 
                 
 
@@ -1044,9 +1072,9 @@ class Bgp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.config = Bgp.Global.UseMultiplePaths.Ebgp.Config()
+                    self.config = Bgp.Global_.UseMultiplePaths.Ebgp.Config()
                     self.config.parent = self
-                    self.state = Bgp.Global.UseMultiplePaths.Ebgp.State()
+                    self.state = Bgp.Global_.UseMultiplePaths.Ebgp.State()
                     self.state.parent = self
 
 
@@ -1059,12 +1087,16 @@ class Bgp(object):
                     	Allow multipath to use paths from different neighbouring ASes.  The default is to only consider multiple paths from the same neighbouring AS
                     	**type**\:  bool
                     
+                    	**default value**\: false
+                    
                     .. attribute:: maximum_paths
                     
                     	Maximum number of parallel paths to consider when using BGP multipath. The default is use a single path
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**default value**\: 1
                     
                     
 
@@ -1101,7 +1133,7 @@ class Bgp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                        return meta._meta_table['Bgp.Global.UseMultiplePaths.Ebgp.Config']['meta_info']
+                        return meta._meta_table['Bgp.Global_.UseMultiplePaths.Ebgp.Config']['meta_info']
 
 
                 class State(object):
@@ -1113,12 +1145,16 @@ class Bgp(object):
                     	Allow multipath to use paths from different neighbouring ASes.  The default is to only consider multiple paths from the same neighbouring AS
                     	**type**\:  bool
                     
+                    	**default value**\: false
+                    
                     .. attribute:: maximum_paths
                     
                     	Maximum number of parallel paths to consider when using BGP multipath. The default is use a single path
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**default value**\: 1
                     
                     
 
@@ -1155,7 +1191,7 @@ class Bgp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                        return meta._meta_table['Bgp.Global.UseMultiplePaths.Ebgp.State']['meta_info']
+                        return meta._meta_table['Bgp.Global_.UseMultiplePaths.Ebgp.State']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -1180,7 +1216,7 @@ class Bgp(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                    return meta._meta_table['Bgp.Global.UseMultiplePaths.Ebgp']['meta_info']
+                    return meta._meta_table['Bgp.Global_.UseMultiplePaths.Ebgp']['meta_info']
 
 
             class Ibgp(object):
@@ -1190,12 +1226,12 @@ class Bgp(object):
                 .. attribute:: config
                 
                 	Configuration parameters relating to iBGP multipath
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.UseMultiplePaths.Ibgp.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.UseMultiplePaths.Ibgp.Config>`
                 
                 .. attribute:: state
                 
                 	State information relating to iBGP multipath
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.UseMultiplePaths.Ibgp.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.UseMultiplePaths.Ibgp.State>`
                 
                 
 
@@ -1206,9 +1242,9 @@ class Bgp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.config = Bgp.Global.UseMultiplePaths.Ibgp.Config()
+                    self.config = Bgp.Global_.UseMultiplePaths.Ibgp.Config()
                     self.config.parent = self
-                    self.state = Bgp.Global.UseMultiplePaths.Ibgp.State()
+                    self.state = Bgp.Global_.UseMultiplePaths.Ibgp.State()
                     self.state.parent = self
 
 
@@ -1222,6 +1258,8 @@ class Bgp(object):
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**default value**\: 1
                     
                     
 
@@ -1254,7 +1292,7 @@ class Bgp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                        return meta._meta_table['Bgp.Global.UseMultiplePaths.Ibgp.Config']['meta_info']
+                        return meta._meta_table['Bgp.Global_.UseMultiplePaths.Ibgp.Config']['meta_info']
 
 
                 class State(object):
@@ -1267,6 +1305,8 @@ class Bgp(object):
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**default value**\: 1
                     
                     
 
@@ -1299,7 +1339,7 @@ class Bgp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                        return meta._meta_table['Bgp.Global.UseMultiplePaths.Ibgp.State']['meta_info']
+                        return meta._meta_table['Bgp.Global_.UseMultiplePaths.Ibgp.State']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -1324,7 +1364,7 @@ class Bgp(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                    return meta._meta_table['Bgp.Global.UseMultiplePaths.Ibgp']['meta_info']
+                    return meta._meta_table['Bgp.Global_.UseMultiplePaths.Ibgp']['meta_info']
 
             @property
             def _common_path(self):
@@ -1355,7 +1395,7 @@ class Bgp(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                return meta._meta_table['Bgp.Global.UseMultiplePaths']['meta_info']
+                return meta._meta_table['Bgp.Global_.UseMultiplePaths']['meta_info']
 
 
         class GracefulRestart(object):
@@ -1365,12 +1405,12 @@ class Bgp(object):
             .. attribute:: config
             
             	Configuration parameters relating to graceful\-restart
-            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.GracefulRestart.Config>`
+            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.GracefulRestart.Config>`
             
             .. attribute:: state
             
             	State information associated with graceful\-restart
-            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.GracefulRestart.State>`
+            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.GracefulRestart.State>`
             
             
 
@@ -1381,9 +1421,9 @@ class Bgp(object):
 
             def __init__(self):
                 self.parent = None
-                self.config = Bgp.Global.GracefulRestart.Config()
+                self.config = Bgp.Global_.GracefulRestart.Config()
                 self.config.parent = self
-                self.state = Bgp.Global.GracefulRestart.State()
+                self.state = Bgp.Global_.GracefulRestart.State()
                 self.state.parent = self
 
 
@@ -1411,7 +1451,7 @@ class Bgp(object):
                 .. attribute:: stale_routes_time
                 
                 	An upper\-bound on the time thate stale routes will be retained by a router after a session is restarted. If an End\-of\-RIB (EOR) marker is received prior to this timer expiring stale\-routes will be flushed upon its receipt \- if no EOR is received, then when this timer expires stale paths will be purged. This timer is referred to as the Selection\_Deferral\_Timer in RFC4724
-                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
@@ -1458,7 +1498,7 @@ class Bgp(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                    return meta._meta_table['Bgp.Global.GracefulRestart.Config']['meta_info']
+                    return meta._meta_table['Bgp.Global_.GracefulRestart.Config']['meta_info']
 
 
             class State(object):
@@ -1485,7 +1525,7 @@ class Bgp(object):
                 .. attribute:: stale_routes_time
                 
                 	An upper\-bound on the time thate stale routes will be retained by a router after a session is restarted. If an End\-of\-RIB (EOR) marker is received prior to this timer expiring stale\-routes will be flushed upon its receipt \- if no EOR is received, then when this timer expires stale paths will be purged. This timer is referred to as the Selection\_Deferral\_Timer in RFC4724
-                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                 
                 	**range:** \-92233720368547758.08..92233720368547758.07
                 
@@ -1532,7 +1572,7 @@ class Bgp(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                    return meta._meta_table['Bgp.Global.GracefulRestart.State']['meta_info']
+                    return meta._meta_table['Bgp.Global_.GracefulRestart.State']['meta_info']
 
             @property
             def _common_path(self):
@@ -1557,7 +1597,7 @@ class Bgp(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                return meta._meta_table['Bgp.Global.GracefulRestart']['meta_info']
+                return meta._meta_table['Bgp.Global_.GracefulRestart']['meta_info']
 
 
         class AfiSafis(object):
@@ -1567,7 +1607,7 @@ class Bgp(object):
             .. attribute:: afi_safi
             
             	AFI,SAFI configuration available for the neighbour or group
-            	**type**\: list of  :py:class:`AfiSafi <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi>`
+            	**type**\: list of    :py:class:`AfiSafi <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi>`
             
             
 
@@ -1591,87 +1631,87 @@ class Bgp(object):
                 .. attribute:: afi_safi_name  <key>
                 
                 	Reference to the AFI\-SAFI name used as a key for the AFI\-SAFI list
-                	**type**\:  :py:class:`AfiSafiTypeIdentity <ydk.models.openconfig.openconfig_bgp_types.AfiSafiTypeIdentity>`
+                	**type**\:   :py:class:`AfiSafiTypeIdentity <ydk.models.openconfig.openconfig_bgp_types.AfiSafiTypeIdentity>`
                 
                 .. attribute:: apply_policy
                 
                 	Anchor point for routing policies in the model. Import and export policies are with respect to the local routing table, i.e., export (send) and import (receive), depending on the context
-                	**type**\:  :py:class:`ApplyPolicy <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy>`
+                	**type**\:   :py:class:`ApplyPolicy <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy>`
                 
                 .. attribute:: config
                 
                 	Configuration parameters for the AFI\-SAFI
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Config>`
                 
                 .. attribute:: graceful_restart
                 
                 	Parameters relating to BGP graceful\-restart
-                	**type**\:  :py:class:`GracefulRestart <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.GracefulRestart>`
+                	**type**\:   :py:class:`GracefulRestart <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart>`
                 
                 .. attribute:: ipv4_labelled_unicast
                 
                 	IPv4 Labelled Unicast configuration options
-                	**type**\:  :py:class:`Ipv4LabelledUnicast <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast>`
+                	**type**\:   :py:class:`Ipv4LabelledUnicast <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast>`
                 
                 .. attribute:: ipv4_unicast
                 
                 	IPv4 unicast configuration options
-                	**type**\:  :py:class:`Ipv4Unicast <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast>`
+                	**type**\:   :py:class:`Ipv4Unicast <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast>`
                 
                 .. attribute:: ipv6_labelled_unicast
                 
                 	IPv6 Labelled Unicast configuration options
-                	**type**\:  :py:class:`Ipv6LabelledUnicast <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast>`
+                	**type**\:   :py:class:`Ipv6LabelledUnicast <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast>`
                 
                 .. attribute:: ipv6_unicast
                 
                 	IPv6 unicast configuration options
-                	**type**\:  :py:class:`Ipv6Unicast <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast>`
+                	**type**\:   :py:class:`Ipv6Unicast <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast>`
                 
                 .. attribute:: l2vpn_evpn
                 
                 	BGP EVPN configuration options
-                	**type**\:  :py:class:`L2VpnEvpn <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn>`
+                	**type**\:   :py:class:`L2VpnEvpn <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn>`
                 
                 .. attribute:: l2vpn_vpls
                 
                 	BGP\-signalled VPLS configuration options
-                	**type**\:  :py:class:`L2VpnVpls <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls>`
+                	**type**\:   :py:class:`L2VpnVpls <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls>`
                 
                 .. attribute:: l3vpn_ipv4_multicast
                 
                 	Multicast IPv4 L3VPN configuration options
-                	**type**\:  :py:class:`L3VpnIpv4Multicast <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast>`
+                	**type**\:   :py:class:`L3VpnIpv4Multicast <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast>`
                 
                 .. attribute:: l3vpn_ipv4_unicast
                 
                 	Unicast IPv4 L3VPN configuration options
-                	**type**\:  :py:class:`L3VpnIpv4Unicast <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast>`
+                	**type**\:   :py:class:`L3VpnIpv4Unicast <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast>`
                 
                 .. attribute:: l3vpn_ipv6_multicast
                 
                 	Multicast IPv6 L3VPN configuration options
-                	**type**\:  :py:class:`L3VpnIpv6Multicast <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast>`
+                	**type**\:   :py:class:`L3VpnIpv6Multicast <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast>`
                 
                 .. attribute:: l3vpn_ipv6_unicast
                 
                 	Unicast IPv6 L3VPN configuration options
-                	**type**\:  :py:class:`L3VpnIpv6Unicast <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast>`
+                	**type**\:   :py:class:`L3VpnIpv6Unicast <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast>`
                 
                 .. attribute:: route_selection_options
                 
                 	Parameters relating to options for route selection
-                	**type**\:  :py:class:`RouteSelectionOptions <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions>`
+                	**type**\:   :py:class:`RouteSelectionOptions <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions>`
                 
                 .. attribute:: state
                 
                 	State information relating to the AFI\-SAFI
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.State>`
                 
                 .. attribute:: use_multiple_paths
                 
                 	Parameters related to the use of multiple paths for the same NLRI
-                	**type**\:  :py:class:`UseMultiplePaths <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths>`
+                	**type**\:   :py:class:`UseMultiplePaths <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths>`
                 
                 
 
@@ -1683,37 +1723,37 @@ class Bgp(object):
                 def __init__(self):
                     self.parent = None
                     self.afi_safi_name = None
-                    self.apply_policy = Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy()
+                    self.apply_policy = Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy()
                     self.apply_policy.parent = self
-                    self.config = Bgp.Global.AfiSafis.AfiSafi.Config()
+                    self.config = Bgp.Global_.AfiSafis.AfiSafi.Config()
                     self.config.parent = self
-                    self.graceful_restart = Bgp.Global.AfiSafis.AfiSafi.GracefulRestart()
+                    self.graceful_restart = Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart()
                     self.graceful_restart.parent = self
-                    self.ipv4_labelled_unicast = Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast()
+                    self.ipv4_labelled_unicast = Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast()
                     self.ipv4_labelled_unicast.parent = self
-                    self.ipv4_unicast = Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast()
+                    self.ipv4_unicast = Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast()
                     self.ipv4_unicast.parent = self
-                    self.ipv6_labelled_unicast = Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast()
+                    self.ipv6_labelled_unicast = Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast()
                     self.ipv6_labelled_unicast.parent = self
-                    self.ipv6_unicast = Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast()
+                    self.ipv6_unicast = Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast()
                     self.ipv6_unicast.parent = self
-                    self.l2vpn_evpn = Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn()
+                    self.l2vpn_evpn = Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn()
                     self.l2vpn_evpn.parent = self
-                    self.l2vpn_vpls = Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls()
+                    self.l2vpn_vpls = Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls()
                     self.l2vpn_vpls.parent = self
-                    self.l3vpn_ipv4_multicast = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast()
+                    self.l3vpn_ipv4_multicast = Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast()
                     self.l3vpn_ipv4_multicast.parent = self
-                    self.l3vpn_ipv4_unicast = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast()
+                    self.l3vpn_ipv4_unicast = Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast()
                     self.l3vpn_ipv4_unicast.parent = self
-                    self.l3vpn_ipv6_multicast = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast()
+                    self.l3vpn_ipv6_multicast = Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast()
                     self.l3vpn_ipv6_multicast.parent = self
-                    self.l3vpn_ipv6_unicast = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast()
+                    self.l3vpn_ipv6_unicast = Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast()
                     self.l3vpn_ipv6_unicast.parent = self
-                    self.route_selection_options = Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions()
+                    self.route_selection_options = Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions()
                     self.route_selection_options.parent = self
-                    self.state = Bgp.Global.AfiSafis.AfiSafi.State()
+                    self.state = Bgp.Global_.AfiSafis.AfiSafi.State()
                     self.state.parent = self
-                    self.use_multiple_paths = Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths()
+                    self.use_multiple_paths = Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths()
                     self.use_multiple_paths.parent = self
 
 
@@ -1724,12 +1764,12 @@ class Bgp(object):
                     .. attribute:: config
                     
                     	Configuration options for BGP graceful\-restart
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.Config>`
+                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart.Config>`
                     
                     .. attribute:: state
                     
                     	State information for BGP graceful\-restart
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.State>`
+                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart.State>`
                     
                     
 
@@ -1740,9 +1780,9 @@ class Bgp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.config = Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.Config()
+                        self.config = Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart.Config()
                         self.config.parent = self
-                        self.state = Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.State()
+                        self.state = Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart.State()
                         self.state.parent = self
 
 
@@ -1754,6 +1794,8 @@ class Bgp(object):
                         
                         	This leaf indicates whether graceful\-restart is enabled for this AFI\-SAFI
                         	**type**\:  bool
+                        
+                        	**default value**\: false
                         
                         
 
@@ -1788,7 +1830,7 @@ class Bgp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                            return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.Config']['meta_info']
+                            return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart.Config']['meta_info']
 
 
                     class State(object):
@@ -1799,6 +1841,8 @@ class Bgp(object):
                         
                         	This leaf indicates whether graceful\-restart is enabled for this AFI\-SAFI
                         	**type**\:  bool
+                        
+                        	**default value**\: false
                         
                         
 
@@ -1833,7 +1877,7 @@ class Bgp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                            return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.GracefulRestart.State']['meta_info']
+                            return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart.State']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -1860,7 +1904,7 @@ class Bgp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                        return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.GracefulRestart']['meta_info']
+                        return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.GracefulRestart']['meta_info']
 
 
                 class Config(object):
@@ -1870,12 +1914,14 @@ class Bgp(object):
                     .. attribute:: afi_safi_name
                     
                     	AFI,SAFI
-                    	**type**\:  :py:class:`AfiSafiTypeIdentity <ydk.models.openconfig.openconfig_bgp_types.AfiSafiTypeIdentity>`
+                    	**type**\:   :py:class:`AfiSafiTypeIdentity <ydk.models.openconfig.openconfig_bgp_types.AfiSafiTypeIdentity>`
                     
                     .. attribute:: enabled
                     
                     	This leaf indicates whether the IPv4 Unicast AFI,SAFI is enabled for the neighbour or group
                     	**type**\:  bool
+                    
+                    	**default value**\: false
                     
                     
 
@@ -1914,7 +1960,7 @@ class Bgp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                        return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.Config']['meta_info']
+                        return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.Config']['meta_info']
 
 
                 class State(object):
@@ -1924,12 +1970,14 @@ class Bgp(object):
                     .. attribute:: afi_safi_name
                     
                     	AFI,SAFI
-                    	**type**\:  :py:class:`AfiSafiTypeIdentity <ydk.models.openconfig.openconfig_bgp_types.AfiSafiTypeIdentity>`
+                    	**type**\:   :py:class:`AfiSafiTypeIdentity <ydk.models.openconfig.openconfig_bgp_types.AfiSafiTypeIdentity>`
                     
                     .. attribute:: enabled
                     
                     	This leaf indicates whether the IPv4 Unicast AFI,SAFI is enabled for the neighbour or group
                     	**type**\:  bool
+                    
+                    	**default value**\: false
                     
                     .. attribute:: total_paths
                     
@@ -1990,7 +2038,7 @@ class Bgp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                        return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.State']['meta_info']
+                        return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.State']['meta_info']
 
 
                 class ApplyPolicy(object):
@@ -2003,12 +2051,12 @@ class Bgp(object):
                     .. attribute:: config
                     
                     	Policy configuration data
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy.Config>`
+                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy.Config>`
                     
                     .. attribute:: state
                     
                     	Operational state for routing policy
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy.State>`
+                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy.State>`
                     
                     
 
@@ -2019,9 +2067,9 @@ class Bgp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.config = Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy.Config()
+                        self.config = Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy.Config()
                         self.config.parent = self
-                        self.state = Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy.State()
+                        self.state = Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy.State()
                         self.state.parent = self
 
 
@@ -2032,26 +2080,30 @@ class Bgp(object):
                         .. attribute:: default_export_policy
                         
                         	explicitly set a default policy if no policy definition in the export policy chain is satisfied
-                        	**type**\:  :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                        	**type**\:   :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                        
+                        	**default value**\: REJECT-ROUTE
                         
                         .. attribute:: default_import_policy
                         
                         	explicitly set a default policy if no policy definition in the import policy chain is satisfied
-                        	**type**\:  :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                        	**type**\:   :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                        
+                        	**default value**\: REJECT-ROUTE
                         
                         .. attribute:: export_policy
                         
                         	list of policy names in sequence to be applied on sending a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                         	**type**\:  list of str
                         
-                        	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
+                        	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
                         
                         .. attribute:: import_policy
                         
                         	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                         	**type**\:  list of str
                         
-                        	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
+                        	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
                         
                         
 
@@ -2106,7 +2158,7 @@ class Bgp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                            return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy.Config']['meta_info']
+                            return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy.Config']['meta_info']
 
 
                     class State(object):
@@ -2116,26 +2168,30 @@ class Bgp(object):
                         .. attribute:: default_export_policy
                         
                         	explicitly set a default policy if no policy definition in the export policy chain is satisfied
-                        	**type**\:  :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                        	**type**\:   :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                        
+                        	**default value**\: REJECT-ROUTE
                         
                         .. attribute:: default_import_policy
                         
                         	explicitly set a default policy if no policy definition in the import policy chain is satisfied
-                        	**type**\:  :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                        	**type**\:   :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                        
+                        	**default value**\: REJECT-ROUTE
                         
                         .. attribute:: export_policy
                         
                         	list of policy names in sequence to be applied on sending a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                         	**type**\:  list of str
                         
-                        	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
+                        	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
                         
                         .. attribute:: import_policy
                         
                         	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                         	**type**\:  list of str
                         
-                        	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
+                        	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
                         
                         
 
@@ -2190,7 +2246,7 @@ class Bgp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                            return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy.State']['meta_info']
+                            return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy.State']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -2217,7 +2273,7 @@ class Bgp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                        return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.ApplyPolicy']['meta_info']
+                        return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.ApplyPolicy']['meta_info']
 
 
                 class Ipv4Unicast(object):
@@ -2227,17 +2283,17 @@ class Bgp(object):
                     .. attribute:: config
                     
                     	Configuration parameters for common IPv4 and IPv6 unicast AFI\-SAFI options
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.Config>`
+                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.Config>`
                     
                     .. attribute:: prefix_limit
                     
                     	Configure the maximum number of prefixes that will be accepted from a peer
-                    	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit>`
+                    	**type**\:   :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit>`
                     
                     .. attribute:: state
                     
                     	State information for common IPv4 and IPv6 unicast parameters
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.State>`
+                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.State>`
                     
                     
 
@@ -2248,11 +2304,11 @@ class Bgp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.config = Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.Config()
+                        self.config = Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.Config()
                         self.config.parent = self
-                        self.prefix_limit = Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit()
+                        self.prefix_limit = Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit()
                         self.prefix_limit.parent = self
-                        self.state = Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.State()
+                        self.state = Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.State()
                         self.state.parent = self
 
 
@@ -2264,12 +2320,12 @@ class Bgp(object):
                         .. attribute:: config
                         
                         	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config>`
                         
                         .. attribute:: state
                         
                         	State information relating to the prefix\-limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State>`
                         
                         
 
@@ -2280,9 +2336,9 @@ class Bgp(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.config = Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config()
+                            self.config = Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config()
                             self.config.parent = self
-                            self.state = Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State()
+                            self.state = Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State()
                             self.state.parent = self
 
 
@@ -2301,9 +2357,11 @@ class Bgp(object):
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                            	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**units**\: seconds
                             
                             .. attribute:: shutdown_threshold_pct
                             
@@ -2353,7 +2411,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                                return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config']['meta_info']
+                                return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config']['meta_info']
 
 
                         class State(object):
@@ -2371,9 +2429,11 @@ class Bgp(object):
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                            	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**units**\: seconds
                             
                             .. attribute:: shutdown_threshold_pct
                             
@@ -2423,7 +2483,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                                return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State']['meta_info']
+                                return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -2450,7 +2510,7 @@ class Bgp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                            return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit']['meta_info']
+                            return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit']['meta_info']
 
 
                     class Config(object):
@@ -2462,6 +2522,8 @@ class Bgp(object):
                         
                         	If set to true, send the default\-route to the neighbour(s)
                         	**type**\:  bool
+                        
+                        	**default value**\: false
                         
                         
 
@@ -2496,7 +2558,7 @@ class Bgp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                            return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.Config']['meta_info']
+                            return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.Config']['meta_info']
 
 
                     class State(object):
@@ -2508,6 +2570,8 @@ class Bgp(object):
                         
                         	If set to true, send the default\-route to the neighbour(s)
                         	**type**\:  bool
+                        
+                        	**default value**\: false
                         
                         
 
@@ -2542,7 +2606,7 @@ class Bgp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                            return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast.State']['meta_info']
+                            return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast.State']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -2572,7 +2636,7 @@ class Bgp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                        return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv4Unicast']['meta_info']
+                        return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv4Unicast']['meta_info']
 
 
                 class Ipv6Unicast(object):
@@ -2582,17 +2646,17 @@ class Bgp(object):
                     .. attribute:: config
                     
                     	Configuration parameters for common IPv4 and IPv6 unicast AFI\-SAFI options
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.Config>`
+                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.Config>`
                     
                     .. attribute:: prefix_limit
                     
                     	Configure the maximum number of prefixes that will be accepted from a peer
-                    	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit>`
+                    	**type**\:   :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit>`
                     
                     .. attribute:: state
                     
                     	State information for common IPv4 and IPv6 unicast parameters
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.State>`
+                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.State>`
                     
                     
 
@@ -2603,11 +2667,11 @@ class Bgp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.config = Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.Config()
+                        self.config = Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.Config()
                         self.config.parent = self
-                        self.prefix_limit = Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit()
+                        self.prefix_limit = Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit()
                         self.prefix_limit.parent = self
-                        self.state = Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.State()
+                        self.state = Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.State()
                         self.state.parent = self
 
 
@@ -2619,12 +2683,12 @@ class Bgp(object):
                         .. attribute:: config
                         
                         	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config>`
                         
                         .. attribute:: state
                         
                         	State information relating to the prefix\-limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State>`
                         
                         
 
@@ -2635,9 +2699,9 @@ class Bgp(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.config = Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config()
+                            self.config = Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config()
                             self.config.parent = self
-                            self.state = Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State()
+                            self.state = Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State()
                             self.state.parent = self
 
 
@@ -2656,9 +2720,11 @@ class Bgp(object):
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                            	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**units**\: seconds
                             
                             .. attribute:: shutdown_threshold_pct
                             
@@ -2708,7 +2774,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                                return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config']['meta_info']
+                                return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config']['meta_info']
 
 
                         class State(object):
@@ -2726,9 +2792,11 @@ class Bgp(object):
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                            	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**units**\: seconds
                             
                             .. attribute:: shutdown_threshold_pct
                             
@@ -2778,7 +2846,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                                return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State']['meta_info']
+                                return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -2805,7 +2873,7 @@ class Bgp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                            return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit']['meta_info']
+                            return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit']['meta_info']
 
 
                     class Config(object):
@@ -2817,6 +2885,8 @@ class Bgp(object):
                         
                         	If set to true, send the default\-route to the neighbour(s)
                         	**type**\:  bool
+                        
+                        	**default value**\: false
                         
                         
 
@@ -2851,7 +2921,7 @@ class Bgp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                            return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.Config']['meta_info']
+                            return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.Config']['meta_info']
 
 
                     class State(object):
@@ -2863,6 +2933,8 @@ class Bgp(object):
                         
                         	If set to true, send the default\-route to the neighbour(s)
                         	**type**\:  bool
+                        
+                        	**default value**\: false
                         
                         
 
@@ -2897,7 +2969,7 @@ class Bgp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                            return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast.State']['meta_info']
+                            return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast.State']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -2927,7 +2999,7 @@ class Bgp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                        return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6Unicast']['meta_info']
+                        return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv6Unicast']['meta_info']
 
 
                 class Ipv4LabelledUnicast(object):
@@ -2937,7 +3009,7 @@ class Bgp(object):
                     .. attribute:: prefix_limit
                     
                     	Configure the maximum number of prefixes that will be accepted from a peer
-                    	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit>`
+                    	**type**\:   :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit>`
                     
                     
 
@@ -2948,7 +3020,7 @@ class Bgp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.prefix_limit = Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit()
+                        self.prefix_limit = Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit()
                         self.prefix_limit.parent = self
 
 
@@ -2960,12 +3032,12 @@ class Bgp(object):
                         .. attribute:: config
                         
                         	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.Config>`
                         
                         .. attribute:: state
                         
                         	State information relating to the prefix\-limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.State>`
                         
                         
 
@@ -2976,9 +3048,9 @@ class Bgp(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.config = Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.Config()
+                            self.config = Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.Config()
                             self.config.parent = self
-                            self.state = Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.State()
+                            self.state = Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.State()
                             self.state.parent = self
 
 
@@ -2997,9 +3069,11 @@ class Bgp(object):
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                            	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**units**\: seconds
                             
                             .. attribute:: shutdown_threshold_pct
                             
@@ -3049,7 +3123,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                                return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.Config']['meta_info']
+                                return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.Config']['meta_info']
 
 
                         class State(object):
@@ -3067,9 +3141,11 @@ class Bgp(object):
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                            	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**units**\: seconds
                             
                             .. attribute:: shutdown_threshold_pct
                             
@@ -3119,7 +3195,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                                return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.State']['meta_info']
+                                return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.State']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -3146,7 +3222,7 @@ class Bgp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                            return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit']['meta_info']
+                            return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -3170,7 +3246,7 @@ class Bgp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                        return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv4LabelledUnicast']['meta_info']
+                        return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv4LabelledUnicast']['meta_info']
 
 
                 class Ipv6LabelledUnicast(object):
@@ -3180,7 +3256,7 @@ class Bgp(object):
                     .. attribute:: prefix_limit
                     
                     	Configure the maximum number of prefixes that will be accepted from a peer
-                    	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit>`
+                    	**type**\:   :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit>`
                     
                     
 
@@ -3191,7 +3267,7 @@ class Bgp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.prefix_limit = Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit()
+                        self.prefix_limit = Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit()
                         self.prefix_limit.parent = self
 
 
@@ -3203,12 +3279,12 @@ class Bgp(object):
                         .. attribute:: config
                         
                         	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.Config>`
                         
                         .. attribute:: state
                         
                         	State information relating to the prefix\-limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.State>`
                         
                         
 
@@ -3219,9 +3295,9 @@ class Bgp(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.config = Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.Config()
+                            self.config = Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.Config()
                             self.config.parent = self
-                            self.state = Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.State()
+                            self.state = Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.State()
                             self.state.parent = self
 
 
@@ -3240,9 +3316,11 @@ class Bgp(object):
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                            	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**units**\: seconds
                             
                             .. attribute:: shutdown_threshold_pct
                             
@@ -3292,7 +3370,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                                return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.Config']['meta_info']
+                                return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.Config']['meta_info']
 
 
                         class State(object):
@@ -3310,9 +3388,11 @@ class Bgp(object):
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                            	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**units**\: seconds
                             
                             .. attribute:: shutdown_threshold_pct
                             
@@ -3362,7 +3442,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                                return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.State']['meta_info']
+                                return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.State']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -3389,7 +3469,7 @@ class Bgp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                            return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit']['meta_info']
+                            return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -3413,7 +3493,7 @@ class Bgp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                        return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.Ipv6LabelledUnicast']['meta_info']
+                        return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.Ipv6LabelledUnicast']['meta_info']
 
 
                 class L3VpnIpv4Unicast(object):
@@ -3423,7 +3503,7 @@ class Bgp(object):
                     .. attribute:: prefix_limit
                     
                     	Configure the maximum number of prefixes that will be accepted from a peer
-                    	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit>`
+                    	**type**\:   :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit>`
                     
                     
 
@@ -3434,7 +3514,7 @@ class Bgp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.prefix_limit = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit()
+                        self.prefix_limit = Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit()
                         self.prefix_limit.parent = self
 
 
@@ -3446,12 +3526,12 @@ class Bgp(object):
                         .. attribute:: config
                         
                         	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config>`
                         
                         .. attribute:: state
                         
                         	State information relating to the prefix\-limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State>`
                         
                         
 
@@ -3462,9 +3542,9 @@ class Bgp(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.config = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config()
+                            self.config = Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config()
                             self.config.parent = self
-                            self.state = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State()
+                            self.state = Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State()
                             self.state.parent = self
 
 
@@ -3483,9 +3563,11 @@ class Bgp(object):
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                            	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**units**\: seconds
                             
                             .. attribute:: shutdown_threshold_pct
                             
@@ -3535,7 +3617,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                                return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config']['meta_info']
+                                return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config']['meta_info']
 
 
                         class State(object):
@@ -3553,9 +3635,11 @@ class Bgp(object):
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                            	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**units**\: seconds
                             
                             .. attribute:: shutdown_threshold_pct
                             
@@ -3605,7 +3689,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                                return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State']['meta_info']
+                                return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -3632,7 +3716,7 @@ class Bgp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                            return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit']['meta_info']
+                            return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -3656,7 +3740,7 @@ class Bgp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                        return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Unicast']['meta_info']
+                        return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Unicast']['meta_info']
 
 
                 class L3VpnIpv6Unicast(object):
@@ -3666,7 +3750,7 @@ class Bgp(object):
                     .. attribute:: prefix_limit
                     
                     	Configure the maximum number of prefixes that will be accepted from a peer
-                    	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit>`
+                    	**type**\:   :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit>`
                     
                     
 
@@ -3677,7 +3761,7 @@ class Bgp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.prefix_limit = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit()
+                        self.prefix_limit = Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit()
                         self.prefix_limit.parent = self
 
 
@@ -3689,12 +3773,12 @@ class Bgp(object):
                         .. attribute:: config
                         
                         	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config>`
                         
                         .. attribute:: state
                         
                         	State information relating to the prefix\-limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State>`
                         
                         
 
@@ -3705,9 +3789,9 @@ class Bgp(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.config = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config()
+                            self.config = Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config()
                             self.config.parent = self
-                            self.state = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State()
+                            self.state = Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State()
                             self.state.parent = self
 
 
@@ -3726,9 +3810,11 @@ class Bgp(object):
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                            	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**units**\: seconds
                             
                             .. attribute:: shutdown_threshold_pct
                             
@@ -3778,7 +3864,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                                return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config']['meta_info']
+                                return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config']['meta_info']
 
 
                         class State(object):
@@ -3796,9 +3882,11 @@ class Bgp(object):
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                            	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**units**\: seconds
                             
                             .. attribute:: shutdown_threshold_pct
                             
@@ -3848,7 +3936,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                                return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State']['meta_info']
+                                return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -3875,7 +3963,7 @@ class Bgp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                            return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit']['meta_info']
+                            return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -3899,7 +3987,7 @@ class Bgp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                        return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Unicast']['meta_info']
+                        return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Unicast']['meta_info']
 
 
                 class L3VpnIpv4Multicast(object):
@@ -3909,7 +3997,7 @@ class Bgp(object):
                     .. attribute:: prefix_limit
                     
                     	Configure the maximum number of prefixes that will be accepted from a peer
-                    	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit>`
+                    	**type**\:   :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit>`
                     
                     
 
@@ -3920,7 +4008,7 @@ class Bgp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.prefix_limit = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit()
+                        self.prefix_limit = Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit()
                         self.prefix_limit.parent = self
 
 
@@ -3932,12 +4020,12 @@ class Bgp(object):
                         .. attribute:: config
                         
                         	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config>`
                         
                         .. attribute:: state
                         
                         	State information relating to the prefix\-limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State>`
                         
                         
 
@@ -3948,9 +4036,9 @@ class Bgp(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.config = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config()
+                            self.config = Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config()
                             self.config.parent = self
-                            self.state = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State()
+                            self.state = Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State()
                             self.state.parent = self
 
 
@@ -3969,9 +4057,11 @@ class Bgp(object):
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                            	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**units**\: seconds
                             
                             .. attribute:: shutdown_threshold_pct
                             
@@ -4021,7 +4111,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                                return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config']['meta_info']
+                                return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config']['meta_info']
 
 
                         class State(object):
@@ -4039,9 +4129,11 @@ class Bgp(object):
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                            	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**units**\: seconds
                             
                             .. attribute:: shutdown_threshold_pct
                             
@@ -4091,7 +4183,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                                return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State']['meta_info']
+                                return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -4118,7 +4210,7 @@ class Bgp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                            return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit']['meta_info']
+                            return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -4142,7 +4234,7 @@ class Bgp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                        return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv4Multicast']['meta_info']
+                        return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv4Multicast']['meta_info']
 
 
                 class L3VpnIpv6Multicast(object):
@@ -4152,7 +4244,7 @@ class Bgp(object):
                     .. attribute:: prefix_limit
                     
                     	Configure the maximum number of prefixes that will be accepted from a peer
-                    	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit>`
+                    	**type**\:   :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit>`
                     
                     
 
@@ -4163,7 +4255,7 @@ class Bgp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.prefix_limit = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit()
+                        self.prefix_limit = Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit()
                         self.prefix_limit.parent = self
 
 
@@ -4175,12 +4267,12 @@ class Bgp(object):
                         .. attribute:: config
                         
                         	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config>`
                         
                         .. attribute:: state
                         
                         	State information relating to the prefix\-limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State>`
                         
                         
 
@@ -4191,9 +4283,9 @@ class Bgp(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.config = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config()
+                            self.config = Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config()
                             self.config.parent = self
-                            self.state = Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State()
+                            self.state = Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State()
                             self.state.parent = self
 
 
@@ -4212,9 +4304,11 @@ class Bgp(object):
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                            	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**units**\: seconds
                             
                             .. attribute:: shutdown_threshold_pct
                             
@@ -4264,7 +4358,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                                return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config']['meta_info']
+                                return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config']['meta_info']
 
 
                         class State(object):
@@ -4282,9 +4376,11 @@ class Bgp(object):
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                            	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**units**\: seconds
                             
                             .. attribute:: shutdown_threshold_pct
                             
@@ -4334,7 +4430,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                                return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State']['meta_info']
+                                return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -4361,7 +4457,7 @@ class Bgp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                            return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit']['meta_info']
+                            return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -4385,7 +4481,7 @@ class Bgp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                        return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.L3VpnIpv6Multicast']['meta_info']
+                        return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.L3VpnIpv6Multicast']['meta_info']
 
 
                 class L2VpnVpls(object):
@@ -4395,7 +4491,7 @@ class Bgp(object):
                     .. attribute:: prefix_limit
                     
                     	Configure the maximum number of prefixes that will be accepted from a peer
-                    	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit>`
+                    	**type**\:   :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit>`
                     
                     
 
@@ -4406,7 +4502,7 @@ class Bgp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.prefix_limit = Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit()
+                        self.prefix_limit = Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit()
                         self.prefix_limit.parent = self
 
 
@@ -4418,12 +4514,12 @@ class Bgp(object):
                         .. attribute:: config
                         
                         	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config>`
                         
                         .. attribute:: state
                         
                         	State information relating to the prefix\-limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State>`
                         
                         
 
@@ -4434,9 +4530,9 @@ class Bgp(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.config = Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config()
+                            self.config = Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config()
                             self.config.parent = self
-                            self.state = Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State()
+                            self.state = Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State()
                             self.state.parent = self
 
 
@@ -4455,9 +4551,11 @@ class Bgp(object):
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                            	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**units**\: seconds
                             
                             .. attribute:: shutdown_threshold_pct
                             
@@ -4507,7 +4605,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                                return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config']['meta_info']
+                                return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config']['meta_info']
 
 
                         class State(object):
@@ -4525,9 +4623,11 @@ class Bgp(object):
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                            	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**units**\: seconds
                             
                             .. attribute:: shutdown_threshold_pct
                             
@@ -4577,7 +4677,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                                return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State']['meta_info']
+                                return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -4604,7 +4704,7 @@ class Bgp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                            return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit']['meta_info']
+                            return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -4628,7 +4728,7 @@ class Bgp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                        return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnVpls']['meta_info']
+                        return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.L2VpnVpls']['meta_info']
 
 
                 class L2VpnEvpn(object):
@@ -4638,7 +4738,7 @@ class Bgp(object):
                     .. attribute:: prefix_limit
                     
                     	Configure the maximum number of prefixes that will be accepted from a peer
-                    	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit>`
+                    	**type**\:   :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit>`
                     
                     
 
@@ -4649,7 +4749,7 @@ class Bgp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.prefix_limit = Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit()
+                        self.prefix_limit = Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit()
                         self.prefix_limit.parent = self
 
 
@@ -4661,12 +4761,12 @@ class Bgp(object):
                         .. attribute:: config
                         
                         	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config>`
                         
                         .. attribute:: state
                         
                         	State information relating to the prefix\-limit for the AFI\-SAFI
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State>`
                         
                         
 
@@ -4677,9 +4777,9 @@ class Bgp(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.config = Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config()
+                            self.config = Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config()
                             self.config.parent = self
-                            self.state = Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State()
+                            self.state = Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State()
                             self.state.parent = self
 
 
@@ -4698,9 +4798,11 @@ class Bgp(object):
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                            	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**units**\: seconds
                             
                             .. attribute:: shutdown_threshold_pct
                             
@@ -4750,7 +4852,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                                return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config']['meta_info']
+                                return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config']['meta_info']
 
 
                         class State(object):
@@ -4768,9 +4870,11 @@ class Bgp(object):
                             .. attribute:: restart_timer
                             
                             	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                            	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                            	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                             
                             	**range:** \-92233720368547758.08..92233720368547758.07
+                            
+                            	**units**\: seconds
                             
                             .. attribute:: shutdown_threshold_pct
                             
@@ -4820,7 +4924,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                                return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State']['meta_info']
+                                return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -4847,7 +4951,7 @@ class Bgp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                            return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit']['meta_info']
+                            return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -4871,7 +4975,7 @@ class Bgp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                        return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.L2VpnEvpn']['meta_info']
+                        return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.L2VpnEvpn']['meta_info']
 
 
                 class RouteSelectionOptions(object):
@@ -4881,12 +4985,12 @@ class Bgp(object):
                     .. attribute:: config
                     
                     	Configuration parameters relating to route selection options
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.Config>`
+                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions.Config>`
                     
                     .. attribute:: state
                     
                     	State information for the route selection options
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.State>`
+                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions.State>`
                     
                     
 
@@ -4897,9 +5001,9 @@ class Bgp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.config = Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.Config()
+                        self.config = Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions.Config()
                         self.config.parent = self
-                        self.state = Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.State()
+                        self.state = Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions.State()
                         self.state.parent = self
 
 
@@ -4913,30 +5017,42 @@ class Bgp(object):
                         	Advertise inactive routes to external peers.  The default is to only advertise active routes
                         	**type**\:  bool
                         
+                        	**default value**\: false
+                        
                         .. attribute:: always_compare_med
                         
                         	Compare multi\-exit discriminator (MED) value from different ASes when selecting the best route.  The default behavior is to only compare MEDs for paths received from the same AS
                         	**type**\:  bool
+                        
+                        	**default value**\: false
                         
                         .. attribute:: enable_aigp
                         
                         	Flag to enable sending / receiving accumulated IGP attribute in routing updates
                         	**type**\:  bool
                         
+                        	**default value**\: false
+                        
                         .. attribute:: external_compare_router_id
                         
                         	When comparing similar routes received from external BGP peers, use the router\-id as a criterion to select the active path
                         	**type**\:  bool
+                        
+                        	**default value**\: true
                         
                         .. attribute:: ignore_as_path_length
                         
                         	Ignore the AS path length when selecting the best path. The default is to use the AS path length and prefer paths with shorter length
                         	**type**\:  bool
                         
+                        	**default value**\: false
+                        
                         .. attribute:: ignore_next_hop_igp_metric
                         
                         	Ignore the IGP metric to the next\-hop when calculating BGP best\-path. The default is to select the route for which the metric to the next\-hop is lowest
                         	**type**\:  bool
+                        
+                        	**default value**\: false
                         
                         
 
@@ -4991,7 +5107,7 @@ class Bgp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                            return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.Config']['meta_info']
+                            return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions.Config']['meta_info']
 
 
                     class State(object):
@@ -5003,30 +5119,42 @@ class Bgp(object):
                         	Advertise inactive routes to external peers.  The default is to only advertise active routes
                         	**type**\:  bool
                         
+                        	**default value**\: false
+                        
                         .. attribute:: always_compare_med
                         
                         	Compare multi\-exit discriminator (MED) value from different ASes when selecting the best route.  The default behavior is to only compare MEDs for paths received from the same AS
                         	**type**\:  bool
+                        
+                        	**default value**\: false
                         
                         .. attribute:: enable_aigp
                         
                         	Flag to enable sending / receiving accumulated IGP attribute in routing updates
                         	**type**\:  bool
                         
+                        	**default value**\: false
+                        
                         .. attribute:: external_compare_router_id
                         
                         	When comparing similar routes received from external BGP peers, use the router\-id as a criterion to select the active path
                         	**type**\:  bool
+                        
+                        	**default value**\: true
                         
                         .. attribute:: ignore_as_path_length
                         
                         	Ignore the AS path length when selecting the best path. The default is to use the AS path length and prefer paths with shorter length
                         	**type**\:  bool
                         
+                        	**default value**\: false
+                        
                         .. attribute:: ignore_next_hop_igp_metric
                         
                         	Ignore the IGP metric to the next\-hop when calculating BGP best\-path. The default is to select the route for which the metric to the next\-hop is lowest
                         	**type**\:  bool
+                        
+                        	**default value**\: false
                         
                         
 
@@ -5081,7 +5209,7 @@ class Bgp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                            return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions.State']['meta_info']
+                            return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions.State']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -5108,7 +5236,7 @@ class Bgp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                        return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.RouteSelectionOptions']['meta_info']
+                        return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.RouteSelectionOptions']['meta_info']
 
 
                 class UseMultiplePaths(object):
@@ -5119,22 +5247,22 @@ class Bgp(object):
                     .. attribute:: config
                     
                     	Configuration parameters relating to multipath
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Config>`
+                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Config>`
                     
                     .. attribute:: ebgp
                     
                     	Multipath parameters for eBGP
-                    	**type**\:  :py:class:`Ebgp <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp>`
+                    	**type**\:   :py:class:`Ebgp <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp>`
                     
                     .. attribute:: ibgp
                     
                     	Multipath parameters for iBGP
-                    	**type**\:  :py:class:`Ibgp <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp>`
+                    	**type**\:   :py:class:`Ibgp <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp>`
                     
                     .. attribute:: state
                     
                     	State parameters relating to multipath
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.State>`
+                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.State>`
                     
                     
 
@@ -5145,13 +5273,13 @@ class Bgp(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.config = Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Config()
+                        self.config = Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Config()
                         self.config.parent = self
-                        self.ebgp = Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp()
+                        self.ebgp = Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp()
                         self.ebgp.parent = self
-                        self.ibgp = Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp()
+                        self.ibgp = Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp()
                         self.ibgp.parent = self
-                        self.state = Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.State()
+                        self.state = Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.State()
                         self.state.parent = self
 
 
@@ -5163,6 +5291,8 @@ class Bgp(object):
                         
                         	Whether the use of multiple paths for the same NLRI is enabled for the neighbor. This value is overridden by any more specific configuration value
                         	**type**\:  bool
+                        
+                        	**default value**\: false
                         
                         
 
@@ -5197,7 +5327,7 @@ class Bgp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                            return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Config']['meta_info']
+                            return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Config']['meta_info']
 
 
                     class State(object):
@@ -5208,6 +5338,8 @@ class Bgp(object):
                         
                         	Whether the use of multiple paths for the same NLRI is enabled for the neighbor. This value is overridden by any more specific configuration value
                         	**type**\:  bool
+                        
+                        	**default value**\: false
                         
                         
 
@@ -5242,7 +5374,7 @@ class Bgp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                            return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.State']['meta_info']
+                            return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.State']['meta_info']
 
 
                     class Ebgp(object):
@@ -5252,12 +5384,12 @@ class Bgp(object):
                         .. attribute:: config
                         
                         	Configuration parameters relating to eBGP multipath
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config>`
                         
                         .. attribute:: state
                         
                         	State information relating to eBGP multipath
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State>`
                         
                         
 
@@ -5268,9 +5400,9 @@ class Bgp(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.config = Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config()
+                            self.config = Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config()
                             self.config.parent = self
-                            self.state = Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State()
+                            self.state = Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State()
                             self.state.parent = self
 
 
@@ -5283,12 +5415,16 @@ class Bgp(object):
                             	Allow multipath to use paths from different neighbouring ASes.  The default is to only consider multiple paths from the same neighbouring AS
                             	**type**\:  bool
                             
+                            	**default value**\: false
+                            
                             .. attribute:: maximum_paths
                             
                             	Maximum number of parallel paths to consider when using BGP multipath. The default is use a single path
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
+                            
+                            	**default value**\: 1
                             
                             
 
@@ -5327,7 +5463,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                                return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config']['meta_info']
+                                return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config']['meta_info']
 
 
                         class State(object):
@@ -5339,12 +5475,16 @@ class Bgp(object):
                             	Allow multipath to use paths from different neighbouring ASes.  The default is to only consider multiple paths from the same neighbouring AS
                             	**type**\:  bool
                             
+                            	**default value**\: false
+                            
                             .. attribute:: maximum_paths
                             
                             	Maximum number of parallel paths to consider when using BGP multipath. The default is use a single path
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
+                            
+                            	**default value**\: 1
                             
                             
 
@@ -5383,7 +5523,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                                return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State']['meta_info']
+                                return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -5410,7 +5550,7 @@ class Bgp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                            return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp']['meta_info']
+                            return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp']['meta_info']
 
 
                     class Ibgp(object):
@@ -5420,12 +5560,12 @@ class Bgp(object):
                         .. attribute:: config
                         
                         	Configuration parameters relating to iBGP multipath
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config>`
                         
                         .. attribute:: state
                         
                         	State information relating to iBGP multipath
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State>`
                         
                         
 
@@ -5436,9 +5576,9 @@ class Bgp(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.config = Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config()
+                            self.config = Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config()
                             self.config.parent = self
-                            self.state = Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State()
+                            self.state = Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State()
                             self.state.parent = self
 
 
@@ -5452,6 +5592,8 @@ class Bgp(object):
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
+                            
+                            	**default value**\: 1
                             
                             
 
@@ -5486,7 +5628,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                                return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config']['meta_info']
+                                return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config']['meta_info']
 
 
                         class State(object):
@@ -5499,6 +5641,8 @@ class Bgp(object):
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
+                            
+                            	**default value**\: 1
                             
                             
 
@@ -5533,7 +5677,7 @@ class Bgp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                                return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State']['meta_info']
+                                return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -5560,7 +5704,7 @@ class Bgp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                            return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp']['meta_info']
+                            return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -5593,7 +5737,7 @@ class Bgp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                        return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi.UseMultiplePaths']['meta_info']
+                        return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi.UseMultiplePaths']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -5665,7 +5809,7 @@ class Bgp(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                    return meta._meta_table['Bgp.Global.AfiSafis.AfiSafi']['meta_info']
+                    return meta._meta_table['Bgp.Global_.AfiSafis.AfiSafi']['meta_info']
 
             @property
             def _common_path(self):
@@ -5689,7 +5833,7 @@ class Bgp(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                return meta._meta_table['Bgp.Global.AfiSafis']['meta_info']
+                return meta._meta_table['Bgp.Global_.AfiSafis']['meta_info']
 
 
         class ApplyPolicy(object):
@@ -5702,12 +5846,12 @@ class Bgp(object):
             .. attribute:: config
             
             	Policy configuration data
-            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global.ApplyPolicy.Config>`
+            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.ApplyPolicy.Config>`
             
             .. attribute:: state
             
             	Operational state for routing policy
-            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global.ApplyPolicy.State>`
+            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Global_.ApplyPolicy.State>`
             
             
 
@@ -5718,9 +5862,9 @@ class Bgp(object):
 
             def __init__(self):
                 self.parent = None
-                self.config = Bgp.Global.ApplyPolicy.Config()
+                self.config = Bgp.Global_.ApplyPolicy.Config()
                 self.config.parent = self
-                self.state = Bgp.Global.ApplyPolicy.State()
+                self.state = Bgp.Global_.ApplyPolicy.State()
                 self.state.parent = self
 
 
@@ -5731,26 +5875,30 @@ class Bgp(object):
                 .. attribute:: default_export_policy
                 
                 	explicitly set a default policy if no policy definition in the export policy chain is satisfied
-                	**type**\:  :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                	**type**\:   :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                
+                	**default value**\: REJECT-ROUTE
                 
                 .. attribute:: default_import_policy
                 
                 	explicitly set a default policy if no policy definition in the import policy chain is satisfied
-                	**type**\:  :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                	**type**\:   :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                
+                	**default value**\: REJECT-ROUTE
                 
                 .. attribute:: export_policy
                 
                 	list of policy names in sequence to be applied on sending a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                 	**type**\:  list of str
                 
-                	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
+                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
                 
                 .. attribute:: import_policy
                 
                 	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                 	**type**\:  list of str
                 
-                	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
+                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
                 
                 
 
@@ -5803,7 +5951,7 @@ class Bgp(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                    return meta._meta_table['Bgp.Global.ApplyPolicy.Config']['meta_info']
+                    return meta._meta_table['Bgp.Global_.ApplyPolicy.Config']['meta_info']
 
 
             class State(object):
@@ -5813,26 +5961,30 @@ class Bgp(object):
                 .. attribute:: default_export_policy
                 
                 	explicitly set a default policy if no policy definition in the export policy chain is satisfied
-                	**type**\:  :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                	**type**\:   :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                
+                	**default value**\: REJECT-ROUTE
                 
                 .. attribute:: default_import_policy
                 
                 	explicitly set a default policy if no policy definition in the import policy chain is satisfied
-                	**type**\:  :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                	**type**\:   :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                
+                	**default value**\: REJECT-ROUTE
                 
                 .. attribute:: export_policy
                 
                 	list of policy names in sequence to be applied on sending a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                 	**type**\:  list of str
                 
-                	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
+                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
                 
                 .. attribute:: import_policy
                 
                 	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                 	**type**\:  list of str
                 
-                	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
+                	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
                 
                 
 
@@ -5885,7 +6037,7 @@ class Bgp(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                    return meta._meta_table['Bgp.Global.ApplyPolicy.State']['meta_info']
+                    return meta._meta_table['Bgp.Global_.ApplyPolicy.State']['meta_info']
 
             @property
             def _common_path(self):
@@ -5910,7 +6062,7 @@ class Bgp(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.openconfig._meta import _openconfig_bgp as meta
-                return meta._meta_table['Bgp.Global.ApplyPolicy']['meta_info']
+                return meta._meta_table['Bgp.Global_.ApplyPolicy']['meta_info']
 
         @property
         def _common_path(self):
@@ -5956,7 +6108,7 @@ class Bgp(object):
         @staticmethod
         def _meta_info():
             from ydk.models.openconfig._meta import _openconfig_bgp as meta
-            return meta._meta_table['Bgp.Global']['meta_info']
+            return meta._meta_table['Bgp.Global_']['meta_info']
 
 
     class Neighbors(object):
@@ -5966,7 +6118,7 @@ class Bgp(object):
         .. attribute:: neighbor
         
         	List of BGP neighbors configured on the local system, uniquely identified by peer IPv[46] address
-        	**type**\: list of  :py:class:`Neighbor <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor>`
+        	**type**\: list of    :py:class:`Neighbor <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor>`
         
         
 
@@ -6007,72 +6159,72 @@ class Bgp(object):
             .. attribute:: add_paths
             
             	Parameters relating to the advertisement and receipt of multiple paths for a single NLRI (add\-paths)
-            	**type**\:  :py:class:`AddPaths <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AddPaths>`
+            	**type**\:   :py:class:`AddPaths <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AddPaths>`
             
             .. attribute:: afi_safis
             
             	Per\-address\-family configuration parameters associated with the neighbor or group
-            	**type**\:  :py:class:`AfiSafis <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis>`
+            	**type**\:   :py:class:`AfiSafis <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis>`
             
             .. attribute:: apply_policy
             
             	Anchor point for routing policies in the model. Import and export policies are with respect to the local routing table, i.e., export (send) and import (receive), depending on the context
-            	**type**\:  :py:class:`ApplyPolicy <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.ApplyPolicy>`
+            	**type**\:   :py:class:`ApplyPolicy <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.ApplyPolicy>`
             
             .. attribute:: as_path_options
             
             	AS\_PATH manipulation parameters for the BGP neighbor or group
-            	**type**\:  :py:class:`AsPathOptions <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AsPathOptions>`
+            	**type**\:   :py:class:`AsPathOptions <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AsPathOptions>`
             
             .. attribute:: config
             
             	Configuration parameters relating to the BGP neighbor or group
-            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.Config>`
+            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.Config>`
             
             .. attribute:: ebgp_multihop
             
             	eBGP multi\-hop parameters for the BGP neighbor or group
-            	**type**\:  :py:class:`EbgpMultihop <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.EbgpMultihop>`
+            	**type**\:   :py:class:`EbgpMultihop <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.EbgpMultihop>`
             
             .. attribute:: error_handling
             
             	Error handling parameters used for the BGP neighbor or group
-            	**type**\:  :py:class:`ErrorHandling <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.ErrorHandling>`
+            	**type**\:   :py:class:`ErrorHandling <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.ErrorHandling>`
             
             .. attribute:: graceful_restart
             
             	Parameters relating the graceful restart mechanism for BGP
-            	**type**\:  :py:class:`GracefulRestart <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.GracefulRestart>`
+            	**type**\:   :py:class:`GracefulRestart <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.GracefulRestart>`
             
             .. attribute:: logging_options
             
             	Logging options for events related to the BGP neighbor or group
-            	**type**\:  :py:class:`LoggingOptions <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.LoggingOptions>`
+            	**type**\:   :py:class:`LoggingOptions <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.LoggingOptions>`
             
             .. attribute:: route_reflector
             
             	Route reflector parameters for the BGP neighbor or group
-            	**type**\:  :py:class:`RouteReflector <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.RouteReflector>`
+            	**type**\:   :py:class:`RouteReflector <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.RouteReflector>`
             
             .. attribute:: state
             
             	State information relating to the BGP neighbor or group
-            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.State>`
+            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.State>`
             
             .. attribute:: timers
             
             	Timers related to a BGP neighbor or group
-            	**type**\:  :py:class:`Timers <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.Timers>`
+            	**type**\:   :py:class:`Timers <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.Timers>`
             
             .. attribute:: transport
             
             	Transport session parameters for the BGP neighbor or group
-            	**type**\:  :py:class:`Transport <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.Transport>`
+            	**type**\:   :py:class:`Transport <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.Transport>`
             
             .. attribute:: use_multiple_paths
             
             	Parameters related to the use of multiple\-paths for the same NLRI when they are received only from this neighbor
-            	**type**\:  :py:class:`UseMultiplePaths <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.UseMultiplePaths>`
+            	**type**\:   :py:class:`UseMultiplePaths <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.UseMultiplePaths>`
             
             
 
@@ -6165,27 +6317,31 @@ class Bgp(object):
                 	The peer\-group with which this neighbor is associated
                 	**type**\:  str
                 
-                	**refers to**\: :py:class:`peer_group_name <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup>`
+                	**refers to**\:  :py:class:`peer_group_name <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup>`
                 
                 .. attribute:: peer_type
                 
                 	Explicitly designate the peer or peer group as internal (iBGP) or external (eBGP)
-                	**type**\:  :py:class:`PeerTypeEnum <ydk.models.openconfig.openconfig_bgp_types.PeerTypeEnum>`
+                	**type**\:   :py:class:`PeerTypeEnum <ydk.models.openconfig.openconfig_bgp_types.PeerTypeEnum>`
                 
                 .. attribute:: remove_private_as
                 
                 	Remove private AS numbers from updates sent to peers
-                	**type**\:  :py:class:`RemovePrivateAsOptionEnum <ydk.models.openconfig.openconfig_bgp_types.RemovePrivateAsOptionEnum>`
+                	**type**\:   :py:class:`RemovePrivateAsOptionEnum <ydk.models.openconfig.openconfig_bgp_types.RemovePrivateAsOptionEnum>`
                 
                 .. attribute:: route_flap_damping
                 
                 	Enable route flap damping
                 	**type**\:  bool
                 
+                	**default value**\: false
+                
                 .. attribute:: send_community
                 
                 	Specify which types of community should be sent to the neighbor or group. The default is to not send the community attribute
-                	**type**\:  :py:class:`CommunityTypeEnum <ydk.models.openconfig.openconfig_bgp_types.CommunityTypeEnum>`
+                	**type**\:   :py:class:`CommunityTypeEnum <ydk.models.openconfig.openconfig_bgp_types.CommunityTypeEnum>`
+                
+                	**default value**\: NONE
                 
                 
 
@@ -6283,7 +6439,7 @@ class Bgp(object):
                 .. attribute:: messages
                 
                 	Counters for BGP messages sent and received from the neighbor
-                	**type**\:  :py:class:`Messages <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.State.Messages>`
+                	**type**\:   :py:class:`Messages <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.State.Messages>`
                 
                 .. attribute:: neighbor_address
                 
@@ -6314,42 +6470,47 @@ class Bgp(object):
                 	The peer\-group with which this neighbor is associated
                 	**type**\:  str
                 
-                	**refers to**\: :py:class:`peer_group_name <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup>`
+                	**refers to**\:  :py:class:`peer_group_name <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup>`
                 
                 .. attribute:: peer_type
                 
                 	Explicitly designate the peer or peer group as internal (iBGP) or external (eBGP)
-                	**type**\:  :py:class:`PeerTypeEnum <ydk.models.openconfig.openconfig_bgp_types.PeerTypeEnum>`
+                	**type**\:   :py:class:`PeerTypeEnum <ydk.models.openconfig.openconfig_bgp_types.PeerTypeEnum>`
                 
                 .. attribute:: queues
                 
                 	Counters related to queued messages associated with the BGP neighbor
-                	**type**\:  :py:class:`Queues <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.State.Queues>`
+                	**type**\:   :py:class:`Queues <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.State.Queues>`
                 
                 .. attribute:: remove_private_as
                 
                 	Remove private AS numbers from updates sent to peers
-                	**type**\:  :py:class:`RemovePrivateAsOptionEnum <ydk.models.openconfig.openconfig_bgp_types.RemovePrivateAsOptionEnum>`
+                	**type**\:   :py:class:`RemovePrivateAsOptionEnum <ydk.models.openconfig.openconfig_bgp_types.RemovePrivateAsOptionEnum>`
                 
                 .. attribute:: route_flap_damping
                 
                 	Enable route flap damping
                 	**type**\:  bool
                 
+                	**default value**\: false
+                
                 .. attribute:: send_community
                 
                 	Specify which types of community should be sent to the neighbor or group. The default is to not send the community attribute
-                	**type**\:  :py:class:`CommunityTypeEnum <ydk.models.openconfig.openconfig_bgp_types.CommunityTypeEnum>`
+                	**type**\:   :py:class:`CommunityTypeEnum <ydk.models.openconfig.openconfig_bgp_types.CommunityTypeEnum>`
+                
+                	**default value**\: NONE
                 
                 .. attribute:: session_state
                 
                 	Operational state of the BGP peer
-                	**type**\:  :py:class:`SessionStateEnum <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.State.SessionStateEnum>`
+                	**type**\:   :py:class:`SessionStateEnum <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.State.SessionStateEnum>`
                 
                 .. attribute:: supported_capabilities
                 
                 	BGP capabilities negotiated as supported with the peer
-                	**type**\:  list of :py:class:`BgpCapabilityIdentity <ydk.models.openconfig.openconfig_bgp_types.BgpCapabilityIdentity>`
+                	**type**\:  
+                		list of  
                 
                 
 
@@ -6453,12 +6614,12 @@ class Bgp(object):
                     .. attribute:: received
                     
                     	Counters for BGP messages received from the neighbor
-                    	**type**\:  :py:class:`Received <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.State.Messages.Received>`
+                    	**type**\:   :py:class:`Received <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.State.Messages.Received>`
                     
                     .. attribute:: sent
                     
                     	Counters relating to BGP messages sent to the neighbor
-                    	**type**\:  :py:class:`Sent <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.State.Messages.Sent>`
+                    	**type**\:   :py:class:`Sent <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.State.Messages.Sent>`
                     
                     
 
@@ -6749,12 +6910,12 @@ class Bgp(object):
                 .. attribute:: config
                 
                 	Configuration parameters relating to timers used for the BGP neighbor or group
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.Timers.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.Timers.Config>`
                 
                 .. attribute:: state
                 
                 	State information relating to the timers used for the BGP neighbor or group
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.Timers.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.Timers.State>`
                 
                 
 
@@ -6779,30 +6940,38 @@ class Bgp(object):
                     .. attribute:: connect_retry
                     
                     	Time interval in seconds between attempts to establish a session with the peer
-                    	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**default value**\: 30
                     
                     .. attribute:: hold_time
                     
                     	Time interval in seconds that a BGP session will be considered active in the absence of keepalive or other messages from the peer.  The hold\-time is typically set to 3x the keepalive\-interval
-                    	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**default value**\: 90
                     
                     .. attribute:: keepalive_interval
                     
                     	Time interval in seconds between transmission of keepalive messages to the neighbor.  Typically set to 1/3 the hold\-time
-                    	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**default value**\: 30
                     
                     .. attribute:: minimum_advertisement_interval
                     
                     	Minimum time which must elapse between subsequent UPDATE messages relating to a common set of NLRI being transmitted to a peer. This timer is referred to as MinRouteAdvertisementIntervalTimer by RFC 4721 and serves to reduce the number of UPDATE messages transmitted when a particular set of NLRI exhibit instability
-                    	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**default value**\: 30
                     
                     
 
@@ -6860,35 +7029,43 @@ class Bgp(object):
                     .. attribute:: connect_retry
                     
                     	Time interval in seconds between attempts to establish a session with the peer
-                    	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**default value**\: 30
                     
                     .. attribute:: hold_time
                     
                     	Time interval in seconds that a BGP session will be considered active in the absence of keepalive or other messages from the peer.  The hold\-time is typically set to 3x the keepalive\-interval
-                    	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**default value**\: 90
                     
                     .. attribute:: keepalive_interval
                     
                     	Time interval in seconds between transmission of keepalive messages to the neighbor.  Typically set to 1/3 the hold\-time
-                    	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**default value**\: 30
                     
                     .. attribute:: minimum_advertisement_interval
                     
                     	Minimum time which must elapse between subsequent UPDATE messages relating to a common set of NLRI being transmitted to a peer. This timer is referred to as MinRouteAdvertisementIntervalTimer by RFC 4721 and serves to reduce the number of UPDATE messages transmitted when a particular set of NLRI exhibit instability
-                    	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**default value**\: 30
                     
                     .. attribute:: negotiated_hold_time
                     
                     	The negotiated hold\-time for the BGP session
-                    	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -6989,12 +7166,12 @@ class Bgp(object):
                 .. attribute:: config
                 
                 	Configuration parameters relating to the transport session(s) used for the BGP neighbor or group
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.Transport.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.Transport.Config>`
                 
                 .. attribute:: state
                 
                 	State information relating to the transport session(s) used for the BGP neighbor or group
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.Transport.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.Transport.State>`
                 
                 
 
@@ -7044,10 +7221,14 @@ class Bgp(object):
                     	Turns path mtu discovery for BGP TCP sessions on (true) or off (false)
                     	**type**\:  bool
                     
+                    	**default value**\: false
+                    
                     .. attribute:: passive_mode
                     
                     	Wait for peers to issue requests to open a BGP session, rather than initiating sessions from the local router
                     	**type**\:  bool
+                    
+                    	**default value**\: false
                     
                     .. attribute:: tcp_mss
                     
@@ -7144,10 +7325,14 @@ class Bgp(object):
                     	Turns path mtu discovery for BGP TCP sessions on (true) or off (false)
                     	**type**\:  bool
                     
+                    	**default value**\: false
+                    
                     .. attribute:: passive_mode
                     
                     	Wait for peers to issue requests to open a BGP session, rather than initiating sessions from the local router
                     	**type**\:  bool
+                    
+                    	**default value**\: false
                     
                     .. attribute:: remote_address
                     
@@ -7275,12 +7460,12 @@ class Bgp(object):
                 .. attribute:: config
                 
                 	Configuration parameters enabling or modifying the behavior or enhanced error handling mechanisms for the BGP neighbor or group
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.ErrorHandling.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.ErrorHandling.Config>`
                 
                 .. attribute:: state
                 
                 	State information relating to enhanced error handling mechanisms for the BGP neighbor or group
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.ErrorHandling.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.ErrorHandling.State>`
                 
                 
 
@@ -7307,6 +7492,8 @@ class Bgp(object):
                     
                     	Specify whether erroneous UPDATE messages for which the NLRI can be extracted are reated as though the NLRI is withdrawn \- avoiding session reset
                     	**type**\:  bool
+                    
+                    	**default value**\: false
                     
                     
 
@@ -7360,6 +7547,8 @@ class Bgp(object):
                     
                     	Specify whether erroneous UPDATE messages for which the NLRI can be extracted are reated as though the NLRI is withdrawn \- avoiding session reset
                     	**type**\:  bool
+                    
+                    	**default value**\: false
                     
                     
 
@@ -7436,12 +7625,12 @@ class Bgp(object):
                 .. attribute:: config
                 
                 	Configuration parameters enabling or modifying logging for events relating to the BGP neighbor or group
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.LoggingOptions.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.LoggingOptions.Config>`
                 
                 .. attribute:: state
                 
                 	State information relating to logging for the BGP neighbor or group
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.LoggingOptions.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.LoggingOptions.State>`
                 
                 
 
@@ -7467,6 +7656,8 @@ class Bgp(object):
                     
                     	Configure logging of peer state changes.  Default is to enable logging of peer state changes
                     	**type**\:  bool
+                    
+                    	**default value**\: true
                     
                     
 
@@ -7513,6 +7704,8 @@ class Bgp(object):
                     
                     	Configure logging of peer state changes.  Default is to enable logging of peer state changes
                     	**type**\:  bool
+                    
+                    	**default value**\: true
                     
                     
 
@@ -7584,12 +7777,12 @@ class Bgp(object):
                 .. attribute:: config
                 
                 	Configuration parameters relating to eBGP multihop for the BGP neighbor or group
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.EbgpMultihop.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.EbgpMultihop.Config>`
                 
                 .. attribute:: state
                 
                 	State information for eBGP multihop, for the BGP neighbor or group
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.EbgpMultihop.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.EbgpMultihop.State>`
                 
                 
 
@@ -7615,6 +7808,8 @@ class Bgp(object):
                     
                     	When enabled the referenced group or neighbors are permitted to be indirectly connected \- including cases where the TTL can be decremented between the BGP peers
                     	**type**\:  bool
+                    
+                    	**default value**\: false
                     
                     .. attribute:: multihop_ttl
                     
@@ -7672,6 +7867,8 @@ class Bgp(object):
                     
                     	When enabled the referenced group or neighbors are permitted to be indirectly connected \- including cases where the TTL can be decremented between the BGP peers
                     	**type**\:  bool
+                    
+                    	**default value**\: false
                     
                     .. attribute:: multihop_ttl
                     
@@ -7754,12 +7951,12 @@ class Bgp(object):
                 .. attribute:: config
                 
                 	Configuraton parameters relating to route reflection for the BGP neighbor or group
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.RouteReflector.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.RouteReflector.Config>`
                 
                 .. attribute:: state
                 
                 	State information relating to route reflection for the BGP neighbor or group
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.RouteReflector.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.RouteReflector.State>`
                 
                 
 
@@ -7785,6 +7982,8 @@ class Bgp(object):
                     
                     	Configure the neighbor as a route reflector client
                     	**type**\:  bool
+                    
+                    	**default value**\: false
                     
                     .. attribute:: route_reflector_cluster_id
                     
@@ -7852,6 +8051,8 @@ class Bgp(object):
                     
                     	Configure the neighbor as a route reflector client
                     	**type**\:  bool
+                    
+                    	**default value**\: false
                     
                     .. attribute:: route_reflector_cluster_id
                     
@@ -7945,12 +8146,12 @@ class Bgp(object):
                 .. attribute:: config
                 
                 	Configuration parameters relating to AS\_PATH manipulation for the BGP peer or group
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AsPathOptions.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AsPathOptions.Config>`
                 
                 .. attribute:: state
                 
                 	State information relating to the AS\_PATH manipulation mechanisms for the BGP peer or group
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AsPathOptions.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AsPathOptions.State>`
                 
                 
 
@@ -7979,10 +8180,14 @@ class Bgp(object):
                     
                     	**range:** 0..255
                     
+                    	**default value**\: 0
+                    
                     .. attribute:: replace_peer_as
                     
                     	Replace occurrences of the peer's AS in the AS\_PATH with the local autonomous system number
                     	**type**\:  bool
+                    
+                    	**default value**\: false
                     
                     
 
@@ -8036,10 +8241,14 @@ class Bgp(object):
                     
                     	**range:** 0..255
                     
+                    	**default value**\: 0
+                    
                     .. attribute:: replace_peer_as
                     
                     	Replace occurrences of the peer's AS in the AS\_PATH with the local autonomous system number
                     	**type**\:  bool
+                    
+                    	**default value**\: false
                     
                     
 
@@ -8116,12 +8325,12 @@ class Bgp(object):
                 .. attribute:: config
                 
                 	Configuration parameters relating to ADD\_PATHS
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AddPaths.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AddPaths.Config>`
                 
                 .. attribute:: state
                 
                 	State information associated with ADD\_PATHS
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AddPaths.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AddPaths.State>`
                 
                 
 
@@ -8146,6 +8355,8 @@ class Bgp(object):
                     
                     	Enable ability to receive multiple path advertisements for an NLRI from the neighbor or group
                     	**type**\:  bool
+                    
+                    	**default value**\: false
                     
                     .. attribute:: send_max
                     
@@ -8202,6 +8413,8 @@ class Bgp(object):
                     
                     	Enable ability to receive multiple path advertisements for an NLRI from the neighbor or group
                     	**type**\:  bool
+                    
+                    	**default value**\: false
                     
                     .. attribute:: send_max
                     
@@ -8285,7 +8498,7 @@ class Bgp(object):
                 .. attribute:: afi_safi
                 
                 	AFI,SAFI configuration available for the neighbour or group
-                	**type**\: list of  :py:class:`AfiSafi <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi>`
+                	**type**\: list of    :py:class:`AfiSafi <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi>`
                 
                 
 
@@ -8309,82 +8522,82 @@ class Bgp(object):
                     .. attribute:: afi_safi_name  <key>
                     
                     	Reference to the AFI\-SAFI name used as a key for the AFI\-SAFI list
-                    	**type**\:  :py:class:`AfiSafiTypeIdentity <ydk.models.openconfig.openconfig_bgp_types.AfiSafiTypeIdentity>`
+                    	**type**\:   :py:class:`AfiSafiTypeIdentity <ydk.models.openconfig.openconfig_bgp_types.AfiSafiTypeIdentity>`
                     
                     .. attribute:: apply_policy
                     
                     	Anchor point for routing policies in the model. Import and export policies are with respect to the local routing table, i.e., export (send) and import (receive), depending on the context
-                    	**type**\:  :py:class:`ApplyPolicy <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy>`
+                    	**type**\:   :py:class:`ApplyPolicy <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy>`
                     
                     .. attribute:: config
                     
                     	Configuration parameters for the AFI\-SAFI
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Config>`
+                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Config>`
                     
                     .. attribute:: graceful_restart
                     
                     	Parameters relating to BGP graceful\-restart
-                    	**type**\:  :py:class:`GracefulRestart <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart>`
+                    	**type**\:   :py:class:`GracefulRestart <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart>`
                     
                     .. attribute:: ipv4_labelled_unicast
                     
                     	IPv4 Labelled Unicast configuration options
-                    	**type**\:  :py:class:`Ipv4LabelledUnicast <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabelledUnicast>`
+                    	**type**\:   :py:class:`Ipv4LabelledUnicast <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabelledUnicast>`
                     
                     .. attribute:: ipv4_unicast
                     
                     	IPv4 unicast configuration options
-                    	**type**\:  :py:class:`Ipv4Unicast <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast>`
+                    	**type**\:   :py:class:`Ipv4Unicast <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast>`
                     
                     .. attribute:: ipv6_labelled_unicast
                     
                     	IPv6 Labelled Unicast configuration options
-                    	**type**\:  :py:class:`Ipv6LabelledUnicast <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabelledUnicast>`
+                    	**type**\:   :py:class:`Ipv6LabelledUnicast <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabelledUnicast>`
                     
                     .. attribute:: ipv6_unicast
                     
                     	IPv6 unicast configuration options
-                    	**type**\:  :py:class:`Ipv6Unicast <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast>`
+                    	**type**\:   :py:class:`Ipv6Unicast <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast>`
                     
                     .. attribute:: l2vpn_evpn
                     
                     	BGP EVPN configuration options
-                    	**type**\:  :py:class:`L2VpnEvpn <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn>`
+                    	**type**\:   :py:class:`L2VpnEvpn <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn>`
                     
                     .. attribute:: l2vpn_vpls
                     
                     	BGP\-signalled VPLS configuration options
-                    	**type**\:  :py:class:`L2VpnVpls <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls>`
+                    	**type**\:   :py:class:`L2VpnVpls <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls>`
                     
                     .. attribute:: l3vpn_ipv4_multicast
                     
                     	Multicast IPv4 L3VPN configuration options
-                    	**type**\:  :py:class:`L3VpnIpv4Multicast <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast>`
+                    	**type**\:   :py:class:`L3VpnIpv4Multicast <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast>`
                     
                     .. attribute:: l3vpn_ipv4_unicast
                     
                     	Unicast IPv4 L3VPN configuration options
-                    	**type**\:  :py:class:`L3VpnIpv4Unicast <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast>`
+                    	**type**\:   :py:class:`L3VpnIpv4Unicast <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast>`
                     
                     .. attribute:: l3vpn_ipv6_multicast
                     
                     	Multicast IPv6 L3VPN configuration options
-                    	**type**\:  :py:class:`L3VpnIpv6Multicast <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast>`
+                    	**type**\:   :py:class:`L3VpnIpv6Multicast <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast>`
                     
                     .. attribute:: l3vpn_ipv6_unicast
                     
                     	Unicast IPv6 L3VPN configuration options
-                    	**type**\:  :py:class:`L3VpnIpv6Unicast <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast>`
+                    	**type**\:   :py:class:`L3VpnIpv6Unicast <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast>`
                     
                     .. attribute:: state
                     
                     	State information relating to the AFI\-SAFI
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State>`
+                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State>`
                     
                     .. attribute:: use_multiple_paths
                     
                     	Parameters related to the use of multiple\-paths for the same NLRI when they are received only from this neighbor
-                    	**type**\:  :py:class:`UseMultiplePaths <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths>`
+                    	**type**\:   :py:class:`UseMultiplePaths <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths>`
                     
                     
 
@@ -8435,12 +8648,12 @@ class Bgp(object):
                         .. attribute:: config
                         
                         	Configuration options for BGP graceful\-restart
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart.Config>`
                         
                         .. attribute:: state
                         
                         	State information for BGP graceful\-restart
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.GracefulRestart.State>`
                         
                         
 
@@ -8465,6 +8678,8 @@ class Bgp(object):
                             
                             	This leaf indicates whether graceful\-restart is enabled for this AFI\-SAFI
                             	**type**\:  bool
+                            
+                            	**default value**\: false
                             
                             
 
@@ -8515,6 +8730,8 @@ class Bgp(object):
                             
                             	This leaf indicates whether graceful\-restart is enabled for this AFI\-SAFI
                             	**type**\:  bool
+                            
+                            	**default value**\: false
                             
                             .. attribute:: received
                             
@@ -8599,12 +8816,14 @@ class Bgp(object):
                         .. attribute:: afi_safi_name
                         
                         	AFI,SAFI
-                        	**type**\:  :py:class:`AfiSafiTypeIdentity <ydk.models.openconfig.openconfig_bgp_types.AfiSafiTypeIdentity>`
+                        	**type**\:   :py:class:`AfiSafiTypeIdentity <ydk.models.openconfig.openconfig_bgp_types.AfiSafiTypeIdentity>`
                         
                         .. attribute:: enabled
                         
                         	This leaf indicates whether the IPv4 Unicast AFI,SAFI is enabled for the neighbour or group
                         	**type**\:  bool
+                        
+                        	**default value**\: false
                         
                         
 
@@ -8658,17 +8877,19 @@ class Bgp(object):
                         .. attribute:: afi_safi_name
                         
                         	AFI,SAFI
-                        	**type**\:  :py:class:`AfiSafiTypeIdentity <ydk.models.openconfig.openconfig_bgp_types.AfiSafiTypeIdentity>`
+                        	**type**\:   :py:class:`AfiSafiTypeIdentity <ydk.models.openconfig.openconfig_bgp_types.AfiSafiTypeIdentity>`
                         
                         .. attribute:: enabled
                         
                         	This leaf indicates whether the IPv4 Unicast AFI,SAFI is enabled for the neighbour or group
                         	**type**\:  bool
                         
+                        	**default value**\: false
+                        
                         .. attribute:: prefixes
                         
                         	Prefix counters for the BGP session
-                        	**type**\:  :py:class:`Prefixes <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State.Prefixes>`
+                        	**type**\:   :py:class:`Prefixes <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.State.Prefixes>`
                         
                         
 
@@ -8798,12 +9019,12 @@ class Bgp(object):
                         .. attribute:: config
                         
                         	Policy configuration data
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy.Config>`
                         
                         .. attribute:: state
                         
                         	Operational state for routing policy
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.ApplyPolicy.State>`
                         
                         
 
@@ -8827,26 +9048,30 @@ class Bgp(object):
                             .. attribute:: default_export_policy
                             
                             	explicitly set a default policy if no policy definition in the export policy chain is satisfied
-                            	**type**\:  :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                            	**type**\:   :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                            
+                            	**default value**\: REJECT-ROUTE
                             
                             .. attribute:: default_import_policy
                             
                             	explicitly set a default policy if no policy definition in the import policy chain is satisfied
-                            	**type**\:  :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                            	**type**\:   :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                            
+                            	**default value**\: REJECT-ROUTE
                             
                             .. attribute:: export_policy
                             
                             	list of policy names in sequence to be applied on sending a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                             	**type**\:  list of str
                             
-                            	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
+                            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
                             
                             .. attribute:: import_policy
                             
                             	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                             	**type**\:  list of str
                             
-                            	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
+                            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
                             
                             
 
@@ -8911,26 +9136,30 @@ class Bgp(object):
                             .. attribute:: default_export_policy
                             
                             	explicitly set a default policy if no policy definition in the export policy chain is satisfied
-                            	**type**\:  :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                            	**type**\:   :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                            
+                            	**default value**\: REJECT-ROUTE
                             
                             .. attribute:: default_import_policy
                             
                             	explicitly set a default policy if no policy definition in the import policy chain is satisfied
-                            	**type**\:  :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                            	**type**\:   :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                            
+                            	**default value**\: REJECT-ROUTE
                             
                             .. attribute:: export_policy
                             
                             	list of policy names in sequence to be applied on sending a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                             	**type**\:  list of str
                             
-                            	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
+                            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
                             
                             .. attribute:: import_policy
                             
                             	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                             	**type**\:  list of str
                             
-                            	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
+                            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
                             
                             
 
@@ -9022,17 +9251,17 @@ class Bgp(object):
                         .. attribute:: config
                         
                         	Configuration parameters for common IPv4 and IPv6 unicast AFI\-SAFI options
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.Config>`
                         
                         .. attribute:: prefix_limit
                         
                         	Configure the maximum number of prefixes that will be accepted from a peer
-                        	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit>`
+                        	**type**\:   :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit>`
                         
                         .. attribute:: state
                         
                         	State information for common IPv4 and IPv6 unicast parameters
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.State>`
                         
                         
 
@@ -9059,12 +9288,12 @@ class Bgp(object):
                             .. attribute:: config
                             
                             	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config>`
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config>`
                             
                             .. attribute:: state
                             
                             	State information relating to the prefix\-limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State>`
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State>`
                             
                             
 
@@ -9096,9 +9325,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -9166,9 +9397,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -9258,6 +9491,8 @@ class Bgp(object):
                             	If set to true, send the default\-route to the neighbour(s)
                             	**type**\:  bool
                             
+                            	**default value**\: false
+                            
                             
 
                             """
@@ -9303,6 +9538,8 @@ class Bgp(object):
                             
                             	If set to true, send the default\-route to the neighbour(s)
                             	**type**\:  bool
+                            
+                            	**default value**\: false
                             
                             
 
@@ -9377,17 +9614,17 @@ class Bgp(object):
                         .. attribute:: config
                         
                         	Configuration parameters for common IPv4 and IPv6 unicast AFI\-SAFI options
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.Config>`
                         
                         .. attribute:: prefix_limit
                         
                         	Configure the maximum number of prefixes that will be accepted from a peer
-                        	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit>`
+                        	**type**\:   :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit>`
                         
                         .. attribute:: state
                         
                         	State information for common IPv4 and IPv6 unicast parameters
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.State>`
                         
                         
 
@@ -9414,12 +9651,12 @@ class Bgp(object):
                             .. attribute:: config
                             
                             	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config>`
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config>`
                             
                             .. attribute:: state
                             
                             	State information relating to the prefix\-limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State>`
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State>`
                             
                             
 
@@ -9451,9 +9688,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -9521,9 +9760,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -9613,6 +9854,8 @@ class Bgp(object):
                             	If set to true, send the default\-route to the neighbour(s)
                             	**type**\:  bool
                             
+                            	**default value**\: false
+                            
                             
 
                             """
@@ -9658,6 +9901,8 @@ class Bgp(object):
                             
                             	If set to true, send the default\-route to the neighbour(s)
                             	**type**\:  bool
+                            
+                            	**default value**\: false
                             
                             
 
@@ -9732,7 +9977,7 @@ class Bgp(object):
                         .. attribute:: prefix_limit
                         
                         	Configure the maximum number of prefixes that will be accepted from a peer
-                        	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit>`
+                        	**type**\:   :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit>`
                         
                         
 
@@ -9755,12 +10000,12 @@ class Bgp(object):
                             .. attribute:: config
                             
                             	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.Config>`
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.Config>`
                             
                             .. attribute:: state
                             
                             	State information relating to the prefix\-limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.State>`
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.State>`
                             
                             
 
@@ -9792,9 +10037,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -9862,9 +10109,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -9975,7 +10224,7 @@ class Bgp(object):
                         .. attribute:: prefix_limit
                         
                         	Configure the maximum number of prefixes that will be accepted from a peer
-                        	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit>`
+                        	**type**\:   :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit>`
                         
                         
 
@@ -9998,12 +10247,12 @@ class Bgp(object):
                             .. attribute:: config
                             
                             	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.Config>`
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.Config>`
                             
                             .. attribute:: state
                             
                             	State information relating to the prefix\-limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.State>`
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.State>`
                             
                             
 
@@ -10035,9 +10284,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -10105,9 +10356,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -10218,7 +10471,7 @@ class Bgp(object):
                         .. attribute:: prefix_limit
                         
                         	Configure the maximum number of prefixes that will be accepted from a peer
-                        	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit>`
+                        	**type**\:   :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit>`
                         
                         
 
@@ -10241,12 +10494,12 @@ class Bgp(object):
                             .. attribute:: config
                             
                             	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config>`
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config>`
                             
                             .. attribute:: state
                             
                             	State information relating to the prefix\-limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State>`
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State>`
                             
                             
 
@@ -10278,9 +10531,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -10348,9 +10603,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -10461,7 +10718,7 @@ class Bgp(object):
                         .. attribute:: prefix_limit
                         
                         	Configure the maximum number of prefixes that will be accepted from a peer
-                        	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit>`
+                        	**type**\:   :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit>`
                         
                         
 
@@ -10484,12 +10741,12 @@ class Bgp(object):
                             .. attribute:: config
                             
                             	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config>`
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config>`
                             
                             .. attribute:: state
                             
                             	State information relating to the prefix\-limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State>`
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State>`
                             
                             
 
@@ -10521,9 +10778,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -10591,9 +10850,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -10704,7 +10965,7 @@ class Bgp(object):
                         .. attribute:: prefix_limit
                         
                         	Configure the maximum number of prefixes that will be accepted from a peer
-                        	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit>`
+                        	**type**\:   :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit>`
                         
                         
 
@@ -10727,12 +10988,12 @@ class Bgp(object):
                             .. attribute:: config
                             
                             	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config>`
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config>`
                             
                             .. attribute:: state
                             
                             	State information relating to the prefix\-limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State>`
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State>`
                             
                             
 
@@ -10764,9 +11025,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -10834,9 +11097,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -10947,7 +11212,7 @@ class Bgp(object):
                         .. attribute:: prefix_limit
                         
                         	Configure the maximum number of prefixes that will be accepted from a peer
-                        	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit>`
+                        	**type**\:   :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit>`
                         
                         
 
@@ -10970,12 +11235,12 @@ class Bgp(object):
                             .. attribute:: config
                             
                             	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config>`
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config>`
                             
                             .. attribute:: state
                             
                             	State information relating to the prefix\-limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State>`
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State>`
                             
                             
 
@@ -11007,9 +11272,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -11077,9 +11344,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -11190,7 +11459,7 @@ class Bgp(object):
                         .. attribute:: prefix_limit
                         
                         	Configure the maximum number of prefixes that will be accepted from a peer
-                        	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit>`
+                        	**type**\:   :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit>`
                         
                         
 
@@ -11213,12 +11482,12 @@ class Bgp(object):
                             .. attribute:: config
                             
                             	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config>`
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config>`
                             
                             .. attribute:: state
                             
                             	State information relating to the prefix\-limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State>`
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State>`
                             
                             
 
@@ -11250,9 +11519,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -11320,9 +11591,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -11433,7 +11706,7 @@ class Bgp(object):
                         .. attribute:: prefix_limit
                         
                         	Configure the maximum number of prefixes that will be accepted from a peer
-                        	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit>`
+                        	**type**\:   :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit>`
                         
                         
 
@@ -11456,12 +11729,12 @@ class Bgp(object):
                             .. attribute:: config
                             
                             	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config>`
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config>`
                             
                             .. attribute:: state
                             
                             	State information relating to the prefix\-limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State>`
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State>`
                             
                             
 
@@ -11493,9 +11766,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -11563,9 +11838,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -11677,17 +11954,17 @@ class Bgp(object):
                         .. attribute:: config
                         
                         	Configuration parameters relating to multipath
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Config>`
                         
                         .. attribute:: ebgp
                         
                         	Multipath configuration for eBGP
-                        	**type**\:  :py:class:`Ebgp <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp>`
+                        	**type**\:   :py:class:`Ebgp <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp>`
                         
                         .. attribute:: state
                         
                         	State parameters relating to multipath
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.State>`
                         
                         
 
@@ -11714,6 +11991,8 @@ class Bgp(object):
                             
                             	Whether the use of multiple paths for the same NLRI is enabled for the neighbor. This value is overridden by any more specific configuration value
                             	**type**\:  bool
+                            
+                            	**default value**\: false
                             
                             
 
@@ -11760,6 +12039,8 @@ class Bgp(object):
                             	Whether the use of multiple paths for the same NLRI is enabled for the neighbor. This value is overridden by any more specific configuration value
                             	**type**\:  bool
                             
+                            	**default value**\: false
+                            
                             
 
                             """
@@ -11803,12 +12084,12 @@ class Bgp(object):
                             .. attribute:: config
                             
                             	Configuration parameters relating to eBGP multipath
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config>`
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config>`
                             
                             .. attribute:: state
                             
                             	State information relating to eBGP multipath
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State>`
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State>`
                             
                             
 
@@ -11833,6 +12114,8 @@ class Bgp(object):
                                 
                                 	Allow multipath to use paths from different neighbouring ASes.  The default is to only consider multiple paths from the same neighbouring AS
                                 	**type**\:  bool
+                                
+                                	**default value**\: false
                                 
                                 
 
@@ -11878,6 +12161,8 @@ class Bgp(object):
                                 
                                 	Allow multipath to use paths from different neighbouring ASes.  The default is to only consider multiple paths from the same neighbouring AS
                                 	**type**\:  bool
+                                
+                                	**default value**\: false
                                 
                                 
 
@@ -12076,12 +12361,12 @@ class Bgp(object):
                 .. attribute:: config
                 
                 	Configuration parameters relating to graceful\-restart
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.GracefulRestart.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.GracefulRestart.Config>`
                 
                 .. attribute:: state
                 
                 	State information associated with graceful\-restart
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.GracefulRestart.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.GracefulRestart.State>`
                 
                 
 
@@ -12122,7 +12407,7 @@ class Bgp(object):
                     .. attribute:: stale_routes_time
                     
                     	An upper\-bound on the time thate stale routes will be retained by a router after a session is restarted. If an End\-of\-RIB (EOR) marker is received prior to this timer expiring stale\-routes will be flushed upon its receipt \- if no EOR is received, then when this timer expires stale paths will be purged. This timer is referred to as the Selection\_Deferral\_Timer in RFC4724
-                    	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -12196,7 +12481,7 @@ class Bgp(object):
                     .. attribute:: mode
                     
                     	Ths leaf indicates the mode of operation of BGP graceful restart with the peer
-                    	**type**\:  :py:class:`ModeEnum <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.GracefulRestart.State.ModeEnum>`
+                    	**type**\:   :py:class:`ModeEnum <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.GracefulRestart.State.ModeEnum>`
                     
                     .. attribute:: peer_restart_time
                     
@@ -12220,7 +12505,7 @@ class Bgp(object):
                     .. attribute:: stale_routes_time
                     
                     	An upper\-bound on the time thate stale routes will be retained by a router after a session is restarted. If an End\-of\-RIB (EOR) marker is received prior to this timer expiring stale\-routes will be flushed upon its receipt \- if no EOR is received, then when this timer expires stale paths will be purged. This timer is referred to as the Selection\_Deferral\_Timer in RFC4724
-                    	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -12374,12 +12659,12 @@ class Bgp(object):
                 .. attribute:: config
                 
                 	Policy configuration data
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.ApplyPolicy.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.ApplyPolicy.Config>`
                 
                 .. attribute:: state
                 
                 	Operational state for routing policy
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.ApplyPolicy.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.ApplyPolicy.State>`
                 
                 
 
@@ -12403,26 +12688,30 @@ class Bgp(object):
                     .. attribute:: default_export_policy
                     
                     	explicitly set a default policy if no policy definition in the export policy chain is satisfied
-                    	**type**\:  :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                    	**type**\:   :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                    
+                    	**default value**\: REJECT-ROUTE
                     
                     .. attribute:: default_import_policy
                     
                     	explicitly set a default policy if no policy definition in the import policy chain is satisfied
-                    	**type**\:  :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                    	**type**\:   :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                    
+                    	**default value**\: REJECT-ROUTE
                     
                     .. attribute:: export_policy
                     
                     	list of policy names in sequence to be applied on sending a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                     	**type**\:  list of str
                     
-                    	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
+                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
                     
                     .. attribute:: import_policy
                     
                     	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                     	**type**\:  list of str
                     
-                    	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
+                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
                     
                     
 
@@ -12487,26 +12776,30 @@ class Bgp(object):
                     .. attribute:: default_export_policy
                     
                     	explicitly set a default policy if no policy definition in the export policy chain is satisfied
-                    	**type**\:  :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                    	**type**\:   :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                    
+                    	**default value**\: REJECT-ROUTE
                     
                     .. attribute:: default_import_policy
                     
                     	explicitly set a default policy if no policy definition in the import policy chain is satisfied
-                    	**type**\:  :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                    	**type**\:   :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                    
+                    	**default value**\: REJECT-ROUTE
                     
                     .. attribute:: export_policy
                     
                     	list of policy names in sequence to be applied on sending a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                     	**type**\:  list of str
                     
-                    	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
+                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
                     
                     .. attribute:: import_policy
                     
                     	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                     	**type**\:  list of str
                     
-                    	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
+                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
                     
                     
 
@@ -12599,17 +12892,17 @@ class Bgp(object):
                 .. attribute:: config
                 
                 	Configuration parameters relating to multipath
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.UseMultiplePaths.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.UseMultiplePaths.Config>`
                 
                 .. attribute:: ebgp
                 
                 	Multipath configuration for eBGP
-                	**type**\:  :py:class:`Ebgp <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.UseMultiplePaths.Ebgp>`
+                	**type**\:   :py:class:`Ebgp <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.UseMultiplePaths.Ebgp>`
                 
                 .. attribute:: state
                 
                 	State parameters relating to multipath
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.UseMultiplePaths.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.UseMultiplePaths.State>`
                 
                 
 
@@ -12636,6 +12929,8 @@ class Bgp(object):
                     
                     	Whether the use of multiple paths for the same NLRI is enabled for the neighbor. This value is overridden by any more specific configuration value
                     	**type**\:  bool
+                    
+                    	**default value**\: false
                     
                     
 
@@ -12682,6 +12977,8 @@ class Bgp(object):
                     	Whether the use of multiple paths for the same NLRI is enabled for the neighbor. This value is overridden by any more specific configuration value
                     	**type**\:  bool
                     
+                    	**default value**\: false
+                    
                     
 
                     """
@@ -12725,12 +13022,12 @@ class Bgp(object):
                     .. attribute:: config
                     
                     	Configuration parameters relating to eBGP multipath
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.UseMultiplePaths.Ebgp.Config>`
+                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.UseMultiplePaths.Ebgp.Config>`
                     
                     .. attribute:: state
                     
                     	State information relating to eBGP multipath
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.UseMultiplePaths.Ebgp.State>`
+                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.Neighbors.Neighbor.UseMultiplePaths.Ebgp.State>`
                     
                     
 
@@ -12755,6 +13052,8 @@ class Bgp(object):
                         
                         	Allow multipath to use paths from different neighbouring ASes.  The default is to only consider multiple paths from the same neighbouring AS
                         	**type**\:  bool
+                        
+                        	**default value**\: false
                         
                         
 
@@ -12800,6 +13099,8 @@ class Bgp(object):
                         
                         	Allow multipath to use paths from different neighbouring ASes.  The default is to only consider multiple paths from the same neighbouring AS
                         	**type**\:  bool
+                        
+                        	**default value**\: false
                         
                         
 
@@ -12991,7 +13292,7 @@ class Bgp(object):
         .. attribute:: peer_group
         
         	List of BGP peer\-groups configured on the local system \- uniquely identified by peer\-group name
-        	**type**\: list of  :py:class:`PeerGroup <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup>`
+        	**type**\: list of    :py:class:`PeerGroup <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup>`
         
         
 
@@ -13017,77 +13318,77 @@ class Bgp(object):
             	Reference to the name of the BGP peer\-group used as a key in the peer\-group list
             	**type**\:  str
             
-            	**refers to**\: :py:class:`peer_group_name <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.Config>`
+            	**refers to**\:  :py:class:`peer_group_name <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.Config>`
             
             .. attribute:: add_paths
             
             	Parameters relating to the advertisement and receipt of multiple paths for a single NLRI (add\-paths)
-            	**type**\:  :py:class:`AddPaths <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AddPaths>`
+            	**type**\:   :py:class:`AddPaths <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AddPaths>`
             
             .. attribute:: afi_safis
             
             	Per\-address\-family configuration parameters associated with the neighbor or group
-            	**type**\:  :py:class:`AfiSafis <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis>`
+            	**type**\:   :py:class:`AfiSafis <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis>`
             
             .. attribute:: apply_policy
             
             	Anchor point for routing policies in the model. Import and export policies are with respect to the local routing table, i.e., export (send) and import (receive), depending on the context
-            	**type**\:  :py:class:`ApplyPolicy <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.ApplyPolicy>`
+            	**type**\:   :py:class:`ApplyPolicy <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.ApplyPolicy>`
             
             .. attribute:: as_path_options
             
             	AS\_PATH manipulation parameters for the BGP neighbor or group
-            	**type**\:  :py:class:`AsPathOptions <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AsPathOptions>`
+            	**type**\:   :py:class:`AsPathOptions <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AsPathOptions>`
             
             .. attribute:: config
             
             	Configuration parameters relating to the BGP neighbor or group
-            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.Config>`
+            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.Config>`
             
             .. attribute:: ebgp_multihop
             
             	eBGP multi\-hop parameters for the BGP neighbor or group
-            	**type**\:  :py:class:`EbgpMultihop <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.EbgpMultihop>`
+            	**type**\:   :py:class:`EbgpMultihop <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.EbgpMultihop>`
             
             .. attribute:: error_handling
             
             	Error handling parameters used for the BGP neighbor or group
-            	**type**\:  :py:class:`ErrorHandling <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.ErrorHandling>`
+            	**type**\:   :py:class:`ErrorHandling <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.ErrorHandling>`
             
             .. attribute:: graceful_restart
             
             	Parameters relating the graceful restart mechanism for BGP
-            	**type**\:  :py:class:`GracefulRestart <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.GracefulRestart>`
+            	**type**\:   :py:class:`GracefulRestart <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.GracefulRestart>`
             
             .. attribute:: logging_options
             
             	Logging options for events related to the BGP neighbor or group
-            	**type**\:  :py:class:`LoggingOptions <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.LoggingOptions>`
+            	**type**\:   :py:class:`LoggingOptions <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.LoggingOptions>`
             
             .. attribute:: route_reflector
             
             	Route reflector parameters for the BGP neighbor or group
-            	**type**\:  :py:class:`RouteReflector <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.RouteReflector>`
+            	**type**\:   :py:class:`RouteReflector <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.RouteReflector>`
             
             .. attribute:: state
             
             	State information relating to the BGP neighbor or group
-            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.State>`
+            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.State>`
             
             .. attribute:: timers
             
             	Timers related to a BGP neighbor or group
-            	**type**\:  :py:class:`Timers <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.Timers>`
+            	**type**\:   :py:class:`Timers <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.Timers>`
             
             .. attribute:: transport
             
             	Transport session parameters for the BGP neighbor or group
-            	**type**\:  :py:class:`Transport <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.Transport>`
+            	**type**\:   :py:class:`Transport <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.Transport>`
             
             .. attribute:: use_multiple_paths
             
             	Parameters related to the use of multiple paths for the same NLRI
-            	**type**\:  :py:class:`UseMultiplePaths <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.UseMultiplePaths>`
+            	**type**\:   :py:class:`UseMultiplePaths <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.UseMultiplePaths>`
             
             
 
@@ -13166,22 +13467,26 @@ class Bgp(object):
                 .. attribute:: peer_type
                 
                 	Explicitly designate the peer or peer group as internal (iBGP) or external (eBGP)
-                	**type**\:  :py:class:`PeerTypeEnum <ydk.models.openconfig.openconfig_bgp_types.PeerTypeEnum>`
+                	**type**\:   :py:class:`PeerTypeEnum <ydk.models.openconfig.openconfig_bgp_types.PeerTypeEnum>`
                 
                 .. attribute:: remove_private_as
                 
                 	Remove private AS numbers from updates sent to peers
-                	**type**\:  :py:class:`RemovePrivateAsOptionEnum <ydk.models.openconfig.openconfig_bgp_types.RemovePrivateAsOptionEnum>`
+                	**type**\:   :py:class:`RemovePrivateAsOptionEnum <ydk.models.openconfig.openconfig_bgp_types.RemovePrivateAsOptionEnum>`
                 
                 .. attribute:: route_flap_damping
                 
                 	Enable route flap damping
                 	**type**\:  bool
                 
+                	**default value**\: false
+                
                 .. attribute:: send_community
                 
                 	Specify which types of community should be sent to the neighbor or group. The default is to not send the community attribute
-                	**type**\:  :py:class:`CommunityTypeEnum <ydk.models.openconfig.openconfig_bgp_types.CommunityTypeEnum>`
+                	**type**\:   :py:class:`CommunityTypeEnum <ydk.models.openconfig.openconfig_bgp_types.CommunityTypeEnum>`
+                
+                	**default value**\: NONE
                 
                 
 
@@ -13287,22 +13592,26 @@ class Bgp(object):
                 .. attribute:: peer_type
                 
                 	Explicitly designate the peer or peer group as internal (iBGP) or external (eBGP)
-                	**type**\:  :py:class:`PeerTypeEnum <ydk.models.openconfig.openconfig_bgp_types.PeerTypeEnum>`
+                	**type**\:   :py:class:`PeerTypeEnum <ydk.models.openconfig.openconfig_bgp_types.PeerTypeEnum>`
                 
                 .. attribute:: remove_private_as
                 
                 	Remove private AS numbers from updates sent to peers
-                	**type**\:  :py:class:`RemovePrivateAsOptionEnum <ydk.models.openconfig.openconfig_bgp_types.RemovePrivateAsOptionEnum>`
+                	**type**\:   :py:class:`RemovePrivateAsOptionEnum <ydk.models.openconfig.openconfig_bgp_types.RemovePrivateAsOptionEnum>`
                 
                 .. attribute:: route_flap_damping
                 
                 	Enable route flap damping
                 	**type**\:  bool
                 
+                	**default value**\: false
+                
                 .. attribute:: send_community
                 
                 	Specify which types of community should be sent to the neighbor or group. The default is to not send the community attribute
-                	**type**\:  :py:class:`CommunityTypeEnum <ydk.models.openconfig.openconfig_bgp_types.CommunityTypeEnum>`
+                	**type**\:   :py:class:`CommunityTypeEnum <ydk.models.openconfig.openconfig_bgp_types.CommunityTypeEnum>`
+                
+                	**default value**\: NONE
                 
                 .. attribute:: total_paths
                 
@@ -13401,12 +13710,12 @@ class Bgp(object):
                 .. attribute:: config
                 
                 	Configuration parameters relating to timers used for the BGP neighbor or group
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.Timers.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.Timers.Config>`
                 
                 .. attribute:: state
                 
                 	State information relating to the timers used for the BGP neighbor or group
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.Timers.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.Timers.State>`
                 
                 
 
@@ -13431,30 +13740,38 @@ class Bgp(object):
                     .. attribute:: connect_retry
                     
                     	Time interval in seconds between attempts to establish a session with the peer
-                    	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**default value**\: 30
                     
                     .. attribute:: hold_time
                     
                     	Time interval in seconds that a BGP session will be considered active in the absence of keepalive or other messages from the peer.  The hold\-time is typically set to 3x the keepalive\-interval
-                    	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**default value**\: 90
                     
                     .. attribute:: keepalive_interval
                     
                     	Time interval in seconds between transmission of keepalive messages to the neighbor.  Typically set to 1/3 the hold\-time
-                    	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**default value**\: 30
                     
                     .. attribute:: minimum_advertisement_interval
                     
                     	Minimum time which must elapse between subsequent UPDATE messages relating to a common set of NLRI being transmitted to a peer. This timer is referred to as MinRouteAdvertisementIntervalTimer by RFC 4721 and serves to reduce the number of UPDATE messages transmitted when a particular set of NLRI exhibit instability
-                    	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**default value**\: 30
                     
                     
 
@@ -13512,30 +13829,38 @@ class Bgp(object):
                     .. attribute:: connect_retry
                     
                     	Time interval in seconds between attempts to establish a session with the peer
-                    	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**default value**\: 30
                     
                     .. attribute:: hold_time
                     
                     	Time interval in seconds that a BGP session will be considered active in the absence of keepalive or other messages from the peer.  The hold\-time is typically set to 3x the keepalive\-interval
-                    	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**default value**\: 90
                     
                     .. attribute:: keepalive_interval
                     
                     	Time interval in seconds between transmission of keepalive messages to the neighbor.  Typically set to 1/3 the hold\-time
-                    	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**default value**\: 30
                     
                     .. attribute:: minimum_advertisement_interval
                     
                     	Minimum time which must elapse between subsequent UPDATE messages relating to a common set of NLRI being transmitted to a peer. This timer is referred to as MinRouteAdvertisementIntervalTimer by RFC 4721 and serves to reduce the number of UPDATE messages transmitted when a particular set of NLRI exhibit instability
-                    	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**default value**\: 30
                     
                     
 
@@ -13619,12 +13944,12 @@ class Bgp(object):
                 .. attribute:: config
                 
                 	Configuration parameters relating to the transport session(s) used for the BGP neighbor or group
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.Transport.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.Transport.Config>`
                 
                 .. attribute:: state
                 
                 	State information relating to the transport session(s) used for the BGP neighbor or group
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.Transport.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.Transport.State>`
                 
                 
 
@@ -13674,10 +13999,14 @@ class Bgp(object):
                     	Turns path mtu discovery for BGP TCP sessions on (true) or off (false)
                     	**type**\:  bool
                     
+                    	**default value**\: false
+                    
                     .. attribute:: passive_mode
                     
                     	Wait for peers to issue requests to open a BGP session, rather than initiating sessions from the local router
                     	**type**\:  bool
+                    
+                    	**default value**\: false
                     
                     .. attribute:: tcp_mss
                     
@@ -13767,10 +14096,14 @@ class Bgp(object):
                     	Turns path mtu discovery for BGP TCP sessions on (true) or off (false)
                     	**type**\:  bool
                     
+                    	**default value**\: false
+                    
                     .. attribute:: passive_mode
                     
                     	Wait for peers to issue requests to open a BGP session, rather than initiating sessions from the local router
                     	**type**\:  bool
+                    
+                    	**default value**\: false
                     
                     .. attribute:: tcp_mss
                     
@@ -13862,12 +14195,12 @@ class Bgp(object):
                 .. attribute:: config
                 
                 	Configuration parameters enabling or modifying the behavior or enhanced error handling mechanisms for the BGP neighbor or group
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.ErrorHandling.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.ErrorHandling.Config>`
                 
                 .. attribute:: state
                 
                 	State information relating to enhanced error handling mechanisms for the BGP neighbor or group
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.ErrorHandling.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.ErrorHandling.State>`
                 
                 
 
@@ -13894,6 +14227,8 @@ class Bgp(object):
                     
                     	Specify whether erroneous UPDATE messages for which the NLRI can be extracted are reated as though the NLRI is withdrawn \- avoiding session reset
                     	**type**\:  bool
+                    
+                    	**default value**\: false
                     
                     
 
@@ -13940,6 +14275,8 @@ class Bgp(object):
                     
                     	Specify whether erroneous UPDATE messages for which the NLRI can be extracted are reated as though the NLRI is withdrawn \- avoiding session reset
                     	**type**\:  bool
+                    
+                    	**default value**\: false
                     
                     
 
@@ -14012,12 +14349,12 @@ class Bgp(object):
                 .. attribute:: config
                 
                 	Configuration parameters enabling or modifying logging for events relating to the BGP neighbor or group
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.LoggingOptions.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.LoggingOptions.Config>`
                 
                 .. attribute:: state
                 
                 	State information relating to logging for the BGP neighbor or group
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.LoggingOptions.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.LoggingOptions.State>`
                 
                 
 
@@ -14043,6 +14380,8 @@ class Bgp(object):
                     
                     	Configure logging of peer state changes.  Default is to enable logging of peer state changes
                     	**type**\:  bool
+                    
+                    	**default value**\: true
                     
                     
 
@@ -14089,6 +14428,8 @@ class Bgp(object):
                     
                     	Configure logging of peer state changes.  Default is to enable logging of peer state changes
                     	**type**\:  bool
+                    
+                    	**default value**\: true
                     
                     
 
@@ -14160,12 +14501,12 @@ class Bgp(object):
                 .. attribute:: config
                 
                 	Configuration parameters relating to eBGP multihop for the BGP neighbor or group
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.EbgpMultihop.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.EbgpMultihop.Config>`
                 
                 .. attribute:: state
                 
                 	State information for eBGP multihop, for the BGP neighbor or group
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.EbgpMultihop.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.EbgpMultihop.State>`
                 
                 
 
@@ -14191,6 +14532,8 @@ class Bgp(object):
                     
                     	When enabled the referenced group or neighbors are permitted to be indirectly connected \- including cases where the TTL can be decremented between the BGP peers
                     	**type**\:  bool
+                    
+                    	**default value**\: false
                     
                     .. attribute:: multihop_ttl
                     
@@ -14248,6 +14591,8 @@ class Bgp(object):
                     
                     	When enabled the referenced group or neighbors are permitted to be indirectly connected \- including cases where the TTL can be decremented between the BGP peers
                     	**type**\:  bool
+                    
+                    	**default value**\: false
                     
                     .. attribute:: multihop_ttl
                     
@@ -14330,12 +14675,12 @@ class Bgp(object):
                 .. attribute:: config
                 
                 	Configuraton parameters relating to route reflection for the BGP neighbor or group
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.RouteReflector.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.RouteReflector.Config>`
                 
                 .. attribute:: state
                 
                 	State information relating to route reflection for the BGP neighbor or group
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.RouteReflector.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.RouteReflector.State>`
                 
                 
 
@@ -14361,6 +14706,8 @@ class Bgp(object):
                     
                     	Configure the neighbor as a route reflector client
                     	**type**\:  bool
+                    
+                    	**default value**\: false
                     
                     .. attribute:: route_reflector_cluster_id
                     
@@ -14428,6 +14775,8 @@ class Bgp(object):
                     
                     	Configure the neighbor as a route reflector client
                     	**type**\:  bool
+                    
+                    	**default value**\: false
                     
                     .. attribute:: route_reflector_cluster_id
                     
@@ -14521,12 +14870,12 @@ class Bgp(object):
                 .. attribute:: config
                 
                 	Configuration parameters relating to AS\_PATH manipulation for the BGP peer or group
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AsPathOptions.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AsPathOptions.Config>`
                 
                 .. attribute:: state
                 
                 	State information relating to the AS\_PATH manipulation mechanisms for the BGP peer or group
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AsPathOptions.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AsPathOptions.State>`
                 
                 
 
@@ -14555,10 +14904,14 @@ class Bgp(object):
                     
                     	**range:** 0..255
                     
+                    	**default value**\: 0
+                    
                     .. attribute:: replace_peer_as
                     
                     	Replace occurrences of the peer's AS in the AS\_PATH with the local autonomous system number
                     	**type**\:  bool
+                    
+                    	**default value**\: false
                     
                     
 
@@ -14612,10 +14965,14 @@ class Bgp(object):
                     
                     	**range:** 0..255
                     
+                    	**default value**\: 0
+                    
                     .. attribute:: replace_peer_as
                     
                     	Replace occurrences of the peer's AS in the AS\_PATH with the local autonomous system number
                     	**type**\:  bool
+                    
+                    	**default value**\: false
                     
                     
 
@@ -14692,12 +15049,12 @@ class Bgp(object):
                 .. attribute:: config
                 
                 	Configuration parameters relating to ADD\_PATHS
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AddPaths.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AddPaths.Config>`
                 
                 .. attribute:: state
                 
                 	State information associated with ADD\_PATHS
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AddPaths.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AddPaths.State>`
                 
                 
 
@@ -14722,6 +15079,8 @@ class Bgp(object):
                     
                     	Enable ability to receive multiple path advertisements for an NLRI from the neighbor or group
                     	**type**\:  bool
+                    
+                    	**default value**\: false
                     
                     .. attribute:: send_max
                     
@@ -14778,6 +15137,8 @@ class Bgp(object):
                     
                     	Enable ability to receive multiple path advertisements for an NLRI from the neighbor or group
                     	**type**\:  bool
+                    
+                    	**default value**\: false
                     
                     .. attribute:: send_max
                     
@@ -14861,7 +15222,7 @@ class Bgp(object):
                 .. attribute:: afi_safi
                 
                 	AFI,SAFI configuration available for the neighbour or group
-                	**type**\: list of  :py:class:`AfiSafi <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi>`
+                	**type**\: list of    :py:class:`AfiSafi <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi>`
                 
                 
 
@@ -14885,87 +15246,87 @@ class Bgp(object):
                     .. attribute:: afi_safi_name  <key>
                     
                     	Reference to the AFI\-SAFI name used as a key for the AFI\-SAFI list
-                    	**type**\:  :py:class:`AfiSafiTypeIdentity <ydk.models.openconfig.openconfig_bgp_types.AfiSafiTypeIdentity>`
+                    	**type**\:   :py:class:`AfiSafiTypeIdentity <ydk.models.openconfig.openconfig_bgp_types.AfiSafiTypeIdentity>`
                     
                     .. attribute:: apply_policy
                     
                     	Anchor point for routing policies in the model. Import and export policies are with respect to the local routing table, i.e., export (send) and import (receive), depending on the context
-                    	**type**\:  :py:class:`ApplyPolicy <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy>`
+                    	**type**\:   :py:class:`ApplyPolicy <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy>`
                     
                     .. attribute:: config
                     
                     	Configuration parameters for the AFI\-SAFI
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Config>`
+                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Config>`
                     
                     .. attribute:: graceful_restart
                     
                     	Parameters relating to BGP graceful\-restart
-                    	**type**\:  :py:class:`GracefulRestart <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart>`
+                    	**type**\:   :py:class:`GracefulRestart <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart>`
                     
                     .. attribute:: ipv4_labelled_unicast
                     
                     	IPv4 Labelled Unicast configuration options
-                    	**type**\:  :py:class:`Ipv4LabelledUnicast <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabelledUnicast>`
+                    	**type**\:   :py:class:`Ipv4LabelledUnicast <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabelledUnicast>`
                     
                     .. attribute:: ipv4_unicast
                     
                     	IPv4 unicast configuration options
-                    	**type**\:  :py:class:`Ipv4Unicast <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast>`
+                    	**type**\:   :py:class:`Ipv4Unicast <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast>`
                     
                     .. attribute:: ipv6_labelled_unicast
                     
                     	IPv6 Labelled Unicast configuration options
-                    	**type**\:  :py:class:`Ipv6LabelledUnicast <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabelledUnicast>`
+                    	**type**\:   :py:class:`Ipv6LabelledUnicast <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabelledUnicast>`
                     
                     .. attribute:: ipv6_unicast
                     
                     	IPv6 unicast configuration options
-                    	**type**\:  :py:class:`Ipv6Unicast <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast>`
+                    	**type**\:   :py:class:`Ipv6Unicast <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast>`
                     
                     .. attribute:: l2vpn_evpn
                     
                     	BGP EVPN configuration options
-                    	**type**\:  :py:class:`L2VpnEvpn <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn>`
+                    	**type**\:   :py:class:`L2VpnEvpn <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn>`
                     
                     .. attribute:: l2vpn_vpls
                     
                     	BGP\-signalled VPLS configuration options
-                    	**type**\:  :py:class:`L2VpnVpls <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls>`
+                    	**type**\:   :py:class:`L2VpnVpls <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls>`
                     
                     .. attribute:: l3vpn_ipv4_multicast
                     
                     	Multicast IPv4 L3VPN configuration options
-                    	**type**\:  :py:class:`L3VpnIpv4Multicast <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast>`
+                    	**type**\:   :py:class:`L3VpnIpv4Multicast <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast>`
                     
                     .. attribute:: l3vpn_ipv4_unicast
                     
                     	Unicast IPv4 L3VPN configuration options
-                    	**type**\:  :py:class:`L3VpnIpv4Unicast <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast>`
+                    	**type**\:   :py:class:`L3VpnIpv4Unicast <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast>`
                     
                     .. attribute:: l3vpn_ipv6_multicast
                     
                     	Multicast IPv6 L3VPN configuration options
-                    	**type**\:  :py:class:`L3VpnIpv6Multicast <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast>`
+                    	**type**\:   :py:class:`L3VpnIpv6Multicast <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast>`
                     
                     .. attribute:: l3vpn_ipv6_unicast
                     
                     	Unicast IPv6 L3VPN configuration options
-                    	**type**\:  :py:class:`L3VpnIpv6Unicast <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast>`
+                    	**type**\:   :py:class:`L3VpnIpv6Unicast <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast>`
                     
                     .. attribute:: route_selection_options
                     
                     	Parameters relating to options for route selection
-                    	**type**\:  :py:class:`RouteSelectionOptions <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions>`
+                    	**type**\:   :py:class:`RouteSelectionOptions <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions>`
                     
                     .. attribute:: state
                     
                     	State information relating to the AFI\-SAFI
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.State>`
+                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.State>`
                     
                     .. attribute:: use_multiple_paths
                     
                     	Parameters related to the use of multiple paths for the same NLRI
-                    	**type**\:  :py:class:`UseMultiplePaths <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths>`
+                    	**type**\:   :py:class:`UseMultiplePaths <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths>`
                     
                     
 
@@ -15018,12 +15379,12 @@ class Bgp(object):
                         .. attribute:: config
                         
                         	Configuration options for BGP graceful\-restart
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart.Config>`
                         
                         .. attribute:: state
                         
                         	State information for BGP graceful\-restart
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.GracefulRestart.State>`
                         
                         
 
@@ -15048,6 +15409,8 @@ class Bgp(object):
                             
                             	This leaf indicates whether graceful\-restart is enabled for this AFI\-SAFI
                             	**type**\:  bool
+                            
+                            	**default value**\: false
                             
                             
 
@@ -15093,6 +15456,8 @@ class Bgp(object):
                             
                             	This leaf indicates whether graceful\-restart is enabled for this AFI\-SAFI
                             	**type**\:  bool
+                            
+                            	**default value**\: false
                             
                             
 
@@ -15164,12 +15529,14 @@ class Bgp(object):
                         .. attribute:: afi_safi_name
                         
                         	AFI,SAFI
-                        	**type**\:  :py:class:`AfiSafiTypeIdentity <ydk.models.openconfig.openconfig_bgp_types.AfiSafiTypeIdentity>`
+                        	**type**\:   :py:class:`AfiSafiTypeIdentity <ydk.models.openconfig.openconfig_bgp_types.AfiSafiTypeIdentity>`
                         
                         .. attribute:: enabled
                         
                         	This leaf indicates whether the IPv4 Unicast AFI,SAFI is enabled for the neighbour or group
                         	**type**\:  bool
+                        
+                        	**default value**\: false
                         
                         
 
@@ -15218,12 +15585,14 @@ class Bgp(object):
                         .. attribute:: afi_safi_name
                         
                         	AFI,SAFI
-                        	**type**\:  :py:class:`AfiSafiTypeIdentity <ydk.models.openconfig.openconfig_bgp_types.AfiSafiTypeIdentity>`
+                        	**type**\:   :py:class:`AfiSafiTypeIdentity <ydk.models.openconfig.openconfig_bgp_types.AfiSafiTypeIdentity>`
                         
                         .. attribute:: enabled
                         
                         	This leaf indicates whether the IPv4 Unicast AFI,SAFI is enabled for the neighbour or group
                         	**type**\:  bool
+                        
+                        	**default value**\: false
                         
                         
 
@@ -15275,12 +15644,12 @@ class Bgp(object):
                         .. attribute:: config
                         
                         	Policy configuration data
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy.Config>`
                         
                         .. attribute:: state
                         
                         	Operational state for routing policy
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.ApplyPolicy.State>`
                         
                         
 
@@ -15304,26 +15673,30 @@ class Bgp(object):
                             .. attribute:: default_export_policy
                             
                             	explicitly set a default policy if no policy definition in the export policy chain is satisfied
-                            	**type**\:  :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                            	**type**\:   :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                            
+                            	**default value**\: REJECT-ROUTE
                             
                             .. attribute:: default_import_policy
                             
                             	explicitly set a default policy if no policy definition in the import policy chain is satisfied
-                            	**type**\:  :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                            	**type**\:   :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                            
+                            	**default value**\: REJECT-ROUTE
                             
                             .. attribute:: export_policy
                             
                             	list of policy names in sequence to be applied on sending a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                             	**type**\:  list of str
                             
-                            	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
+                            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
                             
                             .. attribute:: import_policy
                             
                             	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                             	**type**\:  list of str
                             
-                            	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
+                            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
                             
                             
 
@@ -15388,26 +15761,30 @@ class Bgp(object):
                             .. attribute:: default_export_policy
                             
                             	explicitly set a default policy if no policy definition in the export policy chain is satisfied
-                            	**type**\:  :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                            	**type**\:   :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                            
+                            	**default value**\: REJECT-ROUTE
                             
                             .. attribute:: default_import_policy
                             
                             	explicitly set a default policy if no policy definition in the import policy chain is satisfied
-                            	**type**\:  :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                            	**type**\:   :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                            
+                            	**default value**\: REJECT-ROUTE
                             
                             .. attribute:: export_policy
                             
                             	list of policy names in sequence to be applied on sending a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                             	**type**\:  list of str
                             
-                            	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
+                            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
                             
                             .. attribute:: import_policy
                             
                             	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                             	**type**\:  list of str
                             
-                            	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
+                            	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
                             
                             
 
@@ -15499,17 +15876,17 @@ class Bgp(object):
                         .. attribute:: config
                         
                         	Configuration parameters for common IPv4 and IPv6 unicast AFI\-SAFI options
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.Config>`
                         
                         .. attribute:: prefix_limit
                         
                         	Configure the maximum number of prefixes that will be accepted from a peer
-                        	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit>`
+                        	**type**\:   :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit>`
                         
                         .. attribute:: state
                         
                         	State information for common IPv4 and IPv6 unicast parameters
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.State>`
                         
                         
 
@@ -15536,12 +15913,12 @@ class Bgp(object):
                             .. attribute:: config
                             
                             	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config>`
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.Config>`
                             
                             .. attribute:: state
                             
                             	State information relating to the prefix\-limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State>`
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4Unicast.PrefixLimit.State>`
                             
                             
 
@@ -15573,9 +15950,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -15643,9 +16022,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -15735,6 +16116,8 @@ class Bgp(object):
                             	If set to true, send the default\-route to the neighbour(s)
                             	**type**\:  bool
                             
+                            	**default value**\: false
+                            
                             
 
                             """
@@ -15780,6 +16163,8 @@ class Bgp(object):
                             
                             	If set to true, send the default\-route to the neighbour(s)
                             	**type**\:  bool
+                            
+                            	**default value**\: false
                             
                             
 
@@ -15854,17 +16239,17 @@ class Bgp(object):
                         .. attribute:: config
                         
                         	Configuration parameters for common IPv4 and IPv6 unicast AFI\-SAFI options
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.Config>`
                         
                         .. attribute:: prefix_limit
                         
                         	Configure the maximum number of prefixes that will be accepted from a peer
-                        	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit>`
+                        	**type**\:   :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit>`
                         
                         .. attribute:: state
                         
                         	State information for common IPv4 and IPv6 unicast parameters
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.State>`
                         
                         
 
@@ -15891,12 +16276,12 @@ class Bgp(object):
                             .. attribute:: config
                             
                             	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config>`
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.Config>`
                             
                             .. attribute:: state
                             
                             	State information relating to the prefix\-limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State>`
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6Unicast.PrefixLimit.State>`
                             
                             
 
@@ -15928,9 +16313,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -15998,9 +16385,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -16090,6 +16479,8 @@ class Bgp(object):
                             	If set to true, send the default\-route to the neighbour(s)
                             	**type**\:  bool
                             
+                            	**default value**\: false
+                            
                             
 
                             """
@@ -16135,6 +16526,8 @@ class Bgp(object):
                             
                             	If set to true, send the default\-route to the neighbour(s)
                             	**type**\:  bool
+                            
+                            	**default value**\: false
                             
                             
 
@@ -16209,7 +16602,7 @@ class Bgp(object):
                         .. attribute:: prefix_limit
                         
                         	Configure the maximum number of prefixes that will be accepted from a peer
-                        	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit>`
+                        	**type**\:   :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit>`
                         
                         
 
@@ -16232,12 +16625,12 @@ class Bgp(object):
                             .. attribute:: config
                             
                             	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.Config>`
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.Config>`
                             
                             .. attribute:: state
                             
                             	State information relating to the prefix\-limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.State>`
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv4LabelledUnicast.PrefixLimit.State>`
                             
                             
 
@@ -16269,9 +16662,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -16339,9 +16734,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -16452,7 +16849,7 @@ class Bgp(object):
                         .. attribute:: prefix_limit
                         
                         	Configure the maximum number of prefixes that will be accepted from a peer
-                        	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit>`
+                        	**type**\:   :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit>`
                         
                         
 
@@ -16475,12 +16872,12 @@ class Bgp(object):
                             .. attribute:: config
                             
                             	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.Config>`
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.Config>`
                             
                             .. attribute:: state
                             
                             	State information relating to the prefix\-limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.State>`
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.Ipv6LabelledUnicast.PrefixLimit.State>`
                             
                             
 
@@ -16512,9 +16909,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -16582,9 +16981,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -16695,7 +17096,7 @@ class Bgp(object):
                         .. attribute:: prefix_limit
                         
                         	Configure the maximum number of prefixes that will be accepted from a peer
-                        	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit>`
+                        	**type**\:   :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit>`
                         
                         
 
@@ -16718,12 +17119,12 @@ class Bgp(object):
                             .. attribute:: config
                             
                             	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config>`
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.Config>`
                             
                             .. attribute:: state
                             
                             	State information relating to the prefix\-limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State>`
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Unicast.PrefixLimit.State>`
                             
                             
 
@@ -16755,9 +17156,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -16825,9 +17228,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -16938,7 +17343,7 @@ class Bgp(object):
                         .. attribute:: prefix_limit
                         
                         	Configure the maximum number of prefixes that will be accepted from a peer
-                        	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit>`
+                        	**type**\:   :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit>`
                         
                         
 
@@ -16961,12 +17366,12 @@ class Bgp(object):
                             .. attribute:: config
                             
                             	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config>`
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.Config>`
                             
                             .. attribute:: state
                             
                             	State information relating to the prefix\-limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State>`
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Unicast.PrefixLimit.State>`
                             
                             
 
@@ -16998,9 +17403,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -17068,9 +17475,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -17181,7 +17590,7 @@ class Bgp(object):
                         .. attribute:: prefix_limit
                         
                         	Configure the maximum number of prefixes that will be accepted from a peer
-                        	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit>`
+                        	**type**\:   :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit>`
                         
                         
 
@@ -17204,12 +17613,12 @@ class Bgp(object):
                             .. attribute:: config
                             
                             	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config>`
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.Config>`
                             
                             .. attribute:: state
                             
                             	State information relating to the prefix\-limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State>`
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv4Multicast.PrefixLimit.State>`
                             
                             
 
@@ -17241,9 +17650,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -17311,9 +17722,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -17424,7 +17837,7 @@ class Bgp(object):
                         .. attribute:: prefix_limit
                         
                         	Configure the maximum number of prefixes that will be accepted from a peer
-                        	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit>`
+                        	**type**\:   :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit>`
                         
                         
 
@@ -17447,12 +17860,12 @@ class Bgp(object):
                             .. attribute:: config
                             
                             	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config>`
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.Config>`
                             
                             .. attribute:: state
                             
                             	State information relating to the prefix\-limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State>`
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L3VpnIpv6Multicast.PrefixLimit.State>`
                             
                             
 
@@ -17484,9 +17897,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -17554,9 +17969,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -17667,7 +18084,7 @@ class Bgp(object):
                         .. attribute:: prefix_limit
                         
                         	Configure the maximum number of prefixes that will be accepted from a peer
-                        	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit>`
+                        	**type**\:   :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit>`
                         
                         
 
@@ -17690,12 +18107,12 @@ class Bgp(object):
                             .. attribute:: config
                             
                             	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config>`
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.Config>`
                             
                             .. attribute:: state
                             
                             	State information relating to the prefix\-limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State>`
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnVpls.PrefixLimit.State>`
                             
                             
 
@@ -17727,9 +18144,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -17797,9 +18216,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -17910,7 +18331,7 @@ class Bgp(object):
                         .. attribute:: prefix_limit
                         
                         	Configure the maximum number of prefixes that will be accepted from a peer
-                        	**type**\:  :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit>`
+                        	**type**\:   :py:class:`PrefixLimit <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit>`
                         
                         
 
@@ -17933,12 +18354,12 @@ class Bgp(object):
                             .. attribute:: config
                             
                             	Configuration parameters relating to the prefix limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config>`
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.Config>`
                             
                             .. attribute:: state
                             
                             	State information relating to the prefix\-limit for the AFI\-SAFI
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State>`
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.L2VpnEvpn.PrefixLimit.State>`
                             
                             
 
@@ -17970,9 +18391,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -18040,9 +18463,11 @@ class Bgp(object):
                                 .. attribute:: restart_timer
                                 
                                 	Time interval in seconds after which the BGP session is re\-established after being torn down due to exceeding the max\-prefix limit
-                                	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                                	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                                 
                                 	**range:** \-92233720368547758.08..92233720368547758.07
+                                
+                                	**units**\: seconds
                                 
                                 .. attribute:: shutdown_threshold_pct
                                 
@@ -18154,22 +18579,22 @@ class Bgp(object):
                         .. attribute:: config
                         
                         	Configuration parameters relating to multipath
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Config>`
                         
                         .. attribute:: ebgp
                         
                         	Multipath parameters for eBGP
-                        	**type**\:  :py:class:`Ebgp <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp>`
+                        	**type**\:   :py:class:`Ebgp <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp>`
                         
                         .. attribute:: ibgp
                         
                         	Multipath parameters for iBGP
-                        	**type**\:  :py:class:`Ibgp <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp>`
+                        	**type**\:   :py:class:`Ibgp <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp>`
                         
                         .. attribute:: state
                         
                         	State parameters relating to multipath
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.State>`
                         
                         
 
@@ -18198,6 +18623,8 @@ class Bgp(object):
                             
                             	Whether the use of multiple paths for the same NLRI is enabled for the neighbor. This value is overridden by any more specific configuration value
                             	**type**\:  bool
+                            
+                            	**default value**\: false
                             
                             
 
@@ -18244,6 +18671,8 @@ class Bgp(object):
                             	Whether the use of multiple paths for the same NLRI is enabled for the neighbor. This value is overridden by any more specific configuration value
                             	**type**\:  bool
                             
+                            	**default value**\: false
+                            
                             
 
                             """
@@ -18287,12 +18716,12 @@ class Bgp(object):
                             .. attribute:: config
                             
                             	Configuration parameters relating to eBGP multipath
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config>`
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.Config>`
                             
                             .. attribute:: state
                             
                             	State information relating to eBGP multipath
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State>`
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ebgp.State>`
                             
                             
 
@@ -18318,12 +18747,16 @@ class Bgp(object):
                                 	Allow multipath to use paths from different neighbouring ASes.  The default is to only consider multiple paths from the same neighbouring AS
                                 	**type**\:  bool
                                 
+                                	**default value**\: false
+                                
                                 .. attribute:: maximum_paths
                                 
                                 	Maximum number of parallel paths to consider when using BGP multipath. The default is use a single path
                                 	**type**\:  int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**default value**\: 1
                                 
                                 
 
@@ -18374,12 +18807,16 @@ class Bgp(object):
                                 	Allow multipath to use paths from different neighbouring ASes.  The default is to only consider multiple paths from the same neighbouring AS
                                 	**type**\:  bool
                                 
+                                	**default value**\: false
+                                
                                 .. attribute:: maximum_paths
                                 
                                 	Maximum number of parallel paths to consider when using BGP multipath. The default is use a single path
                                 	**type**\:  int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**default value**\: 1
                                 
                                 
 
@@ -18455,12 +18892,12 @@ class Bgp(object):
                             .. attribute:: config
                             
                             	Configuration parameters relating to iBGP multipath
-                            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config>`
+                            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.Config>`
                             
                             .. attribute:: state
                             
                             	State information relating to iBGP multipath
-                            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State>`
+                            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.UseMultiplePaths.Ibgp.State>`
                             
                             
 
@@ -18487,6 +18924,8 @@ class Bgp(object):
                                 	**type**\:  int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**default value**\: 1
                                 
                                 
 
@@ -18534,6 +18973,8 @@ class Bgp(object):
                                 	**type**\:  int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**default value**\: 1
                                 
                                 
 
@@ -18638,12 +19079,12 @@ class Bgp(object):
                         .. attribute:: config
                         
                         	Configuration parameters relating to route selection options
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions.Config>`
                         
                         .. attribute:: state
                         
                         	State information for the route selection options
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.AfiSafis.AfiSafi.RouteSelectionOptions.State>`
                         
                         
 
@@ -18670,30 +19111,42 @@ class Bgp(object):
                             	Advertise inactive routes to external peers.  The default is to only advertise active routes
                             	**type**\:  bool
                             
+                            	**default value**\: false
+                            
                             .. attribute:: always_compare_med
                             
                             	Compare multi\-exit discriminator (MED) value from different ASes when selecting the best route.  The default behavior is to only compare MEDs for paths received from the same AS
                             	**type**\:  bool
+                            
+                            	**default value**\: false
                             
                             .. attribute:: enable_aigp
                             
                             	Flag to enable sending / receiving accumulated IGP attribute in routing updates
                             	**type**\:  bool
                             
+                            	**default value**\: false
+                            
                             .. attribute:: external_compare_router_id
                             
                             	When comparing similar routes received from external BGP peers, use the router\-id as a criterion to select the active path
                             	**type**\:  bool
+                            
+                            	**default value**\: true
                             
                             .. attribute:: ignore_as_path_length
                             
                             	Ignore the AS path length when selecting the best path. The default is to use the AS path length and prefer paths with shorter length
                             	**type**\:  bool
                             
+                            	**default value**\: false
+                            
                             .. attribute:: ignore_next_hop_igp_metric
                             
                             	Ignore the IGP metric to the next\-hop when calculating BGP best\-path. The default is to select the route for which the metric to the next\-hop is lowest
                             	**type**\:  bool
+                            
+                            	**default value**\: false
                             
                             
 
@@ -18760,30 +19213,42 @@ class Bgp(object):
                             	Advertise inactive routes to external peers.  The default is to only advertise active routes
                             	**type**\:  bool
                             
+                            	**default value**\: false
+                            
                             .. attribute:: always_compare_med
                             
                             	Compare multi\-exit discriminator (MED) value from different ASes when selecting the best route.  The default behavior is to only compare MEDs for paths received from the same AS
                             	**type**\:  bool
+                            
+                            	**default value**\: false
                             
                             .. attribute:: enable_aigp
                             
                             	Flag to enable sending / receiving accumulated IGP attribute in routing updates
                             	**type**\:  bool
                             
+                            	**default value**\: false
+                            
                             .. attribute:: external_compare_router_id
                             
                             	When comparing similar routes received from external BGP peers, use the router\-id as a criterion to select the active path
                             	**type**\:  bool
+                            
+                            	**default value**\: true
                             
                             .. attribute:: ignore_as_path_length
                             
                             	Ignore the AS path length when selecting the best path. The default is to use the AS path length and prefer paths with shorter length
                             	**type**\:  bool
                             
+                            	**default value**\: false
+                            
                             .. attribute:: ignore_next_hop_igp_metric
                             
                             	Ignore the IGP metric to the next\-hop when calculating BGP best\-path. The default is to select the route for which the metric to the next\-hop is lowest
                             	**type**\:  bool
+                            
+                            	**default value**\: false
                             
                             
 
@@ -18975,12 +19440,12 @@ class Bgp(object):
                 .. attribute:: config
                 
                 	Configuration parameters relating to graceful\-restart
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.GracefulRestart.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.GracefulRestart.Config>`
                 
                 .. attribute:: state
                 
                 	State information associated with graceful\-restart
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.GracefulRestart.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.GracefulRestart.State>`
                 
                 
 
@@ -19021,7 +19486,7 @@ class Bgp(object):
                     .. attribute:: stale_routes_time
                     
                     	An upper\-bound on the time thate stale routes will be retained by a router after a session is restarted. If an End\-of\-RIB (EOR) marker is received prior to this timer expiring stale\-routes will be flushed upon its receipt \- if no EOR is received, then when this timer expires stale paths will be purged. This timer is referred to as the Selection\_Deferral\_Timer in RFC4724
-                    	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -19097,7 +19562,7 @@ class Bgp(object):
                     .. attribute:: stale_routes_time
                     
                     	An upper\-bound on the time thate stale routes will be retained by a router after a session is restarted. If an End\-of\-RIB (EOR) marker is received prior to this timer expiring stale\-routes will be flushed upon its receipt \- if no EOR is received, then when this timer expires stale paths will be purged. This timer is referred to as the Selection\_Deferral\_Timer in RFC4724
-                    	**type**\:  :py:class:`Decimal64 <ydk.types.Decimal64>`
+                    	**type**\:  :py:class:`Decimal64<ydk.types.Decimal64>`
                     
                     	**range:** \-92233720368547758.08..92233720368547758.07
                     
@@ -19186,12 +19651,12 @@ class Bgp(object):
                 .. attribute:: config
                 
                 	Policy configuration data
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.ApplyPolicy.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.ApplyPolicy.Config>`
                 
                 .. attribute:: state
                 
                 	Operational state for routing policy
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.ApplyPolicy.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.ApplyPolicy.State>`
                 
                 
 
@@ -19215,26 +19680,30 @@ class Bgp(object):
                     .. attribute:: default_export_policy
                     
                     	explicitly set a default policy if no policy definition in the export policy chain is satisfied
-                    	**type**\:  :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                    	**type**\:   :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                    
+                    	**default value**\: REJECT-ROUTE
                     
                     .. attribute:: default_import_policy
                     
                     	explicitly set a default policy if no policy definition in the import policy chain is satisfied
-                    	**type**\:  :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                    	**type**\:   :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                    
+                    	**default value**\: REJECT-ROUTE
                     
                     .. attribute:: export_policy
                     
                     	list of policy names in sequence to be applied on sending a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                     	**type**\:  list of str
                     
-                    	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
+                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
                     
                     .. attribute:: import_policy
                     
                     	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                     	**type**\:  list of str
                     
-                    	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
+                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
                     
                     
 
@@ -19299,26 +19768,30 @@ class Bgp(object):
                     .. attribute:: default_export_policy
                     
                     	explicitly set a default policy if no policy definition in the export policy chain is satisfied
-                    	**type**\:  :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                    	**type**\:   :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                    
+                    	**default value**\: REJECT-ROUTE
                     
                     .. attribute:: default_import_policy
                     
                     	explicitly set a default policy if no policy definition in the import policy chain is satisfied
-                    	**type**\:  :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                    	**type**\:   :py:class:`DefaultPolicyTypeEnum <ydk.models.openconfig.openconfig_routing_policy.DefaultPolicyTypeEnum>`
+                    
+                    	**default value**\: REJECT-ROUTE
                     
                     .. attribute:: export_policy
                     
                     	list of policy names in sequence to be applied on sending a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                     	**type**\:  list of str
                     
-                    	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
+                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
                     
                     .. attribute:: import_policy
                     
                     	list of policy names in sequence to be applied on receiving a routing update in the current context, e.g., for the current peer group, neighbor, address family, etc
                     	**type**\:  list of str
                     
-                    	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
+                    	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
                     
                     
 
@@ -19411,22 +19884,22 @@ class Bgp(object):
                 .. attribute:: config
                 
                 	Configuration parameters relating to multipath
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Config>`
                 
                 .. attribute:: ebgp
                 
                 	Multipath parameters for eBGP
-                	**type**\:  :py:class:`Ebgp <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ebgp>`
+                	**type**\:   :py:class:`Ebgp <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ebgp>`
                 
                 .. attribute:: ibgp
                 
                 	Multipath parameters for iBGP
-                	**type**\:  :py:class:`Ibgp <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ibgp>`
+                	**type**\:   :py:class:`Ibgp <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ibgp>`
                 
                 .. attribute:: state
                 
                 	State parameters relating to multipath
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.UseMultiplePaths.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.UseMultiplePaths.State>`
                 
                 
 
@@ -19455,6 +19928,8 @@ class Bgp(object):
                     
                     	Whether the use of multiple paths for the same NLRI is enabled for the neighbor. This value is overridden by any more specific configuration value
                     	**type**\:  bool
+                    
+                    	**default value**\: false
                     
                     
 
@@ -19501,6 +19976,8 @@ class Bgp(object):
                     	Whether the use of multiple paths for the same NLRI is enabled for the neighbor. This value is overridden by any more specific configuration value
                     	**type**\:  bool
                     
+                    	**default value**\: false
+                    
                     
 
                     """
@@ -19544,12 +20021,12 @@ class Bgp(object):
                     .. attribute:: config
                     
                     	Configuration parameters relating to eBGP multipath
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ebgp.Config>`
+                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ebgp.Config>`
                     
                     .. attribute:: state
                     
                     	State information relating to eBGP multipath
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ebgp.State>`
+                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ebgp.State>`
                     
                     
 
@@ -19575,12 +20052,16 @@ class Bgp(object):
                         	Allow multipath to use paths from different neighbouring ASes.  The default is to only consider multiple paths from the same neighbouring AS
                         	**type**\:  bool
                         
+                        	**default value**\: false
+                        
                         .. attribute:: maximum_paths
                         
                         	Maximum number of parallel paths to consider when using BGP multipath. The default is use a single path
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**default value**\: 1
                         
                         
 
@@ -19631,12 +20112,16 @@ class Bgp(object):
                         	Allow multipath to use paths from different neighbouring ASes.  The default is to only consider multiple paths from the same neighbouring AS
                         	**type**\:  bool
                         
+                        	**default value**\: false
+                        
                         .. attribute:: maximum_paths
                         
                         	Maximum number of parallel paths to consider when using BGP multipath. The default is use a single path
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**default value**\: 1
                         
                         
 
@@ -19712,12 +20197,12 @@ class Bgp(object):
                     .. attribute:: config
                     
                     	Configuration parameters relating to iBGP multipath
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ibgp.Config>`
+                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ibgp.Config>`
                     
                     .. attribute:: state
                     
                     	State information relating to iBGP multipath
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ibgp.State>`
+                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_bgp.Bgp.PeerGroups.PeerGroup.UseMultiplePaths.Ibgp.State>`
                     
                     
 
@@ -19744,6 +20229,8 @@ class Bgp(object):
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**default value**\: 1
                         
                         
 
@@ -19791,6 +20278,8 @@ class Bgp(object):
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**default value**\: 1
                         
                         
 

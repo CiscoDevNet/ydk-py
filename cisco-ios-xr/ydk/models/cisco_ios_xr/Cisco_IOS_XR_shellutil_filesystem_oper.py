@@ -32,7 +32,7 @@ class FileSystem(object):
     .. attribute:: node
     
     	Node ID
-    	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_filesystem_oper.FileSystem.Node>`
+    	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_filesystem_oper.FileSystem.Node>`
     
     
 
@@ -61,7 +61,7 @@ class FileSystem(object):
         .. attribute:: file_system
         
         	Available file systems
-        	**type**\: list of  :py:class:`FileSystem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_filesystem_oper.FileSystem.Node.FileSystem>`
+        	**type**\: list of    :py:class:`FileSystem_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_filesystem_oper.FileSystem.Node.FileSystem_>`
         
         
 
@@ -78,7 +78,7 @@ class FileSystem(object):
             self.file_system.name = 'file_system'
 
 
-        class FileSystem(object):
+        class FileSystem_(object):
             """
             Available file systems
             
@@ -92,6 +92,8 @@ class FileSystem(object):
             	Free space in the file system in bytes
             	**type**\:  str
             
+            	**units**\: byte
+            
             .. attribute:: prefixes
             
             	Prefixes of file system
@@ -101,6 +103,8 @@ class FileSystem(object):
             
             	Size of the file system in bytes
             	**type**\:  str
+            
+            	**units**\: byte
             
             .. attribute:: type
             
@@ -156,7 +160,7 @@ class FileSystem(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_shellutil_filesystem_oper as meta
-                return meta._meta_table['FileSystem.Node.FileSystem']['meta_info']
+                return meta._meta_table['FileSystem.Node.FileSystem_']['meta_info']
 
         @property
         def _common_path(self):

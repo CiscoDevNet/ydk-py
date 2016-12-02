@@ -59,7 +59,7 @@ class Interfaces(object):
     .. attribute:: interface
     
     	The list of configured interfaces on the device.  The operational state of an interface is available in the /interfaces\-state/interface list.  If the configuration of a system\-controlled interface cannot be used by the system (e.g., the interface hardware present does not match the interface type), then the configuration is not applied to the system\-controlled interface shown in the /interfaces\-state/interface list.  If the configuration of a user\-controlled interface cannot be used by the system, the configured interface is not instantiated in the /interfaces\-state/interface list
-    	**type**\: list of  :py:class:`Interface <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
+    	**type**\: list of    :py:class:`Interface <ydk.models.ietf.ietf_interfaces.Interfaces.Interface>`
     
     
 
@@ -104,15 +104,17 @@ class Interfaces(object):
         	This leaf contains the configured, desired state of the interface.  Systems that implement the IF\-MIB use the value of this leaf in the 'running' datastore to set IF\-MIB.ifAdminStatus to 'up' or 'down' after an ifEntry has been initialized, as described in RFC 2863.    Changes in this leaf in the 'running' datastore are reflected in ifAdminStatus, but if ifAdminStatus is changed over SNMP, this leaf is not affected
         	**type**\:  bool
         
+        	**default value**\: true
+        
         .. attribute:: link_up_down_trap_enable
         
         	Controls whether linkUp/linkDown SNMP notifications should be generated for this interface.  If this node is not configured, the value 'enabled' is operationally used by the server for interfaces that do not operate on top of any other interface (i.e., there are no 'lower\-layer\-if' entries), and 'disabled' otherwise
-        	**type**\:  :py:class:`LinkUpDownTrapEnableEnum <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.LinkUpDownTrapEnableEnum>`
+        	**type**\:   :py:class:`LinkUpDownTrapEnableEnum <ydk.models.ietf.ietf_interfaces.Interfaces.Interface.LinkUpDownTrapEnableEnum>`
         
         .. attribute:: type
         
         	The type of the interface.  When an interface entry is created, a server MAY initialize the type leaf with a valid value, e.g., if it is possible to derive the type from the name of the interface.  If a client tries to set the type of an interface to a value that can never be used by the system, e.g., if the type is not supported or if the type does not match the name of the interface, the server MUST reject the request. A NETCONF server MUST reply with an rpc\-error with the error\-tag 'invalid\-value' in this case
-        	**type**\:  :py:class:`InterfaceTypeIdentity <ydk.models.ietf.ietf_interfaces.InterfaceTypeIdentity>`
+        	**type**\:   :py:class:`InterfaceTypeIdentity <ydk.models.ietf.ietf_interfaces.InterfaceTypeIdentity>`
         
         	**mandatory**\: True
         
@@ -147,15 +149,15 @@ class Interfaces(object):
 
             no 'lower\-layer\-if' entries), and 'disabled' otherwise.
 
-            .. data:: ENABLED = 1
+            .. data:: enabled = 1
 
-            .. data:: DISABLED = 2
+            .. data:: disabled = 2
 
             """
 
-            ENABLED = 1
+            enabled = 1
 
-            DISABLED = 2
+            disabled = 2
 
 
             @staticmethod
@@ -232,7 +234,7 @@ class InterfacesState(object):
     .. attribute:: interface
     
     	The list of interfaces on the device.  System\-controlled interfaces created by the system are always present in this list, whether they are configured or not
-    	**type**\: list of  :py:class:`Interface <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface>`
+    	**type**\: list of    :py:class:`Interface <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface>`
     
     
 
@@ -263,21 +265,21 @@ class InterfacesState(object):
         .. attribute:: admin_status
         
         	The desired state of the interface.  This leaf has the same read semantics as ifAdminStatus
-        	**type**\:  :py:class:`AdminStatusEnum <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.AdminStatusEnum>`
+        	**type**\:   :py:class:`AdminStatusEnum <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.AdminStatusEnum>`
         
         	**mandatory**\: True
         
         .. attribute:: bandwidth
         
         	Bandwidth data for an interface
-        	**type**\:  :py:class:`Bandwidth <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.Bandwidth>`
+        	**type**\:   :py:class:`Bandwidth <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.Bandwidth>`
         
         .. attribute:: higher_layer_if
         
         	A list of references to interfaces layered on top of this interface
         	**type**\:  list of str
         
-        	**refers to**\: :py:class:`name <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface>`
+        	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface>`
         
         .. attribute:: if_index
         
@@ -300,12 +302,12 @@ class InterfacesState(object):
         	A list of references to interfaces layered underneath this interface
         	**type**\:  list of str
         
-        	**refers to**\: :py:class:`name <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface>`
+        	**refers to**\:  :py:class:`name <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface>`
         
         .. attribute:: oper_status
         
         	The current operational state of the interface.  This leaf has the same semantics as ifOperStatus
-        	**type**\:  :py:class:`OperStatusEnum <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.OperStatusEnum>`
+        	**type**\:   :py:class:`OperStatusEnum <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.OperStatusEnum>`
         
         	**mandatory**\: True
         
@@ -323,15 +325,17 @@ class InterfacesState(object):
         
         	**range:** 0..18446744073709551615
         
+        	**units**\: bits/second
+        
         .. attribute:: statistics
         
         	A collection of interface\-related statistics objects
-        	**type**\:  :py:class:`Statistics <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.Statistics>`
+        	**type**\:   :py:class:`Statistics <ydk.models.ietf.ietf_interfaces.InterfacesState.Interface.Statistics>`
         
         .. attribute:: type
         
         	The type of the interface
-        	**type**\:  :py:class:`InterfaceTypeIdentity <ydk.models.ietf.ietf_interfaces.InterfaceTypeIdentity>`
+        	**type**\:   :py:class:`InterfaceTypeIdentity <ydk.models.ietf.ietf_interfaces.InterfaceTypeIdentity>`
         
         	**mandatory**\: True
         
@@ -371,25 +375,25 @@ class InterfacesState(object):
 
             This leaf has the same read semantics as ifAdminStatus.
 
-            .. data:: UP = 1
+            .. data:: up = 1
 
             	Ready to pass packets.
 
-            .. data:: DOWN = 2
+            .. data:: down = 2
 
             	Not ready to pass packets and not in some test mode.
 
-            .. data:: TESTING = 3
+            .. data:: testing = 3
 
             	In some test mode.
 
             """
 
-            UP = 1
+            up = 1
 
-            DOWN = 2
+            down = 2
 
-            TESTING = 3
+            testing = 3
 
 
             @staticmethod
@@ -406,51 +410,51 @@ class InterfacesState(object):
 
             This leaf has the same semantics as ifOperStatus.
 
-            .. data:: UP = 1
+            .. data:: up = 1
 
             	Ready to pass packets.
 
-            .. data:: DOWN = 2
+            .. data:: down = 2
 
             	The interface does not pass any packets.
 
-            .. data:: TESTING = 3
+            .. data:: testing = 3
 
             	In some test mode.  No operational packets can
 
             	be passed.
 
-            .. data:: UNKNOWN = 4
+            .. data:: unknown = 4
 
             	Status cannot be determined for some reason.
 
-            .. data:: DORMANT = 5
+            .. data:: dormant = 5
 
             	Waiting for some external event.
 
-            .. data:: NOT_PRESENT = 6
+            .. data:: not_present = 6
 
             	Some component (typically hardware) is missing.
 
-            .. data:: LOWER_LAYER_DOWN = 7
+            .. data:: lower_layer_down = 7
 
             	Down due to state of lower-layer interface(s).
 
             """
 
-            UP = 1
+            up = 1
 
-            DOWN = 2
+            down = 2
 
-            TESTING = 3
+            testing = 3
 
-            UNKNOWN = 4
+            unknown = 4
 
-            DORMANT = 5
+            dormant = 5
 
-            NOT_PRESENT = 6
+            not_present = 6
 
-            LOWER_LAYER_DOWN = 7
+            lower_layer_down = 7
 
 
             @staticmethod

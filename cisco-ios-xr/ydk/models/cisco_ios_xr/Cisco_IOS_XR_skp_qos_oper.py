@@ -31,31 +31,31 @@ class ActionEnum(Enum):
 
     Action type
 
-    .. data:: POLICE_TRANSMIT = 0
+    .. data:: police_transmit = 0
 
     	Police action transmit
 
-    .. data:: POLICE_SET_TRANSMIT = 1
+    .. data:: police_set_transmit = 1
 
     	Police action set transmit
 
-    .. data:: POLICE_DROP = 2
+    .. data:: police_drop = 2
 
     	Police action drop
 
-    .. data:: POLICE_UNKNOWN = 3
+    .. data:: police_unknown = 3
 
     	Police action unknown
 
     """
 
-    POLICE_TRANSMIT = 0
+    police_transmit = 0
 
-    POLICE_SET_TRANSMIT = 1
+    police_set_transmit = 1
 
-    POLICE_DROP = 2
+    police_drop = 2
 
-    POLICE_UNKNOWN = 3
+    police_unknown = 3
 
 
     @staticmethod
@@ -70,103 +70,103 @@ class ActionOpcodeEnum(Enum):
 
     Action opcode
 
-    .. data:: PRECEDENCE = 0
+    .. data:: precedence = 0
 
     	Precedence
 
-    .. data:: DSCP = 1
+    .. data:: dscp = 1
 
     	DSCP
 
-    .. data:: DISCARD_CLASS = 2
+    .. data:: discard_class = 2
 
     	Discard class
 
-    .. data:: QOS_GROUP = 3
+    .. data:: qos_group = 3
 
     	QoS group
 
-    .. data:: COS_INNER = 4
+    .. data:: cos_inner = 4
 
     	COS inner
 
-    .. data:: COS = 5
+    .. data:: cos = 5
 
     	COS
 
-    .. data:: EXP_TOP = 6
+    .. data:: exp_top = 6
 
     	EXP top
 
-    .. data:: EXP_IMP = 7
+    .. data:: exp_imp = 7
 
     	EXP IMP
 
-    .. data:: TUNNEL_PRECEDENCE = 8
+    .. data:: tunnel_precedence = 8
 
     	Tunnel precedence
 
-    .. data:: TUNNEL_DSCP = 9
+    .. data:: tunnel_dscp = 9
 
     	Tunnel DSCP
 
-    .. data:: ITAG_DEI = 10
+    .. data:: itag_dei = 10
 
     	ITAG DEI
 
-    .. data:: ITAG_COS = 11
+    .. data:: itag_cos = 11
 
     	ITAG COS
 
-    .. data:: COS_IMPOSITION = 12
+    .. data:: cos_imposition = 12
 
     	COS imposition
 
-    .. data:: DEI_IMPOSITION = 13
+    .. data:: dei_imposition = 13
 
     	DEI imposition
 
-    .. data:: DEI = 14
+    .. data:: dei = 14
 
     	DEI
 
-    .. data:: NO_MARKING = 15
+    .. data:: no_marking = 15
 
     	No marking
 
     """
 
-    PRECEDENCE = 0
+    precedence = 0
 
-    DSCP = 1
+    dscp = 1
 
-    DISCARD_CLASS = 2
+    discard_class = 2
 
-    QOS_GROUP = 3
+    qos_group = 3
 
-    COS_INNER = 4
+    cos_inner = 4
 
-    COS = 5
+    cos = 5
 
-    EXP_TOP = 6
+    exp_top = 6
 
-    EXP_IMP = 7
+    exp_imp = 7
 
-    TUNNEL_PRECEDENCE = 8
+    tunnel_precedence = 8
 
-    TUNNEL_DSCP = 9
+    tunnel_dscp = 9
 
-    ITAG_DEI = 10
+    itag_dei = 10
 
-    ITAG_COS = 11
+    itag_cos = 11
 
-    COS_IMPOSITION = 12
+    cos_imposition = 12
 
-    DEI_IMPOSITION = 13
+    dei_imposition = 13
 
-    DEI = 14
+    dei = 14
 
-    NO_MARKING = 15
+    no_marking = 15
 
 
     @staticmethod
@@ -181,31 +181,31 @@ class CacStateEnum(Enum):
 
     CAC/UBRL class states
 
-    .. data:: UNKNOWN = 0
+    .. data:: unknown = 0
 
     	unknown
 
-    .. data:: ADMIT = 1
+    .. data:: admit = 1
 
     	admit
 
-    .. data:: REDIRECT = 2
+    .. data:: redirect = 2
 
     	redirect
 
-    .. data:: UBRL = 3
+    .. data:: ubrl = 3
 
     	ubrl
 
     """
 
-    UNKNOWN = 0
+    unknown = 0
 
-    ADMIT = 1
+    admit = 1
 
-    REDIRECT = 2
+    redirect = 2
 
-    UBRL = 3
+    ubrl = 3
 
 
     @staticmethod
@@ -220,151 +220,151 @@ class PolicyParamUnitEnum(Enum):
 
     Policy param unit
 
-    .. data:: POLICY_PARAM_UNIT_INVALID = 0
+    .. data:: policy_param_unit_invalid = 0
 
     	policy param unit invalid
 
-    .. data:: POLICY_PARAM_UNIT_BYTES = 1
+    .. data:: policy_param_unit_bytes = 1
 
     	policy param unit bytes
 
-    .. data:: POLICY_PARAM_UNIT_KBYTES = 2
+    .. data:: policy_param_unit_kbytes = 2
 
     	policy param unit kbytes
 
-    .. data:: POLICY_PARAM_UNIT_MBYTES = 3
+    .. data:: policy_param_unit_mbytes = 3
 
     	policy param unit mbytes
 
-    .. data:: POLICY_PARAM_UNIT_GBYTES = 4
+    .. data:: policy_param_unit_gbytes = 4
 
     	policy param unit gbytes
 
-    .. data:: POLICY_PARAM_UNIT_BITSPS = 5
+    .. data:: policy_param_unit_bitsps = 5
 
     	policy param unit bitsps
 
-    .. data:: POLICY_PARAM_UNIT_KBITSPS = 6
+    .. data:: policy_param_unit_kbitsps = 6
 
     	policy param unit kbitsps
 
-    .. data:: POLICY_PARAM_UNIT_MBITSPS = 7
+    .. data:: policy_param_unit_mbitsps = 7
 
     	policy param unit mbitsps
 
-    .. data:: POLICY_PARAM_UNIT_GBITSPS = 8
+    .. data:: policy_param_unit_gbitsps = 8
 
     	policy param unit gbitsps
 
-    .. data:: POLICY_PARAM_UNIT_CELLS_PS = 9
+    .. data:: policy_param_unit_cells_ps = 9
 
     	policy param unit cells ps
 
-    .. data:: POLICY_PARAM_UNIT_PACKETS_PS = 10
+    .. data:: policy_param_unit_packets_ps = 10
 
     	policy param unit packets ps
 
-    .. data:: POLICY_PARAM_UNIT_US = 11
+    .. data:: policy_param_unit_us = 11
 
     	policy param unit us
 
-    .. data:: POLICY_PARAM_UNIT_MS = 12
+    .. data:: policy_param_unit_ms = 12
 
     	policy param unit ms
 
-    .. data:: POLICY_PARAM_UNIT_SECONDS = 13
+    .. data:: policy_param_unit_seconds = 13
 
     	policy param unit seconds
 
-    .. data:: POLICY_PARAM_UNIT_PACKETS = 14
+    .. data:: policy_param_unit_packets = 14
 
     	policy param unit packets
 
-    .. data:: POLICY_PARAM_UNIT_CELLS = 15
+    .. data:: policy_param_unit_cells = 15
 
     	policy param unit cells
 
-    .. data:: POLICY_PARAM_UNIT_PERCENT = 16
+    .. data:: policy_param_unit_percent = 16
 
     	policy param unit percent
 
-    .. data:: POLICY_PARAM_UNIT_PER_THOUSAND = 17
+    .. data:: policy_param_unit_per_thousand = 17
 
     	policy param unit per thousand
 
-    .. data:: POLICY_PARAM_UNIT_PER_MILLION = 18
+    .. data:: policy_param_unit_per_million = 18
 
     	policy param unit per million
 
-    .. data:: POLICY_PARAM_UNIT_HZ = 19
+    .. data:: policy_param_unit_hz = 19
 
     	policy param unit hz
 
-    .. data:: POLICY_PARAM_UNIT_KHZ = 20
+    .. data:: policy_param_unit_khz = 20
 
     	policy param unit khz
 
-    .. data:: POLICY_PARAM_UNIT_MHZ = 21
+    .. data:: policy_param_unit_mhz = 21
 
     	policy param unit mhz
 
-    .. data:: POLICY_PARAM_UNIT_RATIO = 22
+    .. data:: policy_param_unit_ratio = 22
 
     	policy param unit ratio
 
-    .. data:: POLICY_PARAM_UNIT_MAX = 23
+    .. data:: policy_param_unit_max = 23
 
     	policy param unit max
 
     """
 
-    POLICY_PARAM_UNIT_INVALID = 0
+    policy_param_unit_invalid = 0
 
-    POLICY_PARAM_UNIT_BYTES = 1
+    policy_param_unit_bytes = 1
 
-    POLICY_PARAM_UNIT_KBYTES = 2
+    policy_param_unit_kbytes = 2
 
-    POLICY_PARAM_UNIT_MBYTES = 3
+    policy_param_unit_mbytes = 3
 
-    POLICY_PARAM_UNIT_GBYTES = 4
+    policy_param_unit_gbytes = 4
 
-    POLICY_PARAM_UNIT_BITSPS = 5
+    policy_param_unit_bitsps = 5
 
-    POLICY_PARAM_UNIT_KBITSPS = 6
+    policy_param_unit_kbitsps = 6
 
-    POLICY_PARAM_UNIT_MBITSPS = 7
+    policy_param_unit_mbitsps = 7
 
-    POLICY_PARAM_UNIT_GBITSPS = 8
+    policy_param_unit_gbitsps = 8
 
-    POLICY_PARAM_UNIT_CELLS_PS = 9
+    policy_param_unit_cells_ps = 9
 
-    POLICY_PARAM_UNIT_PACKETS_PS = 10
+    policy_param_unit_packets_ps = 10
 
-    POLICY_PARAM_UNIT_US = 11
+    policy_param_unit_us = 11
 
-    POLICY_PARAM_UNIT_MS = 12
+    policy_param_unit_ms = 12
 
-    POLICY_PARAM_UNIT_SECONDS = 13
+    policy_param_unit_seconds = 13
 
-    POLICY_PARAM_UNIT_PACKETS = 14
+    policy_param_unit_packets = 14
 
-    POLICY_PARAM_UNIT_CELLS = 15
+    policy_param_unit_cells = 15
 
-    POLICY_PARAM_UNIT_PERCENT = 16
+    policy_param_unit_percent = 16
 
-    POLICY_PARAM_UNIT_PER_THOUSAND = 17
+    policy_param_unit_per_thousand = 17
 
-    POLICY_PARAM_UNIT_PER_MILLION = 18
+    policy_param_unit_per_million = 18
 
-    POLICY_PARAM_UNIT_HZ = 19
+    policy_param_unit_hz = 19
 
-    POLICY_PARAM_UNIT_KHZ = 20
+    policy_param_unit_khz = 20
 
-    POLICY_PARAM_UNIT_MHZ = 21
+    policy_param_unit_mhz = 21
 
-    POLICY_PARAM_UNIT_RATIO = 22
+    policy_param_unit_ratio = 22
 
-    POLICY_PARAM_UNIT_MAX = 23
+    policy_param_unit_max = 23
 
 
     @staticmethod
@@ -379,19 +379,19 @@ class PolicyStateEnum(Enum):
 
     Different Interface states
 
-    .. data:: ACTIVE = 0
+    .. data:: active = 0
 
     	active
 
-    .. data:: SUSPENDED = 1
+    .. data:: suspended = 1
 
     	suspended
 
     """
 
-    ACTIVE = 0
+    active = 0
 
-    SUSPENDED = 1
+    suspended = 1
 
 
     @staticmethod
@@ -406,109 +406,109 @@ class QosUnitEnum(Enum):
 
     QoS parameter unit
 
-    .. data:: INVALID = 0
+    .. data:: invalid = 0
 
     	Invalid type
 
-    .. data:: BYTES = 1
+    .. data:: bytes = 1
 
     	Bytes
 
-    .. data:: KILOBYTES = 2
+    .. data:: kilobytes = 2
 
     	Kilobytes
 
-    .. data:: MEGABYTES = 3
+    .. data:: megabytes = 3
 
     	Megabytes
 
-    .. data:: GIGABYTES = 4
+    .. data:: gigabytes = 4
 
     	Gigabytes
 
-    .. data:: BPS = 5
+    .. data:: bps = 5
 
     	Bits per second
 
-    .. data:: KBPS = 6
+    .. data:: kbps = 6
 
     	Kilo bits per second
 
-    .. data:: MBPS = 7
+    .. data:: mbps = 7
 
     	Mega bits per second
 
-    .. data:: GBPS = 8
+    .. data:: gbps = 8
 
     	Giga bits per second
 
-    .. data:: CELLS_PER_SECOND = 9
+    .. data:: cells_per_second = 9
 
     	Cells per second
 
-    .. data:: PACKETS_PER_SECOND = 10
+    .. data:: packets_per_second = 10
 
     	Packets per second
 
-    .. data:: MICROSECOND = 11
+    .. data:: microsecond = 11
 
     	Microsecond
 
-    .. data:: MILLISECOND = 12
+    .. data:: millisecond = 12
 
     	Millisecond
 
-    .. data:: PACKETS = 13
+    .. data:: packets = 13
 
     	Number of packets
 
-    .. data:: CELLS = 14
+    .. data:: cells = 14
 
     	Number of cells
 
-    .. data:: PERCENTAGE = 15
+    .. data:: percentage = 15
 
     	Percentage
 
-    .. data:: RATIO = 16
+    .. data:: ratio = 16
 
     	Ratio
 
     """
 
-    INVALID = 0
+    invalid = 0
 
-    BYTES = 1
+    bytes = 1
 
-    KILOBYTES = 2
+    kilobytes = 2
 
-    MEGABYTES = 3
+    megabytes = 3
 
-    GIGABYTES = 4
+    gigabytes = 4
 
-    BPS = 5
+    bps = 5
 
-    KBPS = 6
+    kbps = 6
 
-    MBPS = 7
+    mbps = 7
 
-    GBPS = 8
+    gbps = 8
 
-    CELLS_PER_SECOND = 9
+    cells_per_second = 9
 
-    PACKETS_PER_SECOND = 10
+    packets_per_second = 10
 
-    MICROSECOND = 11
+    microsecond = 11
 
-    MILLISECOND = 12
+    millisecond = 12
 
-    PACKETS = 13
+    packets = 13
 
-    CELLS = 14
+    cells = 14
 
-    PERCENTAGE = 15
+    percentage = 15
 
-    RATIO = 16
+    ratio = 16
 
 
     @staticmethod
@@ -523,27 +523,27 @@ class TbAlgorithmEnum(Enum):
 
     Tokenbucket type
 
-    .. data:: INACTIVE = 0
+    .. data:: inactive = 0
 
     	Inactive, configured but disabled
 
-    .. data:: SINGLE = 1
+    .. data:: single = 1
 
     	Single token bucket
 
-    .. data:: SINGLE_RATE_TCM = 2
+    .. data:: single_rate_tcm = 2
 
     	Single rate three color marker
 
-    .. data:: TWO_RATE_TCM = 3
+    .. data:: two_rate_tcm = 3
 
     	Two rate three color marker
 
-    .. data:: MEF_TCM = 4
+    .. data:: mef_tcm = 4
 
     	Allows coupling between CIR and PIR tb's
 
-    .. data:: DUMMY = 5
+    .. data:: dummy = 5
 
     	Internal dummy token bucket for coupled-policer
 
@@ -551,17 +551,17 @@ class TbAlgorithmEnum(Enum):
 
     """
 
-    INACTIVE = 0
+    inactive = 0
 
-    SINGLE = 1
+    single = 1
 
-    SINGLE_RATE_TCM = 2
+    single_rate_tcm = 2
 
-    TWO_RATE_TCM = 3
+    two_rate_tcm = 3
 
-    MEF_TCM = 4
+    mef_tcm = 4
 
-    DUMMY = 5
+    dummy = 5
 
 
     @staticmethod
@@ -576,67 +576,67 @@ class WredEnum(Enum):
 
     Wred
 
-    .. data:: WRED_COS_CMD = 0
+    .. data:: wred_cos_cmd = 0
 
     	wred cos cmd
 
-    .. data:: WRED_DSCP_CMD = 1
+    .. data:: wred_dscp_cmd = 1
 
     	wred dscp cmd
 
-    .. data:: WRED_PRECEDENCE_CMD = 2
+    .. data:: wred_precedence_cmd = 2
 
     	wred precedence cmd
 
-    .. data:: WRED_DISCARD_CLASS_CMD = 3
+    .. data:: wred_discard_class_cmd = 3
 
     	wred discard class cmd
 
-    .. data:: WRED_MPLS_EXP_CMD = 4
+    .. data:: wred_mpls_exp_cmd = 4
 
     	wred mpls exp cmd
 
-    .. data:: RED_WITH_USER_MIN_MAX = 5
+    .. data:: red_with_user_min_max = 5
 
     	red with user min max
 
-    .. data:: RED_WITH_DEFAULT_MIN_MAX = 6
+    .. data:: red_with_default_min_max = 6
 
     	red with default min max
 
-    .. data:: WRED_DEI_CMD = 7
+    .. data:: wred_dei_cmd = 7
 
     	wred dei cmd
 
-    .. data:: WRED_ECN_CMD = 8
+    .. data:: wred_ecn_cmd = 8
 
     	wred ecn cmd
 
-    .. data:: WRED_INVALID_CMD = 9
+    .. data:: wred_invalid_cmd = 9
 
     	wred invalid cmd
 
     """
 
-    WRED_COS_CMD = 0
+    wred_cos_cmd = 0
 
-    WRED_DSCP_CMD = 1
+    wred_dscp_cmd = 1
 
-    WRED_PRECEDENCE_CMD = 2
+    wred_precedence_cmd = 2
 
-    WRED_DISCARD_CLASS_CMD = 3
+    wred_discard_class_cmd = 3
 
-    WRED_MPLS_EXP_CMD = 4
+    wred_mpls_exp_cmd = 4
 
-    RED_WITH_USER_MIN_MAX = 5
+    red_with_user_min_max = 5
 
-    RED_WITH_DEFAULT_MIN_MAX = 6
+    red_with_default_min_max = 6
 
-    WRED_DEI_CMD = 7
+    wred_dei_cmd = 7
 
-    WRED_ECN_CMD = 8
+    wred_ecn_cmd = 8
 
-    WRED_INVALID_CMD = 9
+    wred_invalid_cmd = 9
 
 
     @staticmethod
@@ -653,7 +653,7 @@ class PlatformQos(object):
     .. attribute:: nodes
     
     	List of nodes with platform specific QoS configuration
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes>`
     
     
 
@@ -675,7 +675,7 @@ class PlatformQos(object):
         .. attribute:: node
         
         	Node with platform specific QoS configuration
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node>`
         
         
 
@@ -705,17 +705,17 @@ class PlatformQos(object):
             .. attribute:: bundle_interfaces
             
             	QoS list of bundle interfaces
-            	**type**\:  :py:class:`BundleInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces>`
+            	**type**\:   :py:class:`BundleInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces>`
             
             .. attribute:: capability
             
             	QoS system capability
-            	**type**\:  :py:class:`Capability <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Capability>`
+            	**type**\:   :py:class:`Capability <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Capability>`
             
             .. attribute:: interfaces
             
             	QoS list of interfaces
-            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces>`
+            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces>`
             
             
 
@@ -742,7 +742,7 @@ class PlatformQos(object):
                 .. attribute:: bundle_interface
                 
                 	QoS interface name
-                	**type**\: list of  :py:class:`BundleInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface>`
+                	**type**\: list of    :py:class:`BundleInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface>`
                 
                 
 
@@ -772,7 +772,7 @@ class PlatformQos(object):
                     .. attribute:: member_interfaces
                     
                     	QoS list of member interfaces
-                    	**type**\:  :py:class:`MemberInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces>`
+                    	**type**\:   :py:class:`MemberInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces>`
                     
                     
 
@@ -795,7 +795,7 @@ class PlatformQos(object):
                         .. attribute:: member_interface
                         
                         	QoS interface name
-                        	**type**\: list of  :py:class:`MemberInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface>`
+                        	**type**\: list of    :py:class:`MemberInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface>`
                         
                         
 
@@ -825,12 +825,12 @@ class PlatformQos(object):
                             .. attribute:: bundle_input
                             
                             	QoS policy direction input
-                            	**type**\:  :py:class:`BundleInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput>`
+                            	**type**\:   :py:class:`BundleInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput>`
                             
                             .. attribute:: bundle_output
                             
                             	QoS policy direction output
-                            	**type**\:  :py:class:`BundleOutput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput>`
+                            	**type**\:   :py:class:`BundleOutput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput>`
                             
                             
 
@@ -855,17 +855,17 @@ class PlatformQos(object):
                                 .. attribute:: header
                                 
                                 	QoS EA policy header
-                                	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Header>`
+                                	**type**\:   :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Header>`
                                 
                                 .. attribute:: interface_parameters
                                 
                                 	QoS Interface Parameters
-                                	**type**\:  :py:class:`InterfaceParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters>`
+                                	**type**\:   :py:class:`InterfaceParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters>`
                                 
                                 .. attribute:: skywarp_qos_policy_class
                                 
                                 	Skywarp QoS policy class details
-                                	**type**\:  :py:class:`SkywarpQosPolicyClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass>`
+                                	**type**\:   :py:class:`SkywarpQosPolicyClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass>`
                                 
                                 
 
@@ -971,17 +971,17 @@ class PlatformQos(object):
                                     .. attribute:: interface_config_rate
                                     
                                     	Interface Configured Rate
-                                    	**type**\:  :py:class:`InterfaceConfigRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.InterfaceConfigRate>`
+                                    	**type**\:   :py:class:`InterfaceConfigRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.InterfaceConfigRate>`
                                     
                                     .. attribute:: interface_program_rate
                                     
                                     	Interface Programmed Rate
-                                    	**type**\:  :py:class:`InterfaceProgramRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.InterfaceProgramRate>`
+                                    	**type**\:   :py:class:`InterfaceProgramRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.InterfaceProgramRate>`
                                     
                                     .. attribute:: port_shaper_rate
                                     
                                     	Port Shaper Rate
-                                    	**type**\:  :py:class:`PortShaperRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.PortShaperRate>`
+                                    	**type**\:   :py:class:`PortShaperRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.PortShaperRate>`
                                     
                                     
 
@@ -1007,7 +1007,7 @@ class PlatformQos(object):
                                         .. attribute:: unit
                                         
                                         	Config unit
-                                        	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                        	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                         
                                         .. attribute:: value
                                         
@@ -1063,7 +1063,7 @@ class PlatformQos(object):
                                         .. attribute:: unit
                                         
                                         	Config unit
-                                        	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                        	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                         
                                         .. attribute:: value
                                         
@@ -1119,7 +1119,7 @@ class PlatformQos(object):
                                         .. attribute:: unit
                                         
                                         	Config unit
-                                        	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                        	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                         
                                         .. attribute:: value
                                         
@@ -1205,7 +1205,7 @@ class PlatformQos(object):
                                     .. attribute:: qos_show_pclass_st
                                     
                                     	qos show pclass st
-                                    	**type**\: list of  :py:class:`QosShowPclassSt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt>`
+                                    	**type**\: list of    :py:class:`QosShowPclassSt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt>`
                                     
                                     
 
@@ -1242,27 +1242,27 @@ class PlatformQos(object):
                                         .. attribute:: marking
                                         
                                         	QoS Mark parameters
-                                        	**type**\:  :py:class:`Marking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking>`
+                                        	**type**\:   :py:class:`Marking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking>`
                                         
                                         .. attribute:: police
                                         
                                         	QoS Policer parameters
-                                        	**type**\:  :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police>`
+                                        	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police>`
                                         
                                         .. attribute:: queue
                                         
                                         	QoS Queue parameters
-                                        	**type**\:  :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Queue>`
+                                        	**type**\:   :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Queue>`
                                         
                                         .. attribute:: shape
                                         
                                         	QoS EA Shaper parameters
-                                        	**type**\:  :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape>`
+                                        	**type**\:   :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape>`
                                         
                                         .. attribute:: wfq
                                         
                                         	QoS WFQ parameters
-                                        	**type**\:  :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq>`
+                                        	**type**\:   :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq>`
                                         
                                         
 
@@ -1352,12 +1352,12 @@ class PlatformQos(object):
                                             .. attribute:: pbs
                                             
                                             	PBS in bytes
-                                            	**type**\:  :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs>`
+                                            	**type**\:   :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs>`
                                             
                                             .. attribute:: pir
                                             
                                             	PIR in kbps
-                                            	**type**\:  :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir>`
+                                            	**type**\:   :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir>`
                                             
                                             
 
@@ -1381,7 +1381,7 @@ class PlatformQos(object):
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
-                                                	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                 
                                                 .. attribute:: value
                                                 
@@ -1437,7 +1437,7 @@ class PlatformQos(object):
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
-                                                	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                 
                                                 .. attribute:: value
                                                 
@@ -1520,7 +1520,7 @@ class PlatformQos(object):
                                             .. attribute:: committed_weight
                                             
                                             	Committed Weight
-                                            	**type**\:  :py:class:`CommittedWeight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight>`
+                                            	**type**\:   :py:class:`CommittedWeight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight>`
                                             
                                             .. attribute:: excess_weight
                                             
@@ -1532,7 +1532,7 @@ class PlatformQos(object):
                                             .. attribute:: programmed_wfq
                                             
                                             	QoS Programmed WFQ parameters
-                                            	**type**\:  :py:class:`ProgrammedWfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq>`
+                                            	**type**\:   :py:class:`ProgrammedWfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq>`
                                             
                                             
 
@@ -1557,7 +1557,7 @@ class PlatformQos(object):
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
-                                                	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                 
                                                 .. attribute:: value
                                                 
@@ -1613,7 +1613,7 @@ class PlatformQos(object):
                                                 .. attribute:: bandwidth
                                                 
                                                 	Bandwidth
-                                                	**type**\:  :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth>`
+                                                	**type**\:   :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth>`
                                                 
                                                 .. attribute:: excess_ratio
                                                 
@@ -1625,7 +1625,7 @@ class PlatformQos(object):
                                                 .. attribute:: sum_of_bandwidth
                                                 
                                                 	Sum of Bandwidth
-                                                	**type**\:  :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth>`
+                                                	**type**\:   :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth>`
                                                 
                                                 
 
@@ -1650,7 +1650,7 @@ class PlatformQos(object):
                                                     .. attribute:: unit
                                                     
                                                     	Config unit
-                                                    	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                    	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                     
                                                     .. attribute:: value
                                                     
@@ -1706,7 +1706,7 @@ class PlatformQos(object):
                                                     .. attribute:: unit
                                                     
                                                     	Config unit
-                                                    	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                    	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                     
                                                     .. attribute:: value
                                                     
@@ -1822,12 +1822,12 @@ class PlatformQos(object):
                                             .. attribute:: cbs
                                             
                                             	CBS
-                                            	**type**\:  :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs>`
+                                            	**type**\:   :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs>`
                                             
                                             .. attribute:: cir
                                             
                                             	CIR
-                                            	**type**\:  :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir>`
+                                            	**type**\:   :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir>`
                                             
                                             .. attribute:: policer_id
                                             
@@ -1839,7 +1839,7 @@ class PlatformQos(object):
                                             .. attribute:: policer_type
                                             
                                             	Policer type
-                                            	**type**\:  :py:class:`TbAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithmEnum>`
+                                            	**type**\:   :py:class:`TbAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithmEnum>`
                                             
                                             
 
@@ -1865,7 +1865,7 @@ class PlatformQos(object):
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
-                                                	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                 
                                                 .. attribute:: value
                                                 
@@ -1921,7 +1921,7 @@ class PlatformQos(object):
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
-                                                	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                 
                                                 .. attribute:: value
                                                 
@@ -2010,17 +2010,17 @@ class PlatformQos(object):
                                             .. attribute:: mark_only
                                             
                                             	Mark Only
-                                            	**type**\:  :py:class:`MarkOnly <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly>`
+                                            	**type**\:   :py:class:`MarkOnly <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly>`
                                             
                                             .. attribute:: police_conform
                                             
                                             	Police conform mark
-                                            	**type**\:  :py:class:`PoliceConform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform>`
+                                            	**type**\:   :py:class:`PoliceConform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform>`
                                             
                                             .. attribute:: police_exceed
                                             
                                             	Police exceed mark
-                                            	**type**\:  :py:class:`PoliceExceed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed>`
+                                            	**type**\:   :py:class:`PoliceExceed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed>`
                                             
                                             
 
@@ -2046,12 +2046,12 @@ class PlatformQos(object):
                                                 .. attribute:: action_type
                                                 
                                                 	Action type
-                                                	**type**\:  :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionEnum>`
+                                                	**type**\:   :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionEnum>`
                                                 
                                                 .. attribute:: mark_detail
                                                 
                                                 	Mark value
-                                                	**type**\: list of  :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail>`
+                                                	**type**\: list of    :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail>`
                                                 
                                                 
 
@@ -2075,7 +2075,7 @@ class PlatformQos(object):
                                                     .. attribute:: action_opcode
                                                     
                                                     	Action opcode
-                                                    	**type**\:  :py:class:`ActionOpcodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcodeEnum>`
+                                                    	**type**\:   :py:class:`ActionOpcodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcodeEnum>`
                                                     
                                                     .. attribute:: mark_value
                                                     
@@ -2160,12 +2160,12 @@ class PlatformQos(object):
                                                 .. attribute:: action_type
                                                 
                                                 	Action type
-                                                	**type**\:  :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionEnum>`
+                                                	**type**\:   :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionEnum>`
                                                 
                                                 .. attribute:: mark_detail
                                                 
                                                 	Mark value
-                                                	**type**\: list of  :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail>`
+                                                	**type**\: list of    :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail>`
                                                 
                                                 
 
@@ -2189,7 +2189,7 @@ class PlatformQos(object):
                                                     .. attribute:: action_opcode
                                                     
                                                     	Action opcode
-                                                    	**type**\:  :py:class:`ActionOpcodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcodeEnum>`
+                                                    	**type**\:   :py:class:`ActionOpcodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcodeEnum>`
                                                     
                                                     .. attribute:: mark_value
                                                     
@@ -2274,12 +2274,12 @@ class PlatformQos(object):
                                                 .. attribute:: action_type
                                                 
                                                 	Action type
-                                                	**type**\:  :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionEnum>`
+                                                	**type**\:   :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionEnum>`
                                                 
                                                 .. attribute:: mark_detail
                                                 
                                                 	Mark value
-                                                	**type**\: list of  :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail>`
+                                                	**type**\: list of    :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail>`
                                                 
                                                 
 
@@ -2303,7 +2303,7 @@ class PlatformQos(object):
                                                     .. attribute:: action_opcode
                                                     
                                                     	Action opcode
-                                                    	**type**\:  :py:class:`ActionOpcodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcodeEnum>`
+                                                    	**type**\:   :py:class:`ActionOpcodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcodeEnum>`
                                                     
                                                     .. attribute:: mark_value
                                                     
@@ -2516,17 +2516,17 @@ class PlatformQos(object):
                                 .. attribute:: header
                                 
                                 	QoS EA policy header
-                                	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Header>`
+                                	**type**\:   :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Header>`
                                 
                                 .. attribute:: interface_parameters
                                 
                                 	QoS Interface Parameters
-                                	**type**\:  :py:class:`InterfaceParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters>`
+                                	**type**\:   :py:class:`InterfaceParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters>`
                                 
                                 .. attribute:: skywarp_qos_policy_class
                                 
                                 	Skywarp QoS policy class details
-                                	**type**\:  :py:class:`SkywarpQosPolicyClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass>`
+                                	**type**\:   :py:class:`SkywarpQosPolicyClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass>`
                                 
                                 
 
@@ -2632,17 +2632,17 @@ class PlatformQos(object):
                                     .. attribute:: interface_config_rate
                                     
                                     	Interface Configured Rate
-                                    	**type**\:  :py:class:`InterfaceConfigRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.InterfaceConfigRate>`
+                                    	**type**\:   :py:class:`InterfaceConfigRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.InterfaceConfigRate>`
                                     
                                     .. attribute:: interface_program_rate
                                     
                                     	Interface Programmed Rate
-                                    	**type**\:  :py:class:`InterfaceProgramRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.InterfaceProgramRate>`
+                                    	**type**\:   :py:class:`InterfaceProgramRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.InterfaceProgramRate>`
                                     
                                     .. attribute:: port_shaper_rate
                                     
                                     	Port Shaper Rate
-                                    	**type**\:  :py:class:`PortShaperRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.PortShaperRate>`
+                                    	**type**\:   :py:class:`PortShaperRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.PortShaperRate>`
                                     
                                     
 
@@ -2668,7 +2668,7 @@ class PlatformQos(object):
                                         .. attribute:: unit
                                         
                                         	Config unit
-                                        	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                        	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                         
                                         .. attribute:: value
                                         
@@ -2724,7 +2724,7 @@ class PlatformQos(object):
                                         .. attribute:: unit
                                         
                                         	Config unit
-                                        	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                        	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                         
                                         .. attribute:: value
                                         
@@ -2780,7 +2780,7 @@ class PlatformQos(object):
                                         .. attribute:: unit
                                         
                                         	Config unit
-                                        	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                        	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                         
                                         .. attribute:: value
                                         
@@ -2866,7 +2866,7 @@ class PlatformQos(object):
                                     .. attribute:: qos_show_pclass_st
                                     
                                     	qos show pclass st
-                                    	**type**\: list of  :py:class:`QosShowPclassSt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt>`
+                                    	**type**\: list of    :py:class:`QosShowPclassSt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt>`
                                     
                                     
 
@@ -2903,27 +2903,27 @@ class PlatformQos(object):
                                         .. attribute:: marking
                                         
                                         	QoS Mark parameters
-                                        	**type**\:  :py:class:`Marking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking>`
+                                        	**type**\:   :py:class:`Marking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking>`
                                         
                                         .. attribute:: police
                                         
                                         	QoS Policer parameters
-                                        	**type**\:  :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police>`
+                                        	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police>`
                                         
                                         .. attribute:: queue
                                         
                                         	QoS Queue parameters
-                                        	**type**\:  :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Queue>`
+                                        	**type**\:   :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Queue>`
                                         
                                         .. attribute:: shape
                                         
                                         	QoS EA Shaper parameters
-                                        	**type**\:  :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape>`
+                                        	**type**\:   :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape>`
                                         
                                         .. attribute:: wfq
                                         
                                         	QoS WFQ parameters
-                                        	**type**\:  :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq>`
+                                        	**type**\:   :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq>`
                                         
                                         
 
@@ -3013,12 +3013,12 @@ class PlatformQos(object):
                                             .. attribute:: pbs
                                             
                                             	PBS in bytes
-                                            	**type**\:  :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs>`
+                                            	**type**\:   :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs>`
                                             
                                             .. attribute:: pir
                                             
                                             	PIR in kbps
-                                            	**type**\:  :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir>`
+                                            	**type**\:   :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir>`
                                             
                                             
 
@@ -3042,7 +3042,7 @@ class PlatformQos(object):
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
-                                                	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                 
                                                 .. attribute:: value
                                                 
@@ -3098,7 +3098,7 @@ class PlatformQos(object):
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
-                                                	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                 
                                                 .. attribute:: value
                                                 
@@ -3181,7 +3181,7 @@ class PlatformQos(object):
                                             .. attribute:: committed_weight
                                             
                                             	Committed Weight
-                                            	**type**\:  :py:class:`CommittedWeight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight>`
+                                            	**type**\:   :py:class:`CommittedWeight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight>`
                                             
                                             .. attribute:: excess_weight
                                             
@@ -3193,7 +3193,7 @@ class PlatformQos(object):
                                             .. attribute:: programmed_wfq
                                             
                                             	QoS Programmed WFQ parameters
-                                            	**type**\:  :py:class:`ProgrammedWfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq>`
+                                            	**type**\:   :py:class:`ProgrammedWfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq>`
                                             
                                             
 
@@ -3218,7 +3218,7 @@ class PlatformQos(object):
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
-                                                	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                 
                                                 .. attribute:: value
                                                 
@@ -3274,7 +3274,7 @@ class PlatformQos(object):
                                                 .. attribute:: bandwidth
                                                 
                                                 	Bandwidth
-                                                	**type**\:  :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth>`
+                                                	**type**\:   :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth>`
                                                 
                                                 .. attribute:: excess_ratio
                                                 
@@ -3286,7 +3286,7 @@ class PlatformQos(object):
                                                 .. attribute:: sum_of_bandwidth
                                                 
                                                 	Sum of Bandwidth
-                                                	**type**\:  :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth>`
+                                                	**type**\:   :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth>`
                                                 
                                                 
 
@@ -3311,7 +3311,7 @@ class PlatformQos(object):
                                                     .. attribute:: unit
                                                     
                                                     	Config unit
-                                                    	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                    	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                     
                                                     .. attribute:: value
                                                     
@@ -3367,7 +3367,7 @@ class PlatformQos(object):
                                                     .. attribute:: unit
                                                     
                                                     	Config unit
-                                                    	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                    	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                     
                                                     .. attribute:: value
                                                     
@@ -3483,12 +3483,12 @@ class PlatformQos(object):
                                             .. attribute:: cbs
                                             
                                             	CBS
-                                            	**type**\:  :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs>`
+                                            	**type**\:   :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs>`
                                             
                                             .. attribute:: cir
                                             
                                             	CIR
-                                            	**type**\:  :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir>`
+                                            	**type**\:   :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir>`
                                             
                                             .. attribute:: policer_id
                                             
@@ -3500,7 +3500,7 @@ class PlatformQos(object):
                                             .. attribute:: policer_type
                                             
                                             	Policer type
-                                            	**type**\:  :py:class:`TbAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithmEnum>`
+                                            	**type**\:   :py:class:`TbAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithmEnum>`
                                             
                                             
 
@@ -3526,7 +3526,7 @@ class PlatformQos(object):
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
-                                                	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                 
                                                 .. attribute:: value
                                                 
@@ -3582,7 +3582,7 @@ class PlatformQos(object):
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
-                                                	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                 
                                                 .. attribute:: value
                                                 
@@ -3671,17 +3671,17 @@ class PlatformQos(object):
                                             .. attribute:: mark_only
                                             
                                             	Mark Only
-                                            	**type**\:  :py:class:`MarkOnly <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly>`
+                                            	**type**\:   :py:class:`MarkOnly <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly>`
                                             
                                             .. attribute:: police_conform
                                             
                                             	Police conform mark
-                                            	**type**\:  :py:class:`PoliceConform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform>`
+                                            	**type**\:   :py:class:`PoliceConform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform>`
                                             
                                             .. attribute:: police_exceed
                                             
                                             	Police exceed mark
-                                            	**type**\:  :py:class:`PoliceExceed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed>`
+                                            	**type**\:   :py:class:`PoliceExceed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed>`
                                             
                                             
 
@@ -3707,12 +3707,12 @@ class PlatformQos(object):
                                                 .. attribute:: action_type
                                                 
                                                 	Action type
-                                                	**type**\:  :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionEnum>`
+                                                	**type**\:   :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionEnum>`
                                                 
                                                 .. attribute:: mark_detail
                                                 
                                                 	Mark value
-                                                	**type**\: list of  :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail>`
+                                                	**type**\: list of    :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail>`
                                                 
                                                 
 
@@ -3736,7 +3736,7 @@ class PlatformQos(object):
                                                     .. attribute:: action_opcode
                                                     
                                                     	Action opcode
-                                                    	**type**\:  :py:class:`ActionOpcodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcodeEnum>`
+                                                    	**type**\:   :py:class:`ActionOpcodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcodeEnum>`
                                                     
                                                     .. attribute:: mark_value
                                                     
@@ -3821,12 +3821,12 @@ class PlatformQos(object):
                                                 .. attribute:: action_type
                                                 
                                                 	Action type
-                                                	**type**\:  :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionEnum>`
+                                                	**type**\:   :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionEnum>`
                                                 
                                                 .. attribute:: mark_detail
                                                 
                                                 	Mark value
-                                                	**type**\: list of  :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail>`
+                                                	**type**\: list of    :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail>`
                                                 
                                                 
 
@@ -3850,7 +3850,7 @@ class PlatformQos(object):
                                                     .. attribute:: action_opcode
                                                     
                                                     	Action opcode
-                                                    	**type**\:  :py:class:`ActionOpcodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcodeEnum>`
+                                                    	**type**\:   :py:class:`ActionOpcodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcodeEnum>`
                                                     
                                                     .. attribute:: mark_value
                                                     
@@ -3935,12 +3935,12 @@ class PlatformQos(object):
                                                 .. attribute:: action_type
                                                 
                                                 	Action type
-                                                	**type**\:  :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionEnum>`
+                                                	**type**\:   :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionEnum>`
                                                 
                                                 .. attribute:: mark_detail
                                                 
                                                 	Mark value
-                                                	**type**\: list of  :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail>`
+                                                	**type**\: list of    :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail>`
                                                 
                                                 
 
@@ -3964,7 +3964,7 @@ class PlatformQos(object):
                                                     .. attribute:: action_opcode
                                                     
                                                     	Action opcode
-                                                    	**type**\:  :py:class:`ActionOpcodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcodeEnum>`
+                                                    	**type**\:   :py:class:`ActionOpcodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcodeEnum>`
                                                     
                                                     .. attribute:: mark_value
                                                     
@@ -4425,7 +4425,7 @@ class PlatformQos(object):
                 .. attribute:: interface
                 
                 	QoS interface name
-                	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface>`
+                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface>`
                 
                 
 
@@ -4455,12 +4455,12 @@ class PlatformQos(object):
                     .. attribute:: input
                     
                     	QoS policy direction ingress
-                    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input>`
+                    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input>`
                     
                     .. attribute:: output
                     
                     	QoS policy direction egress
-                    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output>`
+                    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output>`
                     
                     
 
@@ -4485,17 +4485,17 @@ class PlatformQos(object):
                         .. attribute:: header
                         
                         	QoS EA policy header
-                        	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.Header>`
+                        	**type**\:   :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.Header>`
                         
                         .. attribute:: interface_parameters
                         
                         	QoS Interface Parameters
-                        	**type**\:  :py:class:`InterfaceParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters>`
+                        	**type**\:   :py:class:`InterfaceParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters>`
                         
                         .. attribute:: skywarp_qos_policy_class
                         
                         	Skywarp QoS policy class details
-                        	**type**\:  :py:class:`SkywarpQosPolicyClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass>`
+                        	**type**\:   :py:class:`SkywarpQosPolicyClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass>`
                         
                         
 
@@ -4601,17 +4601,17 @@ class PlatformQos(object):
                             .. attribute:: interface_config_rate
                             
                             	Interface Configured Rate
-                            	**type**\:  :py:class:`InterfaceConfigRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.InterfaceConfigRate>`
+                            	**type**\:   :py:class:`InterfaceConfigRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.InterfaceConfigRate>`
                             
                             .. attribute:: interface_program_rate
                             
                             	Interface Programmed Rate
-                            	**type**\:  :py:class:`InterfaceProgramRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.InterfaceProgramRate>`
+                            	**type**\:   :py:class:`InterfaceProgramRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.InterfaceProgramRate>`
                             
                             .. attribute:: port_shaper_rate
                             
                             	Port Shaper Rate
-                            	**type**\:  :py:class:`PortShaperRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.PortShaperRate>`
+                            	**type**\:   :py:class:`PortShaperRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.PortShaperRate>`
                             
                             
 
@@ -4637,7 +4637,7 @@ class PlatformQos(object):
                                 .. attribute:: unit
                                 
                                 	Config unit
-                                	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                 
                                 .. attribute:: value
                                 
@@ -4693,7 +4693,7 @@ class PlatformQos(object):
                                 .. attribute:: unit
                                 
                                 	Config unit
-                                	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                 
                                 .. attribute:: value
                                 
@@ -4749,7 +4749,7 @@ class PlatformQos(object):
                                 .. attribute:: unit
                                 
                                 	Config unit
-                                	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                 
                                 .. attribute:: value
                                 
@@ -4835,7 +4835,7 @@ class PlatformQos(object):
                             .. attribute:: qos_show_pclass_st
                             
                             	qos show pclass st
-                            	**type**\: list of  :py:class:`QosShowPclassSt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt>`
+                            	**type**\: list of    :py:class:`QosShowPclassSt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt>`
                             
                             
 
@@ -4872,27 +4872,27 @@ class PlatformQos(object):
                                 .. attribute:: marking
                                 
                                 	QoS Mark parameters
-                                	**type**\:  :py:class:`Marking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking>`
+                                	**type**\:   :py:class:`Marking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking>`
                                 
                                 .. attribute:: police
                                 
                                 	QoS Policer parameters
-                                	**type**\:  :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police>`
+                                	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police>`
                                 
                                 .. attribute:: queue
                                 
                                 	QoS Queue parameters
-                                	**type**\:  :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Queue>`
+                                	**type**\:   :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Queue>`
                                 
                                 .. attribute:: shape
                                 
                                 	QoS EA Shaper parameters
-                                	**type**\:  :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape>`
+                                	**type**\:   :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape>`
                                 
                                 .. attribute:: wfq
                                 
                                 	QoS WFQ parameters
-                                	**type**\:  :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq>`
+                                	**type**\:   :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq>`
                                 
                                 
 
@@ -4982,12 +4982,12 @@ class PlatformQos(object):
                                     .. attribute:: pbs
                                     
                                     	PBS in bytes
-                                    	**type**\:  :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs>`
+                                    	**type**\:   :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs>`
                                     
                                     .. attribute:: pir
                                     
                                     	PIR in kbps
-                                    	**type**\:  :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir>`
+                                    	**type**\:   :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir>`
                                     
                                     
 
@@ -5011,7 +5011,7 @@ class PlatformQos(object):
                                         .. attribute:: unit
                                         
                                         	Config unit
-                                        	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                        	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                         
                                         .. attribute:: value
                                         
@@ -5067,7 +5067,7 @@ class PlatformQos(object):
                                         .. attribute:: unit
                                         
                                         	Config unit
-                                        	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                        	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                         
                                         .. attribute:: value
                                         
@@ -5150,7 +5150,7 @@ class PlatformQos(object):
                                     .. attribute:: committed_weight
                                     
                                     	Committed Weight
-                                    	**type**\:  :py:class:`CommittedWeight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight>`
+                                    	**type**\:   :py:class:`CommittedWeight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight>`
                                     
                                     .. attribute:: excess_weight
                                     
@@ -5162,7 +5162,7 @@ class PlatformQos(object):
                                     .. attribute:: programmed_wfq
                                     
                                     	QoS Programmed WFQ parameters
-                                    	**type**\:  :py:class:`ProgrammedWfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq>`
+                                    	**type**\:   :py:class:`ProgrammedWfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq>`
                                     
                                     
 
@@ -5187,7 +5187,7 @@ class PlatformQos(object):
                                         .. attribute:: unit
                                         
                                         	Config unit
-                                        	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                        	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                         
                                         .. attribute:: value
                                         
@@ -5243,7 +5243,7 @@ class PlatformQos(object):
                                         .. attribute:: bandwidth
                                         
                                         	Bandwidth
-                                        	**type**\:  :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth>`
+                                        	**type**\:   :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth>`
                                         
                                         .. attribute:: excess_ratio
                                         
@@ -5255,7 +5255,7 @@ class PlatformQos(object):
                                         .. attribute:: sum_of_bandwidth
                                         
                                         	Sum of Bandwidth
-                                        	**type**\:  :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth>`
+                                        	**type**\:   :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth>`
                                         
                                         
 
@@ -5280,7 +5280,7 @@ class PlatformQos(object):
                                             .. attribute:: unit
                                             
                                             	Config unit
-                                            	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                            	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                             
                                             .. attribute:: value
                                             
@@ -5336,7 +5336,7 @@ class PlatformQos(object):
                                             .. attribute:: unit
                                             
                                             	Config unit
-                                            	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                            	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                             
                                             .. attribute:: value
                                             
@@ -5452,12 +5452,12 @@ class PlatformQos(object):
                                     .. attribute:: cbs
                                     
                                     	CBS
-                                    	**type**\:  :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs>`
+                                    	**type**\:   :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs>`
                                     
                                     .. attribute:: cir
                                     
                                     	CIR
-                                    	**type**\:  :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir>`
+                                    	**type**\:   :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir>`
                                     
                                     .. attribute:: policer_id
                                     
@@ -5469,7 +5469,7 @@ class PlatformQos(object):
                                     .. attribute:: policer_type
                                     
                                     	Policer type
-                                    	**type**\:  :py:class:`TbAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithmEnum>`
+                                    	**type**\:   :py:class:`TbAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithmEnum>`
                                     
                                     
 
@@ -5495,7 +5495,7 @@ class PlatformQos(object):
                                         .. attribute:: unit
                                         
                                         	Config unit
-                                        	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                        	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                         
                                         .. attribute:: value
                                         
@@ -5551,7 +5551,7 @@ class PlatformQos(object):
                                         .. attribute:: unit
                                         
                                         	Config unit
-                                        	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                        	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                         
                                         .. attribute:: value
                                         
@@ -5640,17 +5640,17 @@ class PlatformQos(object):
                                     .. attribute:: mark_only
                                     
                                     	Mark Only
-                                    	**type**\:  :py:class:`MarkOnly <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly>`
+                                    	**type**\:   :py:class:`MarkOnly <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly>`
                                     
                                     .. attribute:: police_conform
                                     
                                     	Police conform mark
-                                    	**type**\:  :py:class:`PoliceConform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform>`
+                                    	**type**\:   :py:class:`PoliceConform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform>`
                                     
                                     .. attribute:: police_exceed
                                     
                                     	Police exceed mark
-                                    	**type**\:  :py:class:`PoliceExceed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed>`
+                                    	**type**\:   :py:class:`PoliceExceed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed>`
                                     
                                     
 
@@ -5676,12 +5676,12 @@ class PlatformQos(object):
                                         .. attribute:: action_type
                                         
                                         	Action type
-                                        	**type**\:  :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionEnum>`
+                                        	**type**\:   :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionEnum>`
                                         
                                         .. attribute:: mark_detail
                                         
                                         	Mark value
-                                        	**type**\: list of  :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail>`
+                                        	**type**\: list of    :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail>`
                                         
                                         
 
@@ -5705,7 +5705,7 @@ class PlatformQos(object):
                                             .. attribute:: action_opcode
                                             
                                             	Action opcode
-                                            	**type**\:  :py:class:`ActionOpcodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcodeEnum>`
+                                            	**type**\:   :py:class:`ActionOpcodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcodeEnum>`
                                             
                                             .. attribute:: mark_value
                                             
@@ -5790,12 +5790,12 @@ class PlatformQos(object):
                                         .. attribute:: action_type
                                         
                                         	Action type
-                                        	**type**\:  :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionEnum>`
+                                        	**type**\:   :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionEnum>`
                                         
                                         .. attribute:: mark_detail
                                         
                                         	Mark value
-                                        	**type**\: list of  :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail>`
+                                        	**type**\: list of    :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail>`
                                         
                                         
 
@@ -5819,7 +5819,7 @@ class PlatformQos(object):
                                             .. attribute:: action_opcode
                                             
                                             	Action opcode
-                                            	**type**\:  :py:class:`ActionOpcodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcodeEnum>`
+                                            	**type**\:   :py:class:`ActionOpcodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcodeEnum>`
                                             
                                             .. attribute:: mark_value
                                             
@@ -5904,12 +5904,12 @@ class PlatformQos(object):
                                         .. attribute:: action_type
                                         
                                         	Action type
-                                        	**type**\:  :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionEnum>`
+                                        	**type**\:   :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionEnum>`
                                         
                                         .. attribute:: mark_detail
                                         
                                         	Mark value
-                                        	**type**\: list of  :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail>`
+                                        	**type**\: list of    :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail>`
                                         
                                         
 
@@ -5933,7 +5933,7 @@ class PlatformQos(object):
                                             .. attribute:: action_opcode
                                             
                                             	Action opcode
-                                            	**type**\:  :py:class:`ActionOpcodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcodeEnum>`
+                                            	**type**\:   :py:class:`ActionOpcodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcodeEnum>`
                                             
                                             .. attribute:: mark_value
                                             
@@ -6146,17 +6146,17 @@ class PlatformQos(object):
                         .. attribute:: header
                         
                         	QoS EA policy header
-                        	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.Header>`
+                        	**type**\:   :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.Header>`
                         
                         .. attribute:: interface_parameters
                         
                         	QoS Interface Parameters
-                        	**type**\:  :py:class:`InterfaceParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters>`
+                        	**type**\:   :py:class:`InterfaceParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters>`
                         
                         .. attribute:: skywarp_qos_policy_class
                         
                         	Skywarp QoS policy class details
-                        	**type**\:  :py:class:`SkywarpQosPolicyClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass>`
+                        	**type**\:   :py:class:`SkywarpQosPolicyClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass>`
                         
                         
 
@@ -6262,17 +6262,17 @@ class PlatformQos(object):
                             .. attribute:: interface_config_rate
                             
                             	Interface Configured Rate
-                            	**type**\:  :py:class:`InterfaceConfigRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceConfigRate>`
+                            	**type**\:   :py:class:`InterfaceConfigRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceConfigRate>`
                             
                             .. attribute:: interface_program_rate
                             
                             	Interface Programmed Rate
-                            	**type**\:  :py:class:`InterfaceProgramRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceProgramRate>`
+                            	**type**\:   :py:class:`InterfaceProgramRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceProgramRate>`
                             
                             .. attribute:: port_shaper_rate
                             
                             	Port Shaper Rate
-                            	**type**\:  :py:class:`PortShaperRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.PortShaperRate>`
+                            	**type**\:   :py:class:`PortShaperRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.PortShaperRate>`
                             
                             
 
@@ -6298,7 +6298,7 @@ class PlatformQos(object):
                                 .. attribute:: unit
                                 
                                 	Config unit
-                                	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                 
                                 .. attribute:: value
                                 
@@ -6354,7 +6354,7 @@ class PlatformQos(object):
                                 .. attribute:: unit
                                 
                                 	Config unit
-                                	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                 
                                 .. attribute:: value
                                 
@@ -6410,7 +6410,7 @@ class PlatformQos(object):
                                 .. attribute:: unit
                                 
                                 	Config unit
-                                	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                 
                                 .. attribute:: value
                                 
@@ -6496,7 +6496,7 @@ class PlatformQos(object):
                             .. attribute:: qos_show_pclass_st
                             
                             	qos show pclass st
-                            	**type**\: list of  :py:class:`QosShowPclassSt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt>`
+                            	**type**\: list of    :py:class:`QosShowPclassSt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt>`
                             
                             
 
@@ -6533,27 +6533,27 @@ class PlatformQos(object):
                                 .. attribute:: marking
                                 
                                 	QoS Mark parameters
-                                	**type**\:  :py:class:`Marking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking>`
+                                	**type**\:   :py:class:`Marking <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking>`
                                 
                                 .. attribute:: police
                                 
                                 	QoS Policer parameters
-                                	**type**\:  :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police>`
+                                	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police>`
                                 
                                 .. attribute:: queue
                                 
                                 	QoS Queue parameters
-                                	**type**\:  :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Queue>`
+                                	**type**\:   :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Queue>`
                                 
                                 .. attribute:: shape
                                 
                                 	QoS EA Shaper parameters
-                                	**type**\:  :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape>`
+                                	**type**\:   :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape>`
                                 
                                 .. attribute:: wfq
                                 
                                 	QoS WFQ parameters
-                                	**type**\:  :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq>`
+                                	**type**\:   :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq>`
                                 
                                 
 
@@ -6643,12 +6643,12 @@ class PlatformQos(object):
                                     .. attribute:: pbs
                                     
                                     	PBS in bytes
-                                    	**type**\:  :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs>`
+                                    	**type**\:   :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs>`
                                     
                                     .. attribute:: pir
                                     
                                     	PIR in kbps
-                                    	**type**\:  :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir>`
+                                    	**type**\:   :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir>`
                                     
                                     
 
@@ -6672,7 +6672,7 @@ class PlatformQos(object):
                                         .. attribute:: unit
                                         
                                         	Config unit
-                                        	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                        	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                         
                                         .. attribute:: value
                                         
@@ -6728,7 +6728,7 @@ class PlatformQos(object):
                                         .. attribute:: unit
                                         
                                         	Config unit
-                                        	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                        	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                         
                                         .. attribute:: value
                                         
@@ -6811,7 +6811,7 @@ class PlatformQos(object):
                                     .. attribute:: committed_weight
                                     
                                     	Committed Weight
-                                    	**type**\:  :py:class:`CommittedWeight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight>`
+                                    	**type**\:   :py:class:`CommittedWeight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight>`
                                     
                                     .. attribute:: excess_weight
                                     
@@ -6823,7 +6823,7 @@ class PlatformQos(object):
                                     .. attribute:: programmed_wfq
                                     
                                     	QoS Programmed WFQ parameters
-                                    	**type**\:  :py:class:`ProgrammedWfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq>`
+                                    	**type**\:   :py:class:`ProgrammedWfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq>`
                                     
                                     
 
@@ -6848,7 +6848,7 @@ class PlatformQos(object):
                                         .. attribute:: unit
                                         
                                         	Config unit
-                                        	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                        	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                         
                                         .. attribute:: value
                                         
@@ -6904,7 +6904,7 @@ class PlatformQos(object):
                                         .. attribute:: bandwidth
                                         
                                         	Bandwidth
-                                        	**type**\:  :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth>`
+                                        	**type**\:   :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth>`
                                         
                                         .. attribute:: excess_ratio
                                         
@@ -6916,7 +6916,7 @@ class PlatformQos(object):
                                         .. attribute:: sum_of_bandwidth
                                         
                                         	Sum of Bandwidth
-                                        	**type**\:  :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth>`
+                                        	**type**\:   :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth>`
                                         
                                         
 
@@ -6941,7 +6941,7 @@ class PlatformQos(object):
                                             .. attribute:: unit
                                             
                                             	Config unit
-                                            	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                            	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                             
                                             .. attribute:: value
                                             
@@ -6997,7 +6997,7 @@ class PlatformQos(object):
                                             .. attribute:: unit
                                             
                                             	Config unit
-                                            	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                            	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                             
                                             .. attribute:: value
                                             
@@ -7113,12 +7113,12 @@ class PlatformQos(object):
                                     .. attribute:: cbs
                                     
                                     	CBS
-                                    	**type**\:  :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs>`
+                                    	**type**\:   :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs>`
                                     
                                     .. attribute:: cir
                                     
                                     	CIR
-                                    	**type**\:  :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir>`
+                                    	**type**\:   :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir>`
                                     
                                     .. attribute:: policer_id
                                     
@@ -7130,7 +7130,7 @@ class PlatformQos(object):
                                     .. attribute:: policer_type
                                     
                                     	Policer type
-                                    	**type**\:  :py:class:`TbAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithmEnum>`
+                                    	**type**\:   :py:class:`TbAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithmEnum>`
                                     
                                     
 
@@ -7156,7 +7156,7 @@ class PlatformQos(object):
                                         .. attribute:: unit
                                         
                                         	Config unit
-                                        	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                        	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                         
                                         .. attribute:: value
                                         
@@ -7212,7 +7212,7 @@ class PlatformQos(object):
                                         .. attribute:: unit
                                         
                                         	Config unit
-                                        	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                        	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                         
                                         .. attribute:: value
                                         
@@ -7301,17 +7301,17 @@ class PlatformQos(object):
                                     .. attribute:: mark_only
                                     
                                     	Mark Only
-                                    	**type**\:  :py:class:`MarkOnly <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly>`
+                                    	**type**\:   :py:class:`MarkOnly <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly>`
                                     
                                     .. attribute:: police_conform
                                     
                                     	Police conform mark
-                                    	**type**\:  :py:class:`PoliceConform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform>`
+                                    	**type**\:   :py:class:`PoliceConform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform>`
                                     
                                     .. attribute:: police_exceed
                                     
                                     	Police exceed mark
-                                    	**type**\:  :py:class:`PoliceExceed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed>`
+                                    	**type**\:   :py:class:`PoliceExceed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed>`
                                     
                                     
 
@@ -7337,12 +7337,12 @@ class PlatformQos(object):
                                         .. attribute:: action_type
                                         
                                         	Action type
-                                        	**type**\:  :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionEnum>`
+                                        	**type**\:   :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionEnum>`
                                         
                                         .. attribute:: mark_detail
                                         
                                         	Mark value
-                                        	**type**\: list of  :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail>`
+                                        	**type**\: list of    :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail>`
                                         
                                         
 
@@ -7366,7 +7366,7 @@ class PlatformQos(object):
                                             .. attribute:: action_opcode
                                             
                                             	Action opcode
-                                            	**type**\:  :py:class:`ActionOpcodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcodeEnum>`
+                                            	**type**\:   :py:class:`ActionOpcodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcodeEnum>`
                                             
                                             .. attribute:: mark_value
                                             
@@ -7451,12 +7451,12 @@ class PlatformQos(object):
                                         .. attribute:: action_type
                                         
                                         	Action type
-                                        	**type**\:  :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionEnum>`
+                                        	**type**\:   :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionEnum>`
                                         
                                         .. attribute:: mark_detail
                                         
                                         	Mark value
-                                        	**type**\: list of  :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail>`
+                                        	**type**\: list of    :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail>`
                                         
                                         
 
@@ -7480,7 +7480,7 @@ class PlatformQos(object):
                                             .. attribute:: action_opcode
                                             
                                             	Action opcode
-                                            	**type**\:  :py:class:`ActionOpcodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcodeEnum>`
+                                            	**type**\:   :py:class:`ActionOpcodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcodeEnum>`
                                             
                                             .. attribute:: mark_value
                                             
@@ -7565,12 +7565,12 @@ class PlatformQos(object):
                                         .. attribute:: action_type
                                         
                                         	Action type
-                                        	**type**\:  :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionEnum>`
+                                        	**type**\:   :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionEnum>`
                                         
                                         .. attribute:: mark_detail
                                         
                                         	Mark value
-                                        	**type**\: list of  :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail>`
+                                        	**type**\: list of    :py:class:`MarkDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail>`
                                         
                                         
 
@@ -7594,7 +7594,7 @@ class PlatformQos(object):
                                             .. attribute:: action_opcode
                                             
                                             	Action opcode
-                                            	**type**\:  :py:class:`ActionOpcodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcodeEnum>`
+                                            	**type**\:   :py:class:`ActionOpcodeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.ActionOpcodeEnum>`
                                             
                                             .. attribute:: mark_value
                                             
@@ -7944,7 +7944,7 @@ class PlatformQosEa(object):
     .. attribute:: nodes
     
     	List of nodes with platform specific QoS\-EA configuration
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes>`
     
     
 
@@ -7966,7 +7966,7 @@ class PlatformQosEa(object):
         .. attribute:: node
         
         	Node with platform specific QoS\-EA configuration
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node>`
         
         
 
@@ -7997,12 +7997,12 @@ class PlatformQosEa(object):
             .. attribute:: bundle_interfaces
             
             	QoS\-EA list of bundle interfaces
-            	**type**\:  :py:class:`BundleInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces>`
+            	**type**\:   :py:class:`BundleInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces>`
             
             .. attribute:: interfaces
             
             	QoS\-EA list of interfaces
-            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces>`
+            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces>`
             
             
 
@@ -8027,7 +8027,7 @@ class PlatformQosEa(object):
                 .. attribute:: bundle_interface
                 
                 	QoS\-EA interface name
-                	**type**\: list of  :py:class:`BundleInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface>`
+                	**type**\: list of    :py:class:`BundleInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface>`
                 
                 
 
@@ -8057,7 +8057,7 @@ class PlatformQosEa(object):
                     .. attribute:: member_interfaces
                     
                     	QoS\-EA list of member interfaces
-                    	**type**\:  :py:class:`MemberInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces>`
+                    	**type**\:   :py:class:`MemberInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces>`
                     
                     
 
@@ -8080,7 +8080,7 @@ class PlatformQosEa(object):
                         .. attribute:: member_interface
                         
                         	QoS\-EA interface name
-                        	**type**\: list of  :py:class:`MemberInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface>`
+                        	**type**\: list of    :py:class:`MemberInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface>`
                         
                         
 
@@ -8110,12 +8110,12 @@ class PlatformQosEa(object):
                             .. attribute:: bundle_input
                             
                             	QoS\-EA policy direction input
-                            	**type**\:  :py:class:`BundleInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput>`
+                            	**type**\:   :py:class:`BundleInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput>`
                             
                             .. attribute:: bundle_output
                             
                             	QoS\-EA policy direction output
-                            	**type**\:  :py:class:`BundleOutput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput>`
+                            	**type**\:   :py:class:`BundleOutput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput>`
                             
                             
 
@@ -8140,7 +8140,7 @@ class PlatformQosEa(object):
                                 .. attribute:: details
                                 
                                 	QoS\-EA policy details
-                                	**type**\:  :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details>`
+                                	**type**\:   :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details>`
                                 
                                 
 
@@ -8162,17 +8162,17 @@ class PlatformQosEa(object):
                                     .. attribute:: header
                                     
                                     	QoS EA policy header
-                                    	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.Header>`
+                                    	**type**\:   :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.Header>`
                                     
                                     .. attribute:: interface_parameters
                                     
                                     	QoS EA Interface Parameters
-                                    	**type**\:  :py:class:`InterfaceParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.InterfaceParameters>`
+                                    	**type**\:   :py:class:`InterfaceParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.InterfaceParameters>`
                                     
                                     .. attribute:: skywarp_qos_policy_class
                                     
                                     	Skywarp QoS EA policy class details
-                                    	**type**\:  :py:class:`SkywarpQosPolicyClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass>`
+                                    	**type**\:   :py:class:`SkywarpQosPolicyClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass>`
                                     
                                     
 
@@ -8446,7 +8446,7 @@ class PlatformQosEa(object):
                                         .. attribute:: qos_show_ea_pclass_st
                                         
                                         	qos show ea pclass st
-                                        	**type**\: list of  :py:class:`QosShowEaPclassSt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt>`
+                                        	**type**\: list of    :py:class:`QosShowEaPclassSt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt>`
                                         
                                         
 
@@ -8483,7 +8483,7 @@ class PlatformQosEa(object):
                                             .. attribute:: config
                                             
                                             	QoS EA Class Configuration
-                                            	**type**\:  :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config>`
+                                            	**type**\:   :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config>`
                                             
                                             .. attribute:: index
                                             
@@ -8509,7 +8509,7 @@ class PlatformQosEa(object):
                                             .. attribute:: result
                                             
                                             	QoS EA Class Result
-                                            	**type**\:  :py:class:`Result <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result>`
+                                            	**type**\:   :py:class:`Result <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result>`
                                             
                                             .. attribute:: stats_flags
                                             
@@ -8553,17 +8553,17 @@ class PlatformQosEa(object):
                                                 .. attribute:: police
                                                 
                                                 	QoS EA Policer parameters
-                                                	**type**\:  :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police>`
+                                                	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police>`
                                                 
                                                 .. attribute:: shape
                                                 
                                                 	QoS EA Shaper parameters
-                                                	**type**\:  :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape>`
+                                                	**type**\:   :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape>`
                                                 
                                                 .. attribute:: wfq
                                                 
                                                 	QoS EA WFQ parameters
-                                                	**type**\:  :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq>`
+                                                	**type**\:   :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq>`
                                                 
                                                 
 
@@ -8590,12 +8590,12 @@ class PlatformQosEa(object):
                                                     .. attribute:: cbs
                                                     
                                                     	CBS
-                                                    	**type**\:  :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs>`
+                                                    	**type**\:   :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs>`
                                                     
                                                     .. attribute:: cir
                                                     
                                                     	CIR
-                                                    	**type**\:  :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir>`
+                                                    	**type**\:   :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir>`
                                                     
                                                     .. attribute:: color_aware
                                                     
@@ -8605,7 +8605,7 @@ class PlatformQosEa(object):
                                                     .. attribute:: policer_type
                                                     
                                                     	Policer type
-                                                    	**type**\:  :py:class:`TbAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithmEnum>`
+                                                    	**type**\:   :py:class:`TbAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithmEnum>`
                                                     
                                                     
 
@@ -8631,7 +8631,7 @@ class PlatformQosEa(object):
                                                         .. attribute:: unit
                                                         
                                                         	Config unit
-                                                        	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                        	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                         
                                                         .. attribute:: value
                                                         
@@ -8687,7 +8687,7 @@ class PlatformQosEa(object):
                                                         .. attribute:: unit
                                                         
                                                         	Config unit
-                                                        	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                        	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                         
                                                         .. attribute:: value
                                                         
@@ -8776,12 +8776,12 @@ class PlatformQosEa(object):
                                                     .. attribute:: pbs
                                                     
                                                     	PBS in bytes
-                                                    	**type**\:  :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs>`
+                                                    	**type**\:   :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs>`
                                                     
                                                     .. attribute:: pir
                                                     
                                                     	PIR in kbps
-                                                    	**type**\:  :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir>`
+                                                    	**type**\:   :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir>`
                                                     
                                                     
 
@@ -8805,7 +8805,7 @@ class PlatformQosEa(object):
                                                         .. attribute:: unit
                                                         
                                                         	Config unit
-                                                        	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                        	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                         
                                                         .. attribute:: value
                                                         
@@ -8861,7 +8861,7 @@ class PlatformQosEa(object):
                                                         .. attribute:: unit
                                                         
                                                         	Config unit
-                                                        	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                        	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                         
                                                         .. attribute:: value
                                                         
@@ -8944,7 +8944,7 @@ class PlatformQosEa(object):
                                                     .. attribute:: bandwidth
                                                     
                                                     	Bandwidth
-                                                    	**type**\:  :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth>`
+                                                    	**type**\:   :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth>`
                                                     
                                                     .. attribute:: excess_ratio
                                                     
@@ -8956,7 +8956,7 @@ class PlatformQosEa(object):
                                                     .. attribute:: sum_of_bandwidth
                                                     
                                                     	Sum of Bandwidth
-                                                    	**type**\:  :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth>`
+                                                    	**type**\:   :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth>`
                                                     
                                                     
 
@@ -8981,7 +8981,7 @@ class PlatformQosEa(object):
                                                         .. attribute:: unit
                                                         
                                                         	Config unit
-                                                        	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                        	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                         
                                                         .. attribute:: value
                                                         
@@ -9037,7 +9037,7 @@ class PlatformQosEa(object):
                                                         .. attribute:: unit
                                                         
                                                         	Config unit
-                                                        	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                        	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                         
                                                         .. attribute:: value
                                                         
@@ -9156,12 +9156,12 @@ class PlatformQosEa(object):
                                                 .. attribute:: police
                                                 
                                                 	QoS EA Policer Result
-                                                	**type**\:  :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police>`
+                                                	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police>`
                                                 
                                                 .. attribute:: queue
                                                 
                                                 	QoS EA Queue Result
-                                                	**type**\:  :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue>`
+                                                	**type**\:   :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue>`
                                                 
                                                 .. attribute:: stats_id
                                                 
@@ -9508,7 +9508,7 @@ class PlatformQosEa(object):
                                 .. attribute:: details
                                 
                                 	QoS\-EA policy details
-                                	**type**\:  :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details>`
+                                	**type**\:   :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details>`
                                 
                                 
 
@@ -9530,17 +9530,17 @@ class PlatformQosEa(object):
                                     .. attribute:: header
                                     
                                     	QoS EA policy header
-                                    	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.Header>`
+                                    	**type**\:   :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.Header>`
                                     
                                     .. attribute:: interface_parameters
                                     
                                     	QoS EA Interface Parameters
-                                    	**type**\:  :py:class:`InterfaceParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.InterfaceParameters>`
+                                    	**type**\:   :py:class:`InterfaceParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.InterfaceParameters>`
                                     
                                     .. attribute:: skywarp_qos_policy_class
                                     
                                     	Skywarp QoS EA policy class details
-                                    	**type**\:  :py:class:`SkywarpQosPolicyClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass>`
+                                    	**type**\:   :py:class:`SkywarpQosPolicyClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass>`
                                     
                                     
 
@@ -9814,7 +9814,7 @@ class PlatformQosEa(object):
                                         .. attribute:: qos_show_ea_pclass_st
                                         
                                         	qos show ea pclass st
-                                        	**type**\: list of  :py:class:`QosShowEaPclassSt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt>`
+                                        	**type**\: list of    :py:class:`QosShowEaPclassSt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt>`
                                         
                                         
 
@@ -9851,7 +9851,7 @@ class PlatformQosEa(object):
                                             .. attribute:: config
                                             
                                             	QoS EA Class Configuration
-                                            	**type**\:  :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config>`
+                                            	**type**\:   :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config>`
                                             
                                             .. attribute:: index
                                             
@@ -9877,7 +9877,7 @@ class PlatformQosEa(object):
                                             .. attribute:: result
                                             
                                             	QoS EA Class Result
-                                            	**type**\:  :py:class:`Result <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result>`
+                                            	**type**\:   :py:class:`Result <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result>`
                                             
                                             .. attribute:: stats_flags
                                             
@@ -9921,17 +9921,17 @@ class PlatformQosEa(object):
                                                 .. attribute:: police
                                                 
                                                 	QoS EA Policer parameters
-                                                	**type**\:  :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police>`
+                                                	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police>`
                                                 
                                                 .. attribute:: shape
                                                 
                                                 	QoS EA Shaper parameters
-                                                	**type**\:  :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape>`
+                                                	**type**\:   :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape>`
                                                 
                                                 .. attribute:: wfq
                                                 
                                                 	QoS EA WFQ parameters
-                                                	**type**\:  :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq>`
+                                                	**type**\:   :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq>`
                                                 
                                                 
 
@@ -9958,12 +9958,12 @@ class PlatformQosEa(object):
                                                     .. attribute:: cbs
                                                     
                                                     	CBS
-                                                    	**type**\:  :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs>`
+                                                    	**type**\:   :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs>`
                                                     
                                                     .. attribute:: cir
                                                     
                                                     	CIR
-                                                    	**type**\:  :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir>`
+                                                    	**type**\:   :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir>`
                                                     
                                                     .. attribute:: color_aware
                                                     
@@ -9973,7 +9973,7 @@ class PlatformQosEa(object):
                                                     .. attribute:: policer_type
                                                     
                                                     	Policer type
-                                                    	**type**\:  :py:class:`TbAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithmEnum>`
+                                                    	**type**\:   :py:class:`TbAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithmEnum>`
                                                     
                                                     
 
@@ -9999,7 +9999,7 @@ class PlatformQosEa(object):
                                                         .. attribute:: unit
                                                         
                                                         	Config unit
-                                                        	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                        	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                         
                                                         .. attribute:: value
                                                         
@@ -10055,7 +10055,7 @@ class PlatformQosEa(object):
                                                         .. attribute:: unit
                                                         
                                                         	Config unit
-                                                        	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                        	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                         
                                                         .. attribute:: value
                                                         
@@ -10144,12 +10144,12 @@ class PlatformQosEa(object):
                                                     .. attribute:: pbs
                                                     
                                                     	PBS in bytes
-                                                    	**type**\:  :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs>`
+                                                    	**type**\:   :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs>`
                                                     
                                                     .. attribute:: pir
                                                     
                                                     	PIR in kbps
-                                                    	**type**\:  :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir>`
+                                                    	**type**\:   :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir>`
                                                     
                                                     
 
@@ -10173,7 +10173,7 @@ class PlatformQosEa(object):
                                                         .. attribute:: unit
                                                         
                                                         	Config unit
-                                                        	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                        	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                         
                                                         .. attribute:: value
                                                         
@@ -10229,7 +10229,7 @@ class PlatformQosEa(object):
                                                         .. attribute:: unit
                                                         
                                                         	Config unit
-                                                        	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                        	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                         
                                                         .. attribute:: value
                                                         
@@ -10312,7 +10312,7 @@ class PlatformQosEa(object):
                                                     .. attribute:: bandwidth
                                                     
                                                     	Bandwidth
-                                                    	**type**\:  :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth>`
+                                                    	**type**\:   :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth>`
                                                     
                                                     .. attribute:: excess_ratio
                                                     
@@ -10324,7 +10324,7 @@ class PlatformQosEa(object):
                                                     .. attribute:: sum_of_bandwidth
                                                     
                                                     	Sum of Bandwidth
-                                                    	**type**\:  :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth>`
+                                                    	**type**\:   :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth>`
                                                     
                                                     
 
@@ -10349,7 +10349,7 @@ class PlatformQosEa(object):
                                                         .. attribute:: unit
                                                         
                                                         	Config unit
-                                                        	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                        	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                         
                                                         .. attribute:: value
                                                         
@@ -10405,7 +10405,7 @@ class PlatformQosEa(object):
                                                         .. attribute:: unit
                                                         
                                                         	Config unit
-                                                        	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                        	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                         
                                                         .. attribute:: value
                                                         
@@ -10524,12 +10524,12 @@ class PlatformQosEa(object):
                                                 .. attribute:: police
                                                 
                                                 	QoS EA Policer Result
-                                                	**type**\:  :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police>`
+                                                	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police>`
                                                 
                                                 .. attribute:: queue
                                                 
                                                 	QoS EA Queue Result
-                                                	**type**\:  :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue>`
+                                                	**type**\:   :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue>`
                                                 
                                                 .. attribute:: stats_id
                                                 
@@ -10989,7 +10989,7 @@ class PlatformQosEa(object):
                 .. attribute:: interface
                 
                 	QoS\-EA interface name
-                	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface>`
+                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface>`
                 
                 
 
@@ -11019,12 +11019,12 @@ class PlatformQosEa(object):
                     .. attribute:: input
                     
                     	QoS\-EA policy direction ingress
-                    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input>`
+                    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input>`
                     
                     .. attribute:: output
                     
                     	QoS\-EA policy direction egress
-                    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output>`
+                    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output>`
                     
                     
 
@@ -11049,7 +11049,7 @@ class PlatformQosEa(object):
                         .. attribute:: details
                         
                         	QoS\-EA policy details
-                        	**type**\:  :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details>`
+                        	**type**\:   :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details>`
                         
                         
 
@@ -11071,17 +11071,17 @@ class PlatformQosEa(object):
                             .. attribute:: header
                             
                             	QoS EA policy header
-                            	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.Header>`
+                            	**type**\:   :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.Header>`
                             
                             .. attribute:: interface_parameters
                             
                             	QoS EA Interface Parameters
-                            	**type**\:  :py:class:`InterfaceParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.InterfaceParameters>`
+                            	**type**\:   :py:class:`InterfaceParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.InterfaceParameters>`
                             
                             .. attribute:: skywarp_qos_policy_class
                             
                             	Skywarp QoS EA policy class details
-                            	**type**\:  :py:class:`SkywarpQosPolicyClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass>`
+                            	**type**\:   :py:class:`SkywarpQosPolicyClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass>`
                             
                             
 
@@ -11355,7 +11355,7 @@ class PlatformQosEa(object):
                                 .. attribute:: qos_show_ea_pclass_st
                                 
                                 	qos show ea pclass st
-                                	**type**\: list of  :py:class:`QosShowEaPclassSt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt>`
+                                	**type**\: list of    :py:class:`QosShowEaPclassSt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt>`
                                 
                                 
 
@@ -11392,7 +11392,7 @@ class PlatformQosEa(object):
                                     .. attribute:: config
                                     
                                     	QoS EA Class Configuration
-                                    	**type**\:  :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config>`
+                                    	**type**\:   :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config>`
                                     
                                     .. attribute:: index
                                     
@@ -11418,7 +11418,7 @@ class PlatformQosEa(object):
                                     .. attribute:: result
                                     
                                     	QoS EA Class Result
-                                    	**type**\:  :py:class:`Result <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result>`
+                                    	**type**\:   :py:class:`Result <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result>`
                                     
                                     .. attribute:: stats_flags
                                     
@@ -11462,17 +11462,17 @@ class PlatformQosEa(object):
                                         .. attribute:: police
                                         
                                         	QoS EA Policer parameters
-                                        	**type**\:  :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police>`
+                                        	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police>`
                                         
                                         .. attribute:: shape
                                         
                                         	QoS EA Shaper parameters
-                                        	**type**\:  :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape>`
+                                        	**type**\:   :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape>`
                                         
                                         .. attribute:: wfq
                                         
                                         	QoS EA WFQ parameters
-                                        	**type**\:  :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq>`
+                                        	**type**\:   :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq>`
                                         
                                         
 
@@ -11499,12 +11499,12 @@ class PlatformQosEa(object):
                                             .. attribute:: cbs
                                             
                                             	CBS
-                                            	**type**\:  :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs>`
+                                            	**type**\:   :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs>`
                                             
                                             .. attribute:: cir
                                             
                                             	CIR
-                                            	**type**\:  :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir>`
+                                            	**type**\:   :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir>`
                                             
                                             .. attribute:: color_aware
                                             
@@ -11514,7 +11514,7 @@ class PlatformQosEa(object):
                                             .. attribute:: policer_type
                                             
                                             	Policer type
-                                            	**type**\:  :py:class:`TbAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithmEnum>`
+                                            	**type**\:   :py:class:`TbAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithmEnum>`
                                             
                                             
 
@@ -11540,7 +11540,7 @@ class PlatformQosEa(object):
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
-                                                	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                 
                                                 .. attribute:: value
                                                 
@@ -11596,7 +11596,7 @@ class PlatformQosEa(object):
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
-                                                	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                 
                                                 .. attribute:: value
                                                 
@@ -11685,12 +11685,12 @@ class PlatformQosEa(object):
                                             .. attribute:: pbs
                                             
                                             	PBS in bytes
-                                            	**type**\:  :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs>`
+                                            	**type**\:   :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs>`
                                             
                                             .. attribute:: pir
                                             
                                             	PIR in kbps
-                                            	**type**\:  :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir>`
+                                            	**type**\:   :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir>`
                                             
                                             
 
@@ -11714,7 +11714,7 @@ class PlatformQosEa(object):
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
-                                                	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                 
                                                 .. attribute:: value
                                                 
@@ -11770,7 +11770,7 @@ class PlatformQosEa(object):
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
-                                                	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                 
                                                 .. attribute:: value
                                                 
@@ -11853,7 +11853,7 @@ class PlatformQosEa(object):
                                             .. attribute:: bandwidth
                                             
                                             	Bandwidth
-                                            	**type**\:  :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth>`
+                                            	**type**\:   :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth>`
                                             
                                             .. attribute:: excess_ratio
                                             
@@ -11865,7 +11865,7 @@ class PlatformQosEa(object):
                                             .. attribute:: sum_of_bandwidth
                                             
                                             	Sum of Bandwidth
-                                            	**type**\:  :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth>`
+                                            	**type**\:   :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth>`
                                             
                                             
 
@@ -11890,7 +11890,7 @@ class PlatformQosEa(object):
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
-                                                	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                 
                                                 .. attribute:: value
                                                 
@@ -11946,7 +11946,7 @@ class PlatformQosEa(object):
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
-                                                	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                 
                                                 .. attribute:: value
                                                 
@@ -12065,12 +12065,12 @@ class PlatformQosEa(object):
                                         .. attribute:: police
                                         
                                         	QoS EA Policer Result
-                                        	**type**\:  :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police>`
+                                        	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police>`
                                         
                                         .. attribute:: queue
                                         
                                         	QoS EA Queue Result
-                                        	**type**\:  :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue>`
+                                        	**type**\:   :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue>`
                                         
                                         .. attribute:: stats_id
                                         
@@ -12417,7 +12417,7 @@ class PlatformQosEa(object):
                         .. attribute:: details
                         
                         	QoS\-EA policy details
-                        	**type**\:  :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details>`
+                        	**type**\:   :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details>`
                         
                         
 
@@ -12439,17 +12439,17 @@ class PlatformQosEa(object):
                             .. attribute:: header
                             
                             	QoS EA policy header
-                            	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.Header>`
+                            	**type**\:   :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.Header>`
                             
                             .. attribute:: interface_parameters
                             
                             	QoS EA Interface Parameters
-                            	**type**\:  :py:class:`InterfaceParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.InterfaceParameters>`
+                            	**type**\:   :py:class:`InterfaceParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.InterfaceParameters>`
                             
                             .. attribute:: skywarp_qos_policy_class
                             
                             	Skywarp QoS EA policy class details
-                            	**type**\:  :py:class:`SkywarpQosPolicyClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass>`
+                            	**type**\:   :py:class:`SkywarpQosPolicyClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass>`
                             
                             
 
@@ -12723,7 +12723,7 @@ class PlatformQosEa(object):
                                 .. attribute:: qos_show_ea_pclass_st
                                 
                                 	qos show ea pclass st
-                                	**type**\: list of  :py:class:`QosShowEaPclassSt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt>`
+                                	**type**\: list of    :py:class:`QosShowEaPclassSt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt>`
                                 
                                 
 
@@ -12760,7 +12760,7 @@ class PlatformQosEa(object):
                                     .. attribute:: config
                                     
                                     	QoS EA Class Configuration
-                                    	**type**\:  :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config>`
+                                    	**type**\:   :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config>`
                                     
                                     .. attribute:: index
                                     
@@ -12786,7 +12786,7 @@ class PlatformQosEa(object):
                                     .. attribute:: result
                                     
                                     	QoS EA Class Result
-                                    	**type**\:  :py:class:`Result <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result>`
+                                    	**type**\:   :py:class:`Result <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result>`
                                     
                                     .. attribute:: stats_flags
                                     
@@ -12830,17 +12830,17 @@ class PlatformQosEa(object):
                                         .. attribute:: police
                                         
                                         	QoS EA Policer parameters
-                                        	**type**\:  :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police>`
+                                        	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police>`
                                         
                                         .. attribute:: shape
                                         
                                         	QoS EA Shaper parameters
-                                        	**type**\:  :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape>`
+                                        	**type**\:   :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape>`
                                         
                                         .. attribute:: wfq
                                         
                                         	QoS EA WFQ parameters
-                                        	**type**\:  :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq>`
+                                        	**type**\:   :py:class:`Wfq <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq>`
                                         
                                         
 
@@ -12867,12 +12867,12 @@ class PlatformQosEa(object):
                                             .. attribute:: cbs
                                             
                                             	CBS
-                                            	**type**\:  :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs>`
+                                            	**type**\:   :py:class:`Cbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs>`
                                             
                                             .. attribute:: cir
                                             
                                             	CIR
-                                            	**type**\:  :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir>`
+                                            	**type**\:   :py:class:`Cir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir>`
                                             
                                             .. attribute:: color_aware
                                             
@@ -12882,7 +12882,7 @@ class PlatformQosEa(object):
                                             .. attribute:: policer_type
                                             
                                             	Policer type
-                                            	**type**\:  :py:class:`TbAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithmEnum>`
+                                            	**type**\:   :py:class:`TbAlgorithmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.TbAlgorithmEnum>`
                                             
                                             
 
@@ -12908,7 +12908,7 @@ class PlatformQosEa(object):
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
-                                                	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                 
                                                 .. attribute:: value
                                                 
@@ -12964,7 +12964,7 @@ class PlatformQosEa(object):
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
-                                                	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                 
                                                 .. attribute:: value
                                                 
@@ -13053,12 +13053,12 @@ class PlatformQosEa(object):
                                             .. attribute:: pbs
                                             
                                             	PBS in bytes
-                                            	**type**\:  :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs>`
+                                            	**type**\:   :py:class:`Pbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs>`
                                             
                                             .. attribute:: pir
                                             
                                             	PIR in kbps
-                                            	**type**\:  :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir>`
+                                            	**type**\:   :py:class:`Pir <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir>`
                                             
                                             
 
@@ -13082,7 +13082,7 @@ class PlatformQosEa(object):
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
-                                                	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                 
                                                 .. attribute:: value
                                                 
@@ -13138,7 +13138,7 @@ class PlatformQosEa(object):
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
-                                                	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                 
                                                 .. attribute:: value
                                                 
@@ -13221,7 +13221,7 @@ class PlatformQosEa(object):
                                             .. attribute:: bandwidth
                                             
                                             	Bandwidth
-                                            	**type**\:  :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth>`
+                                            	**type**\:   :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth>`
                                             
                                             .. attribute:: excess_ratio
                                             
@@ -13233,7 +13233,7 @@ class PlatformQosEa(object):
                                             .. attribute:: sum_of_bandwidth
                                             
                                             	Sum of Bandwidth
-                                            	**type**\:  :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth>`
+                                            	**type**\:   :py:class:`SumOfBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth>`
                                             
                                             
 
@@ -13258,7 +13258,7 @@ class PlatformQosEa(object):
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
-                                                	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                 
                                                 .. attribute:: value
                                                 
@@ -13314,7 +13314,7 @@ class PlatformQosEa(object):
                                                 .. attribute:: unit
                                                 
                                                 	Config unit
-                                                	**type**\:  :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
+                                                	**type**\:   :py:class:`QosUnitEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.QosUnitEnum>`
                                                 
                                                 .. attribute:: value
                                                 
@@ -13433,12 +13433,12 @@ class PlatformQosEa(object):
                                         .. attribute:: police
                                         
                                         	QoS EA Policer Result
-                                        	**type**\:  :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police>`
+                                        	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police>`
                                         
                                         .. attribute:: queue
                                         
                                         	QoS EA Queue Result
-                                        	**type**\:  :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue>`
+                                        	**type**\:   :py:class:`Queue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper.PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue>`
                                         
                                         .. attribute:: stats_id
                                         
